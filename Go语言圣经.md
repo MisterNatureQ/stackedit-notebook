@@ -2211,10 +2211,10 @@ const (
 	deadbeef = 0xdeadbeef // untyped int with value 3735928559
 	a = uint32(deadbeef)  // uint32 with value 3735928559
 	b = float32(deadbeef) // float32 with value 3735928576 (rounded up) 四舍五入
-	c = float64(deadbeef) // float64 with value 3735928559 (exact)
-	d = int32(deadbeef)   // compile error: constant overflows int32
-	e = float64(1e309)    // compile error: constant overflows float64
-	f = uint(-1)          // compile error: constant underflows uint
+	c = float64(deadbeef) // float64 with value 3735928559 (exact) 精确的
+	d = int32(deadbeef)   // compile error: constant overflows int32 溢出
+	e = float64(1e309)    // compile error: constant overflows float64 溢出
+	f = uint(-1)          // compile error: constant underflows uint  向下溢出
 )
 ```
 
@@ -8883,14 +8883,13 @@ func walkDir(dir string, fileSizes chan<- int64) {
 
 // dirents returns the entries of directory dir.
 func dirents(dir string) []os.FileInfo {
-	entries, err := ioutil.ReadDir(dir)
-	if err != ni
+	entries, err := ioutil.ReadDir(di
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjAwNTQ2NjY5OCwtMjAwNTIwMjYxOCw0OT
-kzMDExNjksMTU0Mjc0NzU0MCwxODc0MDMwMjAxLDQxNzMxMDAy
-NywtMTQ1MTYzNjU3OSw5NzA1NjY3MSw0MDI0NDE2MjksMTI4Nj
-QxNjk2NCwtODY0ODA5NTA2LC03MjY2MjcxMzYsLTkyNDk1OTcy
-MSwyNzk2ODY1NDQsLTQ1MDg0NjE1NiwxNDI5Njg5Mzk5LDU4Mz
-U5ODI1LC01MTkxMTEzMDMsLTEyODUzMjkzNDgsMjA3ODkzNDU5
-XX0=
+eyJoaXN0b3J5IjpbLTc5NDM2OTI0LC0yMDA1MjAyNjE4LDQ5OT
+MwMTE2OSwxNTQyNzQ3NTQwLDE4NzQwMzAyMDEsNDE3MzEwMDI3
+LC0xNDUxNjM2NTc5LDk3MDU2NjcxLDQwMjQ0MTYyOSwxMjg2ND
+E2OTY0LC04NjQ4MDk1MDYsLTcyNjYyNzEzNiwtOTI0OTU5NzIx
+LDI3OTY4NjU0NCwtNDUwODQ2MTU2LDE0Mjk2ODkzOTksNTgzNT
+k4MjUsLTUxOTExMTMwMywtMTI4NTMyOTM0OCwyMDc4OTM0NTld
+fQ==
 -->
