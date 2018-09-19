@@ -2256,7 +2256,7 @@ fmt.Printf("%T\n", '\000') // "int32" (rune)
 
 在第三章我们讨论了基本数据类型，它们可以用于构建程序中数据的结构，是Go语言世界的原子。在本章，我们将讨论复合数据类型，它是以不同的方式组合基本类型而构造出来的复合数据类型。我们主要讨论四种类型——**数组、slice、map和结构体——同时在本章的最后，我们将演示如何使用结构体来解码和编码到对应JSON格式的数据，并且通过结合使用模板来生成HTML页面。**
 
-数组和结构体是聚合类型；它们的值由许多元素或成员字段的值组成。数组是由同构的元素组成——每个数组元素都是完全相同的类型——结构体则是由异构的元素组成的。数组和结构体都是有固定内存大小的数据结构。相比之下，slice和map则是动态的数据结构，它们将根据需要动态增长。
+数组和结构体是聚合类型；它们的值由许多元素或成员字段的值组成。数组是由同构的元素组成——每个数组元素都是完全相同的类型——结构体则是由异构的元素组成的。**数组和结构体都是有固定内存大小的数据结构。相比之下，slice和map则是动态的数据结构，它们将根据需要动态增长。**
 
 ## 4.1. 数组
 
@@ -8883,13 +8883,13 @@ func walkDir(dir string, fileSizes chan<- int64) {
 
 // dirents returns the entries of directory dir.
 func dirents(dir string) []os.FileInfo {
-	entries,
+	entr
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMzAxODU2NjYwLC0yMDA1MjAyNjE4LDQ5OT
-MwMTE2OSwxNTQyNzQ3NTQwLDE4NzQwMzAyMDEsNDE3MzEwMDI3
-LC0xNDUxNjM2NTc5LDk3MDU2NjcxLDQwMjQ0MTYyOSwxMjg2ND
-E2OTY0LC04NjQ4MDk1MDYsLTcyNjYyNzEzNiwtOTI0OTU5NzIx
-LDI3OTY4NjU0NCwtNDUwODQ2MTU2LDE0Mjk2ODkzOTksNTgzNT
-k4MjUsLTUxOTExMTMwMywtMTI4NTMyOTM0OCwyMDc4OTM0NTld
-fQ==
+eyJoaXN0b3J5IjpbLTgzMTc3NDI5NSwtMjAwNTIwMjYxOCw0OT
+kzMDExNjksMTU0Mjc0NzU0MCwxODc0MDMwMjAxLDQxNzMxMDAy
+NywtMTQ1MTYzNjU3OSw5NzA1NjY3MSw0MDI0NDE2MjksMTI4Nj
+QxNjk2NCwtODY0ODA5NTA2LC03MjY2MjcxMzYsLTkyNDk1OTcy
+MSwyNzk2ODY1NDQsLTQ1MDg0NjE1NiwxNDI5Njg5Mzk5LDU4Mz
+U5ODI1LC01MTkxMTEzMDMsLTEyODUzMjkzNDgsMjA3ODkzNDU5
+XX0=
 -->
