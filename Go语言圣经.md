@@ -1278,7 +1278,7 @@ func compute() (value float64, ok bool) {
 [ 7个GIF动图帮你瞬间理解三角函数](https://baijiahao.baidu.com/s?id=1598360045005140340&wfr=spider&for=pc)
 
 
-// 数学重新学?????
+// 数学重新学 数学模型?????
 
 
 接下来的程序演示了通过浮点计算生成的图形。它是带有两个参数的z = f(x, y)函数的三维形式，使用了可缩放矢量图形（SVG）格式输出，SVG是一个用于矢量线绘制的XML标准。图3.1显示了sin( r )/r函数的输出图形，其中r是`sqrt(x*x+y*y)`。
@@ -8890,11 +8890,11 @@ func dirents(dir string) []os.FileInfo {
 }
 ```
 
-ioutil.ReadDir函数会返回一个os.FileInfo类型的slice，os.FileInfo类型也是os.Stat这个函数的返回值。对每一个子目录而言，walkDir会递归地调用其自身，同时也在递归里获取每一个文件的信息。walkDir函数会向fileS
+ioutil.ReadDir函数会返回一个os.FileInfo类型的slice，os.FileInfo类型也是os.Stat这个函数的返回值。对每一个子目录而言，walkDir会递归地调用其自身，同时也在递归里获取每一个文件的信息。walkDir
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjc5Njg2NTQ0LC00NTA4NDYxNTYsMTQyOT
-Y4OTM5OSw1ODM1OTgyNSwtNTE5MTExMzAzLC0xMjg1MzI5MzQ4
-LDIwNzg5MzQ1OSwtOTgxMjExMDUyLDY4NzExMDk4NCwtMjEwNj
-k1NDM5MiwtMTYwMDk2MjQ2OCwxNTM0Mzk5OTY4LC0xNTk4ODY2
-MjM0XX0=
+eyJoaXN0b3J5IjpbLTkyNDk1OTcyMSwyNzk2ODY1NDQsLTQ1MD
+g0NjE1NiwxNDI5Njg5Mzk5LDU4MzU5ODI1LC01MTkxMTEzMDMs
+LTEyODUzMjkzNDgsMjA3ODkzNDU5LC05ODEyMTEwNTIsNjg3MT
+EwOTg0LC0yMTA2OTU0MzkyLC0xNjAwOTYyNDY4LDE1MzQzOTk5
+NjgsLTE1OTg4NjYyMzRdfQ==
 -->
