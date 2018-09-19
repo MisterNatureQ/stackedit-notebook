@@ -2038,7 +2038,7 @@ func parseIPv4(s string) IP {
 }
 ```
 
-一个常量的声明也可以包含一个类型和一个值，但是如果没有显式指明类型，那么将从右边的表达式推断类型。在下面的代码中，time.Duration是一个命名类型，底层类型是int64，time.Minute是对应类型的常量。下面声明的两个常量都是time.Duration类型，可以通过%T参数打印类型信息：
+一个常量的声明也可以包含一个类型和一个值，但是如果没有显式指明类型，那么将从右边的表达式推断类型。在下面的代码中，time.Duration是一个命名类型，底层类型是int64，time.Minute是对应类型的常量。下面声明的两个常量都是time.Duration类型，可以**通过%T参数打印类型信息：**
 
 ```Go
 const noDelay time.Duration = 0
@@ -8885,13 +8885,13 @@ func walkDir(dir string, fileSizes chan<- int64) {
 func dirents(dir string) []os.FileInfo {
 	entries, err := ioutil.ReadDir(dir)
 	if err != nil {
-		fmt.Fprintf(os
+		fmt.Fprint
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEwMDYxMzE0MTAsMTg3NDAzMDIwMSw0MT
-czMTAwMjcsLTE0NTE2MzY1NzksOTcwNTY2NzEsNDAyNDQxNjI5
-LDEyODY0MTY5NjQsLTg2NDgwOTUwNiwtNzI2NjI3MTM2LC05Mj
-Q5NTk3MjEsMjc5Njg2NTQ0LC00NTA4NDYxNTYsMTQyOTY4OTM5
-OSw1ODM1OTgyNSwtNTE5MTExMzAzLC0xMjg1MzI5MzQ4LDIwNz
-g5MzQ1OSwtOTgxMjExMDUyLDY4NzExMDk4NCwtMjEwNjk1NDM5
-Ml19
+eyJoaXN0b3J5IjpbMTU0Mjc0NzU0MCwxODc0MDMwMjAxLDQxNz
+MxMDAyNywtMTQ1MTYzNjU3OSw5NzA1NjY3MSw0MDI0NDE2Mjks
+MTI4NjQxNjk2NCwtODY0ODA5NTA2LC03MjY2MjcxMzYsLTkyND
+k1OTcyMSwyNzk2ODY1NDQsLTQ1MDg0NjE1NiwxNDI5Njg5Mzk5
+LDU4MzU5ODI1LC01MTkxMTEzMDMsLTEyODUzMjkzNDgsMjA3OD
+kzNDU5LC05ODEyMTEwNTIsNjg3MTEwOTg0LC0yMTA2OTU0Mzky
+XX0=
 -->
