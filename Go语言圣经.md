@@ -1277,6 +1277,8 @@ func compute() (value float64, ok bool) {
 
 接下来的程序演示了通过浮点计算生成的图形。它是带有两个参数的z = f(x, y)函数的三维形式，使用了可缩放矢量图形（SVG）格式输出，SVG是一个用于矢量线绘制的XML标准。图3.1显示了sin(r)/r函数的输出图形，其中r是`sqrt(x*x+y*y)`。
 
+SVG abbr. 可伸缩向量图形（Scalable Vector Graphics）
+
 ![](../images/ch3-01.png)
 ![](https://github.com/gopl-zh/gopl-zh.github.com/blob/master/images/ch3-01.png?raw=true)
 <u><i>gopl.io/ch3/surface</i></u>
@@ -8891,12 +8893,8 @@ import (
 	"fmt"
 	"io/ioutil"
 	"os"
-	"path/filepath"
-)
-
-func main() {
-	// Determine
+	"
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTY3NTkzNTM1OSwxNTM0Mzk5OTY4LC0xNT
-k4ODY2MjM0XX0=
+eyJoaXN0b3J5IjpbLTE2MDA5NjI0NjgsMTUzNDM5OTk2OCwtMT
+U5ODg2NjIzNF19
 -->
