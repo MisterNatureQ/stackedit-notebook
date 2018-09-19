@@ -1533,7 +1533,7 @@ func itob(i int) bool { return i != 0 }
 
 一个字符串是一个不可改变的字节序列。字符串可以包含任意的数据，包括byte值0，但是通常是用来包含人类可读的文本。文本字符串通常被解释为采用UTF8编码的Unicode码点（rune）序列，我们稍后会详细讨论这个问题。
 
-内置的len函数可以返回一个字符串中的字节数目（不是rune字符数目），索引操作s[i]返回第i个字节的字节值，i必须满足0 ≤ i< len(s)条件约束。
+**内置的len函数可以返回一个字符串中的字节数目（不是rune字符数目），索引操作s[i]返回第i个字节的字节值，i必须满足0 ≤ i< len(s)条件约束。**
 
 ```Go
 s := "hello, world"
@@ -8887,10 +8887,8 @@ func dirents(dir string) []os.FileInfo {
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "du1: %v\n", err)
 		return nil
-	}
-	
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTQ5NzUxMTY5MywtODY0ODA5NTA2LC03Mj
+eyJoaXN0b3J5IjpbMTI4NjQxNjk2NCwtODY0ODA5NTA2LC03Mj
 Y2MjcxMzYsLTkyNDk1OTcyMSwyNzk2ODY1NDQsLTQ1MDg0NjE1
 NiwxNDI5Njg5Mzk5LDU4MzU5ODI1LC01MTkxMTEzMDMsLTEyOD
 UzMjkzNDgsMjA3ODkzNDU5LC05ODEyMTEwNTIsNjg3MTEwOTg0
