@@ -1331,7 +1331,7 @@ func corner(i, j int) (float64, float64) {
 	// Compute surface height z.
 	z := f(x, y)
 
-	// Project (x,y,z) isometrically onto 2-D SVG canvas (sx,sy). (x,y,z)同分异构地投射到二维SVG画布(sx,sy)
+	// Project (x,y,z) isometrically onto 2-D SVG canvas (sx,sy). (x,y,z)投射到二维SVG画布(sx,sy) 等角投影，正等侧投影
 	sx := width/2 + (x-y)*cos30*xyscale
 	sy := height/2 + (x+y)*sin30*xyscale - z*zscale
 	return sx, sy
@@ -8886,10 +8886,10 @@ func dirents(dir string) []os.FileInfo {
 }
 ```
 
-ioutil.ReadDir函数会返回一个os.FileInfo类型的slice，os.FileInfo类型也是os.Stat这个函数的返回值。对每一个子目录而言，walkDir会递归地调用其自身，同时也在递归里获取每一个文件的信息。walkDir函数会向fileSizes这个channel发送一条消息。这条消
+ioutil.ReadDir函数会返回一个os.FileInfo类型的slice，os.FileInfo类型也是os.Stat这个函数的返回值。对每一个子目录而言，walkDir会递归地调用其自身，同时也在递归里获取每一个文件的信息。walkDir函数会向fileSizes这个channel发送一条
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTQyOTY4OTM5OSw1ODM1OTgyNSwtNTE5MT
-ExMzAzLC0xMjg1MzI5MzQ4LDIwNzg5MzQ1OSwtOTgxMjExMDUy
-LDY4NzExMDk4NCwtMjEwNjk1NDM5MiwtMTYwMDk2MjQ2OCwxNT
-M0Mzk5OTY4LC0xNTk4ODY2MjM0XX0=
+eyJoaXN0b3J5IjpbLTQ1MDg0NjE1NiwxNDI5Njg5Mzk5LDU4Mz
+U5ODI1LC01MTkxMTEzMDMsLTEyODUzMjkzNDgsMjA3ODkzNDU5
+LC05ODEyMTEwNTIsNjg3MTEwOTg0LC0yMTA2OTU0MzkyLC0xNj
+AwOTYyNDY4LDE1MzQzOTk5NjgsLTE1OTg4NjYyMzRdfQ==
 -->
