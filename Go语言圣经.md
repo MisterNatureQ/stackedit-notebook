@@ -1796,7 +1796,7 @@ fmt.Printf("%x\n", r)  // "[30d7 30ed 30b0 30e9 30e0]"
 
 （在第一个Printf中的`% x`参数用于在每个十六进制数字前插入一个空格。）
 
-如果是将一个[]rune类型的Unicode字符slice或数组转为string，则对它们进行UTF8编码：
+**如果是将一个[]rune类型的Unicode字符slice或数组转为string，则对它们进行UTF8编码：**
 
 ```Go
 fmt.Println(string(r)) // "プログラム"
@@ -8885,13 +8885,13 @@ func walkDir(dir string, fileSizes chan<- int64) {
 func dirents(dir string) []os.FileInfo {
 	entries, err := ioutil.ReadDir(dir)
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "du1: %
+		fmt.Fprintf(os.Stderr, "du
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE0NTE2MzY1NzksOTcwNTY2NzEsNDAyND
-QxNjI5LDEyODY0MTY5NjQsLTg2NDgwOTUwNiwtNzI2NjI3MTM2
-LC05MjQ5NTk3MjEsMjc5Njg2NTQ0LC00NTA4NDYxNTYsMTQyOT
-Y4OTM5OSw1ODM1OTgyNSwtNTE5MTExMzAzLC0xMjg1MzI5MzQ4
-LDIwNzg5MzQ1OSwtOTgxMjExMDUyLDY4NzExMDk4NCwtMjEwNj
-k1NDM5MiwtMTYwMDk2MjQ2OCwxNTM0Mzk5OTY4LC0xNTk4ODY2
-MjM0XX0=
+eyJoaXN0b3J5IjpbNDE3MzEwMDI3LC0xNDUxNjM2NTc5LDk3MD
+U2NjcxLDQwMjQ0MTYyOSwxMjg2NDE2OTY0LC04NjQ4MDk1MDYs
+LTcyNjYyNzEzNiwtOTI0OTU5NzIxLDI3OTY4NjU0NCwtNDUwOD
+Q2MTU2LDE0Mjk2ODkzOTksNTgzNTk4MjUsLTUxOTExMTMwMywt
+MTI4NTMyOTM0OCwyMDc4OTM0NTksLTk4MTIxMTA1Miw2ODcxMT
+A5ODQsLTIxMDY5NTQzOTIsLTE2MDA5NjI0NjgsMTUzNDM5OTk2
+OF19
 -->
