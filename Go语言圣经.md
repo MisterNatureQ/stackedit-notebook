@@ -1509,7 +1509,7 @@ if b {
 }
 ```
 
-如果需要经常做类似的转换，包装成一个函数会更方便：
+**如果需要经常做类似的转换，包装成一个函数会更方便：**
 
 ```Go
 // btoi returns 1 if b is true and 0 if false.
@@ -8888,12 +8888,12 @@ func dirents(dir string) []os.FileInfo {
 		fmt.Fprintf(os.Stderr, "du1: %v\n", err)
 		return nil
 	}
-	retu
+	
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE4ODMzODI1MjksLTg2NDgwOTUwNiwtNz
-I2NjI3MTM2LC05MjQ5NTk3MjEsMjc5Njg2NTQ0LC00NTA4NDYx
-NTYsMTQyOTY4OTM5OSw1ODM1OTgyNSwtNTE5MTExMzAzLC0xMj
-g1MzI5MzQ4LDIwNzg5MzQ1OSwtOTgxMjExMDUyLDY4NzExMDk4
-NCwtMjEwNjk1NDM5MiwtMTYwMDk2MjQ2OCwxNTM0Mzk5OTY4LC
-0xNTk4ODY2MjM0XX0=
+eyJoaXN0b3J5IjpbLTQ5NzUxMTY5MywtODY0ODA5NTA2LC03Mj
+Y2MjcxMzYsLTkyNDk1OTcyMSwyNzk2ODY1NDQsLTQ1MDg0NjE1
+NiwxNDI5Njg5Mzk5LDU4MzU5ODI1LC01MTkxMTEzMDMsLTEyOD
+UzMjkzNDgsMjA3ODkzNDU5LC05ODEyMTEwNTIsNjg3MTEwOTg0
+LC0yMTA2OTU0MzkyLC0xNjAwOTYyNDY4LDE1MzQzOTk5NjgsLT
+E1OTg4NjYyMzRdfQ==
 -->
