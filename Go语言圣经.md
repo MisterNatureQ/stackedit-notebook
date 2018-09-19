@@ -1482,7 +1482,7 @@ func mandelbrot(z complex128) color.Color {
 
 一个布尔类型的值只有两种：true和false。if和for语句的条件部分都是布尔类型的值，并且==和<等比较操作也会产生布尔型的值。一元操作符`!`对应逻辑非操作，因此`!true`的值为`false`，更罗嗦的说法是`(!true==false)==true`，虽然表达方式不一样，不过我们一般会采用简洁的布尔表达式，就像用x来表示`x==true`。
 
-布尔值可以和&&（AND）和||（OR）操作符结合，并且有短路行为：如果运算符左边值已经可以确定整个布尔表达式的值，那么运算符右边的值将不再被求值，因此下面的表达式总是安全的：
+**布尔值可以和&&（AND）和||（OR）操作符结合，并且有短路行为：如果运算符左边值已经可以确定整个布尔表达式的值，那么运算符右边的值将不再被求值，因此下面的表达式总是安全的：**
 
 ```Go
 s != "" && s[0] == 'x'
@@ -8888,12 +8888,12 @@ func dirents(dir string) []os.FileInfo {
 		fmt.Fprintf(os.Stderr, "du1: %v\n", err)
 		return nil
 	}
-	return e
+	retu
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTg2NDgwOTUwNiwtNzI2NjI3MTM2LC05Mj
-Q5NTk3MjEsMjc5Njg2NTQ0LC00NTA4NDYxNTYsMTQyOTY4OTM5
-OSw1ODM1OTgyNSwtNTE5MTExMzAzLC0xMjg1MzI5MzQ4LDIwNz
-g5MzQ1OSwtOTgxMjExMDUyLDY4NzExMDk4NCwtMjEwNjk1NDM5
-MiwtMTYwMDk2MjQ2OCwxNTM0Mzk5OTY4LC0xNTk4ODY2MjM0XX
-0=
+eyJoaXN0b3J5IjpbLTE4ODMzODI1MjksLTg2NDgwOTUwNiwtNz
+I2NjI3MTM2LC05MjQ5NTk3MjEsMjc5Njg2NTQ0LC00NTA4NDYx
+NTYsMTQyOTY4OTM5OSw1ODM1OTgyNSwtNTE5MTExMzAzLC0xMj
+g1MzI5MzQ4LDIwNzg5MzQ1OSwtOTgxMjExMDUyLDY4NzExMDk4
+NCwtMjEwNjk1NDM5MiwtMTYwMDk2MjQ2OCwxNTM0Mzk5OTY4LC
+0xNTk4ODY2MjM0XX0=
 -->
