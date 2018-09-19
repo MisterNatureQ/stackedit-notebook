@@ -1275,7 +1275,7 @@ func compute() (value float64, ok bool) {
 }
 ```
 
-接下来的程序演示了通过浮点计算生成的图形。它是带有两个参数的z = f(x, y)函数的三维形式，使用了可缩放矢量图形（SVG）格式输出，SVG是一个用于矢量线绘制的XML标准。图3.1显示了sin(r)/r函数的输出图形，其中r是`sqrt(x*x+y*y)`。
+接下来的程序演示了通过浮点计算生成的图形。它是带有两个参数的z = f(x, y)函数的三维形式，使用了可缩放矢量图形（SVG）格式输出，SVG是一个用于矢量线绘制的XML标准。图3.1显示了sin( r )/r函数的输出图形，其中r是`sqrt(x*x+y*y)`。
 
 SVG abbr. 可伸缩向量图形（Scalable Vector Graphics）
 
@@ -8884,9 +8884,10 @@ func dirents(dir string) []os.FileInfo {
 
 ioutil.ReadDir函数会返回一个os.FileInfo类型的slice，os.FileInfo类型也是os.Stat这个函数的返回值。对每一个子目录而言，walkDir会递归地调用其自身，同时也在递归里获取每一个文件的信息。walkDir函数会向fileSizes这个channel发送一条消息。这条消息包含了文件的字节大小。
 
-下面的主函数，用了两个goroutine。后台的goroutine调用walkDir来遍历命令行给出的每一个路径并最终关闭fileSizes这个channel。主goroutine会对其从channel中
+下面的主函数，用了两个goroutine。后台的goroutine调用walkDir来遍历命令行给出的每一个路径并最终关闭fileSizes这个channel。主goroutine会对其从channe
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEyODUzMjkzNDgsMjA3ODkzNDU5LC05OD
-EyMTEwNTIsNjg3MTEwOTg0LC0yMTA2OTU0MzkyLC0xNjAwOTYy
-NDY4LDE1MzQzOTk5NjgsLTE1OTg4NjYyMzRdfQ==
+eyJoaXN0b3J5IjpbLTUxOTExMTMwMywtMTI4NTMyOTM0OCwyMD
+c4OTM0NTksLTk4MTIxMTA1Miw2ODcxMTA5ODQsLTIxMDY5NTQz
+OTIsLTE2MDA5NjI0NjgsMTUzNDM5OTk2OCwtMTU5ODg2NjIzNF
+19
 -->
