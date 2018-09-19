@@ -1249,7 +1249,7 @@ x = 6       e^x =  403.429
 x = 7       e^x = 1096.633
 ```
 
-math包中除了提供大量常用的数学函数外，还提供了IEEE754浮点数标准中定义的特殊值的创建和测试：**正无穷大和负无穷大，分别用于表示太大溢出的数字和除零的结果；还有NaN非数，一般用于表示无效的除法操作结果0/0或Sqrt(-1).
+math包中除了提供大量常用的数学函数外，还提供了IEEE754浮点数标准中定义的特殊值的创建和测试：**正无穷大和负无穷大，分别用于表示太大溢出的数字和除零的结果；还有NaN非数，一般用于表示无效的除法操作结果0/0或Sqrt(-1).**
 
 ```Go
 var z float64
@@ -8895,8 +8895,8 @@ import (
 )
 
 func main() {
-	// Determine t
+	// Determine
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMzc5Mzc0NzAxLDE1MzQzOTk5NjgsLTE1OT
-g4NjYyMzRdfQ==
+eyJoaXN0b3J5IjpbLTY3NTkzNTM1OSwxNTM0Mzk5OTY4LC0xNT
+k4ODY2MjM0XX0=
 -->
