@@ -1674,7 +1674,7 @@ UTF8是一个将Unicode码点编码为字节序列的变长编码。UTF8编码�
 11110xxx 10xxxxxx 10xxxxxx 10xxxxxx  65536-0x10ffff (other values unused)
 ```
 
-**变长的编码无法直接通过索引来访问第n个字符，但是UTF8编码获得了很多额外的优点。首先UTF8编码比较紧凑，完全兼容ASCII码，并且可以自动同步：它可以通过向前回朔最多3个字节就能确定当前字符编码的开始字节的位置。它也是一个前缀编码，所以当从左向右解码时不会有任何歧义也并不需要向前查看（译注：像GBK之类的编码，如果不知道起点位置则可能会出现歧义）。没有任何字符的编码是其它字符编码的子串，或是其它编码序列的字串，因此搜索一个字符时只要搜索它的字节编码序列即可，不用担心前后的上下文会对搜索结果产生干扰。同时UTF8编码的顺序和Unicode码点的顺序一致，因此可以直接排序UTF8编码序列。同时因为没有嵌入的NUL(0)字节，可以很好地兼容那些使用NUL作为字符串结尾的编程语言。
+**变长的编码无法直接通过索引来访问第n个字符，但是UTF8编码获得了很多额外的优点。首先UTF8编码比较紧凑，完全兼容ASCII码，并且可以自动同步：它可以通过向前回朔最多3个字节就能确定当前字符编码的开始字节的位置。它也是一个前缀编码，所以当从左向右解码时不会有任何歧义也并不需要向前查看（译注：像GBK之类的编码，如果不知道起点位置则可能会出现歧义）。没有任何字符的编码是其它字符编码的子串，或是其它编码序列的字串，因此搜索一个字符时只要搜索它的字节编码序列即可，不用担心前后的上下文会对搜索结果产生干扰。同时UTF8编码的顺序和Unicode码点的顺序一致，因此可以直接排序UTF8编码序列。同时因为没有嵌入的NUL(0)字节，可以很好地兼容那些使用NUL作为字符串结尾的编程语言。**
 
 Go语言的源文件采用UTF8编码，并且Go语言处理UTF8编码的文本也很出色。unicode包提供了诸多处理rune字符相关功能的函数（比如区分字母和数字，或者是字母的大写和小写转换等），unicode/utf8包则提供了用于rune字符序列的UTF8编码和解码的功能。
 
@@ -8885,12 +8885,12 @@ func walkDir(dir string, fileSizes chan<- int64) {
 func dirents(dir string) []os.FileInfo {
 	entries, err := ioutil.ReadDir(dir)
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "du1: %v\n", 
+		fmt.Fprintf(os.Stderr, "du1: %v\n"
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTQ0MjYzMTM4MSw0MDI0NDE2MjksMTI4Nj
-QxNjk2NCwtODY0ODA5NTA2LC03MjY2MjcxMzYsLTkyNDk1OTcy
-MSwyNzk2ODY1NDQsLTQ1MDg0NjE1NiwxNDI5Njg5Mzk5LDU4Mz
-U5ODI1LC01MTkxMTEzMDMsLTEyODUzMjkzNDgsMjA3ODkzNDU5
-LC05ODEyMTEwNTIsNjg3MTEwOTg0LC0yMTA2OTU0MzkyLC0xNj
-AwOTYyNDY4LDE1MzQzOTk5NjgsLTE1OTg4NjYyMzRdfQ==
+eyJoaXN0b3J5IjpbOTcwNTY2NzEsNDAyNDQxNjI5LDEyODY0MT
+Y5NjQsLTg2NDgwOTUwNiwtNzI2NjI3MTM2LC05MjQ5NTk3MjEs
+Mjc5Njg2NTQ0LC00NTA4NDYxNTYsMTQyOTY4OTM5OSw1ODM1OT
+gyNSwtNTE5MTExMzAzLC0xMjg1MzI5MzQ4LDIwNzg5MzQ1OSwt
+OTgxMjExMDUyLDY4NzExMDk4NCwtMjEwNjk1NDM5MiwtMTYwMD
+k2MjQ2OCwxNTM0Mzk5OTY4LC0xNTk4ODY2MjM0XX0=
 -->
