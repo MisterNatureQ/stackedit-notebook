@@ -2144,7 +2144,7 @@ const (
 
 不过iota常量生成规则也有其局限性。例如，它并不能用于产生1000的幂（KB、MB等），因为Go语言并没有计算幂的运算符。
 
-**练习 3.13：** 编写KB、MB的常量声明，然后扩展到YB。
+**练习 3.13：** 编写KB、MB的常量声明，然后扩展到YB。 ??
 
 
 ### 3.6.2. 无类型常量
@@ -8885,13 +8885,13 @@ func walkDir(dir string, fileSizes chan<- int64) {
 func dirents(dir string) []os.FileInfo {
 	entries, err := ioutil.ReadDir(dir)
 	if err != nil {
-		fmt.Fp
+		fmt
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNDk5MzAxMTY5LDE1NDI3NDc1NDAsMTg3ND
-AzMDIwMSw0MTczMTAwMjcsLTE0NTE2MzY1NzksOTcwNTY2NzEs
-NDAyNDQxNjI5LDEyODY0MTY5NjQsLTg2NDgwOTUwNiwtNzI2Nj
-I3MTM2LC05MjQ5NTk3MjEsMjc5Njg2NTQ0LC00NTA4NDYxNTYs
-MTQyOTY4OTM5OSw1ODM1OTgyNSwtNTE5MTExMzAzLC0xMjg1Mz
-I5MzQ4LDIwNzg5MzQ1OSwtOTgxMjExMDUyLDY4NzExMDk4NF19
-
+eyJoaXN0b3J5IjpbMjE0MjQ3MTY3Myw0OTkzMDExNjksMTU0Mj
+c0NzU0MCwxODc0MDMwMjAxLDQxNzMxMDAyNywtMTQ1MTYzNjU3
+OSw5NzA1NjY3MSw0MDI0NDE2MjksMTI4NjQxNjk2NCwtODY0OD
+A5NTA2LC03MjY2MjcxMzYsLTkyNDk1OTcyMSwyNzk2ODY1NDQs
+LTQ1MDg0NjE1NiwxNDI5Njg5Mzk5LDU4MzU5ODI1LC01MTkxMT
+EzMDMsLTEyODUzMjkzNDgsMjA3ODkzNDU5LC05ODEyMTEwNTJd
+fQ==
 -->
