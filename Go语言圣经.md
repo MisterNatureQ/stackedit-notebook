@@ -1412,7 +1412,7 @@ math/cmplx包提供了复数处理的许多函数，例如求复数的平方根�
 fmt.Println(cmplx.Sqrt(-1)) // "(0+1i)"
 ```
 
-下面的程序使用complex128复数算法来生成一个Mandelbrot图像。
+下面的程序使用complex128复数算法来生成一个Mandelbrot图像。 
 
 <u><i>gopl.io/ch3/mandelbrot</i></u>
 ```Go
@@ -8888,11 +8888,12 @@ func dirents(dir string) []os.FileInfo {
 		fmt.Fprintf(os.Stderr, "du1: %v\n", err)
 		return nil
 	}
-	return en
+	return e
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTcyNjYyNzEzNiwtOTI0OTU5NzIxLDI3OT
-Y4NjU0NCwtNDUwODQ2MTU2LDE0Mjk2ODkzOTksNTgzNTk4MjUs
-LTUxOTExMTMwMywtMTI4NTMyOTM0OCwyMDc4OTM0NTksLTk4MT
-IxMTA1Miw2ODcxMTA5ODQsLTIxMDY5NTQzOTIsLTE2MDA5NjI0
-NjgsMTUzNDM5OTk2OCwtMTU5ODg2NjIzNF19
+eyJoaXN0b3J5IjpbLTg2NDgwOTUwNiwtNzI2NjI3MTM2LC05Mj
+Q5NTk3MjEsMjc5Njg2NTQ0LC00NTA4NDYxNTYsMTQyOTY4OTM5
+OSw1ODM1OTgyNSwtNTE5MTExMzAzLC0xMjg1MzI5MzQ4LDIwNz
+g5MzQ1OSwtOTgxMjExMDUyLDY4NzExMDk4NCwtMjEwNjk1NDM5
+MiwtMTYwMDk2MjQ2OCwxNTM0Mzk5OTY4LC0xNTk4ODY2MjM0XX
+0=
 -->
