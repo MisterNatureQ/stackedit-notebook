@@ -1293,9 +1293,9 @@ import (
 
 const (
 	width, height = 600, 320            // canvas size in pixels
-	cells         = 100                 // number of grid cells
-	xyrange       = 30.0                // axis ranges (-xyrange..+xyrange)
-	xyscale       = width / 2 / xyrange // pixels per x or y unit
+	cells         = 100                 // number of grid cells 网格
+	xyrange       = 30.0                // axis ranges (-xyrange..+xyrange) 轴范围
+	xyscale       = width / 2 / xyrange // pixels per x or y unit 每x或y单位像素
 	zscale        = height * 0.4        // pixels per z unit
 	angle         = math.Pi / 6         // angle of x, y axes (=30°)
 )
@@ -8890,10 +8890,8 @@ ioutil.ReadDir函数会返回一个os.FileInfo类型的slice，os.FileInfo类型
 package main
 
 import (
-	"flag"
-	"fmt"
-	"io
+	"fl
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIxMDY5NTQzOTIsLTE2MDA5NjI0NjgsMT
-UzNDM5OTk2OCwtMTU5ODg2NjIzNF19
+eyJoaXN0b3J5IjpbNjg3MTEwOTg0LC0yMTA2OTU0MzkyLC0xNj
+AwOTYyNDY4LDE1MzQzOTk5NjgsLTE1OTg4NjYyMzRdfQ==
 -->
