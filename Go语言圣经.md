@@ -1951,7 +1951,7 @@ func main() {
 }
 ```
 
-当向bytes.Buffer添加任意字符的UTF8编码时，最好使用bytes.Buffer的WriteRune方法，但是WriteByte方法对于写入类似'['和']'等ASCII字符则会更加有效。
+**当向bytes.Buffer添加任意字符的UTF8编码时，最好使用bytes.Buffer的WriteRune方法，但是WriteByte方法对于写入类似'['和']'等ASCII字符则会更加有效。**
 
 bytes.Buffer类型有着很多实用的功能，我们在第七章讨论接口时将会涉及到，我们将看看如何将它用作一个I/O的输入和输出对象，例如当做Fprintf的io.Writer输出对象，或者当作io.Reader类型的输入源对象。
 
@@ -8885,13 +8885,13 @@ func walkDir(dir string, fileSizes chan<- int64) {
 func dirents(dir string) []os.FileInfo {
 	entries, err := ioutil.ReadDir(dir)
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "du
+		fmt.Fprintf(os.Stderr
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNDE3MzEwMDI3LC0xNDUxNjM2NTc5LDk3MD
-U2NjcxLDQwMjQ0MTYyOSwxMjg2NDE2OTY0LC04NjQ4MDk1MDYs
-LTcyNjYyNzEzNiwtOTI0OTU5NzIxLDI3OTY4NjU0NCwtNDUwOD
-Q2MTU2LDE0Mjk2ODkzOTksNTgzNTk4MjUsLTUxOTExMTMwMywt
-MTI4NTMyOTM0OCwyMDc4OTM0NTksLTk4MTIxMTA1Miw2ODcxMT
-A5ODQsLTIxMDY5NTQzOTIsLTE2MDA5NjI0NjgsMTUzNDM5OTk2
-OF19
+eyJoaXN0b3J5IjpbLTE0NDQwOTk5MTQsNDE3MzEwMDI3LC0xND
+UxNjM2NTc5LDk3MDU2NjcxLDQwMjQ0MTYyOSwxMjg2NDE2OTY0
+LC04NjQ4MDk1MDYsLTcyNjYyNzEzNiwtOTI0OTU5NzIxLDI3OT
+Y4NjU0NCwtNDUwODQ2MTU2LDE0Mjk2ODkzOTksNTgzNTk4MjUs
+LTUxOTExMTMwMywtMTI4NTMyOTM0OCwyMDc4OTM0NTksLTk4MT
+IxMTA1Miw2ODcxMTA5ODQsLTIxMDY5NTQzOTIsLTE2MDA5NjI0
+NjhdfQ==
 -->
