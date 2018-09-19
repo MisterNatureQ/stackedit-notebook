@@ -1335,7 +1335,7 @@ func corner(i, j int) (float64, float64) {
 }
 
 func f(x, y float64) float64 {
-	r := math.Hypot(x, y) // distance from (0,0)
+	r := math.Hypot(x, y) // distance from (0,0) 求直角三角形的斜边长
 	return math.Sin(r) / r
 }
 ```
@@ -8889,9 +8889,9 @@ ioutil.ReadDir函数会返回一个os.FileInfo类型的slice，os.FileInfo类型
 ```go
 package main
 
-import (
-	"fl
+im
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNjg3MTEwOTg0LC0yMTA2OTU0MzkyLC0xNj
-AwOTYyNDY4LDE1MzQzOTk5NjgsLTE1OTg4NjYyMzRdfQ==
+eyJoaXN0b3J5IjpbLTk4MTIxMTA1Miw2ODcxMTA5ODQsLTIxMD
+Y5NTQzOTIsLTE2MDA5NjI0NjgsMTUzNDM5OTk2OCwtMTU5ODg2
+NjIzNF19
 -->
