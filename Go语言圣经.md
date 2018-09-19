@@ -1322,6 +1322,7 @@ func main() {
 	fmt.Println("</svg>")
 }
 
+//???
 func corner(i, j int) (float64, float64) {
 	// Find point (x,y) at corner of cell (i,j).
 	x := xyrange * (float64(i)/cells - 0.5)
@@ -1336,9 +1337,10 @@ func corner(i, j int) (float64, float64) {
 	return sx, sy
 }
 
+// ??
 func f(x, y float64) float64 {
 	r := math.Hypot(x, y) // distance from (0,0) 求直角三角形的斜边长
-	return math.Sin(r) / r // 正弦
+	return math.Sin(r) / r // 正弦/r
 }
 ```
 
@@ -8884,11 +8886,10 @@ func dirents(dir string) []os.FileInfo {
 }
 ```
 
-ioutil.ReadDir函数会返回一个os.FileInfo类型的slice，os.FileInfo类型也是os.Stat这个函数的返回值。对每一个子目录而言，walkDir会递归地调用其自身，同时也在递归里获取每一个文件的信息。walkDir函数会向fileSizes这个channel发送一条消息。这条消息包含了文件的字节大小。
-
+ioutil.ReadDir函数会返回一个os.FileInfo类型的slice，os.FileInfo类型也是os.Stat这个函数的返回值。对每一个子目录而言，walkDir会递归地调用其自身，同时也在递归里获取每一个文件的信息。walkDir函数会向fileSizes这个channel发送一条消息。这条消
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE3Njc4MDExNzAsNTgzNTk4MjUsLTUxOT
-ExMTMwMywtMTI4NTMyOTM0OCwyMDc4OTM0NTksLTk4MTIxMTA1
-Miw2ODcxMTA5ODQsLTIxMDY5NTQzOTIsLTE2MDA5NjI0NjgsMT
-UzNDM5OTk2OCwtMTU5ODg2NjIzNF19
+eyJoaXN0b3J5IjpbMTQyOTY4OTM5OSw1ODM1OTgyNSwtNTE5MT
+ExMzAzLC0xMjg1MzI5MzQ4LDIwNzg5MzQ1OSwtOTgxMjExMDUy
+LDY4NzExMDk4NCwtMjEwNjk1NDM5MiwtMTYwMDk2MjQ2OCwxNT
+M0Mzk5OTY4LC0xNTk4ODY2MjM0XX0=
 -->
