@@ -1748,7 +1748,7 @@ for i := 0; i < len(s); {
 }
 ```
 
-每一次调用DecodeRuneInString函数都返回一个r和长度，r对应字符本身，长度对应r采用UTF8编码后的编码字节数目。长度可以用于更新第i个字符在字符串中的字节索引位置。但是这种编码方式是笨拙的，我们需要更简洁的语法。幸运的是，Go语言的range循环在处理字符串的时候，会自动隐式解码UTF8字符串。下面的循环运行如图3.5所示；需要注意的是对于非ASCII，索引更新的步长将超过1个字节。
+每一次调用DecodeRuneInString函数都返回一个r和长度，r对应字符本身，长度对应r采用UTF8编码后的编码字节数目。长度可以用于更新第i个字符在字符串中的字节索引位置。但是这种编码方式是笨拙的，我们需要更简洁的语法。幸运的是，Go语言的range循环在处理字符串的时候，会自动隐式解码UTF8字符串。下面的循环运行如图3.5所示；**需要注意的是对于非ASCII，索引更新的步长将超过1个字节。**
 
 ![](../images/ch3-05.png)
 ![](https://github.com/gopl-zh/gopl-zh.github.com/blob/master/images/ch3-05.png?raw=true)
@@ -8885,12 +8885,13 @@ func walkDir(dir string, fileSizes chan<- int64) {
 func dirents(dir string) []os.FileInfo {
 	entries, err := ioutil.ReadDir(dir)
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "du1: %v\n"
+		fmt.Fprintf(os.Stderr, "du1: %
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbOTcwNTY2NzEsNDAyNDQxNjI5LDEyODY0MT
-Y5NjQsLTg2NDgwOTUwNiwtNzI2NjI3MTM2LC05MjQ5NTk3MjEs
-Mjc5Njg2NTQ0LC00NTA4NDYxNTYsMTQyOTY4OTM5OSw1ODM1OT
-gyNSwtNTE5MTExMzAzLC0xMjg1MzI5MzQ4LDIwNzg5MzQ1OSwt
-OTgxMjExMDUyLDY4NzExMDk4NCwtMjEwNjk1NDM5MiwtMTYwMD
-k2MjQ2OCwxNTM0Mzk5OTY4LC0xNTk4ODY2MjM0XX0=
+eyJoaXN0b3J5IjpbLTE0NTE2MzY1NzksOTcwNTY2NzEsNDAyND
+QxNjI5LDEyODY0MTY5NjQsLTg2NDgwOTUwNiwtNzI2NjI3MTM2
+LC05MjQ5NTk3MjEsMjc5Njg2NTQ0LC00NTA4NDYxNTYsMTQyOT
+Y4OTM5OSw1ODM1OTgyNSwtNTE5MTExMzAzLC0xMjg1MzI5MzQ4
+LDIwNzg5MzQ1OSwtOTgxMjExMDUyLDY4NzExMDk4NCwtMjEwNj
+k1NDM5MiwtMTYwMDk2MjQ2OCwxNTM0Mzk5OTY4LC0xNTk4ODY2
+MjM0XX0=
 -->
