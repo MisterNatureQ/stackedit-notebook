@@ -1275,7 +1275,7 @@ func compute() (value float64, ok bool) {
 }
 ```
 
-[## 7个GIF动图帮你瞬间理解三角函数](https://baijiahao.baidu.com/s?id=1598360045005140340&wfr=spider&for=pc)
+[ 7个GIF动图帮你瞬间理解三角函数](https://baijiahao.baidu.com/s?id=1598360045005140340&wfr=spider&for=pc)
 
 接下来的程序演示了通过浮点计算生成的图形。它是带有两个参数的z = f(x, y)函数的三维形式，使用了可缩放矢量图形（SVG）格式输出，SVG是一个用于矢量线绘制的XML标准。图3.1显示了sin( r )/r函数的输出图形，其中r是`sqrt(x*x+y*y)`。
 
@@ -8888,8 +8888,8 @@ ioutil.ReadDir函数会返回一个os.FileInfo类型的slice，os.FileInfo类型
 
 下面的主
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbOTkzMzA4NDY1LC01MTkxMTEzMDMsLTEyOD
-UzMjkzNDgsMjA3ODkzNDU5LC05ODEyMTEwNTIsNjg3MTEwOTg0
-LC0yMTA2OTU0MzkyLC0xNjAwOTYyNDY4LDE1MzQzOTk5NjgsLT
-E1OTg4NjYyMzRdfQ==
+eyJoaXN0b3J5IjpbNTgzNTk4MjUsLTUxOTExMTMwMywtMTI4NT
+MyOTM0OCwyMDc4OTM0NTksLTk4MTIxMTA1Miw2ODcxMTA5ODQs
+LTIxMDY5NTQzOTIsLTE2MDA5NjI0NjgsMTUzNDM5OTk2OCwtMT
+U5ODg2NjIzNF19
 -->
