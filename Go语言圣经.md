@@ -1604,7 +1604,7 @@ s[0] = 'L' // compile error: cannot assign to s[0]
 ```
 
 ![](../images/ch3-04.png)
-![](https://github.com/gopl-zh/gopl-zh.github.com/blob/master/images/ch3-01.png?raw=true)
+![](https://github.com/gopl-zh/gopl-zh.github.com/blob/master/images/ch3-04.png?raw=true)
 因为Go语言源文件总是用UTF8编码，并且Go语言的文本字符串也以UTF8编码的方式处理，因此我们可以将Unicode码点也写到字符串面值中。
 
 在一个双引号包含的字符串面值中，可以用以反斜杠`\`开头的转义序列插入任意的数据。下面的换行、回车和制表符等是常见的ASCII控制代码的转义方式：
@@ -1738,7 +1738,7 @@ for i := 0; i < len(s); {
 每一次调用DecodeRuneInString函数都返回一个r和长度，r对应字符本身，长度对应r采用UTF8编码后的编码字节数目。长度可以用于更新第i个字符在字符串中的字节索引位置。但是这种编码方式是笨拙的，我们需要更简洁的语法。幸运的是，Go语言的range循环在处理字符串的时候，会自动隐式解码UTF8字符串。下面的循环运行如图3.5所示；需要注意的是对于非ASCII，索引更新的步长将超过1个字节。
 
 ![](../images/ch3-05.png)
-![](https://github.com/gopl-zh/gopl-zh.github.com/blob/master/images/ch3-01.png?raw=true)
+![](https://github.com/gopl-zh/gopl-zh.github.com/blob/master/images/ch3-05.png?raw=true)
 ```Go
 for i, r := range "Hello, 世界" {
 	fmt.Printf("%d\t%q\t%d\n", i, r, r)
@@ -2389,7 +2389,7 @@ months := [...]string{1: "January", /* ... */, 12: "December"}
 slice的切片操作s[i:j]，其中0 ≤ i≤ j≤ cap(s)，用于创建一个新的slice，引用s的从第i个元素开始到第j-1个元素的子序列。新的slice将只有j-i个元素。如果i位置的索引被省略的话将使用0代替，如果j位置的索引被省略的话将使用len(s)代替。因此，months[1:13]切片操作将引用全部有效的月份，和months[1:]操作等价；months[:]切片操作则是引用整个数组。让我们分别定义表示第二季度和北方夏天月份的slice，它们有重叠部分：
 
 ![](../images/ch4-01.png)
-![](https://github.com/gopl-zh/gopl-zh.github.com/blob/master/images/ch3-01.png?raw=true)
+![](https://github.com/gopl-zh/gopl-zh.github.com/blob/master/images/ch4-01.png?raw=true)
 ```Go
 Q2 := months[4:7]
 summer := months[6:9]
@@ -2581,11 +2581,11 @@ func main() {
 让我们仔细查看i=3次的迭代。当时x包含了[0 1 2]三个元素，但是容量是4，因此可以简单将新的元素添加到末尾，不需要新的内存分配。然后新的y的长度和容量都是4，并且和x引用着相同的底层数组，如图4.2所示。
 
 ![](../images/ch4-02.png)
-![](https://github.com/gopl-zh/gopl-zh.github.com/blob/master/images/ch3-01.png?raw=true)
+![](https://github.com/gopl-zh/gopl-zh.github.com/blob/master/images/ch4-02.png?raw=true)
 在下一次迭代时i=4，现在没有新的空余的空间了，因此appendInt函数分配一个容量为8的底层数组，将x的4个元素[0 1 2 3]复制到新空间的开头，然后添加新的元素i，新元素的值是4。新的y的长度是5，容量是8；后面有3个空闲的位置，三次迭代都不需要分配新的空间。当前迭代中，y和x是对应不同底层数组的view。这次操作如图4.3所示。
 
 ![](../images/ch4-03.png)
-![](https://github.com/gopl-zh/gopl-zh.github.com/blob/master/images/ch3-01.png?raw=true)
+![](https://github.com/gopl-zh/gopl-zh.github.com/blob/master/images/ch4-03.png?raw=true)
 内置的append函数可能使用比appendInt更复杂的内存扩展策略。因此，通常我们并不知道append调用是否导致了内存的重新分配，因此我们也不能确认新的slice和原始的slice是否引用的是相同的底层数组空间。同样，我们不能确认在原先的slice上的操作是否会影响到新的slice。因此，通常是将append返回的结果直接赋值给输入的slice变量：
 
 ```Go
@@ -2992,7 +2992,7 @@ charcount程序同时打印不同UTF-8编码长度的字符数目。对此，map
 作为一个实验，我们用charcount程序对英文版原稿的字符进行了统计。虽然大部分是英语，但是也有一些非ASCII字符。下面是排名前10的非ASCII字符：
 
 ![](../images/ch4-xx-01.png)
-![](https://github.com/gopl-zh/gopl-zh.github.com/blob/master/images/ch3-01.png?raw=true)
+![](https://github.com/gopl-zh/gopl-zh.github.com/blob/master/images/ch4-xx-01.png?raw=true)
 下面是不同UTF-8编码长度的字符的数目：
 
 ```
@@ -3796,7 +3796,7 @@ $ ./issueshtml repo:golang/go commenter:gopherbot json encoder >issues.html
 图4.4显示了在web浏览器中的效果图。每个issue包含到Github对应页面的链接。
 
 ![](../images/ch4-04.png)
-![](https://github.com/gopl-zh/gopl-zh.github.com/blob/master/images/ch3-01.png?raw=true)
+![](https://github.com/gopl-zh/gopl-zh.github.com/blob/master/images/ch4-04.png?raw=true)
 图4.4中issue没有包含会对HTML格式产生冲突的特殊字符，但是我们马上将看到标题中含有`&`和`<`字符的issue。下面的命令选择了两个这样的issue：
 
 ```
@@ -3808,7 +3808,7 @@ $ ./issueshtml repo:golang/go 3133 10535 >issues2.html
 我们也可以通过对信任的HTML字符串使用template.HTML类型来抑制这种自动转义的行为。还有很多采用类型命名的字符串类型分别对应信任的JavaScript、CSS和URL。下面的程序演示了两个使用不同类型的相同字符串产生的不同结果：A是一个普通字符串，B是一个信任的template.HTML字符串类型。
 
 ![](../images/ch4-05.png)
-![](https://github.com/gopl-zh/gopl-zh.github.com/blob/master/images/ch3-01.png?raw=true)
+![](https://github.com/gopl-zh/gopl-zh.github.com/blob/master/images/ch4-05.png?raw=true)
 {% raw %}
 
 <u><i>gopl.io/ch4/autoescape</i></u>
@@ -3833,7 +3833,7 @@ func main() {
 图4.6显示了出现在浏览器中的模板输出。我们看到A的黑体标记被转义失效了，但是B没有。
 
 ![](../images/ch4-06.png)
-![](https://github.com/gopl-zh/gopl-zh.github.com/blob/master/images/ch3-01.png?raw=true)
+![](https://github.com/gopl-zh/gopl-zh.github.com/blob/master/images/ch4-06.png?raw=true)
 我们这里只讲述了模板系统中最基本的特性。一如既往，如果想了解更多的信息，请自己查看包文档：
 
 ```
@@ -6312,7 +6312,7 @@ var w io.Writer
 在Go语言中，变量总是被一个定义明确的值初始化，即使接口类型也不例外。对于一个接口的零值就是它的类型和值的部分都是nil（图7.1）。
 
 ![](../images/ch7-01.png)
-![](https://github.com/gopl-zh/gopl-zh.github.com/blob/master/images/ch3-01.png?raw=true)
+![](https://github.com/gopl-zh/gopl-zh.github.com/blob/master/images/ch7-01.png?raw=true)
 一个接口值基于它的动态类型被描述为空或非空，所以这是一个空的接口值。你可以通过使用w==nil或者w!=nil来判断接口值是否为空。调用一个空接口值上的任意方法都会产生panic:
 
 ```go
@@ -6328,7 +6328,7 @@ w = os.Stdout
 这个赋值过程调用了一个具体类型到接口类型的隐式转换，这和显式的使用io.Writer(os.Stdout)是等价的。这类转换不管是显式的还是隐式的，都会刻画出操作到的类型和值。这个接口值的动态类型被设为`*os.File`指针的类型描述符，它的动态值持有os.Stdout的拷贝；这是一个代表处理标准输出的os.File类型变量的指针（图7.2）。
 
 ![](../images/ch7-02.png)
-![](https://github.com/gopl-zh/gopl-zh.github.com/blob/master/images/ch3-01.png?raw=true)
+![](https://github.com/gopl-zh/gopl-zh.github.com/blob/master/images/ch7-02.png?raw=true)
 调用一个包含`*os.File`类型指针的接口值的Write方法，使得`(*os.File).Write`方法被调用。这个调用输出“hello”。
 
 ```go
@@ -6350,7 +6350,7 @@ w = new(bytes.Buffer)
 现在动态类型是*bytes.Buffer并且动态值是一个指向新分配的缓冲区的指针（图7.3）。
 
 ![](../images/ch7-03.png)
-![](https://github.com/gopl-zh/gopl-zh.github.com/blob/master/images/ch3-01.png?raw=true)
+![](https://github.com/gopl-zh/gopl-zh.github.com/blob/master/images/ch7-03.png?raw=true)
 Write方法的调用也使用了和之前一样的机制：
 
 ```go
@@ -6376,7 +6376,7 @@ var x interface{} = time.Now()
 结果可能和图7.4相似。从概念上讲，不论接口值多大，动态值总是可以容下它。（这只是一个概念上的模型；具体的实现可能会非常不同）
 
 ![](../images/ch7-04.png)
-![](https://github.com/gopl-zh/gopl-zh.github.com/blob/master/images/ch3-01.png?raw=true)
+![](https://github.com/gopl-zh/gopl-zh.github.com/blob/master/images/ch7-04.png?raw=true)
 接口值可以使用==和!＝来进行比较。两个接口值相等仅当它们都是nil值，或者它们的动态类型相同并且动态值也根据这个动态类型的==操作相等。因为接口值是可比较的，所以它们可以用在map的键或者作为switch语句的操作数。
 
 然而，如果两个接口值的动态类型相同，但是这个动态类型是不可比较的（比如切片），将它们进行比较就会失败并且panic:
@@ -8895,8 +8895,8 @@ import (
 )
 
 func main() {
-	// Determine the i
+	// Determine the
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTc5OTkxODcxOSwxNTM0Mzk5OTY4LC0xNT
+eyJoaXN0b3J5IjpbMTAzOTI1NDA4NiwxNTM0Mzk5OTY4LC0xNT
 k4ODY2MjM0XX0=
 -->
