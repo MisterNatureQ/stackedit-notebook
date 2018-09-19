@@ -1588,13 +1588,13 @@ fmt.Println(s) // "left foot, right foot"
 fmt.Println(t) // "left foot"
 ```
 
-因为字符串是不可修改的，因此尝试修改字符串内部数据的操作也是被禁止的：
+**因为字符串是不可修改的，因此尝试修改字符串内部数据的操作也是被禁止的：**
 
 ```Go
 s[0] = 'L' // compile error: cannot assign to s[0]
 ```
 
-不变性意味着如果两个字符串共享相同的底层数据的话也是安全的，这使得复制任何长度的字符串代价是低廉的。同样，一个字符串s和对应的子字符串切片s[7:]的操作也可以安全地共享相同的内存，因此字符串切片操作代价也是低廉的。在这两种情况下都没有必要分配新的内存。 图3.4演示了一个字符串和两个子串共享相同的底层数据。
+不变性意味着如果两个字符串共享相同的底层数据的话也是安全的，这使得**复制任何长度的字符串代价是低廉的。**同样，一个字符串s和对应的子字符串切片s[7:]的操作也可以安全地共享相同的内存，因此**字符串切片操作代价也是低廉**的。在这两种情况下都没有必要分配新的内存。 图3.4演示了一个字符串和两个子串共享相同的底层数据。
 
 
 {% include "./ch3-05-1.md" %}
@@ -8886,12 +8886,12 @@ func dirents(dir string) []os.FileInfo {
 	entries, err := ioutil.ReadDir(dir)
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "du1: %v\n", err)
-		return nil
+	
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTI4NjQxNjk2NCwtODY0ODA5NTA2LC03Mj
-Y2MjcxMzYsLTkyNDk1OTcyMSwyNzk2ODY1NDQsLTQ1MDg0NjE1
-NiwxNDI5Njg5Mzk5LDU4MzU5ODI1LC01MTkxMTEzMDMsLTEyOD
-UzMjkzNDgsMjA3ODkzNDU5LC05ODEyMTEwNTIsNjg3MTEwOTg0
-LC0yMTA2OTU0MzkyLC0xNjAwOTYyNDY4LDE1MzQzOTk5NjgsLT
-E1OTg4NjYyMzRdfQ==
+eyJoaXN0b3J5IjpbNDAyNDQxNjI5LDEyODY0MTY5NjQsLTg2ND
+gwOTUwNiwtNzI2NjI3MTM2LC05MjQ5NTk3MjEsMjc5Njg2NTQ0
+LC00NTA4NDYxNTYsMTQyOTY4OTM5OSw1ODM1OTgyNSwtNTE5MT
+ExMzAzLC0xMjg1MzI5MzQ4LDIwNzg5MzQ1OSwtOTgxMjExMDUy
+LDY4NzExMDk4NCwtMjEwNjk1NDM5MiwtMTYwMDk2MjQ2OCwxNT
+M0Mzk5OTY4LC0xNTk4ODY2MjM0XX0=
 -->
