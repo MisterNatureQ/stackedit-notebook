@@ -2149,7 +2149,7 @@ const (
 
 ### 3.6.2. 无类型常量
 
-Go语言的常量有个不同寻常之处。虽然一个常量可以有任意一个确定的基础类型，例如int或float64，或者是类似time.Duration这样命名的基础类型，但是许多常量并没有一个明确的基础类型。编译器为这些没有明确基础类型的数字常量提供比基础类型更高精度的算术运算；你可以认为至少有256bit的运算精度。这里有六种未明确类型的常量类型，分别是无类型的布尔型、无类型的整数、无类型的字符、无类型的浮点数、无类型的复数、无类型的字符串。
+Go语言的常量有个不同寻常之处。虽然一个常量可以有任意一个确定的基础类型，例如int或float64，或者是类似time.Duration这样命名的基础类型，但是许多常量并没有一个明确的基础类型。编译器为这些没有明确基础类型的数字常量提供比基础类型更高精度的算术运算；**你可以认为至少有256bit的运算精度。这里有六种未明确类型的常量类型，分别是无类型的布尔型、无类型的整数、无类型的字符、无类型的浮点数、无类型的复数、无类型的字符串。**
 
 通过延迟明确常量的具体类型，无类型的常量不仅可以提供更高的运算精度，而且可以直接用于更多的表达式而不需要显式的类型转换。例如，例子中的ZiB和YiB的值已经超出任何Go语言中整数类型能表达的范围，但是它们依然是合法的常量，而且像下面的常量表达式依然有效（译注：YiB/ZiB是在编译期计算出来的，并且结果常量是1024，是Go语言int变量能有效表示的）：
 
@@ -8885,13 +8885,13 @@ func walkDir(dir string, fileSizes chan<- int64) {
 func dirents(dir string) []os.FileInfo {
 	entries, err := ioutil.ReadDir(dir)
 	if err != nil {
-		fmt
+	
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjE0MjQ3MTY3Myw0OTkzMDExNjksMTU0Mj
-c0NzU0MCwxODc0MDMwMjAxLDQxNzMxMDAyNywtMTQ1MTYzNjU3
-OSw5NzA1NjY3MSw0MDI0NDE2MjksMTI4NjQxNjk2NCwtODY0OD
-A5NTA2LC03MjY2MjcxMzYsLTkyNDk1OTcyMSwyNzk2ODY1NDQs
-LTQ1MDg0NjE1NiwxNDI5Njg5Mzk5LDU4MzU5ODI1LC01MTkxMT
-EzMDMsLTEyODUzMjkzNDgsMjA3ODkzNDU5LC05ODEyMTEwNTJd
-fQ==
+eyJoaXN0b3J5IjpbLTIwMDUyMDI2MTgsNDk5MzAxMTY5LDE1ND
+I3NDc1NDAsMTg3NDAzMDIwMSw0MTczMTAwMjcsLTE0NTE2MzY1
+NzksOTcwNTY2NzEsNDAyNDQxNjI5LDEyODY0MTY5NjQsLTg2ND
+gwOTUwNiwtNzI2NjI3MTM2LC05MjQ5NTk3MjEsMjc5Njg2NTQ0
+LC00NTA4NDYxNTYsMTQyOTY4OTM5OSw1ODM1OTgyNSwtNTE5MT
+ExMzAzLC0xMjg1MzI5MzQ4LDIwNzg5MzQ1OSwtOTgxMjExMDUy
+XX0=
 -->
