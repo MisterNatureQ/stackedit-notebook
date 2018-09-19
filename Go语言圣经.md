@@ -1249,7 +1249,7 @@ x = 6       e^x =  403.429
 x = 7       e^x = 1096.633
 ```
 
-math包中除了提供大量常用的数学函数外，还提供了IEEE754浮点数标准中定义的特殊值的创建和测试：正无穷大和负无穷大，分别用于表示太大溢出的数字和除零的结果；还有NaN非数，一般用于表示无效的除法操作结果0/0或Sqrt(-1).
+math包中除了提供大量常用的数学函数外，还提供了IEEE754浮点数标准中定义的特殊值的创建和测试：**正无穷大和负无穷大，分别用于表示太大溢出的数字和除零的结果；还有NaN非数，一般用于表示无效的除法操作结果0/0或Sqrt(-1).
 
 ```Go
 var z float64
@@ -6442,7 +6442,7 @@ if out != nil {
 当main函数调用函数f时，它给f函数的out参数赋了一个\*bytes.Buffer的空指针，所以out的动态值是nil。然而，它的动态类型是\*bytes.Buffer，意思就是out变量是一个包含空指针值的非空接口（如图7.5），所以防御性检查out!=nil的结果依然是true。
 
 ![](../images/ch7-05.png)
-![](https://github.com/gopl-zh/gopl-zh.github.com/blob/master/images/ch3-01.png?raw=true)
+![](https://github.com/gopl-zh/gopl-zh.github.com/blob/master/images/ch7-05.png?raw=true)
 动态分配机制依然决定(\*bytes.Buffer).Write的方法会被调用，但是这次的接收者的值是nil。对于一些如\*os.File的类型，nil是一个有效的接收者（§6.2.1），但是\*bytes.Buffer类型不在这些种类中。这个方法会被调用，但是当它尝试去获取缓冲区时会发生panic。
 
 问题在于尽管一个nil的\*bytes.Buffer指针有实现这个接口的方法，它也不满足这个接口具体的行为上的要求。特别是这个调用违反了(\*bytes.Buffer).Write方法的接收者非空的隐含先觉条件，所以将nil指针赋给这个接口是错误的。解决方案就是将main函数中的变量buf的类型改为io.Writer，因此可以避免一开始就将一个不完整的值赋值给这个接口：
@@ -6949,7 +6949,7 @@ fmt.Println(err)         // "no such file or directory"
 err的值图形化的呈现在图7.6中。
 
 ![](../images/ch7-06.png)
-![](https://github.com/gopl-zh/gopl-zh.github.com/blob/master/images/ch3-01.png?raw=true)
+![](https://github.com/gopl-zh/gopl-zh.github.com/blob/master/images/ch7-06.png?raw=true)
 Errno是一个系统调用错误的高效表示方式，它通过一个有限的集合进行描述，并且它满足标准的错误接口。我们会在第7.11节了解到其它满足这个接口的类型。
 ## 7.9. 示例: 表达式求值
 
@@ -7251,7 +7251,7 @@ func plot(w http.ResponseWriter, r *http.Request) {
 ```
 
 ![](../images/ch7-07.png)
-![](https://github.com/gopl-zh/gopl-zh.github.com/blob/master/images/ch3-01.png?raw=true)
+![](https://github.com/gopl-zh/gopl-zh.github.com/blob/master/images/ch7-07.png?raw=true)
 这个plot函数解析和检查在HTTP请求中指定的表达式并且用它来创建一个两个变量的匿名函数。这个匿名函数和来自原来surface-plotting程序中的固定函数f有相同的签名，但是它计算一个用户提供的表达式。环境变量中定义了x，y和半径r。最后plot调用surface函数，它就是gopl.io/ch3/surface中的主要函数，修改后它可以接受plot中的函数和输出io.Writer作为参数，而不是使用固定的函数f和os.Stdout。图7.7中显示了通过程序产生的3个曲面。
 
 **练习 7.13：** 为Expr增加一个String方法来打印美观的语法树。当再一次解析的时候，检查它的结果是否生成相同的语法树。
@@ -8132,7 +8132,7 @@ func main() {
 Channels也可以用于将多个goroutine连接在一起，一个Channel的输出作为下一个Channel的输入。这种串联的Channels就是所谓的管道（pipeline）。下面的程序用两个channels将三个goroutine串联起来，如图8.1所示。
 
 ![](../images/ch8-01.png)
-![](https://github.com/gopl-zh/gopl-zh.github.com/blob/master/images/ch3-01.png?raw=true)
+![](https://github.com/gopl-zh/gopl-zh.github.com/blob/master/images/ch8-01.png?raw=true)
 第一个goroutine是一个计数器，用于生成0、1、2、……形式的整数序列，然后通过channel将该整数序列发送给第二个goroutine；第二个goroutine是一个求平方的程序，对收到的每个整数求平方，然后将平方后的结果通过第二个channel发送给第三个goroutine；第三个goroutine是一个打印程序，打印收到的每个整数。为了保持例子清晰，我们有意选择了非常简单的函数，当然三个goroutine的计算很简单，在现实中确实没有必要为如此简单的运算构建三个goroutine。
 
 <u><i>gopl.io/ch8/pipeline1</i></u>
@@ -8290,7 +8290,7 @@ ch = make(chan string, 3)
 ```
 
 ![](../images/ch8-02.png)
-![](https://github.com/gopl-zh/gopl-zh.github.com/blob/master/images/ch3-01.png?raw=true)
+![](https://github.com/gopl-zh/gopl-zh.github.com/blob/master/images/ch8-02.png?raw=true)
 向缓存Channel的发送操作就是向内部缓存队列的尾部插入元素，接收操作则是从队列的头部删除元素。如果内部缓存队列是满的，那么发送操作将阻塞直到因另一个goroutine执行接收操作而释放了新的队列空间。相反，如果channel是空的，接收操作将阻塞直到有另一个goroutine执行发送操作而向队列插入元素。
 
 我们可以在无阻塞的情况下连续向新创建的channel发送三个值：
@@ -8304,7 +8304,7 @@ ch <- "C"
 此刻，channel的内部缓存队列将是满的（图8.3），如果有第四个发送操作将发生阻塞。
 
 ![](../images/ch8-03.png)
-![](https://github.com/gopl-zh/gopl-zh.github.com/blob/master/images/ch3-01.png?raw=true)
+![](https://github.com/gopl-zh/gopl-zh.github.com/blob/master/images/ch8-03.png?raw=true)
 如果我们接收一个值，
 
 ```Go
@@ -8314,7 +8314,7 @@ fmt.Println(<-ch) // "A"
 那么channel的缓存队列将不是满的也不是空的（图8.4），因此对该channel执行的发送或接收操作都不会发生阻塞。通过这种方式，channel的缓存队列解耦了接收和发送的goroutine。
 
 ![](../images/ch8-04.png)
-![](https://github.com/gopl-zh/gopl-zh.github.com/blob/master/images/ch3-01.png?raw=true)
+![](https://github.com/gopl-zh/gopl-zh.github.com/blob/master/images/ch8-04.png?raw=true)
 在某些特殊情况下，程序可能需要知道channel内部缓存的容量，可以用内置的cap函数获取：
 
 ```Go
@@ -8548,7 +8548,7 @@ sizes channel携带了每一个文件的大小到main goroutine，在main gorout
 图8.5 表明了makethumbnails6函数中事件的序列。纵列表示goroutine。窄线段代表sleep，粗线段代表活动。斜线箭头代表用来同步两个goroutine的事件。时间向下流动。注意main goroutine是如何大部分的时间被唤醒执行其range循环，等待worker发送值或者closer来关闭channel的。
 
 ![](../images/ch8-05.png)
-![](https://github.com/gopl-zh/gopl-zh.github.com/blob/master/images/ch3-01.png?raw=true)
+![](https://github.com/gopl-zh/gopl-zh.github.com/blob/master/images/ch8-05.png?raw=true)
 **练习 8.4：** 修改reverb2服务器，在每一个连接中使用sync.WaitGroup来计数活跃的echo goroutine。当计数减为零时，关闭TCP连接的写入，像练习8.3中一样。验证一下你的修改版netcat3客户端会一直等待所有的并发“喊叫”完成，即使是在标准输入流已经关闭的情况下。
 
 **练习 8.5：** 使用一个已有的CPU绑定的顺序程序，比如在3.3节中我们写的Mandelbrot程序或者3.2节中的3-D surface计算程序，并将他们的主循环改为并发形式，使用channel来进行通信。在多核计算机上这个程序得到了多少速度上的改进？使用多少个goroutine是最合适的呢？
@@ -8895,8 +8895,8 @@ import (
 )
 
 func main() {
-	// Determine the
+	// Determine t
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTAzOTI1NDA4NiwxNTM0Mzk5OTY4LC0xNT
-k4ODY2MjM0XX0=
+eyJoaXN0b3J5IjpbMzc5Mzc0NzAxLDE1MzQzOTk5NjgsLTE1OT
+g4NjYyMzRdfQ==
 -->
