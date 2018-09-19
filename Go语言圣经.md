@@ -1306,6 +1306,7 @@ func main() {
 	fmt.Printf("<svg xmlns='http://www.w3.org/2000/svg' "+
 		"style='stroke: grey; fill: white; stroke-width: 0.7' "+
 		"width='%d' height='%d'>", width, height)
+	//100x100的二维网格
 	for i := 0; i < cells; i++ {
 		for j := 0; j < cells; j++ {
 			ax, ay := corner(i+1, j)
@@ -8891,10 +8892,8 @@ package main
 import (
 	"flag"
 	"fmt"
-	"io/ioutil"
-	"os"
-	"
+	"io
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE2MDA5NjI0NjgsMTUzNDM5OTk2OCwtMT
-U5ODg2NjIzNF19
+eyJoaXN0b3J5IjpbLTIxMDY5NTQzOTIsLTE2MDA5NjI0NjgsMT
+UzNDM5OTk2OCwtMTU5ODg2NjIzNF19
 -->
