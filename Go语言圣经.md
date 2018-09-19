@@ -2260,7 +2260,7 @@ fmt.Printf("%T\n", '\000') // "int32" (rune)
 
 ## 4.1. 数组
 
-数组是一个由固定长度的特定类型元素组成的序列，一个数组可以由零个或多个元素组成。因为数组的长度是固定的，因此在Go语言中很少直接使用数组。和数组对应的类型是Slice（切片），它是可以增长和收缩的动态序列，slice功能也更灵活，但是要理解slice工作原理的话需要先理解数组。
+数组是一个由固定长度的特定类型元素组成的序列，一个数组可以由零个或多个元素组成。因为数组的长度是固定的，因此在**Go语言中很少直接使用数组**。和数组对应的类型是Slice（切片），它是可以增长和收缩的动态序列，slice功能也更灵活，但是要理解slice工作原理的话需要先理解数组。
 
 数组的每个元素可以通过索引下标来访问，索引下标的范围是从0开始到数组长度减1的位置。内置的len函数将返回数组中元素的个数。
 
@@ -8883,9 +8883,9 @@ func walkDir(dir string, fileSizes chan<- int64) {
 
 // dirents returns the entries of directory dir.
 func dirents(dir string) []os.FileInfo {
-	entr
+	
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTgzMTc3NDI5NSwtMjAwNTIwMjYxOCw0OT
+eyJoaXN0b3J5IjpbMTQ5NzgzNzE2OCwtMjAwNTIwMjYxOCw0OT
 kzMDExNjksMTU0Mjc0NzU0MCwxODc0MDMwMjAxLDQxNzMxMDAy
 NywtMTQ1MTYzNjU3OSw5NzA1NjY3MSw0MDI0NDE2MjksMTI4Nj
 QxNjk2NCwtODY0ODA5NTA2LC03MjY2MjcxMzYsLTkyNDk1OTcy
