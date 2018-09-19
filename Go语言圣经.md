@@ -1281,7 +1281,7 @@ func compute() (value float64, ok bool) {
 // 数学重新学 数学模型?????
 
 
-接下来的程序演示了通过浮点计算生成的图形。它是带有两个参数的z = f(x, y)函数的三维形式，使用了可缩放矢量图形（SVG）格式输出，SVG是一个用于矢量线绘制的XML标准。图3.1显示了sin( r )/r函数的输出图形，其中r是`sqrt(x*x+y*y)`。
+接下来的程序演示了通过浮点计算生成的图形。它是带有两个参数的z = f(x, y)函数的三维形式，使用了可缩放矢量图形（SVG）格式输出，SVG是一个用于矢量线绘制的XML标准。图3.1显示了sin( r r)/r函数的输出图形，其中r是`sqrt(x*x+y*y)`。
 
 SVG abbr. 可伸缩向量图形（Scalable Vector Graphics）
 
@@ -1357,7 +1357,7 @@ func f(x, y float64) float64 {
 第三个坐标系是一个二维的画布，起点(0,0)在左上角。画布中点的坐标用(sx,sy)表示。我们使用等角投影将三维点(x,y,z)投影到二维的画布中。
 
 ![](../images/ch3-02.png)
-![](https://github.com/gopl-zh/gopl-zh.github.com/blob/master/images/ch3-02.png?raw=true)
+![](https://github.com/gopl-zh/gopl-zh.github.com/blob/master/images/ch3-021.png?raw=true)
 画布中从远处到右边的点对应较大的x值和较大的y值。并且画布中x和y值越大，则对应的z值越小。x和y的垂直和水平缩放系数来自30度角的正弦和余弦值。z的缩放系数0.4，是一个任意选择的参数。
 
 对于二维网格中的每一个网格单元，main函数计算单元的四个顶点在画布中对应多边形ABCD的顶点，其中B对应(i,j)顶点位置，A、C和D是其它相邻的顶点，然后输出SVG的绘制指令。
@@ -1465,7 +1465,7 @@ func mandelbrot(z complex128) color.Color {
 用于遍历1024x1024图像每个点的两个嵌套的循环对应-2到+2区间的复数平面。程序反复测试每个点对应复数值平方值加一个增量值对应的点是否超出半径为2的圆。如果超过了，通过根据预设置的逃逸迭代次数对应的灰度颜色来代替。如果不是，那么该点属于Mandelbrot集合，使用黑色颜色标记。最终程序将生成的PNG格式分形图像输出到标准输出，如图3.3所示。
 
 ![](../images/ch3-03.png)
-![](https://github.com/gopl-zh/gopl-zh.github.com/blob/master/images/ch3-03.png?raw=true)
+![](https://github.com/gopl-zh/gopl-zh.github.com/blob/master/images/ch3-031.png?raw=true)
 **练习 3.5：** 实现一个彩色的Mandelbrot图像，使用image.NewRGBA创建图像，使用color.RGBA或color.YCbCr生成颜色。
 
 **练习 3.6：** 升采样技术可以降低每个像素对计算颜色值和平均值的影响。简单的方法是将每个像素分成四个子像素，实现它。
@@ -1617,7 +1617,7 @@ s[0] = 'L' // compile error: cannot assign to s[0]
 ```
 
 ![](../images/ch3-04.png)
-![](https://github.com/gopl-zh/gopl-zh.github.com/blob/master/images/ch3-04.png?raw=true)
+![](https://github.com/gopl-zh/gopl-zh.github.com/blob/master/images/ch3-041.png?raw=true)
 因为Go语言源文件总是用UTF8编码，并且Go语言的文本字符串也以UTF8编码的方式处理，因此我们可以将Unicode码点也写到字符串面值中。
 
 在一个双引号包含的字符串面值中，可以用以反斜杠`\`开头的转义序列插入任意的数据。下面的换行、回车和制表符等是常见的ASCII控制代码的转义方式：
@@ -1751,7 +1751,7 @@ for i := 0; i < len(s); {
 每一次调用DecodeRuneInString函数都返回一个r和长度，r对应字符本身，长度对应r采用UTF8编码后的编码字节数目。长度可以用于更新第i个字符在字符串中的字节索引位置。但是这种编码方式是笨拙的，我们需要更简洁的语法。幸运的是，Go语言的range循环在处理字符串的时候，会自动隐式解码UTF8字符串。下面的循环运行如图3.5所示；**需要注意的是对于非ASCII，索引更新的步长将超过1个字节。**
 
 ![](../images/ch3-05.png)
-![](https://github.com/gopl-zh/gopl-zh.github.com/blob/master/images/ch3-05.png?raw=true)
+![](https://github.com/gopl-zh/gopl-zh.github.com/blob/master/images/ch3-051.png?raw=true)
 ```Go
 for i, r := range "Hello, 世界" {
 	fmt.Printf("%d\t%q\t%d\n", i, r, r)
@@ -2228,7 +2228,8 @@ c := 0i     // untyped complex;        implicit complex128(0i)隐式
 ```
 
 **注意有一点不同：无类型整数常量转换为int，它的内存大小是不确定的，但是无类型浮点数和复数常量则转换为内存大小明确的float64和complex128。**
-**如果不知道浮点数类型的内存大小是很难写出正确的数值算法的，因此Go语言不存在整型类似的不确定内存大小的浮点数和复数类型。**
+**
+如果不知道浮点数类型的内存大小是很难写出正确的数值算法的，因此Go语言不存在整型类似的不确定内存大小的浮点数和复数类型。**
 
 
 **如果要给变量一个不同的类型，我们必须显式地将无类型的常量转化为所需的类型，或给声明的变量指定明确的类型，像下面例子这样：**
@@ -2402,7 +2403,7 @@ months := [...]string{1: "January", /* ... */, 12: "December"}
 slice的切片操作s[i:j]，其中0 ≤ i≤ j≤ cap(s)，用于创建一个新的slice，引用s的从第i个元素开始到第j-1个元素的子序列。新的slice将只有j-i个元素。如果i位置的索引被省略的话将使用0代替，如果j位置的索引被省略的话将使用len(s)代替。因此，months[1:13]切片操作将引用全部有效的月份，和months[1:]操作等价；months[:]切片操作则是引用整个数组。让我们分别定义表示第二季度和北方夏天月份的slice，它们有重叠部分：
 
 ![](../images/ch4-01.png)
-![](https://github.com/gopl-zh/gopl-zh.github.com/blob/master/images/ch4-01.png?raw=true)
+![](https://github.com/gopl-zh/gopl-zh.github.com/blob/master/images/ch43-01.png?raw=true)
 ```Go
 Q2 := months[4:7]
 summer := months[6:9]
@@ -2594,11 +2595,11 @@ func main() {
 让我们仔细查看i=3次的迭代。当时x包含了[0 1 2]三个元素，但是容量是4，因此可以简单将新的元素添加到末尾，不需要新的内存分配。然后新的y的长度和容量都是4，并且和x引用着相同的底层数组，如图4.2所示。
 
 ![](../images/ch4-02.png)
-![](https://github.com/gopl-zh/gopl-zh.github.com/blob/master/images/ch4-02.png?raw=true)
+![](https://github.com/gopl-zh/gopl-zh.github.com/blob/master/images/ch43-021.png?raw=true)
 在下一次迭代时i=4，现在没有新的空余的空间了，因此appendInt函数分配一个容量为8的底层数组，将x的4个元素[0 1 2 3]复制到新空间的开头，然后添加新的元素i，新元素的值是4。新的y的长度是5，容量是8；后面有3个空闲的位置，三次迭代都不需要分配新的空间。当前迭代中，y和x是对应不同底层数组的view。这次操作如图4.3所示。
 
 ![](../images/ch4-03.png)
-![](https://github.com/gopl-zh/gopl-zh.github.com/blob/master/images/ch4-03.png?raw=true)
+![](https://github.com/gopl-zh/gopl-zh.github.com/blob/master/images/ch43-031.png?raw=true)
 内置的append函数可能使用比appendInt更复杂的内存扩展策略。因此，通常我们并不知道append调用是否导致了内存的重新分配，因此我们也不能确认新的slice和原始的slice是否引用的是相同的底层数组空间。同样，我们不能确认在原先的slice上的操作是否会影响到新的slice。因此，通常是将append返回的结果直接赋值给输入的slice变量：
 
 ```Go
@@ -3005,7 +3006,7 @@ charcount程序同时打印不同UTF-8编码长度的字符数目。对此，map
 作为一个实验，我们用charcount程序对英文版原稿的字符进行了统计。虽然大部分是英语，但是也有一些非ASCII字符。下面是排名前10的非ASCII字符：
 
 ![](../images/ch4-xx-01.png)
-![](https://github.com/gopl-zh/gopl-zh.github.com/blob/master/images/ch4-xx-01.png?raw=true)
+![](https://github.com/gopl-zh/gopl-zh.github.com/blob/master/images/ch4-xx3-01.png?raw=true)
 下面是不同UTF-8编码长度的字符的数目：
 
 ```
@@ -3809,7 +3810,7 @@ $ ./issueshtml repo:golang/go commenter:gopherbot json encoder >issues.html
 图4.4显示了在web浏览器中的效果图。每个issue包含到Github对应页面的链接。
 
 ![](../images/ch4-04.png)
-![](https://github.com/gopl-zh/gopl-zh.github.com/blob/master/images/ch4-04.png?raw=true)
+![](https://github.com/gopl-zh/gopl-zh.github.com/blob/master/images/ch43-041.png?raw=true)
 图4.4中issue没有包含会对HTML格式产生冲突的特殊字符，但是我们马上将看到标题中含有`&`和`<`字符的issue。下面的命令选择了两个这样的issue：
 
 ```
@@ -3821,7 +3822,7 @@ $ ./issueshtml repo:golang/go 3133 10535 >issues2.html
 我们也可以通过对信任的HTML字符串使用template.HTML类型来抑制这种自动转义的行为。还有很多采用类型命名的字符串类型分别对应信任的JavaScript、CSS和URL。下面的程序演示了两个使用不同类型的相同字符串产生的不同结果：A是一个普通字符串，B是一个信任的template.HTML字符串类型。
 
 ![](../images/ch4-05.png)
-![](https://github.com/gopl-zh/gopl-zh.github.com/blob/master/images/ch4-05.png?raw=true)
+![](https://github.com/gopl-zh/gopl-zh.github.com/blob/master/images/ch43-051.png?raw=true)
 {% raw %}
 
 <u><i>gopl.io/ch4/autoescape</i></u>
@@ -3846,7 +3847,7 @@ func main() {
 图4.6显示了出现在浏览器中的模板输出。我们看到A的黑体标记被转义失效了，但是B没有。
 
 ![](../images/ch4-06.png)
-![](https://github.com/gopl-zh/gopl-zh.github.com/blob/master/images/ch4-06.png?raw=true)
+![](https://github.com/gopl-zh/gopl-zh.github.com/blob/master/images/ch43-061.png?raw=true)
 我们这里只讲述了模板系统中最基本的特性。一如既往，如果想了解更多的信息，请自己查看包文档：
 
 ```
@@ -6325,7 +6326,7 @@ var w io.Writer
 在Go语言中，变量总是被一个定义明确的值初始化，即使接口类型也不例外。对于一个接口的零值就是它的类型和值的部分都是nil（图7.1）。
 
 ![](../images/ch7-01.png)
-![](https://github.com/gopl-zh/gopl-zh.github.com/blob/master/images/ch7-01.png?raw=true)
+![](https://github.com/gopl-zh/gopl-zh.github.com/blob/master/images/ch73-01.png?raw=true)
 一个接口值基于它的动态类型被描述为空或非空，所以这是一个空的接口值。你可以通过使用w==nil或者w!=nil来判断接口值是否为空。调用一个空接口值上的任意方法都会产生panic:
 
 ```go
@@ -6341,7 +6342,7 @@ w = os.Stdout
 这个赋值过程调用了一个具体类型到接口类型的隐式转换，这和显式的使用io.Writer(os.Stdout)是等价的。这类转换不管是显式的还是隐式的，都会刻画出操作到的类型和值。这个接口值的动态类型被设为`*os.File`指针的类型描述符，它的动态值持有os.Stdout的拷贝；这是一个代表处理标准输出的os.File类型变量的指针（图7.2）。
 
 ![](../images/ch7-02.png)
-![](https://github.com/gopl-zh/gopl-zh.github.com/blob/master/images/ch7-02.png?raw=true)
+![](https://github.com/gopl-zh/gopl-zh.github.com/blob/master/images/ch73-021.png?raw=true)
 调用一个包含`*os.File`类型指针的接口值的Write方法，使得`(*os.File).Write`方法被调用。这个调用输出“hello”。
 
 ```go
@@ -6363,7 +6364,7 @@ w = new(bytes.Buffer)
 现在动态类型是*bytes.Buffer并且动态值是一个指向新分配的缓冲区的指针（图7.3）。
 
 ![](../images/ch7-03.png)
-![](https://github.com/gopl-zh/gopl-zh.github.com/blob/master/images/ch7-03.png?raw=true)
+![](https://github.com/gopl-zh/gopl-zh.github.com/blob/master/images/ch73-031.png?raw=true)
 Write方法的调用也使用了和之前一样的机制：
 
 ```go
@@ -6389,7 +6390,7 @@ var x interface{} = time.Now()
 结果可能和图7.4相似。从概念上讲，不论接口值多大，动态值总是可以容下它。（这只是一个概念上的模型；具体的实现可能会非常不同）
 
 ![](../images/ch7-04.png)
-![](https://github.com/gopl-zh/gopl-zh.github.com/blob/master/images/ch7-04.png?raw=true)
+![](https://github.com/gopl-zh/gopl-zh.github.com/blob/master/images/ch73-041.png?raw=true)
 接口值可以使用==和!＝来进行比较。两个接口值相等仅当它们都是nil值，或者它们的动态类型相同并且动态值也根据这个动态类型的==操作相等。因为接口值是可比较的，所以它们可以用在map的键或者作为switch语句的操作数。
 
 然而，如果两个接口值的动态类型相同，但是这个动态类型是不可比较的（比如切片），将它们进行比较就会失败并且panic:
@@ -6455,7 +6456,7 @@ if out != nil {
 当main函数调用函数f时，它给f函数的out参数赋了一个\*bytes.Buffer的空指针，所以out的动态值是nil。然而，它的动态类型是\*bytes.Buffer，意思就是out变量是一个包含空指针值的非空接口（如图7.5），所以防御性检查out!=nil的结果依然是true。
 
 ![](../images/ch7-05.png)
-![](https://github.com/gopl-zh/gopl-zh.github.com/blob/master/images/ch7-05.png?raw=true)
+![](https://github.com/gopl-zh/gopl-zh.github.com/blob/master/images/ch73-051.png?raw=true)
 动态分配机制依然决定(\*bytes.Buffer).Write的方法会被调用，但是这次的接收者的值是nil。对于一些如\*os.File的类型，nil是一个有效的接收者（§6.2.1），但是\*bytes.Buffer类型不在这些种类中。这个方法会被调用，但是当它尝试去获取缓冲区时会发生panic。
 
 问题在于尽管一个nil的\*bytes.Buffer指针有实现这个接口的方法，它也不满足这个接口具体的行为上的要求。特别是这个调用违反了(\*bytes.Buffer).Write方法的接收者非空的隐含先觉条件，所以将nil指针赋给这个接口是错误的。解决方案就是将main函数中的变量buf的类型改为io.Writer，因此可以避免一开始就将一个不完整的值赋值给这个接口：
@@ -6962,7 +6963,7 @@ fmt.Println(err)         // "no such file or directory"
 err的值图形化的呈现在图7.6中。
 
 ![](../images/ch7-06.png)
-![](https://github.com/gopl-zh/gopl-zh.github.com/blob/master/images/ch7-06.png?raw=true)
+![](https://github.com/gopl-zh/gopl-zh.github.com/blob/master/images/ch73-061.png?raw=true)
 Errno是一个系统调用错误的高效表示方式，它通过一个有限的集合进行描述，并且它满足标准的错误接口。我们会在第7.11节了解到其它满足这个接口的类型。
 ## 7.9. 示例: 表达式求值
 
@@ -7264,7 +7265,7 @@ func plot(w http.ResponseWriter, r *http.Request) {
 ```
 
 ![](../images/ch7-07.png)
-![](https://github.com/gopl-zh/gopl-zh.github.com/blob/master/images/ch7-07.png?raw=true)
+![](https://github.com/gopl-zh/gopl-zh.github.com/blob/master/images/ch73-071.png?raw=true)
 这个plot函数解析和检查在HTTP请求中指定的表达式并且用它来创建一个两个变量的匿名函数。这个匿名函数和来自原来surface-plotting程序中的固定函数f有相同的签名，但是它计算一个用户提供的表达式。环境变量中定义了x，y和半径r。最后plot调用surface函数，它就是gopl.io/ch3/surface中的主要函数，修改后它可以接受plot中的函数和输出io.Writer作为参数，而不是使用固定的函数f和os.Stdout。图7.7中显示了通过程序产生的3个曲面。
 
 **练习 7.13：** 为Expr增加一个String方法来打印美观的语法树。当再一次解析的时候，检查它的结果是否生成相同的语法树。
@@ -8145,7 +8146,7 @@ func main() {
 Channels也可以用于将多个goroutine连接在一起，一个Channel的输出作为下一个Channel的输入。这种串联的Channels就是所谓的管道（pipeline）。下面的程序用两个channels将三个goroutine串联起来，如图8.1所示。
 
 ![](../images/ch8-01.png)
-![](https://github.com/gopl-zh/gopl-zh.github.com/blob/master/images/ch8-01.png?raw=true)
+![](https://github.com/gopl-zh/gopl-zh.github.com/blob/master/images/ch83-01.png?raw=true)
 第一个goroutine是一个计数器，用于生成0、1、2、……形式的整数序列，然后通过channel将该整数序列发送给第二个goroutine；第二个goroutine是一个求平方的程序，对收到的每个整数求平方，然后将平方后的结果通过第二个channel发送给第三个goroutine；第三个goroutine是一个打印程序，打印收到的每个整数。为了保持例子清晰，我们有意选择了非常简单的函数，当然三个goroutine的计算很简单，在现实中确实没有必要为如此简单的运算构建三个goroutine。
 
 <u><i>gopl.io/ch8/pipeline1</i></u>
@@ -8303,7 +8304,7 @@ ch = make(chan string, 3)
 ```
 
 ![](../images/ch8-02.png)
-![](https://github.com/gopl-zh/gopl-zh.github.com/blob/master/images/ch8-02.png?raw=true)
+![](https://github.com/gopl-zh/gopl-zh.github.com/blob/master/images/ch83-021.png?raw=true)
 向缓存Channel的发送操作就是向内部缓存队列的尾部插入元素，接收操作则是从队列的头部删除元素。如果内部缓存队列是满的，那么发送操作将阻塞直到因另一个goroutine执行接收操作而释放了新的队列空间。相反，如果channel是空的，接收操作将阻塞直到有另一个goroutine执行发送操作而向队列插入元素。
 
 我们可以在无阻塞的情况下连续向新创建的channel发送三个值：
@@ -8317,7 +8318,7 @@ ch <- "C"
 此刻，channel的内部缓存队列将是满的（图8.3），如果有第四个发送操作将发生阻塞。
 
 ![](../images/ch8-03.png)
-![](https://github.com/gopl-zh/gopl-zh.github.com/blob/master/images/ch8-03.png?raw=true)
+![](https://github.com/gopl-zh/gopl-zh.github.com/blob/master/images/ch83-031.png?raw=true)
 如果我们接收一个值，
 
 ```Go
@@ -8327,7 +8328,7 @@ fmt.Println(<-ch) // "A"
 那么channel的缓存队列将不是满的也不是空的（图8.4），因此对该channel执行的发送或接收操作都不会发生阻塞。通过这种方式，channel的缓存队列解耦了接收和发送的goroutine。
 
 ![](../images/ch8-04.png)
-![](https://github.com/gopl-zh/gopl-zh.github.com/blob/master/images/ch8-04.png?raw=true)
+![](https://github.com/gopl-zh/gopl-zh.github.com/blob/master/images/ch83-041.png?raw=true)
 在某些特殊情况下，程序可能需要知道channel内部缓存的容量，可以用内置的cap函数获取：
 
 ```Go
@@ -8561,7 +8562,7 @@ sizes channel携带了每一个文件的大小到main goroutine，在main gorout
 图8.5 表明了makethumbnails6函数中事件的序列。纵列表示goroutine。窄线段代表sleep，粗线段代表活动。斜线箭头代表用来同步两个goroutine的事件。时间向下流动。注意main goroutine是如何大部分的时间被唤醒执行其range循环，等待worker发送值或者closer来关闭channel的。
 
 ![](../images/ch8-05.png)
-![](https://github.com/gopl-zh/gopl-zh.github.com/blob/master/images/ch8-05.png?raw=true)
+![](https://github.com/gopl-zh/gopl-zh.github.com/blob/master/images/ch83-051.png?raw=true)
 **练习 8.4：** 修改reverb2服务器，在每一个连接中使用sync.WaitGroup来计数活跃的echo goroutine。当计数减为零时，关闭TCP连接的写入，像练习8.3中一样。验证一下你的修改版netcat3客户端会一直等待所有的并发“喊叫”完成，即使是在标准输入流已经关闭的情况下。
 
 **练习 8.5：** 使用一个已有的CPU绑定的顺序程序，比如在3.3节中我们写的Mandelbrot程序或者3.2节中的3-D surface计算程序，并将他们的主循环改为并发形式，使用channel来进行通信。在多核计算机上这个程序得到了多少速度上的改进？使用多少个goroutine是最合适的呢？
@@ -8881,14 +8882,13 @@ func walkDir(dir string, fileSizes chan<- int64) {
 	}
 }
 
-// dirents returns the entries of directory dir.
-fu
+// dirents 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTExMTgyOTQ2MTAsMTA4NzAxMjYxMSwtND
-U1NTQ5NzE5LDEyMzY3ODU1MTYsMTQ5NzgzNzE2OCwtMjAwNTIw
-MjYxOCw0OTkzMDExNjksMTU0Mjc0NzU0MCwxODc0MDMwMjAxLD
-QxNzMxMDAyNywtMTQ1MTYzNjU3OSw5NzA1NjY3MSw0MDI0NDE2
-MjksMTI4NjQxNjk2NCwtODY0ODA5NTA2LC03MjY2MjcxMzYsLT
-kyNDk1OTcyMSwyNzk2ODY1NDQsLTQ1MDg0NjE1NiwxNDI5Njg5
-Mzk5XX0=
+eyJoaXN0b3J5IjpbMTc2NDg4NTQzMCwtMTExODI5NDYxMCwxMD
+g3MDEyNjExLC00NTU1NDk3MTksMTIzNjc4NTUxNiwxNDk3ODM3
+MTY4LC0yMDA1MjAyNjE4LDQ5OTMwMTE2OSwxNTQyNzQ3NTQwLD
+E4NzQwMzAyMDEsNDE3MzEwMDI3LC0xNDUxNjM2NTc5LDk3MDU2
+NjcxLDQwMjQ0MTYyOSwxMjg2NDE2OTY0LC04NjQ4MDk1MDYsLT
+cyNjYyNzEzNiwtOTI0OTU5NzIxLDI3OTY4NjU0NCwtNDUwODQ2
+MTU2XX0=
 -->
