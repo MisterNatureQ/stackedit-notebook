@@ -2378,7 +2378,7 @@ func zero(ptr *[32]byte) {
 }
 ```
 
-虽然通过指针来传递数组参数是高效的，而且也允许在函数内部修改数组的值，但是数组依然是僵化的类型，因为数组的类型包含了僵化的长度信息。上面的zero函数并不能接收指向[16]byte类型数组的指针，而且也没有任何添加或删除数组元素的方法。由于这些原因，除了像SHA256这类需要处理特定大小数组的特例外，数组依然很少用作函数参数；相反，我们一般使用slice来替代数组。
+虽然通过指针来传递数组参数是高效的，而且也允许在函数内部修改数组的值，但是**数组依然是僵化的类型**，因为数组的类型包含了僵化的长度信息。上面的zero函数并不能接收指向[16]byte类型数组的指针，而且也没有任何添加或删除数组元素的方法。由于这些原因，除了像SHA256这类需要处理特定大小数组的特例外，**数组依然很少用作函数参数；相反，我们一般使用slice来替代数组。**
 
 **练习 4.1：** 编写一个函数，计算两个SHA256哈希码中不同bit的数目。（参考2.6.2节的PopCount函数。)
 
@@ -8882,13 +8882,13 @@ func walkDir(dir string, fileSizes chan<- int64) {
 }
 
 // dirents returns the entries of directory dir.
-func dirents(dir strin
+func dirents(d
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTQ1NTU0OTcxOSwxMjM2Nzg1NTE2LDE0OT
-c4MzcxNjgsLTIwMDUyMDI2MTgsNDk5MzAxMTY5LDE1NDI3NDc1
-NDAsMTg3NDAzMDIwMSw0MTczMTAwMjcsLTE0NTE2MzY1NzksOT
-cwNTY2NzEsNDAyNDQxNjI5LDEyODY0MTY5NjQsLTg2NDgwOTUw
-NiwtNzI2NjI3MTM2LC05MjQ5NTk3MjEsMjc5Njg2NTQ0LC00NT
-A4NDYxNTYsMTQyOTY4OTM5OSw1ODM1OTgyNSwtNTE5MTExMzAz
+eyJoaXN0b3J5IjpbLTQzMTE0OTI3MiwtNDU1NTQ5NzE5LDEyMz
+Y3ODU1MTYsMTQ5NzgzNzE2OCwtMjAwNTIwMjYxOCw0OTkzMDEx
+NjksMTU0Mjc0NzU0MCwxODc0MDMwMjAxLDQxNzMxMDAyNywtMT
+Q1MTYzNjU3OSw5NzA1NjY3MSw0MDI0NDE2MjksMTI4NjQxNjk2
+NCwtODY0ODA5NTA2LC03MjY2MjcxMzYsLTkyNDk1OTcyMSwyNz
+k2ODY1NDQsLTQ1MDg0NjE1NiwxNDI5Njg5Mzk5LDU4MzU5ODI1
 XX0=
 -->
