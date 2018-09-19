@@ -2410,7 +2410,7 @@ fmt.Println(Q2)     // ["April" "May" "June"]
 fmt.Println(summer) // ["June" "July" "August"]
 ```
 
-两个slice都包含了六月份，下面的代码是一个包含相同月份的测试（性能较低）：
+两个slice都包含了六月份，下面的代码是一个包含相同月份的测试（**性能较低**）：
 
 ```Go
 for _, s := range summer {
@@ -2422,7 +2422,7 @@ for _, s := range summer {
 }
 ```
 
-如果切片操作超出cap(s)的上限将导致一个panic异常，但是超出len(s)则是意味着扩展了slice，因为新slice的长度会变大：
+**如果切片操作超出cap(s)的上限将导致一个panic异常，但是超出len(s)则是意味着扩展了slice，因为新slice的长度会变大：**
 
 ```Go
 fmt.Println(summer[:20]) // panic: out of range
@@ -8882,13 +8882,13 @@ func walkDir(dir string, fileSizes chan<- int64) {
 }
 
 // dirents returns the entries of directory dir.
-func diren
+fu
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTA4NzAxMjYxMSwtNDU1NTQ5NzE5LDEyMz
-Y3ODU1MTYsMTQ5NzgzNzE2OCwtMjAwNTIwMjYxOCw0OTkzMDEx
-NjksMTU0Mjc0NzU0MCwxODc0MDMwMjAxLDQxNzMxMDAyNywtMT
-Q1MTYzNjU3OSw5NzA1NjY3MSw0MDI0NDE2MjksMTI4NjQxNjk2
-NCwtODY0ODA5NTA2LC03MjY2MjcxMzYsLTkyNDk1OTcyMSwyNz
-k2ODY1NDQsLTQ1MDg0NjE1NiwxNDI5Njg5Mzk5LDU4MzU5ODI1
-XX0=
+eyJoaXN0b3J5IjpbLTExMTgyOTQ2MTAsMTA4NzAxMjYxMSwtND
+U1NTQ5NzE5LDEyMzY3ODU1MTYsMTQ5NzgzNzE2OCwtMjAwNTIw
+MjYxOCw0OTkzMDExNjksMTU0Mjc0NzU0MCwxODc0MDMwMjAxLD
+QxNzMxMDAyNywtMTQ1MTYzNjU3OSw5NzA1NjY3MSw0MDI0NDE2
+MjksMTI4NjQxNjk2NCwtODY0ODA5NTA2LC03MjY2MjcxMzYsLT
+kyNDk1OTcyMSwyNzk2ODY1NDQsLTQ1MDg0NjE1NiwxNDI5Njg5
+Mzk5XX0=
 -->
