@@ -1980,7 +1980,7 @@ FormatInt和FormatUint函数可以用不同的进制来格式化数字：
 fmt.Println(strconv.FormatInt(int64(x), 2)) // "1111011"
 ```
 
-fmt.Printf函数的%b、%d、%o和%x等参数提供功能往往比strconv包的Format函数方便很多，特别是在需要包含有附加额外信息的时候：
+**fmt.Printf函数的%b、%d、%o和%x等参数提供功能往往比strconv包的Format函数方便很多，特别是在需要包含有附加额外信息的时候：**
 
 ```Go
 s := fmt.Sprintf("x=%b", x) // "x=1111011"
@@ -8885,13 +8885,13 @@ func walkDir(dir string, fileSizes chan<- int64) {
 func dirents(dir string) []os.FileInfo {
 	entries, err := ioutil.ReadDir(dir)
 	if err != nil {
-		fmt.Fprintf(os.Stderr
+		fmt.Fprintf(os.Std
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE0NDQwOTk5MTQsNDE3MzEwMDI3LC0xND
-UxNjM2NTc5LDk3MDU2NjcxLDQwMjQ0MTYyOSwxMjg2NDE2OTY0
-LC04NjQ4MDk1MDYsLTcyNjYyNzEzNiwtOTI0OTU5NzIxLDI3OT
-Y4NjU0NCwtNDUwODQ2MTU2LDE0Mjk2ODkzOTksNTgzNTk4MjUs
-LTUxOTExMTMwMywtMTI4NTMyOTM0OCwyMDc4OTM0NTksLTk4MT
-IxMTA1Miw2ODcxMTA5ODQsLTIxMDY5NTQzOTIsLTE2MDA5NjI0
-NjhdfQ==
+eyJoaXN0b3J5IjpbMTg3NDAzMDIwMSw0MTczMTAwMjcsLTE0NT
+E2MzY1NzksOTcwNTY2NzEsNDAyNDQxNjI5LDEyODY0MTY5NjQs
+LTg2NDgwOTUwNiwtNzI2NjI3MTM2LC05MjQ5NTk3MjEsMjc5Nj
+g2NTQ0LC00NTA4NDYxNTYsMTQyOTY4OTM5OSw1ODM1OTgyNSwt
+NTE5MTExMzAzLC0xMjg1MzI5MzQ4LDIwNzg5MzQ1OSwtOTgxMj
+ExMDUyLDY4NzExMDk4NCwtMjEwNjk1NDM5MiwtMTYwMDk2MjQ2
+OF19
 -->
