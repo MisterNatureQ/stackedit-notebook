@@ -2227,11 +2227,11 @@ f := 0.0    // untyped floating-point; implicit float64(0.0)隐式
 c := 0i     // untyped complex;        implicit complex128(0i)隐式
 ```
 
-注意有一点不同：无类型整数常量转换为int，它的内存大小是不确定的，但是无类型浮点数和复数常量则转换为内存大小明确的float64和complex128。
+**注意有一点不同：无类型整数常量转换为int，它的内存大小是不确定的，但是无类型浮点数和复数常量则转换为内存大小明确的float64和complex128。**
 **如果不知道浮点数类型的内存大小是很难写出正确的数值算法的，因此Go语言不存在整型类似的不确定内存大小的浮点数和复数类型。**
 
 
-如果要给变量一个不同的类型，我们必须显式地将无类型的常量转化为所需的类型，或给声明的变量指定明确的类型，像下面例子这样：
+**如果要给变量一个不同的类型，我们必须显式地将无类型的常量转化为所需的类型，或给声明的变量指定明确的类型，像下面例子这样：**
 
 ```Go
 var i = int8(0)
@@ -8883,13 +8883,13 @@ func walkDir(dir string, fileSizes chan<- int64) {
 
 // dirents returns the entries of directory dir.
 func dirents(dir string) []os.FileInfo {
-	entries, err := iout
+	entries, err
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE4Nzc5MzI1OTUsLTIwMDUyMDI2MTgsND
-k5MzAxMTY5LDE1NDI3NDc1NDAsMTg3NDAzMDIwMSw0MTczMTAw
-MjcsLTE0NTE2MzY1NzksOTcwNTY2NzEsNDAyNDQxNjI5LDEyOD
-Y0MTY5NjQsLTg2NDgwOTUwNiwtNzI2NjI3MTM2LC05MjQ5NTk3
-MjEsMjc5Njg2NTQ0LC00NTA4NDYxNTYsMTQyOTY4OTM5OSw1OD
-M1OTgyNSwtNTE5MTExMzAzLC0xMjg1MzI5MzQ4LDIwNzg5MzQ1
-OV19
+eyJoaXN0b3J5IjpbMTM0NjA1Njk0MywtMjAwNTIwMjYxOCw0OT
+kzMDExNjksMTU0Mjc0NzU0MCwxODc0MDMwMjAxLDQxNzMxMDAy
+NywtMTQ1MTYzNjU3OSw5NzA1NjY3MSw0MDI0NDE2MjksMTI4Nj
+QxNjk2NCwtODY0ODA5NTA2LC03MjY2MjcxMzYsLTkyNDk1OTcy
+MSwyNzk2ODY1NDQsLTQ1MDg0NjE1NiwxNDI5Njg5Mzk5LDU4Mz
+U5ODI1LC01MTkxMTEzMDMsLTEyODUzMjkzNDgsMjA3ODkzNDU5
+XX0=
 -->
