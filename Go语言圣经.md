@@ -1376,6 +1376,8 @@ w.Header().Set("Content-Type", "image/svg+xml")
 
 （这一步在Lissajous例子中不是必须的，因为服务器使用标准的PNG图像格式，可以根据前面的512个字节自动输出对应的头部。）允许客户端通过HTTP请求参数设置高度、宽度和颜色等参数。
 
+[# 虚数和复数更好的理解](https://blog.csdn.net/akmumu/article/details/8053071)
+[# 复数的认识与理解](https://blog.csdn.net/lanchunhui/article/details/53163567)
 
 ## 3.3. 复数
 
@@ -8886,15 +8888,11 @@ func dirents(dir string) []os.FileInfo {
 		fmt.Fprintf(os.Stderr, "du1: %v\n", err)
 		return nil
 	}
-	return entries
-}
-```
-
-ioutil.ReadDir函数会返回一个os.FileInfo类型的slice，os.FileInfo类型也是os.Stat这个函数的返回值。对每一个子目录而言，walkDir会递归地调用其自身，同时也在递归里获取每一个文件的信息。walkDir
+	return en
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTkyNDk1OTcyMSwyNzk2ODY1NDQsLTQ1MD
-g0NjE1NiwxNDI5Njg5Mzk5LDU4MzU5ODI1LC01MTkxMTEzMDMs
-LTEyODUzMjkzNDgsMjA3ODkzNDU5LC05ODEyMTEwNTIsNjg3MT
-EwOTg0LC0yMTA2OTU0MzkyLC0xNjAwOTYyNDY4LDE1MzQzOTk5
-NjgsLTE1OTg4NjYyMzRdfQ==
+eyJoaXN0b3J5IjpbLTcyNjYyNzEzNiwtOTI0OTU5NzIxLDI3OT
+Y4NjU0NCwtNDUwODQ2MTU2LDE0Mjk2ODkzOTksNTgzNTk4MjUs
+LTUxOTExMTMwMywtMTI4NTMyOTM0OCwyMDc4OTM0NTksLTk4MT
+IxMTA1Miw2ODcxMTA5ODQsLTIxMDY5NTQzOTIsLTE2MDA5NjI0
+NjgsMTUzNDM5OTk2OCwtMTU5ODg2NjIzNF19
 -->
