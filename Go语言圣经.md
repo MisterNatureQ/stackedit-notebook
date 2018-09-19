@@ -2022,7 +2022,7 @@ const (
 )
 ```
 
-所有常量的运算都可以在编译期完成，这样可以减少运行时的工作，也方便其他编译优化。当操作数是常量时，一些运行时的错误也可以在编译时被发现，例如整数除零、字符串索引越界、任何导致无效浮点数的操作等。
+所有常量的运算都可以在编译期完成，这样可以减少运行时的工作，也方便其他编译优化。**当操作数是常量时，一些运行时的错误也可以在编译时被发现，例如整数除零、字符串索引越界、任何导致无效浮点数的操作等。**
 
 常量间的所有算术运算、逻辑运算和比较运算的结果也是常量，对常量的类型转换操作或以下函数调用都是返回常量结果：len、cap、real、imag、complex和unsafe.Sizeof（§13.1）。
 
@@ -8885,13 +8885,13 @@ func walkDir(dir string, fileSizes chan<- int64) {
 func dirents(dir string) []os.FileInfo {
 	entries, err := ioutil.ReadDir(dir)
 	if err != nil {
-		fmt.Fprintf(os.Std
+		fmt.Fprintf(os
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTg3NDAzMDIwMSw0MTczMTAwMjcsLTE0NT
-E2MzY1NzksOTcwNTY2NzEsNDAyNDQxNjI5LDEyODY0MTY5NjQs
-LTg2NDgwOTUwNiwtNzI2NjI3MTM2LC05MjQ5NTk3MjEsMjc5Nj
-g2NTQ0LC00NTA4NDYxNTYsMTQyOTY4OTM5OSw1ODM1OTgyNSwt
-NTE5MTExMzAzLC0xMjg1MzI5MzQ4LDIwNzg5MzQ1OSwtOTgxMj
-ExMDUyLDY4NzExMDk4NCwtMjEwNjk1NDM5MiwtMTYwMDk2MjQ2
-OF19
+eyJoaXN0b3J5IjpbLTEwMDYxMzE0MTAsMTg3NDAzMDIwMSw0MT
+czMTAwMjcsLTE0NTE2MzY1NzksOTcwNTY2NzEsNDAyNDQxNjI5
+LDEyODY0MTY5NjQsLTg2NDgwOTUwNiwtNzI2NjI3MTM2LC05Mj
+Q5NTk3MjEsMjc5Njg2NTQ0LC00NTA4NDYxNTYsMTQyOTY4OTM5
+OSw1ODM1OTgyNSwtNTE5MTExMzAzLC0xMjg1MzI5MzQ4LDIwNz
+g5MzQ1OSwtOTgxMjExMDUyLDY4NzExMDk4NCwtMjEwNjk1NDM5
+Ml19
 -->
