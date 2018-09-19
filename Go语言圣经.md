@@ -2288,7 +2288,7 @@ var r [3]int = [3]int{1, 2}
 fmt.Println(r[2]) // "0"
 ```
 
-在数组字面值中，如果在数组的长度位置出现的是“...”省略号，则表示数组的长度是根据初始化值的个数来计算。因此，上面q数组的定义可以简化为
+在数组字面值中，**如果在数组的长度位置出现的是“...”省略号，则表示数组的长度是根据初始化值的个数来计算。**因此，上面q数组的定义可以简化为
 
 ```Go
 q := [...]int{1, 2, 3}
@@ -8882,14 +8882,13 @@ func walkDir(dir string, fileSizes chan<- int64) {
 }
 
 // dirents returns the entries of directory dir.
-func dirents(dir string) []os.FileInfo {
-	
+func dirents(dir string) []os.FileInfo
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTQ5NzgzNzE2OCwtMjAwNTIwMjYxOCw0OT
-kzMDExNjksMTU0Mjc0NzU0MCwxODc0MDMwMjAxLDQxNzMxMDAy
-NywtMTQ1MTYzNjU3OSw5NzA1NjY3MSw0MDI0NDE2MjksMTI4Nj
-QxNjk2NCwtODY0ODA5NTA2LC03MjY2MjcxMzYsLTkyNDk1OTcy
-MSwyNzk2ODY1NDQsLTQ1MDg0NjE1NiwxNDI5Njg5Mzk5LDU4Mz
-U5ODI1LC01MTkxMTEzMDMsLTEyODUzMjkzNDgsMjA3ODkzNDU5
-XX0=
+eyJoaXN0b3J5IjpbLTEwNzk0MTc4MzUsMTQ5NzgzNzE2OCwtMj
+AwNTIwMjYxOCw0OTkzMDExNjksMTU0Mjc0NzU0MCwxODc0MDMw
+MjAxLDQxNzMxMDAyNywtMTQ1MTYzNjU3OSw5NzA1NjY3MSw0MD
+I0NDE2MjksMTI4NjQxNjk2NCwtODY0ODA5NTA2LC03MjY2Mjcx
+MzYsLTkyNDk1OTcyMSwyNzk2ODY1NDQsLTQ1MDg0NjE1NiwxND
+I5Njg5Mzk5LDU4MzU5ODI1LC01MTkxMTEzMDMsLTEyODUzMjkz
+NDhdfQ==
 -->
