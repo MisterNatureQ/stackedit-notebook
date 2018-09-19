@@ -2221,14 +2221,14 @@ const (
 对于一个没有显式类型的变量声明（包括简短变量声明），常量的形式将隐式决定变量的默认类型，就像下面的例子：
 
 ```Go
-i := 0      // untyped integer;        implicit int(0)
-r := '\000' // untyped rune;           implicit rune('\000')
-f := 0.0    // untyped floating-point; implicit float64(0.0)
-c := 0i     // untyped complex;        implicit complex128(0i)
+i := 0      // untyped integer;        implicit int(0) 隐式
+r := '\000' // untyped rune;           implicit rune('\000')隐式
+f := 0.0    // untyped floating-point; implicit float64(0.0)隐式
+c := 0i     // untyped complex;        implicit complex128(0i)隐式
 ```
 
 注意有一点不同：无类型整数常量转换为int，它的内存大小是不确定的，但是无类型浮点数和复数常量则转换为内存大小明确的float64和complex128。
-如果不知道浮点数类型的内存大小是很难写出正确的数值算法的，因此Go语言不存在整型类似的不确定内存大小的浮点数和复数类型。
+**如果不知道浮点数类型的内存大小是很难写出正确的数值算法的，因此Go语言不存在整型类似的不确定内存大小的浮点数和复数类型。**
 
 
 如果要给变量一个不同的类型，我们必须显式地将无类型的常量转化为所需的类型，或给声明的变量指定明确的类型，像下面例子这样：
@@ -8883,13 +8883,13 @@ func walkDir(dir string, fileSizes chan<- int64) {
 
 // dirents returns the entries of directory dir.
 func dirents(dir string) []os.FileInfo {
-	entries, err := ioutil.ReadDir(di
+	entries, err := iout
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTc5NDM2OTI0LC0yMDA1MjAyNjE4LDQ5OT
-MwMTE2OSwxNTQyNzQ3NTQwLDE4NzQwMzAyMDEsNDE3MzEwMDI3
-LC0xNDUxNjM2NTc5LDk3MDU2NjcxLDQwMjQ0MTYyOSwxMjg2ND
-E2OTY0LC04NjQ4MDk1MDYsLTcyNjYyNzEzNiwtOTI0OTU5NzIx
-LDI3OTY4NjU0NCwtNDUwODQ2MTU2LDE0Mjk2ODkzOTksNTgzNT
-k4MjUsLTUxOTExMTMwMywtMTI4NTMyOTM0OCwyMDc4OTM0NTld
-fQ==
+eyJoaXN0b3J5IjpbLTE4Nzc5MzI1OTUsLTIwMDUyMDI2MTgsND
+k5MzAxMTY5LDE1NDI3NDc1NDAsMTg3NDAzMDIwMSw0MTczMTAw
+MjcsLTE0NTE2MzY1NzksOTcwNTY2NzEsNDAyNDQxNjI5LDEyOD
+Y0MTY5NjQsLTg2NDgwOTUwNiwtNzI2NjI3MTM2LC05MjQ5NTk3
+MjEsMjc5Njg2NTQ0LC00NTA4NDYxNTYsMTQyOTY4OTM5OSw1OD
+M1OTgyNSwtNTE5MTExMzAzLC0xMjg1MzI5MzQ4LDIwNzg5MzQ1
+OV19
 -->
