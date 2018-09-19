@@ -1346,7 +1346,7 @@ func f(x, y float64) float64 {
 第三个坐标系是一个二维的画布，起点(0,0)在左上角。画布中点的坐标用(sx,sy)表示。我们使用等角投影将三维点(x,y,z)投影到二维的画布中。
 
 ![](../images/ch3-02.png)
-![](https://github.com/gopl-zh/gopl-zh.github.com/blob/master/images/ch3-01.png?raw=true)
+![](https://github.com/gopl-zh/gopl-zh.github.com/blob/master/images/ch3-02.png?raw=true)
 画布中从远处到右边的点对应较大的x值和较大的y值。并且画布中x和y值越大，则对应的z值越小。x和y的垂直和水平缩放系数来自30度角的正弦和余弦值。z的缩放系数0.4，是一个任意选择的参数。
 
 对于二维网格中的每一个网格单元，main函数计算单元的四个顶点在画布中对应多边形ABCD的顶点，其中B对应(i,j)顶点位置，A、C和D是其它相邻的顶点，然后输出SVG的绘制指令。
@@ -8897,5 +8897,6 @@ import (
 func main() {
 	// Determine the i
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTUzNDM5OTk2OCwtMTU5ODg2NjIzNF19
+eyJoaXN0b3J5IjpbMTE5NDgyOTQzOSwxNTM0Mzk5OTY4LC0xNT
+k4ODY2MjM0XX0=
 -->
