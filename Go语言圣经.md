@@ -1452,7 +1452,7 @@ func mandelbrot(z complex128) color.Color {
 用于遍历1024x1024图像每个点的两个嵌套的循环对应-2到+2区间的复数平面。程序反复测试每个点对应复数值平方值加一个增量值对应的点是否超出半径为2的圆。如果超过了，通过根据预设置的逃逸迭代次数对应的灰度颜色来代替。如果不是，那么该点属于Mandelbrot集合，使用黑色颜色标记。最终程序将生成的PNG格式分形图像输出到标准输出，如图3.3所示。
 
 ![](../images/ch3-03.png)
-![](https://github.com/gopl-zh/gopl-zh.github.com/blob/master/images/ch3-01.png?raw=true)
+![](https://github.com/gopl-zh/gopl-zh.github.com/blob/master/images/ch3-03.png?raw=true)
 **练习 3.5：** 实现一个彩色的Mandelbrot图像，使用image.NewRGBA创建图像，使用color.RGBA或color.YCbCr生成颜色。
 
 **练习 3.6：** 升采样技术可以降低每个像素对计算颜色值和平均值的影响。简单的方法是将每个像素分成四个子像素，实现它。
@@ -8897,6 +8897,6 @@ import (
 func main() {
 	// Determine the i
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTE5NDgyOTQzOSwxNTM0Mzk5OTY4LC0xNT
+eyJoaXN0b3J5IjpbLTc5OTkxODcxOSwxNTM0Mzk5OTY4LC0xNT
 k4ODY2MjM0XX0=
 -->
