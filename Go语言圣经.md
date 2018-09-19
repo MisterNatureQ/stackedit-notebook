@@ -2358,7 +2358,7 @@ func main() {
 
 上面例子中，两个消息虽然只有一个字符的差异，但是生成的消息摘要则几乎有一半的bit位是不相同的。需要注意Printf函数的%x副词参数，它用于指定以十六进制的格式打印数组或slice全部的元素，%t副词参数是用于打印布尔型数据，%T副词参数是用于显示一个值对应的数据类型。
 
-当调用一个函数的时候，函数的每个调用参数将会被赋值给函数内部的参数变量，所以函数参数变量接收的是一个复制的副本，并不是原始调用的变量。因为函数参数传递的机制导致传递大的数组类型将是低效的，并且对数组参数的任何的修改都是发生在复制的数组上，并不能直接修改调用时原始的数组变量。在这个方面，Go语言对待数组的方式和其它很多编程语言不同，其它编程语言可能会隐式地将数组作为引用或指针对象传入被调用的函数。
+**当调用一个函数的时候，函数的每个调用参数将会被赋值给函数内部的参数变量，所以函数参数变量接收的是一个复制的副本，并不是原始调用的变量。因为函数参数传递的机制导致传递大的数组类型将是低效的，并且对数组参数的任何的修改都是发生在复制的数组上，并不能直接修改调用时原始的数组变量。在这个方面，Go语言对待数组的方式和其它很多编程语言不同，其它编程语言可能会隐式地将数组作为引用或指针对象传入被调用的函数。**
 
 当然，我们可以显式地传入一个数组指针，那样的话函数通过指针对数组的任何修改都可以直接反馈到调用者。下面的函数用于给[32]byte类型的数组清零：
 
@@ -8882,13 +8882,13 @@ func walkDir(dir string, fileSizes chan<- int64) {
 }
 
 // dirents returns the entries of directory dir.
-func dirents(dir string) [
+func dirents(dir strin
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTIzNjc4NTUxNiwxNDk3ODM3MTY4LC0yMD
-A1MjAyNjE4LDQ5OTMwMTE2OSwxNTQyNzQ3NTQwLDE4NzQwMzAy
-MDEsNDE3MzEwMDI3LC0xNDUxNjM2NTc5LDk3MDU2NjcxLDQwMj
-Q0MTYyOSwxMjg2NDE2OTY0LC04NjQ4MDk1MDYsLTcyNjYyNzEz
-NiwtOTI0OTU5NzIxLDI3OTY4NjU0NCwtNDUwODQ2MTU2LDE0Mj
-k2ODkzOTksNTgzNTk4MjUsLTUxOTExMTMwMywtMTI4NTMyOTM0
-OF19
+eyJoaXN0b3J5IjpbLTQ1NTU0OTcxOSwxMjM2Nzg1NTE2LDE0OT
+c4MzcxNjgsLTIwMDUyMDI2MTgsNDk5MzAxMTY5LDE1NDI3NDc1
+NDAsMTg3NDAzMDIwMSw0MTczMTAwMjcsLTE0NTE2MzY1NzksOT
+cwNTY2NzEsNDAyNDQxNjI5LDEyODY0MTY5NjQsLTg2NDgwOTUw
+NiwtNzI2NjI3MTM2LC05MjQ5NTk3MjEsMjc5Njg2NTQ0LC00NT
+A4NDYxNTYsMTQyOTY4OTM5OSw1ODM1OTgyNSwtNTE5MTExMzAz
+XX0=
 -->
