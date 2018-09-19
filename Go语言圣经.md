@@ -2302,7 +2302,7 @@ q := [3]int{1, 2, 3}
 q = [4]int{1, 2, 3, 4} // compile error: cannot assign [4]int to [3]int
 ```
 
-我们将会发现，数组、slice、map和结构体字面值的写法都很相似。上面的形式是直接提供顺序初始化值序列，但是也可以指定一个索引和对应值列表的方式初始化，就像下面这样：
+我们将会发现，数组、slice、map和结构体字面值的写法都很相似。上面的形式是直接提供顺序初始化值序列，但是也**可以指定一个索引和对应值列表的方式初始化**，就像下面这样：
 
 ```Go
 type Currency int
@@ -2327,7 +2327,7 @@ r := [...]int{99: -1}
 
 定义了一个含有100个元素的数组r，最后一个元素被初始化为-1，其它元素都是用0初始化。
 
-如果一个数组的元素类型是可以相互比较的，那么数组类型也是可以相互比较的，这时候我们可以直接通过==比较运算符来比较两个数组，只有当两个数组的所有元素都是相等的时候数组才是相等的。不相等比较运算符!=遵循同样的规则。
+**如果一个数组的元素类型是可以相互比较的，那么数组类型也是可以相互比较的，这时候我们可以直接通过==比较运算符来比较两个数组，只有当两个数组的所有元素都是相等的时候数组才是相等的。不相等比较运算符!=遵循同样的规则。**
 
 ```Go
 a := [2]int{1, 2}
@@ -8882,9 +8882,9 @@ func walkDir(dir string, fileSizes chan<- int64) {
 }
 
 // dirents returns the entries of directory dir.
-func dirents(dir string) []os.File
+func dirents(dir string) [
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjAzNTU5ODg4MywxNDk3ODM3MTY4LC0yMD
+eyJoaXN0b3J5IjpbMTIzNjc4NTUxNiwxNDk3ODM3MTY4LC0yMD
 A1MjAyNjE4LDQ5OTMwMTE2OSwxNTQyNzQ3NTQwLDE4NzQwMzAy
 MDEsNDE3MzEwMDI3LC0xNDUxNjM2NTc5LDk3MDU2NjcxLDQwMj
 Q0MTYyOSwxMjg2NDE2OTY0LC04NjQ4MDk1MDYsLTcyNjYyNzEz
