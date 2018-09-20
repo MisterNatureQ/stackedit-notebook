@@ -2449,7 +2449,7 @@ func reverse(s []int) {
 这里我们反转**数组**的应用：
 
 ```Go
-a := [...]int{0, 1, 2, 3, 4, 5}
+a := [...]int{0, 1, 2, 3, 4, 5} //数组
 reverse(a[:])
 fmt.Println(a) // "[5 4 3 2 1 0]"
 ```
@@ -8876,14 +8876,13 @@ func walkDir(dir string, fileSizes chan<- int64) {
 		if entry.IsDir() {
 			subdir := filepath.Join(dir, entry.Name())
 			walkDir(subdir, fileSizes)
-		} else {
-		
+		} else
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEyMTU0NDY2NjEsLTQ3NjY5MDk2OCwxMT
-E1NTgxNjA4LC02NjkwMTIwNTUsMTc2NDg4NTQzMCwtMTExODI5
-NDYxMCwxMDg3MDEyNjExLC00NTU1NDk3MTksMTIzNjc4NTUxNi
-wxNDk3ODM3MTY4LC0yMDA1MjAyNjE4LDQ5OTMwMTE2OSwxNTQy
-NzQ3NTQwLDE4NzQwMzAyMDEsNDE3MzEwMDI3LC0xNDUxNjM2NT
-c5LDk3MDU2NjcxLDQwMjQ0MTYyOSwxMjg2NDE2OTY0LC04NjQ4
-MDk1MDZdfQ==
+eyJoaXN0b3J5IjpbLTE3OTY3MzEyNDYsLTEyMTU0NDY2NjEsLT
+Q3NjY5MDk2OCwxMTE1NTgxNjA4LC02NjkwMTIwNTUsMTc2NDg4
+NTQzMCwtMTExODI5NDYxMCwxMDg3MDEyNjExLC00NTU1NDk3MT
+ksMTIzNjc4NTUxNiwxNDk3ODM3MTY4LC0yMDA1MjAyNjE4LDQ5
+OTMwMTE2OSwxNTQyNzQ3NTQwLDE4NzQwMzAyMDEsNDE3MzEwMD
+I3LC0xNDUxNjM2NTc5LDk3MDU2NjcxLDQwMjQ0MTYyOSwxMjg2
+NDE2OTY0XX0=
 -->
