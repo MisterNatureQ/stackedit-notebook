@@ -2533,7 +2533,7 @@ fmt.Printf("%q\n", runes) // "['H' 'e' 'l' 'l' 'o' ',' ' ' '世' '界']"
 
 在循环中使用append函数构建一个由九个rune字符构成的slice，当然对应这个特殊的问题我们可以通过Go语言内置的[]rune("Hello, 世界")转换操作完成。
 
-append函数对于理解slice底层是如何工作的非常重要，所以让我们仔细查看究竟是发生了什么。下面是第一个版本的appendInt函数，专门用于处理[]int类型的slice：
+**append函数对于理解slice底层是如何工作的非常重要**，所以让我们仔细查看究竟是发生了什么。下面是第一个版本的appendInt函数，专门用于处理[]int类型的slice：
 
 <u><i>gopl.io/ch4/append</i></u>
 ```Go
@@ -8875,13 +8875,13 @@ func walkDir(dir string, fileSizes chan<- int64) {
 	for _, entry := range dirents(dir) {
 		if entry.IsDir() {
 			subdir := filepath.Join(dir, entry.Name())
-			walkDir(s
+			walkD
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTQ2NjQyNjA2MSwtMTE0NDE2Mzg0NSwtMT
-AzMTQ1NjQ1LDE3MDU2NTk0ODUsLTEyMTU0NDY2NjEsLTQ3NjY5
-MDk2OCwxMTE1NTgxNjA4LC02NjkwMTIwNTUsMTc2NDg4NTQzMC
-wtMTExODI5NDYxMCwxMDg3MDEyNjExLC00NTU1NDk3MTksMTIz
-Njc4NTUxNiwxNDk3ODM3MTY4LC0yMDA1MjAyNjE4LDQ5OTMwMT
-E2OSwxNTQyNzQ3NTQwLDE4NzQwMzAyMDEsNDE3MzEwMDI3LC0x
-NDUxNjM2NTc5XX0=
+eyJoaXN0b3J5IjpbLTE2NTE5MjEyMTUsMTQ2NjQyNjA2MSwtMT
+E0NDE2Mzg0NSwtMTAzMTQ1NjQ1LDE3MDU2NTk0ODUsLTEyMTU0
+NDY2NjEsLTQ3NjY5MDk2OCwxMTE1NTgxNjA4LC02NjkwMTIwNT
+UsMTc2NDg4NTQzMCwtMTExODI5NDYxMCwxMDg3MDEyNjExLC00
+NTU1NDk3MTksMTIzNjc4NTUxNiwxNDk3ODM3MTY4LC0yMDA1Mj
+AyNjE4LDQ5OTMwMTE2OSwxNTQyNzQ3NTQwLDE4NzQwMzAyMDEs
+NDE3MzEwMDI3XX0=
 -->
