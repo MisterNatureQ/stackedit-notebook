@@ -3227,13 +3227,13 @@ type T struct{ a, b int } // a and b are not exported
 
 package q
 import "p"
-var _ = p.T{a: 1, b: 2} // compile error: can't reference a, b
+var _ = p.T{a: 1, b: 2} // compile error: can't reference a, b 这个时候怎么处理？？ shiyog
 var _ = p.T{1, 2}       // compile error: can't reference a, b
 ```
 
 虽然上面最后一行代码的编译错误信息中并没有显式提到未导出的成员，但是这样企图隐式使用未导出成员的行为也是不允许的。
 
-结构体可以作为函数的参数和返回值。例如，这个Scale函数将Point类型的值缩放后返回：
+**结构体可以作为函数的参数和返回值。**例如，这个Scale函数将Point类型的值缩放后返回：
 
 ```Go
 func Scale(p Point, factor int) Point {
@@ -3243,7 +3243,7 @@ func Scale(p Point, factor int) Point {
 fmt.Println(Scale(Point{1, 2}, 5)) // "{5 10}"
 ```
 
-如果考虑效率的话，较大的结构体通常会用指针的方式传入和返回，
+**如果考虑效率的话，较大的结构体通常会用指针的方式传入和返回，**
 
 ```Go
 func Bonus(e *Employee, percent int) int {
@@ -3251,7 +3251,7 @@ func Bonus(e *Employee, percent int) int {
 }
 ```
 
-如果要在函数内部修改结构体成员的话，用指针传入是必须的；因为在Go语言中，所有的函数参数都是值拷贝传入的，函数参数将不再是函数调用时的原始变量。
+**如果要在函数内部修改结构体成员的话，用指针传入是必须的；因为在Go语言中，所有的函数参数都是值拷贝传入的，函数参数将不再是函数调用时的原始变量。**
 
 ```Go
 func AwardAnnualRaise(e *Employee) {
@@ -8864,18 +8864,13 @@ select {
 case <-abort:
 	fmt.Printf("Launch aborted!\n")
 	return
-default:
-	// do nothing
-}
-```
-
-ch
+def
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTg2NjU3NTkxLDIxMTM0NzM4NjQsLTEzMz
-c2MjM3OTQsLTEzMzMyNjMzODgsLTkxMzkyNDM1MCwxODU5NjAw
-NjI4LC0yMDQ3MjcxNTY1LC0yNDcwOTQzOTYsNzQxMjQ2MDg5LD
-k5MTE3Njg5OSwxMDUwODAxMDM5LDE3NzQ2MzMyMjEsNzE0NzI0
-Nzk5LDMwNzkwNDM4MywxNTk1OTQwMDE5LDEyMjQxODE2MTQsLT
-M4NTA4NzgyMSwtODY5Mjc1Mjc4LC0xNjUxOTIxMjE1LDE0NjY0
-MjYwNjFdfQ==
+eyJoaXN0b3J5IjpbMzc0ODcyMjEwLC04NjY1NzU5MSwyMTEzND
+czODY0LC0xMzM3NjIzNzk0LC0xMzMzMjYzMzg4LC05MTM5MjQz
+NTAsMTg1OTYwMDYyOCwtMjA0NzI3MTU2NSwtMjQ3MDk0Mzk2LD
+c0MTI0NjA4OSw5OTExNzY4OTksMTA1MDgwMTAzOSwxNzc0NjMz
+MjIxLDcxNDcyNDc5OSwzMDc5MDQzODMsMTU5NTk0MDAxOSwxMj
+I0MTgxNjE0LC0zODUwODc4MjEsLTg2OTI3NTI3OCwtMTY1MTky
+MTIxNV19
 -->
