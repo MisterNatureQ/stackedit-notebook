@@ -2856,7 +2856,7 @@ names := make([]string, 0, len(ages))
 map类型的零值是nil，也就是没有引用任何哈希表。
 
 ```Go
-var ages map[string]int
+var ages map[string]int // 这里仅仅只是声明 没有分配空间
 fmt.Println(ages == nil)    // "true"
 fmt.Println(len(ages) == 0) // "true"
 ```
@@ -8864,13 +8864,13 @@ channel的零值是nil。也许会让你觉得比较奇怪，nil的channel有时
 
 这使得我们可以用nil来激活或者禁用case，来达成处理其它输入或输出事件时超时和取消的逻辑。我们会在下一节中看到一个例子。
 
-**练习 8.8：** 使用select来改造8.3节中的echo服务
+**练习 8.8：** 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTI0NzA5NDM5Niw3NDEyNDYwODksOTkxMT
-c2ODk5LDEwNTA4MDEwMzksMTc3NDYzMzIyMSw3MTQ3MjQ3OTks
-MzA3OTA0MzgzLDE1OTU5NDAwMTksMTIyNDE4MTYxNCwtMzg1MD
-g3ODIxLC04NjkyNzUyNzgsLTE2NTE5MjEyMTUsMTQ2NjQyNjA2
-MSwtMTE0NDE2Mzg0NSwtMTAzMTQ1NjQ1LDE3MDU2NTk0ODUsLT
-EyMTU0NDY2NjEsLTQ3NjY5MDk2OCwxMTE1NTgxNjA4LC02Njkw
-MTIwNTVdfQ==
+eyJoaXN0b3J5IjpbNTQ0NDkwNTUzLC0yNDcwOTQzOTYsNzQxMj
+Q2MDg5LDk5MTE3Njg5OSwxMDUwODAxMDM5LDE3NzQ2MzMyMjEs
+NzE0NzI0Nzk5LDMwNzkwNDM4MywxNTk1OTQwMDE5LDEyMjQxOD
+E2MTQsLTM4NTA4NzgyMSwtODY5Mjc1Mjc4LC0xNjUxOTIxMjE1
+LDE0NjY0MjYwNjEsLTExNDQxNjM4NDUsLTEwMzE0NTY0NSwxNz
+A1NjU5NDg1LC0xMjE1NDQ2NjYxLC00NzY2OTA5NjgsMTExNTU4
+MTYwOF19
 -->
