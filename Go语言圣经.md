@@ -2814,7 +2814,7 @@ ages["bob"] += 1
 ages["bob"]++
 ```
 
-但是map中的元素并不是一个变量，因此我们不能对map的元素进行取址操作：
+但是map中的元素并不是一个变量，因此我们**不能对map的元素进行取址操作：**
 
 ```Go
 _ = &ages["bob"] // compile error: cannot take address of map element
@@ -2830,7 +2830,7 @@ for name, age := range ages {
 }
 ```
 
-Map的迭代顺序是不确定的，并且不同的哈希函数实现可能导致不同的遍历顺序。在实践中，遍历的顺序是随机的，每一次遍历的顺序都不相同。这是故意的，每次都使用随机的遍历顺序可以强制要求程序不会依赖具体的哈希函数实现。如果要按顺序遍历key/value对，我们必须显式地对key进行排序，可以使用sort包的Strings函数对字符串slice进行排序。下面是常见的处理方式：
+**Map的迭代顺序是不确定的，并且不同的哈希函数实现可能导致不同的遍历顺序。**在实践中，遍历的顺序是随机的，每一次遍历的顺序都不相同。这是故意的，每次都使用随机的遍历顺序可以强制要求程序不会依赖具体的哈希函数实现。**如果要按顺序遍历key/value对，我们必须显式地对key进行排序，可以使用sort包的Strings函数对字符串slice进行排序。**下面是常见的处理方式：
 
 ```Go
 import "sort"
@@ -2839,7 +2839,7 @@ var names []string
 for name := range ages {
 	names = append(names, name)
 }
-sort.Strings(names)
+sort.Strings(names)// 对key 进行排序
 for _, name := range names {
 	fmt.Printf("%s\t%d\n", name, ages[name])
 }
@@ -2861,7 +2861,7 @@ fmt.Println(ages == nil)    // "true"
 fmt.Println(len(ages) == 0) // "true"
 ```
 
-map上的大部分操作，包括查找、删除、len和range循环都可以安全工作在nil值的map上，它们的行为和一个空的map类似。但是向一个nil值的map存入元素将导致一个panic异常：
+map上的大部分操作，包括查找、删除、len和range循环都可以安全工作在nil值的map上，它们的行为和一个空的map类似。但是**向一个nil值的map存入元素将导致一个panic异常：**
 
 ```Go
 ages["carol"] = 21 // panic: assignment to entry in nil map
@@ -8868,15 +8868,13 @@ channel的零值是nil。也许会让你觉得比较奇怪，nil的channel有时
 
 在本小节中，我们会创建一个程序来生成指定目录的硬盘使用情况报告，这个程序和Unix里的du工具比较相似。大多数工作用下面这个walkDir函数来完成，这个函数使用dirents函数来枚举一个目录下的所有入口。
 
-<u><i>gopl.io/ch8/du1</i></u>
-```go
-// wal
+<u><i>gopl.io/
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNzU1Mzc3MDQ0LC0zODUwODc4MjEsLTg2OT
-I3NTI3OCwtMTY1MTkyMTIxNSwxNDY2NDI2MDYxLC0xMTQ0MTYz
-ODQ1LC0xMDMxNDU2NDUsMTcwNTY1OTQ4NSwtMTIxNTQ0NjY2MS
-wtNDc2NjkwOTY4LDExMTU1ODE2MDgsLTY2OTAxMjA1NSwxNzY0
-ODg1NDMwLC0xMTE4Mjk0NjEwLDEwODcwMTI2MTEsLTQ1NTU0OT
-cxOSwxMjM2Nzg1NTE2LDE0OTc4MzcxNjgsLTIwMDUyMDI2MTgs
-NDk5MzAxMTY5XX0=
+eyJoaXN0b3J5IjpbMTIyNDE4MTYxNCwtMzg1MDg3ODIxLC04Nj
+kyNzUyNzgsLTE2NTE5MjEyMTUsMTQ2NjQyNjA2MSwtMTE0NDE2
+Mzg0NSwtMTAzMTQ1NjQ1LDE3MDU2NTk0ODUsLTEyMTU0NDY2Nj
+EsLTQ3NjY5MDk2OCwxMTE1NTgxNjA4LC02NjkwMTIwNTUsMTc2
+NDg4NTQzMCwtMTExODI5NDYxMCwxMDg3MDEyNjExLC00NTU1ND
+k3MTksMTIzNjc4NTUxNiwxNDk3ODM3MTY4LC0yMDA1MjAyNjE4
+LDQ5OTMwMTE2OV19
 -->
