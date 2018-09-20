@@ -3104,7 +3104,7 @@ id := dilbert.ID
 EmployeeByID(id).Salary = 0 // fired for... no real reason
 ```
 
-后面的语句通过EmployeeByID返回的结构体指针更新了Employee结构体的成员。如果将EmployeeByID函数的返回值从`*Employee`指针类型改为Employee值类型，那么更新语句将不能编译通过，因为在赋值语句的左边并不确定是一个变量（译注：调用函数返回的是值，并不是一个可取地址的变量）。
+后面的语句通过EmployeeByID返回的结构体指针更新了Employee结构体的成员。如果将EmployeeByID函数的返回值从`*Employee`指针类型改为Employee值类型，那么更新语句将不能编译通过，**因为在赋值语句的左边并不确定是一个变量（译注：调用函数返回的是值，并不是一个可取地址的变量）。**
 
 通常一行对应一个结构体成员，成员的名字在前类型在后，不过如果相邻的成员类型如果相同的话可以被合并到一行，就像下面的Name和Address成员那样：
 
@@ -8862,13 +8862,13 @@ default:
 
 channel的零值是nil。也许会让你觉得比较奇怪，nil的channel有时候也是有一些用处的。因为对一个nil的channel发送和接收操作会永远阻塞，在select语句中操作nil的channel永远都不会被select到。
 
-这使得我们可以用nil来激活或者禁用case，来达成处理其它输入或输出事件时超时和取消的逻辑。我们会在下一节中看到一
+这使得我们可以用nil来激活或者禁用case，来达成处理其它输入或输出事件时超时和取消的逻辑。我们会在下一节
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTg1OTYwMDYyOCwtMjA0NzI3MTU2NSwtMj
-Q3MDk0Mzk2LDc0MTI0NjA4OSw5OTExNzY4OTksMTA1MDgwMTAz
-OSwxNzc0NjMzMjIxLDcxNDcyNDc5OSwzMDc5MDQzODMsMTU5NT
-k0MDAxOSwxMjI0MTgxNjE0LC0zODUwODc4MjEsLTg2OTI3NTI3
-OCwtMTY1MTkyMTIxNSwxNDY2NDI2MDYxLC0xMTQ0MTYzODQ1LC
-0xMDMxNDU2NDUsMTcwNTY1OTQ4NSwtMTIxNTQ0NjY2MSwtNDc2
-NjkwOTY4XX0=
+eyJoaXN0b3J5IjpbLTkxMzkyNDM1MCwxODU5NjAwNjI4LC0yMD
+Q3MjcxNTY1LC0yNDcwOTQzOTYsNzQxMjQ2MDg5LDk5MTE3Njg5
+OSwxMDUwODAxMDM5LDE3NzQ2MzMyMjEsNzE0NzI0Nzk5LDMwNz
+kwNDM4MywxNTk1OTQwMDE5LDEyMjQxODE2MTQsLTM4NTA4Nzgy
+MSwtODY5Mjc1Mjc4LC0xNjUxOTIxMjE1LDE0NjY0MjYwNjEsLT
+ExNDQxNjM4NDUsLTEwMzE0NTY0NSwxNzA1NjU5NDg1LC0xMjE1
+NDQ2NjYxXX0=
 -->
