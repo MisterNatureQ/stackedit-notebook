@@ -2600,13 +2600,13 @@ func main() {
 
 ![](../images/ch4-03.png)
 ![](https://github.com/gopl-zh/gopl-zh.github.com/blob/master/images/ch4-03.png?raw=true)
-内置的append函数可能使用比appendInt更复杂的内存扩展策略。因此，通常我们并不知道append调用是否导致了内存的重新分配，因此我们也不能确认新的slice和原始的slice是否引用的是相同的底层数组空间。同样，我们不能确认在原先的slice上的操作是否会影响到新的slice。因此，通常是将append返回的结果直接赋值给输入的slice变量：
+内置的append函数可能使用比appendInt更复杂的内存扩展策略。因此，**通常我们并不知道append调用是否导致了内存的重新分配，因此我们也不能确认新的slice和原始的slice是否引用的是相同的底层数组空间。同样，我们不能确认在原先的slice上的操作是否会影响到新的slice。因此，通常是将append返回的结果直接赋值给输入的slice变量：**
 
 ```Go
 runes = append(runes, r)
 ```
 
-更新slice变量不仅对调用append函数是必要的，实际上对应任何可能导致长度、容量或底层数组变化的操作都是必要的。要正确地使用slice，需要记住尽管底层数组的元素是间接访问的，但是slice对应结构体本身的指针、长度和容量部分是直接访问的。要更新这些信息需要像上面例子那样一个显式的赋值操作。从这个角度看，slice并不是一个纯粹的引用类型，它实际上是一个类似下面结构体的聚合类型：
+更新slice变量不仅对调用append函数是必要的，实际上对应任何可能导致长度、容量或底层数组变化的操作都是必要的。要正确地使用slice，需要记住尽管底层数组的元素是间接访问的，但是slice对应结构体本身的指针、长度和容量部分是直接访问的。要更新这些信息需要像上面例子那样一个显式的赋值操作。从这个角度看，**slice并不是一个纯粹的引用类型，它实际上是一个类似下面结构体的聚合类型：**
 
 ```Go
 type IntSlice struct {
@@ -8874,13 +8874,13 @@ channel的零值是nil。也许会让你觉得比较奇怪，nil的channel有时
 func walkDir(dir string, fileSizes chan<- int64) {
 	for _, entry := range dirents(dir) {
 		if entry.IsDir() {
-			subdir := filepath.Join(dir,
+			subdir := filepath.Join(
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTg4ODEzNDg0LC04NjkyNzUyNzgsLTE2NT
-E5MjEyMTUsMTQ2NjQyNjA2MSwtMTE0NDE2Mzg0NSwtMTAzMTQ1
-NjQ1LDE3MDU2NTk0ODUsLTEyMTU0NDY2NjEsLTQ3NjY5MDk2OC
-wxMTE1NTgxNjA4LC02NjkwMTIwNTUsMTc2NDg4NTQzMCwtMTEx
-ODI5NDYxMCwxMDg3MDEyNjExLC00NTU1NDk3MTksMTIzNjc4NT
-UxNiwxNDk3ODM3MTY4LC0yMDA1MjAyNjE4LDQ5OTMwMTE2OSwx
-NTQyNzQ3NTQwXX0=
+eyJoaXN0b3J5IjpbLTM4NTA4NzgyMSwtODY5Mjc1Mjc4LC0xNj
+UxOTIxMjE1LDE0NjY0MjYwNjEsLTExNDQxNjM4NDUsLTEwMzE0
+NTY0NSwxNzA1NjU5NDg1LC0xMjE1NDQ2NjYxLC00NzY2OTA5Nj
+gsMTExNTU4MTYwOCwtNjY5MDEyMDU1LDE3NjQ4ODU0MzAsLTEx
+MTgyOTQ2MTAsMTA4NzAxMjYxMSwtNDU1NTQ5NzE5LDEyMzY3OD
+U1MTYsMTQ5NzgzNzE2OCwtMjAwNTIwMjYxOCw0OTkzMDExNjks
+MTU0Mjc0NzU0MF19
 -->
