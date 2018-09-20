@@ -3028,7 +3028,7 @@ var graph = make(map[string]map[string]bool)
 func addEdge(from, to string) {
 	edges := graph[from]
 	if edges == nil {
-		edges = make(map[string]bool)
+		edges = make(map[string]bool) //chua
 		graph[from] = edges
 	}
 	edges[to] = true
@@ -8864,13 +8864,13 @@ channel的零值是nil。也许会让你觉得比较奇怪，nil的channel有时
 
 这使得我们可以用nil来激活或者禁用case，来达成处理其它输入或输出事件时超时和取消的逻辑。我们会在下一节中看到一个例子。
 
-**练习 8.8：** 使用select来改造8.3节中的echo服务器，为其增加超时，这样服务
+**练习 8.8：** 使用select来改造8.3节中的echo服务器，为其
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNzQxMjQ2MDg5LDk5MTE3Njg5OSwxMDUwOD
-AxMDM5LDE3NzQ2MzMyMjEsNzE0NzI0Nzk5LDMwNzkwNDM4Mywx
-NTk1OTQwMDE5LDEyMjQxODE2MTQsLTM4NTA4NzgyMSwtODY5Mj
-c1Mjc4LC0xNjUxOTIxMjE1LDE0NjY0MjYwNjEsLTExNDQxNjM4
-NDUsLTEwMzE0NTY0NSwxNzA1NjU5NDg1LC0xMjE1NDQ2NjYxLC
-00NzY2OTA5NjgsMTExNTU4MTYwOCwtNjY5MDEyMDU1LDE3NjQ4
-ODU0MzBdfQ==
+eyJoaXN0b3J5IjpbMTg1MzczNDMwNyw3NDEyNDYwODksOTkxMT
+c2ODk5LDEwNTA4MDEwMzksMTc3NDYzMzIyMSw3MTQ3MjQ3OTks
+MzA3OTA0MzgzLDE1OTU5NDAwMTksMTIyNDE4MTYxNCwtMzg1MD
+g3ODIxLC04NjkyNzUyNzgsLTE2NTE5MjEyMTUsMTQ2NjQyNjA2
+MSwtMTE0NDE2Mzg0NSwtMTAzMTQ1NjQ1LDE3MDU2NTk0ODUsLT
+EyMTU0NDY2NjEsLTQ3NjY5MDk2OCwxMTE1NTgxNjA4LC02Njkw
+MTIwNTVdfQ==
 -->
