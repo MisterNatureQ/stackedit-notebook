@@ -3143,7 +3143,7 @@ func Sort(values []int) {
 	}
 	// root 现在是 头或者尾元素
 
-	//
+	// 对 values 进行排序调整
 	appendValues(values[:0], root)
 }
 
@@ -3151,9 +3151,9 @@ func Sort(values []int) {
 // and returns the resulting slice.
 func appendValues(values []int, t *tree) []int {
 	if t != nil {
-		values = appendValues(values, t.left)
-		values = append(values, t.value)
-		values = appendValues(values, t.right)
+		values = appendValues(values, t.left) // 左
+		values = append(values, t.value) // 中
+		values = appendValues(values, t.right) // 右
 	}
 	return values
 }
@@ -8865,11 +8865,9 @@ default:
 }
 ```
 
-channel的零值是nil。也许会让你觉得比较奇怪，nil的channel有时候也是有一些用处的。因为对一个nil的channel发送和接收操作会永远阻塞，在select语句中操作nil的channel永远都不会被select到。
-
-这
+channel的零值是nil。也许会让你觉得比较奇怪，nil的channel有时候也是有一些用处的。因为对一个nil的channel发送和接收操作会永远阻塞，在select语句中
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTMwMDkyNzEyOSwtMTMzNzYyMzc5NCwtMT
+eyJoaXN0b3J5IjpbLTQ4MjMwNTM1MiwtMTMzNzYyMzc5NCwtMT
 MzMzI2MzM4OCwtOTEzOTI0MzUwLDE4NTk2MDA2MjgsLTIwNDcy
 NzE1NjUsLTI0NzA5NDM5Niw3NDEyNDYwODksOTkxMTc2ODk5LD
 EwNTA4MDEwMzksMTc3NDYzMzIyMSw3MTQ3MjQ3OTksMzA3OTA0
