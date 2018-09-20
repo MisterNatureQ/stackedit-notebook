@@ -2485,7 +2485,7 @@ func equal(x, y []string) bool {
 
 上面关于两个slice的深度相等测试，运行的时间并不比支持==操作的数组或字符串更多，但是为何slice不直接支持比较运算符呢？这方面有两个原因。**第一个原因，一个slice的元素是间接引用的，一个slice甚至可以包含自身**。虽然有很多办法处理这种情形，但是**没有一个是简单有效的。**
 
-**第二个原因，因为slice的元素是间接引用的，一个固定的slice值（译注：指slice本身的值，不是元素的值）在不同的时刻可能包含不同的元素，因为底层数组的元素可能会被修改。而例如Go语言中map的key只做简单的浅拷贝，它要求key在整个生命周期内保持不变性（译注：例如slice扩容，就会导致其本身的值/地址变化）。而用深度相等判断的话，显然在map的key这种场合不合适。对于像指针或chan之类的引用类型，==相等测试可以判断两个是否是引用相同的对象。一个针对slice的浅相等测试的==操作符可能是有一定用处的，也能临时解决map类型的key问题，但是slice和数组不同的相等测试行为会让人困惑。因此，安全的做法是直接禁止slice之间的比较操作。**
+**第二个原因，因为slice的元素是间接引用的，一个固定的slice值（译注：指slice本身的值，不是元素的值）在不同的时刻可能包含不同的元素，因为底层数组的元素可能会被修改。而例如Go语言中map的key只做简单的浅拷贝，它要求key在整个生命周期内保持不变性（译注：例如slice扩容，就会导致其本身的值/地址变化）。而用深度相等判断的话，显然在map的key这种场合不合适。对于像指针或chan之类的引用类型，== 相等测试可以判断两个是否是引用相同的对象。一个针对slice的浅相等测试的==操作符可能是有一定用处的，也能临时解决map类型的key问题，但是slice和数组不同的相等测试行为会让人困惑。因此，安全的做法是直接禁止slice之间的比较操作。**
 
 **slice唯一合法的比较操作是和nil比较**，例如：
 
@@ -8875,13 +8875,13 @@ func walkDir(dir string, fileSizes chan<- int64) {
 	for _, entry := range dirents(dir) {
 		if entry.IsDir() {
 			subdir := filepath.Join(dir, entry.Name())
-			walkDir(subdir, fi
+			walkDir(subdir, 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjA2OTUxMTA0LDE3MDU2NTk0ODUsLTEyMT
-U0NDY2NjEsLTQ3NjY5MDk2OCwxMTE1NTgxNjA4LC02NjkwMTIw
-NTUsMTc2NDg4NTQzMCwtMTExODI5NDYxMCwxMDg3MDEyNjExLC
-00NTU1NDk3MTksMTIzNjc4NTUxNiwxNDk3ODM3MTY4LC0yMDA1
-MjAyNjE4LDQ5OTMwMTE2OSwxNTQyNzQ3NTQwLDE4NzQwMzAyMD
-EsNDE3MzEwMDI3LC0xNDUxNjM2NTc5LDk3MDU2NjcxLDQwMjQ0
-MTYyOV19
+eyJoaXN0b3J5IjpbLTEwMzE0NTY0NSwxNzA1NjU5NDg1LC0xMj
+E1NDQ2NjYxLC00NzY2OTA5NjgsMTExNTU4MTYwOCwtNjY5MDEy
+MDU1LDE3NjQ4ODU0MzAsLTExMTgyOTQ2MTAsMTA4NzAxMjYxMS
+wtNDU1NTQ5NzE5LDEyMzY3ODU1MTYsMTQ5NzgzNzE2OCwtMjAw
+NTIwMjYxOCw0OTkzMDExNjksMTU0Mjc0NzU0MCwxODc0MDMwMj
+AxLDQxNzMxMDAyNywtMTQ1MTYzNjU3OSw5NzA1NjY3MSw0MDI0
+NDE2MjldfQ==
 -->
