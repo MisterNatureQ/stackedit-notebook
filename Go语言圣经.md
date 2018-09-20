@@ -2796,7 +2796,7 @@ fmt.Println(ages["alice"]) // "32"
 delete(ages, "alice") // remove element ages["alice"]
 ```
 
-所有这些操作是安全的，即使这些元素不在map中也没有关系；如果一个查找失败将返回value类型对应的零值，例如，即使map中不存在“bob”下面的代码也可以正常工作，因为ages["bob"]失败时将返回0。
+**所有这些操作是安全的，即使这些元素不在map中也没有关系；如果一个查找失败将返回value类型对应的零值，例如，即使map中不存在“bob”下面的代码也可以正常工作，因为ages["bob"]失败时将返回0。**
 
 ```Go
 ages["bob"] = ages["bob"] + 1 // happy birthday!
@@ -8870,13 +8870,13 @@ channel的零值是nil。也许会让你觉得比较奇怪，nil的channel有时
 
 <u><i>gopl.io/ch8/du1</i></u>
 ```go
-// walkDir
+// wal
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNjE1MDY4NjYsLTM4NTA4NzgyMSwtODY5Mj
-c1Mjc4LC0xNjUxOTIxMjE1LDE0NjY0MjYwNjEsLTExNDQxNjM4
-NDUsLTEwMzE0NTY0NSwxNzA1NjU5NDg1LC0xMjE1NDQ2NjYxLC
-00NzY2OTA5NjgsMTExNTU4MTYwOCwtNjY5MDEyMDU1LDE3NjQ4
-ODU0MzAsLTExMTgyOTQ2MTAsMTA4NzAxMjYxMSwtNDU1NTQ5Nz
-E5LDEyMzY3ODU1MTYsMTQ5NzgzNzE2OCwtMjAwNTIwMjYxOCw0
-OTkzMDExNjldfQ==
+eyJoaXN0b3J5IjpbNzU1Mzc3MDQ0LC0zODUwODc4MjEsLTg2OT
+I3NTI3OCwtMTY1MTkyMTIxNSwxNDY2NDI2MDYxLC0xMTQ0MTYz
+ODQ1LC0xMDMxNDU2NDUsMTcwNTY1OTQ4NSwtMTIxNTQ0NjY2MS
+wtNDc2NjkwOTY4LDExMTU1ODE2MDgsLTY2OTAxMjA1NSwxNzY0
+ODg1NDMwLC0xMTE4Mjk0NjEwLDEwODcwMTI2MTEsLTQ1NTU0OT
+cxOSwxMjM2Nzg1NTE2LDE0OTc4MzcxNjgsLTIwMDUyMDI2MTgs
+NDk5MzAxMTY5XX0=
 -->
