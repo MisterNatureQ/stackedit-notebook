@@ -3227,7 +3227,7 @@ type T struct{ a, b int } // a and b are not exported
 
 package q
 import "p"
-var _ = p.T{a: 1, b: 2} // compile error: can't reference a, b 这个时候怎么处理？？ 使用init() ？
+var _ = p.T{a: 1, b: 2} // compile error: can't reference a, b 这个时候怎么处理？？ 使用init() ？ 或者是 AB能导出就可以了？
 var _ = p.T{1, 2}       // compile error: can't reference a, b
 ```
 
@@ -8862,14 +8862,13 @@ ticker.Stop() // cause the ticker's goroutine to terminate
 ```go
 select {
 case <-abort:
-	fmt.Printf("Launch aborted!\n")
-	return
+	fmt.Printf("Launch abort
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEyNDYwMjQyMzcsLTg2NjU3NTkxLDIxMT
-M0NzM4NjQsLTEzMzc2MjM3OTQsLTEzMzMyNjMzODgsLTkxMzky
-NDM1MCwxODU5NjAwNjI4LC0yMDQ3MjcxNTY1LC0yNDcwOTQzOT
-YsNzQxMjQ2MDg5LDk5MTE3Njg5OSwxMDUwODAxMDM5LDE3NzQ2
-MzMyMjEsNzE0NzI0Nzk5LDMwNzkwNDM4MywxNTk1OTQwMDE5LD
-EyMjQxODE2MTQsLTM4NTA4NzgyMSwtODY5Mjc1Mjc4LC0xNjUx
-OTIxMjE1XX0=
+eyJoaXN0b3J5IjpbLTE2NzQzNzEwNjQsLTEyNDYwMjQyMzcsLT
+g2NjU3NTkxLDIxMTM0NzM4NjQsLTEzMzc2MjM3OTQsLTEzMzMy
+NjMzODgsLTkxMzkyNDM1MCwxODU5NjAwNjI4LC0yMDQ3MjcxNT
+Y1LC0yNDcwOTQzOTYsNzQxMjQ2MDg5LDk5MTE3Njg5OSwxMDUw
+ODAxMDM5LDE3NzQ2MzMyMjEsNzE0NzI0Nzk5LDMwNzkwNDM4My
+wxNTk1OTQwMDE5LDEyMjQxODE2MTQsLTM4NTA4NzgyMSwtODY5
+Mjc1Mjc4XX0=
 -->
