@@ -2940,7 +2940,7 @@ var m = make(map[string]int)
 
 func k(list []string) string { return fmt.Sprintf("%q", list) }
 
-func Add(list []string)       { m[k(list)]++ }
+func Add(list []string)       { m[k(list)]++ } //  slice 转 string 变成 map key 比较的类型 
 func Count(list []string) int { return m[k(list)] }
 ```
 
@@ -8866,13 +8866,13 @@ channel的零值是nil。也许会让你觉得比较奇怪，nil的channel有时
 **练习 8.8：** 使用select来改造8.3节中的echo服务器，为其增加超时，这样服务器可以在客户端10秒中没有任何喊话时自动断开连接。
 ## 8.8. 示例: 并发的目录遍历
 
-在本小节中，我们会创建一个程序来生成指定目录的硬盘使用情况报告，这个程序和Unix里的du工具比较相似。大多数工作用下面这个walkDir函数来完成，这个函数使用dirents函数来枚举一个目录下的所有入口
+在本小节中，我们会创建一个程序来生成指定目录的硬盘使用情况报告，这个程序和Unix里的du工具比较相似。大多数工作用下面这
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTU5NTk0MDAxOSwxMjI0MTgxNjE0LC0zOD
-UwODc4MjEsLTg2OTI3NTI3OCwtMTY1MTkyMTIxNSwxNDY2NDI2
-MDYxLC0xMTQ0MTYzODQ1LC0xMDMxNDU2NDUsMTcwNTY1OTQ4NS
-wtMTIxNTQ0NjY2MSwtNDc2NjkwOTY4LDExMTU1ODE2MDgsLTY2
-OTAxMjA1NSwxNzY0ODg1NDMwLC0xMTE4Mjk0NjEwLDEwODcwMT
-I2MTEsLTQ1NTU0OTcxOSwxMjM2Nzg1NTE2LDE0OTc4MzcxNjgs
-LTIwMDUyMDI2MThdfQ==
+eyJoaXN0b3J5IjpbMzExODMxNjcsMTU5NTk0MDAxOSwxMjI0MT
+gxNjE0LC0zODUwODc4MjEsLTg2OTI3NTI3OCwtMTY1MTkyMTIx
+NSwxNDY2NDI2MDYxLC0xMTQ0MTYzODQ1LC0xMDMxNDU2NDUsMT
+cwNTY1OTQ4NSwtMTIxNTQ0NjY2MSwtNDc2NjkwOTY4LDExMTU1
+ODE2MDgsLTY2OTAxMjA1NSwxNzY0ODg1NDMwLC0xMTE4Mjk0Nj
+EwLDEwODcwMTI2MTEsLTQ1NTU0OTcxOSwxMjM2Nzg1NTE2LDE0
+OTc4MzcxNjhdfQ==
 -->
