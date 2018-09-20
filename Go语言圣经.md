@@ -3151,7 +3151,7 @@ func Sort(values []int) {
 // and returns the resulting slice.
 func appendValues(values []int, t *tree) []int {
 	if t != nil {
-		values = appendValues(values, t.left) // 向左 递归
+		values = appendValues(values, t.left) // 向 左 递归
 		values = append(values, t.value) // 中
 		values = appendValues(values, t.right) // 向 右 递归
 	}
@@ -8865,13 +8865,13 @@ default:
 }
 ```
 
-channel的零值是nil。也许会让你觉得比较奇怪，nil的channel有时候也是有一些用处的。因为对一个nil的channel发送和接收操作会永远阻塞，在se
+channel的零值是nil。也许会让你觉得比较奇怪，nil的channel有时候也是有一些用处的。因为对一个nil的channel发送和接收操作会永远阻塞，在s
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTkxNTU5Njk4MywtMTMzNzYyMzc5NCwtMT
-MzMzI2MzM4OCwtOTEzOTI0MzUwLDE4NTk2MDA2MjgsLTIwNDcy
-NzE1NjUsLTI0NzA5NDM5Niw3NDEyNDYwODksOTkxMTc2ODk5LD
-EwNTA4MDEwMzksMTc3NDYzMzIyMSw3MTQ3MjQ3OTksMzA3OTA0
-MzgzLDE1OTU5NDAwMTksMTIyNDE4MTYxNCwtMzg1MDg3ODIxLC
-04NjkyNzUyNzgsLTE2NTE5MjEyMTUsMTQ2NjQyNjA2MSwtMTE0
-NDE2Mzg0NV19
+eyJoaXN0b3J5IjpbLTExOTczNzQwMjQsLTEzMzc2MjM3OTQsLT
+EzMzMyNjMzODgsLTkxMzkyNDM1MCwxODU5NjAwNjI4LC0yMDQ3
+MjcxNTY1LC0yNDcwOTQzOTYsNzQxMjQ2MDg5LDk5MTE3Njg5OS
+wxMDUwODAxMDM5LDE3NzQ2MzMyMjEsNzE0NzI0Nzk5LDMwNzkw
+NDM4MywxNTk1OTQwMDE5LDEyMjQxODE2MTQsLTM4NTA4NzgyMS
+wtODY5Mjc1Mjc4LC0xNjUxOTIxMjE1LDE0NjY0MjYwNjEsLTEx
+NDQxNjM4NDVdfQ==
 -->
