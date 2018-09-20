@@ -2541,7 +2541,7 @@ func appendInt(x []int, y int) []int {
 	var z []int
 	zlen := len(x) + 1
 	if zlen <= cap(x) {
-		// There is room to grow.  Extend the slice. 自身空间容量 z
+		// There is room to grow.  Extend the slice. 自身空间容量 足够
 		z = x[:zlen] 
 	} else {
 		// There is insufficient space.  Allocate a new array.
@@ -8876,7 +8876,7 @@ func walkDir(dir string, fileSizes chan<- int64) {
 		if entry.IsDir() {
 			subdir := filepath.Join(dir, entry.N
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTc5MTMwNTIyNCwtMTY1MTkyMTIxNSwxND
+eyJoaXN0b3J5IjpbMTkxMTY3MzkyMCwtMTY1MTkyMTIxNSwxND
 Y2NDI2MDYxLC0xMTQ0MTYzODQ1LC0xMDMxNDU2NDUsMTcwNTY1
 OTQ4NSwtMTIxNTQ0NjY2MSwtNDc2NjkwOTY4LDExMTU1ODE2MD
 gsLTY2OTAxMjA1NSwxNzY0ODg1NDMwLC0xMTE4Mjk0NjEwLDEw
