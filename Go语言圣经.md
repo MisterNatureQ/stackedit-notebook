@@ -2483,7 +2483,7 @@ func equal(x, y []string) bool {
 }
 ```
 
-上面关于两个slice的深度相等测试，运行的时间并不比支持==操作的数组或字符串更多，但是为何slice不直接支持比较运算符呢？这方面有两个原因。第一个原因，一个slice的元素是间接引用的，一个slice甚至可以包含自身。虽然有很多办法处理这种情形，但是没有一个是简单有效的。
+上面关于两个slice的深度相等测试，运行的时间并不比支持==操作的数组或字符串更多，但是为何slice不直接支持比较运算符呢？这方面有两个原因。**第一个原因，一个slice的元素是间接引用的，一个slice甚至可以包含自身**。虽然有很多办法处理这种情形，但是**没有一个是简单有效的。**
 
 第二个原因，因为slice的元素是间接引用的，一个固定的slice值（译注：指slice本身的值，不是元素的值）在不同的时刻可能包含不同的元素，因为底层数组的元素可能会被修改。而例如Go语言中map的key只做简单的浅拷贝，它要求key在整个生命周期内保持不变性（译注：例如slice扩容，就会导致其本身的值/地址变化）。而用深度相等判断的话，显然在map的key这种场合不合适。对于像指针或chan之类的引用类型，==相等测试可以判断两个是否是引用相同的对象。一个针对slice的浅相等测试的==操作符可能是有一定用处的，也能临时解决map类型的key问题，但是slice和数组不同的相等测试行为会让人困惑。因此，安全的做法是直接禁止slice之间的比较操作。
 
@@ -8876,13 +8876,12 @@ func walkDir(dir string, fileSizes chan<- int64) {
 		if entry.IsDir() {
 			subdir := filepath.Join(dir, entry.Name())
 			walkDir(subdir, fileSizes)
-		} els
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTcwNTY1OTQ4NSwtMTIxNTQ0NjY2MSwtND
-c2NjkwOTY4LDExMTU1ODE2MDgsLTY2OTAxMjA1NSwxNzY0ODg1
-NDMwLC0xMTE4Mjk0NjEwLDEwODcwMTI2MTEsLTQ1NTU0OTcxOS
-wxMjM2Nzg1NTE2LDE0OTc4MzcxNjgsLTIwMDUyMDI2MTgsNDk5
-MzAxMTY5LDE1NDI3NDc1NDAsMTg3NDAzMDIwMSw0MTczMTAwMj
-csLTE0NTE2MzY1NzksOTcwNTY2NzEsNDAyNDQxNjI5LDEyODY0
-MTY5NjRdfQ==
+eyJoaXN0b3J5IjpbLTE3ODQ4MDc2MDAsMTcwNTY1OTQ4NSwtMT
+IxNTQ0NjY2MSwtNDc2NjkwOTY4LDExMTU1ODE2MDgsLTY2OTAx
+MjA1NSwxNzY0ODg1NDMwLC0xMTE4Mjk0NjEwLDEwODcwMTI2MT
+EsLTQ1NTU0OTcxOSwxMjM2Nzg1NTE2LDE0OTc4MzcxNjgsLTIw
+MDUyMDI2MTgsNDk5MzAxMTY5LDE1NDI3NDc1NDAsMTg3NDAzMD
+IwMSw0MTczMTAwMjcsLTE0NTE2MzY1NzksOTcwNTY2NzEsNDAy
+NDQxNjI5XX0=
 -->
