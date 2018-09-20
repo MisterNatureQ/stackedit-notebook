@@ -2595,7 +2595,7 @@ func main() {
 让我们仔细查看i=3次的迭代。当时x包含了[0 1 2]三个元素，但是容量是4，因此可以简单将新的元素添加到末尾，不需要新的内存分配。然后新的y的长度和容量都是4，并且和x引用着相同的底层数组，如图4.2所示。
 
 ![](../images/ch4-02.png)
-![](https://github.com/gopl-zh/gopl-zh.github.com/blob/master/images/ch43-021.png?raw=true)
+![](https://github.com/gopl-zh/gopl-zh.github.com/blob/master/images/ch4-02.png?raw=true)
 在下一次迭代时i=4，现在没有新的空余的空间了，因此appendInt函数分配一个容量为8的底层数组，将x的4个元素[0 1 2 3]复制到新空间的开头，然后添加新的元素i，新元素的值是4。新的y的长度是5，容量是8；后面有3个空闲的位置，三次迭代都不需要分配新的空间。当前迭代中，y和x是对应不同底层数组的view。这次操作如图4.3所示。
 
 ![](../images/ch4-03.png)
@@ -8876,11 +8876,11 @@ func walkDir(dir string, fileSizes chan<- int64) {
 		if entry.IsDir() {
 			subdir := filepath.Join(dir,
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTg2OTI3NTI3OCwtMTY1MTkyMTIxNSwxND
-Y2NDI2MDYxLC0xMTQ0MTYzODQ1LC0xMDMxNDU2NDUsMTcwNTY1
-OTQ4NSwtMTIxNTQ0NjY2MSwtNDc2NjkwOTY4LDExMTU1ODE2MD
-gsLTY2OTAxMjA1NSwxNzY0ODg1NDMwLC0xMTE4Mjk0NjEwLDEw
-ODcwMTI2MTEsLTQ1NTU0OTcxOSwxMjM2Nzg1NTE2LDE0OTc4Mz
-cxNjgsLTIwMDUyMDI2MTgsNDk5MzAxMTY5LDE1NDI3NDc1NDAs
-MTg3NDAzMDIwMV19
+eyJoaXN0b3J5IjpbLTIwNzM4MTAyMTYsLTg2OTI3NTI3OCwtMT
+Y1MTkyMTIxNSwxNDY2NDI2MDYxLC0xMTQ0MTYzODQ1LC0xMDMx
+NDU2NDUsMTcwNTY1OTQ4NSwtMTIxNTQ0NjY2MSwtNDc2NjkwOT
+Y4LDExMTU1ODE2MDgsLTY2OTAxMjA1NSwxNzY0ODg1NDMwLC0x
+MTE4Mjk0NjEwLDEwODcwMTI2MTEsLTQ1NTU0OTcxOSwxMjM2Nz
+g1NTE2LDE0OTc4MzcxNjgsLTIwMDUyMDI2MTgsNDk5MzAxMTY5
+LDE1NDI3NDc1NDBdfQ==
 -->
