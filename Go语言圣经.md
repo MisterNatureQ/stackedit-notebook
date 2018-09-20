@@ -2983,7 +2983,7 @@ func main() {
 			continue
 		}
 		counts[r]++
-		utflen[n]++
+		utflen[n]++ // 不同UTF-8编码长度的字符数目
 	}
 	fmt.Printf("rune\tcount\n")
 	for c, n := range counts {
@@ -8864,14 +8864,13 @@ channel的零值是nil。也许会让你觉得比较奇怪，nil的channel有时
 
 这使得我们可以用nil来激活或者禁用case，来达成处理其它输入或输出事件时超时和取消的逻辑。我们会在下一节中看到一个例子。
 
-**练习 8.8：** 使用select来改造8.3节中的echo服务器，为其增加超时，这样服务器可以在客户端10秒中没有任何喊话时自动断开连接。
-## 8.8.
+**练习 8.8：** 使用select来改造8.3节中的echo服务器，为其增加超时，这样服务器可以在客户端10秒中没有任何喊话
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTA1MDgwMTAzOSwxNzc0NjMzMjIxLDcxND
-cyNDc5OSwzMDc5MDQzODMsMTU5NTk0MDAxOSwxMjI0MTgxNjE0
-LC0zODUwODc4MjEsLTg2OTI3NTI3OCwtMTY1MTkyMTIxNSwxND
-Y2NDI2MDYxLC0xMTQ0MTYzODQ1LC0xMDMxNDU2NDUsMTcwNTY1
-OTQ4NSwtMTIxNTQ0NjY2MSwtNDc2NjkwOTY4LDExMTU1ODE2MD
-gsLTY2OTAxMjA1NSwxNzY0ODg1NDMwLC0xMTE4Mjk0NjEwLDEw
-ODcwMTI2MTFdfQ==
+eyJoaXN0b3J5IjpbMTc2MjYzMzE1LDEwNTA4MDEwMzksMTc3ND
+YzMzIyMSw3MTQ3MjQ3OTksMzA3OTA0MzgzLDE1OTU5NDAwMTks
+MTIyNDE4MTYxNCwtMzg1MDg3ODIxLC04NjkyNzUyNzgsLTE2NT
+E5MjEyMTUsMTQ2NjQyNjA2MSwtMTE0NDE2Mzg0NSwtMTAzMTQ1
+NjQ1LDE3MDU2NTk0ODUsLTEyMTU0NDY2NjEsLTQ3NjY5MDk2OC
+wxMTE1NTgxNjA4LC02NjkwMTIwNTUsMTc2NDg4NTQzMCwtMTEx
+ODI5NDYxMF19
 -->
