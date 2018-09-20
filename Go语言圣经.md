@@ -2541,8 +2541,8 @@ func appendInt(x []int, y int) []int {
 	var z []int
 	zlen := len(x) + 1
 	if zlen <= cap(x) {
-		// There is room to grow.  Extend the slice.
-		z = x[:zlen]
+		// There is room to grow.  Extend the slice. 自身空间容量 z
+		z = x[:zlen] 
 	} else {
 		// There is insufficient space.  Allocate a new array.
 		// Grow by doubling, for amortized linear complexity.
@@ -8874,14 +8874,13 @@ channel的零值是nil。也许会让你觉得比较奇怪，nil的channel有时
 func walkDir(dir string, fileSizes chan<- int64) {
 	for _, entry := range dirents(dir) {
 		if entry.IsDir() {
-			subdir := filepath.Join(dir, entry.Name())
-			walkD
+			subdir := filepath.Join(dir, entry.N
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE2NTE5MjEyMTUsMTQ2NjQyNjA2MSwtMT
-E0NDE2Mzg0NSwtMTAzMTQ1NjQ1LDE3MDU2NTk0ODUsLTEyMTU0
-NDY2NjEsLTQ3NjY5MDk2OCwxMTE1NTgxNjA4LC02NjkwMTIwNT
-UsMTc2NDg4NTQzMCwtMTExODI5NDYxMCwxMDg3MDEyNjExLC00
-NTU1NDk3MTksMTIzNjc4NTUxNiwxNDk3ODM3MTY4LC0yMDA1Mj
-AyNjE4LDQ5OTMwMTE2OSwxNTQyNzQ3NTQwLDE4NzQwMzAyMDEs
-NDE3MzEwMDI3XX0=
+eyJoaXN0b3J5IjpbLTc5MTMwNTIyNCwtMTY1MTkyMTIxNSwxND
+Y2NDI2MDYxLC0xMTQ0MTYzODQ1LC0xMDMxNDU2NDUsMTcwNTY1
+OTQ4NSwtMTIxNTQ0NjY2MSwtNDc2NjkwOTY4LDExMTU1ODE2MD
+gsLTY2OTAxMjA1NSwxNzY0ODg1NDMwLC0xMTE4Mjk0NjEwLDEw
+ODcwMTI2MTEsLTQ1NTU0OTcxOSwxMjM2Nzg1NTE2LDE0OTc4Mz
+cxNjgsLTIwMDUyMDI2MTgsNDk5MzAxMTY5LDE1NDI3NDc1NDAs
+MTg3NDAzMDIwMV19
 -->
