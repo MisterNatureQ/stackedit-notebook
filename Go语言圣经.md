@@ -2756,7 +2756,7 @@ func main() {
 
 哈希表是一种巧妙并且实用的数据结构。它是一个无序的key/value对的集合，其中**所有的key都是不同的**，然后通过给定的key可以在常数时间复杂度内检索、更新或删除对应的value。
 
-在Go语言中，一个map就是一个哈希表的引用，map类型可以写为map[K]V，其中K和V分别对应key和value。map中所有的key都有相同的类型，所有的value也有着相同的类型，但是key和value之间可以是不同的数据类型。其中K对应的key必须是支持==比较运算符的数据类型，所以map可以通过测试key是否相等来判断是否已经存在。虽然浮点数类型也是支持相等运算符比较的，但是将浮点数用做key类型则是一个坏的想法，正如第三章提到的，最坏的情况是可能出现的NaN和任何浮点数都不相等。对于V对应的value数据类型则没有任何的限制。
+在Go语言中，**一个map就是一个哈希表的引用**，map类型可以写为map[K]V，其中K和V分别对应key和value。map中所有的key都有相同的类型，所有的value也有着相同的类型，但是key和value之间可以是不同的数据类型。其中**K对应的key必须是支持==比较运算符的数据类型**，所以map可以通过测试key是否相等来判断是否已经存在。虽然浮点数类型也是支持相等运算符比较的，但是**将浮点数用做key类型则是一个坏的想法**，正如第三章提到的，最坏的情况是可能出现的NaN和任何浮点数都不相等。对于V对应的value数据类型则没有任何的限制。
 
 内置的make函数可以创建一个map：
 
@@ -8870,13 +8870,13 @@ channel的零值是nil。也许会让你觉得比较奇怪，nil的channel有时
 
 <u><i>gopl.io/ch8/du1</i></u>
 ```go
-// walkDir recursively
+// walkDir
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE3NzUyNDQ0MjksLTM4NTA4NzgyMSwtOD
-Y5Mjc1Mjc4LC0xNjUxOTIxMjE1LDE0NjY0MjYwNjEsLTExNDQx
-NjM4NDUsLTEwMzE0NTY0NSwxNzA1NjU5NDg1LC0xMjE1NDQ2Nj
-YxLC00NzY2OTA5NjgsMTExNTU4MTYwOCwtNjY5MDEyMDU1LDE3
-NjQ4ODU0MzAsLTExMTgyOTQ2MTAsMTA4NzAxMjYxMSwtNDU1NT
-Q5NzE5LDEyMzY3ODU1MTYsMTQ5NzgzNzE2OCwtMjAwNTIwMjYx
-OCw0OTkzMDExNjldfQ==
+eyJoaXN0b3J5IjpbNjE1MDY4NjYsLTM4NTA4NzgyMSwtODY5Mj
+c1Mjc4LC0xNjUxOTIxMjE1LDE0NjY0MjYwNjEsLTExNDQxNjM4
+NDUsLTEwMzE0NTY0NSwxNzA1NjU5NDg1LC0xMjE1NDQ2NjYxLC
+00NzY2OTA5NjgsMTExNTU4MTYwOCwtNjY5MDEyMDU1LDE3NjQ4
+ODU0MzAsLTExMTgyOTQ2MTAsMTA4NzAxMjYxMSwtNDU1NTQ5Nz
+E5LDEyMzY3ODU1MTYsMTQ5NzgzNzE2OCwtMjAwNTIwMjYxOCw0
+OTkzMDExNjldfQ==
 -->
