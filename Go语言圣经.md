@@ -2493,7 +2493,7 @@ func equal(x, y []string) bool {
 if summer == nil { /* ... */ }
 ```
 
-一个零值的slice等于nil。一个nil值的slice并没有底层数组。一个nil值的slice的长度和容量都是0，但是也有非nil值的slice的长度和容量也是0的，例如[]int{}或make([]int, 3)[3:]。与任意类型的nil值一样，我们可以用[]int(nil)类型转换表达式来生成一个对应类型slice的nil值。
+**一个零值的slice等于nil。一个nil值的slice并没有底层数组。一个nil值的slice的长度和容量都是0，但是也有非nil值的slice的长度和容量也是0的，例如[]int{}或make([]int, 3)[3:]。与任意类型的nil值一样，我们可以用[]int(nil)类型转换表达式来生成一个对应类型slice的nil值。**
 
 ```Go
 var s []int    // len(s) == 0, s == nil
@@ -8875,13 +8875,13 @@ func walkDir(dir string, fileSizes chan<- int64) {
 	for _, entry := range dirents(dir) {
 		if entry.IsDir() {
 			subdir := filepath.Join(dir, entry.Name())
-			walkDir(subdir, 
+			walkDir(subdi
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEwMzE0NTY0NSwxNzA1NjU5NDg1LC0xMj
-E1NDQ2NjYxLC00NzY2OTA5NjgsMTExNTU4MTYwOCwtNjY5MDEy
-MDU1LDE3NjQ4ODU0MzAsLTExMTgyOTQ2MTAsMTA4NzAxMjYxMS
-wtNDU1NTQ5NzE5LDEyMzY3ODU1MTYsMTQ5NzgzNzE2OCwtMjAw
-NTIwMjYxOCw0OTkzMDExNjksMTU0Mjc0NzU0MCwxODc0MDMwMj
-AxLDQxNzMxMDAyNywtMTQ1MTYzNjU3OSw5NzA1NjY3MSw0MDI0
-NDE2MjldfQ==
+eyJoaXN0b3J5IjpbLTExNDQxNjM4NDUsLTEwMzE0NTY0NSwxNz
+A1NjU5NDg1LC0xMjE1NDQ2NjYxLC00NzY2OTA5NjgsMTExNTU4
+MTYwOCwtNjY5MDEyMDU1LDE3NjQ4ODU0MzAsLTExMTgyOTQ2MT
+AsMTA4NzAxMjYxMSwtNDU1NTQ5NzE5LDEyMzY3ODU1MTYsMTQ5
+NzgzNzE2OCwtMjAwNTIwMjYxOCw0OTkzMDExNjksMTU0Mjc0Nz
+U0MCwxODc0MDMwMjAxLDQxNzMxMDAyNywtMTQ1MTYzNjU3OSw5
+NzA1NjY3MV19
 -->
