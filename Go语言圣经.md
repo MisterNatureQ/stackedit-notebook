@@ -2632,7 +2632,7 @@ fmt.Println(x)      // "[1 2 3 4 5 6 1 2 3 4 5 6]"
 func appendInt(x []int, y ...int) []int {
 	var z []int
 	zlen := len(x) + len(y)
-	// ...expand z to at least zlen... 这里capacity 扩展
+	// ...expand z to at least zlen... 这里capacity 扩展的部分还是和之前一样
 	copy(z[len(x):], y)  // 在这里不会有 z 的 capacity 不足的问题么  
 	//copy函数用于将内容从一个数组切片复制到另一个数组切片。如果加入的两个数组切片不一样大，就会按其中较小的那个数组切片的元素个数进行复制
 	return z
@@ -8872,9 +8872,9 @@ channel的零值是nil。也许会让你觉得比较奇怪，nil的channel有时
 ```go
 // walkDir recursively walks the file tree rooted at dir
 // and sends the size of each found file on fileSizes.
-func walkDir(
+func 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEyMzg1MDc3MjAsLTM4NTA4NzgyMSwtOD
+eyJoaXN0b3J5IjpbLTE2Mzk4NDU4MDgsLTM4NTA4NzgyMSwtOD
 Y5Mjc1Mjc4LC0xNjUxOTIxMjE1LDE0NjY0MjYwNjEsLTExNDQx
 NjM4NDUsLTEwMzE0NTY0NSwxNzA1NjU5NDg1LC0xMjE1NDQ2Nj
 YxLC00NzY2OTA5NjgsMTExNTU4MTYwOCwtNjY5MDEyMDU1LDE3
