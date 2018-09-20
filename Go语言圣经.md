@@ -3028,7 +3028,7 @@ var graph = make(map[string]map[string]bool)
 func addEdge(from, to string) {
 	edges := graph[from]
 	if edges == nil {
-		edges = make(map[string]bool) //chua
+		edges = make(map[string]bool) //创建 value
 		graph[from] = edges
 	}
 	edges[to] = true
@@ -8864,9 +8864,9 @@ channel的零值是nil。也许会让你觉得比较奇怪，nil的channel有时
 
 这使得我们可以用nil来激活或者禁用case，来达成处理其它输入或输出事件时超时和取消的逻辑。我们会在下一节中看到一个例子。
 
-**练习 8.8：** 使用select来改造8.3节中的echo服务器，为其
+**练习 8.8：** 使用select来改造8.3节中的echo服务
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTg1MzczNDMwNyw3NDEyNDYwODksOTkxMT
+eyJoaXN0b3J5IjpbLTI0NzA5NDM5Niw3NDEyNDYwODksOTkxMT
 c2ODk5LDEwNTA4MDEwMzksMTc3NDYzMzIyMSw3MTQ3MjQ3OTks
 MzA3OTA0MzgzLDE1OTU5NDAwMTksMTIyNDE4MTYxNCwtMzg1MD
 g3ODIxLC04NjkyNzUyNzgsLTE2NTE5MjEyMTUsMTQ2NjQyNjA2
