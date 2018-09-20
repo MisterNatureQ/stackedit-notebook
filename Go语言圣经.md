@@ -2694,7 +2694,7 @@ func nonempty2(strings []string) []string {
 
 无论如何实现，以这种方式重用一个slice一般都要求最多为每个输入值产生一个输出值，事实上很多这类算法都是用来过滤或合并序列中相邻的元素。这种slice用法是比较复杂的技巧，虽然使用到了slice的一些技巧，但是对于某些场合是比较清晰和有效的。
 
-一个slice可以用来模拟一个stack。最初给定的空slice对应一个空的stack，然后可以使用append函数将新的值压入stack：
+**一个slice可以用来模拟一个stack**。最初给定的空slice对应一个空的stack，然后可以使用append函数将新的值压入stack：
 
 ```Go
 stack = append(stack, v) // push v
@@ -2716,7 +2716,7 @@ stack = stack[:len(stack)-1] // pop
 
 ```Go
 func remove(slice []int, i int) []int {
-	copy(slice[i:], slice[i+1:])
+	copy(slice[i:], slice[i+1:]) // 通过内置的copy函数将后面的子slice向前依次移动一位完成：
 	return slice[:len(slice)-1]
 }
 
@@ -8871,13 +8871,13 @@ channel的零值是nil。也许会让你觉得比较奇怪，nil的channel有时
 <u><i>gopl.io/ch8/du1</i></u>
 ```go
 // walkDir recursively walks the file tree rooted at dir
-// and sends the size of each found file on fileSi
+// and sends t
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE5NjM2NDkwNTksLTM4NTA4NzgyMSwtOD
-Y5Mjc1Mjc4LC0xNjUxOTIxMjE1LDE0NjY0MjYwNjEsLTExNDQx
-NjM4NDUsLTEwMzE0NTY0NSwxNzA1NjU5NDg1LC0xMjE1NDQ2Nj
-YxLC00NzY2OTA5NjgsMTExNTU4MTYwOCwtNjY5MDEyMDU1LDE3
-NjQ4ODU0MzAsLTExMTgyOTQ2MTAsMTA4NzAxMjYxMSwtNDU1NT
-Q5NzE5LDEyMzY3ODU1MTYsMTQ5NzgzNzE2OCwtMjAwNTIwMjYx
-OCw0OTkzMDExNjldfQ==
+eyJoaXN0b3J5IjpbLTY5NzExODAyNiwtMzg1MDg3ODIxLC04Nj
+kyNzUyNzgsLTE2NTE5MjEyMTUsMTQ2NjQyNjA2MSwtMTE0NDE2
+Mzg0NSwtMTAzMTQ1NjQ1LDE3MDU2NTk0ODUsLTEyMTU0NDY2Nj
+EsLTQ3NjY5MDk2OCwxMTE1NTgxNjA4LC02NjkwMTIwNTUsMTc2
+NDg4NTQzMCwtMTExODI5NDYxMCwxMDg3MDEyNjExLC00NTU1ND
+k3MTksMTIzNjc4NTUxNiwxNDk3ODM3MTY4LC0yMDA1MjAyNjE4
+LDQ5OTMwMTE2OV19
 -->
