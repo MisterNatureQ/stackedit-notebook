@@ -2944,7 +2944,7 @@ func Add(list []string)       { m[k(list)]++ } //  slice 转 string 变成 map k
 func Count(list []string) int { return m[k(list)] }
 ```
 
-使用同样的技术可以处理任何不可比较的key类型，而不仅仅是slice类型。这种技术对于想使用自定义key比较函数的时候也很有用，例如在比较字符串的时候忽略大小写。同时，辅助函数k(x)也不一定是字符串类型，它可以返回任何可比较的类型，例如整数、数组或结构体等。
+**使用同样的技术可以处理任何不可比较的key类型，而不仅仅是slice类型。**这种技术对于想使用自定义key比较函数的时候也很有用，例如在比较字符串的时候忽略大小写。同时，辅助函数k(x)也不一定是字符串类型，它可以返回任何可比较的类型，例如整数、数组或结构体等。
 
 这是map的另一个例子，下面的程序用于统计输入中每个Unicode码点出现的次数。虽然Unicode全部码点的数量巨大，但是出现在特定文档中的字符种类并没有多少，使用map可以用比较自然的方式来跟踪那些出现过的字符的次数。
 
@@ -8868,11 +8868,11 @@ channel的零值是nil。也许会让你觉得比较奇怪，nil的channel有时
 
 在本小节中，我们会创建一个程序来生成指定目录的硬盘使用情况报告，这个程序和Unix里的du工具比较相似。大多数工作用下面这
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMzExODMxNjcsMTU5NTk0MDAxOSwxMjI0MT
-gxNjE0LC0zODUwODc4MjEsLTg2OTI3NTI3OCwtMTY1MTkyMTIx
-NSwxNDY2NDI2MDYxLC0xMTQ0MTYzODQ1LC0xMDMxNDU2NDUsMT
-cwNTY1OTQ4NSwtMTIxNTQ0NjY2MSwtNDc2NjkwOTY4LDExMTU1
-ODE2MDgsLTY2OTAxMjA1NSwxNzY0ODg1NDMwLC0xMTE4Mjk0Nj
-EwLDEwODcwMTI2MTEsLTQ1NTU0OTcxOSwxMjM2Nzg1NTE2LDE0
-OTc4MzcxNjhdfQ==
+eyJoaXN0b3J5IjpbMzA3OTA0MzgzLDE1OTU5NDAwMTksMTIyND
+E4MTYxNCwtMzg1MDg3ODIxLC04NjkyNzUyNzgsLTE2NTE5MjEy
+MTUsMTQ2NjQyNjA2MSwtMTE0NDE2Mzg0NSwtMTAzMTQ1NjQ1LD
+E3MDU2NTk0ODUsLTEyMTU0NDY2NjEsLTQ3NjY5MDk2OCwxMTE1
+NTgxNjA4LC02NjkwMTIwNTUsMTc2NDg4NTQzMCwtMTExODI5ND
+YxMCwxMDg3MDEyNjExLC00NTU1NDk3MTksMTIzNjc4NTUxNiwx
+NDk3ODM3MTY4XX0=
 -->
