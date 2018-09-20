@@ -2599,7 +2599,7 @@ func main() {
 在下一次迭代时i=4，现在没有新的空余的空间了，因此appendInt函数分配一个容量为8的底层数组，将x的4个元素[0 1 2 3]复制到新空间的开头，然后添加新的元素i，新元素的值是4。新的y的长度是5，容量是8；后面有3个空闲的位置，三次迭代都不需要分配新的空间。当前迭代中，y和x是对应不同底层数组的view。这次操作如图4.3所示。
 
 ![](../images/ch4-03.png)
-![](https://github.com/gopl-zh/gopl-zh.github.com/blob/master/images/ch43-031.png?raw=true)
+![](https://github.com/gopl-zh/gopl-zh.github.com/blob/master/images/ch4-03.png?raw=true)
 内置的append函数可能使用比appendInt更复杂的内存扩展策略。因此，通常我们并不知道append调用是否导致了内存的重新分配，因此我们也不能确认新的slice和原始的slice是否引用的是相同的底层数组空间。同样，我们不能确认在原先的slice上的操作是否会影响到新的slice。因此，通常是将append返回的结果直接赋值给输入的slice变量：
 
 ```Go
@@ -8876,11 +8876,11 @@ func walkDir(dir string, fileSizes chan<- int64) {
 		if entry.IsDir() {
 			subdir := filepath.Join(dir,
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIwNzM4MTAyMTYsLTg2OTI3NTI3OCwtMT
-Y1MTkyMTIxNSwxNDY2NDI2MDYxLC0xMTQ0MTYzODQ1LC0xMDMx
-NDU2NDUsMTcwNTY1OTQ4NSwtMTIxNTQ0NjY2MSwtNDc2NjkwOT
-Y4LDExMTU1ODE2MDgsLTY2OTAxMjA1NSwxNzY0ODg1NDMwLC0x
-MTE4Mjk0NjEwLDEwODcwMTI2MTEsLTQ1NTU0OTcxOSwxMjM2Nz
-g1NTE2LDE0OTc4MzcxNjgsLTIwMDUyMDI2MTgsNDk5MzAxMTY5
-LDE1NDI3NDc1NDBdfQ==
+eyJoaXN0b3J5IjpbLTg4ODEzNDg0LC04NjkyNzUyNzgsLTE2NT
+E5MjEyMTUsMTQ2NjQyNjA2MSwtMTE0NDE2Mzg0NSwtMTAzMTQ1
+NjQ1LDE3MDU2NTk0ODUsLTEyMTU0NDY2NjEsLTQ3NjY5MDk2OC
+wxMTE1NTgxNjA4LC02NjkwMTIwNTUsMTc2NDg4NTQzMCwtMTEx
+ODI5NDYxMCwxMDg3MDEyNjExLC00NTU1NDk3MTksMTIzNjc4NT
+UxNiwxNDk3ODM3MTY4LC0yMDA1MjAyNjE4LDQ5OTMwMTE2OSwx
+NTQyNzQ3NTQwXX0=
 -->
