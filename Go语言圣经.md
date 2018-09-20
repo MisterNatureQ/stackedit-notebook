@@ -3121,11 +3121,11 @@ type Employee struct {
 
 结构体成员的输入顺序也有重要的意义。我们也可以将Position成员合并（因为也是字符串类型），或者是交换Name和Address出现的先后顺序，那样的话就是定义了不同的结构体类型。通常，我们只是将相关的成员写到一起。
 
-如果结构体成员名字是以大写字母开头的，那么该成员就是导出的；这是Go语言导出规则决定的。一个结构体可能同时包含导出和未导出的成员。
+**如果结构体成员名字是以大写字母开头的，那么该成员就是导出的；这是Go语言导出规则决定的。一个结构体可能同时包含导出和未导出的成员。**
 
 结构体类型往往是冗长的，因为它的每个成员可能都会占一行。虽然我们每次都可以重写整个结构体成员，但是重复会令人厌烦。因此，完整的结构体写法通常只在类型声明语句的地方出现，就像Employee类型声明语句那样。
 
-一个命名为S的结构体类型将不能再包含S类型的成员：因为一个聚合的值不能包含它自身。（该限制同样适用于数组。）但是S类型的结构体可以包含`*S`指针类型的成员，这可以让我们创建递归的数据结构，比如链表和树结构等。在下面的代码中，我们使用一个二叉树来实现一个插入排序：
+**一个命名为S的结构体类型将不能再包含S类型的成员：因为一个聚合的值不能包含它自身。（该限制同样适用于数组。）但是S类型的结构体可以包含`*S`指针类型的成员，这可以让我们创建递归的数据结构，比如链表和树结构等。在下面的代码中，我们使用一个二叉树来实现一个插入排序：**
 
 <u><i>gopl.io/ch4/treesort</i></u>
 ```Go
@@ -8862,13 +8862,13 @@ default:
 
 channel的零值是nil。也许会让你觉得比较奇怪，nil的channel有时候也是有一些用处的。因为对一个nil的channel发送和接收操作会永远阻塞，在select语句中操作nil的channel永远都不会被select到。
 
-这使得我们可以用nil来激活或者禁用case，来达成处理其它输入或输出事件时超时和取消的逻辑。我们会在下一节
+这使得我们可以用nil来激活或者禁用case，来达成处理其它输入或输出事件时超时和取消的逻辑
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTkxMzkyNDM1MCwxODU5NjAwNjI4LC0yMD
-Q3MjcxNTY1LC0yNDcwOTQzOTYsNzQxMjQ2MDg5LDk5MTE3Njg5
-OSwxMDUwODAxMDM5LDE3NzQ2MzMyMjEsNzE0NzI0Nzk5LDMwNz
-kwNDM4MywxNTk1OTQwMDE5LDEyMjQxODE2MTQsLTM4NTA4Nzgy
-MSwtODY5Mjc1Mjc4LC0xNjUxOTIxMjE1LDE0NjY0MjYwNjEsLT
-ExNDQxNjM4NDUsLTEwMzE0NTY0NSwxNzA1NjU5NDg1LC0xMjE1
-NDQ2NjYxXX0=
+eyJoaXN0b3J5IjpbLTEzMzMyNjMzODgsLTkxMzkyNDM1MCwxOD
+U5NjAwNjI4LC0yMDQ3MjcxNTY1LC0yNDcwOTQzOTYsNzQxMjQ2
+MDg5LDk5MTE3Njg5OSwxMDUwODAxMDM5LDE3NzQ2MzMyMjEsNz
+E0NzI0Nzk5LDMwNzkwNDM4MywxNTk1OTQwMDE5LDEyMjQxODE2
+MTQsLTM4NTA4NzgyMSwtODY5Mjc1Mjc4LC0xNjUxOTIxMjE1LD
+E0NjY0MjYwNjEsLTExNDQxNjM4NDUsLTEwMzE0NTY0NSwxNzA1
+NjU5NDg1XX0=
 -->
