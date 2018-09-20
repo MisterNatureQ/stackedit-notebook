@@ -3280,7 +3280,7 @@ pp := new(Point)
 
 ### 4.4.2. 结构体比较
 
-**如果结构体的全部成员都是可以比较的，那么结构体也是可以比较的**，那样的话两个结构体将可以使用或运算符进行比较。相等比较运算符将比较两个结构体的每个成员，因此下面两个比较的表达式是等价的：
+**如果结构体的全部成员都是可以比较的，那么结构体也是可以比较的**，那样的话两个结构体将可以使用"=="或   "!="运算符进行比较。相等比较运算符"=="将比较两个结构体的每个成员，因此下面两个比较的表达式是等价的：
 
 ```Go
 type Point struct{ X, Y int }
@@ -3291,7 +3291,7 @@ fmt.Println(p.X == q.X && p.Y == q.Y) // "false"
 fmt.Println(p == q)                   // "false"
 ```
 
-**可比较的结构体类型和其他可比较的类型一样，可以用于map的key类型**。
+可比较的结构体类型和其他可比较的类型一样，可以用于map的key类型。
 
 ```Go
 type address struct {
@@ -8865,13 +8865,13 @@ ticker.Stop() // cause the ticker's goroutine to terminate
 ```go
 select {
 case <-abort:
-	
+	fmt
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIxMjE3NjMwODksMTMyMDc5NDIxMCwtMT
-I0NjAyNDIzNywtODY2NTc1OTEsMjExMzQ3Mzg2NCwtMTMzNzYy
-Mzc5NCwtMTMzMzI2MzM4OCwtOTEzOTI0MzUwLDE4NTk2MDA2Mj
-gsLTIwNDcyNzE1NjUsLTI0NzA5NDM5Niw3NDEyNDYwODksOTkx
-MTc2ODk5LDEwNTA4MDEwMzksMTc3NDYzMzIyMSw3MTQ3MjQ3OT
-ksMzA3OTA0MzgzLDE1OTU5NDAwMTksMTIyNDE4MTYxNCwtMzg1
-MDg3ODIxXX0=
+eyJoaXN0b3J5IjpbLTEzNDMwNTAxMjYsLTIxMjE3NjMwODksMT
+MyMDc5NDIxMCwtMTI0NjAyNDIzNywtODY2NTc1OTEsMjExMzQ3
+Mzg2NCwtMTMzNzYyMzc5NCwtMTMzMzI2MzM4OCwtOTEzOTI0Mz
+UwLDE4NTk2MDA2MjgsLTIwNDcyNzE1NjUsLTI0NzA5NDM5Niw3
+NDEyNDYwODksOTkxMTc2ODk5LDEwNTA4MDEwMzksMTc3NDYzMz
+IyMSw3MTQ3MjQ3OTksMzA3OTA0MzgzLDE1OTU5NDAwMTksMTIy
+NDE4MTYxNF19
 -->
