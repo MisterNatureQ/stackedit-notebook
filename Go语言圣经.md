@@ -2467,7 +2467,7 @@ fmt.Println(s) // "[2 3 4 5 0 1]"
 
 要注意的是slice类型的变量s和数组类型的变量a的初始化语法的差异。slice和数组的字面值语法很类似，它们都是用花括弧包含一系列的初始化元素，但是对于slice并没有指明序列的长度。这会隐式地创建一个合适大小的数组，然后slice的指针指向底层的数组。就像数组字面值一样，slice的字面值也可以按顺序指定初始化值序列，或者是通过索引和元素值指定，或者用两种风格的混合语法初始化。
 
-和数组不同的是，slice之间不能比较，因此我们不能使用==操作符来判断两个slice是否含有全部相等元素。不过标准库提供了高度优化的bytes.Equal函数来判断两个字节型slice是否相等（[]byte），但是对于其他类型的slice，我们必须自己展开每个元素进行比较：
+**和数组不同的是，slice之间不能比较，因此我们不能使用==操作符来判断两个slice是否含有全部相等元素。不过标准库提供了高度优化的bytes.Equal函数来判断两个字节型slice是否相等（[]byte），但是对于其他类型的slice，我们必须自己展开每个元素进行比较：
 
 ```Go
 func equal(x, y []string) bool {
@@ -8878,11 +8878,11 @@ func walkDir(dir string, fileSizes chan<- int64) {
 			walkDir(subdir, fileSizes)
 		} else
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE3OTY3MzEyNDYsLTEyMTU0NDY2NjEsLT
-Q3NjY5MDk2OCwxMTE1NTgxNjA4LC02NjkwMTIwNTUsMTc2NDg4
-NTQzMCwtMTExODI5NDYxMCwxMDg3MDEyNjExLC00NTU1NDk3MT
-ksMTIzNjc4NTUxNiwxNDk3ODM3MTY4LC0yMDA1MjAyNjE4LDQ5
-OTMwMTE2OSwxNTQyNzQ3NTQwLDE4NzQwMzAyMDEsNDE3MzEwMD
-I3LC0xNDUxNjM2NTc5LDk3MDU2NjcxLDQwMjQ0MTYyOSwxMjg2
-NDE2OTY0XX0=
+eyJoaXN0b3J5IjpbNzI3MTgwMTc4LC0xMjE1NDQ2NjYxLC00Nz
+Y2OTA5NjgsMTExNTU4MTYwOCwtNjY5MDEyMDU1LDE3NjQ4ODU0
+MzAsLTExMTgyOTQ2MTAsMTA4NzAxMjYxMSwtNDU1NTQ5NzE5LD
+EyMzY3ODU1MTYsMTQ5NzgzNzE2OCwtMjAwNTIwMjYxOCw0OTkz
+MDExNjksMTU0Mjc0NzU0MCwxODc0MDMwMjAxLDQxNzMxMDAyNy
+wtMTQ1MTYzNjU3OSw5NzA1NjY3MSw0MDI0NDE2MjksMTI4NjQx
+Njk2NF19
 -->
