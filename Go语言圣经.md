@@ -2403,7 +2403,7 @@ months := [...]string{1: "January", /* ... */, 12: "December"} // 这里是一�
 slice的切片操作s[i:j]，其中0 ≤ i≤ j≤ cap(s)，用于创建一个新的slice，引用s的从第i个元素开始到第j-1个元素的子序列。新的slice将只有j-i个元素。如果i位置的索引被省略的话将使用0代替，如果j位置的索引被省略的话将使用len(s)代替。因此，months[1:13]切片操作将引用全部有效的月份，和months[1:]操作等价；months[:]切片操作则是引用整个数组。让我们分别定义表示第二季度和北方夏天月份的slice，它们有重叠部分：
 
 ![](../images/ch4-01.png)
-![](https://github.com/gopl-zh/gopl-zh.github.com/blob/master/images/ch43-01.png?raw=true)
+![](https://github.com/gopl-zh/gopl-zh.github.com/blob/master/images/ch4-01.png?raw=true)
 ```Go
 Q2 := months[4:7] // 数组转字符串
 summer := months[6:9]
@@ -8879,7 +8879,7 @@ func walkDir(dir string, fileSizes chan<- int64) {
 		} else {
 		
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE2MTQyMjk5ODYsLTQ3NjY5MDk2OCwxMT
+eyJoaXN0b3J5IjpbLTEyMTU0NDY2NjEsLTQ3NjY5MDk2OCwxMT
 E1NTgxNjA4LC02NjkwMTIwNTUsMTc2NDg4NTQzMCwtMTExODI5
 NDYxMCwxMDg3MDEyNjExLC00NTU1NDk3MTksMTIzNjc4NTUxNi
 wxNDk3ODM3MTY4LC0yMDA1MjAyNjE4LDQ5OTMwMTE2OSwxNTQy
