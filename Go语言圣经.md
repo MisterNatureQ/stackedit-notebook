@@ -2931,7 +2931,7 @@ func main() {
 
 Go程序员将这种忽略value的map当作一个字符串集合，并非所有`map[string]bool`类型value都是无关紧要的；有一些则可能会同时包含true和false的值。
 
-有时候我们需要一个map或set的key是slice类型，但是map的key必须是可比较的类型，但是slice并不满足这个条件。不过，我们可以通过两个步骤绕过这个限制。第一步，定义一个辅助函数k，将slice转为map对应的string类型的key，确保只有x和y相等时k(x) == k(y)才成立。然后创建一个key为string类型的map，在每次对map操作时先用k辅助函数将slice转化为string类型。
+**有时候我们需要一个map或set的key是slice类型，但是map的key必须是可比较的类型，但是slice并不满足这个条件。不过，我们可以通过两个步骤绕过这个限制。第一步，定义一个辅助函数k，将slice转为map对应的string类型的key，确保只有x和y相等时k(x) == k(y)才成立。然后创建一个key为string类型的map，在每次对map操作时先用k辅助函数将slice转化为string类型。**
 
 下面的例子演示了如何使用map来记录提交相同的字符串列表的次数。它使用了fmt.Sprintf函数将字符串列表转换为一个字符串以用于map的key，通过%q参数忠实地记录每个字符串元素的信息：
 
@@ -8866,9 +8866,9 @@ channel的零值是nil。也许会让你觉得比较奇怪，nil的channel有时
 **练习 8.8：** 使用select来改造8.3节中的echo服务器，为其增加超时，这样服务器可以在客户端10秒中没有任何喊话时自动断开连接。
 ## 8.8. 示例: 并发的目录遍历
 
-在本小节中，我们会创建一个程序来生成指定目录的硬盘使用情况报告，这个程序和Unix里的du工具比较相似。大多数工作用下面这个walkDir函数来完成，这个函数使用dirents函数来枚举一个目录下的所有入口。
+在本小节中，我们会创建一个程序来生成指定目录的硬盘使用情况报告，这个程序和Unix里的du工具比较相似。大多数工作用下面这个walkDir函数来完成，这个函数使用dirents函数来枚举一个目录下的所有入口
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTQ3MDM5MTQyMywxMjI0MTgxNjE0LC0zOD
+eyJoaXN0b3J5IjpbMTU5NTk0MDAxOSwxMjI0MTgxNjE0LC0zOD
 UwODc4MjEsLTg2OTI3NTI3OCwtMTY1MTkyMTIxNSwxNDY2NDI2
 MDYxLC0xMTQ0MTYzODQ1LC0xMDMxNDU2NDUsMTcwNTY1OTQ4NS
 wtMTIxNTQ0NjY2MSwtNDc2NjkwOTY4LDExMTU1ODE2MDgsLTY2
