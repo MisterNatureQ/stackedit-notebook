@@ -3154,6 +3154,7 @@ func appendValues(values []int, t *tree) []int {
 	return values
 }
 
+// 添加一个节点
 func add(t *tree, value int) *tree {
 	if t == nil {
 		// Equivalent to return &tree{value: value}.
@@ -8862,13 +8863,13 @@ default:
 
 channel的零值是nil。也许会让你觉得比较奇怪，nil的channel有时候也是有一些用处的。因为对一个nil的channel发送和接收操作会永远阻塞，在select语句中操作nil的channel永远都不会被select到。
 
-这使得我们可以用nil来激活或者禁用case，来达成处理其它输入或输出事件时超时和取消的逻辑
+这使得我们可以用nil来激活或者禁用case，来达成处理其它输
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEzMzMyNjMzODgsLTkxMzkyNDM1MCwxOD
-U5NjAwNjI4LC0yMDQ3MjcxNTY1LC0yNDcwOTQzOTYsNzQxMjQ2
-MDg5LDk5MTE3Njg5OSwxMDUwODAxMDM5LDE3NzQ2MzMyMjEsNz
-E0NzI0Nzk5LDMwNzkwNDM4MywxNTk1OTQwMDE5LDEyMjQxODE2
-MTQsLTM4NTA4NzgyMSwtODY5Mjc1Mjc4LC0xNjUxOTIxMjE1LD
-E0NjY0MjYwNjEsLTExNDQxNjM4NDUsLTEwMzE0NTY0NSwxNzA1
-NjU5NDg1XX0=
+eyJoaXN0b3J5IjpbLTEzMzc2MjM3OTQsLTEzMzMyNjMzODgsLT
+kxMzkyNDM1MCwxODU5NjAwNjI4LC0yMDQ3MjcxNTY1LC0yNDcw
+OTQzOTYsNzQxMjQ2MDg5LDk5MTE3Njg5OSwxMDUwODAxMDM5LD
+E3NzQ2MzMyMjEsNzE0NzI0Nzk5LDMwNzkwNDM4MywxNTk1OTQw
+MDE5LDEyMjQxODE2MTQsLTM4NTA4NzgyMSwtODY5Mjc1Mjc4LC
+0xNjUxOTIxMjE1LDE0NjY0MjYwNjEsLTExNDQxNjM4NDUsLTEw
+MzE0NTY0NV19
 -->
