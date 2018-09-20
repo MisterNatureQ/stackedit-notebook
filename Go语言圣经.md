@@ -2830,7 +2830,7 @@ for name, age := range ages {
 }
 ```
 
-**Map的迭代顺序是不确定的，并且不同的哈希函数实现可能导致不同的遍历顺序。**在实践中，遍历的顺序是随机的，每一次遍历的顺序都不相同。这是故意的，每次都使用随机的遍历顺序可以强制要求程序不会依赖具体的哈希函数实现。**如果要按顺序遍历key/value对，我们必须显式地对key进行排序，可以使用sort包的Strings函数对字符串slice进行排序。**下面是常见的处理方式：
+**Map的迭代顺序是不确定的，并且不同的哈希函数实现可能导致不同的遍历顺序。**在实践中，遍历的顺序是随机的，每一次遍历的顺序都不相同。这是故意的，每次都使用随机的遍历顺序可以强制要求程序不会依赖具体的哈希函数实现。**如果要按顺序遍历key/value对，我们必须显式地对key进行排序，可以使用sort包的Strings函数对字符串slice进行排序**。下面是常见的处理方式：
 
 ```Go
 import "sort"
@@ -8870,7 +8870,7 @@ channel的零值是nil。也许会让你觉得比较奇怪，nil的channel有时
 
 <u><i>gopl
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE2Nzc1NTE5NTksMTIyNDE4MTYxNCwtMz
+eyJoaXN0b3J5IjpbLTE0MDgxODgyNDcsMTIyNDE4MTYxNCwtMz
 g1MDg3ODIxLC04NjkyNzUyNzgsLTE2NTE5MjEyMTUsMTQ2NjQy
 NjA2MSwtMTE0NDE2Mzg0NSwtMTAzMTQ1NjQ1LDE3MDU2NTk0OD
 UsLTEyMTU0NDY2NjEsLTQ3NjY5MDk2OCwxMTE1NTgxNjA4LC02
