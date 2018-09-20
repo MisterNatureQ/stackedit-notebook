@@ -3019,7 +3019,7 @@ len count
 4   0
 ```
 
-Map的value类型也可以是一个聚合类型，比如是一个map或slice。在下面的代码中，图graph的key类型是一个字符串，value类型map[string]bool代表一个字符串集合。从概念上讲，graph将一个字符串类型的key映射到一组相关的字符串集合，它们指向新的graph的key。
+**Map的value类型也可以是一个聚合类型**，比如是一个map或slice。在下面的代码中，图graph的key类型是一个字符串，value类型map[string]bool代表一个字符串集合。从概念上讲，graph将一个字符串类型的key映射到一组相关的字符串集合，它们指向新的graph的key。
 
 <u><i>gopl.io/ch4/graph</i></u>
 ```Go
@@ -8864,13 +8864,13 @@ channel的零值是nil。也许会让你觉得比较奇怪，nil的channel有时
 
 这使得我们可以用nil来激活或者禁用case，来达成处理其它输入或输出事件时超时和取消的逻辑。我们会在下一节中看到一个例子。
 
-**练习 8.8：** 使用select来改造8.3节中的echo服务器，为其增加超时，这样服务器
+**练习 8.8：** 使用select来改造8.3节中的echo服务器，为其增加超时，这样服务
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbOTkxMTc2ODk5LDEwNTA4MDEwMzksMTc3ND
-YzMzIyMSw3MTQ3MjQ3OTksMzA3OTA0MzgzLDE1OTU5NDAwMTks
-MTIyNDE4MTYxNCwtMzg1MDg3ODIxLC04NjkyNzUyNzgsLTE2NT
-E5MjEyMTUsMTQ2NjQyNjA2MSwtMTE0NDE2Mzg0NSwtMTAzMTQ1
-NjQ1LDE3MDU2NTk0ODUsLTEyMTU0NDY2NjEsLTQ3NjY5MDk2OC
-wxMTE1NTgxNjA4LC02NjkwMTIwNTUsMTc2NDg4NTQzMCwtMTEx
-ODI5NDYxMF19
+eyJoaXN0b3J5IjpbNzQxMjQ2MDg5LDk5MTE3Njg5OSwxMDUwOD
+AxMDM5LDE3NzQ2MzMyMjEsNzE0NzI0Nzk5LDMwNzkwNDM4Mywx
+NTk1OTQwMDE5LDEyMjQxODE2MTQsLTM4NTA4NzgyMSwtODY5Mj
+c1Mjc4LC0xNjUxOTIxMjE1LDE0NjY0MjYwNjEsLTExNDQxNjM4
+NDUsLTEwMzE0NTY0NSwxNzA1NjU5NDg1LC0xMjE1NDQ2NjYxLC
+00NzY2OTA5NjgsMTExNTU4MTYwOCwtNjY5MDEyMDU1LDE3NjQ4
+ODU0MzBdfQ==
 -->
