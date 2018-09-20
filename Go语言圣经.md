@@ -2395,7 +2395,7 @@ Slice（切片）代表变长的序列，序列中每个元素都有相同的类
 多个slice之间可以共享底层的数据，并且引用的数组部分区间可能重叠。图4.1显示了表示一年中每个月份名字的**字符串数组**，还有重叠引用了该数组的两个slice。数组这样定义
 
 ```Go
-months := [...]string{1: "January", /* ... */, 12: "December"}
+months := [...]string{1: "January", /* ... */, 12: "December"} // 这里是一个数组 
 ```
 
 因此一月份是months[1]，十二月份是months[12]。通常，数组的第一个元素从索引0开始，但是月份一般是从1开始的，因此我们声明数组时直接跳过第0个元素，第0个元素会被自动初始化为空字符串。
@@ -2405,7 +2405,7 @@ slice的切片操作s[i:j]，其中0 ≤ i≤ j≤ cap(s)，用于创建一个�
 ![](../images/ch4-01.png)
 ![](https://github.com/gopl-zh/gopl-zh.github.com/blob/master/images/ch43-01.png?raw=true)
 ```Go
-Q2 := months[4:7]
+Q2 := months[4:7] // 数组转字符串
 summer := months[6:9]
 fmt.Println(Q2)     // ["April" "May" "June"]
 fmt.Println(summer) // ["June" "July" "August"]
@@ -8877,13 +8877,13 @@ func walkDir(dir string, fileSizes chan<- int64) {
 			subdir := filepath.Join(dir, entry.Name())
 			walkDir(subdir, fileSizes)
 		} else {
-			fileSizes <- entry.Si
+		
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTQ3NjY5MDk2OCwxMTE1NTgxNjA4LC02Nj
-kwMTIwNTUsMTc2NDg4NTQzMCwtMTExODI5NDYxMCwxMDg3MDEy
-NjExLC00NTU1NDk3MTksMTIzNjc4NTUxNiwxNDk3ODM3MTY4LC
-0yMDA1MjAyNjE4LDQ5OTMwMTE2OSwxNTQyNzQ3NTQwLDE4NzQw
-MzAyMDEsNDE3MzEwMDI3LC0xNDUxNjM2NTc5LDk3MDU2NjcxLD
-QwMjQ0MTYyOSwxMjg2NDE2OTY0LC04NjQ4MDk1MDYsLTcyNjYy
-NzEzNl19
+eyJoaXN0b3J5IjpbLTE2MTQyMjk5ODYsLTQ3NjY5MDk2OCwxMT
+E1NTgxNjA4LC02NjkwMTIwNTUsMTc2NDg4NTQzMCwtMTExODI5
+NDYxMCwxMDg3MDEyNjExLC00NTU1NDk3MTksMTIzNjc4NTUxNi
+wxNDk3ODM3MTY4LC0yMDA1MjAyNjE4LDQ5OTMwMTE2OSwxNTQy
+NzQ3NTQwLDE4NzQwMzAyMDEsNDE3MzEwMDI3LC0xNDUxNjM2NT
+c5LDk3MDU2NjcxLDQwMjQ0MTYyOSwxMjg2NDE2OTY0LC04NjQ4
+MDk1MDZdfQ==
 -->
