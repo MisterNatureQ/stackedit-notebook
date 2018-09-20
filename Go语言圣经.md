@@ -2867,7 +2867,7 @@ map上的大部分操作，包括查找、删除、len和range循环都可以安
 ages["carol"] = 21 // panic: assignment to entry in nil map
 ```
 
-在向map存数据前必须先创建map。
+**在向map存数据前必须先创建map。**
 
 通过key作为索引下标来访问map将产生一个value。如果key在map中是存在的，那么将得到与key对应的value；如果key不存在，那么将得到value对应类型的零值，正如我们前面看到的ages["bob"]那样。这个规则很实用，但是有时候可能需要知道对应的元素是否真的是在map之中。例如，如果元素类型是一个数字，你可能需要区分一个已经存在的0，和不存在而返回零值的0，可以像下面这样测试：
 
@@ -8868,13 +8868,13 @@ channel的零值是nil。也许会让你觉得比较奇怪，nil的channel有时
 
 在本小节中，我们会创建一个程序来生成指定目录的硬盘使用情况报告，这个程序和Unix里的du工具比较相似。大多数工作用下面这个walkDir函数来完成，这个函数使用dirents函数来枚举一个目录下的所有入口。
 
-<u><i>gopl.io/
+<u><i>gopl
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTIyNDE4MTYxNCwtMzg1MDg3ODIxLC04Nj
-kyNzUyNzgsLTE2NTE5MjEyMTUsMTQ2NjQyNjA2MSwtMTE0NDE2
-Mzg0NSwtMTAzMTQ1NjQ1LDE3MDU2NTk0ODUsLTEyMTU0NDY2Nj
-EsLTQ3NjY5MDk2OCwxMTE1NTgxNjA4LC02NjkwMTIwNTUsMTc2
-NDg4NTQzMCwtMTExODI5NDYxMCwxMDg3MDEyNjExLC00NTU1ND
-k3MTksMTIzNjc4NTUxNiwxNDk3ODM3MTY4LC0yMDA1MjAyNjE4
-LDQ5OTMwMTE2OV19
+eyJoaXN0b3J5IjpbLTE2Nzc1NTE5NTksMTIyNDE4MTYxNCwtMz
+g1MDg3ODIxLC04NjkyNzUyNzgsLTE2NTE5MjEyMTUsMTQ2NjQy
+NjA2MSwtMTE0NDE2Mzg0NSwtMTAzMTQ1NjQ1LDE3MDU2NTk0OD
+UsLTEyMTU0NDY2NjEsLTQ3NjY5MDk2OCwxMTE1NTgxNjA4LC02
+NjkwMTIwNTUsMTc2NDg4NTQzMCwtMTExODI5NDYxMCwxMDg3MD
+EyNjExLC00NTU1NDk3MTksMTIzNjc4NTUxNiwxNDk3ODM3MTY4
+LC0yMDA1MjAyNjE4XX0=
 -->
