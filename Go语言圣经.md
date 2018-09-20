@@ -3209,7 +3209,7 @@ type Point struct{ X, Y int }
 p := Point{1, 2}
 ```
 
-这里有两种形式的结构体字面值语法，上面的是第一种写法，要求以结构体成员定义的顺序为每个结构体成员指定一个字面值。它要求写代码和读代码的人要记住结构体的每个成员的类型和顺序，不过结构体成员有细微的调整就可能导致上述代码不能编译。因此，上述的语法一般只在定义结构体的包内部使用，或者是在较小的结构体中使用，这些结构体的成员排列比较规则，比如image.Point{x, y}或color.RGBA{red, green, blue, alpha}。
+这里有两种形式的结构体字面值语法，上面的是第一种写法，**要求以结构体成员定义的顺序为每个结构体成员指定一个字面值。**它要求写代码和读代码的人要记住结构体的每个成员的类型和顺序，不过结构体成员有细微的调整就可能导致上述代码不能编译。因此，上述的语法一般只在定义结构体的包内部使用，或者是在较小的结构体中使用，这些结构体的成员排列比较规则，比如image.Point{x, y}或color.RGBA{red, green, blue, alpha}。
 
 其实更常用的是第二种写法，以成员名字和相应的值来初始化，可以包含部分或全部的成员，如1.4节的Lissajous程序的写法：
 
@@ -3217,9 +3217,9 @@ p := Point{1, 2}
 anim := gif.GIF{LoopCount: nframes}
 ```
 
-在这种形式的结构体字面值写法中，如果成员被忽略的话将默认用零值。因为提供了成员的名字，所以成员出现的顺序并不重要。
+**在这种形式的结构体字面值写法中，如果成员被忽略的话将默认用零值。因为提供了成员的名字，所以成员出现的顺序并不重要。**
 
-两种不同形式的写法不能混合使用。而且，你不能企图在外部包中用第一种顺序赋值的技巧来偷偷地初始化结构体中未导出的成员。
+**两种不同形式的写法不能混合使用。而且，你不能企图在外部包中用第一种顺序赋值的技巧来偷偷地初始化结构体中未导出的成员。**
 
 ```Go
 package p
@@ -8869,13 +8869,13 @@ default:
 }
 ```
 
-channel的零值是n
+ch
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjExMzQ3Mzg2NCwtMTMzNzYyMzc5NCwtMT
-MzMzI2MzM4OCwtOTEzOTI0MzUwLDE4NTk2MDA2MjgsLTIwNDcy
-NzE1NjUsLTI0NzA5NDM5Niw3NDEyNDYwODksOTkxMTc2ODk5LD
-EwNTA4MDEwMzksMTc3NDYzMzIyMSw3MTQ3MjQ3OTksMzA3OTA0
-MzgzLDE1OTU5NDAwMTksMTIyNDE4MTYxNCwtMzg1MDg3ODIxLC
-04NjkyNzUyNzgsLTE2NTE5MjEyMTUsMTQ2NjQyNjA2MSwtMTE0
-NDE2Mzg0NV19
+eyJoaXN0b3J5IjpbLTg2NjU3NTkxLDIxMTM0NzM4NjQsLTEzMz
+c2MjM3OTQsLTEzMzMyNjMzODgsLTkxMzkyNDM1MCwxODU5NjAw
+NjI4LC0yMDQ3MjcxNTY1LC0yNDcwOTQzOTYsNzQxMjQ2MDg5LD
+k5MTE3Njg5OSwxMDUwODAxMDM5LDE3NzQ2MzMyMjEsNzE0NzI0
+Nzk5LDMwNzkwNDM4MywxNTk1OTQwMDE5LDEyMjQxODE2MTQsLT
+M4NTA4NzgyMSwtODY5Mjc1Mjc4LC0xNjUxOTIxMjE1LDE0NjY0
+MjYwNjFdfQ==
 -->
