@@ -3174,7 +3174,9 @@ func add(t *tree, value int) *tree {
 	return t
 }
 ```
-
+type Buffer struct {
+    // 内含隐藏或非导出字段
+}
 结构体类型的零值是每个成员都是零值。通常会将零值作为最合理的默认值。例如，对于bytes.Buffer类型，结构体初始值就是一个随时可用的空缓存，还有在第9章将会讲到的sync.Mutex的零值也是有效的未锁定状态。有时候这种零值可用的特性是自然获得的，但是也有些类型需要一些额外的工作。
 
 如果结构体没有任何成员的话就是空结构体，写作struct{}。它的大小为0，也不包含任何信息，但是有时候依然是有价值的。有些Go语言程序员用map来模拟set数据结构时，用它来代替map中布尔类型的value，只是强调key的重要性，但是因为节约的空间有限，而且语法比较复杂，所以我们通常会避免这样的用法。
@@ -8865,13 +8867,13 @@ default:
 }
 ```
 
-channel的零值是nil。也许会让你觉得比较奇怪，nil的channel有时候也是有一些用处的。因为对一个nil的channel发送和接收操作会永远阻塞，在s
+channel的零值是nil。也许会让你觉得比较奇怪，nil的channel有时候
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTExOTczNzQwMjQsLTEzMzc2MjM3OTQsLT
-EzMzMyNjMzODgsLTkxMzkyNDM1MCwxODU5NjAwNjI4LC0yMDQ3
-MjcxNTY1LC0yNDcwOTQzOTYsNzQxMjQ2MDg5LDk5MTE3Njg5OS
-wxMDUwODAxMDM5LDE3NzQ2MzMyMjEsNzE0NzI0Nzk5LDMwNzkw
-NDM4MywxNTk1OTQwMDE5LDEyMjQxODE2MTQsLTM4NTA4NzgyMS
-wtODY5Mjc1Mjc4LC0xNjUxOTIxMjE1LDE0NjY0MjYwNjEsLTEx
-NDQxNjM4NDVdfQ==
+eyJoaXN0b3J5IjpbLTk5MjM2NDgwOSwtMTMzNzYyMzc5NCwtMT
+MzMzI2MzM4OCwtOTEzOTI0MzUwLDE4NTk2MDA2MjgsLTIwNDcy
+NzE1NjUsLTI0NzA5NDM5Niw3NDEyNDYwODksOTkxMTc2ODk5LD
+EwNTA4MDEwMzksMTc3NDYzMzIyMSw3MTQ3MjQ3OTksMzA3OTA0
+MzgzLDE1OTU5NDAwMTksMTIyNDE4MTYxNCwtMzg1MDg3ODIxLC
+04NjkyNzUyNzgsLTE2NTE5MjEyMTUsMTQ2NjQyNjA2MSwtMTE0
+NDE2Mzg0NV19
 -->
