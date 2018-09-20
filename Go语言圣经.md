@@ -2392,7 +2392,7 @@ Slice（切片）代表变长的序列，序列中每个元素都有相同的类
 
 数组和slice之间有着紧密的联系。一个slice是一个轻量级的数据结构，提供了访问数组子序列（或者全部）元素的功能，而且slice的底层确实引用一个数组对象。**一个slice由三个部分构成：指针、长度和容量。指针指向第一个slice元素对应的底层数组元素的地址，要注意的是slice的第一个元素并不一定就是数组的第一个元素。长度对应slice中元素的数目；长度不能超过容量，容量一般是从slice的开始位置到底层数据的结尾位置。内置的len和cap函数分别返回slice的长度和容量。**
 
-多个slice之间可以共享底层的数据，并且引用的数组部分区间可能重叠。图4.1显示了表示一年中每个月份名字的**字符串数组，还有重叠引用了该数组的两个slice。数组这样定义
+多个slice之间可以共享底层的数据，并且引用的数组部分区间可能重叠。图4.1显示了表示一年中每个月份名字的**字符串数组**，还有重叠引用了该数组的两个slice。数组这样定义
 
 ```Go
 months := [...]string{1: "January", /* ... */, 12: "December"}
@@ -8879,7 +8879,7 @@ func walkDir(dir string, fileSizes chan<- int64) {
 		} else {
 			fileSizes <- entry.Si
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTM1NzY4NzAxNiwxMTE1NTgxNjA4LC02Nj
+eyJoaXN0b3J5IjpbLTQ3NjY5MDk2OCwxMTE1NTgxNjA4LC02Nj
 kwMTIwNTUsMTc2NDg4NTQzMCwtMTExODI5NDYxMCwxMDg3MDEy
 NjExLC00NTU1NDk3MTksMTIzNjc4NTUxNiwxNDk3ODM3MTY4LC
 0yMDA1MjAyNjE4LDQ5OTMwMTE2OSwxNTQyNzQ3NTQwLDE4NzQw
