@@ -3049,7 +3049,7 @@ func hasEdge(from, to string) bool {
 
 ## 4.4. 结构体
 
-结构体是一种聚合的数据类型，是由零个或多个任意类型的值聚合成的实体。每个值称为结构体的成员。用结构体的经典案例是处理公司的员工信息，每个员工信息包含一个唯一的员工编号、员工的名字、家庭住址、出生日期、工作岗位、薪资、上级领导等等。所有的这些信息都需要绑定到一个实体中，可以作为一个整体单元被复制，作为函数的参数或返回值，或者是被存储到数组中，等等。
+**结构体是一种聚合的数据类型，是由零个或多个任意类型的值聚合成的实体。每个值称为结构体的成员**。用结构体的经典案例是处理公司的员工信息，每个员工信息包含一个唯一的员工编号、员工的名字、家庭住址、出生日期、工作岗位、薪资、上级领导等等。所有的这些信息都需要绑定到一个实体中，可以作为一个整体单元被复制，作为函数的参数或返回值，或者是被存储到数组中，等等。
 
 下面两个语句声明了一个叫Employee的命名的结构体类型，并且声明了一个Employee类型的变量dilbert：
 
@@ -8864,11 +8864,11 @@ channel的零值是nil。也许会让你觉得比较奇怪，nil的channel有时
 
 这使得我们可以用nil来激活或者禁用case，来达成处理其它输入或输出事件时超时和取消的逻辑。我们会在下一节中看到一个例
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTg1Nzg1MDM1NSwtMjQ3MDk0Mzk2LDc0MT
-I0NjA4OSw5OTExNzY4OTksMTA1MDgwMTAzOSwxNzc0NjMzMjIx
-LDcxNDcyNDc5OSwzMDc5MDQzODMsMTU5NTk0MDAxOSwxMjI0MT
-gxNjE0LC0zODUwODc4MjEsLTg2OTI3NTI3OCwtMTY1MTkyMTIx
-NSwxNDY2NDI2MDYxLC0xMTQ0MTYzODQ1LC0xMDMxNDU2NDUsMT
-cwNTY1OTQ4NSwtMTIxNTQ0NjY2MSwtNDc2NjkwOTY4LDExMTU1
-ODE2MDhdfQ==
+eyJoaXN0b3J5IjpbLTIwNDcyNzE1NjUsLTI0NzA5NDM5Niw3ND
+EyNDYwODksOTkxMTc2ODk5LDEwNTA4MDEwMzksMTc3NDYzMzIy
+MSw3MTQ3MjQ3OTksMzA3OTA0MzgzLDE1OTU5NDAwMTksMTIyND
+E4MTYxNCwtMzg1MDg3ODIxLC04NjkyNzUyNzgsLTE2NTE5MjEy
+MTUsMTQ2NjQyNjA2MSwtMTE0NDE2Mzg0NSwtMTAzMTQ1NjQ1LD
+E3MDU2NTk0ODUsLTEyMTU0NDY2NjEsLTQ3NjY5MDk2OCwxMTE1
+NTgxNjA4XX0=
 -->
