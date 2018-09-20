@@ -2502,7 +2502,7 @@ s = []int(nil) // len(s) == 0, s == nil
 s = []int{}    // len(s) == 0, s != nil
 ```
 
-如果你需要测试一个slice是否是空的，使用len(s) == 0来判断，而不应该用s == nil来判断。除了和nil相等比较外，一个nil值的slice的行为和其它任意0长度的slice一样；例如reverse(nil)也是安全的。除了文档已经明确说明的地方，所有的Go语言函数应该以相同的方式对待nil值的slice和0长度的slice。
+**如果你需要测试一个slice是否是空的，使用len(s) == 0来判断，而不应该用s == nil来判断。**除了和nil相等比较外，一个nil值的slice的行为和其它任意0长度的slice一样；例如reverse(nil)也是安全的。除了文档已经明确说明的地方，所有的Go语言函数应该以相同的方式对待nil值的slice和0长度的slice。
 
 内置的make函数创建一个指定元素类型、长度和容量的slice。容量部分可以省略，在这种情况下，容量将等于长度。
 
@@ -8875,13 +8875,13 @@ func walkDir(dir string, fileSizes chan<- int64) {
 	for _, entry := range dirents(dir) {
 		if entry.IsDir() {
 			subdir := filepath.Join(dir, entry.Name())
-			walkDir(subdi
+			walkDir(s
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTExNDQxNjM4NDUsLTEwMzE0NTY0NSwxNz
-A1NjU5NDg1LC0xMjE1NDQ2NjYxLC00NzY2OTA5NjgsMTExNTU4
-MTYwOCwtNjY5MDEyMDU1LDE3NjQ4ODU0MzAsLTExMTgyOTQ2MT
-AsMTA4NzAxMjYxMSwtNDU1NTQ5NzE5LDEyMzY3ODU1MTYsMTQ5
-NzgzNzE2OCwtMjAwNTIwMjYxOCw0OTkzMDExNjksMTU0Mjc0Nz
-U0MCwxODc0MDMwMjAxLDQxNzMxMDAyNywtMTQ1MTYzNjU3OSw5
-NzA1NjY3MV19
+eyJoaXN0b3J5IjpbMTQ2NjQyNjA2MSwtMTE0NDE2Mzg0NSwtMT
+AzMTQ1NjQ1LDE3MDU2NTk0ODUsLTEyMTU0NDY2NjEsLTQ3NjY5
+MDk2OCwxMTE1NTgxNjA4LC02NjkwMTIwNTUsMTc2NDg4NTQzMC
+wtMTExODI5NDYxMCwxMDg3MDEyNjExLC00NTU1NDk3MTksMTIz
+Njc4NTUxNiwxNDk3ODM3MTY4LC0yMDA1MjAyNjE4LDQ5OTMwMT
+E2OSwxNTQyNzQ3NTQwLDE4NzQwMzAyMDEsNDE3MzEwMDI3LC0x
+NDUxNjM2NTc5XX0=
 -->
