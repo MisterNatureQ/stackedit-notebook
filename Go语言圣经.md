@@ -3227,7 +3227,7 @@ type T struct{ a, b int } // a and b are not exported
 
 package q
 import "p"
-var _ = p.T{a: 1, b: 2} // compile error: can't reference a, b 这个时候怎么处理？？ shiyog
+var _ = p.T{a: 1, b: 2} // compile error: can't reference a, b 这个时候怎么处理？？ 使用init() ？
 var _ = p.T{1, 2}       // compile error: can't reference a, b
 ```
 
@@ -8864,13 +8864,12 @@ select {
 case <-abort:
 	fmt.Printf("Launch aborted!\n")
 	return
-def
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMzc0ODcyMjEwLC04NjY1NzU5MSwyMTEzND
-czODY0LC0xMzM3NjIzNzk0LC0xMzMzMjYzMzg4LC05MTM5MjQz
-NTAsMTg1OTYwMDYyOCwtMjA0NzI3MTU2NSwtMjQ3MDk0Mzk2LD
-c0MTI0NjA4OSw5OTExNzY4OTksMTA1MDgwMTAzOSwxNzc0NjMz
-MjIxLDcxNDcyNDc5OSwzMDc5MDQzODMsMTU5NTk0MDAxOSwxMj
-I0MTgxNjE0LC0zODUwODc4MjEsLTg2OTI3NTI3OCwtMTY1MTky
-MTIxNV19
+eyJoaXN0b3J5IjpbLTEyNDYwMjQyMzcsLTg2NjU3NTkxLDIxMT
+M0NzM4NjQsLTEzMzc2MjM3OTQsLTEzMzMyNjMzODgsLTkxMzky
+NDM1MCwxODU5NjAwNjI4LC0yMDQ3MjcxNTY1LC0yNDcwOTQzOT
+YsNzQxMjQ2MDg5LDk5MTE3Njg5OSwxMDUwODAxMDM5LDE3NzQ2
+MzMyMjEsNzE0NzI0Nzk5LDMwNzkwNDM4MywxNTk1OTQwMDE5LD
+EyMjQxODE2MTQsLTM4NTA4NzgyMSwtODY5Mjc1Mjc4LC0xNjUx
+OTIxMjE1XX0=
 -->
