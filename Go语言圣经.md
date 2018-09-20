@@ -2633,7 +2633,7 @@ func appendInt(x []int, y ...int) []int {
 	var z []int
 	zlen := len(x) + len(y)
 	// ...expand z to at least zlen...
-	copy(z[len(x):], y)  // 在这里不会有 z的capc
+	copy(z[len(x):], y)  // 在这里不会有 z 的 capacity 不足的问题么
 	return z
 }
 ```
@@ -8873,14 +8873,13 @@ channel的零值是nil。也许会让你觉得比较奇怪，nil的channel有时
 // and sends the size of each found file on fileSizes.
 func walkDir(dir string, fileSizes chan<- int64) {
 	for _, entry := range dirents(dir) {
-		if entry.IsDir() {
-			sub
+		if entry.IsDir(
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbODYwODQwMzMyLC0zODUwODc4MjEsLTg2OT
-I3NTI3OCwtMTY1MTkyMTIxNSwxNDY2NDI2MDYxLC0xMTQ0MTYz
-ODQ1LC0xMDMxNDU2NDUsMTcwNTY1OTQ4NSwtMTIxNTQ0NjY2MS
-wtNDc2NjkwOTY4LDExMTU1ODE2MDgsLTY2OTAxMjA1NSwxNzY0
-ODg1NDMwLC0xMTE4Mjk0NjEwLDEwODcwMTI2MTEsLTQ1NTU0OT
-cxOSwxMjM2Nzg1NTE2LDE0OTc4MzcxNjgsLTIwMDUyMDI2MTgs
-NDk5MzAxMTY5XX0=
+eyJoaXN0b3J5IjpbLTEzMTg2OTg5OTEsLTM4NTA4NzgyMSwtOD
+Y5Mjc1Mjc4LC0xNjUxOTIxMjE1LDE0NjY0MjYwNjEsLTExNDQx
+NjM4NDUsLTEwMzE0NTY0NSwxNzA1NjU5NDg1LC0xMjE1NDQ2Nj
+YxLC00NzY2OTA5NjgsMTExNTU4MTYwOCwtNjY5MDEyMDU1LDE3
+NjQ4ODU0MzAsLTExMTgyOTQ2MTAsMTA4NzAxMjYxMSwtNDU1NT
+Q5NzE5LDEyMzY3ODU1MTYsMTQ5NzgzNzE2OCwtMjAwNTIwMjYx
+OCw0OTkzMDExNjldfQ==
 -->
