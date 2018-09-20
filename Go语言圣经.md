@@ -2730,7 +2730,7 @@ func main() {
 
 ```Go
 func remove(slice []int, i int) []int {
-	slice[i] = slice[len(slice)-1]
+	slice[i] = slice[len(slice)-1] // 如果删除元素后不用保持原来顺序的话，我们可以简单的用最后一个元素覆盖被删除的元素：
 	return slice[:len(slice)-1]
 }
 
@@ -2754,7 +2754,7 @@ func main() {
 
 ## 4.3. Map
 
-哈希表是一种巧妙并且实用的数据结构。它是一个无序的key/value对的集合，其中所有的key都是不同的，然后通过给定的key可以在常数时间复杂度内检索、更新或删除对应的value。
+哈希表是一种巧妙并且实用的数据结构。它是一个无序的key/value对的集合，其中**所有的key都是不同的**，然后通过给定的key可以在常数时间复杂度内检索、更新或删除对应的value。
 
 在Go语言中，一个map就是一个哈希表的引用，map类型可以写为map[K]V，其中K和V分别对应key和value。map中所有的key都有相同的类型，所有的value也有着相同的类型，但是key和value之间可以是不同的数据类型。其中K对应的key必须是支持==比较运算符的数据类型，所以map可以通过测试key是否相等来判断是否已经存在。虽然浮点数类型也是支持相等运算符比较的，但是将浮点数用做key类型则是一个坏的想法，正如第三章提到的，最坏的情况是可能出现的NaN和任何浮点数都不相等。对于V对应的value数据类型则没有任何的限制。
 
@@ -8870,14 +8870,13 @@ channel的零值是nil。也许会让你觉得比较奇怪，nil的channel有时
 
 <u><i>gopl.io/ch8/du1</i></u>
 ```go
-// walkDir recursively walks the file tree rooted at dir
-// and sends t
+// walkDir recursively
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTY5NzExODAyNiwtMzg1MDg3ODIxLC04Nj
-kyNzUyNzgsLTE2NTE5MjEyMTUsMTQ2NjQyNjA2MSwtMTE0NDE2
-Mzg0NSwtMTAzMTQ1NjQ1LDE3MDU2NTk0ODUsLTEyMTU0NDY2Nj
-EsLTQ3NjY5MDk2OCwxMTE1NTgxNjA4LC02NjkwMTIwNTUsMTc2
-NDg4NTQzMCwtMTExODI5NDYxMCwxMDg3MDEyNjExLC00NTU1ND
-k3MTksMTIzNjc4NTUxNiwxNDk3ODM3MTY4LC0yMDA1MjAyNjE4
-LDQ5OTMwMTE2OV19
+eyJoaXN0b3J5IjpbLTE3NzUyNDQ0MjksLTM4NTA4NzgyMSwtOD
+Y5Mjc1Mjc4LC0xNjUxOTIxMjE1LDE0NjY0MjYwNjEsLTExNDQx
+NjM4NDUsLTEwMzE0NTY0NSwxNzA1NjU5NDg1LC0xMjE1NDQ2Nj
+YxLC00NzY2OTA5NjgsMTExNTU4MTYwOCwtNjY5MDEyMDU1LDE3
+NjQ4ODU0MzAsLTExMTgyOTQ2MTAsMTA4NzAxMjYxMSwtNDU1NT
+Q5NzE5LDEyMzY3ODU1MTYsMTQ5NzgzNzE2OCwtMjAwNTIwMjYx
+OCw0OTkzMDExNjldfQ==
 -->
