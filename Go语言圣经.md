@@ -3151,9 +3151,9 @@ func Sort(values []int) {
 // and returns the resulting slice.
 func appendValues(values []int, t *tree) []int {
 	if t != nil {
-		values = appendValues(values, t.left) // 左
+		values = appendValues(values, t.left) // 向左 递归
 		values = append(values, t.value) // 中
-		values = appendValues(values, t.right) // 右
+		values = appendValues(values, t.right) // 向 右 递归
 	}
 	return values
 }
@@ -8865,9 +8865,9 @@ default:
 }
 ```
 
-channel的零值是nil。也许会让你觉得比较奇怪，nil的channel有时候也是有一些用处的。因为对一个nil的channel发送和接收操作会永远阻塞，在select语句中
+channel的零值是nil。也许会让你觉得比较奇怪，nil的channel有时候也是有一些用处的。因为对一个nil的channel发送和接收操作会永远阻塞，在se
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTQ4MjMwNTM1MiwtMTMzNzYyMzc5NCwtMT
+eyJoaXN0b3J5IjpbLTkxNTU5Njk4MywtMTMzNzYyMzc5NCwtMT
 MzMzI2MzM4OCwtOTEzOTI0MzUwLDE4NTk2MDA2MjgsLTIwNDcy
 NzE1NjUsLTI0NzA5NDM5Niw3NDEyNDYwODksOTkxMTc2ODk5LD
 EwNTA4MDEwMzksMTc3NDYzMzIyMSw3MTQ3MjQ3OTksMzA3OTA0
