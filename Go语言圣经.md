@@ -3080,7 +3080,7 @@ position := &dilbert.Position
 *position = "Senior " + *position // promoted, for outsourcing to Elbonia
 ```
 
-点操作符也可以和指向结构体的指针一起工作：
+**点操作符也可以和指向结构体的指针一起工作：**
 
 ```Go
 var employeeOfTheMonth *Employee = &dilbert
@@ -8862,13 +8862,13 @@ default:
 
 channel的零值是nil。也许会让你觉得比较奇怪，nil的channel有时候也是有一些用处的。因为对一个nil的channel发送和接收操作会永远阻塞，在select语句中操作nil的channel永远都不会被select到。
 
-这使得我们可以用nil来激活或者禁用case，来达成处理其它输入或输出事件时超时和取消的逻辑。我们会在下一节中看到一个例
+这使得我们可以用nil来激活或者禁用case，来达成处理其它输入或输出事件时超时和取消的逻辑。我们会在下一节中看到一
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIwNDcyNzE1NjUsLTI0NzA5NDM5Niw3ND
-EyNDYwODksOTkxMTc2ODk5LDEwNTA4MDEwMzksMTc3NDYzMzIy
-MSw3MTQ3MjQ3OTksMzA3OTA0MzgzLDE1OTU5NDAwMTksMTIyND
-E4MTYxNCwtMzg1MDg3ODIxLC04NjkyNzUyNzgsLTE2NTE5MjEy
-MTUsMTQ2NjQyNjA2MSwtMTE0NDE2Mzg0NSwtMTAzMTQ1NjQ1LD
-E3MDU2NTk0ODUsLTEyMTU0NDY2NjEsLTQ3NjY5MDk2OCwxMTE1
-NTgxNjA4XX0=
+eyJoaXN0b3J5IjpbMTg1OTYwMDYyOCwtMjA0NzI3MTU2NSwtMj
+Q3MDk0Mzk2LDc0MTI0NjA4OSw5OTExNzY4OTksMTA1MDgwMTAz
+OSwxNzc0NjMzMjIxLDcxNDcyNDc5OSwzMDc5MDQzODMsMTU5NT
+k0MDAxOSwxMjI0MTgxNjE0LC0zODUwODc4MjEsLTg2OTI3NTI3
+OCwtMTY1MTkyMTIxNSwxNDY2NDI2MDYxLC0xMTQ0MTYzODQ1LC
+0xMDMxNDU2NDUsMTcwNTY1OTQ4NSwtMTIxNTQ0NjY2MSwtNDc2
+NjkwOTY4XX0=
 -->
