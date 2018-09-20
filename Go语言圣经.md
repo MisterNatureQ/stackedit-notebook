@@ -2673,7 +2673,7 @@ func nonempty(strings []string) []string {
 ```Go
 data := []string{"one", "", "three"}
 fmt.Printf("%q\n", nonempty(data)) // `["one" "three"]`
-fmt.Printf("%q\n", data)           // `["one" "three" "three"]`
+fmt.Printf("%q\n", data)           // `["one" "three" "three"]` 原来的数据被覆盖
 ```
 
 因此我们通常会这样使用nonempty函数：`data = nonempty(data)`。
@@ -8871,10 +8871,9 @@ channel的零值是nil。也许会让你觉得比较奇怪，nil的channel有时
 <u><i>gopl.io/ch8/du1</i></u>
 ```go
 // walkDir recursively walks the file tree rooted at dir
-// and sends the size of each found file on fileSizes.
-func 
+// and sends the size of each found file on fileSi
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE2Mzk4NDU4MDgsLTM4NTA4NzgyMSwtOD
+eyJoaXN0b3J5IjpbLTE5NjM2NDkwNTksLTM4NTA4NzgyMSwtOD
 Y5Mjc1Mjc4LC0xNjUxOTIxMjE1LDE0NjY0MjYwNjEsLTExNDQx
 NjM4NDUsLTEwMzE0NTY0NSwxNzA1NjU5NDg1LC0xMjE1NDQ2Nj
 YxLC00NzY2OTA5NjgsMTExNTU4MTYwOCwtNjY5MDEyMDU1LDE3
