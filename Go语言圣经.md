@@ -3023,7 +3023,7 @@ len count
 
 <u><i>gopl.io/ch4/graph</i></u>
 ```Go
-var graph = make(map[string]map[string]bool)
+var graph = make(map[string]map[string]bool) // 声明 初始化 分配了空间
 
 func addEdge(from, to string) {
 	edges := graph[from]
@@ -8862,15 +8862,13 @@ default:
 
 channel的零值是nil。也许会让你觉得比较奇怪，nil的channel有时候也是有一些用处的。因为对一个nil的channel发送和接收操作会永远阻塞，在select语句中操作nil的channel永远都不会被select到。
 
-这使得我们可以用nil来激活或者禁用case，来达成处理其它输入或输出事件时超时和取消的逻辑。我们会在下一节中看到一个例子。
-
-**练习 8.8：** 
+这使得我们可以用nil来激活或者禁用case，来达成处理其它输入或输出事件时超时和取消的逻辑。我们会在下一节中看到一个例
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNTQ0NDkwNTUzLC0yNDcwOTQzOTYsNzQxMj
-Q2MDg5LDk5MTE3Njg5OSwxMDUwODAxMDM5LDE3NzQ2MzMyMjEs
-NzE0NzI0Nzk5LDMwNzkwNDM4MywxNTk1OTQwMDE5LDEyMjQxOD
-E2MTQsLTM4NTA4NzgyMSwtODY5Mjc1Mjc4LC0xNjUxOTIxMjE1
-LDE0NjY0MjYwNjEsLTExNDQxNjM4NDUsLTEwMzE0NTY0NSwxNz
-A1NjU5NDg1LC0xMjE1NDQ2NjYxLC00NzY2OTA5NjgsMTExNTU4
-MTYwOF19
+eyJoaXN0b3J5IjpbMTg1Nzg1MDM1NSwtMjQ3MDk0Mzk2LDc0MT
+I0NjA4OSw5OTExNzY4OTksMTA1MDgwMTAzOSwxNzc0NjMzMjIx
+LDcxNDcyNDc5OSwzMDc5MDQzODMsMTU5NTk0MDAxOSwxMjI0MT
+gxNjE0LC0zODUwODc4MjEsLTg2OTI3NTI3OCwtMTY1MTkyMTIx
+NSwxNDY2NDI2MDYxLC0xMTQ0MTYzODQ1LC0xMDMxNDU2NDUsMT
+cwNTY1OTQ4NSwtMTIxNTQ0NjY2MSwtNDc2NjkwOTY4LDExMTU1
+ODE2MDhdfQ==
 -->
