@@ -3137,9 +3137,11 @@ type tree struct {
 // Sort sorts values in place.
 func Sort(values []int) {
 	var root *tree
+	// 排序
 	for _, v := range values {
 		root = add(root, v)
 	}
+	// root 
 	appendValues(values[:0], root)
 }
 
@@ -8863,13 +8865,13 @@ default:
 
 channel的零值是nil。也许会让你觉得比较奇怪，nil的channel有时候也是有一些用处的。因为对一个nil的channel发送和接收操作会永远阻塞，在select语句中操作nil的channel永远都不会被select到。
 
-这使得我们可以用nil来激活或者禁用case，来达成处理其它输
+这使得我们可以用nil来激活或者禁
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEzMzc2MjM3OTQsLTEzMzMyNjMzODgsLT
-kxMzkyNDM1MCwxODU5NjAwNjI4LC0yMDQ3MjcxNTY1LC0yNDcw
-OTQzOTYsNzQxMjQ2MDg5LDk5MTE3Njg5OSwxMDUwODAxMDM5LD
-E3NzQ2MzMyMjEsNzE0NzI0Nzk5LDMwNzkwNDM4MywxNTk1OTQw
-MDE5LDEyMjQxODE2MTQsLTM4NTA4NzgyMSwtODY5Mjc1Mjc4LC
-0xNjUxOTIxMjE1LDE0NjY0MjYwNjEsLTExNDQxNjM4NDUsLTEw
-MzE0NTY0NV19
+eyJoaXN0b3J5IjpbMjMzMzE5OTkyLC0xMzM3NjIzNzk0LC0xMz
+MzMjYzMzg4LC05MTM5MjQzNTAsMTg1OTYwMDYyOCwtMjA0NzI3
+MTU2NSwtMjQ3MDk0Mzk2LDc0MTI0NjA4OSw5OTExNzY4OTksMT
+A1MDgwMTAzOSwxNzc0NjMzMjIxLDcxNDcyNDc5OSwzMDc5MDQz
+ODMsMTU5NTk0MDAxOSwxMjI0MTgxNjE0LC0zODUwODc4MjEsLT
+g2OTI3NTI3OCwtMTY1MTkyMTIxNSwxNDY2NDI2MDYxLC0xMTQ0
+MTYzODQ1XX0=
 -->
