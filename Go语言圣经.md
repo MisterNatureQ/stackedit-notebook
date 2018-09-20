@@ -3280,7 +3280,7 @@ pp := new(Point)
 
 ### 4.4.2. 结构体比较
 
-**如果结构体的全部成员都是可以比较的，那么结构体也是可以比较的，那样的话两个结构体将可以使用 ==或 !=运算符进行比较。相等比较运算符 ==将比较两个结构体的每个成员，因此下面两个比较的表达式是等价的**：
+如果**结构体的全部成员都是可以比较的，那么结构体也是可以比较的，那样的话两个结构体将可以使用 ==或 !=运算符进行比较。相等比较运算符 ==将比较两个结构体的每个成员，因此下面两个比较的表达式是等价的：
 
 ```Go
 type Point struct{ X, Y int }
@@ -8867,11 +8867,11 @@ select {
 case <-abort:
 	
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTIwNjIzNTUwOSwtMjEyMTc2MzA4OSwxMz
-IwNzk0MjEwLC0xMjQ2MDI0MjM3LC04NjY1NzU5MSwyMTEzNDcz
-ODY0LC0xMzM3NjIzNzk0LC0xMzMzMjYzMzg4LC05MTM5MjQzNT
-AsMTg1OTYwMDYyOCwtMjA0NzI3MTU2NSwtMjQ3MDk0Mzk2LDc0
-MTI0NjA4OSw5OTExNzY4OTksMTA1MDgwMTAzOSwxNzc0NjMzMj
-IxLDcxNDcyNDc5OSwzMDc5MDQzODMsMTU5NTk0MDAxOSwxMjI0
-MTgxNjE0XX0=
+eyJoaXN0b3J5IjpbLTE0OTgxNTg2MDMsLTIxMjE3NjMwODksMT
+MyMDc5NDIxMCwtMTI0NjAyNDIzNywtODY2NTc1OTEsMjExMzQ3
+Mzg2NCwtMTMzNzYyMzc5NCwtMTMzMzI2MzM4OCwtOTEzOTI0Mz
+UwLDE4NTk2MDA2MjgsLTIwNDcyNzE1NjUsLTI0NzA5NDM5Niw3
+NDEyNDYwODksOTkxMTc2ODk5LDEwNTA4MDEwMzksMTc3NDYzMz
+IyMSw3MTQ3MjQ3OTksMzA3OTA0MzgzLDE1OTU5NDAwMTksMTIy
+NDE4MTYxNF19
 -->
