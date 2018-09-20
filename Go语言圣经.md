@@ -2964,7 +2964,7 @@ import (
 
 func main() {
 	counts := make(map[rune]int)    // counts of Unicode characters
-	var utflen [utf8.UTFMax + 1]int // count of lengths of UTF-8 encodings
+	var utflen [utf8.UTFMax + 1]int // count of lengths of UTF-8 encodings '\U0010FFFF'Unicode 码点的最大值
 	invalid := 0                    // count of invalid UTF-8 characters
 
 	in := bufio.NewReader(os.Stdin)
@@ -8865,15 +8865,13 @@ channel的零值是nil。也许会让你觉得比较奇怪，nil的channel有时
 这使得我们可以用nil来激活或者禁用case，来达成处理其它输入或输出事件时超时和取消的逻辑。我们会在下一节中看到一个例子。
 
 **练习 8.8：** 使用select来改造8.3节中的echo服务器，为其增加超时，这样服务器可以在客户端10秒中没有任何喊话时自动断开连接。
-## 8.8. 示例: 并发的目录遍历
-
-在本小节中，我们会创建一个程序来生
+## 8.8.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTc3NDYzMzIyMSw3MTQ3MjQ3OTksMzA3OT
-A0MzgzLDE1OTU5NDAwMTksMTIyNDE4MTYxNCwtMzg1MDg3ODIx
-LC04NjkyNzUyNzgsLTE2NTE5MjEyMTUsMTQ2NjQyNjA2MSwtMT
-E0NDE2Mzg0NSwtMTAzMTQ1NjQ1LDE3MDU2NTk0ODUsLTEyMTU0
-NDY2NjEsLTQ3NjY5MDk2OCwxMTE1NTgxNjA4LC02NjkwMTIwNT
-UsMTc2NDg4NTQzMCwtMTExODI5NDYxMCwxMDg3MDEyNjExLC00
-NTU1NDk3MTldfQ==
+eyJoaXN0b3J5IjpbMTA1MDgwMTAzOSwxNzc0NjMzMjIxLDcxND
+cyNDc5OSwzMDc5MDQzODMsMTU5NTk0MDAxOSwxMjI0MTgxNjE0
+LC0zODUwODc4MjEsLTg2OTI3NTI3OCwtMTY1MTkyMTIxNSwxND
+Y2NDI2MDYxLC0xMTQ0MTYzODQ1LC0xMDMxNDU2NDUsMTcwNTY1
+OTQ4NSwtMTIxNTQ0NjY2MSwtNDc2NjkwOTY4LDExMTU1ODE2MD
+gsLTY2OTAxMjA1NSwxNzY0ODg1NDMwLC0xMTE4Mjk0NjEwLDEw
+ODcwMTI2MTFdfQ==
 -->
