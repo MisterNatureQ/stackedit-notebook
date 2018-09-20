@@ -3184,7 +3184,7 @@ type Buffer struct {
 **如果结构体没有任何成员的话就是空结构体，写作struct{}。它的大小为0，也不包含任何信息，但是有时候依然是有价值的。有些Go语言程序员用map来模拟set数据结构时，用它来代替map中布尔类型的value，只是强调key的重要性，但是因为节约的空间有限，而且语法比较复杂，所以我们通常会避免这样的用法。**
 
 ```Go
-seen := make(map[string]struct{}) // set of strings
+seen := make(map[string]struct{}) // set of strings  集合  set不能包含重复的值
 // ...
 if _, ok := seen[s]; !ok {
 	seen[s] = struct{}{}
@@ -8869,9 +8869,9 @@ default:
 }
 ```
 
-channel的零值是nil。也许会让你觉得比较奇怪，nil的
+channel的零值是n
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTI1NTc3NjQ0NCwtMTMzNzYyMzc5NCwtMT
+eyJoaXN0b3J5IjpbMjExMzQ3Mzg2NCwtMTMzNzYyMzc5NCwtMT
 MzMzI2MzM4OCwtOTEzOTI0MzUwLDE4NTk2MDA2MjgsLTIwNDcy
 NzE1NjUsLTI0NzA5NDM5Niw3NDEyNDYwODksOTkxMTc2ODk5LD
 EwNTA4MDEwMzksMTc3NDYzMzIyMSw3MTQ3MjQ3OTksMzA3OTA0
