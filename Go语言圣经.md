@@ -2446,7 +2446,7 @@ func reverse(s []int) {
 }
 ```
 
-这里我们反转数组的应用：
+这里我们反转**数组**的应用：
 
 ```Go
 a := [...]int{0, 1, 2, 3, 4, 5}
@@ -2457,7 +2457,7 @@ fmt.Println(a) // "[5 4 3 2 1 0]"
 一种将slice元素循环向左旋转n个元素的方法是三次调用reverse反转函数，第一次是反转开头的n个元素，然后是反转剩下的元素，最后是反转整个slice的元素。（如果是向右循环旋转，则将第三个函数调用移到第一个调用位置就可以了。）
 
 ```Go
-s := []int{0, 1, 2, 3, 4, 5}
+s := []int{0, 1, 2, 3, 4, 5} // slice
 // Rotate s left by two positions.
 reverse(s[:2])
 reverse(s[2:])
@@ -8879,16 +8879,12 @@ func walkDir(dir string, fileSizes chan<- int64) {
 		} else {
 			fileSizes <- entry.Size()
 		}
-	}
-}
-
-// dire
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTY2OTAxMjA1NSwxNzY0ODg1NDMwLC0xMT
-E4Mjk0NjEwLDEwODcwMTI2MTEsLTQ1NTU0OTcxOSwxMjM2Nzg1
-NTE2LDE0OTc4MzcxNjgsLTIwMDUyMDI2MTgsNDk5MzAxMTY5LD
-E1NDI3NDc1NDAsMTg3NDAzMDIwMSw0MTczMTAwMjcsLTE0NTE2
-MzY1NzksOTcwNTY2NzEsNDAyNDQxNjI5LDEyODY0MTY5NjQsLT
-g2NDgwOTUwNiwtNzI2NjI3MTM2LC05MjQ5NTk3MjEsMjc5Njg2
-NTQ0XX0=
+eyJoaXN0b3J5IjpbNjc0ODA1MDQ1LC02NjkwMTIwNTUsMTc2ND
+g4NTQzMCwtMTExODI5NDYxMCwxMDg3MDEyNjExLC00NTU1NDk3
+MTksMTIzNjc4NTUxNiwxNDk3ODM3MTY4LC0yMDA1MjAyNjE4LD
+Q5OTMwMTE2OSwxNTQyNzQ3NTQwLDE4NzQwMzAyMDEsNDE3MzEw
+MDI3LC0xNDUxNjM2NTc5LDk3MDU2NjcxLDQwMjQ0MTYyOSwxMj
+g2NDE2OTY0LC04NjQ4MDk1MDYsLTcyNjYyNzEzNiwtOTI0OTU5
+NzIxXX0=
 -->
