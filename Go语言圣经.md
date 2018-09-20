@@ -2977,6 +2977,7 @@ func main() {
 			fmt.Fprintf(os.Stderr, "charcount: %v\n", err)
 			os.Exit(1)
 		}
+		// unicode.ReplacementChar 表示不合法的unicode码值
 		if r == unicode.ReplacementChar && n == 1 {
 			invalid++
 			continue
@@ -8866,13 +8867,13 @@ channel的零值是nil。也许会让你觉得比较奇怪，nil的channel有时
 **练习 8.8：** 使用select来改造8.3节中的echo服务器，为其增加超时，这样服务器可以在客户端10秒中没有任何喊话时自动断开连接。
 ## 8.8. 示例: 并发的目录遍历
 
-在本小节中，我们会创建一个程序来生成指定目录的硬盘使用情况报告，这个程序和Unix里的du工具比较相似。大多数工作用下面这
+在本小节中，我们会创建一个程序来生
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNzE0NzI0Nzk5LDMwNzkwNDM4MywxNTk1OT
-QwMDE5LDEyMjQxODE2MTQsLTM4NTA4NzgyMSwtODY5Mjc1Mjc4
-LC0xNjUxOTIxMjE1LDE0NjY0MjYwNjEsLTExNDQxNjM4NDUsLT
-EwMzE0NTY0NSwxNzA1NjU5NDg1LC0xMjE1NDQ2NjYxLC00NzY2
-OTA5NjgsMTExNTU4MTYwOCwtNjY5MDEyMDU1LDE3NjQ4ODU0Mz
-AsLTExMTgyOTQ2MTAsMTA4NzAxMjYxMSwtNDU1NTQ5NzE5LDEy
-MzY3ODU1MTZdfQ==
+eyJoaXN0b3J5IjpbMTc3NDYzMzIyMSw3MTQ3MjQ3OTksMzA3OT
+A0MzgzLDE1OTU5NDAwMTksMTIyNDE4MTYxNCwtMzg1MDg3ODIx
+LC04NjkyNzUyNzgsLTE2NTE5MjEyMTUsMTQ2NjQyNjA2MSwtMT
+E0NDE2Mzg0NSwtMTAzMTQ1NjQ1LDE3MDU2NTk0ODUsLTEyMTU0
+NDY2NjEsLTQ3NjY5MDk2OCwxMTE1NTgxNjA4LC02NjkwMTIwNT
+UsMTc2NDg4NTQzMCwtMTExODI5NDYxMCwxMDg3MDEyNjExLC00
+NTU1NDk3MTldfQ==
 -->
