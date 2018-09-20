@@ -2882,9 +2882,9 @@ if !ok { /* "bob" is not a key in this map; age == 0. */ }
 if age, ok := ages["bob"]; !ok { /* ... */ }
 ```
 
-在这种场景下，map的下标语法将产生两个值；第二个是一个布尔值，用于报告元素是否真的存在。布尔变量一般命名为ok，特别适合马上用于if条件判断部分。
+在这种场景下，**map的下标语法将产生两个值；第二个是一个布尔值，用于报告元素是否真的存在。布尔变量一般命名为ok，特别适合马上用于if条件判断部分。**
 
-和slice一样，map之间也不能进行相等比较；唯一的例外是和nil进行比较。要判断两个map是否包含相同的key和value，我们必须通过一个循环实现：
+**和slice一样，map之间也不能进行相等比较** ；唯一的例外是和nil进行比较。要判断两个map是否包含相同的key和value，我们必须通过一个循环实现：
 
 ```Go
 func equal(x, y map[string]int) bool {
@@ -8868,13 +8868,13 @@ channel的零值是nil。也许会让你觉得比较奇怪，nil的channel有时
 
 在本小节中，我们会创建一个程序来生成指定目录的硬盘使用情况报告，这个程序和Unix里的du工具比较相似。大多数工作用下面这个walkDir函数来完成，这个函数使用dirents函数来枚举一个目录下的所有入口。
 
-<u><i>gopl
+<
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE0MDgxODgyNDcsMTIyNDE4MTYxNCwtMz
-g1MDg3ODIxLC04NjkyNzUyNzgsLTE2NTE5MjEyMTUsMTQ2NjQy
-NjA2MSwtMTE0NDE2Mzg0NSwtMTAzMTQ1NjQ1LDE3MDU2NTk0OD
-UsLTEyMTU0NDY2NjEsLTQ3NjY5MDk2OCwxMTE1NTgxNjA4LC02
-NjkwMTIwNTUsMTc2NDg4NTQzMCwtMTExODI5NDYxMCwxMDg3MD
-EyNjExLC00NTU1NDk3MTksMTIzNjc4NTUxNiwxNDk3ODM3MTY4
-LC0yMDA1MjAyNjE4XX0=
+eyJoaXN0b3J5IjpbLTI2MjY0NzMzMSwxMjI0MTgxNjE0LC0zOD
+UwODc4MjEsLTg2OTI3NTI3OCwtMTY1MTkyMTIxNSwxNDY2NDI2
+MDYxLC0xMTQ0MTYzODQ1LC0xMDMxNDU2NDUsMTcwNTY1OTQ4NS
+wtMTIxNTQ0NjY2MSwtNDc2NjkwOTY4LDExMTU1ODE2MDgsLTY2
+OTAxMjA1NSwxNzY0ODg1NDMwLC0xMTE4Mjk0NjEwLDEwODcwMT
+I2MTEsLTQ1NTU0OTcxOSwxMjM2Nzg1NTE2LDE0OTc4MzcxNjgs
+LTIwMDUyMDI2MThdfQ==
 -->
