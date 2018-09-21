@@ -3357,7 +3357,7 @@ w.Circle.Radius = 5
 w.Spokes = 20
 ```
 
-Go语言有一个特性让我们只声明一个成员对应的数据类型而不指名成员的名字；这类成员就叫匿名成员。匿名成员的数据类型必须是命名的类型或指向一个命名的类型的指针。下面的代码中，Circle和Wheel各自都有一个匿名成员。我们可以说Point类型被嵌入到了Circle结构体，同时Circle类型被嵌入到了Wheel结构体。
+**Go语言有一个特性让我们只声明一个成员对应的数据类型而不指名成员的名字；这类成员就叫匿名成员。匿名成员的数据类型必须是命名的类型或指向一个命名的类型的指针。**下面的代码中，Circle和Wheel各自都有一个匿名成员。我们可以说Point类型被嵌入到了Circle结构体，同时Circle类型被嵌入到了Wheel结构体。
 
 ```Go
 type Circle struct {
@@ -8865,13 +8865,12 @@ ticker.Stop() // cause the ticker's goroutine to terminate
 ```go
 select {
 case <-abort:
-	
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNjAwODczOTczLDE1NzA3MDcwOSwtMjEyMT
-c2MzA4OSwxMzIwNzk0MjEwLC0xMjQ2MDI0MjM3LC04NjY1NzU5
-MSwyMTEzNDczODY0LC0xMzM3NjIzNzk0LC0xMzMzMjYzMzg4LC
-05MTM5MjQzNTAsMTg1OTYwMDYyOCwtMjA0NzI3MTU2NSwtMjQ3
-MDk0Mzk2LDc0MTI0NjA4OSw5OTExNzY4OTksMTA1MDgwMTAzOS
-wxNzc0NjMzMjIxLDcxNDcyNDc5OSwzMDc5MDQzODMsMTU5NTk0
-MDAxOV19
+eyJoaXN0b3J5IjpbNTU2MTc0MjM5LDYwMDg3Mzk3MywxNTcwNz
+A3MDksLTIxMjE3NjMwODksMTMyMDc5NDIxMCwtMTI0NjAyNDIz
+NywtODY2NTc1OTEsMjExMzQ3Mzg2NCwtMTMzNzYyMzc5NCwtMT
+MzMzI2MzM4OCwtOTEzOTI0MzUwLDE4NTk2MDA2MjgsLTIwNDcy
+NzE1NjUsLTI0NzA5NDM5Niw3NDEyNDYwODksOTkxMTc2ODk5LD
+EwNTA4MDEwMzksMTc3NDYzMzIyMSw3MTQ3MjQ3OTksMzA3OTA0
+MzgzXX0=
 -->
