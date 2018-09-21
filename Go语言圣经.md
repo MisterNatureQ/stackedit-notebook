@@ -3417,13 +3417,13 @@ fmt.Printf("%#v\n", w)
 
 需要注意的是**Printf函数中%v参数包含的#副词，它表示用和Go语言类似的语法打印值。对于结构体类型来说，将包含每个成员的名字。**
 
-因为匿名成员也有一个隐式的名字，因此不能同时包含两个类型相同的匿名成员，这会导致名字冲突。同时，因为成员的名字是由其类型隐式地决定的，所以匿名成员也有可见性的规则约束。在上面的例子中，Point和Circle匿名成员都是导出的。即使它们不导出（比如改成小写字母开头的point和circle），我们依然可以用简短形式访问匿名成员嵌套的成员
+因为匿名成员也有一个隐式的名字，因此**不能同时包含两个类型相同的匿名成员，这会导致名字冲突。同时，因为成员的名字是由其类型隐式地决定的，所以匿名成员也有可见性的规则约束。在上面的例子中，Point和Circle匿名成员都是导出的。即使它们不导出（比如改成小写字母开头的point和circle），我们依然可以用简短形式访问匿名成员嵌套的成员**
 
 ```Go
-w.X = 8 // equivalent to w.circle.point.X = 8
+w.X = 8 // equivalent to w.circle.point.X = 8 但是在包外部，因为circle和point没有导出，不能访问它们的成员
 ```
 
-但是在包外部，因为circle和point没有导出，不能访问它们的成员，因此简短的匿名成员访问语法也是禁止的。
+**但是在包外部，因为circle和point没有导出，不能访问它们的成员，因此简短的匿名成员访问语法也是禁止的。**
 
 到目前为止，我们看到匿名成员特性只是对访问嵌套成员的点运算符提供了简短的语法糖。稍后，我们将会看到匿名成员并不要求是结构体类型；其实任何命名的类型都可以作为结构体的匿名成员。但是为什么要嵌入一个没有任何子成员类型的匿名成员类型呢？
 
@@ -8860,15 +8860,13 @@ ticker.Stop() // cause the ticker's goroutine to terminate
 
 有时候我们希望能够从channel中发送或者接收值，并避免因为发送或者接收导致的阻塞，尤其是当channel没有准备好写或者读时。select语句就可以实现这样的功能。select会有一个default来设置当其它的操作都不能够马上被处理时程序需要执行哪些逻辑。
 
-下面的select语句会在abort channel中有值时，从其中接收值；无值时什么都不做。这是一个非阻塞的接收操作；反复地做这样的操作叫做“轮询channel”。
-
-```go
+下面的select语句会在abort channel中有值时，从其中接收值；无值时什么都不做。
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTYzNTk2NTU4LDYwMDg3Mzk3MywxNTcwNz
-A3MDksLTIxMjE3NjMwODksMTMyMDc5NDIxMCwtMTI0NjAyNDIz
-NywtODY2NTc1OTEsMjExMzQ3Mzg2NCwtMTMzNzYyMzc5NCwtMT
-MzMzI2MzM4OCwtOTEzOTI0MzUwLDE4NTk2MDA2MjgsLTIwNDcy
-NzE1NjUsLTI0NzA5NDM5Niw3NDEyNDYwODksOTkxMTc2ODk5LD
-EwNTA4MDEwMzksMTc3NDYzMzIyMSw3MTQ3MjQ3OTksMzA3OTA0
-MzgzXX0=
+eyJoaXN0b3J5IjpbNTc4MTk2NTY4LC02MzU5NjU1OCw2MDA4Nz
+M5NzMsMTU3MDcwNzA5LC0yMTIxNzYzMDg5LDEzMjA3OTQyMTAs
+LTEyNDYwMjQyMzcsLTg2NjU3NTkxLDIxMTM0NzM4NjQsLTEzMz
+c2MjM3OTQsLTEzMzMyNjMzODgsLTkxMzkyNDM1MCwxODU5NjAw
+NjI4LC0yMDQ3MjcxNTY1LC0yNDcwOTQzOTYsNzQxMjQ2MDg5LD
+k5MTE3Njg5OSwxMDUwODAxMDM5LDE3NzQ2MzMyMjEsNzE0NzI0
+Nzk5XX0=
 -->
