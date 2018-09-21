@@ -4510,7 +4510,7 @@ func topoSort(m map[string][]string) []string {
 		}
 	}
 	var keys []string
-	// 三维转二维
+	// 统计key
 	for key := range m {
 		keys = append(keys, key)
 	}
@@ -8840,11 +8840,11 @@ for i := 0; i < 10; i++ {
 
 如果多个case同时就绪时，select会随机地选择一个执行，这样来保证每一个channel都有平等的被select的机会。增加前一个例子的buffer大小会使
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTQwOTM2MTAyNSwtMTUwODA4Mzc5MiwxNz
-Y0OTIzMDQwLC0xNDIzMTY1MjgwLDM5MDM1MTIwMCwtMTM5MTIy
-ODI1NiwxNTY1NDE0NTYwLC00MDYwMDQzODQsLTEwNTMzMDQ1Nj
-ksODUyMDkyNTA1LDIxMDcxNDM0NjgsLTExODIyNDQwNTIsLTEy
-MjQ0NTU1OTgsMTA4NjYwNTQ0OCwyMTI0MzgyMTI1LC0xMzYzMT
-Y2MDIwLC03MDA3NTc4OTIsMjAyNDQ2ODEwLDE3NDU1MDI3MTYs
-MTEyMjg2MjY0N119
+eyJoaXN0b3J5IjpbNjkyNjQwNjU5LC00MDkzNjEwMjUsLTE1MD
+gwODM3OTIsMTc2NDkyMzA0MCwtMTQyMzE2NTI4MCwzOTAzNTEy
+MDAsLTEzOTEyMjgyNTYsMTU2NTQxNDU2MCwtNDA2MDA0Mzg0LC
+0xMDUzMzA0NTY5LDg1MjA5MjUwNSwyMTA3MTQzNDY4LC0xMTgy
+MjQ0MDUyLC0xMjI0NDU1NTk4LDEwODY2MDU0NDgsMjEyNDM4Mj
+EyNSwtMTM2MzE2NjAyMCwtNzAwNzU3ODkyLDIwMjQ0NjgxMCwx
+NzQ1NTAyNzE2XX0=
 -->
