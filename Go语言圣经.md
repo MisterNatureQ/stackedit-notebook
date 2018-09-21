@@ -3562,6 +3562,7 @@ fmt.Println(titles) // "[{Casablanca} {Cool Hand Luke} {Bullitt}]"
 ```Go
 // Package github provides a Go API for the GitHub issue tracker.
 // See https://developer.github.com/v3/search/#search-issues.
+// 参看 https://api.github.com/search/issues?q=windows+label:bug+language:python+state:open&sort=created&order=asc 的范例
 package github
 
 import "time"
@@ -8855,16 +8856,13 @@ Tick函数挺方便，但是只有当程序整个生命周期都需要这个时�
 ```go
 ticker := time.NewTicker(1 * time.Second)
 <-ticker.C    // receive from the ticker's channel
-ticker.Stop() // cause the ticker's goroutine to terminate
-```
-
-有时候我们希望能够从channel中发送或者接收值，并避免因为发送或者接收导致的阻塞，尤其是当channel没有准备好写或者读时
+ticker.S
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIwODc2Nzc2MjUsMjA3MjEyOTAxNiwtMT
-kyMTY0MTcxMCwtMTM4NzQxMDg4MywtNjM1OTY1NTgsNjAwODcz
-OTczLDE1NzA3MDcwOSwtMjEyMTc2MzA4OSwxMzIwNzk0MjEwLC
-0xMjQ2MDI0MjM3LC04NjY1NzU5MSwyMTEzNDczODY0LC0xMzM3
-NjIzNzk0LC0xMzMzMjYzMzg4LC05MTM5MjQzNTAsMTg1OTYwMD
-YyOCwtMjA0NzI3MTU2NSwtMjQ3MDk0Mzk2LDc0MTI0NjA4OSw5
-OTExNzY4OTldfQ==
+eyJoaXN0b3J5IjpbMTIxNDk5OTE2NSwtMjA4NzY3NzYyNSwyMD
+cyMTI5MDE2LC0xOTIxNjQxNzEwLC0xMzg3NDEwODgzLC02MzU5
+NjU1OCw2MDA4NzM5NzMsMTU3MDcwNzA5LC0yMTIxNzYzMDg5LD
+EzMjA3OTQyMTAsLTEyNDYwMjQyMzcsLTg2NjU3NTkxLDIxMTM0
+NzM4NjQsLTEzMzc2MjM3OTQsLTEzMzMyNjMzODgsLTkxMzkyND
+M1MCwxODU5NjAwNjI4LC0yMDQ3MjcxNTY1LC0yNDcwOTQzOTYs
+NzQxMjQ2MDg5XX0=
 -->
