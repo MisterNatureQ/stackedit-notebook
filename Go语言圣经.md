@@ -3902,7 +3902,7 @@ func name(parameter-list) (result-list) {
 }
 ```
 
-形式参数列表描述了函数的参数名以及参数类型。这些参数作为局部变量，其值由参数调用者提供。返回值列表描述了函数返回值的变量名以及类型。如果函数返回一个无名变量或者没有返回值，返回值列表的括号是可以省略的。如果一个函数声明不包括返回值列表，那么函数体执行完毕后，不会返回任何值。在hypot函数中：
+形式参数列表描述了函数的参数名以及参数类型。这些参数作为局部变量，其值由参数调用者提供。返回值列表描述了函数返回值的变量名以及类型。**如果函数返回一个无名变量或者没有返回值，返回值列表的括号是可以省略的。如果一个函数声明不包括返回值列表，那么函数体执行完毕后，不会返回任何值。在hypot函数中：
 
 ```Go
 func hypot(x, y float64) float64 {
@@ -8850,11 +8850,11 @@ func main() {
 		fmt.Println(countdown)
 	
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTcwMDc1Nzg5MiwyMDI0NDY4MTAsMTc0NT
-UwMjcxNiwxMTIyODYyNjQ3LC04OTk2MjEyODAsMTUxNTU5ODQy
-MSw3NjUwNDI3NSwtMTc4Mjg1NDMwMCwtMjExODg5MTkzMiwtMj
-A4NzY3NzYyNSwyMDcyMTI5MDE2LC0xOTIxNjQxNzEwLC0xMzg3
-NDEwODgzLC02MzU5NjU1OCw2MDA4NzM5NzMsMTU3MDcwNzA5LC
-0yMTIxNzYzMDg5LDEzMjA3OTQyMTAsLTEyNDYwMjQyMzcsLTg2
-NjU3NTkxXX0=
+eyJoaXN0b3J5IjpbLTEwMTIyODMwNzYsLTcwMDc1Nzg5MiwyMD
+I0NDY4MTAsMTc0NTUwMjcxNiwxMTIyODYyNjQ3LC04OTk2MjEy
+ODAsMTUxNTU5ODQyMSw3NjUwNDI3NSwtMTc4Mjg1NDMwMCwtMj
+ExODg5MTkzMiwtMjA4NzY3NzYyNSwyMDcyMTI5MDE2LC0xOTIx
+NjQxNzEwLC0xMzg3NDEwODgzLC02MzU5NjU1OCw2MDA4NzM5Nz
+MsMTU3MDcwNzA5LC0yMTIxNzYzMDg5LDEzMjA3OTQyMTAsLTEy
+NDYwMjQyMzddfQ==
 -->
