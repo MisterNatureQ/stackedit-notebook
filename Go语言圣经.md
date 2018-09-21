@@ -3938,13 +3938,13 @@ fmt.Printf("%T\n", zero)  // "func(int, int) int"
 
 函数的类型被称为函数的签名。如果两个函数形式参数列表和返回值列表中的变量类型一一对应，那么这两个函数被认为有相同的类型或签名。形参和返回值的变量名不影响函数签名，也不影响它们是否可以以省略参数类型的形式表示。
 
-每一次函数调用都必须按照声明顺序为所有参数提供实参（参数值）。**在函数调用时，Go语言没有默认参数值，也没有任何方法可以通过参数名指定形参，因此形参和返回值的变量名对于函数调用者而言没有意义。**
+**每一次函数调用都必须按照声明顺序为所有参数提供实参（参数值）。在函数调用时，Go语言没有默认参数值，也没有任何方法可以通过参数名指定形参，因此形参和返回值的变量名对于函数调用者而言没有意义。**
 
 在函数体中，函数的形参作为局部变量，被初始化为调用者提供的值。函数的形参和有名返回值作为函数最外层的局部变量，被存储在相同的词法块中。
 
 实参通过值的方式传递，因此函数的形参是实参的拷贝。对形参进行修改不会影响实参。但是，如果实参包括引用类型，如指针，slice(切片)、map、function、channel等类型，实参可能会由于函数的间接引用被修改。
 
-你可能会偶尔遇到没有函数体的函数声明，这表示该函数不是以Go实现的。这样的声明定义了函数签名。
+你可能会偶尔遇到**没有函数体的函数声明，这表示该函数不是以Go实现的。这样的声明定义了函数签名。
 
 ```Go
 package math
@@ -8847,13 +8847,13 @@ func main() {
 	fmt.Println("Commencing countdown.  Press return to abort.")
 	tick := time.Tick(1 * time.Second)
 	for countdown := 10; countdown > 0; countdown-- {
-		fmt.Println(countdo
+		fmt.Println(count
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEzNjMxNjYwMjAsLTcwMDc1Nzg5MiwyMD
-I0NDY4MTAsMTc0NTUwMjcxNiwxMTIyODYyNjQ3LC04OTk2MjEy
-ODAsMTUxNTU5ODQyMSw3NjUwNDI3NSwtMTc4Mjg1NDMwMCwtMj
-ExODg5MTkzMiwtMjA4NzY3NzYyNSwyMDcyMTI5MDE2LC0xOTIx
-NjQxNzEwLC0xMzg3NDEwODgzLC02MzU5NjU1OCw2MDA4NzM5Nz
-MsMTU3MDcwNzA5LC0yMTIxNzYzMDg5LDEzMjA3OTQyMTAsLTEy
-NDYwMjQyMzddfQ==
+eyJoaXN0b3J5IjpbMTg0NjY2NTM1LC0xMzYzMTY2MDIwLC03MD
+A3NTc4OTIsMjAyNDQ2ODEwLDE3NDU1MDI3MTYsMTEyMjg2MjY0
+NywtODk5NjIxMjgwLDE1MTU1OTg0MjEsNzY1MDQyNzUsLTE3OD
+I4NTQzMDAsLTIxMTg4OTE5MzIsLTIwODc2Nzc2MjUsMjA3MjEy
+OTAxNiwtMTkyMTY0MTcxMCwtMTM4NzQxMDg4MywtNjM1OTY1NT
+gsNjAwODczOTczLDE1NzA3MDcwOSwtMjEyMTc2MzA4OSwxMzIw
+Nzk0MjEwXX0=
 -->
