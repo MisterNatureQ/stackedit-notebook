@@ -3381,9 +3381,9 @@ w.Radius = 5       // equivalent to w.Circle.Radius = 5
 w.Spokes = 20
 ```
 
-在右边的注释中给出的显式形式访问这些叶子成员的语法依然有效，因此匿名成员并不是真的无法访问了。其中匿名成员Circle和Point都有自己的名字——就是命名的类型名字——但是这些名字在点操作符中是可选的。我们在访问子成员的时候可以忽略任何匿名成员部分。
+**在右边的注释中给出的显式形式访问这些叶子成员的语法依然有效，因此匿名成员并不是真的无法访问了。其中匿名成员Circle和Point都有自己的名字——就是命名的类型名字——但是这些名字在点操作符中是可选的。我们在访问子成员的时候可以忽略任何匿名成员部分。**
 
-不幸的是，结构体字面值并没有简短表示匿名成员的语法， 因此下面的语句都不能编译通过：
+**不幸的是，结构体字面值并没有简短表示匿名成员的语法， 因此下面的语句都不能编译通过：**
 
 ```Go
 w = Wheel{8, 8, 5, 20}                       // compile error: unknown fields
@@ -8864,13 +8864,13 @@ ticker.Stop() // cause the ticker's goroutine to terminate
 
 ```go
 select {
-case <-abort:
+case <
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNTU2MTc0MjM5LDYwMDg3Mzk3MywxNTcwNz
-A3MDksLTIxMjE3NjMwODksMTMyMDc5NDIxMCwtMTI0NjAyNDIz
-NywtODY2NTc1OTEsMjExMzQ3Mzg2NCwtMTMzNzYyMzc5NCwtMT
-MzMzI2MzM4OCwtOTEzOTI0MzUwLDE4NTk2MDA2MjgsLTIwNDcy
-NzE1NjUsLTI0NzA5NDM5Niw3NDEyNDYwODksOTkxMTc2ODk5LD
-EwNTA4MDEwMzksMTc3NDYzMzIyMSw3MTQ3MjQ3OTksMzA3OTA0
-MzgzXX0=
+eyJoaXN0b3J5IjpbLTIwMDMyMjAxMzAsNjAwODczOTczLDE1Nz
+A3MDcwOSwtMjEyMTc2MzA4OSwxMzIwNzk0MjEwLC0xMjQ2MDI0
+MjM3LC04NjY1NzU5MSwyMTEzNDczODY0LC0xMzM3NjIzNzk0LC
+0xMzMzMjYzMzg4LC05MTM5MjQzNTAsMTg1OTYwMDYyOCwtMjA0
+NzI3MTU2NSwtMjQ3MDk0Mzk2LDc0MTI0NjA4OSw5OTExNzY4OT
+ksMTA1MDgwMTAzOSwxNzc0NjMzMjIxLDcxNDcyNDc5OSwzMDc5
+MDQzODNdfQ==
 -->
