@@ -3607,7 +3607,7 @@ import (
 
 // SearchIssues queries the GitHub issue tracker.
 func SearchIssues(terms []string) (*IssuesSearchResult, error) {
-	q := url.QueryEscape(strings.Join(terms, " ")) /
+	q := url.QueryEscape(strings.Join(terms, " ")) //为了避免对URL造成冲突，我们用url.QueryEscape来对查询中的特殊字符进行转义操作
 	resp, err := http.Get(IssuesURL + "?q=" + q)
 	if err != nil {
 		return nil, err
@@ -8858,13 +8858,13 @@ ticker := time.NewTicker(1 * time.Second)
 ticker.Stop() // cause the ticker's goroutine to terminate
 ```
 
-有时候我们希望能够从channel中发送或者接收值，并避免因为发送或者接收导致的阻塞，尤其是当channel没有准备好写或者读时。select语句就可以实现这样的功能。select会有一个default来设置当其它的操作都不能够马上被处理
+有时候我们希望能够从channel中发送或者接收值，并避免因为发送或者接收导致的阻塞，尤其是当channel没有准备好写或者读时。select语
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTExMTExNzI2NDMsLTE5MjE2NDE3MTAsLT
-EzODc0MTA4ODMsLTYzNTk2NTU4LDYwMDg3Mzk3MywxNTcwNzA3
-MDksLTIxMjE3NjMwODksMTMyMDc5NDIxMCwtMTI0NjAyNDIzNy
-wtODY2NTc1OTEsMjExMzQ3Mzg2NCwtMTMzNzYyMzc5NCwtMTMz
-MzI2MzM4OCwtOTEzOTI0MzUwLDE4NTk2MDA2MjgsLTIwNDcyNz
-E1NjUsLTI0NzA5NDM5Niw3NDEyNDYwODksOTkxMTc2ODk5LDEw
-NTA4MDEwMzldfQ==
+eyJoaXN0b3J5IjpbMjA3MjEyOTAxNiwtMTkyMTY0MTcxMCwtMT
+M4NzQxMDg4MywtNjM1OTY1NTgsNjAwODczOTczLDE1NzA3MDcw
+OSwtMjEyMTc2MzA4OSwxMzIwNzk0MjEwLC0xMjQ2MDI0MjM3LC
+04NjY1NzU5MSwyMTEzNDczODY0LC0xMzM3NjIzNzk0LC0xMzMz
+MjYzMzg4LC05MTM5MjQzNTAsMTg1OTYwMDYyOCwtMjA0NzI3MT
+U2NSwtMjQ3MDk0Mzk2LDc0MTI0NjA4OSw5OTExNzY4OTksMTA1
+MDgwMTAzOV19
 -->
