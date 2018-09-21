@@ -4486,7 +4486,7 @@ var prereqs = map[string][]string{
 }
 ```
 
-这类问题被称作拓扑排序。从概念上说，前置条件可以构成有向图。图中的顶点表示课程，边表示课程间的依赖关系。显然，图中应该无环，这也就是说从某点出发的边，最终不会回到该点。下面的代码用深度优先搜索了整张图，获得了符合要求的课程序列。
+这类问题被称作**拓扑排序**。从概念上说，前置条件可以构成有向图。图中的顶点表示课程，边表示课程间的依赖关系。显然，图中应该无环，这也就是说从某点出发的边，最终不会回到该点。下面的代码用**深度优先**搜索了整张图，获得了符合要求的课程序列。
 
 ```Go
 func main() {
@@ -8840,7 +8840,7 @@ for i := 0; i < 10; i++ {
 
 下面让我们的发
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTc4MzY2NzQ4OCwtMTQyMzE2NTI4MCwzOT
+eyJoaXN0b3J5IjpbMTc2NDkyMzA0MCwtMTQyMzE2NTI4MCwzOT
 AzNTEyMDAsLTEzOTEyMjgyNTYsMTU2NTQxNDU2MCwtNDA2MDA0
 Mzg0LC0xMDUzMzA0NTY5LDg1MjA5MjUwNSwyMTA3MTQzNDY4LC
 0xMTgyMjQ0MDUyLC0xMjI0NDU1NTk4LDEwODY2MDU0NDgsMjEy
