@@ -4042,7 +4042,8 @@ func visit(links []string, n *html.Node) []string {
 ```
 $ go build gopl.io/ch1/fetch
 $ go build gopl.io/ch5/findlinks1
-$ ./fetch https://golang.org | ./findlinks1
+// 注意这里是通过 fetch 来读取数据的
+$ ./fetch https://golang.org | ./findlinks1    
 #
 /doc/
 /pkg/
@@ -8846,13 +8847,13 @@ func main() {
 
 	fmt.Println("Commencing countdown.  Press return to abort.")
 	tick := time.Tick(1 * time.Second)
-	for countdown := 10; countdown > 0; countdow
+	for countdown := 1
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTI3NzQ5MjQwOCwxMDg2NjA1NDQ4LDIxMj
-QzODIxMjUsLTEzNjMxNjYwMjAsLTcwMDc1Nzg5MiwyMDI0NDY4
-MTAsMTc0NTUwMjcxNiwxMTIyODYyNjQ3LC04OTk2MjEyODAsMT
-UxNTU5ODQyMSw3NjUwNDI3NSwtMTc4Mjg1NDMwMCwtMjExODg5
-MTkzMiwtMjA4NzY3NzYyNSwyMDcyMTI5MDE2LC0xOTIxNjQxNz
-EwLC0xMzg3NDEwODgzLC02MzU5NjU1OCw2MDA4NzM5NzMsMTU3
-MDcwNzA5XX0=
+eyJoaXN0b3J5IjpbLTEyMjQ0NTU1OTgsMTA4NjYwNTQ0OCwyMT
+I0MzgyMTI1LC0xMzYzMTY2MDIwLC03MDA3NTc4OTIsMjAyNDQ2
+ODEwLDE3NDU1MDI3MTYsMTEyMjg2MjY0NywtODk5NjIxMjgwLD
+E1MTU1OTg0MjEsNzY1MDQyNzUsLTE3ODI4NTQzMDAsLTIxMTg4
+OTE5MzIsLTIwODc2Nzc2MjUsMjA3MjEyOTAxNiwtMTkyMTY0MT
+cxMCwtMTM4NzQxMDg4MywtNjM1OTY1NTgsNjAwODczOTczLDE1
+NzA3MDcwOV19
 -->
