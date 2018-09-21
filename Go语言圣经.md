@@ -3535,7 +3535,7 @@ fmt.Printf("%s\n", data)
 ]
 ```
 
-在编码时，默认使用Go语言结构体的成员名字作为JSON的对象（通过reflect反射技术，我们将在12.6节讨论）。只有导出的结构体成员才会被编码，这也就是我们为什么选择用大写字母开头的成员名称。
+在编码时，默认使用Go语言结构体的成员名字作为JSON的对象（**通过reflect反射技术**，我们将在12.6节讨论）。**只有导出的结构体成员才会被编码**，这也就是我们为什么选择用大写字母开头的成员名称。
 
 细心的读者可能已经注意到，其中Year名字的成员在编码后变成了released，还有Color成员编码后变成了小写字母开头的color。这是因为结构体成员Tag所导致的。一个结构体成员Tag是和在编译阶段关联到该成员的元信息字符串：
 
@@ -8860,13 +8860,13 @@ ticker.Stop() // cause the ticker's goroutine to terminate
 
 有时候我们希望能够从channel中发送或者接收值，并避免因为发送或者接收导致的阻塞，尤其是当channel没有准备好写或者读时。select语句就可以实现这样的功能。select会有一个default来设置当其它的操作都不能够马上被处理时程序需要执行哪些逻辑。
 
-下面的select语句会在abort chan
+下面的select语句会在ab
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE0MDQ3OTU0NTgsLTEzODc0MTA4ODMsLT
-YzNTk2NTU4LDYwMDg3Mzk3MywxNTcwNzA3MDksLTIxMjE3NjMw
-ODksMTMyMDc5NDIxMCwtMTI0NjAyNDIzNywtODY2NTc1OTEsMj
-ExMzQ3Mzg2NCwtMTMzNzYyMzc5NCwtMTMzMzI2MzM4OCwtOTEz
-OTI0MzUwLDE4NTk2MDA2MjgsLTIwNDcyNzE1NjUsLTI0NzA5ND
-M5Niw3NDEyNDYwODksOTkxMTc2ODk5LDEwNTA4MDEwMzksMTc3
-NDYzMzIyMV19
+eyJoaXN0b3J5IjpbNzg5MTc5ODM5LC0xMzg3NDEwODgzLC02Mz
+U5NjU1OCw2MDA4NzM5NzMsMTU3MDcwNzA5LC0yMTIxNzYzMDg5
+LDEzMjA3OTQyMTAsLTEyNDYwMjQyMzcsLTg2NjU3NTkxLDIxMT
+M0NzM4NjQsLTEzMzc2MjM3OTQsLTEzMzMyNjMzODgsLTkxMzky
+NDM1MCwxODU5NjAwNjI4LC0yMDQ3MjcxNTY1LC0yNDcwOTQzOT
+YsNzQxMjQ2MDg5LDk5MTE3Njg5OSwxMDUwODAxMDM5LDE3NzQ2
+MzMyMjFdfQ==
 -->
