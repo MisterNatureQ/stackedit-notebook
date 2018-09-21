@@ -4360,10 +4360,10 @@ bad.gopl.io
 
 ```Go
 log.SetPrefix("wait: ") //SetPrefix设置标准logger的输出前缀
-log.SetFlags(0) //SetFlags设置logger的输出选项。
+log.SetFlags(0) //SetFlags设置logger的输出选项。 Ldate = 1 << [iota]  // 日期：2009/01/23
 ```
 
-第四种策略：有时，我们只需要输出错误信息就足够了，不需要中断程序的运行。我们可以通过log包提供函数
+**第四种策略：有时，我们只需要输出错误信息就足够了，不需要中断程序的运行。**我们可以通过log包提供函数
 
 ```Go
 if err := Ping(); err != nil {
@@ -8838,18 +8838,13 @@ for i := 0; i < 10; i++ {
 
 如果多个case同时就绪时，select会随机地选择一个执行，这样来保证每一个channel都有平等的被select的机会。增加前一个例子的buffer大小会使其输出变得不确定，因为当buffer既不为满也不为空时，select语句的执行情况就像是抛硬币的行为一样是随机的。
 
-下面让我们的发射程序打印倒计时。这里的select语句会使每次循环迭代等待一秒来执行退出操作。
-
-<u><i>gopl.io/ch8/countdown3</i></u>
-```go
-func main() {
-	// ...cre
+下面让我们的发
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIwMzIyODc5MzAsLTEwNTMzMDQ1NjksOD
-UyMDkyNTA1LDIxMDcxNDM0NjgsLTExODIyNDQwNTIsLTEyMjQ0
-NTU1OTgsMTA4NjYwNTQ0OCwyMTI0MzgyMTI1LC0xMzYzMTY2MD
-IwLC03MDA3NTc4OTIsMjAyNDQ2ODEwLDE3NDU1MDI3MTYsMTEy
-Mjg2MjY0NywtODk5NjIxMjgwLDE1MTU1OTg0MjEsNzY1MDQyNz
-UsLTE3ODI4NTQzMDAsLTIxMTg4OTE5MzIsLTIwODc2Nzc2MjUs
-MjA3MjEyOTAxNl19
+eyJoaXN0b3J5IjpbLTI3NDIzMTY0OCwtMTA1MzMwNDU2OSw4NT
+IwOTI1MDUsMjEwNzE0MzQ2OCwtMTE4MjI0NDA1MiwtMTIyNDQ1
+NTU5OCwxMDg2NjA1NDQ4LDIxMjQzODIxMjUsLTEzNjMxNjYwMj
+AsLTcwMDc1Nzg5MiwyMDI0NDY4MTAsMTc0NTUwMjcxNiwxMTIy
+ODYyNjQ3LC04OTk2MjEyODAsMTUxNTU5ODQyMSw3NjUwNDI3NS
+wtMTc4Mjg1NDMwMCwtMjExODg5MTkzMiwtMjA4NzY3NzYyNSwy
+MDcyMTI5MDE2XX0=
 -->
