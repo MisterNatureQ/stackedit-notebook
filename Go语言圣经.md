@@ -3801,6 +3801,8 @@ Age:       695 days
 ```Go
 import "html/template"
 
+// Must函数用于包装返回(*Template, error)的函数/方法调用，它会在err非nil时panic，一般用于变量初始化：
+
 var issueList = template.Must(template.New("issuelist").Parse(`
 <h1>{{.TotalCount}} issues</h1>
 <table>
@@ -8846,17 +8848,13 @@ func main() {
 	tick := time.Tick(1 * time.Second)
 	for countdown := 10; countdown > 0; countdown-- {
 		fmt.Println(countdown)
-		select {
-		case <-tick:
-			// Do nothing.
-		case <-abort:
-			fmt.Printl
+	
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTEyMjg2MjY0NywtODk5NjIxMjgwLDE1MT
-U1OTg0MjEsNzY1MDQyNzUsLTE3ODI4NTQzMDAsLTIxMTg4OTE5
-MzIsLTIwODc2Nzc2MjUsMjA3MjEyOTAxNiwtMTkyMTY0MTcxMC
-wtMTM4NzQxMDg4MywtNjM1OTY1NTgsNjAwODczOTczLDE1NzA3
-MDcwOSwtMjEyMTc2MzA4OSwxMzIwNzk0MjEwLC0xMjQ2MDI0Mj
-M3LC04NjY1NzU5MSwyMTEzNDczODY0LC0xMzM3NjIzNzk0LC0x
-MzMzMjYzMzg4XX0=
+eyJoaXN0b3J5IjpbMTc0NTUwMjcxNiwxMTIyODYyNjQ3LC04OT
+k2MjEyODAsMTUxNTU5ODQyMSw3NjUwNDI3NSwtMTc4Mjg1NDMw
+MCwtMjExODg5MTkzMiwtMjA4NzY3NzYyNSwyMDcyMTI5MDE2LC
+0xOTIxNjQxNzEwLC0xMzg3NDEwODgzLC02MzU5NjU1OCw2MDA4
+NzM5NzMsMTU3MDcwNzA5LC0yMTIxNzYzMDg5LDEzMjA3OTQyMT
+AsLTEyNDYwMjQyMzcsLTg2NjU3NTkxLDIxMTM0NzM4NjQsLTEz
+Mzc2MjM3OTRdfQ==
 -->
