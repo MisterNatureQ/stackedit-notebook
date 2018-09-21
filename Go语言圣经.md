@@ -3458,8 +3458,8 @@ object          {"year": 1980,
 ```Go
 type Movie struct {
 	Title  string
-	Year   int  `json:"released"`
-	Color  bool `json:"color,omitempty"`
+	Year   int  `json:"released"` // 成员Tag
+	Color  bool `json:"color,omitempty"` // 成员Tag
 	Actors []string
 }
 
@@ -8858,11 +8858,9 @@ ticker := time.NewTicker(1 * time.Second)
 ticker.Stop() // cause the ticker's goroutine to terminate
 ```
 
-有时候我们希望能够从channel中发送或者接收值，并避免因为发送或者接收导致的阻塞，尤其是当channel没有准备好写或者读时。select语句就可以实现这样的功能。select会有一个default来设置当其它的操作都不能够马上被处理时程序需要执行哪些逻辑。
-
-下面的select语句会在ab
+有时候我们希望能够从channel中发送或者接收值，并避免因为发送或者接收导致的阻塞，尤其是当channel没有准备好写或者读时。select语句就可以实现这样的功能。select会有一个default来设置当其它的操作都不能够马上被处理时程序需要执行哪些逻辑
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNzg5MTc5ODM5LC0xMzg3NDEwODgzLC02Mz
+eyJoaXN0b3J5IjpbMjE3MTQ1ODg5LC0xMzg3NDEwODgzLC02Mz
 U5NjU1OCw2MDA4NzM5NzMsMTU3MDcwNzA5LC0yMTIxNzYzMDg5
 LDEzMjA3OTQyMTAsLTEyNDYwMjQyMzcsLTg2NjU3NTkxLDIxMT
 M0NzM4NjQsLTEzMzc2MjM3OTQsLTEzMzMyNjMzODgsLTkxMzky
