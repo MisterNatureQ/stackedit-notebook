@@ -4106,7 +4106,7 @@ $ ./fetch https://golang.org | ./outline
 
 正如你在上面实验中所见，大部分HTML页面只需几层递归就能被处理，但仍然有些页面需要深层次的递归。
 
-大部分编程语言使用固定大小的函数调用栈，常见的大小从64KB到2MB不等。固定大小栈会限制递归的深度，当你用递归处理大量数据时，需要避免栈溢出；除此之外，还会导致安全性问题。与此相反，Go语言使用可变栈，栈的大小按需增加（初始时很小）。这使得我们使用递归时不必考虑溢出和安全问题。
+**大部分编程语言使用固定大小的函数调用栈，常见的大小从64KB到2MB不等。固定大小栈会限制递归的深度，当你用递归处理大量数据时，需要避免栈溢出；除此之外，还会导致安全性问题。与此相反，Go语言使用可变栈，栈的大小按需增加（初始时很小）。这使得我们使用递归时不必考虑溢出和安全问题。**
 
 **练习 5.1：** 修改findlinks代码中遍历n.FirstChild链表的部分，将循环调用visit，改成递归调用。
 
@@ -8848,11 +8848,11 @@ func main() {
 	tick := time.Tick(1 * time.Second)
 	for countdown := 10; countdown > 0; countdow
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTA4NjYwNTQ0OCwyMTI0MzgyMTI1LC0xMz
-YzMTY2MDIwLC03MDA3NTc4OTIsMjAyNDQ2ODEwLDE3NDU1MDI3
-MTYsMTEyMjg2MjY0NywtODk5NjIxMjgwLDE1MTU1OTg0MjEsNz
-Y1MDQyNzUsLTE3ODI4NTQzMDAsLTIxMTg4OTE5MzIsLTIwODc2
-Nzc2MjUsMjA3MjEyOTAxNiwtMTkyMTY0MTcxMCwtMTM4NzQxMD
-g4MywtNjM1OTY1NTgsNjAwODczOTczLDE1NzA3MDcwOSwtMjEy
-MTc2MzA4OV19
+eyJoaXN0b3J5IjpbLTI3NzQ5MjQwOCwxMDg2NjA1NDQ4LDIxMj
+QzODIxMjUsLTEzNjMxNjYwMjAsLTcwMDc1Nzg5MiwyMDI0NDY4
+MTAsMTc0NTUwMjcxNiwxMTIyODYyNjQ3LC04OTk2MjEyODAsMT
+UxNTU5ODQyMSw3NjUwNDI3NSwtMTc4Mjg1NDMwMCwtMjExODg5
+MTkzMiwtMjA4NzY3NzYyNSwyMDcyMTI5MDE2LC0xOTIxNjQxNz
+EwLC0xMzg3NDEwODgzLC02MzU5NjU1OCw2MDA4NzM5NzMsMTU3
+MDcwNzA5XX0=
 -->
