@@ -3706,13 +3706,13 @@ GitHub的Web服务接口 https://developer.github.com/v3/ 包含了更多的特�
 <u><i>gopl.io/ch4/issuesreport</i></u>
 ```Go
 // 由双花括号包含的`{{action}}`对象
-// 模板中`{{range .Items}}`和`{{end}}`对应一个循环action
-// issues : 在这里的写法
+// 模板中`{{range .Items}}`和`{{end}}`对应一个循环action 循环每次迭代的当前值对应当前的Items元素的值
+// issues : 在这里的写法 
 const templ = `{{.TotalCount}} issues:
 {{range .Items}}----------------------------------------
 Number: {{.Number}}
 User:   {{.User.Login}}
-Title:  {{.Title | printf "%.64s"}} // 在一个action中，`|`操作符表示将前一个表达式的结果作为后一个函数的输入
+Title:  {{.Title | printf "%.64s"}} // 在一个action中，`|`操作符表示将前一个表达式的结果作为后一个函数的输入 类似于UNIX中管道的概念
 Age:    {{.CreatedAt | daysAgo}} days
 {{end}}`
 ```
@@ -8853,13 +8853,13 @@ func main() {
 }
 ```
 
-time.Tick函数表现得好像它创建了一个在循环中调用time.Sleep的goroutine，每次被唤醒时发送一个事件。当countdown函数返回时，它会停止从tick中接收事件，但是ticker这个goroutine还依然存活，继续徒劳地尝试向channel中发送值，然而这时候已经没有其它的goroutine会从该channel中接收值了——这被称为goroutin
+time.Tick函数表现得好像它创建了一个在循环中调用time.Sleep的goroutine，每次被唤醒时发送一个事件。当countdown函数返回时，它会停止从tick中接收事件，但是ticker这个goroutine还依然存活，继续徒劳地尝试向channel中发送值，然而这时候已经没有其它
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbOTMwMDQyNjQ2LDE1MTU1OTg0MjEsNzY1MD
-QyNzUsLTE3ODI4NTQzMDAsLTIxMTg4OTE5MzIsLTIwODc2Nzc2
-MjUsMjA3MjEyOTAxNiwtMTkyMTY0MTcxMCwtMTM4NzQxMDg4My
-wtNjM1OTY1NTgsNjAwODczOTczLDE1NzA3MDcwOSwtMjEyMTc2
-MzA4OSwxMzIwNzk0MjEwLC0xMjQ2MDI0MjM3LC04NjY1NzU5MS
-wyMTEzNDczODY0LC0xMzM3NjIzNzk0LC0xMzMzMjYzMzg4LC05
-MTM5MjQzNTBdfQ==
+eyJoaXN0b3J5IjpbLTE1MDAzMzk0NzEsMTUxNTU5ODQyMSw3Nj
+UwNDI3NSwtMTc4Mjg1NDMwMCwtMjExODg5MTkzMiwtMjA4NzY3
+NzYyNSwyMDcyMTI5MDE2LC0xOTIxNjQxNzEwLC0xMzg3NDEwOD
+gzLC02MzU5NjU1OCw2MDA4NzM5NzMsMTU3MDcwNzA5LC0yMTIx
+NzYzMDg5LDEzMjA3OTQyMTAsLTEyNDYwMjQyMzcsLTg2NjU3NT
+kxLDIxMTM0NzM4NjQsLTEzMzc2MjM3OTQsLTEzMzMyNjMzODgs
+LTkxMzkyNDM1MF19
 -->
