@@ -3848,7 +3848,7 @@ $ ./issueshtml repo:golang/go 3133 10535 >issues2.html
 我们也可以通过对信任的HTML字符串使用template.HTML类型来抑制这种自动转义的行为。还有很多采用类型命名的字符串类型分别对应信任的JavaScript、CSS和URL。下面的程序演示了两个使用不同类型的相同字符串产生的不同结果：A是一个普通字符串，B是一个信任的template.HTML字符串类型。
 
 ![](../images/ch4-05.png)
-![](https://github.com/gopl-zh/gopl-zh.github.com/blob/master/images/ch43-051.png?raw=true)
+![](https://github.com/gopl-zh/gopl-zh.github.com/blob/master/images/ch4-05.png?raw=true)
 {% raw %}
 
 <u><i>gopl.io/ch4/autoescape</i></u>
@@ -8850,11 +8850,11 @@ func main() {
 		fmt.Println(countdown)
 	
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjAyNDQ2ODEwLDE3NDU1MDI3MTYsMTEyMj
-g2MjY0NywtODk5NjIxMjgwLDE1MTU1OTg0MjEsNzY1MDQyNzUs
-LTE3ODI4NTQzMDAsLTIxMTg4OTE5MzIsLTIwODc2Nzc2MjUsMj
-A3MjEyOTAxNiwtMTkyMTY0MTcxMCwtMTM4NzQxMDg4MywtNjM1
-OTY1NTgsNjAwODczOTczLDE1NzA3MDcwOSwtMjEyMTc2MzA4OS
-wxMzIwNzk0MjEwLC0xMjQ2MDI0MjM3LC04NjY1NzU5MSwyMTEz
-NDczODY0XX0=
+eyJoaXN0b3J5IjpbMzI1MjA5MjQyLDIwMjQ0NjgxMCwxNzQ1NT
+AyNzE2LDExMjI4NjI2NDcsLTg5OTYyMTI4MCwxNTE1NTk4NDIx
+LDc2NTA0Mjc1LC0xNzgyODU0MzAwLC0yMTE4ODkxOTMyLC0yMD
+g3Njc3NjI1LDIwNzIxMjkwMTYsLTE5MjE2NDE3MTAsLTEzODc0
+MTA4ODMsLTYzNTk2NTU4LDYwMDg3Mzk3MywxNTcwNzA3MDksLT
+IxMjE3NjMwODksMTMyMDc5NDIxMCwtMTI0NjAyNDIzNywtODY2
+NTc1OTFdfQ==
 -->
