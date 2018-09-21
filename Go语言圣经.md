@@ -4494,7 +4494,7 @@ func main() {
 		fmt.Printf("%d:\t%s\n", i+1, course)
 	}
 }
-//拓扑排序
+//拓扑排序   **深度优先**搜索了整张图，获得了符合要求的课程序列
 func topoSort(m map[string][]string) []string {
 	var order []string
 	seen := make(map[string]bool)
@@ -8837,13 +8837,13 @@ for i := 0; i < 10; i++ {
 }
 ```
 
-如果多个case同时就绪时，select会随机地选择一个执行，这样来保证每一个channel都有平等的被select的机会。增加前一个例子的buffer大小会使其输出变得不确定，因为当buffer既不为满也不为空时，select语句的执行
+如果多个case同时就绪时，select会随机地选择一个执行，这样来保证每一个channel都有平等的被select的机会。增加前一个例子的buffer大小会使其输出变得不确定，因为当b
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTYyNzg3NTY5NCwxNzY0OTIzMDQwLC0xND
-IzMTY1MjgwLDM5MDM1MTIwMCwtMTM5MTIyODI1NiwxNTY1NDE0
-NTYwLC00MDYwMDQzODQsLTEwNTMzMDQ1NjksODUyMDkyNTA1LD
-IxMDcxNDM0NjgsLTExODIyNDQwNTIsLTEyMjQ0NTU1OTgsMTA4
-NjYwNTQ0OCwyMTI0MzgyMTI1LC0xMzYzMTY2MDIwLC03MDA3NT
-c4OTIsMjAyNDQ2ODEwLDE3NDU1MDI3MTYsMTEyMjg2MjY0Nywt
-ODk5NjIxMjgwXX0=
+eyJoaXN0b3J5IjpbLTE1MDgwODM3OTIsMTc2NDkyMzA0MCwtMT
+QyMzE2NTI4MCwzOTAzNTEyMDAsLTEzOTEyMjgyNTYsMTU2NTQx
+NDU2MCwtNDA2MDA0Mzg0LC0xMDUzMzA0NTY5LDg1MjA5MjUwNS
+wyMTA3MTQzNDY4LC0xMTgyMjQ0MDUyLC0xMjI0NDU1NTk4LDEw
+ODY2MDU0NDgsMjEyNDM4MjEyNSwtMTM2MzE2NjAyMCwtNzAwNz
+U3ODkyLDIwMjQ0NjgxMCwxNzQ1NTAyNzE2LDExMjI4NjI2NDcs
+LTg5OTYyMTI4MF19
 -->
