@@ -3474,7 +3474,7 @@ var movies = []Movie{
 }
 ```
 
-这样的数据结构特别适合JSON格式，并且在两者之间相互转换也很容易。将一个Go语言中类似movies的结构体slice转为JSON的过程叫编组（marshaling）。编组通过调用json.Marshal函数完成：
+**这样的数据结构特别适合JSON格式，并且在两者之间相互转换也很容易。将一个Go语言中类似movies的结构体slice转为JSON的过程叫编组（marshaling）。编组通过调用json.Marshal函数完成：**
 
 ```Go
 data, err := json.Marshal(movies)
@@ -8860,13 +8860,13 @@ ticker.Stop() // cause the ticker's goroutine to terminate
 
 有时候我们希望能够从channel中发送或者接收值，并避免因为发送或者接收导致的阻塞，尤其是当channel没有准备好写或者读时。select语句就可以实现这样的功能。select会有一个default来设置当其它的操作都不能够马上被处理时程序需要执行哪些逻辑。
 
-下面的select语句会在abort channel中有值时，从其中接
+下面的select语句会在abort channel中有值时，
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEzODc0MTA4ODMsLTYzNTk2NTU4LDYwMD
-g3Mzk3MywxNTcwNzA3MDksLTIxMjE3NjMwODksMTMyMDc5NDIx
-MCwtMTI0NjAyNDIzNywtODY2NTc1OTEsMjExMzQ3Mzg2NCwtMT
-MzNzYyMzc5NCwtMTMzMzI2MzM4OCwtOTEzOTI0MzUwLDE4NTk2
-MDA2MjgsLTIwNDcyNzE1NjUsLTI0NzA5NDM5Niw3NDEyNDYwOD
-ksOTkxMTc2ODk5LDEwNTA4MDEwMzksMTc3NDYzMzIyMSw3MTQ3
-MjQ3OTldfQ==
+eyJoaXN0b3J5IjpbNDYyNDc3MjQ1LC0xMzg3NDEwODgzLC02Mz
+U5NjU1OCw2MDA4NzM5NzMsMTU3MDcwNzA5LC0yMTIxNzYzMDg5
+LDEzMjA3OTQyMTAsLTEyNDYwMjQyMzcsLTg2NjU3NTkxLDIxMT
+M0NzM4NjQsLTEzMzc2MjM3OTQsLTEzMzMyNjMzODgsLTkxMzky
+NDM1MCwxODU5NjAwNjI4LC0yMDQ3MjcxNTY1LC0yNDcwOTQzOT
+YsNzQxMjQ2MDg5LDk5MTE3Njg5OSwxMDUwODAxMDM5LDE3NzQ2
+MzMyMjFdfQ==
 -->
