@@ -3836,7 +3836,7 @@ $ ./issueshtml repo:golang/go commenter:gopherbot json encoder >issues.html
 图4.4显示了在web浏览器中的效果图。每个issue包含到Github对应页面的链接。
 
 ![](../images/ch4-04.png)
-![](https://github.com/gopl-zh/gopl-zh.github.com/blob/master/images/ch43-041.png?raw=true)
+![](https://github.com/gopl-zh/gopl-zh.github.com/blob/master/images/ch4-04.png?raw=true)
 图4.4中issue没有包含会对HTML格式产生冲突的特殊字符，但是我们马上将看到标题中含有`&`和`<`字符的issue。下面的命令选择了两个这样的issue：
 
 ```
@@ -8850,11 +8850,11 @@ func main() {
 		fmt.Println(countdown)
 	
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTc0NTUwMjcxNiwxMTIyODYyNjQ3LC04OT
-k2MjEyODAsMTUxNTU5ODQyMSw3NjUwNDI3NSwtMTc4Mjg1NDMw
-MCwtMjExODg5MTkzMiwtMjA4NzY3NzYyNSwyMDcyMTI5MDE2LC
-0xOTIxNjQxNzEwLC0xMzg3NDEwODgzLC02MzU5NjU1OCw2MDA4
-NzM5NzMsMTU3MDcwNzA5LC0yMTIxNzYzMDg5LDEzMjA3OTQyMT
-AsLTEyNDYwMjQyMzcsLTg2NjU3NTkxLDIxMTM0NzM4NjQsLTEz
-Mzc2MjM3OTRdfQ==
+eyJoaXN0b3J5IjpbMjAyNDQ2ODEwLDE3NDU1MDI3MTYsMTEyMj
+g2MjY0NywtODk5NjIxMjgwLDE1MTU1OTg0MjEsNzY1MDQyNzUs
+LTE3ODI4NTQzMDAsLTIxMTg4OTE5MzIsLTIwODc2Nzc2MjUsMj
+A3MjEyOTAxNiwtMTkyMTY0MTcxMCwtMTM4NzQxMDg4MywtNjM1
+OTY1NTgsNjAwODczOTczLDE1NzA3MDcwOSwtMjEyMTc2MzA4OS
+wxMzIwNzk0MjEwLC0xMjQ2MDI0MjM3LC04NjY1NzU5MSwyMTEz
+NDczODY0XX0=
 -->
