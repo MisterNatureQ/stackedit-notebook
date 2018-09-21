@@ -4515,7 +4515,7 @@ func topoSort(m map[string][]string) []string {
 		keys = append(keys, key)
 	}
 	sort.Strings(keys) // 对key排序 确保 访问顺序
-	visitAll(keys)
+	visitAll(keys) // 只要不是环形就不会死循环
 	return order
 }
 ```
@@ -8838,13 +8838,13 @@ for i := 0; i < 10; i++ {
 }
 ```
 
-如果多个case同时就绪时，select会随机地选择一个执行，这样来保证每一个channel都有平等的被select的机
+如果多个case同时就绪时，select会随机地选择一个执行，这样来保证每一个chan
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTU4MzcxNTE0LDY5MjY0MDY1OSwtNDA5Mz
-YxMDI1LC0xNTA4MDgzNzkyLDE3NjQ5MjMwNDAsLTE0MjMxNjUy
-ODAsMzkwMzUxMjAwLC0xMzkxMjI4MjU2LDE1NjU0MTQ1NjAsLT
-QwNjAwNDM4NCwtMTA1MzMwNDU2OSw4NTIwOTI1MDUsMjEwNzE0
-MzQ2OCwtMTE4MjI0NDA1MiwtMTIyNDQ1NTU5OCwxMDg2NjA1ND
-Q4LDIxMjQzODIxMjUsLTEzNjMxNjYwMjAsLTcwMDc1Nzg5Miwy
-MDI0NDY4MTBdfQ==
+eyJoaXN0b3J5IjpbMjAyMDAwNjMyOCw2OTI2NDA2NTksLTQwOT
+M2MTAyNSwtMTUwODA4Mzc5MiwxNzY0OTIzMDQwLC0xNDIzMTY1
+MjgwLDM5MDM1MTIwMCwtMTM5MTIyODI1NiwxNTY1NDE0NTYwLC
+00MDYwMDQzODQsLTEwNTMzMDQ1NjksODUyMDkyNTA1LDIxMDcx
+NDM0NjgsLTExODIyNDQwNTIsLTEyMjQ0NTU1OTgsMTA4NjYwNT
+Q0OCwyMTI0MzgyMTI1LC0xMzYzMTY2MDIwLC03MDA3NTc4OTIs
+MjAyNDQ2ODEwXX0=
 -->
