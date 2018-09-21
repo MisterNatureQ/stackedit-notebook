@@ -3697,7 +3697,7 @@ GitHub的Web服务接口 https://developer.github.com/v3/ 包含了更多的特�
 
 ## 4.6. 文本和HTML模板
 
-前面的例子，只是最简单的格式化，使用Printf是完全足够的。但是有时候会需要复杂的打印格式，这时候一般需要将格式化代码分离出来以便更安全地修改。这些功能是由text/template和html/template等模板包提供的，它们提供了一个将变量值填充到一个文本或HTML格式的模板的机制。
+前面的例子，只是最简单的格式化，使用Printf是完全足够的。**但是有时候会需要复杂的打印格式，这时候一般需要将格式化代码分离出来以便更安全地修改。这些功能是由text/template和html/template等模板包提供的，它们提供了一个将变量值填充到一个文本或HTML格式的模板的机制。
 
 一个模板是一个字符串或一个文件，里面包含了一个或多个由双花括号包含的`{{action}}`对象。大部分的字符串只是按字面值打印，但是对于actions部分将触发其它的行为。每个actions都包含了一个用模板语言书写的表达式，一个action虽然简短但是可以输出复杂的打印值，模板语言包含通过选择结构体的成员、调用函数或方法、表达式控制流if-else语句和range循环语句，还有其它实例化模板等诸多特性。下面是一个简单的模板字符串：
 
@@ -8858,11 +8858,11 @@ Tick函数挺方便，但是只有当程序整个生命周期都需要这个时�
 ticker := time.NewTicker(1 * time.Second)
 <-ticker.C    /
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIxMTg4OTE5MzIsLTIwODc2Nzc2MjUsMj
-A3MjEyOTAxNiwtMTkyMTY0MTcxMCwtMTM4NzQxMDg4MywtNjM1
-OTY1NTgsNjAwODczOTczLDE1NzA3MDcwOSwtMjEyMTc2MzA4OS
-wxMzIwNzk0MjEwLC0xMjQ2MDI0MjM3LC04NjY1NzU5MSwyMTEz
-NDczODY0LC0xMzM3NjIzNzk0LC0xMzMzMjYzMzg4LC05MTM5Mj
-QzNTAsMTg1OTYwMDYyOCwtMjA0NzI3MTU2NSwtMjQ3MDk0Mzk2
-LDc0MTI0NjA4OV19
+eyJoaXN0b3J5IjpbMTY3NzUzNDMwOCwtMjExODg5MTkzMiwtMj
+A4NzY3NzYyNSwyMDcyMTI5MDE2LC0xOTIxNjQxNzEwLC0xMzg3
+NDEwODgzLC02MzU5NjU1OCw2MDA4NzM5NzMsMTU3MDcwNzA5LC
+0yMTIxNzYzMDg5LDEzMjA3OTQyMTAsLTEyNDYwMjQyMzcsLTg2
+NjU3NTkxLDIxMTM0NzM4NjQsLTEzMzc2MjM3OTQsLTEzMzMyNj
+MzODgsLTkxMzkyNDM1MCwxODU5NjAwNjI4LC0yMDQ3MjcxNTY1
+LC0yNDcwOTQzOTZdfQ==
 -->
