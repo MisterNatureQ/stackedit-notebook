@@ -4498,6 +4498,7 @@ func main() {
 func topoSort(m map[string][]string) []string {
 	var order []string
 	seen := make(map[string]bool)
+	// 匿名函数 具有闭包的特性 并且可以赋值mingm之后
 	var visitAll func(items []string)
 	visitAll = func(items []string) {
 		for _, item := range items {
@@ -4518,7 +4519,7 @@ func topoSort(m map[string][]string) []string {
 }
 ```
 
-当匿名函数需要被递归调用时，我们必须首先声明一个变量（在上面的例子中，我们首先声明了 visitAll），再将匿名函数赋值给这个变量。如果不分成两部，函数字面量无法与visitAll绑定，我们也无法递归调用该匿名函数。
+**当匿名函数需要被递归调用时，我们必须首先声明一个变量（在上面的例子中，我们首先声明了 visitAll），再将匿名函数赋值给这个变量。如果不分成两部，函数字面量无法与visitAll绑定，我们也无法递归调用该匿名函数。**
 
 ```Go
 visitAll := func(items []string) {
@@ -8836,15 +8837,13 @@ for i := 0; i < 10; i++ {
 }
 ```
 
-如果多个case同时就绪时，select会随机地选择一个执行，这样来保证每一个channel都有平等的被select的机会。增加前一个例子的buffer大小会使其输出变得不确定，因为当buffer既不为满也不为空时，select语句的执行情况就像是抛硬币的行为一样是随机的。
-
-下面让我们的发
+如果多个case同时就绪时，select会随机地选择一个执行，这样来保证每一个channel都有平等的被select的机会。增加前一个例子的buffer大小会使其输出变得不确定，因为当buffer既不为满也不为空时，select语句的执行情况就像是
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE1MDU4NjIzMzEsMTc2NDkyMzA0MCwtMT
-QyMzE2NTI4MCwzOTAzNTEyMDAsLTEzOTEyMjgyNTYsMTU2NTQx
-NDU2MCwtNDA2MDA0Mzg0LC0xMDUzMzA0NTY5LDg1MjA5MjUwNS
-wyMTA3MTQzNDY4LC0xMTgyMjQ0MDUyLC0xMjI0NDU1NTk4LDEw
-ODY2MDU0NDgsMjEyNDM4MjEyNSwtMTM2MzE2NjAyMCwtNzAwNz
-U3ODkyLDIwMjQ0NjgxMCwxNzQ1NTAyNzE2LDExMjI4NjI2NDcs
-LTg5OTYyMTI4MF19
+eyJoaXN0b3J5IjpbMzExNjUxNDE5LDE3NjQ5MjMwNDAsLTE0Mj
+MxNjUyODAsMzkwMzUxMjAwLC0xMzkxMjI4MjU2LDE1NjU0MTQ1
+NjAsLTQwNjAwNDM4NCwtMTA1MzMwNDU2OSw4NTIwOTI1MDUsMj
+EwNzE0MzQ2OCwtMTE4MjI0NDA1MiwtMTIyNDQ1NTU5OCwxMDg2
+NjA1NDQ4LDIxMjQzODIxMjUsLTEzNjMxNjYwMjAsLTcwMDc1Nz
+g5MiwyMDI0NDY4MTAsMTc0NTUwMjcxNiwxMTIyODYyNjQ3LC04
+OTk2MjEyODBdfQ==
 -->
