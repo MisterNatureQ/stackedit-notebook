@@ -4200,7 +4200,7 @@ func HourMinSec(t time.Time) (hour, minute, second int)
 
 虽然良好的命名很重要，但你也不必为每一个返回值都取一个适当的名字。比如，按照惯例，函数的最后一个bool类型的返回值表示函数是否运行成功，error类型的返回值代表函数的错误信息，对于这些类似的惯例，我们不必思考合适的命名，它们都无需解释。
 
-**如果一个函数所有的返回值都有显式的变量名，那么该函数的return语句可以省略操作数。这称之为bare return。
+**如果一个函数所有的返回值都有显式的变量名，那么该函数的return语句可以省略操作数。**这称之为bare return。
 
 ```Go
 // CountWordsAndImages does an HTTP GET request for the HTML
@@ -4228,7 +4228,7 @@ func countWordsAndImages(n *html.Node) (words, images int) { /* ... */ }
 return words, images, err
 ```
 
-当一个函数有多处return语句以及许多返回值时，bare return 可以减少代码的重复，但是使得代码难以被理解。举个例子，如果你没有仔细的审查代码，很难发现前2处return等价于 return 0,0,err（Go会将返回值 words和images在函数体的开始处，根据它们的类型，将其初始化为0），最后一处return等价于 return words, image, nil。基于以上原因，不宜过度使用bare return。
+当一个函数有多处return语句以及许多返回值时，bare return 可以减少代码的重复，但是使得代码难以被理解。举个例子，如果你没有仔细的审查代码，很难发现前2处return等价于 return 0,0,err（Go会将返回值 words和images在函数体的开始处，根据它们的类型，将其初始化为0），最后一处return等价于 return words, image, nil。基于以上原因，**不宜过度使用bare return。**
 
 **练习 5.5：** 实现countWordsAndImages。（参考练习4.9如何分词）
 
@@ -8847,9 +8847,9 @@ func main() {
 
 	fmt.Println("Commencing countdown.  Press return to abort.")
 	tick := time.Tick(1 * time.Second)
-	for co
+	
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbOTU3NzAxMDMzLC0xMjI0NDU1NTk4LDEwOD
+eyJoaXN0b3J5IjpbLTM1NjIwOTQ4LC0xMjI0NDU1NTk4LDEwOD
 Y2MDU0NDgsMjEyNDM4MjEyNSwtMTM2MzE2NjAyMCwtNzAwNzU3
 ODkyLDIwMjQ0NjgxMCwxNzQ1NTAyNzE2LDExMjI4NjI2NDcsLT
 g5OTYyMTI4MCwxNTE1NTk4NDIxLDc2NTA0Mjc1LC0xNzgyODU0
