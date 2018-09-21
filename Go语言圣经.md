@@ -4173,7 +4173,7 @@ links, err := findLinks(url)
 links, _ := findLinks(url) // errors ignored
 ```
 
-**一个函数内部可以将另一个有多返回值的函数调用作为返回值，下面的例子展示了与findLinks有相同功能的函数，两者的区别在于下面的例子先输出参数：
+**一个函数内部可以将另一个有多返回值的函数调用作为返回值，下面的例子展示了与findLinks有相同功能的函数，两者的区别在于下面的例子先输出参数：**
 
 ```Go
 func findLinksLog(url string) ([]string, error) {
@@ -8847,13 +8847,13 @@ func main() {
 
 	fmt.Println("Commencing countdown.  Press return to abort.")
 	tick := time.Tick(1 * time.Second)
-	for countdown 
+	for countdow
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEzNDgzNTA0OTAsLTEyMjQ0NTU1OTgsMT
-A4NjYwNTQ0OCwyMTI0MzgyMTI1LC0xMzYzMTY2MDIwLC03MDA3
-NTc4OTIsMjAyNDQ2ODEwLDE3NDU1MDI3MTYsMTEyMjg2MjY0Ny
-wtODk5NjIxMjgwLDE1MTU1OTg0MjEsNzY1MDQyNzUsLTE3ODI4
-NTQzMDAsLTIxMTg4OTE5MzIsLTIwODc2Nzc2MjUsMjA3MjEyOT
-AxNiwtMTkyMTY0MTcxMCwtMTM4NzQxMDg4MywtNjM1OTY1NTgs
-NjAwODczOTczXX0=
+eyJoaXN0b3J5IjpbMTM4OTgxMjY5NiwtMTIyNDQ1NTU5OCwxMD
+g2NjA1NDQ4LDIxMjQzODIxMjUsLTEzNjMxNjYwMjAsLTcwMDc1
+Nzg5MiwyMDI0NDY4MTAsMTc0NTUwMjcxNiwxMTIyODYyNjQ3LC
+04OTk2MjEyODAsMTUxNTU5ODQyMSw3NjUwNDI3NSwtMTc4Mjg1
+NDMwMCwtMjExODg5MTkzMiwtMjA4NzY3NzYyNSwyMDcyMTI5MD
+E2LC0xOTIxNjQxNzEwLC0xMzg3NDEwODgzLC02MzU5NjU1OCw2
+MDA4NzM5NzNdfQ==
 -->
