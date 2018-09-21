@@ -3749,7 +3749,7 @@ if err != nil {
 }
 ```
 
-因为模板通常在编译时就测试好了，如果模板解析失败将是一个致命的错误。template.Must辅助函数可以简化这个致命错误的处理：它接受一个模板和一个error类型的参数，检测error是否为nil（如果不是nil则发出panic异常），然后返回传入的模板。我们将在5.9节再讨论这个话题。
+**因为模板通常在编译时就测试好了，如果模板解析失败将是一个致命的错误。template.Must辅助函数可以简化这个致命错误的处理：它接受一个模板和一个error类型的参数，检测error是否为nil（如果不是nil则发出panic异常），然后返回传入的模板。我们将在5.9节再讨论这个话题。**
 
 一旦模板已经创建、注册了daysAgo函数、并通过分析和检测，我们就可以使用github.IssuesSearchResult作为输入源、os.Stdout作为输出源来执行模板：
 
@@ -8856,13 +8856,13 @@ func main() {
 }
 ```
 
-time.Tick函数表现得好像它创建了一个在循环中调用time.Sleep的goroutine，每次被唤醒时发送一个事件
+time.Tick函数表现得好像它创建了一个在循环中调用time.Sleep的goroutine，每次被唤醒时发送
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNjExMzk5MTc5LDE1MTU1OTg0MjEsNzY1MD
-QyNzUsLTE3ODI4NTQzMDAsLTIxMTg4OTE5MzIsLTIwODc2Nzc2
-MjUsMjA3MjEyOTAxNiwtMTkyMTY0MTcxMCwtMTM4NzQxMDg4My
-wtNjM1OTY1NTgsNjAwODczOTczLDE1NzA3MDcwOSwtMjEyMTc2
-MzA4OSwxMzIwNzk0MjEwLC0xMjQ2MDI0MjM3LC04NjY1NzU5MS
-wyMTEzNDczODY0LC0xMzM3NjIzNzk0LC0xMzMzMjYzMzg4LC05
-MTM5MjQzNTBdfQ==
+eyJoaXN0b3J5IjpbLTg5OTYyMTI4MCwxNTE1NTk4NDIxLDc2NT
+A0Mjc1LC0xNzgyODU0MzAwLC0yMTE4ODkxOTMyLC0yMDg3Njc3
+NjI1LDIwNzIxMjkwMTYsLTE5MjE2NDE3MTAsLTEzODc0MTA4OD
+MsLTYzNTk2NTU4LDYwMDg3Mzk3MywxNTcwNzA3MDksLTIxMjE3
+NjMwODksMTMyMDc5NDIxMCwtMTI0NjAyNDIzNywtODY2NTc1OT
+EsMjExMzQ3Mzg2NCwtMTMzNzYyMzc5NCwtMTMzMzI2MzM4OCwt
+OTEzOTI0MzUwXX0=
 -->
