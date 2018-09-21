@@ -3401,7 +3401,7 @@ w = Wheel{
 		Point:  Point{X: 8, Y: 8},
 		Radius: 5,
 	},
-	Spokes: 20, // NOTE: trailing comma necessary here (and at Radius)
+	Spokes: 20, // NOTE: trailing comma necessary here (and at Radius) 后面的逗号必要在这里
 }
 
 fmt.Printf("%#v\n", w)
@@ -3415,7 +3415,7 @@ fmt.Printf("%#v\n", w)
 // Wheel{Circle:Circle{Point:Point{X:42, Y:8}, Radius:5}, Spokes:20}
 ```
 
-需要注意的是Printf函数中%v参数包含的#副词，它表示用和Go语言类似的语法打印值。对于结构体类型来说，将包含每个成员的名字。
+需要注意的是**Printf函数中%v参数包含的#副词，它表示用和Go语言类似的语法打印值。对于结构体类型来说，将包含每个成员的名字。**
 
 因为匿名成员也有一个隐式的名字，因此不能同时包含两个类型相同的匿名成员，这会导致名字冲突。同时，因为成员的名字是由其类型隐式地决定的，所以匿名成员也有可见性的规则约束。在上面的例子中，Point和Circle匿名成员都是导出的。即使它们不导出（比如改成小写字母开头的point和circle），我们依然可以用简短形式访问匿名成员嵌套的成员
 
@@ -8863,14 +8863,12 @@ ticker.Stop() // cause the ticker's goroutine to terminate
 下面的select语句会在abort channel中有值时，从其中接收值；无值时什么都不做。这是一个非阻塞的接收操作；反复地做这样的操作叫做“轮询channel”。
 
 ```go
-select {
-case <
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIwMDMyMjAxMzAsNjAwODczOTczLDE1Nz
-A3MDcwOSwtMjEyMTc2MzA4OSwxMzIwNzk0MjEwLC0xMjQ2MDI0
-MjM3LC04NjY1NzU5MSwyMTEzNDczODY0LC0xMzM3NjIzNzk0LC
-0xMzMzMjYzMzg4LC05MTM5MjQzNTAsMTg1OTYwMDYyOCwtMjA0
-NzI3MTU2NSwtMjQ3MDk0Mzk2LDc0MTI0NjA4OSw5OTExNzY4OT
-ksMTA1MDgwMTAzOSwxNzc0NjMzMjIxLDcxNDcyNDc5OSwzMDc5
-MDQzODNdfQ==
+eyJoaXN0b3J5IjpbLTYzNTk2NTU4LDYwMDg3Mzk3MywxNTcwNz
+A3MDksLTIxMjE3NjMwODksMTMyMDc5NDIxMCwtMTI0NjAyNDIz
+NywtODY2NTc1OTEsMjExMzQ3Mzg2NCwtMTMzNzYyMzc5NCwtMT
+MzMzI2MzM4OCwtOTEzOTI0MzUwLDE4NTk2MDA2MjgsLTIwNDcy
+NzE1NjUsLTI0NzA5NDM5Niw3NDEyNDYwODksOTkxMTc2ODk5LD
+EwNTA4MDEwMzksMTc3NDYzMzIyMSw3MTQ3MjQ3OTksMzA3OTA0
+MzgzXX0=
 -->
