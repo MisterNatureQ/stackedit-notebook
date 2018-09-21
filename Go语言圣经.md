@@ -4182,7 +4182,7 @@ func findLinksLog(url string) ([]string, error) {
 }
 ```
 
-当你调用接受多参数的函数时，**可以将一个返回多参数的函数调用作为该函数的参数。虽然这很少出现在实际生产代码中，但这个特性在debug时很方便，我们只需要一条语句就可以输出所有的返回值。下面的代码是等价的：
+当你调用接受多参数的函数时，**可以将一个返回多参数的函数调用作为该函数的参数**。虽然这很少出现在实际生产代码中，但这个特性在debug时很方便，我们只需要一条语句就可以输出所有的返回值。下面的代码是等价的：
 
 ```Go
 log.Println(findLinks(url))
@@ -4200,7 +4200,7 @@ func HourMinSec(t time.Time) (hour, minute, second int)
 
 虽然良好的命名很重要，但你也不必为每一个返回值都取一个适当的名字。比如，按照惯例，函数的最后一个bool类型的返回值表示函数是否运行成功，error类型的返回值代表函数的错误信息，对于这些类似的惯例，我们不必思考合适的命名，它们都无需解释。
 
-如果一个函数所有的返回值都有显式的变量名，那么该函数的return语句可以省略操作数。这称之为bare return。
+**如果一个函数所有的返回值都有显式的变量名，那么该函数的return语句可以省略操作数。这称之为bare return。
 
 ```Go
 // CountWordsAndImages does an HTTP GET request for the HTML
@@ -8847,9 +8847,9 @@ func main() {
 
 	fmt.Println("Commencing countdown.  Press return to abort.")
 	tick := time.Tick(1 * time.Second)
-	for count
+	for co
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbODE1NDQ4NjI0LC0xMjI0NDU1NTk4LDEwOD
+eyJoaXN0b3J5IjpbOTU3NzAxMDMzLC0xMjI0NDU1NTk4LDEwOD
 Y2MDU0NDgsMjEyNDM4MjEyNSwtMTM2MzE2NjAyMCwtNzAwNzU3
 ODkyLDIwMjQ0NjgxMCwxNzQ1NTAyNzE2LDExMjI4NjI2NDcsLT
 g5OTYyMTI4MCwxNTE1NTk4NDIxLDc2NTA0Mjc1LC0xNzgyODU0
