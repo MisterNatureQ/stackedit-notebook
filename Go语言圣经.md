@@ -4276,7 +4276,7 @@ Go这样设计的原因是由于对于某个应该在控制流程中处理的错
 
 当一次函数调用返回错误时，调用者应该选择合适的方式处理错误。根据情况的不同，有很多处理方式，让我们来看看常用的五种方式。
 
-首先，也是最常用的方式是传播错误。这意味着函数中某个子程序的失败，会变成该函数的失败。下面，我们以5.3节的findLinks函数作为例子。如果findLinks对http.Get的调用失败，findLinks会直接将这个HTTP错误返回给调用者：
+首先，也是**最常用的方式是传播错误**。这意味着函数中某个子程序的失败，会变成该函数的失败。下面，我们以5.3节的findLinks函数作为例子。如果findLinks对http.Get的调用失败，findLinks会直接将这个HTTP错误返回给调用者：
 
 ```Go
 resp, err := http.Get(url)
@@ -8846,13 +8846,13 @@ func main() {
 	// ...create abort channel...
 
 	fmt.Println("Commencing countdown.  Press return to abort.")
-	tick := time.Tick(1 
+	tick := time.Tic
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTI0NjYwMTc5MiwtMTIyNDQ1NTU5OCwxMD
-g2NjA1NDQ4LDIxMjQzODIxMjUsLTEzNjMxNjYwMjAsLTcwMDc1
-Nzg5MiwyMDI0NDY4MTAsMTc0NTUwMjcxNiwxMTIyODYyNjQ3LC
-04OTk2MjEyODAsMTUxNTU5ODQyMSw3NjUwNDI3NSwtMTc4Mjg1
-NDMwMCwtMjExODg5MTkzMiwtMjA4NzY3NzYyNSwyMDcyMTI5MD
-E2LC0xOTIxNjQxNzEwLC0xMzg3NDEwODgzLC02MzU5NjU1OCw2
-MDA4NzM5NzNdfQ==
+eyJoaXN0b3J5IjpbLTExODIyNDQwNTIsLTEyMjQ0NTU1OTgsMT
+A4NjYwNTQ0OCwyMTI0MzgyMTI1LC0xMzYzMTY2MDIwLC03MDA3
+NTc4OTIsMjAyNDQ2ODEwLDE3NDU1MDI3MTYsMTEyMjg2MjY0Ny
+wtODk5NjIxMjgwLDE1MTU1OTg0MjEsNzY1MDQyNzUsLTE3ODI4
+NTQzMDAsLTIxMTg4OTE5MzIsLTIwODc2Nzc2MjUsMjA3MjEyOT
+AxNiwtMTkyMTY0MTcxMCwtMTM4NzQxMDg4MywtNjM1OTY1NTgs
+NjAwODczOTczXX0=
 -->
