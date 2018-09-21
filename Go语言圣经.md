@@ -4237,7 +4237,7 @@ return words, images, err
 
 在Go中有一部分函数总是能成功的运行。比如strings.Contains和strconv.FormatBool函数，对各种可能的输入都做了良好的处理，使得运行时几乎不会失败，除非遇到灾难性的、不可预料的情况，比如运行时的内存溢出。导致这种错误的原因很复杂，难以处理，从错误中恢复的可能性也很低。
 
-还有一部分函数只要输入的参数满足一定条件，也能保证运行成功。比如time.Date函数，该函数将年月日等参数构造成time.Time对象，除非最后一个参数（时区）是nil。这种情况下会引发panic异常。panic是来自被调用函数的信号，表示发生了某个已知的bug。一个良好的程序永远不应该发生panic异常。
+还有一部分函数只要输入的参数满足一定条件，也能保证运行成功。比如time.Date函数，该函数将年月日等参数构造成time.Time对象，除非最后一个参数（时区）是nil。这种情况下会引发panic异常。**panic是来自被调用函数的信号，表示发生了某个已知的bug。一个良好的程序永远不应该发生panic异常。**
 
 对于大部分函数而言，永远无法确保能否成功运行。这是因为错误的原因超出了程序员的控制。举个例子，任何进行I/O操作的函数都会面临出现错误的可能，只有没有经验的程序员才会相信读写操作不会失败，即使是简单的读写。因此，当本该可信的操作出乎意料的失败后，我们必须弄清楚导致失败的原因。
 
@@ -8846,10 +8846,9 @@ func main() {
 	// ...create abort channel...
 
 	fmt.Println("Commencing countdown.  Press return to abort.")
-	tick := time.Tick(1 * time.Second)
-	
+	tick := time.Tick(1 * time.Secon
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTM1NjIwOTQ4LC0xMjI0NDU1NTk4LDEwOD
+eyJoaXN0b3J5IjpbMzc1ODYzNjc1LC0xMjI0NDU1NTk4LDEwOD
 Y2MDU0NDgsMjEyNDM4MjEyNSwtMTM2MzE2NjAyMCwtNzAwNzU3
 ODkyLDIwMjQ0NjgxMCwxNzQ1NTAyNzE2LDExMjI4NjI2NDcsLT
 g5OTYyMTI4MCwxNTE1NTk4NDIxLDc2NTA0Mjc1LC0xNzgyODU0
