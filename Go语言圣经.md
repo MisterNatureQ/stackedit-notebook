@@ -3707,7 +3707,7 @@ GitHub的Web服务接口 https://developer.github.com/v3/ 包含了更多的特�
 ```Go
 // 由双花括号包含的`{{action}}`对象
 // 模板中`{{range .Items}}`和`{{end}}`对应一个循环action
-// issues 在这里的写法
+// issues : 在这里的写法
 const templ = `{{.TotalCount}} issues:
 {{range .Items}}----------------------------------------
 Number: {{.Number}}
@@ -8855,11 +8855,11 @@ func main() {
 
 time.Tick函数表现得好像它创建了一个在循环中调用time.Sleep的goroutine，每次被唤醒时发送一个事件。当countdown函数返回时，它会停止从tick中接收事件，但是ticker这个goroutine还依然存活，继续徒劳地尝试向channel中发送值，然而这时候已经没有其它的goroutine会从该channel中接收值了——这被称为goroutin
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTMxMjQ3NDE4MCwxNTE1NTk4NDIxLDc2NT
-A0Mjc1LC0xNzgyODU0MzAwLC0yMTE4ODkxOTMyLC0yMDg3Njc3
-NjI1LDIwNzIxMjkwMTYsLTE5MjE2NDE3MTAsLTEzODc0MTA4OD
-MsLTYzNTk2NTU4LDYwMDg3Mzk3MywxNTcwNzA3MDksLTIxMjE3
-NjMwODksMTMyMDc5NDIxMCwtMTI0NjAyNDIzNywtODY2NTc1OT
-EsMjExMzQ3Mzg2NCwtMTMzNzYyMzc5NCwtMTMzMzI2MzM4OCwt
-OTEzOTI0MzUwXX0=
+eyJoaXN0b3J5IjpbOTMwMDQyNjQ2LDE1MTU1OTg0MjEsNzY1MD
+QyNzUsLTE3ODI4NTQzMDAsLTIxMTg4OTE5MzIsLTIwODc2Nzc2
+MjUsMjA3MjEyOTAxNiwtMTkyMTY0MTcxMCwtMTM4NzQxMDg4My
+wtNjM1OTY1NTgsNjAwODczOTczLDE1NzA3MDcwOSwtMjEyMTc2
+MzA4OSwxMzIwNzk0MjEwLC0xMjQ2MDI0MjM3LC04NjY1NzU5MS
+wyMTEzNDczODY0LC0xMzM3NjIzNzk0LC0xMzMzMjYzMzg4LC05
+MTM5MjQzNTBdfQ==
 -->
