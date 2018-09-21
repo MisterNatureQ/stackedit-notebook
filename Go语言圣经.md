@@ -3713,7 +3713,7 @@ const templ = `{{.TotalCount}} issues:
 Number: {{.Number}}
 User:   {{.User.Login}}
 Title:  {{.Title | printf "%.64s"}} // 在一个action中，`|`操作符表示将前一个表达式的结果作为后一个函数的输入 类似于UNIX中管道的概念
-Age:    {{.CreatedAt | daysAgo}} days
+Age:    {{.CreatedAt | daysAgo}} days // daysAgo的函数
 {{end}}`
 ```
 
@@ -8853,13 +8853,13 @@ func main() {
 }
 ```
 
-time.Tick函数表现得好像它创建了一个在循环中调用time.Sleep的goroutine，每次被唤醒时发送一个事件。当countdown函数返回时，它会停止从tick中接收事件，但是ticker这个goroutine还依然存活，继续徒劳地尝试向channel中发送值，然而这时候已经没有其它
+time.Tick函数表现得好像它创建了一个在循环中调用time.Sleep的goroutine，每次被唤醒时发送一个事件。当countdown函数返回时，它会停止从tick中接收事件，但是ticker这个goroutine还依然存活，继续徒劳地尝试向channel中发
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE1MDAzMzk0NzEsMTUxNTU5ODQyMSw3Nj
-UwNDI3NSwtMTc4Mjg1NDMwMCwtMjExODg5MTkzMiwtMjA4NzY3
-NzYyNSwyMDcyMTI5MDE2LC0xOTIxNjQxNzEwLC0xMzg3NDEwOD
-gzLC02MzU5NjU1OCw2MDA4NzM5NzMsMTU3MDcwNzA5LC0yMTIx
-NzYzMDg5LDEzMjA3OTQyMTAsLTEyNDYwMjQyMzcsLTg2NjU3NT
-kxLDIxMTM0NzM4NjQsLTEzMzc2MjM3OTQsLTEzMzMyNjMzODgs
-LTkxMzkyNDM1MF19
+eyJoaXN0b3J5IjpbLTU2NjE2OTY0NSwxNTE1NTk4NDIxLDc2NT
+A0Mjc1LC0xNzgyODU0MzAwLC0yMTE4ODkxOTMyLC0yMDg3Njc3
+NjI1LDIwNzIxMjkwMTYsLTE5MjE2NDE3MTAsLTEzODc0MTA4OD
+MsLTYzNTk2NTU4LDYwMDg3Mzk3MywxNTcwNzA3MDksLTIxMjE3
+NjMwODksMTMyMDc5NDIxMCwtMTI0NjAyNDIzNywtODY2NTc1OT
+EsMjExMzQ3Mzg2NCwtMTMzNzYyMzc5NCwtMTMzMzI2MzM4OCwt
+OTEzOTI0MzUwXX0=
 -->
