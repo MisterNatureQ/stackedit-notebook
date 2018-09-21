@@ -4345,7 +4345,7 @@ if err := WaitForServer(url); err != nil {
 
 ```Go
 if err := WaitForServer(url); err != nil {
-	log.Fatalf("Site is down: %v\n", err)
+	log.Fatalf("Site is down: %v\n", err) // Fatalf等价于{l.Printf(v...); os.Exit(1)}
 }
 ```
 
@@ -8845,14 +8845,13 @@ for i := 0; i < 10; i++ {
 func main() {
 	// ...create abort channel...
 
-	fmt.Println("Commencing countdown.  Press return to abort.")
-	tick := 
+	fmt.Println("Commencing count
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbODUyMDkyNTA1LDIxMDcxNDM0NjgsLTExOD
-IyNDQwNTIsLTEyMjQ0NTU1OTgsMTA4NjYwNTQ0OCwyMTI0Mzgy
-MTI1LC0xMzYzMTY2MDIwLC03MDA3NTc4OTIsMjAyNDQ2ODEwLD
-E3NDU1MDI3MTYsMTEyMjg2MjY0NywtODk5NjIxMjgwLDE1MTU1
-OTg0MjEsNzY1MDQyNzUsLTE3ODI4NTQzMDAsLTIxMTg4OTE5Mz
-IsLTIwODc2Nzc2MjUsMjA3MjEyOTAxNiwtMTkyMTY0MTcxMCwt
-MTM4NzQxMDg4M119
+eyJoaXN0b3J5IjpbLTEwNTMzMDQ1NjksODUyMDkyNTA1LDIxMD
+cxNDM0NjgsLTExODIyNDQwNTIsLTEyMjQ0NTU1OTgsMTA4NjYw
+NTQ0OCwyMTI0MzgyMTI1LC0xMzYzMTY2MDIwLC03MDA3NTc4OT
+IsMjAyNDQ2ODEwLDE3NDU1MDI3MTYsMTEyMjg2MjY0NywtODk5
+NjIxMjgwLDE1MTU1OTg0MjEsNzY1MDQyNzUsLTE3ODI4NTQzMD
+AsLTIxMTg4OTE5MzIsLTIwODc2Nzc2MjUsMjA3MjEyOTAxNiwt
+MTkyMTY0MTcxMF19
 -->
