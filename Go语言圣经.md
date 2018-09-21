@@ -4424,7 +4424,7 @@ for {
 }
 ```
 
-因为文件结束这种错误不需要更多的描述，所以io.EOF有固定的错误信息——“EOF”。对于其他错误，我们可能需要在错误信息中描述错误的类型和数量，这使得我们不能像io.EOF一样采用固定的错误信息。在7.11节中，我们会提出更系统的方法区分某些固定的错误值。
+因为文件结束这种错误不需要更多的描述，所以io.EOF有固定的错误信息——“EOF”。对于其他错误，我们可能需要在错误信息中描述错误的类型和数量，这使得我们不能像io.EOF一样采用固定的错误信息。**在7.11节中，我们会提出更系统的方法区分某些固定的错误值。**
 ## 5.6. 匿名函数
 
 拥有函数名的函数只能在包级语法块中被声明，通过函数字面量（function literal），我们可绕过这一限制，在任何表达式中表示一个函数值。函数字面量的语法和函数声明相似，区别在于func关键字后没有函数名。函数值字面量是一种表达式，它的值被称为匿名函数（anonymous function）。
@@ -8840,11 +8840,11 @@ for i := 0; i < 10; i++ {
 
 下面让我们的发
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTU2NTQxNDU2MCwtNDA2MDA0Mzg0LC0xMD
-UzMzA0NTY5LDg1MjA5MjUwNSwyMTA3MTQzNDY4LC0xMTgyMjQ0
-MDUyLC0xMjI0NDU1NTk4LDEwODY2MDU0NDgsMjEyNDM4MjEyNS
-wtMTM2MzE2NjAyMCwtNzAwNzU3ODkyLDIwMjQ0NjgxMCwxNzQ1
-NTAyNzE2LDExMjI4NjI2NDcsLTg5OTYyMTI4MCwxNTE1NTk4ND
-IxLDc2NTA0Mjc1LC0xNzgyODU0MzAwLC0yMTE4ODkxOTMyLC0y
-MDg3Njc3NjI1XX0=
+eyJoaXN0b3J5IjpbLTEzOTEyMjgyNTYsMTU2NTQxNDU2MCwtND
+A2MDA0Mzg0LC0xMDUzMzA0NTY5LDg1MjA5MjUwNSwyMTA3MTQz
+NDY4LC0xMTgyMjQ0MDUyLC0xMjI0NDU1NTk4LDEwODY2MDU0ND
+gsMjEyNDM4MjEyNSwtMTM2MzE2NjAyMCwtNzAwNzU3ODkyLDIw
+MjQ0NjgxMCwxNzQ1NTAyNzE2LDExMjI4NjI2NDcsLTg5OTYyMT
+I4MCwxNTE1NTk4NDIxLDc2NTA0Mjc1LC0xNzgyODU0MzAwLC0y
+MTE4ODkxOTMyXX0=
 -->
