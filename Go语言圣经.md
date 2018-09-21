@@ -3305,7 +3305,7 @@ hits[address{"golang.org", 443}]++
 
 ### 4.4.3. 结构体嵌入和匿名成员
 
-在本节中，我们将看到如何使用Go语言提供的不同寻常的结构体嵌入机制让一个命名的结构体包含另一个结构体类型的匿名成员，这样就可以通过简单的点运算符x.f来访问匿名成员链中嵌套的x.d.e.f成员。
+在本节中，我们将看到**如何使用Go语言提供的不同寻常的结构体嵌入机制让一个命名的结构体包含另一个结构体类型的匿名成员，这样就可以通过简单的点运算符x.f来访问匿名成员链中嵌套的x.d.e.f成员。**
 
 考虑一个二维的绘图程序，提供了一个各种图形的库，例如矩形、椭圆形、星形和轮形等几何形状。这里是其中两个的定义：
 
@@ -8867,11 +8867,11 @@ select {
 case <-abort:
 	
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTU3MDcwNzA5LC0yMTIxNzYzMDg5LDEzMj
-A3OTQyMTAsLTEyNDYwMjQyMzcsLTg2NjU3NTkxLDIxMTM0NzM4
-NjQsLTEzMzc2MjM3OTQsLTEzMzMyNjMzODgsLTkxMzkyNDM1MC
-wxODU5NjAwNjI4LC0yMDQ3MjcxNTY1LC0yNDcwOTQzOTYsNzQx
-MjQ2MDg5LDk5MTE3Njg5OSwxMDUwODAxMDM5LDE3NzQ2MzMyMj
-EsNzE0NzI0Nzk5LDMwNzkwNDM4MywxNTk1OTQwMDE5LDEyMjQx
-ODE2MTRdfQ==
+eyJoaXN0b3J5IjpbNjAwODczOTczLDE1NzA3MDcwOSwtMjEyMT
+c2MzA4OSwxMzIwNzk0MjEwLC0xMjQ2MDI0MjM3LC04NjY1NzU5
+MSwyMTEzNDczODY0LC0xMzM3NjIzNzk0LC0xMzMzMjYzMzg4LC
+05MTM5MjQzNTAsMTg1OTYwMDYyOCwtMjA0NzI3MTU2NSwtMjQ3
+MDk0Mzk2LDc0MTI0NjA4OSw5OTExNzY4OTksMTA1MDgwMTAzOS
+wxNzc0NjMzMjIxLDcxNDcyNDc5OSwzMDc5MDQzODMsMTU5NTk0
+MDAxOV19
 -->
