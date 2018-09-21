@@ -3425,9 +3425,9 @@ w.X = 8 // equivalent to w.circle.point.X = 8 但是在包外部，因为circle�
 
 **但是在包外部，因为circle和point没有导出，不能访问它们的成员，因此简短的匿名成员访问语法也是禁止的。**
 
-到目前为止，我们看到匿名成员特性只是对访问嵌套成员的点运算符提供了简短的语法糖。稍后，我们将会看到**匿名成员并不要求是结构体类型；其实任何命名的类型都可以作为结构体的匿名成员。但是为什么要嵌入一个没有任何子成员类型的匿名成员类型呢？
+到目前为止，我们看到匿名成员特性只是对访问嵌套成员的点运算符提供了简短的语法糖。稍后，我们将会看到**匿名成员并不要求是结构体类型；其实任何命名的类型都可以作为结构体的匿名成员。**但是为什么要嵌入一个没有任何子成员类型的匿名成员类型呢？
 
-答案是匿名类型的方法集。简短的点运算符语法可以用于选择匿名成员嵌套的成员，也可以用于访问它们的方法。实际上，外层的结构体不仅仅是获得了匿名成员类型的所有成员，而且也获得了该类型导出的全部的方法。这个机制可以用于将一些有简单行为的对象组合成有复杂行为的对象。组合是Go语言中面向对象编程的核心，我们将在6.3节中专门讨论。
+答案是**匿名类型的方法集。**简短的点运算符语法可以用于选择匿名成员嵌套的成员，也可以用于访问它们的方法。实际上，外层的结构体不仅仅是获得了匿名成员类型的所有成员，而且也获得了该类型导出的全部的方法。这个机制可以用于将一些有简单行为的对象组合成有复杂行为的对象。组合是Go语言中面向对象编程的核心，我们将在6.3节中专门讨论。
 
 
 ## 4.5. JSON
@@ -8860,9 +8860,9 @@ ticker.Stop() // cause the ticker's goroutine to terminate
 
 有时候我们希望能够从channel中发送或者接收值，并避免因为发送或者接收导致的阻塞，尤其是当channel没有准备好写或者读时。select语句就可以实现这样的功能。select会有一个default来设置当其它的操作都不能够马上被处理时程序需要执行哪些逻辑。
 
-下面的select语句会在abort channel中有值时，从其中接收值；无值时什么都不
+下面的select语句会在abort channel中有值时，从其中接收值；无
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjEzOTQwMDA2NCwtNjM1OTY1NTgsNjAwOD
+eyJoaXN0b3J5IjpbMTYwNTc0MTIzNCwtNjM1OTY1NTgsNjAwOD
 czOTczLDE1NzA3MDcwOSwtMjEyMTc2MzA4OSwxMzIwNzk0MjEw
 LC0xMjQ2MDI0MjM3LC04NjY1NzU5MSwyMTEzNDczODY0LC0xMz
 M3NjIzNzk0LC0xMzMzMjYzMzg4LC05MTM5MjQzNTAsMTg1OTYw
