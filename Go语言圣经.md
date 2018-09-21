@@ -3922,7 +3922,7 @@ func f(i, j, k int, s, t string)                 { /* ... */ }
 func f(i int, j int, k int,  s string, t string) { /* ... */ }
 ```
 
-下面，我们给出4种方法声明拥有2个int型参数和1个int型返回值的函数.blank identifier(译者注：即下文的_符号)可以强调某个参数未被使用。
+下面，我们给出4种方法声明拥有2个int型参数和1个int型返回值的函数.blank identifier(译者注：**即下文的_符号)可以强调某个参数未被使用。**
 
 ```Go
 func add(x int, y int) int   {return x + y}
@@ -8848,13 +8848,12 @@ func main() {
 	tick := time.Tick(1 * time.Second)
 	for countdown := 10; countdown > 0; countdown-- {
 		fmt.Println(countdown)
-	
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE0NjQzMzM3NjQsLTcwMDc1Nzg5MiwyMD
-I0NDY4MTAsMTc0NTUwMjcxNiwxMTIyODYyNjQ3LC04OTk2MjEy
-ODAsMTUxNTU5ODQyMSw3NjUwNDI3NSwtMTc4Mjg1NDMwMCwtMj
-ExODg5MTkzMiwtMjA4NzY3NzYyNSwyMDcyMTI5MDE2LC0xOTIx
-NjQxNzEwLC0xMzg3NDEwODgzLC02MzU5NjU1OCw2MDA4NzM5Nz
-MsMTU3MDcwNzA5LC0yMTIxNzYzMDg5LDEzMjA3OTQyMTAsLTEy
-NDYwMjQyMzddfQ==
+eyJoaXN0b3J5IjpbODQ4MDY0NzQyLC03MDA3NTc4OTIsMjAyND
+Q2ODEwLDE3NDU1MDI3MTYsMTEyMjg2MjY0NywtODk5NjIxMjgw
+LDE1MTU1OTg0MjEsNzY1MDQyNzUsLTE3ODI4NTQzMDAsLTIxMT
+g4OTE5MzIsLTIwODc2Nzc2MjUsMjA3MjEyOTAxNiwtMTkyMTY0
+MTcxMCwtMTM4NzQxMDg4MywtNjM1OTY1NTgsNjAwODczOTczLD
+E1NzA3MDcwOSwtMjEyMTc2MzA4OSwxMzIwNzk0MjEwLC0xMjQ2
+MDI0MjM3XX0=
 -->
