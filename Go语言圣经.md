@@ -4029,7 +4029,7 @@ func visit(links []string, n *html.Node) []string {
 		}
 	}
 	for c := n.FirstChild; c != nil; c = c.NextSibling {
-		links = visit(links, c)
+		links = visit(links, c) // d
 	}
 	return links
 }
@@ -8847,13 +8847,13 @@ func main() {
 	fmt.Println("Commencing countdown.  Press return to abort.")
 	tick := time.Tick(1 * time.Second)
 	for countdown := 10; countdown > 0; countdown-- {
-		fmt.Println(cou
+		fmt.Prin
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjEyNDM4MjEyNSwtMTM2MzE2NjAyMCwtNz
-AwNzU3ODkyLDIwMjQ0NjgxMCwxNzQ1NTAyNzE2LDExMjI4NjI2
-NDcsLTg5OTYyMTI4MCwxNTE1NTk4NDIxLDc2NTA0Mjc1LC0xNz
-gyODU0MzAwLC0yMTE4ODkxOTMyLC0yMDg3Njc3NjI1LDIwNzIx
-MjkwMTYsLTE5MjE2NDE3MTAsLTEzODc0MTA4ODMsLTYzNTk2NT
-U4LDYwMDg3Mzk3MywxNTcwNzA3MDksLTIxMjE3NjMwODksMTMy
-MDc5NDIxMF19
+eyJoaXN0b3J5IjpbMTcwMTI5MTM0LDIxMjQzODIxMjUsLTEzNj
+MxNjYwMjAsLTcwMDc1Nzg5MiwyMDI0NDY4MTAsMTc0NTUwMjcx
+NiwxMTIyODYyNjQ3LC04OTk2MjEyODAsMTUxNTU5ODQyMSw3Nj
+UwNDI3NSwtMTc4Mjg1NDMwMCwtMjExODg5MTkzMiwtMjA4NzY3
+NzYyNSwyMDcyMTI5MDE2LC0xOTIxNjQxNzEwLC0xMzg3NDEwOD
+gzLC02MzU5NjU1OCw2MDA4NzM5NzMsMTU3MDcwNzA5LC0yMTIx
+NzYzMDg5XX0=
 -->
