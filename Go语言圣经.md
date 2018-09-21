@@ -4263,11 +4263,11 @@ fmt.Printf("%v", err)
 
 **通常，当函数返回non-nil的error时，其他的返回值是未定义的（undefined），这些未定义的返回值应该被忽略。然而，有少部分函数在发生错误时，仍然会返回一些有用的返回值。比如，当读取文件发生错误时，Read函数会返回可以读取的字节数以及错误信息。对于这种情况，正确的处理方式应该是先处理这些不完整的数据，再处理错误。因此对函数的返回值要有清晰的说明，以便于其他人使用。**
 
-在Go中，函数运行失败时会返回错误信息，这些错误信息被认为是一种预期的值而非异常（exception），这使得Go有别于那些将函数运行失败看作是异常的语言。虽然Go有各种异常机制，但这些机制仅被使用在处理那些未被预料到的错误，即bug，而不是那些在健壮程序中应该被避免的程序错误。对于Go的异常机制我们将在5.9介绍。
+在Go中，函数运行失败时会返回错误信息，这些错误信息被认为是一种预期的值而非异常（exception），这使得**Go有别于那些将函数运行失败看作是异常的语言**。虽然Go有各种异常机制，但这些机制仅被使用在处理那些未被预料到的错误，即bug，而不是那些在健壮程序中应该被避免的程序错误。对于Go的异常机制我们将在5.9介绍。
 
 Go这样设计的原因是由于对于某个应该在控制流程中处理的错误而言，将这个错误以异常的形式抛出会混乱对错误的描述，这通常会导致一些糟糕的后果。当某个程序错误被当作异常处理后，这个错误会将堆栈跟踪信息返回给终端用户，这些信息复杂且无用，无法帮助定位错误。
 
-正因此，Go使用控制流机制（如if和return）处理错误，这使得编码人员能更多的关注错误处理。
+正因此，**Go使用控制流机制（如if和return）处理错误，这使得编码人员能更多的关注错误处理。**
 
 {% include "./ch5-04-1.md" %}
 
@@ -8846,13 +8846,13 @@ func main() {
 	// ...create abort channel...
 
 	fmt.Println("Commencing countdown.  Press return to abort.")
-	tick := time.Tick(1 * time.S
+	tick := time.Tick(1 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE1NzgwNTE0OTYsLTEyMjQ0NTU1OTgsMT
-A4NjYwNTQ0OCwyMTI0MzgyMTI1LC0xMzYzMTY2MDIwLC03MDA3
-NTc4OTIsMjAyNDQ2ODEwLDE3NDU1MDI3MTYsMTEyMjg2MjY0Ny
-wtODk5NjIxMjgwLDE1MTU1OTg0MjEsNzY1MDQyNzUsLTE3ODI4
-NTQzMDAsLTIxMTg4OTE5MzIsLTIwODc2Nzc2MjUsMjA3MjEyOT
-AxNiwtMTkyMTY0MTcxMCwtMTM4NzQxMDg4MywtNjM1OTY1NTgs
-NjAwODczOTczXX0=
+eyJoaXN0b3J5IjpbMTI0NjYwMTc5MiwtMTIyNDQ1NTU5OCwxMD
+g2NjA1NDQ4LDIxMjQzODIxMjUsLTEzNjMxNjYwMjAsLTcwMDc1
+Nzg5MiwyMDI0NDY4MTAsMTc0NTUwMjcxNiwxMTIyODYyNjQ3LC
+04OTk2MjEyODAsMTUxNTU5ODQyMSw3NjUwNDI3NSwtMTc4Mjg1
+NDMwMCwtMjExODg5MTkzMiwtMjA4NzY3NzYyNSwyMDcyMTI5MD
+E2LC0xOTIxNjQxNzEwLC0xMzg3NDEwODgzLC02MzU5NjU1OCw2
+MDA4NzM5NzNdfQ==
 -->
