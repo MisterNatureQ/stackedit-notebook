@@ -4397,7 +4397,7 @@ os.RemoveAll(dir) // ignore errors; $TMPDIR is cleaned periodically
 **在Go中，错误处理有一套独特的编码风格。检查某个子函数是否失败后，我们通常将处理失败的逻辑代码放在处理成功的代码之前。如果某个错误会导致函数返回，那么成功时的逻辑代码不应放在else语句块中，而应直接放在函数体中。Go中大部分函数的代码结构几乎相同，首先是一系列的初始检查，防止错误发生，之后是函数的实际逻辑。**
 ### 5.4.2. 文件结尾错误（EOF）
 
-函数经常会返回多种错误，这对终端用户来说可能会很有趣，但对程序而言，这使得情况变得复杂。很多时候，程序必须根据错误类型，作出不同的响应。让我们考虑这样一个例子：从文件中读取n个字节。如果n等于文件的长度，读取过程的任何错误都表示失败。如果n小于文件的长度，调用者会重复的读取固定大小的数据直到文件结束。这会导致调用者必须分别处理由文件结束引起的各种错误。基于这样的原因，io包保证任何由文件结束引起的读取失败都返回同一个错误——io.EOF，该错误在io包中定义：
+函数经常会返回多种错误，这对终端用户来说可能会很有趣，但对程序而言，这使得情况变得复杂。很多时候，程序必须根据错误类型，作出不同的响应。让我们考虑这样一个例子：从文件中读取n个字节。如果n等于文件的长度，读取过程的任何错误都表示失败。如果n小于文件的长度，调用者会重复的读取固定大小的数据直到文件结束。这会导致调用者必须分别处理由文件结束引起的各种错误。基于这样的原因，**io包保证任何由文件结束引起的读取失败都返回同一个错误——io.EOF**，该错误在io包中定义：
 
 ```Go
 package io
@@ -8840,11 +8840,11 @@ for i := 0; i < 10; i++ {
 
 下面让我们的发
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTQwNjAwNDM4NCwtMTA1MzMwNDU2OSw4NT
-IwOTI1MDUsMjEwNzE0MzQ2OCwtMTE4MjI0NDA1MiwtMTIyNDQ1
-NTU5OCwxMDg2NjA1NDQ4LDIxMjQzODIxMjUsLTEzNjMxNjYwMj
-AsLTcwMDc1Nzg5MiwyMDI0NDY4MTAsMTc0NTUwMjcxNiwxMTIy
-ODYyNjQ3LC04OTk2MjEyODAsMTUxNTU5ODQyMSw3NjUwNDI3NS
-wtMTc4Mjg1NDMwMCwtMjExODg5MTkzMiwtMjA4NzY3NzYyNSwy
-MDcyMTI5MDE2XX0=
+eyJoaXN0b3J5IjpbMTU2NTQxNDU2MCwtNDA2MDA0Mzg0LC0xMD
+UzMzA0NTY5LDg1MjA5MjUwNSwyMTA3MTQzNDY4LC0xMTgyMjQ0
+MDUyLC0xMjI0NDU1NTk4LDEwODY2MDU0NDgsMjEyNDM4MjEyNS
+wtMTM2MzE2NjAyMCwtNzAwNzU3ODkyLDIwMjQ0NjgxMCwxNzQ1
+NTAyNzE2LDExMjI4NjI2NDcsLTg5OTYyMTI4MCwxNTE1NTk4ND
+IxLDc2NTA0Mjc1LC0xNzgyODU0MzAwLC0yMTE4ODkxOTMyLC0y
+MDg3Njc3NjI1XX0=
 -->
