@@ -3763,6 +3763,7 @@ func main() {
 	if err != nil {
 		log.Fatal(err)
 	}
+	// Execute方法将解析好的模板应用到data上，并将输出写入wr。如果执行时出现错误，会停止执行，但有可能已经写入wr部分数据。模板可以安全的并发执行
 	if err := report.Execute(os.Stdout, result); err != nil {
 		log.Fatal(err)
 	}
@@ -8850,19 +8851,12 @@ func main() {
 		case <-abort:
 			fmt.Println("Launch aborted!")
 			return
-		}
-	}
-	launch()
-}
-```
-
-time.Tick函数表现得好像它创建了一个在循环中调用time.Sleep的goroutine，每次被唤醒时发送
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTg5OTYyMTI4MCwxNTE1NTk4NDIxLDc2NT
-A0Mjc1LC0xNzgyODU0MzAwLC0yMTE4ODkxOTMyLC0yMDg3Njc3
-NjI1LDIwNzIxMjkwMTYsLTE5MjE2NDE3MTAsLTEzODc0MTA4OD
-MsLTYzNTk2NTU4LDYwMDg3Mzk3MywxNTcwNzA3MDksLTIxMjE3
-NjMwODksMTMyMDc5NDIxMCwtMTI0NjAyNDIzNywtODY2NTc1OT
-EsMjExMzQ3Mzg2NCwtMTMzNzYyMzc5NCwtMTMzMzI2MzM4OCwt
-OTEzOTI0MzUwXX0=
+eyJoaXN0b3J5IjpbMTY1MjU1NjI1OCwtODk5NjIxMjgwLDE1MT
+U1OTg0MjEsNzY1MDQyNzUsLTE3ODI4NTQzMDAsLTIxMTg4OTE5
+MzIsLTIwODc2Nzc2MjUsMjA3MjEyOTAxNiwtMTkyMTY0MTcxMC
+wtMTM4NzQxMDg4MywtNjM1OTY1NTgsNjAwODczOTczLDE1NzA3
+MDcwOSwtMjEyMTc2MzA4OSwxMzIwNzk0MjEwLC0xMjQ2MDI0Mj
+M3LC04NjY1NzU5MSwyMTEzNDczODY0LC0xMzM3NjIzNzk0LC0x
+MzMzMjYzMzg4XX0=
 -->
