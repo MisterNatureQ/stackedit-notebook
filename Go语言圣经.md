@@ -4331,7 +4331,7 @@ func WaitForServer(url string) error {
 }
 ```
 
-如果错误发生后，程序无法继续运行，我们就可以采用第三种策略：输出错误信息并结束程序。需要注意的是，这种策略只应在main中执行。对库函数而言，应仅向上传播错误，除非该错误意味着程序内部包含不一致性，即遇到了bug，才能在库函数中结束程序。
+**如果错误发生后，程序无法继续运行，我们就可以采用第三种策略：输出错误信息并结束程序。需要注意的是，这种策略只应在main中执行。对库函数而言，应仅向上传播错误，除非该错误意味着程序内部包含不一致性，即遇到了bug，才能在库函数中结束程序。**
 
 ```Go
 // (In function main.)
@@ -8846,13 +8846,13 @@ func main() {
 	// ...create abort channel...
 
 	fmt.Println("Commencing countdown.  Press return to abort.")
-	tick := time
+	tick := 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjEwNzE0MzQ2OCwtMTE4MjI0NDA1MiwtMT
-IyNDQ1NTU5OCwxMDg2NjA1NDQ4LDIxMjQzODIxMjUsLTEzNjMx
-NjYwMjAsLTcwMDc1Nzg5MiwyMDI0NDY4MTAsMTc0NTUwMjcxNi
-wxMTIyODYyNjQ3LC04OTk2MjEyODAsMTUxNTU5ODQyMSw3NjUw
-NDI3NSwtMTc4Mjg1NDMwMCwtMjExODg5MTkzMiwtMjA4NzY3Nz
-YyNSwyMDcyMTI5MDE2LC0xOTIxNjQxNzEwLC0xMzg3NDEwODgz
-LC02MzU5NjU1OF19
+eyJoaXN0b3J5IjpbODUyMDkyNTA1LDIxMDcxNDM0NjgsLTExOD
+IyNDQwNTIsLTEyMjQ0NTU1OTgsMTA4NjYwNTQ0OCwyMTI0Mzgy
+MTI1LC0xMzYzMTY2MDIwLC03MDA3NTc4OTIsMjAyNDQ2ODEwLD
+E3NDU1MDI3MTYsMTEyMjg2MjY0NywtODk5NjIxMjgwLDE1MTU1
+OTg0MjEsNzY1MDQyNzUsLTE3ODI4NTQzMDAsLTIxMTg4OTE5Mz
+IsLTIwODc2Nzc2MjUsMjA3MjEyOTAxNiwtMTkyMTY0MTcxMCwt
+MTM4NzQxMDg4M119
 -->
