@@ -4435,7 +4435,7 @@ for {
 strings.Map(func(r rune) rune { return r + 1 }, "HAL-9000")
 ```
 
-更为重要的是，通过这种方式定义的函数可以访问完整的词法环境（lexical environment），这意味着在函数中定义的内部函数可以引用该函数的变量，如下例所示：
+**更为重要的是，通过这种方式定义的函数可以访问完整的词法环境（lexical environment），这意味着在函数中定义的内部函数可以引用该函数的变量**，如下例所示：
 
 <u><i>gopl.io/ch5/squares</i></u>
 ```Go
@@ -8840,11 +8840,11 @@ for i := 0; i < 10; i++ {
 
 下面让我们的发
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMzkwMzUxMjAwLC0xMzkxMjI4MjU2LDE1Nj
-U0MTQ1NjAsLTQwNjAwNDM4NCwtMTA1MzMwNDU2OSw4NTIwOTI1
-MDUsMjEwNzE0MzQ2OCwtMTE4MjI0NDA1MiwtMTIyNDQ1NTU5OC
-wxMDg2NjA1NDQ4LDIxMjQzODIxMjUsLTEzNjMxNjYwMjAsLTcw
-MDc1Nzg5MiwyMDI0NDY4MTAsMTc0NTUwMjcxNiwxMTIyODYyNj
-Q3LC04OTk2MjEyODAsMTUxNTU5ODQyMSw3NjUwNDI3NSwtMTc4
-Mjg1NDMwMF19
+eyJoaXN0b3J5IjpbLTE0MjMxNjUyODAsMzkwMzUxMjAwLC0xMz
+kxMjI4MjU2LDE1NjU0MTQ1NjAsLTQwNjAwNDM4NCwtMTA1MzMw
+NDU2OSw4NTIwOTI1MDUsMjEwNzE0MzQ2OCwtMTE4MjI0NDA1Mi
+wtMTIyNDQ1NTU5OCwxMDg2NjA1NDQ4LDIxMjQzODIxMjUsLTEz
+NjMxNjYwMjAsLTcwMDc1Nzg5MiwyMDI0NDY4MTAsMTc0NTUwMj
+cxNiwxMTIyODYyNjQ3LC04OTk2MjEyODAsMTUxNTU5ODQyMSw3
+NjUwNDI3NV19
 -->
