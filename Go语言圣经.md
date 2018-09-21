@@ -4159,7 +4159,7 @@ func findLinks(url string) ([]string, error) {
 
 在findlinks中，有4处return语句，每一处return都返回了一组值。前三处return，将http和html包中的错误信息传递给findlinks的调用者。第一处return直接返回错误信息，其他两处通过fmt.Errorf（§7.8）输出详细的错误信息。如果findlinks成功结束，最后的return语句将一组解析获得的连接返回给用户。
 
-在findlinks中，我们必须确保resp.Body被关闭，释放网络资源。虽然Go的垃圾回收机制会回收不被使用的内存，但是这不包括操作系统层面的资源，比如打开的文件、网络连接。因此我们必须显式的释放这些资源。
+在findlinks中，我们必须确保resp.Body被关闭，释放网络资源。**虽然Go的垃圾回收机制会回收不被使用的内存，但是这不包括操作系统层面的资源，比如打开的文件、网络连接。因此我们必须显式的释放这些资源。**
 
 调用多返回值函数时，返回给调用者的是一组值，调用者必须显式的将这些值分配给变量:
 
@@ -8847,13 +8847,13 @@ func main() {
 
 	fmt.Println("Commencing countdown.  Press return to abort.")
 	tick := time.Tick(1 * time.Second)
-	for countdown := 1
+	for countdown :=
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEyMjQ0NTU1OTgsMTA4NjYwNTQ0OCwyMT
-I0MzgyMTI1LC0xMzYzMTY2MDIwLC03MDA3NTc4OTIsMjAyNDQ2
-ODEwLDE3NDU1MDI3MTYsMTEyMjg2MjY0NywtODk5NjIxMjgwLD
-E1MTU1OTg0MjEsNzY1MDQyNzUsLTE3ODI4NTQzMDAsLTIxMTg4
-OTE5MzIsLTIwODc2Nzc2MjUsMjA3MjEyOTAxNiwtMTkyMTY0MT
-cxMCwtMTM4NzQxMDg4MywtNjM1OTY1NTgsNjAwODczOTczLDE1
-NzA3MDcwOV19
+eyJoaXN0b3J5IjpbLTE3MTA2NzM1MzMsLTEyMjQ0NTU1OTgsMT
+A4NjYwNTQ0OCwyMTI0MzgyMTI1LC0xMzYzMTY2MDIwLC03MDA3
+NTc4OTIsMjAyNDQ2ODEwLDE3NDU1MDI3MTYsMTEyMjg2MjY0Ny
+wtODk5NjIxMjgwLDE1MTU1OTg0MjEsNzY1MDQyNzUsLTE3ODI4
+NTQzMDAsLTIxMTg4OTE5MzIsLTIwODc2Nzc2MjUsMjA3MjEyOT
+AxNiwtMTkyMTY0MTcxMCwtMTM4NzQxMDg4MywtNjM1OTY1NTgs
+NjAwODczOTczXX0=
 -->
