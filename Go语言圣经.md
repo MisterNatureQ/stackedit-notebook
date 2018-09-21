@@ -3622,6 +3622,7 @@ func SearchIssues(terms []string) (*IssuesSearchResult, error) {
 	}
 
 	var result IssuesSearchResult
+	// 基于流式的解码器json.Decoder，它可以从一个输入流解码JSON数据
 	if err := json.NewDecoder(resp.Body).Decode(&result); err != nil {
 		resp.Body.Close()
 		return nil, err
@@ -8855,14 +8856,13 @@ Tick函数挺方便，但是只有当程序整个生命周期都需要这个时�
 
 ```go
 ticker := time.NewTicker(1 * time.Second)
-<-ticker.C    // receive from the ticker's channel
-ticker.S
+<-ticker.C    /
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTIxNDk5OTE2NSwtMjA4NzY3NzYyNSwyMD
-cyMTI5MDE2LC0xOTIxNjQxNzEwLC0xMzg3NDEwODgzLC02MzU5
-NjU1OCw2MDA4NzM5NzMsMTU3MDcwNzA5LC0yMTIxNzYzMDg5LD
-EzMjA3OTQyMTAsLTEyNDYwMjQyMzcsLTg2NjU3NTkxLDIxMTM0
-NzM4NjQsLTEzMzc2MjM3OTQsLTEzMzMyNjMzODgsLTkxMzkyND
-M1MCwxODU5NjAwNjI4LC0yMDQ3MjcxNTY1LC0yNDcwOTQzOTYs
-NzQxMjQ2MDg5XX0=
+eyJoaXN0b3J5IjpbLTIxMTg4OTE5MzIsLTIwODc2Nzc2MjUsMj
+A3MjEyOTAxNiwtMTkyMTY0MTcxMCwtMTM4NzQxMDg4MywtNjM1
+OTY1NTgsNjAwODczOTczLDE1NzA3MDcwOSwtMjEyMTc2MzA4OS
+wxMzIwNzk0MjEwLC0xMjQ2MDI0MjM3LC04NjY1NzU5MSwyMTEz
+NDczODY0LC0xMzM3NjIzNzk0LC0xMzMzMjYzMzg4LC05MTM5Mj
+QzNTAsMTg1OTYwMDYyOCwtMjA0NzI3MTU2NSwtMjQ3MDk0Mzk2
+LDc0MTI0NjA4OV19
 -->
