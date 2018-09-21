@@ -3705,6 +3705,8 @@ GitHub的Web服务接口 https://developer.github.com/v3/ 包含了更多的特�
 
 <u><i>gopl.io/ch4/issuesreport</i></u>
 ```Go
+
+// 模板中`{{range .Items}}`和`{{end}}`对应一个循环action
 const templ = `{{.TotalCount}} issues:
 {{range .Items}}----------------------------------------
 Number: {{.Number}}
@@ -8855,14 +8857,13 @@ time.Tick函数表现得好像它创建了一个在循环中调用time.Sleep的g
 Tick函数挺方便，但是只有当程序整个生命周期都需要这个时间时我们使用它才比较合适。否则的话，我们应该使用下面的这种模式：
 
 ```go
-ticker := time.NewTicker(1 * time.Second)
-<-ticker.C 
+ticke
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNzY1MDQyNzUsLTE3ODI4NTQzMDAsLTIxMT
-g4OTE5MzIsLTIwODc2Nzc2MjUsMjA3MjEyOTAxNiwtMTkyMTY0
-MTcxMCwtMTM4NzQxMDg4MywtNjM1OTY1NTgsNjAwODczOTczLD
-E1NzA3MDcwOSwtMjEyMTc2MzA4OSwxMzIwNzk0MjEwLC0xMjQ2
-MDI0MjM3LC04NjY1NzU5MSwyMTEzNDczODY0LC0xMzM3NjIzNz
-k0LC0xMzMzMjYzMzg4LC05MTM5MjQzNTAsMTg1OTYwMDYyOCwt
-MjA0NzI3MTU2NV19
+eyJoaXN0b3J5IjpbMTUxNTU5ODQyMSw3NjUwNDI3NSwtMTc4Mj
+g1NDMwMCwtMjExODg5MTkzMiwtMjA4NzY3NzYyNSwyMDcyMTI5
+MDE2LC0xOTIxNjQxNzEwLC0xMzg3NDEwODgzLC02MzU5NjU1OC
+w2MDA4NzM5NzMsMTU3MDcwNzA5LC0yMTIxNzYzMDg5LDEzMjA3
+OTQyMTAsLTEyNDYwMjQyMzcsLTg2NjU3NTkxLDIxMTM0NzM4Nj
+QsLTEzMzc2MjM3OTQsLTEzMzMyNjMzODgsLTkxMzkyNDM1MCwx
+ODU5NjAwNjI4XX0=
 -->
