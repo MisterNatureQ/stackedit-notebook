@@ -3438,7 +3438,7 @@ Go语言对于这些标准格式的编码和解码都有良好的支持，由标
 
 JSON是对JavaScript中各种类型的值——字符串、数字、布尔值和对象——Unicode本文编码。它可以用有效可读的方式表示第三章的基础数据类型和本章的数组、slice、结构体和map等聚合数据类型。
 
-基本的JSON类型有数字（十进制或科学记数法）、布尔值（true或false）、字符串，其中字符串是以双引号包含的Unicode字符序列，支持和Go语言类似的反斜杠转义特性，不过JSON使用的是`\Uhhhh`转义数字来表示一个UTF-16编码（译注：UTF-16和UTF-8一样是一种变长的编码，有些Unicode码点较大的字符需要用4个字节表示；而且UTF-16还有大端和小端的问题），而不是Go语言的rune类型。
+基本的JSON类型有数字（十进制或科学记数法）、布尔值（true或false）、字符串，其中字符串是以双引号包含的Unicode字符序列，支持和Go语言类似的反斜杠转义特性，不过JSON使用的是`\Uhhhh`转义数字来表示一个UTF-16编码（译注：**UTF-16和UTF-8一样是一种变长的编码，有些Unicode码点较大的字符需要用4个字节表示；而且UTF-16还有大端和小端的问题**），而不是Go语言的rune类型。
 
 这些基础类型可以通过JSON的数组和对象类型进行递归组合。一个JSON数组是一个有序的值序列，写在一个方括号中并以逗号分隔；一个JSON数组可以用于编码Go语言的数组和slice。一个JSON对象是一个字符串到值的映射，写成一系列的name:value对形式，用花括号包含并以逗号分隔；JSON的对象类型可以用于编码Go语言的map类型（key类型是字符串）和结构体。例如：
 
@@ -8860,13 +8860,13 @@ ticker.Stop() // cause the ticker's goroutine to terminate
 
 有时候我们希望能够从channel中发送或者接收值，并避免因为发送或者接收导致的阻塞，尤其是当channel没有准备好写或者读时。select语句就可以实现这样的功能。select会有一个default来设置当其它的操作都不能够马上被处理时程序需要执行哪些逻辑。
 
-下面的select语句会在abort channel中有值时，从其中接收值；无
+下面的select语句会在abort channel中有值时，从其中接
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTMzNDgwNzMxMCwtNjM1OTY1NTgsNjAwOD
-czOTczLDE1NzA3MDcwOSwtMjEyMTc2MzA4OSwxMzIwNzk0MjEw
-LC0xMjQ2MDI0MjM3LC04NjY1NzU5MSwyMTEzNDczODY0LC0xMz
-M3NjIzNzk0LC0xMzMzMjYzMzg4LC05MTM5MjQzNTAsMTg1OTYw
-MDYyOCwtMjA0NzI3MTU2NSwtMjQ3MDk0Mzk2LDc0MTI0NjA4OS
-w5OTExNzY4OTksMTA1MDgwMTAzOSwxNzc0NjMzMjIxLDcxNDcy
-NDc5OV19
+eyJoaXN0b3J5IjpbLTEzODc0MTA4ODMsLTYzNTk2NTU4LDYwMD
+g3Mzk3MywxNTcwNzA3MDksLTIxMjE3NjMwODksMTMyMDc5NDIx
+MCwtMTI0NjAyNDIzNywtODY2NTc1OTEsMjExMzQ3Mzg2NCwtMT
+MzNzYyMzc5NCwtMTMzMzI2MzM4OCwtOTEzOTI0MzUwLDE4NTk2
+MDA2MjgsLTIwNDcyNzE1NjUsLTI0NzA5NDM5Niw3NDEyNDYwOD
+ksOTkxMTc2ODk5LDEwNTA4MDEwMzksMTc3NDYzMzIyMSw3MTQ3
+MjQ3OTldfQ==
 -->
