@@ -3738,6 +3738,9 @@ func daysAgo(t time.Time) int {
 生成模板的输出需要两个处理步骤。第一步是要分析模板并转为内部表示，然后基于指定的输入执行模板。分析模板部分一般只需要执行一次。下面的代码创建并分析上面定义的模板templ。**注意方法调用链的顺序：template.New先创建并返回一个模板；Funcs方法将daysAgo等自定义函数注册到模板中，并返回模板；最后调用Parse函数分析模板。**
 
 ```Go
+// 先创建并返回一个模板
+// Funcs方法将daysAgo等自定义函数注册到模板中，并返回模板
+// 最后调用Parse函数分析模板
 report, err := template.New("report").
 	Funcs(template.FuncMap{"daysAgo": daysAgo}).
 	Parse(templ)
@@ -8853,9 +8856,9 @@ func main() {
 }
 ```
 
-time.Tick函数表现得好像它创建了一个在循环中调用time.Sleep的goroutine，每次被唤醒时发送一个事件。当countdown函数返回时，它会停止从tick中接收事件，但是ticker这个goroutine还依然存活，继续徒劳地尝试向chann
+time.Tick函数表现得好像它创建了一个在循环中调用time.Sleep的goroutine，每次被唤醒时发送一个事件
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTkzODczMzEwLDE1MTU1OTg0MjEsNzY1MD
+eyJoaXN0b3J5IjpbNjExMzk5MTc5LDE1MTU1OTg0MjEsNzY1MD
 QyNzUsLTE3ODI4NTQzMDAsLTIxMTg4OTE5MzIsLTIwODc2Nzc2
 MjUsMjA3MjEyOTAxNiwtMTkyMTY0MTcxMCwtMTM4NzQxMDg4My
 wtNjM1OTY1NTgsNjAwODczOTczLDE1NzA3MDcwOSwtMjEyMTc2
