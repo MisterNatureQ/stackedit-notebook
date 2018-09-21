@@ -3754,6 +3754,7 @@ if err != nil {
 一旦模板已经创建、注册了daysAgo函数、并通过分析和检测，我们就可以使用github.IssuesSearchResult作为输入源、os.Stdout作为输出源来执行模板：
 
 ```Go
+// template.New 创建一个名为name的模板。
 var report = template.Must(template.New("issuelist").
 	Funcs(template.FuncMap{"daysAgo": daysAgo}).
 	Parse(templ))
@@ -8849,10 +8850,9 @@ func main() {
 		case <-tick:
 			// Do nothing.
 		case <-abort:
-			fmt.Println("Launch aborted!")
-			return
+			fmt.Printl
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTY1MjU1NjI1OCwtODk5NjIxMjgwLDE1MT
+eyJoaXN0b3J5IjpbMTEyMjg2MjY0NywtODk5NjIxMjgwLDE1MT
 U1OTg0MjEsNzY1MDQyNzUsLTE3ODI4NTQzMDAsLTIxMTg4OTE5
 MzIsLTIwODc2Nzc2MjUsMjA3MjEyOTAxNiwtMTkyMTY0MTcxMC
 wtMTM4NzQxMDg4MywtNjM1OTY1NTgsNjAwODczOTczLDE1NzA3
