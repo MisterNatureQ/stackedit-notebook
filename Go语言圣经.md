@@ -3873,7 +3873,7 @@ func main() {
 图4.6显示了出现在浏览器中的模板输出。我们看到A的黑体标记被转义失效了，但是B没有。
 
 ![](../images/ch4-06.png)
-![](https://github.com/gopl-zh/gopl-zh.github.com/blob/master/images/ch43-061.png?raw=true)
+![](https://github.com/gopl-zh/gopl-zh.github.com/blob/master/images/ch4-06.png?raw=true)
 我们这里只讲述了模板系统中最基本的特性。一如既往，如果想了解更多的信息，请自己查看包文档：
 
 ```
@@ -8850,11 +8850,11 @@ func main() {
 		fmt.Println(countdown)
 	
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMzI1MjA5MjQyLDIwMjQ0NjgxMCwxNzQ1NT
-AyNzE2LDExMjI4NjI2NDcsLTg5OTYyMTI4MCwxNTE1NTk4NDIx
-LDc2NTA0Mjc1LC0xNzgyODU0MzAwLC0yMTE4ODkxOTMyLC0yMD
-g3Njc3NjI1LDIwNzIxMjkwMTYsLTE5MjE2NDE3MTAsLTEzODc0
-MTA4ODMsLTYzNTk2NTU4LDYwMDg3Mzk3MywxNTcwNzA3MDksLT
-IxMjE3NjMwODksMTMyMDc5NDIxMCwtMTI0NjAyNDIzNywtODY2
-NTc1OTFdfQ==
+eyJoaXN0b3J5IjpbLTcwMDc1Nzg5MiwyMDI0NDY4MTAsMTc0NT
+UwMjcxNiwxMTIyODYyNjQ3LC04OTk2MjEyODAsMTUxNTU5ODQy
+MSw3NjUwNDI3NSwtMTc4Mjg1NDMwMCwtMjExODg5MTkzMiwtMj
+A4NzY3NzYyNSwyMDcyMTI5MDE2LC0xOTIxNjQxNzEwLC0xMzg3
+NDEwODgzLC02MzU5NjU1OCw2MDA4NzM5NzMsMTU3MDcwNzA5LC
+0yMTIxNzYzMDg5LDEzMjA3OTQyMTAsLTEyNDYwMjQyMzcsLTg2
+NjU3NTkxXX0=
 -->
