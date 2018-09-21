@@ -4182,7 +4182,7 @@ func findLinksLog(url string) ([]string, error) {
 }
 ```
 
-当你调用接受多参数的函数时，可以将一个返回多参数的函数调用作为该函数的参数。虽然这很少出现在实际生产代码中，但这个特性在debug时很方便，我们只需要一条语句就可以输出所有的返回值。下面的代码是等价的：
+当你调用接受多参数的函数时，**可以将一个返回多参数的函数调用作为该函数的参数。虽然这很少出现在实际生产代码中，但这个特性在debug时很方便，我们只需要一条语句就可以输出所有的返回值。下面的代码是等价的：
 
 ```Go
 log.Println(findLinks(url))
@@ -8847,13 +8847,13 @@ func main() {
 
 	fmt.Println("Commencing countdown.  Press return to abort.")
 	tick := time.Tick(1 * time.Second)
-	for countdow
+	for count
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTM4OTgxMjY5NiwtMTIyNDQ1NTU5OCwxMD
-g2NjA1NDQ4LDIxMjQzODIxMjUsLTEzNjMxNjYwMjAsLTcwMDc1
-Nzg5MiwyMDI0NDY4MTAsMTc0NTUwMjcxNiwxMTIyODYyNjQ3LC
-04OTk2MjEyODAsMTUxNTU5ODQyMSw3NjUwNDI3NSwtMTc4Mjg1
-NDMwMCwtMjExODg5MTkzMiwtMjA4NzY3NzYyNSwyMDcyMTI5MD
-E2LC0xOTIxNjQxNzEwLC0xMzg3NDEwODgzLC02MzU5NjU1OCw2
-MDA4NzM5NzNdfQ==
+eyJoaXN0b3J5IjpbODE1NDQ4NjI0LC0xMjI0NDU1NTk4LDEwOD
+Y2MDU0NDgsMjEyNDM4MjEyNSwtMTM2MzE2NjAyMCwtNzAwNzU3
+ODkyLDIwMjQ0NjgxMCwxNzQ1NTAyNzE2LDExMjI4NjI2NDcsLT
+g5OTYyMTI4MCwxNTE1NTk4NDIxLDc2NTA0Mjc1LC0xNzgyODU0
+MzAwLC0yMTE4ODkxOTMyLC0yMDg3Njc3NjI1LDIwNzIxMjkwMT
+YsLTE5MjE2NDE3MTAsLTEzODc0MTA4ODMsLTYzNTk2NTU4LDYw
+MDg3Mzk3M119
 -->
