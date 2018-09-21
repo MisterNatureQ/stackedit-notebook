@@ -3630,7 +3630,7 @@ func SearchIssues(terms []string) (*IssuesSearchResult, error) {
 }
 ```
 
-在早些的例子中，我们使用了json.Unmarshal函数来将JSON格式的字符串解码为字节slice。但是这个例子中，我们使用了基于流式的解码器json.Decoder，它可以从一个输入流解码JSON数据，尽管这不是必须的。如您所料，还有一个针对输出流的json.Encoder编码对象。
+在早些的例子中，我们使用了**json.Unmarshal函数来将JSON格式的字符串解码为字节slice。**但是这个例子中，我们使用了**基于流式的解码器json.Decoder，它可以从一个输入流解码JSON数据**，尽管这不是必须的。如您所料，还有一个针对输出流的json.Encoder编码对象。
 
 我们调用Decode方法来填充变量。这里有多种方法可以格式化结构。下面是最简单的一种，以一个固定宽度打印每个issue，但是在下一节我们将看到如何利用模板来输出复杂的格式。
 
@@ -8858,13 +8858,13 @@ ticker := time.NewTicker(1 * time.Second)
 ticker.Stop() // cause the ticker's goroutine to terminate
 ```
 
-有时候我们希望能够从channel中发送或者接收值，并避免因为发送或者接收导致的阻塞，尤其是当channel没有准备好写或者读时。select语
+有时候我们希望能够从channel中发送或者接收值，并避免因为发送或者接收导致的阻塞，尤其是当channel没有准备好写或者读时
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjA3MjEyOTAxNiwtMTkyMTY0MTcxMCwtMT
-M4NzQxMDg4MywtNjM1OTY1NTgsNjAwODczOTczLDE1NzA3MDcw
-OSwtMjEyMTc2MzA4OSwxMzIwNzk0MjEwLC0xMjQ2MDI0MjM3LC
-04NjY1NzU5MSwyMTEzNDczODY0LC0xMzM3NjIzNzk0LC0xMzMz
-MjYzMzg4LC05MTM5MjQzNTAsMTg1OTYwMDYyOCwtMjA0NzI3MT
-U2NSwtMjQ3MDk0Mzk2LDc0MTI0NjA4OSw5OTExNzY4OTksMTA1
-MDgwMTAzOV19
+eyJoaXN0b3J5IjpbLTIwODc2Nzc2MjUsMjA3MjEyOTAxNiwtMT
+kyMTY0MTcxMCwtMTM4NzQxMDg4MywtNjM1OTY1NTgsNjAwODcz
+OTczLDE1NzA3MDcwOSwtMjEyMTc2MzA4OSwxMzIwNzk0MjEwLC
+0xMjQ2MDI0MjM3LC04NjY1NzU5MSwyMTEzNDczODY0LC0xMzM3
+NjIzNzk0LC0xMzMzMjYzMzg4LC05MTM5MjQzNTAsMTg1OTYwMD
+YyOCwtMjA0NzI3MTU2NSwtMjQ3MDk0Mzk2LDc0MTI0NjA4OSw5
+OTExNzY4OTldfQ==
 -->
