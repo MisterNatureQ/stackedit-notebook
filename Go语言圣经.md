@@ -3493,7 +3493,7 @@ tors":["Paul Newman"]},{"Title":"Bullitt","released":1968,"color":true,"
 Actors":["Steve McQueen","Jacqueline Bisset"]}]
 ```
 
-这种紧凑的表示形式虽然包含了全部的信息，但是很难阅读。为了生成便于阅读的格式，另一个json.MarshalIndent函数将产生整齐缩进的输出。该函数有两个额外的字符串参数用于表示每一行输出的前缀和每一个层级的缩进：
+这种紧凑的表示形式虽然包含了全部的信息，但是很难阅读。**为了生成便于阅读的格式，另一个json.MarshalIndent函数将产生整齐缩进的输出。该函数有两个额外的字符串参数用于表示每一行输出的前缀和每一个层级的缩进：**
 
 ```Go
 data, err := json.MarshalIndent(movies, "", "    ")
@@ -3503,7 +3503,7 @@ if err != nil {
 fmt.Printf("%s\n", data)
 ```
 
-上面的代码将产生这样的输出（译注：在最后一个成员或元素后面并没有逗号分隔符）：
+上面的代码将产生这样的输出（译注：**在最后一个成员或元素后面并没有逗号分隔符**）：
 
 ```Json
 [
@@ -8860,13 +8860,13 @@ ticker.Stop() // cause the ticker's goroutine to terminate
 
 有时候我们希望能够从channel中发送或者接收值，并避免因为发送或者接收导致的阻塞，尤其是当channel没有准备好写或者读时。select语句就可以实现这样的功能。select会有一个default来设置当其它的操作都不能够马上被处理时程序需要执行哪些逻辑。
 
-下面的select语句会在abort channel中有值时，
+下面的select语句会在abort chan
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNDYyNDc3MjQ1LC0xMzg3NDEwODgzLC02Mz
-U5NjU1OCw2MDA4NzM5NzMsMTU3MDcwNzA5LC0yMTIxNzYzMDg5
-LDEzMjA3OTQyMTAsLTEyNDYwMjQyMzcsLTg2NjU3NTkxLDIxMT
-M0NzM4NjQsLTEzMzc2MjM3OTQsLTEzMzMyNjMzODgsLTkxMzky
-NDM1MCwxODU5NjAwNjI4LC0yMDQ3MjcxNTY1LC0yNDcwOTQzOT
-YsNzQxMjQ2MDg5LDk5MTE3Njg5OSwxMDUwODAxMDM5LDE3NzQ2
-MzMyMjFdfQ==
+eyJoaXN0b3J5IjpbLTE0MDQ3OTU0NTgsLTEzODc0MTA4ODMsLT
+YzNTk2NTU4LDYwMDg3Mzk3MywxNTcwNzA3MDksLTIxMjE3NjMw
+ODksMTMyMDc5NDIxMCwtMTI0NjAyNDIzNywtODY2NTc1OTEsMj
+ExMzQ3Mzg2NCwtMTMzNzYyMzc5NCwtMTMzMzI2MzM4OCwtOTEz
+OTI0MzUwLDE4NTk2MDA2MjgsLTIwNDcyNzE1NjUsLTI0NzA5ND
+M5Niw3NDEyNDYwODksOTkxMTc2ODk5LDEwNTA4MDEwMzksMTc3
+NDYzMzIyMV19
 -->
