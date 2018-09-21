@@ -4309,7 +4309,7 @@ genesis: crashed: no parachute: G-switch failed: bad relay orientation
 
 一般而言，被调用函数f(x)会将调用信息和参数信息作为发生错误时的上下文放在错误信息中并返回给调用者，调用者需要添加一些错误信息中不包含的信息，比如添加url到html.Parse返回的错误中。
 
-让我们来看看处理错误的第二种策略。如果错误的发生是偶然性的，或由不可预知的问题导致的。一个明智的选择是重新尝试失败的操作。在重试时，我们需要限制重试的时间间隔或重试的次数，防止无限制的重试。
+让我们来看看处理错误的**第二种策略。如果错误的发生是偶然性的，或由不可预知的问题导致的。一个明智的选择是重新尝试失败的操作。在重试时，我们需要限制重试的时间间隔或重试的次数，防止无限制的重试。**
 
 <u><i>gopl.io/ch5/wait</i></u>
 ```Go
@@ -8846,13 +8846,13 @@ func main() {
 	// ...create abort channel...
 
 	fmt.Println("Commencing countdown.  Press return to abort.")
-	tick := time.Tic
+	tick := time
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTExODIyNDQwNTIsLTEyMjQ0NTU1OTgsMT
-A4NjYwNTQ0OCwyMTI0MzgyMTI1LC0xMzYzMTY2MDIwLC03MDA3
-NTc4OTIsMjAyNDQ2ODEwLDE3NDU1MDI3MTYsMTEyMjg2MjY0Ny
-wtODk5NjIxMjgwLDE1MTU1OTg0MjEsNzY1MDQyNzUsLTE3ODI4
-NTQzMDAsLTIxMTg4OTE5MzIsLTIwODc2Nzc2MjUsMjA3MjEyOT
-AxNiwtMTkyMTY0MTcxMCwtMTM4NzQxMDg4MywtNjM1OTY1NTgs
-NjAwODczOTczXX0=
+eyJoaXN0b3J5IjpbMjEwNzE0MzQ2OCwtMTE4MjI0NDA1MiwtMT
+IyNDQ1NTU5OCwxMDg2NjA1NDQ4LDIxMjQzODIxMjUsLTEzNjMx
+NjYwMjAsLTcwMDc1Nzg5MiwyMDI0NDY4MTAsMTc0NTUwMjcxNi
+wxMTIyODYyNjQ3LC04OTk2MjEyODAsMTUxNTU5ODQyMSw3NjUw
+NDI3NSwtMTc4Mjg1NDMwMCwtMjExODg5MTkzMiwtMjA4NzY3Nz
+YyNSwyMDcyMTI5MDE2LC0xOTIxNjQxNzEwLC0xMzg3NDEwODgz
+LC02MzU5NjU1OF19
 -->
