@@ -3944,7 +3944,7 @@ fmt.Printf("%T\n", zero)  // "func(int, int) int"
 
 实参通过值的方式传递，因此函数的形参是实参的拷贝。对形参进行修改不会影响实参。但是，如果实参包括引用类型，如指针，slice(切片)、map、function、channel等类型，实参可能会由于函数的间接引用被修改。
 
-你可能会偶尔遇到**没有函数体的函数声明，这表示该函数不是以Go实现的。这样的声明定义了函数签名。
+你可能会偶尔遇到**没有函数体的函数声明，这表示该函数不是以Go实现的。这样的声明定义了函数签名。**
 
 ```Go
 package math
@@ -8847,13 +8847,13 @@ func main() {
 	fmt.Println("Commencing countdown.  Press return to abort.")
 	tick := time.Tick(1 * time.Second)
 	for countdown := 10; countdown > 0; countdown-- {
-		fmt.Println(count
+		fmt.Println(cou
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTg0NjY2NTM1LC0xMzYzMTY2MDIwLC03MD
-A3NTc4OTIsMjAyNDQ2ODEwLDE3NDU1MDI3MTYsMTEyMjg2MjY0
-NywtODk5NjIxMjgwLDE1MTU1OTg0MjEsNzY1MDQyNzUsLTE3OD
-I4NTQzMDAsLTIxMTg4OTE5MzIsLTIwODc2Nzc2MjUsMjA3MjEy
-OTAxNiwtMTkyMTY0MTcxMCwtMTM4NzQxMDg4MywtNjM1OTY1NT
-gsNjAwODczOTczLDE1NzA3MDcwOSwtMjEyMTc2MzA4OSwxMzIw
-Nzk0MjEwXX0=
+eyJoaXN0b3J5IjpbMjEyNDM4MjEyNSwtMTM2MzE2NjAyMCwtNz
+AwNzU3ODkyLDIwMjQ0NjgxMCwxNzQ1NTAyNzE2LDExMjI4NjI2
+NDcsLTg5OTYyMTI4MCwxNTE1NTk4NDIxLDc2NTA0Mjc1LC0xNz
+gyODU0MzAwLC0yMTE4ODkxOTMyLC0yMDg3Njc3NjI1LDIwNzIx
+MjkwMTYsLTE5MjE2NDE3MTAsLTEzODc0MTA4ODMsLTYzNTk2NT
+U4LDYwMDg3Mzk3MywxNTcwNzA3MDksLTIxMjE3NjMwODksMTMy
+MDc5NDIxMF19
 -->
