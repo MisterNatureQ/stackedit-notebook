@@ -4359,8 +4359,8 @@ bad.gopl.io
 我们可以设置log的前缀信息屏蔽时间信息，一般而言，前缀信息会被设置成命令名。
 
 ```Go
-log.SetPrefix("wait: ")
-log.SetFlags(0)
+log.SetPrefix("wait: ") //SetPrefix设置标准logger的输出前缀
+log.SetFlags(0) //SetFlags设置logger的输出选项。
 ```
 
 第四种策略：有时，我们只需要输出错误信息就足够了，不需要中断程序的运行。我们可以通过log包提供函数
@@ -8843,15 +8843,13 @@ for i := 0; i < 10; i++ {
 <u><i>gopl.io/ch8/countdown3</i></u>
 ```go
 func main() {
-	// ...create abort channel...
-
-	fmt.Println("Commencing count
+	// ...cre
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEwNTMzMDQ1NjksODUyMDkyNTA1LDIxMD
-cxNDM0NjgsLTExODIyNDQwNTIsLTEyMjQ0NTU1OTgsMTA4NjYw
-NTQ0OCwyMTI0MzgyMTI1LC0xMzYzMTY2MDIwLC03MDA3NTc4OT
-IsMjAyNDQ2ODEwLDE3NDU1MDI3MTYsMTEyMjg2MjY0NywtODk5
-NjIxMjgwLDE1MTU1OTg0MjEsNzY1MDQyNzUsLTE3ODI4NTQzMD
-AsLTIxMTg4OTE5MzIsLTIwODc2Nzc2MjUsMjA3MjEyOTAxNiwt
-MTkyMTY0MTcxMF19
+eyJoaXN0b3J5IjpbLTIwMzIyODc5MzAsLTEwNTMzMDQ1NjksOD
+UyMDkyNTA1LDIxMDcxNDM0NjgsLTExODIyNDQwNTIsLTEyMjQ0
+NTU1OTgsMTA4NjYwNTQ0OCwyMTI0MzgyMTI1LC0xMzYzMTY2MD
+IwLC03MDA3NTc4OTIsMjAyNDQ2ODEwLDE3NDU1MDI3MTYsMTEy
+Mjg2MjY0NywtODk5NjIxMjgwLDE1MTU1OTg0MjEsNzY1MDQyNz
+UsLTE3ODI4NTQzMDAsLTIxMTg4OTE5MzIsLTIwODc2Nzc2MjUs
+MjA3MjEyOTAxNl19
 -->
