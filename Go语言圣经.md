@@ -3544,9 +3544,9 @@ Year  int  `json:"released"`
 Color bool `json:"color,omitempty"`
 ```
 
-结构体的成员Tag可以是任意的字符串面值，但是通常是一系列用空格分隔的key:"value"键值对序列；因为值中含有双引号字符，因此成员Tag一般用原生字符串面值的形式书写。json开头键名对应的值用于控制encoding/json包的编码和解码的行为，并且encoding/...下面其它的包也遵循这个约定。成员Tag中json对应值的第一部分用于指定JSON对象的名字，比如将Go语言中的TotalCount成员对应到JSON中的total_count对象。Color成员的Tag还带了一个额外的**omitempty选项，表示当Go语言结构体成员为空或零值时不生成该JSON对象（这里false为零值）。**果然，Casablanca是一个黑白电影，并没有输出Color成员。
+结构体的成员Tag可以是任意的字符串面值，但是通常是一系列用空格分隔的key:"value"键值对序列；因为值中含有双引号字符，因此成员Tag一般用原生字符串面值的形式书写。json开头键名对应的值用于控制encoding/json包的编码和解码的行为，并且encoding/...下面其它的包也遵循这个约定。成员Tag中json对应值的第一部分用于指定JSON对象的名字，比如将Go语言中的TotalCount成员对应到JSON中的total_count对象。Color成员的Tag还带了一个额外的**omitempty选项，表示当Go语言结构体成员为空或零值时不生成该JSON对象（这里false为零值）**。果然，Casablanca是一个黑白电影，并没有输出Color成员。
 
-编码的逆操作是解码，对应将JSON数据解码为Go语言的数据结构，Go语言中一般叫unmarshaling，通过json.Unmarshal函数完成。下面的代码将JSON格式的电影数据解码为一个结构体slice，结构体中只有Title成员。通过定义合适的Go语言数据结构，我们可以选择性地解码JSON中感兴趣的成员。当Unmarshal函数调用返回，slice将被只含有Title信息的值填充，其它JSON成员将被忽略。
+编码的逆操作是解码，对应将JSON数据解码为Go语言的数据结构，Go语言中一般叫unmarshaling，通过json.Unmarshal函数完成。下面的代码将JSON格式的电影数据解码为一个结构体slice，结构体中只有Title成员。**通过定义合适的Go语言数据结构，我们可以选择性地解码JSON中感兴趣的成员。**当Unmarshal函数调用返回，slice将被只含有Title信息的值填充，其它JSON成员将被忽略。
 
 ```Go
 var titles []struct{ Title string }
@@ -8858,13 +8858,13 @@ ticker := time.NewTicker(1 * time.Second)
 ticker.Stop() // cause the ticker's goroutine to terminate
 ```
 
-有时候我们希望能够从channel中发送或者接收值，并避免因为发送或者接收导致的阻塞，尤其是当channel没有准备好写或者读时。select语句就可以实现这样的功能。select会有一个default来设置当其它的操作都不能够马上被处理时程序需要执行
+有时候我们希望能够从channel中发送或者接收值，并避免因为发送或者接收导致的阻塞，尤其是当channel没有准备好写或者读时。select语句就可以实现这样的功能。select会有一个default来设置当其它的操作都不能够马上被处理时
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNDAyNzU3OTI4LC0xMzg3NDEwODgzLC02Mz
-U5NjU1OCw2MDA4NzM5NzMsMTU3MDcwNzA5LC0yMTIxNzYzMDg5
-LDEzMjA3OTQyMTAsLTEyNDYwMjQyMzcsLTg2NjU3NTkxLDIxMT
-M0NzM4NjQsLTEzMzc2MjM3OTQsLTEzMzMyNjMzODgsLTkxMzky
-NDM1MCwxODU5NjAwNjI4LC0yMDQ3MjcxNTY1LC0yNDcwOTQzOT
-YsNzQxMjQ2MDg5LDk5MTE3Njg5OSwxMDUwODAxMDM5LDE3NzQ2
-MzMyMjFdfQ==
+eyJoaXN0b3J5IjpbLTE5MjE2NDE3MTAsLTEzODc0MTA4ODMsLT
+YzNTk2NTU4LDYwMDg3Mzk3MywxNTcwNzA3MDksLTIxMjE3NjMw
+ODksMTMyMDc5NDIxMCwtMTI0NjAyNDIzNywtODY2NTc1OTEsMj
+ExMzQ3Mzg2NCwtMTMzNzYyMzc5NCwtMTMzMzI2MzM4OCwtOTEz
+OTI0MzUwLDE4NTk2MDA2MjgsLTIwNDcyNzE1NjUsLTI0NzA5ND
+M5Niw3NDEyNDYwODksOTkxMTc2ODk5LDEwNTA4MDEwMzksMTc3
+NDYzMzIyMV19
 -->
