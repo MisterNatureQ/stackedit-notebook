@@ -3699,19 +3699,19 @@ GitHub的Web服务接口 https://developer.github.com/v3/ 包含了更多的特�
 
 前面的例子，只是最简单的格式化，使用Printf是完全足够的。**但是有时候会需要复杂的打印格式，这时候一般需要将格式化代码分离出来以便更安全地修改。这些功能是由text/template和html/template等模板包提供的，它们提供了一个将变量值填充到一个文本或HTML格式的模板的机制。**
 
-**一个模板是一个字符串或一个文件，里面包含了一个或多个由双花括号包含的`{{action}}`对象。大部分的字符串只是按字面值打印，但是对于actions部分将触发其它的行为。每个actions都包含了一个用模板语言书写的表达式，一个action虽然简短但是可以输出复杂的打印值，模板语言包含通过选择结构体的成员、调用函数或方法、表达式控制流if-else语句和range循环语句，还有其它实例化模板等诸多特性**。下面是一个简单的模板字符串：
+一个模板是一个字符串或一个文件，里面包含了一个或多个**由双花括号包含的`{{action}}`对象**。大部分的字符串只是按字面值打印，但是对于actions部分将触发其它的行为。每个actions都包含了一个用模板语言书写的表达式，一个action虽然简短但是可以输出复杂的打印值，模板语言包含通过选择结构体的成员、调用函数或方法、表达式控制流if-else语句和range循环语句，还有其它实例化模板等诸多特性。下面是一个简单的模板字符串：
 
 {% raw %}
 
 <u><i>gopl.io/ch4/issuesreport</i></u>
 ```Go
-
+// 由双花括号包含的`{{action}}`对象
 // 模板中`{{range .Items}}`和`{{end}}`对应一个循环action
 const templ = `{{.TotalCount}} issues:
 {{range .Items}}----------------------------------------
 Number: {{.Number}}
 User:   {{.User.Login}}
-Title:  {{.Title | printf "%.64s"}}
+Title:  {{.Title | printf "%.64s"}} // 在一个action中，`|`操作符表示将前一个表达式的结果作为后一个函数的输入
 Age:    {{.CreatedAt | daysAgo}} days
 {{end}}`
 ```
@@ -8854,16 +8854,13 @@ func main() {
 
 time.Tick函数表现得好像它创建了一个在循环中调用time.Sleep的goroutine，每次被唤醒时发送一个事件。当countdown函数返回时，它会停止从tick中接收事件，但是ticker这个goroutine还依然存活，继续徒劳地尝试向channel中发送值，然而这时候已经没有其它的goroutine会从该channel中接收值了——这被称为goroutine泄露（§8.4.4）。
 
-Tick函数挺方便，但是只有当程序整个生命周期都需要这个时间时我们使用它才比较合适。否则的话，我们应该使用下面的这种模式：
-
-```go
-ticke
+Tic
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTUxNTU5ODQyMSw3NjUwNDI3NSwtMTc4Mj
-g1NDMwMCwtMjExODg5MTkzMiwtMjA4NzY3NzYyNSwyMDcyMTI5
-MDE2LC0xOTIxNjQxNzEwLC0xMzg3NDEwODgzLC02MzU5NjU1OC
-w2MDA4NzM5NzMsMTU3MDcwNzA5LC0yMTIxNzYzMDg5LDEzMjA3
-OTQyMTAsLTEyNDYwMjQyMzcsLTg2NjU3NTkxLDIxMTM0NzM4Nj
-QsLTEzMzc2MjM3OTQsLTEzMzMyNjMzODgsLTkxMzkyNDM1MCwx
-ODU5NjAwNjI4XX0=
+eyJoaXN0b3J5IjpbMTAwNzAyMjM5NiwxNTE1NTk4NDIxLDc2NT
+A0Mjc1LC0xNzgyODU0MzAwLC0yMTE4ODkxOTMyLC0yMDg3Njc3
+NjI1LDIwNzIxMjkwMTYsLTE5MjE2NDE3MTAsLTEzODc0MTA4OD
+MsLTYzNTk2NTU4LDYwMDg3Mzk3MywxNTcwNzA3MDksLTIxMjE3
+NjMwODksMTMyMDc5NDIxMCwtMTI0NjAyNDIzNywtODY2NTc1OT
+EsMjExMzQ3Mzg2NCwtMTMzNzYyMzc5NCwtMTMzMzI2MzM4OCwt
+OTEzOTI0MzUwXX0=
 -->
