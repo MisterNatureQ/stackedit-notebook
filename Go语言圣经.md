@@ -4498,7 +4498,7 @@ func main() {
 func topoSort(m map[string][]string) []string {
 	var order []string
 	seen := make(map[string]bool)
-	// 匿名函数 具有闭包的特性 并且可以赋值mingm之后
+	// 匿名函数 具有闭包的特性 并且可以声明赋值命名之后递归
 	var visitAll func(items []string)
 	visitAll = func(items []string) {
 		for _, item := range items {
@@ -8837,13 +8837,13 @@ for i := 0; i < 10; i++ {
 }
 ```
 
-如果多个case同时就绪时，select会随机地选择一个执行，这样来保证每一个channel都有平等的被select的机会。增加前一个例子的buffer大小会使其输出变得不确定，因为当buffer既不为满也不为空时，select语句的执行情况就像是
+如果多个case同时就绪时，select会随机地选择一个执行，这样来保证每一个channel都有平等的被select的机会。增加前一个例子的buffer大小会使其输出变得不确定，因为当buffer既不为满也不为空时，select语句的执行
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMzExNjUxNDE5LDE3NjQ5MjMwNDAsLTE0Mj
-MxNjUyODAsMzkwMzUxMjAwLC0xMzkxMjI4MjU2LDE1NjU0MTQ1
-NjAsLTQwNjAwNDM4NCwtMTA1MzMwNDU2OSw4NTIwOTI1MDUsMj
-EwNzE0MzQ2OCwtMTE4MjI0NDA1MiwtMTIyNDQ1NTU5OCwxMDg2
-NjA1NDQ4LDIxMjQzODIxMjUsLTEzNjMxNjYwMjAsLTcwMDc1Nz
-g5MiwyMDI0NDY4MTAsMTc0NTUwMjcxNiwxMTIyODYyNjQ3LC04
-OTk2MjEyODBdfQ==
+eyJoaXN0b3J5IjpbMTYyNzg3NTY5NCwxNzY0OTIzMDQwLC0xND
+IzMTY1MjgwLDM5MDM1MTIwMCwtMTM5MTIyODI1NiwxNTY1NDE0
+NTYwLC00MDYwMDQzODQsLTEwNTMzMDQ1NjksODUyMDkyNTA1LD
+IxMDcxNDM0NjgsLTExODIyNDQwNTIsLTEyMjQ0NTU1OTgsMTA4
+NjYwNTQ0OCwyMTI0MzgyMTI1LC0xMzYzMTY2MDIwLC03MDA3NT
+c4OTIsMjAyNDQ2ODEwLDE3NDU1MDI3MTYsMTEyMjg2MjY0Nywt
+ODk5NjIxMjgwXX0=
 -->
