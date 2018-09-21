@@ -4459,9 +4459,9 @@ func main() {
 
 函数squares返回另一个类型为 func() int 的函数。对squares的一次调用会生成一个局部变量x并返回一个匿名函数。每次调用匿名函数时，该函数都会先使x的值加1，再返回x的平方。第二次调用squares时，会生成第二个x变量，并返回一个新的匿名函数。新匿名函数操作的是第二个x变量。
 
-squares的例子证明，**函数值不仅仅是一串代码，还记录了状态。**在squares中定义的匿名内部函数可以访问和更新squares中的局部变量，这意味着匿名函数和squares中，存在变量引用。这就是**函数值属于引用类型和函数值不可比较的原因。Go使用闭包（closures）技术实现函数值，Go程序员也把函数值叫做闭包。
+squares的例子证明，**函数值不仅仅是一串代码，还记录了状态**。在squares中定义的匿名内部函数可以访问和更新squares中的局部变量，这意味着匿名函数和squares中，存在变量引用。这就是**函数值属于引用类型和函数值不可比较的原因。Go使用闭包（closures）技术实现函数值，Go程序员也把函数值叫做闭包。**
 
-通过这个例子，我们看到变量的生命周期不由它的作用域决定：squares返回后，变量x仍然隐式的存在于f中。
+通过这个例子，我们看到**变量的生命周期不由它的作用域决定**：squares返回后，变量x仍然隐式的存在于f中。
 
 接下来，我们讨论一个有点学术性的例子，考虑这样一个问题：给定一些计算机课程，每个课程都有前置课程，只有完成了前置课程才可以开始当前课程的学习；我们的目标是选择出一组课程，这组课程必须确保按顺序学习时，能全部被完成。每个课程的前置课程如下：
 
@@ -8840,11 +8840,11 @@ for i := 0; i < 10; i++ {
 
 下面让我们的发
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMzMzMDM4NzUyLC0xNDIzMTY1MjgwLDM5MD
-M1MTIwMCwtMTM5MTIyODI1NiwxNTY1NDE0NTYwLC00MDYwMDQz
-ODQsLTEwNTMzMDQ1NjksODUyMDkyNTA1LDIxMDcxNDM0NjgsLT
-ExODIyNDQwNTIsLTEyMjQ0NTU1OTgsMTA4NjYwNTQ0OCwyMTI0
-MzgyMTI1LC0xMzYzMTY2MDIwLC03MDA3NTc4OTIsMjAyNDQ2OD
-EwLDE3NDU1MDI3MTYsMTEyMjg2MjY0NywtODk5NjIxMjgwLDE1
-MTU1OTg0MjFdfQ==
+eyJoaXN0b3J5IjpbMTc4MzY2NzQ4OCwtMTQyMzE2NTI4MCwzOT
+AzNTEyMDAsLTEzOTEyMjgyNTYsMTU2NTQxNDU2MCwtNDA2MDA0
+Mzg0LC0xMDUzMzA0NTY5LDg1MjA5MjUwNSwyMTA3MTQzNDY4LC
+0xMTgyMjQ0MDUyLC0xMjI0NDU1NTk4LDEwODY2MDU0NDgsMjEy
+NDM4MjEyNSwtMTM2MzE2NjAyMCwtNzAwNzU3ODkyLDIwMjQ0Nj
+gxMCwxNzQ1NTAyNzE2LDExMjI4NjI2NDcsLTg5OTYyMTI4MCwx
+NTE1NTk4NDIxXX0=
 -->
