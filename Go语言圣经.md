@@ -4024,7 +4024,7 @@ func visit(links []string, n *html.Node) []string {
 	if n.Type == html.ElementNode && n.Data == "a" {
 		for _, a := range n.Attr {
 			if a.Key == "href" {
-				links = append(links, a.Val)
+				links = append(links, a.Val) // 读取超链接
 			}
 		}
 	}
@@ -8846,10 +8846,9 @@ func main() {
 
 	fmt.Println("Commencing countdown.  Press return to abort.")
 	tick := time.Tick(1 * time.Second)
-	for countdown := 10; countdown > 0; countdown-- {
-		fmt.Pr
+	for countdown := 10; countdown > 0; countdow
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTc2MDg1MTYyNywyMTI0MzgyMTI1LC0xMz
+eyJoaXN0b3J5IjpbMTA4NjYwNTQ0OCwyMTI0MzgyMTI1LC0xMz
 YzMTY2MDIwLC03MDA3NTc4OTIsMjAyNDQ2ODEwLDE3NDU1MDI3
 MTYsMTEyMjg2MjY0NywtODk5NjIxMjgwLDE1MTU1OTg0MjEsNz
 Y1MDQyNzUsLTE3ODI4NTQzMDAsLTIxMTg4OTE5MzIsLTIwODc2
