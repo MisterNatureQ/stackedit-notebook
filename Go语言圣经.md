@@ -4509,7 +4509,7 @@ func topoSort(m map[string][]string) []string {
 			// 没有见过的项 
 			if !seen[item] {
 				seen[item] = true // 闭包 访问上下文环境
-				visitAll(m[item]) // 递归 没有见过的项 的子项 顺着 七点key 往后走 zhi
+				visitAll(m[item]) // 递归 没有见过的项 的子项 顺着 七点key 往后走 直到找到 边界最后一项 开始递归 
 				order = append(order, item) // 访问上下文环境 最后一个 最先进入 
 			}
 		}
@@ -8823,11 +8823,9 @@ func main() {
 		// Do nothing.
 	case <-abort:
 		fmt.Println("Launch aborted!")
-		return
-	}
-	launch()
+		retu
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTEyNzY3Mjc1NSwxMzY3NDAyNjg5LC0xOD
+eyJoaXN0b3J5IjpbLTU3NDE1NzM3MCwxMzY3NDAyNjg5LC0xOD
 E4NDczNTcsLTE3MTQwOTIzODEsLTEyMTc4MDY0MTUsLTEzMzM4
 ODg0MDEsLTU3MzI3ODgwNywtNzE4MjQxMzMwLC0xMzg1NTA2MD
 c0LDE5OTU5NjUwMDIsMTQ3Mjg1MjAzLC0zMjkwMzE0MTksMjAy
