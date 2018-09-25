@@ -4499,7 +4499,7 @@ func main() {
 //拓扑排序   **深度优先**搜索了整张图，获得了符合要求的课程序列
 //m 前一次的请求
 func topoSort(m map[string][]string) []string {
-	var order []string
+	var order []string // 排序之后的结果
 	seen := make(map[string]bool) // 闭包保留的数据
 	// 匿名函数 具有闭包的特性 并且可以声明赋值命名之后递归
 	var visitAll func(items []string) // 声明 如果不分成两部，函数字面量无法与visitAll绑定，我们也无法递归调用该匿名函数。
@@ -8829,13 +8829,13 @@ func main() {
 ```
 
 
-下面这个例子更微妙。ch这个channel的buffer大小是1，所以会交替的为
+下面这个例子更微妙。ch这个channel的bu
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTkyMDYxNDU5LC0xMjE3ODA2NDE1LC0xMz
-MzODg4NDAxLC01NzMyNzg4MDcsLTcxODI0MTMzMCwtMTM4NTUw
-NjA3NCwxOTk1OTY1MDAyLDE0NzI4NTIwMywtMzI5MDMxNDE5LD
-IwMjAwMDYzMjgsNjkyNjQwNjU5LC00MDkzNjEwMjUsLTE1MDgw
-ODM3OTIsMTc2NDkyMzA0MCwtMTQyMzE2NTI4MCwzOTAzNTEyMD
-AsLTEzOTEyMjgyNTYsMTU2NTQxNDU2MCwtNDA2MDA0Mzg0LC0x
-MDUzMzA0NTY5XX0=
+eyJoaXN0b3J5IjpbLTE3MTQwOTIzODEsLTEyMTc4MDY0MTUsLT
+EzMzM4ODg0MDEsLTU3MzI3ODgwNywtNzE4MjQxMzMwLC0xMzg1
+NTA2MDc0LDE5OTU5NjUwMDIsMTQ3Mjg1MjAzLC0zMjkwMzE0MT
+ksMjAyMDAwNjMyOCw2OTI2NDA2NTksLTQwOTM2MTAyNSwtMTUw
+ODA4Mzc5MiwxNzY0OTIzMDQwLC0xNDIzMTY1MjgwLDM5MDM1MT
+IwMCwtMTM5MTIyODI1NiwxNTY1NDE0NTYwLC00MDYwMDQzODQs
+LTEwNTMzMDQ1NjldfQ==
 -->
