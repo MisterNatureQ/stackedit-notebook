@@ -4518,7 +4518,7 @@ func topoSort(m map[string][]string) []string {
 	for key := range m {
 		keys = append(keys, key)
 	}
-	sort.Strings(keys) // 对key排序 确保 访问顺序
+	sort.Strings(keys) // 对key排序 确保 访问顺序 统一
 	visitAll(keys) // 只要不是环形就不会死循环
 	return order
 }
@@ -8831,14 +8831,13 @@ func main() {
 
 下面这个例子更微妙。ch这个channel的buffer大小是1，所以会交替的为空或为满，所以只有一个case可以进行下去，无论i是奇数或者偶数，它都会打印0 2 4 6 8。
 
-```go
-c
+```g
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTcxODI0MTMzMCwtMTM4NTUwNjA3NCwxOT
-k1OTY1MDAyLDE0NzI4NTIwMywtMzI5MDMxNDE5LDIwMjAwMDYz
-MjgsNjkyNjQwNjU5LC00MDkzNjEwMjUsLTE1MDgwODM3OTIsMT
-c2NDkyMzA0MCwtMTQyMzE2NTI4MCwzOTAzNTEyMDAsLTEzOTEy
-MjgyNTYsMTU2NTQxNDU2MCwtNDA2MDA0Mzg0LC0xMDUzMzA0NT
-Y5LDg1MjA5MjUwNSwyMTA3MTQzNDY4LC0xMTgyMjQ0MDUyLC0x
-MjI0NDU1NTk4XX0=
+eyJoaXN0b3J5IjpbLTU3MzI3ODgwNywtNzE4MjQxMzMwLC0xMz
+g1NTA2MDc0LDE5OTU5NjUwMDIsMTQ3Mjg1MjAzLC0zMjkwMzE0
+MTksMjAyMDAwNjMyOCw2OTI2NDA2NTksLTQwOTM2MTAyNSwtMT
+UwODA4Mzc5MiwxNzY0OTIzMDQwLC0xNDIzMTY1MjgwLDM5MDM1
+MTIwMCwtMTM5MTIyODI1NiwxNTY1NDE0NTYwLC00MDYwMDQzOD
+QsLTEwNTMzMDQ1NjksODUyMDkyNTA1LDIxMDcxNDM0NjgsLTEx
+ODIyNDQwNTJdfQ==
 -->
