@@ -4509,7 +4509,7 @@ func topoSort(m map[string][]string) []string {
 			// 没有见过的项 
 			if !seen[item] {
 				seen[item] = true // 闭包 访问上下文环境
-				visitAll(m[item]) // 递归 没有见过的项 的子项
+				visitAll(m[item]) // 递归 没有见过的项 的子项 顺着 七点key 往后走 zhi
 				order = append(order, item) // 访问上下文环境 最后一个 最先进入 
 			}
 		}
@@ -8826,17 +8826,12 @@ func main() {
 		return
 	}
 	launch()
-}
-```
-
-
-下面这个例子更
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTM2NzQwMjY4OSwtMTgxODQ3MzU3LC0xNz
-E0MDkyMzgxLC0xMjE3ODA2NDE1LC0xMzMzODg4NDAxLC01NzMy
-Nzg4MDcsLTcxODI0MTMzMCwtMTM4NTUwNjA3NCwxOTk1OTY1MD
-AyLDE0NzI4NTIwMywtMzI5MDMxNDE5LDIwMjAwMDYzMjgsNjky
-NjQwNjU5LC00MDkzNjEwMjUsLTE1MDgwODM3OTIsMTc2NDkyMz
-A0MCwtMTQyMzE2NTI4MCwzOTAzNTEyMDAsLTEzOTEyMjgyNTYs
-MTU2NTQxNDU2MF19
+eyJoaXN0b3J5IjpbMTEyNzY3Mjc1NSwxMzY3NDAyNjg5LC0xOD
+E4NDczNTcsLTE3MTQwOTIzODEsLTEyMTc4MDY0MTUsLTEzMzM4
+ODg0MDEsLTU3MzI3ODgwNywtNzE4MjQxMzMwLC0xMzg1NTA2MD
+c0LDE5OTU5NjUwMDIsMTQ3Mjg1MjAzLC0zMjkwMzE0MTksMjAy
+MDAwNjMyOCw2OTI2NDA2NTksLTQwOTM2MTAyNSwtMTUwODA4Mz
+c5MiwxNzY0OTIzMDQwLC0xNDIzMTY1MjgwLDM5MDM1MTIwMCwt
+MTM5MTIyODI1Nl19
 -->
