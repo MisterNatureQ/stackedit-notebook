@@ -4508,7 +4508,7 @@ func topoSort(m map[string][]string) []string {
 		for _, item := range items {
 			if !seen[item] {
 				seen[item] = true // 闭包 访问上下文环境
-				visitAll(m[item]) // 递归
+				visitAll(m[item]) // 递归 详情的每一项
 				order = append(order, item) // 访问上下文环境
 			}
 		}
@@ -8829,15 +8829,13 @@ func main() {
 ```
 
 
-下面这个例子更微妙。ch这个channel的buffer大小是1，所以会交替的为空或为满，所以只有一个case可以进行下去，无论i是奇数或者偶数，它都会打印0 2 4 6 8。
-
-```g
+下面这个例子更微妙。ch这个channel的buffer大小是1，所以会交替的为空或为满，所以只有一个case可以进行下去，无论i是奇数或者偶数，它都会打印0 2 4 6
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTU3MzI3ODgwNywtNzE4MjQxMzMwLC0xMz
-g1NTA2MDc0LDE5OTU5NjUwMDIsMTQ3Mjg1MjAzLC0zMjkwMzE0
-MTksMjAyMDAwNjMyOCw2OTI2NDA2NTksLTQwOTM2MTAyNSwtMT
-UwODA4Mzc5MiwxNzY0OTIzMDQwLC0xNDIzMTY1MjgwLDM5MDM1
-MTIwMCwtMTM5MTIyODI1NiwxNTY1NDE0NTYwLC00MDYwMDQzOD
-QsLTEwNTMzMDQ1NjksODUyMDkyNTA1LDIxMDcxNDM0NjgsLTEx
-ODIyNDQwNTJdfQ==
+eyJoaXN0b3J5IjpbLTEzMzM4ODg0MDEsLTU3MzI3ODgwNywtNz
+E4MjQxMzMwLC0xMzg1NTA2MDc0LDE5OTU5NjUwMDIsMTQ3Mjg1
+MjAzLC0zMjkwMzE0MTksMjAyMDAwNjMyOCw2OTI2NDA2NTksLT
+QwOTM2MTAyNSwtMTUwODA4Mzc5MiwxNzY0OTIzMDQwLC0xNDIz
+MTY1MjgwLDM5MDM1MTIwMCwtMTM5MTIyODI1NiwxNTY1NDE0NT
+YwLC00MDYwMDQzODQsLTEwNTMzMDQ1NjksODUyMDkyNTA1LDIx
+MDcxNDM0NjhdfQ==
 -->
