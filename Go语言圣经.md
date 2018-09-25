@@ -4497,6 +4497,7 @@ func main() {
 	}
 }
 //拓扑排序   **深度优先**搜索了整张图，获得了符合要求的课程序列
+//m 前一次的请求
 func topoSort(m map[string][]string) []string {
 	var order []string
 	seen := make(map[string]bool)
@@ -8833,13 +8834,13 @@ func main() {
 ch := make(chan int, 1)
 for i := 0; i < 10; i++ {
 	select {
-	case x := <-ch:
+	
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEzODU1MDYwNzQsMTk5NTk2NTAwMiwxND
-cyODUyMDMsLTMyOTAzMTQxOSwyMDIwMDA2MzI4LDY5MjY0MDY1
-OSwtNDA5MzYxMDI1LC0xNTA4MDgzNzkyLDE3NjQ5MjMwNDAsLT
-E0MjMxNjUyODAsMzkwMzUxMjAwLC0xMzkxMjI4MjU2LDE1NjU0
-MTQ1NjAsLTQwNjAwNDM4NCwtMTA1MzMwNDU2OSw4NTIwOTI1MD
-UsMjEwNzE0MzQ2OCwtMTE4MjI0NDA1MiwtMTIyNDQ1NTU5OCwx
-MDg2NjA1NDQ4XX0=
+eyJoaXN0b3J5IjpbMTU1NTgyMTgzMywtMTM4NTUwNjA3NCwxOT
+k1OTY1MDAyLDE0NzI4NTIwMywtMzI5MDMxNDE5LDIwMjAwMDYz
+MjgsNjkyNjQwNjU5LC00MDkzNjEwMjUsLTE1MDgwODM3OTIsMT
+c2NDkyMzA0MCwtMTQyMzE2NTI4MCwzOTAzNTEyMDAsLTEzOTEy
+MjgyNTYsMTU2NTQxNDU2MCwtNDA2MDA0Mzg0LC0xMDUzMzA0NT
+Y5LDg1MjA5MjUwNSwyMTA3MTQzNDY4LC0xMTgyMjQ0MDUyLC0x
+MjI0NDU1NTk4XX0=
 -->
