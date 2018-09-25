@@ -4430,7 +4430,7 @@ for {
 
 **拥有函数名的函数只能在包级语法块中被声明，通过函数字面量（function literal），我们可绕过这一限制，在任何表达式中表示一个函数值。函数字面量的语法和函数声明相似，区别在于func关键字后没有函数名。函数值字面量是一种表达式，它的值被称为匿名函数（anonymous function）。**
 
-函数字面量允许我们在使用函数时，再定义它。通过这种技巧，我们可以改写之前对strings.Map的调用：
+**函数字面量允许我们在使用函数时，再定义它**。通过这种技巧，我们可以改写之前对strings.Map的调用：
 
 ```Go
 strings.Map(func(r rune) rune { return r + 1 }, "HAL-9000")
@@ -8840,13 +8840,12 @@ for i := 0; i < 10; i++ {
 ```
 
 如果多个case同时就绪时，select会随机地选择一个执行，这样来保证每一个chan
-<!--
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTQ3Mjg1MjAzLC0zMjkwMzE0MTksMjAyMD
-AwNjMyOCw2OTI2NDA2NTksLTQwOTM2MTAyNSwtMTUwODA4Mzc5
-MiwxNzY0OTIzMDQwLC0xNDIzMTY1MjgwLDM5MDM1MTIwMCwtMT
-M5MTIyODI1NiwxNTY1NDE0NTYwLC00MDYwMDQzODQsLTEwNTMz
-MDQ1NjksODUyMDkyNTA1LDIxMDcxNDM0NjgsLTExODIyNDQwNT
-IsLTEyMjQ0NTU1OTgsMTA4NjYwNTQ0OCwyMTI0MzgyMTI1LC0x
-MzYzMTY2MDIwXX0=
+eyJoaXN0b3J5IjpbMTk5NTk2NTAwMiwxNDcyODUyMDMsLTMyOT
+AzMTQxOSwyMDIwMDA2MzI4LDY5MjY0MDY1OSwtNDA5MzYxMDI1
+LC0xNTA4MDgzNzkyLDE3NjQ5MjMwNDAsLTE0MjMxNjUyODAsMz
+kwMzUxMjAwLC0xMzkxMjI4MjU2LDE1NjU0MTQ1NjAsLTQwNjAw
+NDM4NCwtMTA1MzMwNDU2OSw4NTIwOTI1MDUsMjEwNzE0MzQ2OC
+wtMTE4MjI0NDA1MiwtMTIyNDQ1NTU5OCwxMDg2NjA1NDQ4LDIx
+MjQzODIxMjVdfQ==
 -->
