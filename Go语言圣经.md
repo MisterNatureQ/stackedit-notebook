@@ -4506,6 +4506,7 @@ func topoSort(m map[string][]string) []string {
 	// 实现闭包函数
 	visitAll = func(items []string) {
 		for _, item := range items {
+			// 没有见过的项 
 			if !seen[item] {
 				seen[item] = true // 闭包 访问上下文环境
 				visitAll(m[item]) // 递归 详情的每一项 的子项
@@ -8829,13 +8830,13 @@ func main() {
 ```
 
 
-下面这个例子更微妙。ch这个channel的bu
+下面这个例子更微妙。ch这个c
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE3MTQwOTIzODEsLTEyMTc4MDY0MTUsLT
-EzMzM4ODg0MDEsLTU3MzI3ODgwNywtNzE4MjQxMzMwLC0xMzg1
-NTA2MDc0LDE5OTU5NjUwMDIsMTQ3Mjg1MjAzLC0zMjkwMzE0MT
-ksMjAyMDAwNjMyOCw2OTI2NDA2NTksLTQwOTM2MTAyNSwtMTUw
-ODA4Mzc5MiwxNzY0OTIzMDQwLC0xNDIzMTY1MjgwLDM5MDM1MT
-IwMCwtMTM5MTIyODI1NiwxNTY1NDE0NTYwLC00MDYwMDQzODQs
-LTEwNTMzMDQ1NjldfQ==
+eyJoaXN0b3J5IjpbLTE1MzMwMjUwODUsLTE3MTQwOTIzODEsLT
+EyMTc4MDY0MTUsLTEzMzM4ODg0MDEsLTU3MzI3ODgwNywtNzE4
+MjQxMzMwLC0xMzg1NTA2MDc0LDE5OTU5NjUwMDIsMTQ3Mjg1Mj
+AzLC0zMjkwMzE0MTksMjAyMDAwNjMyOCw2OTI2NDA2NTksLTQw
+OTM2MTAyNSwtMTUwODA4Mzc5MiwxNzY0OTIzMDQwLC0xNDIzMT
+Y1MjgwLDM5MDM1MTIwMCwtMTM5MTIyODI1NiwxNTY1NDE0NTYw
+LC00MDYwMDQzODRdfQ==
 -->
