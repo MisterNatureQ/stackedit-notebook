@@ -4507,14 +4507,14 @@ func topoSort(m map[string][]string) []string {
 	visitAll = func(items []string) {
 		for _, item := range items {
 			if !seen[item] {
-				seen[item] = true
-				visitAll(m[item])
-				order = append(order, item)
+				seen[item] = true // 闭包 访问上下文环境
+				visitAll(m[item]) // 递归
+				order = append(order, item) // 访问上下文环境
 			}
 		}
 	}
 	var keys []string
-	// 统计key
+	// 统计key 
 	for key := range m {
 		keys = append(keys, key)
 	}
@@ -8832,14 +8832,13 @@ func main() {
 下面这个例子更微妙。ch这个channel的buffer大小是1，所以会交替的为空或为满，所以只有一个case可以进行下去，无论i是奇数或者偶数，它都会打印0 2 4 6 8。
 
 ```go
-ch := make(chan int, 1)
-for i := 0
+c
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMzgzMzgyMzY5LC0xMzg1NTA2MDc0LDE5OT
-U5NjUwMDIsMTQ3Mjg1MjAzLC0zMjkwMzE0MTksMjAyMDAwNjMy
-OCw2OTI2NDA2NTksLTQwOTM2MTAyNSwtMTUwODA4Mzc5MiwxNz
-Y0OTIzMDQwLC0xNDIzMTY1MjgwLDM5MDM1MTIwMCwtMTM5MTIy
-ODI1NiwxNTY1NDE0NTYwLC00MDYwMDQzODQsLTEwNTMzMDQ1Nj
-ksODUyMDkyNTA1LDIxMDcxNDM0NjgsLTExODIyNDQwNTIsLTEy
-MjQ0NTU1OThdfQ==
+eyJoaXN0b3J5IjpbLTcxODI0MTMzMCwtMTM4NTUwNjA3NCwxOT
+k1OTY1MDAyLDE0NzI4NTIwMywtMzI5MDMxNDE5LDIwMjAwMDYz
+MjgsNjkyNjQwNjU5LC00MDkzNjEwMjUsLTE1MDgwODM3OTIsMT
+c2NDkyMzA0MCwtMTQyMzE2NTI4MCwzOTAzNTEyMDAsLTEzOTEy
+MjgyNTYsMTU2NTQxNDU2MCwtNDA2MDA0Mzg0LC0xMDUzMzA0NT
+Y5LDg1MjA5MjUwNSwyMTA3MTQzNDY4LC0xMTgyMjQ0MDUyLC0x
+MjI0NDU1NTk4XX0=
 -->
