@@ -4508,7 +4508,7 @@ func topoSort(m map[string][]string) []string {
 		for _, item := range items {
 			if !seen[item] {
 				seen[item] = true // 闭包 访问上下文环境
-				visitAll(m[item]) // 递归 详情的每一项
+				visitAll(m[item]) // 递归 详情的每一项 的子项
 				order = append(order, item) // 访问上下文环境
 			}
 		}
@@ -8829,13 +8829,13 @@ func main() {
 ```
 
 
-下面这个例子更微妙。ch这个channel的buffer大小是1，所以会交替的为空或为满，
+下面这个例子更微妙。ch这个channel的buffer大小是1，所以会交替的为
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEyMTc4MDY0MTUsLTEzMzM4ODg0MDEsLT
-U3MzI3ODgwNywtNzE4MjQxMzMwLC0xMzg1NTA2MDc0LDE5OTU5
-NjUwMDIsMTQ3Mjg1MjAzLC0zMjkwMzE0MTksMjAyMDAwNjMyOC
-w2OTI2NDA2NTksLTQwOTM2MTAyNSwtMTUwODA4Mzc5MiwxNzY0
-OTIzMDQwLC0xNDIzMTY1MjgwLDM5MDM1MTIwMCwtMTM5MTIyOD
-I1NiwxNTY1NDE0NTYwLC00MDYwMDQzODQsLTEwNTMzMDQ1Njks
-ODUyMDkyNTA1XX0=
+eyJoaXN0b3J5IjpbLTkyMDYxNDU5LC0xMjE3ODA2NDE1LC0xMz
+MzODg4NDAxLC01NzMyNzg4MDcsLTcxODI0MTMzMCwtMTM4NTUw
+NjA3NCwxOTk1OTY1MDAyLDE0NzI4NTIwMywtMzI5MDMxNDE5LD
+IwMjAwMDYzMjgsNjkyNjQwNjU5LC00MDkzNjEwMjUsLTE1MDgw
+ODM3OTIsMTc2NDkyMzA0MCwtMTQyMzE2NTI4MCwzOTAzNTEyMD
+AsLTEzOTEyMjgyNTYsMTU2NTQxNDU2MCwtNDA2MDA0Mzg0LC0x
+MDUzMzA0NTY5XX0=
 -->
