@@ -4433,6 +4433,7 @@ for {
 **函数字面量允许我们在使用函数时，再定义它**。通过这种技巧，我们可以改写之前对strings.Map的调用：
 
 ```Go
+// strings.Map  将s的每一个unicode码值r都替换为mapping(r)，返回这些新码值组成的字符串拷贝。如果mapping返回一个负值，将会丢弃该码值而不会被替换。（返回值中对应位置将没有码值）
 strings.Map(func(r rune) rune { return r + 1 }, "HAL-9000")
 ```
 
@@ -8833,19 +8834,12 @@ ch := make(chan int, 1)
 for i := 0; i < 10; i++ {
 	select {
 	case x := <-ch:
-		fmt.Println(x) // "0" "2" "4" "6" "8"
-	case ch <- i:
-	}
-}
-```
-
-如果多个case同时就绪时，select会随机地选择一个执行，这样来保证每一个chan
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTk5NTk2NTAwMiwxNDcyODUyMDMsLTMyOT
-AzMTQxOSwyMDIwMDA2MzI4LDY5MjY0MDY1OSwtNDA5MzYxMDI1
-LC0xNTA4MDgzNzkyLDE3NjQ5MjMwNDAsLTE0MjMxNjUyODAsMz
-kwMzUxMjAwLC0xMzkxMjI4MjU2LDE1NjU0MTQ1NjAsLTQwNjAw
-NDM4NCwtMTA1MzMwNDU2OSw4NTIwOTI1MDUsMjEwNzE0MzQ2OC
-wtMTE4MjI0NDA1MiwtMTIyNDQ1NTU5OCwxMDg2NjA1NDQ4LDIx
-MjQzODIxMjVdfQ==
+eyJoaXN0b3J5IjpbLTEzODU1MDYwNzQsMTk5NTk2NTAwMiwxND
+cyODUyMDMsLTMyOTAzMTQxOSwyMDIwMDA2MzI4LDY5MjY0MDY1
+OSwtNDA5MzYxMDI1LC0xNTA4MDgzNzkyLDE3NjQ5MjMwNDAsLT
+E0MjMxNjUyODAsMzkwMzUxMjAwLC0xMzkxMjI4MjU2LDE1NjU0
+MTQ1NjAsLTQwNjAwNDM4NCwtMTA1MzMwNDU2OSw4NTIwOTI1MD
+UsMjEwNzE0MzQ2OCwtMTE4MjI0NDA1MiwtMTIyNDQ1NTU5OCwx
+MDg2NjA1NDQ4XX0=
 -->
