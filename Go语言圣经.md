@@ -4502,7 +4502,7 @@ func topoSort(m map[string][]string) []string {
 	var order []string
 	seen := make(map[string]bool) // 闭包保留的数据
 	// 匿名函数 具有闭包的特性 并且可以声明赋值命名之后递归
-	var visitAll func(items []string)
+	var visitAll func(items []string) // 声明
 	visitAll = func(items []string) {
 		for _, item := range items {
 			if !seen[item] {
@@ -8832,10 +8832,9 @@ func main() {
 
 ```go
 ch := make(chan int, 1)
-for i := 0; i < 10; i++ {
-	s
+for i := 0; i < 10
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTUxMzg5ODc3NywtMTM4NTUwNjA3NCwxOT
+eyJoaXN0b3J5IjpbMTgwOTM0NjYyOSwtMTM4NTUwNjA3NCwxOT
 k1OTY1MDAyLDE0NzI4NTIwMywtMzI5MDMxNDE5LDIwMjAwMDYz
 MjgsNjkyNjQwNjU5LC00MDkzNjEwMjUsLTE1MDgwODM3OTIsMT
 c2NDkyMzA0MCwtMTQyMzE2NTI4MCwzOTAzNTEyMDAsLTEzOTEy
