@@ -4581,6 +4581,7 @@ func Extract(url string) ([]string, error) {
 	if err != nil {
 		return nil, fmt.Errorf("parsing %s as HTML: %v", url, err)
 	}
+	// 匿名函数
 	var links []string
 	visitNode := func(n *html.Node) {
 		if n.Type == html.ElementNode && n.Data == "a" {
@@ -8823,13 +8824,13 @@ func main() {
 	case <-time.After(10 * time.Second):
 		// Do nothing.
 	case <-abort:
-		fmt.Println
+		
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTc4NDc3NjUzMCwtNjUwNDIxMTM5LC01Nz
-QxNTczNzAsMTM2NzQwMjY4OSwtMTgxODQ3MzU3LC0xNzE0MDky
-MzgxLC0xMjE3ODA2NDE1LC0xMzMzODg4NDAxLC01NzMyNzg4MD
-csLTcxODI0MTMzMCwtMTM4NTUwNjA3NCwxOTk1OTY1MDAyLDE0
-NzI4NTIwMywtMzI5MDMxNDE5LDIwMjAwMDYzMjgsNjkyNjQwNj
-U5LC00MDkzNjEwMjUsLTE1MDgwODM3OTIsMTc2NDkyMzA0MCwt
-MTQyMzE2NTI4MF19
+eyJoaXN0b3J5IjpbLTE1NjgzNjkwNDMsLTY1MDQyMTEzOSwtNT
+c0MTU3MzcwLDEzNjc0MDI2ODksLTE4MTg0NzM1NywtMTcxNDA5
+MjM4MSwtMTIxNzgwNjQxNSwtMTMzMzg4ODQwMSwtNTczMjc4OD
+A3LC03MTgyNDEzMzAsLTEzODU1MDYwNzQsMTk5NTk2NTAwMiwx
+NDcyODUyMDMsLTMyOTAzMTQxOSwyMDIwMDA2MzI4LDY5MjY0MD
+Y1OSwtNDA5MzYxMDI1LC0xNTA4MDgzNzkyLDE3NjQ5MjMwNDAs
+LTE0MjMxNjUyODBdfQ==
 -->
