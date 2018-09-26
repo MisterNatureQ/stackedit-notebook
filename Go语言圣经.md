@@ -4566,6 +4566,7 @@ import (
 )
 // Extract makes an HTTP GET request to the specified URL, parses
 // the response as HTML, and returns the links in the HTML document.
+// 提取
 func Extract(url string) ([]string, error) {
 	resp, err := http.Get(url)
 	if err != nil {
@@ -8822,13 +8823,13 @@ func main() {
 	case <-time.After(10 * time.Second):
 		// Do nothing.
 	case <-abort:
-		fmt.Println("Launch
+		fmt.Println
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTY1MDQyMTEzOSwtNTc0MTU3MzcwLDEzNj
-c0MDI2ODksLTE4MTg0NzM1NywtMTcxNDA5MjM4MSwtMTIxNzgw
-NjQxNSwtMTMzMzg4ODQwMSwtNTczMjc4ODA3LC03MTgyNDEzMz
-AsLTEzODU1MDYwNzQsMTk5NTk2NTAwMiwxNDcyODUyMDMsLTMy
-OTAzMTQxOSwyMDIwMDA2MzI4LDY5MjY0MDY1OSwtNDA5MzYxMD
-I1LC0xNTA4MDgzNzkyLDE3NjQ5MjMwNDAsLTE0MjMxNjUyODAs
-MzkwMzUxMjAwXX0=
+eyJoaXN0b3J5IjpbMTc4NDc3NjUzMCwtNjUwNDIxMTM5LC01Nz
+QxNTczNzAsMTM2NzQwMjY4OSwtMTgxODQ3MzU3LC0xNzE0MDky
+MzgxLC0xMjE3ODA2NDE1LC0xMzMzODg4NDAxLC01NzMyNzg4MD
+csLTcxODI0MTMzMCwtMTM4NTUwNjA3NCwxOTk1OTY1MDAyLDE0
+NzI4NTIwMywtMzI5MDMxNDE5LDIwMjAwMDYzMjgsNjkyNjQwNj
+U5LC00MDkzNjEwMjUsLTE1MDgwODM3OTIsMTc2NDkyMzA0MCwt
+MTQyMzE2NTI4MF19
 -->
