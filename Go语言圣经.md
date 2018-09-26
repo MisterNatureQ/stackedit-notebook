@@ -4602,7 +4602,7 @@ func Extract(url string) ([]string, error) {
 
 上面的代码对之前的版本做了改进，现在links中存储的不是href属性的原始值，而是通过resp.Request.URL解析后的值。解析后，这些连接以绝对路径的形式存在，可以直接被http.Get访问。
 
-网页抓取的核心问题就是如何遍历图。在topoSort的例子中，已经展示了深度优先遍历，在网页抓取中，我们会展示如何用广度优先遍历图。在第8章，我们会介绍如何将深度优先和广度优先结合使用。
+**网页抓取的核心问题就是如何遍历图**。在topoSort的例子中，已经展示了深度优先遍历，在网页抓取中，我们会展示如何用广度优先遍历图。在第8章，我们会介绍如何将深度优先和广度优先结合使用。
 
 下面的函数实现了广度优先算法。调用者需要输入一个初始的待访问列表和一个函数f。待访问列表中的每个元素被定义为string类型。广度优先算法会为每个元素调用一次f。每次f执行完毕后，会返回一组待访问元素。这些元素会被加入到待访问列表中。当待访问列表中的所有元素都被访问后，breadthFirst函数运行结束。为了避免同一个元素被访问两次，代码中维护了一个map。
 
@@ -8823,13 +8823,13 @@ func main() {
 		// Do nothing.
 	case <-abort:
 		fmt.Println("Launch aborted!")
-		retu
+		re
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTU3NDE1NzM3MCwxMzY3NDAyNjg5LC0xOD
-E4NDczNTcsLTE3MTQwOTIzODEsLTEyMTc4MDY0MTUsLTEzMzM4
-ODg0MDEsLTU3MzI3ODgwNywtNzE4MjQxMzMwLC0xMzg1NTA2MD
-c0LDE5OTU5NjUwMDIsMTQ3Mjg1MjAzLC0zMjkwMzE0MTksMjAy
-MDAwNjMyOCw2OTI2NDA2NTksLTQwOTM2MTAyNSwtMTUwODA4Mz
-c5MiwxNzY0OTIzMDQwLC0xNDIzMTY1MjgwLDM5MDM1MTIwMCwt
-MTM5MTIyODI1Nl19
+eyJoaXN0b3J5IjpbMTQ2MjgwMDQ4NywtNTc0MTU3MzcwLDEzNj
+c0MDI2ODksLTE4MTg0NzM1NywtMTcxNDA5MjM4MSwtMTIxNzgw
+NjQxNSwtMTMzMzg4ODQwMSwtNTczMjc4ODA3LC03MTgyNDEzMz
+AsLTEzODU1MDYwNzQsMTk5NTk2NTAwMiwxNDcyODUyMDMsLTMy
+OTAzMTQxOSwyMDIwMDA2MzI4LDY5MjY0MDY1OSwtNDA5MzYxMD
+I1LC0xNTA4MDgzNzkyLDE3NjQ5MjMwNDAsLTE0MjMxNjUyODAs
+MzkwMzUxMjAwXX0=
 -->
