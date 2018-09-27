@@ -4606,6 +4606,9 @@ func Extract(url string) ([]string, error) {
 
 **网页抓取的核心问题就是如何遍历图**。在topoSort的例子中，已经展示了**深度优先遍历**，在网页抓取中，我们会展示如何用**广度优先遍历图**。**在第8章，我们会介绍如何将深度优先和广度优先结合使用**。
 
+[[图的遍历之 深度优先搜索和广度优先搜索](https://www.cnblogs.com/skywang12345/p/3711483.html)](http://www.cnblogs.com/skywang12345/p/3711483.html)
+[# 《算法4》图&深度优先与广度优先算法](https://blog.csdn.net/leonliu1995/article/details/78509599)
+
 下面的函数实现了**广度优先算法**。调用者需要输入一个初始的待访问列表和一个函数f。待访问列表中的每个元素被定义为string类型。广度优先算法会为每个元素调用一次f。每次f执行完毕后，会返回一组待访问元素。这些元素会被加入到待访问列表中。当待访问列表中的所有元素都被访问后，breadthFirst函数运行结束。为了避免同一个元素被访问两次，代码中维护了一个map。
 
 <u><i>gopl.io/ch5/findlinks3</i></u>
@@ -8813,24 +8816,13 @@ default:
 
 select会等待case中有能够执行的case时去执行。当条件满足时，select才会去通信并执行case之后的语句；这时候其它通信是不会执行的。一个没有任何case的select语句写作select{}，会永远地等待下去。
 
-让我们回到我们的火箭发射程序。time.After函数会立即返回一个channel，并起一个新的goroutine在经过特定的时间后向该channel发送一个独立的值。下面的select语句会一直等待直到两个事件中的一个到达，无论是abort事件或者一个10秒经过的事件。如果10秒经过了还没有abort事件进入，那么火箭就会发射。
-
-```go
-func main() {
-	// ...create abort channel...
-
-	fmt.Println("Commencing countdown.  Press return to abort.")
-	select {
-	case <-time.After(10 * time.Second):
-		// Do nothing.
-	case <-abort:
-		
+让我们回到我们的火箭发射程序。time.After函数会立即返回一个channel，并起一个新的goroutine在经过特定的时间后向该channel发送一个独立的值。下面的select语句会一直等待直到两个事件中的一个到达，无论是abort事件或者一个10秒经过的事件。如果10秒经过了还没有abort事件进
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE1NjgzNjkwNDMsLTY1MDQyMTEzOSwtNT
-c0MTU3MzcwLDEzNjc0MDI2ODksLTE4MTg0NzM1NywtMTcxNDA5
-MjM4MSwtMTIxNzgwNjQxNSwtMTMzMzg4ODQwMSwtNTczMjc4OD
-A3LC03MTgyNDEzMzAsLTEzODU1MDYwNzQsMTk5NTk2NTAwMiwx
-NDcyODUyMDMsLTMyOTAzMTQxOSwyMDIwMDA2MzI4LDY5MjY0MD
-Y1OSwtNDA5MzYxMDI1LC0xNTA4MDgzNzkyLDE3NjQ5MjMwNDAs
-LTE0MjMxNjUyODBdfQ==
+eyJoaXN0b3J5IjpbLTM0OTk1MzkwMiwtMTU2ODM2OTA0MywtNj
+UwNDIxMTM5LC01NzQxNTczNzAsMTM2NzQwMjY4OSwtMTgxODQ3
+MzU3LC0xNzE0MDkyMzgxLC0xMjE3ODA2NDE1LC0xMzMzODg4ND
+AxLC01NzMyNzg4MDcsLTcxODI0MTMzMCwtMTM4NTUwNjA3NCwx
+OTk1OTY1MDAyLDE0NzI4NTIwMywtMzI5MDMxNDE5LDIwMjAwMD
+YzMjgsNjkyNjQwNjU5LC00MDkzNjEwMjUsLTE1MDgwODM3OTIs
+MTc2NDkyMzA0MF19
 -->
