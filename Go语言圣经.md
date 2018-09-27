@@ -4614,7 +4614,7 @@ func Extract(url string) ([]string, error) {
 
 <u><i>gopl.io/ch5/findlinks3</i></u>
 ```Go
-// breadthFirst calls f for each item in the worklist.
+// breadthFirst calls f for each item in the worklist. **广度优先**
 // Any items returned by f are added to the worklist.
 // f is called at most once for each item.
 func breadthFirst(f func(item string) []string, worklist []string) {
@@ -8817,13 +8817,13 @@ default:
 
 select会等待case中有能够执行的case时去执行。当条件满足时，select才会去通信并执行case之后的语句；这时候其它通信是不会执行的。一个没有任何case的select语句写作select{}，会永远地等待下去。
 
-让我们回到我们的火箭发射程序。time.After函数会立即返回一个channel，并起一个新的goroutine在经过特定的时间后向该channel发送一个独立的值。下面的select语句会一直等待直到两个事件中的一个到达，无论是abort事件或者一个10秒经过的事件。如果10秒经过了还没有abort事件进
+让我们回到我们的火箭发射程序。time.After函数会立即返回一个channel，并起一个新的goroutine在经过特定的时间后向该channel发送一个独立的值。下面的select语句会一直等待直到两个事件中的一个到达，无论是abort事件或者一个10秒经过的事件。如果10秒经过了还没有abor
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNDMwMzk4MDU0LC0xNTY4MzY5MDQzLC02NT
-A0MjExMzksLTU3NDE1NzM3MCwxMzY3NDAyNjg5LC0xODE4NDcz
-NTcsLTE3MTQwOTIzODEsLTEyMTc4MDY0MTUsLTEzMzM4ODg0MD
-EsLTU3MzI3ODgwNywtNzE4MjQxMzMwLC0xMzg1NTA2MDc0LDE5
-OTU5NjUwMDIsMTQ3Mjg1MjAzLC0zMjkwMzE0MTksMjAyMDAwNj
-MyOCw2OTI2NDA2NTksLTQwOTM2MTAyNSwtMTUwODA4Mzc5Miwx
-NzY0OTIzMDQwXX0=
+eyJoaXN0b3J5IjpbOTgyOTQ5ODk5LDQzMDM5ODA1NCwtMTU2OD
+M2OTA0MywtNjUwNDIxMTM5LC01NzQxNTczNzAsMTM2NzQwMjY4
+OSwtMTgxODQ3MzU3LC0xNzE0MDkyMzgxLC0xMjE3ODA2NDE1LC
+0xMzMzODg4NDAxLC01NzMyNzg4MDcsLTcxODI0MTMzMCwtMTM4
+NTUwNjA3NCwxOTk1OTY1MDAyLDE0NzI4NTIwMywtMzI5MDMxND
+E5LDIwMjAwMDYzMjgsNjkyNjQwNjU5LC00MDkzNjEwMjUsLTE1
+MDgwODM3OTJdfQ==
 -->
