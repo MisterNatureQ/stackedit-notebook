@@ -2755,7 +2755,7 @@ func main() {
 
 ## 4.3. Map
 
-哈希表是一种巧妙并且实用的数据结构。它是一个无序的key/value对的集合，其中**所有的key都是不同的**，然后通过给定的key可以在常数时间复杂度内检索、更新或删除对应的value。
+哈希表是一种巧妙并且实用的数据结构。它是一个**无序的key/value对的集合**，其中**所有的key都是不同的**，然后通过给定的key可以在常数时间复杂度内检索、更新或删除对应的value。
 
 在Go语言中，**一个map就是一个哈希表的引用**，map类型可以写为map[K]V，其中K和V分别对应key和value。map中所有的key都有相同的类型，所有的value也有着相同的类型，但是key和value之间可以是不同的数据类型。其中**K对应的key必须是支持==比较运算符的数据类型**，所以map可以通过测试key是否相等来判断是否已经存在。虽然浮点数类型也是支持相等运算符比较的，但是**将浮点数用做key类型则是一个坏的想法**，正如第三章提到的，最坏的情况是可能出现的NaN和任何浮点数都不相等。对于V对应的value数据类型则没有任何的限制。
 
@@ -8817,13 +8817,13 @@ default:
 
 select会等待case中有能够执行的case时去执行。当条件满足时，select才会去通信并执行case之后的语句；这时候其它通信是不会执行的。一个没有任何case的select语句写作select{}，会永远地等待下去。
 
-让我们回到我们的火箭发射程序。time.After函数会立即返回一个channel，并起一个新的goroutine在经过特定的时间后向该channel发送一个独立的值。下面的select语句会一直等待直到两个事件中的一个到达，无论是abort事件或者一个10秒经过的事件。如果10秒经过了还没有abor
+让我们回到我们的火箭发射程序。time.After函数会立即返回一个channel，并起一个新的goroutine在经过特定的时间后向该channel发送一个独立的值。下面的select语句会一直等待直到两个事件中的一个到达，无论是abort事件或者一个10秒经过的事件。如果10秒经过了还没有
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbOTgyOTQ5ODk5LDQzMDM5ODA1NCwtMTU2OD
-M2OTA0MywtNjUwNDIxMTM5LC01NzQxNTczNzAsMTM2NzQwMjY4
-OSwtMTgxODQ3MzU3LC0xNzE0MDkyMzgxLC0xMjE3ODA2NDE1LC
-0xMzMzODg4NDAxLC01NzMyNzg4MDcsLTcxODI0MTMzMCwtMTM4
-NTUwNjA3NCwxOTk1OTY1MDAyLDE0NzI4NTIwMywtMzI5MDMxND
-E5LDIwMjAwMDYzMjgsNjkyNjQwNjU5LC00MDkzNjEwMjUsLTE1
-MDgwODM3OTJdfQ==
+eyJoaXN0b3J5IjpbLTcwNjE3MjI3Myw5ODI5NDk4OTksNDMwMz
+k4MDU0LC0xNTY4MzY5MDQzLC02NTA0MjExMzksLTU3NDE1NzM3
+MCwxMzY3NDAyNjg5LC0xODE4NDczNTcsLTE3MTQwOTIzODEsLT
+EyMTc4MDY0MTUsLTEzMzM4ODg0MDEsLTU3MzI3ODgwNywtNzE4
+MjQxMzMwLC0xMzg1NTA2MDc0LDE5OTU5NjUwMDIsMTQ3Mjg1Mj
+AzLC0zMjkwMzE0MTksMjAyMDAwNjMyOCw2OTI2NDA2NTksLTQw
+OTM2MTAyNV19
 -->
