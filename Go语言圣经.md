@@ -2393,7 +2393,7 @@ func zero(ptr *[32]byte) {
 
 数组和slice之间有着紧密的联系。一个slice是一个轻量级的数据结构，提供了访问数组子序列（或者全部）元素的功能，而且slice的底层确实引用一个数组对象。**一个slice由三个部分构成：指针、长度和容量。指针指向第一个slice元素对应的底层数组元素的地址，要注意的是slice的第一个元素并不一定就是数组的第一个元素。长度对应slice中元素的数目；长度不能超过容量，容量一般是从slice的开始位置到底层数据的结尾位置。内置的len和cap函数分别返回slice的长度和容量。**
 
-多个slice之间可以共享底层的数据，并且引用的数组部分区间可能重叠。图4.1显示了表示一年中每个月份名字的**字符串数组**，还有重叠引用了该数组的两个slice。数组这样定义
+**多个slice之间可以共享底层的数据，并且引用的数组部分区间可能重叠**。图4.1显示了表示一年中每个月份名字的**字符串数组**，还有重叠引用了该数组的两个slice。数组这样定义
 
 ```Go
 months := [...]string{1: "January", /* ... */, 12: "December"} // 这里是一个数组 
@@ -2401,7 +2401,7 @@ months := [...]string{1: "January", /* ... */, 12: "December"} // 这里是一�
 
 因此一月份是months[1]，十二月份是months[12]。**通常，数组的第一个元素从索引0开始**，但是月份一般是从1开始的，因此我们声明数组时直接跳过第0个元素，第0个元素会被自动初始化为空字符串。
 
-**slice的切片操作s[i:j]，其中0 ≤ i≤ j≤ cap(s)，用于创建一个新的slice，引用s的从第i个元素开始到第j-1个元素的子序列。新的slice将只有j-i个元素。如果i位置的索引被省略的话将使用0代替，如果j位置的索引被省略的话将使用len(s)代替。**因此，months[1:13]切片操作将引用全部有效的月份，和months[1:]操作等价；months[:]切片操作则是引用整个数组。让我们分别定义表示第二季度和北方夏天月份的slice，它们有重叠部分：
+**slice的切片操作s[i:j]，其中0 ≤ i≤ j≤ cap(s)，用于创建一个新的slice，引用s的从第i个元素开始到第j-1个元素的子序列。新的slice将只有j-i个元素。如果i位置的索引被省略的话将使用0代替，如果j位置的索引被省略的话将使用len(s)代替**。因此，months[1:13]切片操作将引用全部有效的月份，和months[1:]操作等价；months[:]切片操作则是引用整个数组。让我们分别定义表示第二季度和北方夏天月份的slice，它们有重叠部分：
 
 ![](../images/ch4-01.png)
 ![](https://github.com/gopl-zh/gopl-zh.github.com/blob/master/images/ch4-01.png?raw=true)
@@ -8817,13 +8817,13 @@ default:
 
 select会等待case中有能够执行的case时去执行。当条件满足时，select才会去通信并执行case之后的语句；这时候其它通信是不会执行的。一个没有任何case的select语句写作select{}，会永远地等待下去。
 
-让我们回到我们的火箭发射程序。time.After函数会立即返回一个channel，并起一个新的goroutine在经过特定的时间后向该channel发送一个独立的值。下面的s
+让我们回到我们的火箭发射程序。time.After函数会立即返回一个channel，并起一个新的goroutine在经过特定的时间后向该channel发送一个独立的值。
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEzOTY0NDA1MzcsLTExNjE3MDExODIsMT
-gzNTUzMjk4MCwxMzE1Njk3MTY1LDM1NjY1NzMwNCwxNzQ4MDY4
-MDgsLTcwNjE3MjI3Myw5ODI5NDk4OTksNDMwMzk4MDU0LC0xNT
-Y4MzY5MDQzLC02NTA0MjExMzksLTU3NDE1NzM3MCwxMzY3NDAy
-Njg5LC0xODE4NDczNTcsLTE3MTQwOTIzODEsLTEyMTc4MDY0MT
-UsLTEzMzM4ODg0MDEsLTU3MzI3ODgwNywtNzE4MjQxMzMwLC0x
-Mzg1NTA2MDc0XX0=
+eyJoaXN0b3J5IjpbLTcyNzEwMjg5OSwtMTM5NjQ0MDUzNywtMT
+E2MTcwMTE4MiwxODM1NTMyOTgwLDEzMTU2OTcxNjUsMzU2NjU3
+MzA0LDE3NDgwNjgwOCwtNzA2MTcyMjczLDk4Mjk0OTg5OSw0Mz
+AzOTgwNTQsLTE1NjgzNjkwNDMsLTY1MDQyMTEzOSwtNTc0MTU3
+MzcwLDEzNjc0MDI2ODksLTE4MTg0NzM1NywtMTcxNDA5MjM4MS
+wtMTIxNzgwNjQxNSwtMTMzMzg4ODQwMSwtNTczMjc4ODA3LC03
+MTgyNDEzMzBdfQ==
 -->
