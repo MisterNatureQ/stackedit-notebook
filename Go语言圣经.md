@@ -2831,7 +2831,7 @@ for name, age := range ages {
 }
 ```
 
-**Map的迭代顺序是不确定的，并且不同的哈希函数实现可能导致不同的遍历顺序。**在实践中，遍历的顺序是随机的，每一次遍历的顺序都不相同。这是故意的，每次都使用随机的遍历顺序可以强制要求程序不会依赖具体的哈希函数实现。**如果要按顺序遍历key/value对，我们必须显式地对key进行排序，可以使用sort包的Strings函数对字符串slice进行排序**。下面是常见的处理方式：
+**Map的迭代顺序是不确定的，并且不同的哈希函数实现可能导致不同的遍历顺序**。在实践中，遍历的顺序是随机的，每一次遍历的顺序都不相同。这是故意的，每次都使用随机的遍历顺序可以强制要求程序不会依赖具体的哈希函数实现。**如果要按顺序遍历key/value对，我们必须显式地对key进行排序，可以使用sort包的Strings函数对字符串slice进行排序**。下面是常见的处理方式：
 
 ```Go
 import "sort"
@@ -8819,11 +8819,11 @@ select会等待case中有能够执行的case时去执行。当条件满足时，
 
 让我们回到我们的火箭发射程序。time.After函数会立即返回一个ch
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEyNzMyMDcxMCw1NDI1NjYwNDMsMTg4Mj
-QxNDA4LC03MjcxMDI4OTksLTEzOTY0NDA1MzcsLTExNjE3MDEx
-ODIsMTgzNTUzMjk4MCwxMzE1Njk3MTY1LDM1NjY1NzMwNCwxNz
-Q4MDY4MDgsLTcwNjE3MjI3Myw5ODI5NDk4OTksNDMwMzk4MDU0
-LC0xNTY4MzY5MDQzLC02NTA0MjExMzksLTU3NDE1NzM3MCwxMz
-Y3NDAyNjg5LC0xODE4NDczNTcsLTE3MTQwOTIzODEsLTEyMTc4
-MDY0MTVdfQ==
+eyJoaXN0b3J5IjpbNTQ1OTAzNDgyLC0xMjczMjA3MTAsNTQyNT
+Y2MDQzLDE4ODI0MTQwOCwtNzI3MTAyODk5LC0xMzk2NDQwNTM3
+LC0xMTYxNzAxMTgyLDE4MzU1MzI5ODAsMTMxNTY5NzE2NSwzNT
+Y2NTczMDQsMTc0ODA2ODA4LC03MDYxNzIyNzMsOTgyOTQ5ODk5
+LDQzMDM5ODA1NCwtMTU2ODM2OTA0MywtNjUwNDIxMTM5LC01Nz
+QxNTczNzAsMTM2NzQwMjY4OSwtMTgxODQ3MzU3LC0xNzE0MDky
+MzgxXX0=
 -->
