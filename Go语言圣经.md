@@ -2503,7 +2503,7 @@ s = []int(nil) // len(s) == 0, s == nil 转换表达式来生成一个对应类�
 s = []int{}    // len(s) == 0, s != nil
 ```
 
-**如果你需要测试一个slice是否是空的，使用len(s) == 0来判断，而不应该用s == nil来判断。**除了和nil相等比较外，一个nil值的slice的行为和其它任意0长度的slice一样；例如reverse(nil)也是安全的。除了文档已经明确说明的地方，所有的Go语言函数应该以相同的方式对待nil值的slice和0长度的slice。
+**如果你需要测试一个slice是否是空的，使用len(s) == 0来判断，而不应该用s == nil来判断**。除了和nil相等比较外，一个nil值的slice的行为和其它任意0长度的slice一样；例如reverse(nil)也是安全的。除了文档已经明确说明的地方，所有的Go语言函数应该以相同的方式对待nil值的slice和0长度的slice。
 
 内置的make函数创建一个指定元素类型、长度和容量的slice。容量部分可以省略，在这种情况下，容量将等于长度。
 
@@ -8819,11 +8819,11 @@ select会等待case中有能够执行的case时去执行。当条件满足时，
 
 让我们回到我们的火箭发射程序。time.After函数会立即返回一个channel，并起一个新的goroutine在经过特定的时间后向该channel发送一个独立的值。下面的select语句会
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE2MjYyODU5MDAsMTMxNTY5NzE2NSwzNT
-Y2NTczMDQsMTc0ODA2ODA4LC03MDYxNzIyNzMsOTgyOTQ5ODk5
-LDQzMDM5ODA1NCwtMTU2ODM2OTA0MywtNjUwNDIxMTM5LC01Nz
-QxNTczNzAsMTM2NzQwMjY4OSwtMTgxODQ3MzU3LC0xNzE0MDky
-MzgxLC0xMjE3ODA2NDE1LC0xMzMzODg4NDAxLC01NzMyNzg4MD
-csLTcxODI0MTMzMCwtMTM4NTUwNjA3NCwxOTk1OTY1MDAyLDE0
-NzI4NTIwM119
+eyJoaXN0b3J5IjpbMTgzNTUzMjk4MCwxMzE1Njk3MTY1LDM1Nj
+Y1NzMwNCwxNzQ4MDY4MDgsLTcwNjE3MjI3Myw5ODI5NDk4OTks
+NDMwMzk4MDU0LC0xNTY4MzY5MDQzLC02NTA0MjExMzksLTU3ND
+E1NzM3MCwxMzY3NDAyNjg5LC0xODE4NDczNTcsLTE3MTQwOTIz
+ODEsLTEyMTc4MDY0MTUsLTEzMzM4ODg0MDEsLTU3MzI3ODgwNy
+wtNzE4MjQxMzMwLC0xMzg1NTA2MDc0LDE5OTU5NjUwMDIsMTQ3
+Mjg1MjAzXX0=
 -->
