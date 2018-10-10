@@ -2633,7 +2633,7 @@ fmt.Println(x)      // "[1 2 3 4 5 6 1 2 3 4 5 6]"
 func appendInt(x []int, y ...int) []int {
 	var z []int
 	zlen := len(x) + len(y)
-	// ...expand z to at least zlen... 这里capacity 扩展的部分还是和之前一样
+	// ...expand z to at least zlen... 这里capacity 扩展的部分还是和之前一样  前面省略的代码是内存扩展的部分
 	copy(z[len(x):], y)  // 在这里不会有 z 的 capacity 不足的问题么  
 	//copy函数用于将内容从一个数组切片复制到另一个数组切片。如果加入的两个数组切片不一样大，就会按其中较小的那个数组切片的元素个数进行复制
 	return z
@@ -8817,13 +8817,13 @@ default:
 
 select会等待case中有能够执行的case时去执行。当条件满足时，select才会去通信并执行case之后的语句；这时候其它通信是不会执行的。一个没有任何case的select语句写作select{}，会永远地等待下去。
 
-让我们回到我们的火箭发射程序。time.After函数会立即返回一个channel，并起一个新的goroutin
+让我们回到我们的火箭发射程序。time.After函数会立即返回一个ch
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNTQyNTY2MDQzLDE4ODI0MTQwOCwtNzI3MT
-AyODk5LC0xMzk2NDQwNTM3LC0xMTYxNzAxMTgyLDE4MzU1MzI5
-ODAsMTMxNTY5NzE2NSwzNTY2NTczMDQsMTc0ODA2ODA4LC03MD
-YxNzIyNzMsOTgyOTQ5ODk5LDQzMDM5ODA1NCwtMTU2ODM2OTA0
-MywtNjUwNDIxMTM5LC01NzQxNTczNzAsMTM2NzQwMjY4OSwtMT
-gxODQ3MzU3LC0xNzE0MDkyMzgxLC0xMjE3ODA2NDE1LC0xMzMz
-ODg4NDAxXX0=
+eyJoaXN0b3J5IjpbLTEyNzMyMDcxMCw1NDI1NjYwNDMsMTg4Mj
+QxNDA4LC03MjcxMDI4OTksLTEzOTY0NDA1MzcsLTExNjE3MDEx
+ODIsMTgzNTUzMjk4MCwxMzE1Njk3MTY1LDM1NjY1NzMwNCwxNz
+Q4MDY4MDgsLTcwNjE3MjI3Myw5ODI5NDk4OTksNDMwMzk4MDU0
+LC0xNTY4MzY5MDQzLC02NTA0MjExMzksLTU3NDE1NzM3MCwxMz
+Y3NDAyNjg5LC0xODE4NDczNTcsLTE3MTQwOTIzODEsLTEyMTc4
+MDY0MTVdfQ==
 -->
