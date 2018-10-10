@@ -2627,7 +2627,7 @@ x = append(x, x...) // append the slice x
 fmt.Println(x)      // "[1 2 3 4 5 6 1 2 3 4 5 6]"
 ```
 
-通过下面的小修改，我们可以达到append函数类似的功能。其中在appendInt函数参数中的最后的“...”省略号表示接收变长的参数为slice。我们将在5.7节详细解释这个特性。
+通过下面的小修改，我们可以达到append函数类似的功能。其中在appendInt**函数参数中的最后的“...”省略号表示接收变长的参数为slice**。我们将在5.7节详细解释这个特性。
 
 ```Go
 func appendInt(x []int, y ...int) []int {
@@ -8817,9 +8817,9 @@ default:
 
 select会等待case中有能够执行的case时去执行。当条件满足时，select才会去通信并执行case之后的语句；这时候其它通信是不会执行的。一个没有任何case的select语句写作select{}，会永远地等待下去。
 
-让我们回到我们的火箭发射程序。time.After函数会立即返回一个channel，并起一个新的goroutine在
+让我们回到我们的火箭发射程序。time.After函数会立即返回一个channel，并起一个新的goroutin
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNDA0MjkxOTI4LDE4ODI0MTQwOCwtNzI3MT
+eyJoaXN0b3J5IjpbNTQyNTY2MDQzLDE4ODI0MTQwOCwtNzI3MT
 AyODk5LC0xMzk2NDQwNTM3LC0xMTYxNzAxMTgyLDE4MzU1MzI5
 ODAsMTMxNTY5NzE2NSwzNTY2NTczMDQsMTc0ODA2ODA4LC03MD
 YxNzIyNzMsOTgyOTQ5ODk5LDQzMDM5ODA1NCwtMTU2ODM2OTA0
