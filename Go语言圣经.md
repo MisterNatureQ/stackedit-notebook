@@ -2435,7 +2435,7 @@ fmt.Println(endlessSummer)  // "[June July August September October]"
 
 另外，字符串的切片操作和[]byte字节类型切片的切片操作是类似的。都写作x[m:n]，并且都是返回一个原始字节系列的子序列，底层都是共享之前的底层数组，因此这种操作都是常量时间复杂度。x[m:n]切片操作对于字符串则生成一个新字符串，如果x是[]byte的话则生成一个新的[]byte。
 
-因为slice值包含指向第一个slice元素的指针，因此向函数传递slice将允许在函数内部修改底层数组的元素。换句话说，**复制一个slice只是对底层的数组创建了一个新的slice别名（§2.3.2）**。下面的reverse函数在原内存空间将[]int类型的slice反转，而且它可以用于任意长度的slice。
+**因为slice值包含指向第一个slice元素的指针，因此向函数传递slice将允许在函数内部修改底层数组的元素。换句话说，复制一个slice只是对底层的数组创建了一个新的slice别名（§2.3.2）**。下面的reverse函数在原内存空间将[]int类型的slice反转，而且它可以用于任意长度的slice。
 
 <u><i>gopl.io/ch4/rev</i></u>
 ```Go
@@ -8819,11 +8819,11 @@ select会等待case中有能够执行的case时去执行。当条件满足时，
 
 让我们回到我们的火箭发射程序。time.After函数会立即返回一个channel，并起一个新的goroutine在经过特定的时间后向该channel发送一个独立的值。下面的select语句会一直等待直到两个事件中的一个到达，无论是abort事件或者一个10秒经过的事件
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTc0ODA2ODA4LC03MDYxNzIyNzMsOTgyOT
-Q5ODk5LDQzMDM5ODA1NCwtMTU2ODM2OTA0MywtNjUwNDIxMTM5
-LC01NzQxNTczNzAsMTM2NzQwMjY4OSwtMTgxODQ3MzU3LC0xNz
-E0MDkyMzgxLC0xMjE3ODA2NDE1LC0xMzMzODg4NDAxLC01NzMy
-Nzg4MDcsLTcxODI0MTMzMCwtMTM4NTUwNjA3NCwxOTk1OTY1MD
-AyLDE0NzI4NTIwMywtMzI5MDMxNDE5LDIwMjAwMDYzMjgsNjky
-NjQwNjU5XX0=
+eyJoaXN0b3J5IjpbMzU2NjU3MzA0LDE3NDgwNjgwOCwtNzA2MT
+cyMjczLDk4Mjk0OTg5OSw0MzAzOTgwNTQsLTE1NjgzNjkwNDMs
+LTY1MDQyMTEzOSwtNTc0MTU3MzcwLDEzNjc0MDI2ODksLTE4MT
+g0NzM1NywtMTcxNDA5MjM4MSwtMTIxNzgwNjQxNSwtMTMzMzg4
+ODQwMSwtNTczMjc4ODA3LC03MTgyNDEzMzAsLTEzODU1MDYwNz
+QsMTk5NTk2NTAwMiwxNDcyODUyMDMsLTMyOTAzMTQxOSwyMDIw
+MDA2MzI4XX0=
 -->
