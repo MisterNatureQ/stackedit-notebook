@@ -2520,7 +2520,7 @@ make([]T, len, cap) // same as make([]T, cap)[:len]
 
 ### 4.2.1. append函数
 
-内置的append函数用于向slice追加元素：
+**内置的append函数用于向slice追加元素**：
 
 ```Go
 var runes []rune
@@ -8817,13 +8817,13 @@ default:
 
 select会等待case中有能够执行的case时去执行。当条件满足时，select才会去通信并执行case之后的语句；这时候其它通信是不会执行的。一个没有任何case的select语句写作select{}，会永远地等待下去。
 
-让我们回到我们的火箭发射程序。time.After函数会立即返回一个channel，并起一个新的goroutine在经过特定的时间后向该channel发送一个独立的值。下面的select语句会
+让我们回到我们的火箭发射程序。time.After函数会立即返回一个channel，并起一个新的goroutine在经过特定的时间后向该channel发送一个独立的值。下面的selec
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTgzNTUzMjk4MCwxMzE1Njk3MTY1LDM1Nj
-Y1NzMwNCwxNzQ4MDY4MDgsLTcwNjE3MjI3Myw5ODI5NDk4OTks
-NDMwMzk4MDU0LC0xNTY4MzY5MDQzLC02NTA0MjExMzksLTU3ND
-E1NzM3MCwxMzY3NDAyNjg5LC0xODE4NDczNTcsLTE3MTQwOTIz
-ODEsLTEyMTc4MDY0MTUsLTEzMzM4ODg0MDEsLTU3MzI3ODgwNy
-wtNzE4MjQxMzMwLC0xMzg1NTA2MDc0LDE5OTU5NjUwMDIsMTQ3
-Mjg1MjAzXX0=
+eyJoaXN0b3J5IjpbLTExNjE3MDExODIsMTgzNTUzMjk4MCwxMz
+E1Njk3MTY1LDM1NjY1NzMwNCwxNzQ4MDY4MDgsLTcwNjE3MjI3
+Myw5ODI5NDk4OTksNDMwMzk4MDU0LC0xNTY4MzY5MDQzLC02NT
+A0MjExMzksLTU3NDE1NzM3MCwxMzY3NDAyNjg5LC0xODE4NDcz
+NTcsLTE3MTQwOTIzODEsLTEyMTc4MDY0MTUsLTEzMzM4ODg0MD
+EsLTU3MzI3ODgwNywtNzE4MjQxMzMwLC0xMzg1NTA2MDc0LDE5
+OTU5NjUwMDJdfQ==
 -->
