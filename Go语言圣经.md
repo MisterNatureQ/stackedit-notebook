@@ -2389,7 +2389,7 @@ func zero(ptr *[32]byte) {
 
 ## 4.2. Slice
 
-Slice（切片）代表变长的序列，序列中每个元素都有相同的类型。一个slice类型一般写作[]T，其中T代表slice中元素的类型；slice的语法和数组很像，只是没有固定长度而已。
+**Slice（切片）代表变长的序列，序列中每个元素都有相同的类型。一个slice类型一般写作[]T，其中T代表slice中元素的类型；slice的语法和数组很像，只是没有固定长度而已。**
 
 数组和slice之间有着紧密的联系。一个slice是一个轻量级的数据结构，提供了访问数组子序列（或者全部）元素的功能，而且slice的底层确实引用一个数组对象。**一个slice由三个部分构成：指针、长度和容量。指针指向第一个slice元素对应的底层数组元素的地址，要注意的是slice的第一个元素并不一定就是数组的第一个元素。长度对应slice中元素的数目；长度不能超过容量，容量一般是从slice的开始位置到底层数据的结尾位置。内置的len和cap函数分别返回slice的长度和容量。**
 
@@ -2399,7 +2399,7 @@ Slice（切片）代表变长的序列，序列中每个元素都有相同的类
 months := [...]string{1: "January", /* ... */, 12: "December"} // 这里是一个数组 
 ```
 
-因此一月份是months[1]，十二月份是months[12]。通常，数组的第一个元素从索引0开始，但是月份一般是从1开始的，因此我们声明数组时直接跳过第0个元素，第0个元素会被自动初始化为空字符串。
+因此一月份是months[1]，十二月份是months[12]。**通常，数组的第一个元素从索引0开始**，但是月份一般是从1开始的，因此我们声明数组时直接跳过第0个元素，第0个元素会被自动初始化为空字符串。
 
 slice的切片操作s[i:j]，其中0 ≤ i≤ j≤ cap(s)，用于创建一个新的slice，引用s的从第i个元素开始到第j-1个元素的子序列。新的slice将只有j-i个元素。如果i位置的索引被省略的话将使用0代替，如果j位置的索引被省略的话将使用len(s)代替。因此，months[1:13]切片操作将引用全部有效的月份，和months[1:]操作等价；months[:]切片操作则是引用整个数组。让我们分别定义表示第二季度和北方夏天月份的slice，它们有重叠部分：
 
@@ -2821,7 +2821,7 @@ ages["bob"]++
 _ = &ages["bob"] // compile error: cannot take address of map element
 ```
 
-禁止对map元素取址的原因是map可能随着元素数量的增长而重新分配更大的内存空间，从而可能导致之前的地址无效。
+**禁止对map元素取址的原因是map可能随着元素数量的增长而重新分配更大的内存空间，从而可能导致之前的地址无效。**
 
 要想遍历map中全部的key/value对的话，可以使用range风格的for循环实现，和之前的slice遍历语法类似。下面的迭代语句将在每次迭代时设置name和age变量，它们对应下一个键/值对：
 
@@ -8817,13 +8817,13 @@ default:
 
 select会等待case中有能够执行的case时去执行。当条件满足时，select才会去通信并执行case之后的语句；这时候其它通信是不会执行的。一个没有任何case的select语句写作select{}，会永远地等待下去。
 
-让我们回到我们的火箭发射程序。time.After函数会立即返回一个channel，并起一个新的goroutine在经过特定的时间后向该channel发送一个独立的值。下面的select语句会一直等待直到两个事件中的一个到达，无论是abort事件或者一个10秒经过的事件。如果10秒经过了还没有
+让我们回到我们的火箭发射程序。time.After函数会立即返回一个channel，并起一个新的goroutine在经过特定的时间后向该channel发送一个独立的值。下面的select语句会一直等待直到两个事件中的一个到达，无论是abort事件或者一个10秒经过的事件
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTcwNjE3MjI3Myw5ODI5NDk4OTksNDMwMz
-k4MDU0LC0xNTY4MzY5MDQzLC02NTA0MjExMzksLTU3NDE1NzM3
-MCwxMzY3NDAyNjg5LC0xODE4NDczNTcsLTE3MTQwOTIzODEsLT
-EyMTc4MDY0MTUsLTEzMzM4ODg0MDEsLTU3MzI3ODgwNywtNzE4
-MjQxMzMwLC0xMzg1NTA2MDc0LDE5OTU5NjUwMDIsMTQ3Mjg1Mj
-AzLC0zMjkwMzE0MTksMjAyMDAwNjMyOCw2OTI2NDA2NTksLTQw
-OTM2MTAyNV19
+eyJoaXN0b3J5IjpbMTc0ODA2ODA4LC03MDYxNzIyNzMsOTgyOT
+Q5ODk5LDQzMDM5ODA1NCwtMTU2ODM2OTA0MywtNjUwNDIxMTM5
+LC01NzQxNTczNzAsMTM2NzQwMjY4OSwtMTgxODQ3MzU3LC0xNz
+E0MDkyMzgxLC0xMjE3ODA2NDE1LC0xMzMzODg4NDAxLC01NzMy
+Nzg4MDcsLTcxODI0MTMzMCwtMTM4NTUwNjA3NCwxOTk1OTY1MD
+AyLDE0NzI4NTIwMywtMzI5MDMxNDE5LDIwMjAwMDYzMjgsNjky
+NjQwNjU5XX0=
 -->
