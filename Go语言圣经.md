@@ -2607,7 +2607,7 @@ func main() {
 runes = append(runes, r)
 ```
 
-更新slice变量不仅对调用append函数是必要的，实际上对应任何可能导致长度、容量或底层数组变化的操作都是必要的。要正确地使用slice，需要记住尽管底层数组的元素是间接访问的，但是slice对应结构体本身的指针、长度和容量部分是直接访问的。要更新这些信息需要像上面例子那样一个显式的赋值操作。从这个角度看，**slice并不是一个纯粹的引用类型，它实际上是一个类似下面结构体的聚合类型：**
+更新slice变量不仅对调用append函数是必要的，实际上对应任何可能导致长度、容量或底层数组变化的操作都是必要的。**要正确地使用slice，需要记住尽管底层数组的元素是间接访问的，但是slice对应结构体本身的指针、长度和容量部分是直接访问的。要更新这些信息需要像上面例子那样一个显式的赋值操作。从这个角度看，slice并不是一个纯粹的引用类型，它实际上是一个类似下面结构体的聚合类型：**
 
 ```Go
 type IntSlice struct {
@@ -8817,13 +8817,13 @@ default:
 
 select会等待case中有能够执行的case时去执行。当条件满足时，select才会去通信并执行case之后的语句；这时候其它通信是不会执行的。一个没有任何case的select语句写作select{}，会永远地等待下去。
 
-让我们回到我们的火箭发射程序。time.After函数会立即返回一个channel，并起一个新的goroutine在经过
+让我们回到我们的火箭发射程序。time.After函数会立即返回一个channel，并起一个新的goroutine在
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTg4MjQxNDA4LC03MjcxMDI4OTksLTEzOT
-Y0NDA1MzcsLTExNjE3MDExODIsMTgzNTUzMjk4MCwxMzE1Njk3
-MTY1LDM1NjY1NzMwNCwxNzQ4MDY4MDgsLTcwNjE3MjI3Myw5OD
-I5NDk4OTksNDMwMzk4MDU0LC0xNTY4MzY5MDQzLC02NTA0MjEx
-MzksLTU3NDE1NzM3MCwxMzY3NDAyNjg5LC0xODE4NDczNTcsLT
-E3MTQwOTIzODEsLTEyMTc4MDY0MTUsLTEzMzM4ODg0MDEsLTU3
-MzI3ODgwN119
+eyJoaXN0b3J5IjpbNDA0MjkxOTI4LDE4ODI0MTQwOCwtNzI3MT
+AyODk5LC0xMzk2NDQwNTM3LC0xMTYxNzAxMTgyLDE4MzU1MzI5
+ODAsMTMxNTY5NzE2NSwzNTY2NTczMDQsMTc0ODA2ODA4LC03MD
+YxNzIyNzMsOTgyOTQ5ODk5LDQzMDM5ODA1NCwtMTU2ODM2OTA0
+MywtNjUwNDIxMTM5LC01NzQxNTczNzAsMTM2NzQwMjY4OSwtMT
+gxODQ3MzU3LC0xNzE0MDkyMzgxLC0xMjE3ODA2NDE1LC0xMzMz
+ODg4NDAxXX0=
 -->
