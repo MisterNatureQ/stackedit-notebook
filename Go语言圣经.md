@@ -2442,7 +2442,7 @@ fmt.Println(endlessSummer)  // "[June July August September October]"
 // reverse reverses a slice of ints in place.
 func reverse(s []int) {
 	for i, j := 0, len(s)-1; i < j; i, j = i+1, j-1 {
-		s[i], s[j] = s[j], s[i]
+		s[i], s[j] = s[j], s[i] // 不需要中间变量中转？
 	}
 }
 ```
@@ -8817,13 +8817,13 @@ default:
 
 select会等待case中有能够执行的case时去执行。当条件满足时，select才会去通信并执行case之后的语句；这时候其它通信是不会执行的。一个没有任何case的select语句写作select{}，会永远地等待下去。
 
-让我们回到我们的火箭发射程序。time.After函数会立即返回一个channel，并起一个新的goroutine在经过特定的时间后向该channel发送一个独立的值。下面的select语句会一直等待直到两个事件中的一个到达，无论是abort事件或者一个10秒经过的事件
+让我们回到我们的火箭发射程序。time.After函数会立即返回一个channel，并起一个新的goroutine在经过特定的时间后向该channel发送一个独立的值。下面的select语句会一直等待直到两个事件中的一个到达，无
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMzU2NjU3MzA0LDE3NDgwNjgwOCwtNzA2MT
-cyMjczLDk4Mjk0OTg5OSw0MzAzOTgwNTQsLTE1NjgzNjkwNDMs
-LTY1MDQyMTEzOSwtNTc0MTU3MzcwLDEzNjc0MDI2ODksLTE4MT
-g0NzM1NywtMTcxNDA5MjM4MSwtMTIxNzgwNjQxNSwtMTMzMzg4
-ODQwMSwtNTczMjc4ODA3LC03MTgyNDEzMzAsLTEzODU1MDYwNz
-QsMTk5NTk2NTAwMiwxNDcyODUyMDMsLTMyOTAzMTQxOSwyMDIw
-MDA2MzI4XX0=
+eyJoaXN0b3J5IjpbMTMxNTY5NzE2NSwzNTY2NTczMDQsMTc0OD
+A2ODA4LC03MDYxNzIyNzMsOTgyOTQ5ODk5LDQzMDM5ODA1NCwt
+MTU2ODM2OTA0MywtNjUwNDIxMTM5LC01NzQxNTczNzAsMTM2Nz
+QwMjY4OSwtMTgxODQ3MzU3LC0xNzE0MDkyMzgxLC0xMjE3ODA2
+NDE1LC0xMzMzODg4NDAxLC01NzMyNzg4MDcsLTcxODI0MTMzMC
+wtMTM4NTUwNjA3NCwxOTk1OTY1MDAyLDE0NzI4NTIwMywtMzI5
+MDMxNDE5XX0=
 -->
