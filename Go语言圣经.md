@@ -2499,7 +2499,7 @@ if summer == nil { /* ... */ }
 ```Go
 var s []int    // len(s) == 0, s == nil
 s = nil        // len(s) == 0, s == nil
-s = []int(nil) // len(s) == 0, s == nil 转换表达式来生成一个对应类型slice的nil值
+s = []int(nil) // len(s) == 0, s == nil 转换表达式来生成一个对应类型slice的nil值 **一个nil值的slice并没有底层数组**
 s = []int{}    // len(s) == 0, s != nil
 ```
 
@@ -8817,13 +8817,13 @@ default:
 
 select会等待case中有能够执行的case时去执行。当条件满足时，select才会去通信并执行case之后的语句；这时候其它通信是不会执行的。一个没有任何case的select语句写作select{}，会永远地等待下去。
 
-让我们回到我们的火箭发射程序。time.After函数会立即返回一个channel，并起一个新的goroutine在经过特定的时间后向该channel发送一个独立的值。
+让我们回到我们的火箭发射程序。time.After函数会立即返回一个channel，并起一个新的goroutine在经过
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTcyNzEwMjg5OSwtMTM5NjQ0MDUzNywtMT
-E2MTcwMTE4MiwxODM1NTMyOTgwLDEzMTU2OTcxNjUsMzU2NjU3
-MzA0LDE3NDgwNjgwOCwtNzA2MTcyMjczLDk4Mjk0OTg5OSw0Mz
-AzOTgwNTQsLTE1NjgzNjkwNDMsLTY1MDQyMTEzOSwtNTc0MTU3
-MzcwLDEzNjc0MDI2ODksLTE4MTg0NzM1NywtMTcxNDA5MjM4MS
-wtMTIxNzgwNjQxNSwtMTMzMzg4ODQwMSwtNTczMjc4ODA3LC03
-MTgyNDEzMzBdfQ==
+eyJoaXN0b3J5IjpbMTg4MjQxNDA4LC03MjcxMDI4OTksLTEzOT
+Y0NDA1MzcsLTExNjE3MDExODIsMTgzNTUzMjk4MCwxMzE1Njk3
+MTY1LDM1NjY1NzMwNCwxNzQ4MDY4MDgsLTcwNjE3MjI3Myw5OD
+I5NDk4OTksNDMwMzk4MDU0LC0xNTY4MzY5MDQzLC02NTA0MjEx
+MzksLTU3NDE1NzM3MCwxMzY3NDAyNjg5LC0xODE4NDczNTcsLT
+E3MTQwOTIzODEsLTEyMTc4MDY0MTUsLTEzMzM4ODg0MDEsLTU3
+MzI3ODgwN119
 -->
