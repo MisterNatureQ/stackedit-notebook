@@ -3160,6 +3160,7 @@ func Sort(values []int) {
 
 // appendValues appends the elements of t to values in order
 // and returns the resulting slice.
+// 递归
 func appendValues(values []int, t *tree) []int {
 	if t != nil {
 		values = appendValues(values, t.left) // 向 左 递归
@@ -8815,13 +8816,13 @@ select {
 case <-ch1:
 	// ...
 case x := <-ch2:
-	//
+	
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjQ2Nzk4NTA1LDE0NzExOTMzNjcsLTc4Mj
-gwNTcyLC03NzIwNTE2MTgsMTIzMzI0ODQwNCwxNDk3OTA1NTg3
-LC0xMTc0MDIxNTg5LDEyMTMwNzI4NTEsMTgwMjEyMDc3NSwxMj
-c0Mzg0MjE5LC05MDU5OTE0NDcsNTQ1OTAzNDgyLC0xMjczMjA3
-MTAsNTQyNTY2MDQzLDE4ODI0MTQwOCwtNzI3MTAyODk5LC0xMz
-k2NDQwNTM3LC0xMTYxNzAxMTgyLDE4MzU1MzI5ODAsMTMxNTY5
-NzE2NV19
+eyJoaXN0b3J5IjpbLTExMTA5OTYzMjksMjQ2Nzk4NTA1LDE0Nz
+ExOTMzNjcsLTc4MjgwNTcyLC03NzIwNTE2MTgsMTIzMzI0ODQw
+NCwxNDk3OTA1NTg3LC0xMTc0MDIxNTg5LDEyMTMwNzI4NTEsMT
+gwMjEyMDc3NSwxMjc0Mzg0MjE5LC05MDU5OTE0NDcsNTQ1OTAz
+NDgyLC0xMjczMjA3MTAsNTQyNTY2MDQzLDE4ODI0MTQwOCwtNz
+I3MTAyODk5LC0xMzk2NDQwNTM3LC0xMTYxNzAxMTgyLDE4MzU1
+MzI5ODBdfQ==
 -->
