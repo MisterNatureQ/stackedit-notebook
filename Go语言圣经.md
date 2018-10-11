@@ -3034,6 +3034,7 @@ var graph = make(map[string]map[string]bool) // 声明 初始化 分配了空间
 
 func addEdge(from, to string) {
 	edges := graph[from]
+	// 创建value
 	if edges == nil {
 		edges = make(map[string]bool) //创建 value
 		graph[from] = edges
@@ -8819,13 +8820,13 @@ default:
 }
 ```
 
-上面是select语句的一般形式。和switch语句稍微有点相似，也会有几个case和最后的default选择分支。每一个case代表一个通信操作（在某个channel上进行发送或
+上面是select语句的一般形式。和switch语句稍微有点相似，也会有几个case和最后的default选择分支。每一个case代表一个通信操作（在
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTQ5NzkwNTU4NywtMTE3NDAyMTU4OSwxMj
-EzMDcyODUxLDE4MDIxMjA3NzUsMTI3NDM4NDIxOSwtOTA1OTkx
-NDQ3LDU0NTkwMzQ4MiwtMTI3MzIwNzEwLDU0MjU2NjA0MywxOD
-gyNDE0MDgsLTcyNzEwMjg5OSwtMTM5NjQ0MDUzNywtMTE2MTcw
-MTE4MiwxODM1NTMyOTgwLDEzMTU2OTcxNjUsMzU2NjU3MzA0LD
-E3NDgwNjgwOCwtNzA2MTcyMjczLDk4Mjk0OTg5OSw0MzAzOTgw
-NTRdfQ==
+eyJoaXN0b3J5IjpbLTE0MzgxODgwODcsMTQ5NzkwNTU4NywtMT
+E3NDAyMTU4OSwxMjEzMDcyODUxLDE4MDIxMjA3NzUsMTI3NDM4
+NDIxOSwtOTA1OTkxNDQ3LDU0NTkwMzQ4MiwtMTI3MzIwNzEwLD
+U0MjU2NjA0MywxODgyNDE0MDgsLTcyNzEwMjg5OSwtMTM5NjQ0
+MDUzNywtMTE2MTcwMTE4MiwxODM1NTMyOTgwLDEzMTU2OTcxNj
+UsMzU2NjU3MzA0LDE3NDgwNjgwOCwtNzA2MTcyMjczLDk4Mjk0
+OTg5OV19
 -->
