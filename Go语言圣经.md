@@ -3145,7 +3145,7 @@ type tree struct {
 	left, right *tree
 }
 
-// Sort sorts values in place.
+// Sort sorts values in place. 对传入的slice 进行排序
 func Sort(values []int) {
 	var root *tree
 	// 排序
@@ -8816,14 +8816,13 @@ case <-ch1:
 	// ...
 case x := <-ch2:
 	// ...use x...
-case ch3 <- y:
-	// .
+case c
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTc4MjgwNTcyLC03NzIwNTE2MTgsMTIzMz
-I0ODQwNCwxNDk3OTA1NTg3LC0xMTc0MDIxNTg5LDEyMTMwNzI4
-NTEsMTgwMjEyMDc3NSwxMjc0Mzg0MjE5LC05MDU5OTE0NDcsNT
-Q1OTAzNDgyLC0xMjczMjA3MTAsNTQyNTY2MDQzLDE4ODI0MTQw
-OCwtNzI3MTAyODk5LC0xMzk2NDQwNTM3LC0xMTYxNzAxMTgyLD
-E4MzU1MzI5ODAsMTMxNTY5NzE2NSwzNTY2NTczMDQsMTc0ODA2
-ODA4XX0=
+eyJoaXN0b3J5IjpbMTQ3MTE5MzM2NywtNzgyODA1NzIsLTc3Mj
+A1MTYxOCwxMjMzMjQ4NDA0LDE0OTc5MDU1ODcsLTExNzQwMjE1
+ODksMTIxMzA3Mjg1MSwxODAyMTIwNzc1LDEyNzQzODQyMTksLT
+kwNTk5MTQ0Nyw1NDU5MDM0ODIsLTEyNzMyMDcxMCw1NDI1NjYw
+NDMsMTg4MjQxNDA4LC03MjcxMDI4OTksLTEzOTY0NDA1MzcsLT
+ExNjE3MDExODIsMTgzNTUzMjk4MCwxMzE1Njk3MTY1LDM1NjY1
+NzMwNF19
 -->
