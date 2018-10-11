@@ -2857,7 +2857,7 @@ names := make([]string, 0, len(ages))
 map类型的零值是nil，也就是没有引用任何哈希表。
 
 ```Go
-var ages map[string]int // 这里仅仅只是声明 没有分配空间
+var ages map[string]int // 这里仅仅只是声明 没有分配空间 没有da
 fmt.Println(ages == nil)    // "true"
 fmt.Println(len(ages) == 0) // "true"
 ```
@@ -8817,13 +8817,13 @@ default:
 
 select会等待case中有能够执行的case时去执行。当条件满足时，select才会去通信并执行case之后的语句；这时候其它通信是不会执行的。一个没有任何case的select语句写作select{}，会永远地等待下去。
 
-让我们回到我们的火箭发射程序。time.After函数会立即返回一个ch
+让我们回到我们的火箭发射程序。time.Aft
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNTQ1OTAzNDgyLC0xMjczMjA3MTAsNTQyNT
-Y2MDQzLDE4ODI0MTQwOCwtNzI3MTAyODk5LC0xMzk2NDQwNTM3
-LC0xMTYxNzAxMTgyLDE4MzU1MzI5ODAsMTMxNTY5NzE2NSwzNT
-Y2NTczMDQsMTc0ODA2ODA4LC03MDYxNzIyNzMsOTgyOTQ5ODk5
-LDQzMDM5ODA1NCwtMTU2ODM2OTA0MywtNjUwNDIxMTM5LC01Nz
-QxNTczNzAsMTM2NzQwMjY4OSwtMTgxODQ3MzU3LC0xNzE0MDky
-MzgxXX0=
+eyJoaXN0b3J5IjpbMjUzMjk1MzU4LDU0NTkwMzQ4MiwtMTI3Mz
+IwNzEwLDU0MjU2NjA0MywxODgyNDE0MDgsLTcyNzEwMjg5OSwt
+MTM5NjQ0MDUzNywtMTE2MTcwMTE4MiwxODM1NTMyOTgwLDEzMT
+U2OTcxNjUsMzU2NjU3MzA0LDE3NDgwNjgwOCwtNzA2MTcyMjcz
+LDk4Mjk0OTg5OSw0MzAzOTgwNTQsLTE1NjgzNjkwNDMsLTY1MD
+QyMTEzOSwtNTc0MTU3MzcwLDEzNjc0MDI2ODksLTE4MTg0NzM1
+N119
 -->
