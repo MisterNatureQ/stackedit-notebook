@@ -3139,6 +3139,7 @@ type Employee struct {
 
 <u><i>gopl.io/ch4/treesort</i></u>
 ```Go
+// 二叉树节点
 type tree struct {
 	value       int
 	left, right *tree
@@ -8816,14 +8817,13 @@ case <-ch1:
 case x := <-ch2:
 	// ...use x...
 case ch3 <- y:
-	// ...
-default
+	// .
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTc3MjA1MTYxOCwxMjMzMjQ4NDA0LDE0OT
-c5MDU1ODcsLTExNzQwMjE1ODksMTIxMzA3Mjg1MSwxODAyMTIw
-Nzc1LDEyNzQzODQyMTksLTkwNTk5MTQ0Nyw1NDU5MDM0ODIsLT
-EyNzMyMDcxMCw1NDI1NjYwNDMsMTg4MjQxNDA4LC03MjcxMDI4
-OTksLTEzOTY0NDA1MzcsLTExNjE3MDExODIsMTgzNTUzMjk4MC
-wxMzE1Njk3MTY1LDM1NjY1NzMwNCwxNzQ4MDY4MDgsLTcwNjE3
-MjI3M119
+eyJoaXN0b3J5IjpbLTc4MjgwNTcyLC03NzIwNTE2MTgsMTIzMz
+I0ODQwNCwxNDk3OTA1NTg3LC0xMTc0MDIxNTg5LDEyMTMwNzI4
+NTEsMTgwMjEyMDc3NSwxMjc0Mzg0MjE5LC05MDU5OTE0NDcsNT
+Q1OTAzNDgyLC0xMjczMjA3MTAsNTQyNTY2MDQzLDE4ODI0MTQw
+OCwtNzI3MTAyODk5LC0xMzk2NDQwNTM3LC0xMTYxNzAxMTgyLD
+E4MzU1MzI5ODAsMTMxNTY5NzE2NSwzNTY2NTczMDQsMTc0ODA2
+ODA4XX0=
 -->
