@@ -2989,7 +2989,7 @@ func main() {
 			invalid++
 			continue
 		}
-		counts[r]++ // 不同字符出现的次数
+		counts[r]++ // 所有出现的字符 和 次数 
 		utflen[n]++ // 不同UTF-8编码长度的字符数目
 	}
 	fmt.Printf("rune\tcount\n")
@@ -8819,13 +8819,13 @@ default:
 }
 ```
 
-上面是select语句的一般形式。和switch语句稍微有点相似，也会有几个case和最后的default选择分支。每一个case代表一个通信操作（在某个channel上进行发送或者接收），并且会包含一些语句组成的一个语句块。一个接收表达式可能只包含接收表达式自身（译注：不把接收到的值赋值给
+上面是select语句的一般形式。和switch语句稍微有点相似，也会有几个case和最后的default选择分支。每一个case代表一个通信操作（在某个channel上进行发送或者接收），并且会包含一些语句组成的一个语句块。一个接收表达式可能只包含接收表达式自
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTIxMzA3Mjg1MSwxODAyMTIwNzc1LDEyNz
-QzODQyMTksLTkwNTk5MTQ0Nyw1NDU5MDM0ODIsLTEyNzMyMDcx
-MCw1NDI1NjYwNDMsMTg4MjQxNDA4LC03MjcxMDI4OTksLTEzOT
-Y0NDA1MzcsLTExNjE3MDExODIsMTgzNTUzMjk4MCwxMzE1Njk3
-MTY1LDM1NjY1NzMwNCwxNzQ4MDY4MDgsLTcwNjE3MjI3Myw5OD
-I5NDk4OTksNDMwMzk4MDU0LC0xNTY4MzY5MDQzLC02NTA0MjEx
-MzldfQ==
+eyJoaXN0b3J5IjpbLTExNzQwMjE1ODksMTIxMzA3Mjg1MSwxOD
+AyMTIwNzc1LDEyNzQzODQyMTksLTkwNTk5MTQ0Nyw1NDU5MDM0
+ODIsLTEyNzMyMDcxMCw1NDI1NjYwNDMsMTg4MjQxNDA4LC03Mj
+cxMDI4OTksLTEzOTY0NDA1MzcsLTExNjE3MDExODIsMTgzNTUz
+Mjk4MCwxMzE1Njk3MTY1LDM1NjY1NzMwNCwxNzQ4MDY4MDgsLT
+cwNjE3MjI3Myw5ODI5NDk4OTksNDMwMzk4MDU0LC0xNTY4MzY5
+MDQzXX0=
 -->
