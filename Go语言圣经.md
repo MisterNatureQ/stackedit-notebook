@@ -3221,7 +3221,7 @@ type Point struct{ X, Y int }
 p := Point{1, 2}
 ```
 
-这里有两种形式的结构体字面值语法，上面的是第一种写法，**要求以结构体成员定义的顺序为每个结构体成员指定一个字面值。**它要求写代码和读代码的人要记住结构体的每个成员的类型和顺序，不过结构体成员有细微的调整就可能导致上述代码不能编译。因此，上述的语法一般只在定义结构体的包内部使用，或者是在较小的结构体中使用，这些结构体的成员排列比较规则，比如image.Point{x, y}或color.RGBA{red, green, blue, alpha}。
+这里有两种形式的结构体字面值语法，上面的是**第一种写法，要求以结构体成员定义的顺序为每个结构体成员指定一个字面值。它要求写代码和读代码的人要记住结构体的每个成员的类型和顺序，不过结构体成员有细微的调整就可能导致上述代码不能编译。因此，上述的语法一般只在定义结构体的包内部使用，或者是在较小的结构体中使用，这些结构体的成员排列比较规则**，比如image.Point{x, y}或color.RGBA{red, green, blue, alpha}。
 
 其实更常用的是第二种写法，以成员名字和相应的值来初始化，可以包含部分或全部的成员，如1.4节的Lissajous程序的写法：
 
@@ -8818,11 +8818,11 @@ case <-ch1:
 case x := <-ch2:
 	
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTExMTA5OTYzMjksMjQ2Nzk4NTA1LDE0Nz
-ExOTMzNjcsLTc4MjgwNTcyLC03NzIwNTE2MTgsMTIzMzI0ODQw
-NCwxNDk3OTA1NTg3LC0xMTc0MDIxNTg5LDEyMTMwNzI4NTEsMT
-gwMjEyMDc3NSwxMjc0Mzg0MjE5LC05MDU5OTE0NDcsNTQ1OTAz
-NDgyLC0xMjczMjA3MTAsNTQyNTY2MDQzLDE4ODI0MTQwOCwtNz
-I3MTAyODk5LC0xMzk2NDQwNTM3LC0xMTYxNzAxMTgyLDE4MzU1
-MzI5ODBdfQ==
+eyJoaXN0b3J5IjpbMjExODUxNjM3NSwtMTExMDk5NjMyOSwyND
+Y3OTg1MDUsMTQ3MTE5MzM2NywtNzgyODA1NzIsLTc3MjA1MTYx
+OCwxMjMzMjQ4NDA0LDE0OTc5MDU1ODcsLTExNzQwMjE1ODksMT
+IxMzA3Mjg1MSwxODAyMTIwNzc1LDEyNzQzODQyMTksLTkwNTk5
+MTQ0Nyw1NDU5MDM0ODIsLTEyNzMyMDcxMCw1NDI1NjYwNDMsMT
+g4MjQxNDA4LC03MjcxMDI4OTksLTEzOTY0NDA1MzcsLTExNjE3
+MDExODJdfQ==
 -->
