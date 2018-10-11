@@ -2907,6 +2907,7 @@ func equal(x, y map[string]int) bool {
 // True if equal is written incorrectly.
 equal(map[string]int{"A": 0}, map[string]int{"B": 42})
 ```
+[C++中set用法详解](https://www.cnblogs.com/caiyishuai/p/8646345.html)
 
 set的特性是，所有元素都会根据元素的键值自动排序，set的元素不像map那样可以同时拥有实值(value)和键值(key),set元素的键值就是实值，实值就是键值。set不允许两个元素有相同的键值。
 
@@ -8817,15 +8818,13 @@ default:
 }
 ```
 
-上面是select语句的一般形式。和switch语句稍微有点相似，也会有几个case和最后的default选择分支。每一个case代表一个通信操作（在某个channel上进行发送或者接收），并且会包含一些语句组成的一个语句块。一个接收表达式可能只包含接收表达式自身（译注：不把接收到的值赋值给变量什么的），就像上面的第一个case，或者包含在一个简短的变量声明中，像第二个case里一样；第二种形式让你能够引用接收到的值。
-
-select会等待case中有能够执行的case时去执行。当条件满足时，sele
+上面是select语句的一般形式。和switch语句稍微有点相似，也会有几个case和最后的default选择分支。每一个case代表一个通信操作（在某个channel上进行发送或者接收），并且会包含一些语句组成的一个语句块。一个接收表达式可能只包含接收表达式自身（译注：不把接收到的值赋值给变量什么的），就像上面的第一个case，或者包含在一个简短的变量声明中，像第二个ca
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTI3NDM4NDIxOSwtOTA1OTkxNDQ3LDU0NT
-kwMzQ4MiwtMTI3MzIwNzEwLDU0MjU2NjA0MywxODgyNDE0MDgs
-LTcyNzEwMjg5OSwtMTM5NjQ0MDUzNywtMTE2MTcwMTE4MiwxOD
-M1NTMyOTgwLDEzMTU2OTcxNjUsMzU2NjU3MzA0LDE3NDgwNjgw
-OCwtNzA2MTcyMjczLDk4Mjk0OTg5OSw0MzAzOTgwNTQsLTE1Nj
-gzNjkwNDMsLTY1MDQyMTEzOSwtNTc0MTU3MzcwLDEzNjc0MDI2
-ODldfQ==
+eyJoaXN0b3J5IjpbMTgwMjEyMDc3NSwxMjc0Mzg0MjE5LC05MD
+U5OTE0NDcsNTQ1OTAzNDgyLC0xMjczMjA3MTAsNTQyNTY2MDQz
+LDE4ODI0MTQwOCwtNzI3MTAyODk5LC0xMzk2NDQwNTM3LC0xMT
+YxNzAxMTgyLDE4MzU1MzI5ODAsMTMxNTY5NzE2NSwzNTY2NTcz
+MDQsMTc0ODA2ODA4LC03MDYxNzIyNzMsOTgyOTQ5ODk5LDQzMD
+M5ODA1NCwtMTU2ODM2OTA0MywtNjUwNDIxMTM5LC01NzQxNTcz
+NzBdfQ==
 -->
