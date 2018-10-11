@@ -2944,6 +2944,7 @@ Go程序员将这种忽略value的map当作一个字符串集合，并非所有`
 ```Go
 var m = make(map[string]int)
 
+// 将slice 转换为string 成为可以比较的类型
 func k(list []string) string { return fmt.Sprintf("%q", list) }
 
 func Add(list []string)       { m[k(list)]++ } //  slice 转 string 变成 map key 比较的类型 
@@ -8818,13 +8819,13 @@ default:
 }
 ```
 
-上面是select语句的一般形式。和switch语句稍微有点相似，也会有几个case和最后的default选择分支。每一个case代表一个通信操作（在某个channel上进行发送或者接收），并且会包含一些语句组成的一个语句块。一个接收表达式可能只包含接收表达式自身（译注：不把接收到的值赋值给变量什么的），就像上面的第一个case，或者包含在一个简短的变量声明中，像第二个ca
+上面是select语句的一般形式。和switch语句稍微有点相似，也会有几个case和最后的default选择分支。每一个case代表一个通信操作（在某个channel上进行发送或者接收），并且会包含一些语句组成的一个语句块。一个接收表达式可能只包含接收表达式自身（译注：不把接收到的值赋值给变量什么的）
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTgwMjEyMDc3NSwxMjc0Mzg0MjE5LC05MD
-U5OTE0NDcsNTQ1OTAzNDgyLC0xMjczMjA3MTAsNTQyNTY2MDQz
-LDE4ODI0MTQwOCwtNzI3MTAyODk5LC0xMzk2NDQwNTM3LC0xMT
-YxNzAxMTgyLDE4MzU1MzI5ODAsMTMxNTY5NzE2NSwzNTY2NTcz
-MDQsMTc0ODA2ODA4LC03MDYxNzIyNzMsOTgyOTQ5ODk5LDQzMD
-M5ODA1NCwtMTU2ODM2OTA0MywtNjUwNDIxMTM5LC01NzQxNTcz
-NzBdfQ==
+eyJoaXN0b3J5IjpbLTQ3MTM1MDI1NCwxODAyMTIwNzc1LDEyNz
+QzODQyMTksLTkwNTk5MTQ0Nyw1NDU5MDM0ODIsLTEyNzMyMDcx
+MCw1NDI1NjYwNDMsMTg4MjQxNDA4LC03MjcxMDI4OTksLTEzOT
+Y0NDA1MzcsLTExNjE3MDExODIsMTgzNTUzMjk4MCwxMzE1Njk3
+MTY1LDM1NjY1NzMwNCwxNzQ4MDY4MDgsLTcwNjE3MjI3Myw5OD
+I5NDk4OTksNDMwMzk4MDU0LC0xNTY4MzY5MDQzLC02NTA0MjEx
+MzldfQ==
 -->
