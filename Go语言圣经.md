@@ -3277,7 +3277,7 @@ func AwardAnnualRaise(e *Employee) {
 因为结构体通常通过指针处理，可以用下面的写法来创建并初始化一个结构体变量，并返回结构体的地址：
 
 ```Go
-pp := &Point{1, 2}
+pp := &Point{1, 2} //创建并初始化一个结构体变量，并返回结构体的地址
 ```
 
 它和下面的语句是等价的
@@ -8814,15 +8814,13 @@ go func() {
 ```go
 select {
 case <-ch1:
-	// ...
-case x := <-ch2:
-	
+	//
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjExODUxNjM3NSwtMTExMDk5NjMyOSwyND
-Y3OTg1MDUsMTQ3MTE5MzM2NywtNzgyODA1NzIsLTc3MjA1MTYx
-OCwxMjMzMjQ4NDA0LDE0OTc5MDU1ODcsLTExNzQwMjE1ODksMT
-IxMzA3Mjg1MSwxODAyMTIwNzc1LDEyNzQzODQyMTksLTkwNTk5
-MTQ0Nyw1NDU5MDM0ODIsLTEyNzMyMDcxMCw1NDI1NjYwNDMsMT
-g4MjQxNDA4LC03MjcxMDI4OTksLTEzOTY0NDA1MzcsLTExNjE3
-MDExODJdfQ==
+eyJoaXN0b3J5IjpbLTc3MDgxNjYwOCwyMTE4NTE2Mzc1LC0xMT
+EwOTk2MzI5LDI0Njc5ODUwNSwxNDcxMTkzMzY3LC03ODI4MDU3
+MiwtNzcyMDUxNjE4LDEyMzMyNDg0MDQsMTQ5NzkwNTU4NywtMT
+E3NDAyMTU4OSwxMjEzMDcyODUxLDE4MDIxMjA3NzUsMTI3NDM4
+NDIxOSwtOTA1OTkxNDQ3LDU0NTkwMzQ4MiwtMTI3MzIwNzEwLD
+U0MjU2NjA0MywxODgyNDE0MDgsLTcyNzEwMjg5OSwtMTM5NjQ0
+MDUzN119
 -->
