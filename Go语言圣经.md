@@ -3034,7 +3034,7 @@ var graph = make(map[string]map[string]bool) // 声明 初始化 分配了空间
 
 func addEdge(from, to string) {
 	edges := graph[from]
-	// 创建value
+	// 创建value 惰性初始化
 	if edges == nil {
 		edges = make(map[string]bool) //创建 value
 		graph[from] = edges
@@ -3044,7 +3044,7 @@ func addEdge(from, to string) {
 }
 
 func hasEdge(from, to string) bool {
-	return graph[from][to]
+	return graph[from][to] // 即使from到to的边不存在，graph[from][to]依然可以返回一个有意义的结果。
 }
 ```
 
@@ -8821,9 +8821,9 @@ default:
 }
 ```
 
-上面是select语句的一般形式。和switch语句稍微有点相似，也会有几个case和最后的default
+上
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTE4ODY5ODAyMiwxNDk3OTA1NTg3LC0xMT
+eyJoaXN0b3J5IjpbMTIzMzI0ODQwNCwxNDk3OTA1NTg3LC0xMT
 c0MDIxNTg5LDEyMTMwNzI4NTEsMTgwMjEyMDc3NSwxMjc0Mzg0
 MjE5LC05MDU5OTE0NDcsNTQ1OTAzNDgyLC0xMjczMjA3MTAsNT
 QyNTY2MDQzLDE4ODI0MTQwOCwtNzI3MTAyODk5LC0xMzk2NDQw
