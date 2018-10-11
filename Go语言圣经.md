@@ -3110,6 +3110,7 @@ func EmployeeByID(id int) *Employee { /* ... */ }
 fmt.Println(EmployeeByID(dilbert.ManagerID).Position) // "Pointy-haired boss"
 
 id := dilbert.ID
+// 返回指针这里才能修改
 EmployeeByID(id).Salary = 0 // fired for... no real reason
 ```
 
@@ -8816,18 +8817,13 @@ case x := <-ch2:
 	// ...use x...
 case ch3 <- y:
 	// ...
-default:
-	// ...
-}
-```
-
-上
+default
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTIzMzI0ODQwNCwxNDk3OTA1NTg3LC0xMT
-c0MDIxNTg5LDEyMTMwNzI4NTEsMTgwMjEyMDc3NSwxMjc0Mzg0
-MjE5LC05MDU5OTE0NDcsNTQ1OTAzNDgyLC0xMjczMjA3MTAsNT
-QyNTY2MDQzLDE4ODI0MTQwOCwtNzI3MTAyODk5LC0xMzk2NDQw
-NTM3LC0xMTYxNzAxMTgyLDE4MzU1MzI5ODAsMTMxNTY5NzE2NS
-wzNTY2NTczMDQsMTc0ODA2ODA4LC03MDYxNzIyNzMsOTgyOTQ5
-ODk5XX0=
+eyJoaXN0b3J5IjpbLTc3MjA1MTYxOCwxMjMzMjQ4NDA0LDE0OT
+c5MDU1ODcsLTExNzQwMjE1ODksMTIxMzA3Mjg1MSwxODAyMTIw
+Nzc1LDEyNzQzODQyMTksLTkwNTk5MTQ0Nyw1NDU5MDM0ODIsLT
+EyNzMyMDcxMCw1NDI1NjYwNDMsMTg4MjQxNDA4LC03MjcxMDI4
+OTksLTEzOTY0NDA1MzcsLTExNjE3MDExODIsMTgzNTUzMjk4MC
+wxMzE1Njk3MTY1LDM1NjY1NzMwNCwxNzQ4MDY4MDgsLTcwNjE3
+MjI3M119
 -->
