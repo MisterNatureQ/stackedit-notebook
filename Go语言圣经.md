@@ -3030,7 +3030,7 @@ len count
 
 <u><i>gopl.io/ch4/graph</i></u>
 ```Go
-var graph = make(map[string]map[string]bool) // 声明 初始化 分配了空间
+var graph = make(map[string]map[string]bool) // 声明 初始化 分配了空间  图graph的key类型是一个字符串，value类型map[string]bool代表一个字符串集合
 
 func addEdge(from, to string) {
 	edges := graph[from]
@@ -8819,13 +8819,13 @@ default:
 }
 ```
 
-上面是select语句的一般形式。和switch语句稍微有点相似，也会有几个case和最后的default选择分支。每一个case代表一个通信操作（在某个channel上进行发送或者接收），并且会包含一些语句组成的一个语句块。一个接收表达式可能只包含接收表达式自
+上面是select语句的一般形式。和switch语句稍微有点相似，也会有几个case和最后的default选择分支。每一个case代表一个通信操作（在某个channel上进行发送或
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTExNzQwMjE1ODksMTIxMzA3Mjg1MSwxOD
-AyMTIwNzc1LDEyNzQzODQyMTksLTkwNTk5MTQ0Nyw1NDU5MDM0
-ODIsLTEyNzMyMDcxMCw1NDI1NjYwNDMsMTg4MjQxNDA4LC03Mj
-cxMDI4OTksLTEzOTY0NDA1MzcsLTExNjE3MDExODIsMTgzNTUz
-Mjk4MCwxMzE1Njk3MTY1LDM1NjY1NzMwNCwxNzQ4MDY4MDgsLT
-cwNjE3MjI3Myw5ODI5NDk4OTksNDMwMzk4MDU0LC0xNTY4MzY5
-MDQzXX0=
+eyJoaXN0b3J5IjpbMTQ5NzkwNTU4NywtMTE3NDAyMTU4OSwxMj
+EzMDcyODUxLDE4MDIxMjA3NzUsMTI3NDM4NDIxOSwtOTA1OTkx
+NDQ3LDU0NTkwMzQ4MiwtMTI3MzIwNzEwLDU0MjU2NjA0MywxOD
+gyNDE0MDgsLTcyNzEwMjg5OSwtMTM5NjQ0MDUzNywtMTE2MTcw
+MTE4MiwxODM1NTMyOTgwLDEzMTU2OTcxNjUsMzU2NjU3MzA0LD
+E3NDgwNjgwOCwtNzA2MTcyMjczLDk4Mjk0OTg5OSw0MzAzOTgw
+NTRdfQ==
 -->
