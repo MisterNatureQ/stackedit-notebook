@@ -3039,6 +3039,7 @@ func addEdge(from, to string) {
 		edges = make(map[string]bool) //创建 value
 		graph[from] = edges
 	}
+	// 对 value 的value 赋值
 	edges[to] = true
 }
 
@@ -8820,13 +8821,13 @@ default:
 }
 ```
 
-上面是select语句的一般形式。和switch语句稍微有点相似，也会有几个case和最后的default选择分支。每一个case代表一个通信操作（在
+上面是select语句的一般形式。和switch语句稍微有点相似，也会有几个case和最后的default
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE0MzgxODgwODcsMTQ5NzkwNTU4NywtMT
-E3NDAyMTU4OSwxMjEzMDcyODUxLDE4MDIxMjA3NzUsMTI3NDM4
-NDIxOSwtOTA1OTkxNDQ3LDU0NTkwMzQ4MiwtMTI3MzIwNzEwLD
-U0MjU2NjA0MywxODgyNDE0MDgsLTcyNzEwMjg5OSwtMTM5NjQ0
-MDUzNywtMTE2MTcwMTE4MiwxODM1NTMyOTgwLDEzMTU2OTcxNj
-UsMzU2NjU3MzA0LDE3NDgwNjgwOCwtNzA2MTcyMjczLDk4Mjk0
-OTg5OV19
+eyJoaXN0b3J5IjpbMTE4ODY5ODAyMiwxNDk3OTA1NTg3LC0xMT
+c0MDIxNTg5LDEyMTMwNzI4NTEsMTgwMjEyMDc3NSwxMjc0Mzg0
+MjE5LC05MDU5OTE0NDcsNTQ1OTAzNDgyLC0xMjczMjA3MTAsNT
+QyNTY2MDQzLDE4ODI0MTQwOCwtNzI3MTAyODk5LC0xMzk2NDQw
+NTM3LC0xMTYxNzAxMTgyLDE4MzU1MzI5ODAsMTMxNTY5NzE2NS
+wzNTY2NTczMDQsMTc0ODA2ODA4LC03MDYxNzIyNzMsOTgyOTQ5
+ODk5XX0=
 -->
