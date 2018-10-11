@@ -2908,7 +2908,11 @@ func equal(x, y map[string]int) bool {
 equal(map[string]int{"A": 0}, map[string]int{"B": 42})
 ```
 
+set的特性是，所有元素都会根据元素的键值自动排序，set的元素不像map那样可以同时拥有实值(value)和键值(key),set元素的键值就是实值，实值就是键值。set不允许两个元素有相同的键值。
+
+
 Go语言中并没有提供一个set类型，但是map中的key也是不相同的，可以用map实现类似set的功能。为了说明这一点，下面的dedup程序读取多行输入，但是只打印第一次出现的行。（它是1.3节中出现的dup程序的变体。）dedup程序通过map来表示所有的输入行所对应的set集合，以确保已经在集合存在的行不会被重复打印。
+
 
 <u><i>gopl.io/ch4/dedup</i></u>
 ```Go
@@ -8815,15 +8819,13 @@ default:
 
 上面是select语句的一般形式。和switch语句稍微有点相似，也会有几个case和最后的default选择分支。每一个case代表一个通信操作（在某个channel上进行发送或者接收），并且会包含一些语句组成的一个语句块。一个接收表达式可能只包含接收表达式自身（译注：不把接收到的值赋值给变量什么的），就像上面的第一个case，或者包含在一个简短的变量声明中，像第二个case里一样；第二种形式让你能够引用接收到的值。
 
-select会等待case中有能够执行的case时去执行。当条件满足时，select才会去通信并执行case之后的语句；这时候其它通信是不会执行的。一个没有任何case的select语句写作select{}，会永远地等待下去。
-
-让我们回到我们的火箭发射程序。time.Aft
+select会等待case中有能够执行的case时去执行。当条件满足时，sele
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTkwNTk5MTQ0Nyw1NDU5MDM0ODIsLTEyNz
-MyMDcxMCw1NDI1NjYwNDMsMTg4MjQxNDA4LC03MjcxMDI4OTks
-LTEzOTY0NDA1MzcsLTExNjE3MDExODIsMTgzNTUzMjk4MCwxMz
-E1Njk3MTY1LDM1NjY1NzMwNCwxNzQ4MDY4MDgsLTcwNjE3MjI3
-Myw5ODI5NDk4OTksNDMwMzk4MDU0LC0xNTY4MzY5MDQzLC02NT
-A0MjExMzksLTU3NDE1NzM3MCwxMzY3NDAyNjg5LC0xODE4NDcz
-NTddfQ==
+eyJoaXN0b3J5IjpbMTI3NDM4NDIxOSwtOTA1OTkxNDQ3LDU0NT
+kwMzQ4MiwtMTI3MzIwNzEwLDU0MjU2NjA0MywxODgyNDE0MDgs
+LTcyNzEwMjg5OSwtMTM5NjQ0MDUzNywtMTE2MTcwMTE4MiwxOD
+M1NTMyOTgwLDEzMTU2OTcxNjUsMzU2NjU3MzA0LDE3NDgwNjgw
+OCwtNzA2MTcyMjczLDk4Mjk0OTg5OSw0MzAzOTgwNTQsLTE1Nj
+gzNjkwNDMsLTY1MDQyMTEzOSwtNTc0MTU3MzcwLDEzNjc0MDI2
+ODldfQ==
 -->
