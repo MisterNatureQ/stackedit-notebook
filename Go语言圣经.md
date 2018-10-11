@@ -2857,7 +2857,7 @@ names := make([]string, 0, len(ages))
 map类型的零值是nil，也就是没有引用任何哈希表。
 
 ```Go
-var ages map[string]int // 这里仅仅只是声明 没有分配空间 没有da
+var ages map[string]int // 这里仅仅只是声明 没有分配空间 没有大括号
 fmt.Println(ages == nil)    // "true"
 fmt.Println(len(ages) == 0) // "true"
 ```
@@ -2870,7 +2870,7 @@ ages["carol"] = 21 // panic: assignment to entry in nil map
 
 **在向map存数据前必须先创建map。**
 
-通过key作为索引下标来访问map将产生一个value。如果key在map中是存在的，那么将得到与key对应的value；如果key不存在，那么将得到value对应类型的零值，正如我们前面看到的ages["bob"]那样。这个规则很实用，但是有时候可能需要知道对应的元素是否真的是在map之中。例如，如果元素类型是一个数字，你可能需要区分一个已经存在的0，和不存在而返回零值的0，可以像下面这样测试：
+**通过key作为索引下标来访问map将产生一个value**。如果key在map中是存在的，那么将得到与key对应的value；如果key不存在，那么将得到value对应类型的零值，正如我们前面看到的ages["bob"]那样。这个规则很实用，但是有时候可能需要知道对应的元素是否真的是在map之中。例如，如果元素类型是一个数字，你可能需要区分一个已经存在的0，和不存在而返回零值的0，可以像下面这样测试：
 
 ```Go
 age, ok := ages["bob"]
@@ -8819,11 +8819,11 @@ select会等待case中有能够执行的case时去执行。当条件满足时，
 
 让我们回到我们的火箭发射程序。time.Aft
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjUzMjk1MzU4LDU0NTkwMzQ4MiwtMTI3Mz
-IwNzEwLDU0MjU2NjA0MywxODgyNDE0MDgsLTcyNzEwMjg5OSwt
-MTM5NjQ0MDUzNywtMTE2MTcwMTE4MiwxODM1NTMyOTgwLDEzMT
-U2OTcxNjUsMzU2NjU3MzA0LDE3NDgwNjgwOCwtNzA2MTcyMjcz
-LDk4Mjk0OTg5OSw0MzAzOTgwNTQsLTE1NjgzNjkwNDMsLTY1MD
-QyMTEzOSwtNTc0MTU3MzcwLDEzNjc0MDI2ODksLTE4MTg0NzM1
-N119
+eyJoaXN0b3J5IjpbLTkwNTk5MTQ0Nyw1NDU5MDM0ODIsLTEyNz
+MyMDcxMCw1NDI1NjYwNDMsMTg4MjQxNDA4LC03MjcxMDI4OTks
+LTEzOTY0NDA1MzcsLTExNjE3MDExODIsMTgzNTUzMjk4MCwxMz
+E1Njk3MTY1LDM1NjY1NzMwNCwxNzQ4MDY4MDgsLTcwNjE3MjI3
+Myw5ODI5NDk4OTksNDMwMzk4MDU0LC0xNTY4MzY5MDQzLC02NT
+A0MjExMzksLTU3NDE1NzM3MCwxMzY3NDAyNjg5LC0xODE4NDcz
+NTddfQ==
 -->
