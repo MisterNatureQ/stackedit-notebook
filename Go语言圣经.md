@@ -3169,7 +3169,7 @@ func appendValues(values []int, t *tree) []int {
 	return values
 }
 
-// 添加一个节点
+// 添加一个节点 t 前节点 value 新节点
 func add(t *tree, value int) *tree {
 	if t == nil {
 		// Equivalent to return &tree{value: value}.
@@ -8815,14 +8815,13 @@ select {
 case <-ch1:
 	// ...
 case x := <-ch2:
-	// ...use x...
-case c
+	//
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTQ3MTE5MzM2NywtNzgyODA1NzIsLTc3Mj
-A1MTYxOCwxMjMzMjQ4NDA0LDE0OTc5MDU1ODcsLTExNzQwMjE1
-ODksMTIxMzA3Mjg1MSwxODAyMTIwNzc1LDEyNzQzODQyMTksLT
-kwNTk5MTQ0Nyw1NDU5MDM0ODIsLTEyNzMyMDcxMCw1NDI1NjYw
-NDMsMTg4MjQxNDA4LC03MjcxMDI4OTksLTEzOTY0NDA1MzcsLT
-ExNjE3MDExODIsMTgzNTUzMjk4MCwxMzE1Njk3MTY1LDM1NjY1
-NzMwNF19
+eyJoaXN0b3J5IjpbMjQ2Nzk4NTA1LDE0NzExOTMzNjcsLTc4Mj
+gwNTcyLC03NzIwNTE2MTgsMTIzMzI0ODQwNCwxNDk3OTA1NTg3
+LC0xMTc0MDIxNTg5LDEyMTMwNzI4NTEsMTgwMjEyMDc3NSwxMj
+c0Mzg0MjE5LC05MDU5OTE0NDcsNTQ1OTAzNDgyLC0xMjczMjA3
+MTAsNTQyNTY2MDQzLDE4ODI0MTQwOCwtNzI3MTAyODk5LC0xMz
+k2NDQwNTM3LC0xMTYxNzAxMTgyLDE4MzU1MzI5ODAsMTMxNTY5
+NzE2NV19
 -->
