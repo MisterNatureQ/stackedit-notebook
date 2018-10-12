@@ -4038,6 +4038,7 @@ visit函数遍历HTML的节点树，从每一个anchor元素的href属性获得l
 ```Go
 // visit appends to links each link found in n and returns the result.
 func visit(links []string, n *html.Node) []string {
+	// HTML a标签 
 	if n.Type == html.ElementNode && n.Data == "a" {
 		for _, a := range n.Attr {
 			if a.Key == "href" {
@@ -8810,17 +8811,13 @@ func main() {
 abort := make(chan struct{})
 go func() {
 	os.Stdin.Read(make([]byte, 1)) // read a single byte
-	abort <- struct{}{}
-}()
-```
-
-现在每一次
+	abort
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjEzODA5MjIwNSw2MzI4NjIyNywtMTE1Mj
-IyNzAxLDI3NDY1OTYwMywxOTc1MDc0NDAsLTIyNDMxMjY5MCwt
-MzM1NjE3MjU5LC0zNTIxODg2NDAsLTExMjY3MzAwNjcsLTc3MD
-gxNjYwOCwyMTE4NTE2Mzc1LC0xMTEwOTk2MzI5LDI0Njc5ODUw
-NSwxNDcxMTkzMzY3LC03ODI4MDU3MiwtNzcyMDUxNjE4LDEyMz
-MyNDg0MDQsMTQ5NzkwNTU4NywtMTE3NDAyMTU4OSwxMjEzMDcy
-ODUxXX0=
+eyJoaXN0b3J5IjpbMTUzODM3Mzg0NiwyMTM4MDkyMjA1LDYzMj
+g2MjI3LC0xMTUyMjI3MDEsMjc0NjU5NjAzLDE5NzUwNzQ0MCwt
+MjI0MzEyNjkwLC0zMzU2MTcyNTksLTM1MjE4ODY0MCwtMTEyNj
+czMDA2NywtNzcwODE2NjA4LDIxMTg1MTYzNzUsLTExMTA5OTYz
+MjksMjQ2Nzk4NTA1LDE0NzExOTMzNjcsLTc4MjgwNTcyLC03Nz
+IwNTE2MTgsMTIzMzI0ODQwNCwxNDk3OTA1NTg3LC0xMTc0MDIx
+NTg5XX0=
 -->
