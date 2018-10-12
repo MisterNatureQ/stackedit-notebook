@@ -3550,7 +3550,7 @@ fmt.Printf("%s\n", data)
 
 在编码时，默认使用Go语言结构体的成员名字作为JSON的对象（**通过reflect反射技术**，我们将在12.6节讨论）。**只有导出的结构体成员才会被编码**，这也就是我们为什么选择用大写字母开头的成员名称。
 
-细心的读者可能已经注意到，其中Year名字的成员在编码后变成了released，还有Color成员编码后变成了小写字母开头的color。这是因为结构体成员Tag所导致的。一个结构体成员Tag是和在编译阶段关联到该成员的元信息字符串：
+细心的读者可能已经注意到，其中Year名字的成员在编码后变成了released，还有Color成员编码后变成了小写字母开头的color。这是因为结构体成员Tag所导致的。**一个结构体成员Tag是和在编译阶段关联到该成员的元信息字符串：**
 
 ```
 Year  int  `json:"released"`
@@ -3559,7 +3559,7 @@ Color bool `json:"color,omitempty"`
 
 结构体的成员Tag可以是任意的字符串面值，但是通常是一系列用空格分隔的key:"value"键值对序列；因为值中含有双引号字符，因此成员Tag一般用原生字符串面值的形式书写。json开头键名对应的值用于控制encoding/json包的编码和解码的行为，并且encoding/...下面其它的包也遵循这个约定。成员Tag中json对应值的第一部分用于指定JSON对象的名字，比如将Go语言中的TotalCount成员对应到JSON中的total_count对象。Color成员的Tag还带了一个额外的**omitempty选项，表示当Go语言结构体成员为空或零值时不生成该JSON对象（这里false为零值）**。果然，Casablanca是一个黑白电影，并没有输出Color成员。
 
-编码的逆操作是解码，对应将JSON数据解码为Go语言的数据结构，Go语言中一般叫unmarshaling，通过json.Unmarshal函数完成。下面的代码将JSON格式的电影数据解码为一个结构体slice，结构体中只有Title成员。**通过定义合适的Go语言数据结构，我们可以选择性地解码JSON中感兴趣的成员。**当Unmarshal函数调用返回，slice将被只含有Title信息的值填充，其它JSON成员将被忽略。
+编码的逆操作是解码，对应将JSON数据解码为Go语言的数据结构，**Go语言中一般叫unmarshaling，通过json.Unmarshal函数完成**。下面的代码将JSON格式的电影数据解码为一个结构体slice，结构体中只有Title成员。**通过定义合适的Go语言数据结构，我们可以选择性地解码JSON中感兴趣的成员**。当Unmarshal函数调用返回，slice将被只含有Title信息的值填充，其它JSON成员将被忽略。
 
 ```Go
 var titles []struct{ Title string }
@@ -8810,13 +8810,13 @@ go func() {
 }()
 ```
 
-现在每一次计数循环的迭代都需要等待两个channel中的其中一个返回事件了：当一切正常时的ticker channel（就像NASA jorgon的"nominal"，译注：这梗估计我们是不懂了）或者异常时返回的abort事件。我们无法做到从每一个channel中接收信息，如果我们这么做的话，如果第一个channel中没有事件发过来那么程序就会立刻被阻塞，这样我们就无法收到第二个channel中发过来的事件。这时候我们需要多路复用（multiplex）这些操作了，为了能够多路复用，我们使用了select语句
+现在每一次计数循环的迭代都需要等待两个channel中的其中一个返回事件了：当一切正常时的ticker channel（就像NASA jorgon的"nominal"，译注：这梗估计我们是不懂了）或者异常时返回的abort事件。我们无法做到从每一个channel中接收信息，如果我们这么做的话，如果第一个channel中没有事件发过来那么程序就会立刻被阻塞，这样我们就无法收到第二个channel中发过来的事件。这时候我们需要多路复用（multiplex）这些操作了，为了能够多路复用，我们使用了s
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTExMjY3MzAwNjcsLTc3MDgxNjYwOCwyMT
-E4NTE2Mzc1LC0xMTEwOTk2MzI5LDI0Njc5ODUwNSwxNDcxMTkz
-MzY3LC03ODI4MDU3MiwtNzcyMDUxNjE4LDEyMzMyNDg0MDQsMT
-Q5NzkwNTU4NywtMTE3NDAyMTU4OSwxMjEzMDcyODUxLDE4MDIx
-MjA3NzUsMTI3NDM4NDIxOSwtOTA1OTkxNDQ3LDU0NTkwMzQ4Mi
-wtMTI3MzIwNzEwLDU0MjU2NjA0MywxODgyNDE0MDgsLTcyNzEw
-Mjg5OV19
+eyJoaXN0b3J5IjpbLTM1MjE4ODY0MCwtMTEyNjczMDA2NywtNz
+cwODE2NjA4LDIxMTg1MTYzNzUsLTExMTA5OTYzMjksMjQ2Nzk4
+NTA1LDE0NzExOTMzNjcsLTc4MjgwNTcyLC03NzIwNTE2MTgsMT
+IzMzI0ODQwNCwxNDk3OTA1NTg3LC0xMTc0MDIxNTg5LDEyMTMw
+NzI4NTEsMTgwMjEyMDc3NSwxMjc0Mzg0MjE5LC05MDU5OTE0ND
+csNTQ1OTAzNDgyLC0xMjczMjA3MTAsNTQyNTY2MDQzLDE4ODI0
+MTQwOF19
 -->
