@@ -3639,6 +3639,7 @@ func SearchIssues(terms []string) (*IssuesSearchResult, error) {
 
 	var result IssuesSearchResult
 	// 基于流式的解码器json.Decoder，它可以从一个输入流解码JSON数据
+	// Decode从输入流读取下一个json编码值并保存在v指向的值里，参见Unmarshal函数的文档获取细节信息
 	if err := json.NewDecoder(resp.Body).Decode(&result); err != nil {
 		resp.Body.Close()
 		return nil, err
@@ -8815,11 +8816,11 @@ go func() {
 
 现在每一次
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTk3NTA3NDQwLC0yMjQzMTI2OTAsLTMzNT
-YxNzI1OSwtMzUyMTg4NjQwLC0xMTI2NzMwMDY3LC03NzA4MTY2
-MDgsMjExODUxNjM3NSwtMTExMDk5NjMyOSwyNDY3OTg1MDUsMT
-Q3MTE5MzM2NywtNzgyODA1NzIsLTc3MjA1MTYxOCwxMjMzMjQ4
-NDA0LDE0OTc5MDU1ODcsLTExNzQwMjE1ODksMTIxMzA3Mjg1MS
-wxODAyMTIwNzc1LDEyNzQzODQyMTksLTkwNTk5MTQ0Nyw1NDU5
-MDM0ODJdfQ==
+eyJoaXN0b3J5IjpbMjc0NjU5NjAzLDE5NzUwNzQ0MCwtMjI0Mz
+EyNjkwLC0zMzU2MTcyNTksLTM1MjE4ODY0MCwtMTEyNjczMDA2
+NywtNzcwODE2NjA4LDIxMTg1MTYzNzUsLTExMTA5OTYzMjksMj
+Q2Nzk4NTA1LDE0NzExOTMzNjcsLTc4MjgwNTcyLC03NzIwNTE2
+MTgsMTIzMzI0ODQwNCwxNDk3OTA1NTg3LC0xMTc0MDIxNTg5LD
+EyMTMwNzI4NTEsMTgwMjEyMDc3NSwxMjc0Mzg0MjE5LC05MDU5
+OTE0NDddfQ==
 -->
