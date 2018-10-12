@@ -3212,6 +3212,7 @@ if _, ok := seen[s]; !ok {
 
 
 ### 4.4.1. 结构体字面值
+?? 字面值 const shu
 
 结构体值也可以用结构体字面值表示，结构体字面值可以指定每个成员的值。
 
@@ -3369,7 +3370,7 @@ w.Circle.Radius = 5
 w.Spokes = 20
 ```
 
-**Go语言有一个特性让我们只声明一个成员对应的数据类型而不指名成员的名字；这类成员就叫匿名成员。匿名成员的数据类型必须是命名的类型或指向一个命名的类型的指针。**下面的代码中，Circle和Wheel各自都有一个匿名成员。我们可以说Point类型被嵌入到了Circle结构体，同时Circle类型被嵌入到了Wheel结构体。
+**Go语言有一个特性让我们只声明一个成员对应的数据类型而不指名成员的名字；这类成员就叫匿名成员。匿名成员的数据类型必须是命名的类型或指向一个命名的类型的指针**。下面的代码中，Circle和Wheel各自都有一个匿名成员。我们可以说Point类型被嵌入到了Circle结构体，同时Circle类型被嵌入到了Wheel结构体。
 
 ```Go
 type Circle struct {
@@ -8812,15 +8813,13 @@ go func() {
 现在每一次计数循环的迭代都需要等待两个channel中的其中一个返回事件了：当一切正常时的ticker channel（就像NASA jorgon的"nominal"，译注：这梗估计我们是不懂了）或者异常时返回的abort事件。我们无法做到从每一个channel中接收信息，如果我们这么做的话，如果第一个channel中没有事件发过来那么程序就会立刻被阻塞，这样我们就无法收到第二个channel中发过来的事件。这时候我们需要多路复用（multiplex）这些操作了，为了能够多路复用，我们使用了select语句。
 
 ```go
-select {
-case <-ch1:
-	//
+sel
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTc3MDgxNjYwOCwyMTE4NTE2Mzc1LC0xMT
-EwOTk2MzI5LDI0Njc5ODUwNSwxNDcxMTkzMzY3LC03ODI4MDU3
-MiwtNzcyMDUxNjE4LDEyMzMyNDg0MDQsMTQ5NzkwNTU4NywtMT
-E3NDAyMTU4OSwxMjEzMDcyODUxLDE4MDIxMjA3NzUsMTI3NDM4
-NDIxOSwtOTA1OTkxNDQ3LDU0NTkwMzQ4MiwtMTI3MzIwNzEwLD
-U0MjU2NjA0MywxODgyNDE0MDgsLTcyNzEwMjg5OSwtMTM5NjQ0
-MDUzN119
+eyJoaXN0b3J5IjpbLTI2NDg4MjI4OCwtNzcwODE2NjA4LDIxMT
+g1MTYzNzUsLTExMTA5OTYzMjksMjQ2Nzk4NTA1LDE0NzExOTMz
+NjcsLTc4MjgwNTcyLC03NzIwNTE2MTgsMTIzMzI0ODQwNCwxND
+k3OTA1NTg3LC0xMTc0MDIxNTg5LDEyMTMwNzI4NTEsMTgwMjEy
+MDc3NSwxMjc0Mzg0MjE5LC05MDU5OTE0NDcsNTQ1OTAzNDgyLC
+0xMjczMjA3MTAsNTQyNTY2MDQzLDE4ODI0MTQwOCwtNzI3MTAy
+ODk5XX0=
 -->
