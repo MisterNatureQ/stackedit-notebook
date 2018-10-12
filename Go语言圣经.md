@@ -3976,7 +3976,7 @@ func Sin(x float64) float //implemented in assembly language
 
 下文的示例代码使用了非标准包 golang.org/x/net/html ，解析HTML。golang.org/x/... 目录下存储了一些由Go团队设计、维护，对网络编程、国际化文件处理、移动平台、图像处理、加密解密、开发者工具提供支持的扩展包。未将这些扩展包加入到标准库原因有二，一是部分包仍在开发中，二是对大多数Go语言的开发者而言，扩展包提供的功能很少被使用。
 
-例子中调用golang.org/x/net/html的部分api如下所示。html.Parse函数读入一组bytes解析后，返回html.Node类型的HTML页面树状结构根节点。HTML拥有很多类型的结点如text（文本）、commnets（注释）类型，在下面的例子中，我们 只关注< name key='value' >形式的结点。
+例子中调用golang.org/x/net/html的部分api如下所示。html.Parse函数读入一组bytes解析后，返回html.Node类型的HTML页面树状结构根节点。HTML拥有很多类型的结点如text（文本）、commnets（注释）类型，在下面的例子中，我们只关注< name key='value' >形式的结点。
 
 <u><i>golang.org/x/net/html</i></u>
 ```Go
@@ -8816,11 +8816,11 @@ go func() {
 
 现在每一次
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNjMyODYyMjcsLTExNTIyMjcwMSwyNzQ2NT
-k2MDMsMTk3NTA3NDQwLC0yMjQzMTI2OTAsLTMzNTYxNzI1OSwt
-MzUyMTg4NjQwLC0xMTI2NzMwMDY3LC03NzA4MTY2MDgsMjExOD
-UxNjM3NSwtMTExMDk5NjMyOSwyNDY3OTg1MDUsMTQ3MTE5MzM2
-NywtNzgyODA1NzIsLTc3MjA1MTYxOCwxMjMzMjQ4NDA0LDE0OT
-c5MDU1ODcsLTExNzQwMjE1ODksMTIxMzA3Mjg1MSwxODAyMTIw
-Nzc1XX0=
+eyJoaXN0b3J5IjpbLTEyMTA2MDkwNjcsNjMyODYyMjcsLTExNT
+IyMjcwMSwyNzQ2NTk2MDMsMTk3NTA3NDQwLC0yMjQzMTI2OTAs
+LTMzNTYxNzI1OSwtMzUyMTg4NjQwLC0xMTI2NzMwMDY3LC03Nz
+A4MTY2MDgsMjExODUxNjM3NSwtMTExMDk5NjMyOSwyNDY3OTg1
+MDUsMTQ3MTE5MzM2NywtNzgyODA1NzIsLTc3MjA1MTYxOCwxMj
+MzMjQ4NDA0LDE0OTc5MDU1ODcsLTExNzQwMjE1ODksMTIxMzA3
+Mjg1MV19
 -->
