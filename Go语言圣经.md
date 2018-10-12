@@ -3212,7 +3212,7 @@ if _, ok := seen[s]; !ok {
 
 
 ### 4.4.1. 结构体字面值
-?? 字面值 const shu
+?? 字面值 const 属性
 
 结构体值也可以用结构体字面值表示，结构体字面值可以指定每个成员的值。
 
@@ -3438,14 +3438,14 @@ w.X = 8 // equivalent to w.circle.point.X = 8 但是在包外部，因为circle�
 
 **但是在包外部，因为circle和point没有导出，不能访问它们的成员，因此简短的匿名成员访问语法也是禁止的。**
 
-到目前为止，我们看到匿名成员特性只是对访问嵌套成员的点运算符提供了简短的语法糖。稍后，我们将会看到**匿名成员并不要求是结构体类型；其实任何命名的类型都可以作为结构体的匿名成员。**但是为什么要嵌入一个没有任何子成员类型的匿名成员类型呢？
+到目前为止，我们看到匿名成员特性只是对访问嵌套成员的点运算符提供了简短的语法糖。稍后，我们将会看到**匿名成员并不要求是结构体类型；其实任何命名的类型都可以作为结构体的匿名成员**。但是为什么要嵌入一个没有任何子成员类型的匿名成员类型呢？
 
 答案是**匿名类型的方法集。简短的点运算符语法可以用于选择匿名成员嵌套的成员，也可以用于访问它们的方法。实际上，外层的结构体不仅仅是获得了匿名成员类型的所有成员，而且也获得了该类型导出的全部的方法。这个机制可以用于将一些有简单行为的对象组合成有复杂行为的对象。组合是Go语言中面向对象编程的核心**，我们将在6.3节中专门讨论。
 
 
 ## 4.5. JSON
 
-JavaScript对象表示法（JSON）是一种用于发送和接收结构化信息的标准协议。在类似的协议中，JSON并不是唯一的一个标准协议。 XML（§7.14）、ASN.1和Google的Protocol Buffers都是类似的协议，并且有各自的特色，但是由于简洁性、可读性和流行程度等原因，JSON是应用最广泛的一个。
+**JavaScript对象表示法（JSON）是一种用于发送和接收结构化信息的标准协议。在类似的协议中，JSON并不是唯一的一个标准协议。 XML（§7.14）、ASN.1和Google的Protocol Buffers都是类似的协议，并且有各自的特色，但是由于简洁性、可读性和流行程度等原因，JSON是应用最广泛的一个**。
 
 Go语言对于这些标准格式的编码和解码都有良好的支持，由标准库中的encoding/json、encoding/xml、encoding/asn1等包提供支持（译注：Protocol Buffers的支持由 github.com/golang/protobuf 包提供），并且这类包都有着相似的API接口。本节，我们将对重要的encoding/json包的用法做个概述。
 
@@ -3453,7 +3453,7 @@ JSON是对JavaScript中各种类型的值——字符串、数字、布尔值和
 
 基本的JSON类型有数字（十进制或科学记数法）、布尔值（true或false）、字符串，其中字符串是以双引号包含的Unicode字符序列，支持和Go语言类似的反斜杠转义特性，不过JSON使用的是`\Uhhhh`转义数字来表示一个UTF-16编码（译注：**UTF-16和UTF-8一样是一种变长的编码，有些Unicode码点较大的字符需要用4个字节表示；而且UTF-16还有大端和小端的问题**），而不是Go语言的rune类型。
 
-这些基础类型可以通过JSON的数组和对象类型进行递归组合。一个JSON数组是一个有序的值序列，写在一个方括号中并以逗号分隔；一个JSON数组可以用于编码Go语言的数组和slice。一个JSON对象是一个字符串到值的映射，写成一系列的name:value对形式，用花括号包含并以逗号分隔；JSON的对象类型可以用于编码Go语言的map类型（key类型是字符串）和结构体。例如：
+这些基础类型可以通过JSON的数组和对象类型进行递归组合。一个JSON数组是一个有序的值序列，写在一个方括号中并以逗号分隔；一个JSON数组可以用于编码Go语言的数组和slice。一个JSON对象是一个字符串到值的映射，写成一系列的name:value对形式，用花括号包含并以逗号分隔；**JSON的对象类型可以用于编码Go语言的map类型（key类型是字符串）和结构体**。例如：
 
 ```
 boolean         true
@@ -3475,7 +3475,7 @@ type Movie struct {
 	Color  bool `json:"color,omitempty"` // 成员Tag
 	Actors []string
 }
-
+// slice
 var movies = []Movie{
 	{Title: "Casablanca", Year: 1942, Color: false,
 		Actors: []string{"Humphrey Bogart", "Ingrid Bergman"}},
@@ -8810,16 +8810,13 @@ go func() {
 }()
 ```
 
-现在每一次计数循环的迭代都需要等待两个channel中的其中一个返回事件了：当一切正常时的ticker channel（就像NASA jorgon的"nominal"，译注：这梗估计我们是不懂了）或者异常时返回的abort事件。我们无法做到从每一个channel中接收信息，如果我们这么做的话，如果第一个channel中没有事件发过来那么程序就会立刻被阻塞，这样我们就无法收到第二个channel中发过来的事件。这时候我们需要多路复用（multiplex）这些操作了，为了能够多路复用，我们使用了select语句。
-
-```go
-sel
+现在每一次计数循环的迭代都需要等待两个channel中的其中一个返回事件了：当一切正常时的ticker channel（就像NASA jorgon的"nominal"，译注：这梗估计我们是不懂了）或者异常时返回的abort事件。我们无法做到从每一个channel中接收信息，如果我们这么做的话，如果第一个channel中没有事件发过来那么程序就会立刻被阻塞，这样我们就无法收到第二个channel中发过来的事件。这时候我们需要多路复用（multiplex）这些操作了，为了能够多路复用，我们使用了select语句
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTI2NDg4MjI4OCwtNzcwODE2NjA4LDIxMT
-g1MTYzNzUsLTExMTA5OTYzMjksMjQ2Nzk4NTA1LDE0NzExOTMz
-NjcsLTc4MjgwNTcyLC03NzIwNTE2MTgsMTIzMzI0ODQwNCwxND
-k3OTA1NTg3LC0xMTc0MDIxNTg5LDEyMTMwNzI4NTEsMTgwMjEy
-MDc3NSwxMjc0Mzg0MjE5LC05MDU5OTE0NDcsNTQ1OTAzNDgyLC
-0xMjczMjA3MTAsNTQyNTY2MDQzLDE4ODI0MTQwOCwtNzI3MTAy
-ODk5XX0=
+eyJoaXN0b3J5IjpbLTExMjY3MzAwNjcsLTc3MDgxNjYwOCwyMT
+E4NTE2Mzc1LC0xMTEwOTk2MzI5LDI0Njc5ODUwNSwxNDcxMTkz
+MzY3LC03ODI4MDU3MiwtNzcyMDUxNjE4LDEyMzMyNDg0MDQsMT
+Q5NzkwNTU4NywtMTE3NDAyMTU4OSwxMjEzMDcyODUxLDE4MDIx
+MjA3NzUsMTI3NDM4NDIxOSwtOTA1OTkxNDQ3LDU0NTkwMzQ4Mi
+wtMTI3MzIwNzEwLDU0MjU2NjA0MywxODgyNDE0MDgsLTcyNzEw
+Mjg5OV19
 -->
