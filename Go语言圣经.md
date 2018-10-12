@@ -3621,7 +3621,9 @@ import (
 
 // SearchIssues queries the GitHub issue tracker.
 func SearchIssues(terms []string) (*IssuesSearchResult, error) {
-	q := url.QueryEscape(strings.Join(terms, " ")) //为了避免对URL造成冲突，我们用url.QueryEscape来对查询中的特殊字符进行转义操作
+	// strings.Join 将一系列字符串连接为一个字符串，之间用sep来分隔。
+	// 为了避免对URL造成冲突，我们用url.QueryEscape来对查询中的特殊字符进行转义操作
+	q := url.QueryEscape(strings.Join(terms, " ")) 
 	resp, err := http.Get(IssuesURL + "?q=" + q)
 	if err != nil {
 		return nil, err
@@ -8810,13 +8812,13 @@ go func() {
 }()
 ```
 
-现在每一次计数循环的迭代都需要等待两个channel中的其中一个返回事件了：当一切正常时的ticker channel（就像NASA jorgon的"nominal"，译注：这梗估计我们是不懂了）或者异常时返回的abort事件。我们无法做到从每一个channel中接收信息，如果我们这么做的话，如果第一个channel中没有事件发过来那么程序就会立刻被阻塞，这样我们就无法收到第二个channel中发过来的事件。这时候我们需要多路复用（multiplex）这些操作了，为了能够多路复
+现在每一次计数循环的迭代都需要等待两个channel中的其中一个返回事件了：当一切正常时的ticker channel（就像NASA jorgon的"nominal"，译注：这梗估计我们是不懂了）或者异常时返回的abort事件。我们无法做到从每一个channel中接收信息，如果我们这么做的话，如果第一个channel中没有事件发过来那么程序就会立刻被阻塞，这样我们就无法收到第二个cha
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTMzNTYxNzI1OSwtMzUyMTg4NjQwLC0xMT
-I2NzMwMDY3LC03NzA4MTY2MDgsMjExODUxNjM3NSwtMTExMDk5
-NjMyOSwyNDY3OTg1MDUsMTQ3MTE5MzM2NywtNzgyODA1NzIsLT
-c3MjA1MTYxOCwxMjMzMjQ4NDA0LDE0OTc5MDU1ODcsLTExNzQw
-MjE1ODksMTIxMzA3Mjg1MSwxODAyMTIwNzc1LDEyNzQzODQyMT
-ksLTkwNTk5MTQ0Nyw1NDU5MDM0ODIsLTEyNzMyMDcxMCw1NDI1
-NjYwNDNdfQ==
+eyJoaXN0b3J5IjpbLTIyNDMxMjY5MCwtMzM1NjE3MjU5LC0zNT
+IxODg2NDAsLTExMjY3MzAwNjcsLTc3MDgxNjYwOCwyMTE4NTE2
+Mzc1LC0xMTEwOTk2MzI5LDI0Njc5ODUwNSwxNDcxMTkzMzY3LC
+03ODI4MDU3MiwtNzcyMDUxNjE4LDEyMzMyNDg0MDQsMTQ5Nzkw
+NTU4NywtMTE3NDAyMTU4OSwxMjEzMDcyODUxLDE4MDIxMjA3Nz
+UsMTI3NDM4NDIxOSwtOTA1OTkxNDQ3LDU0NTkwMzQ4MiwtMTI3
+MzIwNzEwXX0=
 -->
