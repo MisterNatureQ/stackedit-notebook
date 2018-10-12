@@ -3624,7 +3624,7 @@ func SearchIssues(terms []string) (*IssuesSearchResult, error) {
 	// strings.Join 将一系列字符串连接为一个字符串，之间用sep来分隔。
 	// 为了避免对URL造成冲突，我们用url.QueryEscape来对查询中的特殊字符进行转义操作
 	q := url.QueryEscape(strings.Join(terms, " ")) 
-	// func Get(url [string) (resp *[Response], err [error](http://godoc.org/builtin#error))
+	// 
 	resp, err := http.Get(IssuesURL + "?q=" + q)
 	if err != nil {
 		return nil, err
@@ -8815,7 +8815,7 @@ go func() {
 
 现在每一次
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTc5MjM1MjQxLC0yMjQzMTI2OTAsLTMzNT
+eyJoaXN0b3J5IjpbMTk3NTA3NDQwLC0yMjQzMTI2OTAsLTMzNT
 YxNzI1OSwtMzUyMTg4NjQwLC0xMTI2NzMwMDY3LC03NzA4MTY2
 MDgsMjExODUxNjM3NSwtMTExMDk5NjMyOSwyNDY3OTg1MDUsMT
 Q3MTE5MzM2NywtNzgyODA1NzIsLTc3MjA1MTYxOCwxMjMzMjQ4
