@@ -3742,7 +3742,7 @@ Age:    {{.CreatedAt | daysAgo}} days // daysAgo的函数
 
 {% endraw %}
 
-在一个action中，`|`操作符表示将前一个表达式的结果作为后一个函数的输入，类似于UNIX中管道的概念。在Title这一行的action中，第二个操作是一个printf函数，是一个基于fmt.Sprintf实现的内置函数，所有模板都可以直接使用。对于Age部分，第二个动作是一个叫daysAgo的函数，通过time.Since函数将CreatedAt成员转换为过去的时间长度：
+**在一个action中，`|`操作符表示将前一个表达式的结果作为后一个函数的输入，类似于UNIX中管道的概念**。在Title这一行的action中，第二个操作是一个printf函数，是一个基于fmt.Sprintf实现的内置函数，所有模板都可以直接使用。对于Age部分，第二个动作是一个叫daysAgo的函数，通过time.Since函数将CreatedAt成员转换为过去的时间长度：
 
 ```Go
 func daysAgo(t time.Time) int {
@@ -8816,11 +8816,11 @@ go func() {
 
 现在每一次
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjc0NjU5NjAzLDE5NzUwNzQ0MCwtMjI0Mz
-EyNjkwLC0zMzU2MTcyNTksLTM1MjE4ODY0MCwtMTEyNjczMDA2
-NywtNzcwODE2NjA4LDIxMTg1MTYzNzUsLTExMTA5OTYzMjksMj
-Q2Nzk4NTA1LDE0NzExOTMzNjcsLTc4MjgwNTcyLC03NzIwNTE2
-MTgsMTIzMzI0ODQwNCwxNDk3OTA1NTg3LC0xMTc0MDIxNTg5LD
-EyMTMwNzI4NTEsMTgwMjEyMDc3NSwxMjc0Mzg0MjE5LC05MDU5
-OTE0NDddfQ==
+eyJoaXN0b3J5IjpbLTExNTIyMjcwMSwyNzQ2NTk2MDMsMTk3NT
+A3NDQwLC0yMjQzMTI2OTAsLTMzNTYxNzI1OSwtMzUyMTg4NjQw
+LC0xMTI2NzMwMDY3LC03NzA4MTY2MDgsMjExODUxNjM3NSwtMT
+ExMDk5NjMyOSwyNDY3OTg1MDUsMTQ3MTE5MzM2NywtNzgyODA1
+NzIsLTc3MjA1MTYxOCwxMjMzMjQ4NDA0LDE0OTc5MDU1ODcsLT
+ExNzQwMjE1ODksMTIxMzA3Mjg1MSwxODAyMTIwNzc1LDEyNzQz
+ODQyMTldfQ==
 -->
