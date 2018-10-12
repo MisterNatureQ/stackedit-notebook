@@ -3919,7 +3919,7 @@ func name(parameter-list) (result-list) {
 }
 ```
 
-形式参数列表描述了函数的参数名以及参数类型。这些参数作为局部变量，其值由参数调用者提供。返回值列表描述了函数返回值的变量名以及类型。**如果函数返回一个无名变量或者没有返回值，返回值列表的括号是可以省略的。如果一个函数声明不包括返回值列表，那么函数体执行完毕后，不会返回任何值。**在hypot函数中：
+形式参数列表描述了函数的参数名以及参数类型。这些参数作为局部变量，其值由参数调用者提供。返回值列表描述了函数返回值的变量名以及类型。**如果函数返回一个无名变量或者没有返回值，返回值列表的括号是可以省略的。如果一个函数声明不包括返回值列表，那么函数体执行完毕后，不会返回任何值**。在hypot函数中：
 
 ```Go
 func hypot(x, y float64) float64 {
@@ -3955,7 +3955,7 @@ fmt.Printf("%T\n", zero)  // "func(int, int) int"
 
 函数的类型被称为函数的签名。如果两个函数形式参数列表和返回值列表中的变量类型一一对应，那么这两个函数被认为有相同的类型或签名。形参和返回值的变量名不影响函数签名，也不影响它们是否可以以省略参数类型的形式表示。
 
-**每一次函数调用都必须按照声明顺序为所有参数提供实参（参数值）。在函数调用时，Go语言没有默认参数值，也没有任何方法可以通过参数名指定形参，因此形参和返回值的变量名对于函数调用者而言没有意义。**
+**每一次函数调用都必须按照声明顺序为所有参数提供实参（参数值）。在函数调用时，Go语言没有默认参数值，也没有任何方法可以通过参数名指定形参，因此形参和返回值的变量名对于函数调用者而言没有意义**。
 
 在函数体中，函数的形参作为局部变量，被初始化为调用者提供的值。函数的形参和有名返回值作为函数最外层的局部变量，被存储在相同的词法块中。
 
@@ -8816,11 +8816,11 @@ go func() {
 
 现在每一次
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTExNTIyMjcwMSwyNzQ2NTk2MDMsMTk3NT
-A3NDQwLC0yMjQzMTI2OTAsLTMzNTYxNzI1OSwtMzUyMTg4NjQw
-LC0xMTI2NzMwMDY3LC03NzA4MTY2MDgsMjExODUxNjM3NSwtMT
-ExMDk5NjMyOSwyNDY3OTg1MDUsMTQ3MTE5MzM2NywtNzgyODA1
-NzIsLTc3MjA1MTYxOCwxMjMzMjQ4NDA0LDE0OTc5MDU1ODcsLT
-ExNzQwMjE1ODksMTIxMzA3Mjg1MSwxODAyMTIwNzc1LDEyNzQz
-ODQyMTldfQ==
+eyJoaXN0b3J5IjpbLTYyNTczMTc1NywtMTE1MjIyNzAxLDI3ND
+Y1OTYwMywxOTc1MDc0NDAsLTIyNDMxMjY5MCwtMzM1NjE3MjU5
+LC0zNTIxODg2NDAsLTExMjY3MzAwNjcsLTc3MDgxNjYwOCwyMT
+E4NTE2Mzc1LC0xMTEwOTk2MzI5LDI0Njc5ODUwNSwxNDcxMTkz
+MzY3LC03ODI4MDU3MiwtNzcyMDUxNjE4LDEyMzMyNDg0MDQsMT
+Q5NzkwNTU4NywtMTE3NDAyMTU4OSwxMjEzMDcyODUxLDE4MDIx
+MjA3NzVdfQ==
 -->
