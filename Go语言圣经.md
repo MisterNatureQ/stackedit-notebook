@@ -3603,9 +3603,9 @@ type User struct {
 }
 ```
 
-和前面一样，即使对应的JSON对象名是小写字母，每个结构体的成员名也是声明为大写字母开头的。因为有些JSON成员名字和Go结构体成员名字并不相同，因此需要Go语言结构体成员Tag来指定对应的JSON名字。同样，在解码的时候也需要做同样的处理，GitHub服务返回的信息比我们定义的要多很多。
+和前面一样，即使对应的JSON对象名是小写字母，每个结构体的成员名也是声明为大写字母开头的。因为有些JSON成员名字和Go结构体成员名字并不相同，因此**需要Go语言结构体成员Tag来指定对应的JSON名字。同样，在解码的时候也需要做同样的处理**，GitHub服务返回的信息比我们定义的要多很多。
 
-SearchIssues函数发出一个HTTP请求，然后解码返回的JSON格式的结果。因为用户提供的查询条件可能包含类似`?`和`&`之类的特殊字符，为了避免对URL造成冲突，我们用url.QueryEscape来对查询中的特殊字符进行转义操作。
+SearchIssues函数发出一个HTTP请求，然后解码返回的JSON格式的结果。因为用户提供的查询条件可能包含类似`?`和`&`之类的特殊字符，为了避免对URL造成冲突，我们用**url.QueryEscape来对查询中的特殊字符进行转义操作**。
 
 <u><i>gopl.io/ch4/github</i></u>
 ```Go
@@ -8810,13 +8810,13 @@ go func() {
 }()
 ```
 
-现在每一次计数循环的迭代都需要等待两个channel中的其中一个返回事件了：当一切正常时的ticker channel（就像NASA jorgon的"nominal"，译注：这梗估计我们是不懂了）或者异常时返回的abort事件。我们无法做到从每一个channel中接收信息，如果我们这么做的话，如果第一个channel中没有事件发过来那么程序就会立刻被阻塞，这样我们就无法收到第二个channel中发过来的事件。这时候我们需要多路复用（multiplex）这些操作了，为了能够多路复用，我们使用了s
+现在每一次计数循环的迭代都需要等待两个channel中的其中一个返回事件了：当一切正常时的ticker channel（就像NASA jorgon的"nominal"，译注：这梗估计我们是不懂了）或者异常时返回的abort事件。我们无法做到从每一个channel中接收信息，如果我们这么做的话，如果第一个channel中没有事件发过来那么程序就会立刻被阻塞，这样我们就无法收到第二个channel中发过来的事件。这时候我们需要多路复用（multiplex）这些操作了，为了能够多路复
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTM1MjE4ODY0MCwtMTEyNjczMDA2NywtNz
-cwODE2NjA4LDIxMTg1MTYzNzUsLTExMTA5OTYzMjksMjQ2Nzk4
-NTA1LDE0NzExOTMzNjcsLTc4MjgwNTcyLC03NzIwNTE2MTgsMT
-IzMzI0ODQwNCwxNDk3OTA1NTg3LC0xMTc0MDIxNTg5LDEyMTMw
-NzI4NTEsMTgwMjEyMDc3NSwxMjc0Mzg0MjE5LC05MDU5OTE0ND
-csNTQ1OTAzNDgyLC0xMjczMjA3MTAsNTQyNTY2MDQzLDE4ODI0
-MTQwOF19
+eyJoaXN0b3J5IjpbLTMzNTYxNzI1OSwtMzUyMTg4NjQwLC0xMT
+I2NzMwMDY3LC03NzA4MTY2MDgsMjExODUxNjM3NSwtMTExMDk5
+NjMyOSwyNDY3OTg1MDUsMTQ3MTE5MzM2NywtNzgyODA1NzIsLT
+c3MjA1MTYxOCwxMjMzMjQ4NDA0LDE0OTc5MDU1ODcsLTExNzQw
+MjE1ODksMTIxMzA3Mjg1MSwxODAyMTIwNzc1LDEyNzQzODQyMT
+ksLTkwNTk5MTQ0Nyw1NDU5MDM0ODIsLTEyNzMyMDcxMCw1NDI1
+NjYwNDNdfQ==
 -->
