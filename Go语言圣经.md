@@ -3624,6 +3624,7 @@ func SearchIssues(terms []string) (*IssuesSearchResult, error) {
 	// strings.Join 将一系列字符串连接为一个字符串，之间用sep来分隔。
 	// 为了避免对URL造成冲突，我们用url.QueryEscape来对查询中的特殊字符进行转义操作
 	q := url.QueryEscape(strings.Join(terms, " ")) 
+	// func Get(url [string) (resp *[Response], err [error](http://godoc.org/builtin#error))
 	resp, err := http.Get(IssuesURL + "?q=" + q)
 	if err != nil {
 		return nil, err
@@ -8812,13 +8813,13 @@ go func() {
 }()
 ```
 
-现在每一次计数循环的迭代都需要等待两个channel中的其中一个返回事件了：当一切正常时的ticker channel（就像NASA jorgon的"nominal"，译注：这梗估计我们是不懂了）或者异常时返回的abort事件。我们无法做到从每一个channel中接收信息，如果我们这么做的话，如果第一个channel中没有事件发过来那么程序就会立刻被阻塞，这样我们就无法收到第二个cha
+现在每一次
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIyNDMxMjY5MCwtMzM1NjE3MjU5LC0zNT
-IxODg2NDAsLTExMjY3MzAwNjcsLTc3MDgxNjYwOCwyMTE4NTE2
-Mzc1LC0xMTEwOTk2MzI5LDI0Njc5ODUwNSwxNDcxMTkzMzY3LC
-03ODI4MDU3MiwtNzcyMDUxNjE4LDEyMzMyNDg0MDQsMTQ5Nzkw
-NTU4NywtMTE3NDAyMTU4OSwxMjEzMDcyODUxLDE4MDIxMjA3Nz
-UsMTI3NDM4NDIxOSwtOTA1OTkxNDQ3LDU0NTkwMzQ4MiwtMTI3
-MzIwNzEwXX0=
+eyJoaXN0b3J5IjpbMTc5MjM1MjQxLC0yMjQzMTI2OTAsLTMzNT
+YxNzI1OSwtMzUyMTg4NjQwLC0xMTI2NzMwMDY3LC03NzA4MTY2
+MDgsMjExODUxNjM3NSwtMTExMDk5NjMyOSwyNDY3OTg1MDUsMT
+Q3MTE5MzM2NywtNzgyODA1NzIsLTc3MjA1MTYxOCwxMjMzMjQ4
+NDA0LDE0OTc5MDU1ODcsLTExNzQwMjE1ODksMTIxMzA3Mjg1MS
+wxODAyMTIwNzc1LDEyNzQzODQyMTksLTkwNTk5MTQ0Nyw1NDU5
+MDM0ODJdfQ==
 -->
