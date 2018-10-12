@@ -3929,7 +3929,7 @@ fmt.Println(hypot(3,4)) // "5"
 ```
 
 x和y是形参名，3和4是调用时的传入的实参，函数返回了一个float64类型的值。
-返回值也可以像形式参数一样被命名。在这种情况下，每个返回值被声明成一个局部变量，并根据该返回值的类型，将其初始化为该类型的零值。
+**返回值也可以像形式参数一样被命名。在这种情况下，每个返回值被声明成一个局部变量，并根据该返回值的类型，将其初始化为该类型的零值**。
 如果一个函数在声明时，包含返回值列表，该函数必须以 return语句结尾，除非函数明显无法运行到结尾处。例如函数在结尾时调用了panic异常或函数中存在无限循环。
 
 正如hypot一样，如果一组形参或返回值有相同的类型，我们不必为每个形参都写出参数类型。下面2个声明是等价的：
@@ -8816,11 +8816,11 @@ go func() {
 
 现在每一次
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTYyNTczMTc1NywtMTE1MjIyNzAxLDI3ND
-Y1OTYwMywxOTc1MDc0NDAsLTIyNDMxMjY5MCwtMzM1NjE3MjU5
-LC0zNTIxODg2NDAsLTExMjY3MzAwNjcsLTc3MDgxNjYwOCwyMT
-E4NTE2Mzc1LC0xMTEwOTk2MzI5LDI0Njc5ODUwNSwxNDcxMTkz
-MzY3LC03ODI4MDU3MiwtNzcyMDUxNjE4LDEyMzMyNDg0MDQsMT
-Q5NzkwNTU4NywtMTE3NDAyMTU4OSwxMjEzMDcyODUxLDE4MDIx
-MjA3NzVdfQ==
+eyJoaXN0b3J5IjpbNjMyODYyMjcsLTExNTIyMjcwMSwyNzQ2NT
+k2MDMsMTk3NTA3NDQwLC0yMjQzMTI2OTAsLTMzNTYxNzI1OSwt
+MzUyMTg4NjQwLC0xMTI2NzMwMDY3LC03NzA4MTY2MDgsMjExOD
+UxNjM3NSwtMTExMDk5NjMyOSwyNDY3OTg1MDUsMTQ3MTE5MzM2
+NywtNzgyODA1NzIsLTc3MjA1MTYxOCwxMjMzMjQ4NDA0LDE0OT
+c5MDU1ODcsLTExNzQwMjE1ODksMTIxMzA3Mjg1MSwxODAyMTIw
+Nzc1XX0=
 -->
