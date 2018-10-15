@@ -4218,7 +4218,7 @@ func HourMinSec(t time.Time) (hour, minute, second int)
 
 虽然良好的命名很重要，但你也不必为每一个返回值都取一个适当的名字。比如，按照惯例，函数的最后一个bool类型的返回值表示函数是否运行成功，error类型的返回值代表函数的错误信息，对于这些类似的惯例，我们不必思考合适的命名，它们都无需解释。
 
-**如果一个函数所有的返回值都有显式的变量名，那么该函数的return语句可以省略操作数**。这称之为bare return。
+**如果一个函数所有的返回值都有显式的变量名，那么该函数的return语句可以省略操作数。这称之为bare return**。
 
 ```Go
 // CountWordsAndImages does an HTTP GET request for the HTML
@@ -8813,7 +8813,7 @@ go func() {
 	os.Stdin.Read(make([]byte, 1)) // read a single byte
 	abort
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTQzMDk5MTcwMiwtNzY0MDExMTc4LDE1Mz
+eyJoaXN0b3J5IjpbMTU1ODg1MTc5OCwtNzY0MDExMTc4LDE1Mz
 gzNzM4NDYsMjEzODA5MjIwNSw2MzI4NjIyNywtMTE1MjIyNzAx
 LDI3NDY1OTYwMywxOTc1MDc0NDAsLTIyNDMxMjY5MCwtMzM1Nj
 E3MjU5LC0zNTIxODg2NDAsLTExMjY3MzAwNjcsLTc3MDgxNjYw
