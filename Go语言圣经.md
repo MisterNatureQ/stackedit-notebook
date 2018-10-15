@@ -4101,7 +4101,7 @@ func outline(stack []string, n *html.Node) {
 }
 ```
 
-有一点值得注意：outline有入栈操作，但没有相对应的出栈操作。当outline调用自身时，被调用者接收的是stack的拷贝。被调用者对stack的元素追加操作，修改的是stack的拷贝，其可能会修改slice底层的数组甚至是申请一块新的内存空间进行扩容；但这个过程并不会修改调用方的stack。因此当函数返回时，调用方的stack与其调用自身之前完全一致。
+**有一点值得注意：outline有入栈操作，但没有相对应的出栈操作**。当outline调用自身时，被调用者接收的是stack的拷贝。被调用者对stack的元素追加操作，修改的是stack的拷贝，其可能会修改slice底层的数组甚至是申请一块新的内存空间进行扩容；但这个过程并不会修改调用方的stack。因此当函数返回时，调用方的stack与其调用自身之前完全一致。
 
 下面是 https://golang.org 页面的简要结构:
 
@@ -8813,11 +8813,11 @@ go func() {
 	os.Stdin.Read(make([]byte, 1)) // read a single byte
 	abort
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE0Nzc0NDAyMzQsMTUzODM3Mzg0NiwyMT
-M4MDkyMjA1LDYzMjg2MjI3LC0xMTUyMjI3MDEsMjc0NjU5NjAz
-LDE5NzUwNzQ0MCwtMjI0MzEyNjkwLC0zMzU2MTcyNTksLTM1Mj
-E4ODY0MCwtMTEyNjczMDA2NywtNzcwODE2NjA4LDIxMTg1MTYz
-NzUsLTExMTA5OTYzMjksMjQ2Nzk4NTA1LDE0NzExOTMzNjcsLT
-c4MjgwNTcyLC03NzIwNTE2MTgsMTIzMzI0ODQwNCwxNDk3OTA1
-NTg3XX0=
+eyJoaXN0b3J5IjpbLTc2NDAxMTE3OCwxNTM4MzczODQ2LDIxMz
+gwOTIyMDUsNjMyODYyMjcsLTExNTIyMjcwMSwyNzQ2NTk2MDMs
+MTk3NTA3NDQwLC0yMjQzMTI2OTAsLTMzNTYxNzI1OSwtMzUyMT
+g4NjQwLC0xMTI2NzMwMDY3LC03NzA4MTY2MDgsMjExODUxNjM3
+NSwtMTExMDk5NjMyOSwyNDY3OTg1MDUsMTQ3MTE5MzM2NywtNz
+gyODA1NzIsLTc3MjA1MTYxOCwxMjMzMjQ4NDA0LDE0OTc5MDU1
+ODddfQ==
 -->
