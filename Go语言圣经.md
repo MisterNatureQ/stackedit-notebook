@@ -4092,7 +4092,7 @@ func main() {
 }
 func outline(stack []string, n *html.Node) {
 	if n.Type == html.ElementNode {
-		stack = append(stack, n.Data) // push tag
+		stack = append(stack, n.Data) // push tag 入栈操作
 		fmt.Println(stack)
 	}
 	for c := n.FirstChild; c != nil; c = c.NextSibling {
@@ -8813,11 +8813,11 @@ go func() {
 	os.Stdin.Read(make([]byte, 1)) // read a single byte
 	abort
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTUzODM3Mzg0NiwyMTM4MDkyMjA1LDYzMj
-g2MjI3LC0xMTUyMjI3MDEsMjc0NjU5NjAzLDE5NzUwNzQ0MCwt
-MjI0MzEyNjkwLC0zMzU2MTcyNTksLTM1MjE4ODY0MCwtMTEyNj
-czMDA2NywtNzcwODE2NjA4LDIxMTg1MTYzNzUsLTExMTA5OTYz
-MjksMjQ2Nzk4NTA1LDE0NzExOTMzNjcsLTc4MjgwNTcyLC03Nz
-IwNTE2MTgsMTIzMzI0ODQwNCwxNDk3OTA1NTg3LC0xMTc0MDIx
-NTg5XX0=
+eyJoaXN0b3J5IjpbLTE0Nzc0NDAyMzQsMTUzODM3Mzg0NiwyMT
+M4MDkyMjA1LDYzMjg2MjI3LC0xMTUyMjI3MDEsMjc0NjU5NjAz
+LDE5NzUwNzQ0MCwtMjI0MzEyNjkwLC0zMzU2MTcyNTksLTM1Mj
+E4ODY0MCwtMTEyNjczMDA2NywtNzcwODE2NjA4LDIxMTg1MTYz
+NzUsLTExMTA5OTYzMjksMjQ2Nzk4NTA1LDE0NzExOTMzNjcsLT
+c4MjgwNTcyLC03NzIwNTE2MTgsMTIzMzI0ODQwNCwxNDk3OTA1
+NTg3XX0=
 -->
