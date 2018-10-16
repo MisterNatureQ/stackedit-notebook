@@ -4343,7 +4343,7 @@ func WaitForServer(url string) error {
 			return nil // success
 		}
 		log.Printf("server not responding (%s);retrying…", err)
-		time.Sleep(time.Second << uint(tries)) // exponential back-off
+		time.Sleep(time.Second << uint(tries)) // exponential back-off 指数增长
 	}
 	return fmt.Errorf("server %s failed to respond after %s", url, timeout)
 }
@@ -8813,11 +8813,11 @@ go func() {
 	os.Stdin.Read(make([]byte, 1)) // read a single byte
 	abort
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTI3NDc2MTQ5NCwtMTM1Mzg5NzU3OCwxNj
-U3NDQxODE0LC0xMDE3MTc3MTMwLDE1NTg4NTE3OTgsLTc2NDAx
-MTE3OCwxNTM4MzczODQ2LDIxMzgwOTIyMDUsNjMyODYyMjcsLT
-ExNTIyMjcwMSwyNzQ2NTk2MDMsMTk3NTA3NDQwLC0yMjQzMTI2
-OTAsLTMzNTYxNzI1OSwtMzUyMTg4NjQwLC0xMTI2NzMwMDY3LC
-03NzA4MTY2MDgsMjExODUxNjM3NSwtMTExMDk5NjMyOSwyNDY3
-OTg1MDVdfQ==
+eyJoaXN0b3J5IjpbLTc3Mjc0MTQzNCwxMjc0NzYxNDk0LC0xMz
+UzODk3NTc4LDE2NTc0NDE4MTQsLTEwMTcxNzcxMzAsMTU1ODg1
+MTc5OCwtNzY0MDExMTc4LDE1MzgzNzM4NDYsMjEzODA5MjIwNS
+w2MzI4NjIyNywtMTE1MjIyNzAxLDI3NDY1OTYwMywxOTc1MDc0
+NDAsLTIyNDMxMjY5MCwtMzM1NjE3MjU5LC0zNTIxODg2NDAsLT
+ExMjY3MzAwNjcsLTc3MDgxNjYwOCwyMTE4NTE2Mzc1LC0xMTEw
+OTk2MzI5XX0=
 -->
