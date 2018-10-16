@@ -4283,7 +4283,7 @@ fmt.Printf("%v", err)
 
 **在Go中，函数运行失败时会返回错误信息，这些错误信息被认为是一种预期的值而非异常（exception），这使得Go有别于那些将函数运行失败看作是异常的语言**。虽然Go有各种异常机制，但这些机制仅被使用在处理那些未被预料到的错误，即bug，而不是那些在健壮程序中应该被避免的程序错误。对于Go的异常机制我们将在5.9介绍。
 
-Go这样设计的原因是由于对于某个应该在控制流程中处理的错误而言，将这个错误以异常的形式抛出会混乱对错误的描述，这通常会导致一些糟糕的后果。当某个程序错误被当作异常处理后，这个错误会将堆栈跟踪信息返回给终端用户，这些信息复杂且无用，无法帮助定位错误。
+**Go这样设计的原因是由于对于某个应该在控制流程中处理的错误而言，将这个错误以异常的形式抛出会混乱对错误的描述，这通常会导致一些糟糕的后果。当某个程序错误被当作异常处理后，这个错误会将堆栈跟踪信息返回给终端用户，这些信息复杂且无用，无法帮助定位错误**。
 
 正因此，**Go使用控制流机制（如if和return）处理错误，这使得编码人员能更多的关注错误处理。**
 
@@ -8813,11 +8813,11 @@ go func() {
 	os.Stdin.Read(make([]byte, 1)) // read a single byte
 	abort
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTY1NzQ0MTgxNCwtMTAxNzE3NzEzMCwxNT
-U4ODUxNzk4LC03NjQwMTExNzgsMTUzODM3Mzg0NiwyMTM4MDky
-MjA1LDYzMjg2MjI3LC0xMTUyMjI3MDEsMjc0NjU5NjAzLDE5Nz
-UwNzQ0MCwtMjI0MzEyNjkwLC0zMzU2MTcyNTksLTM1MjE4ODY0
-MCwtMTEyNjczMDA2NywtNzcwODE2NjA4LDIxMTg1MTYzNzUsLT
-ExMTA5OTYzMjksMjQ2Nzk4NTA1LDE0NzExOTMzNjcsLTc4Mjgw
-NTcyXX0=
+eyJoaXN0b3J5IjpbLTEzNTM4OTc1NzgsMTY1NzQ0MTgxNCwtMT
+AxNzE3NzEzMCwxNTU4ODUxNzk4LC03NjQwMTExNzgsMTUzODM3
+Mzg0NiwyMTM4MDkyMjA1LDYzMjg2MjI3LC0xMTUyMjI3MDEsMj
+c0NjU5NjAzLDE5NzUwNzQ0MCwtMjI0MzEyNjkwLC0zMzU2MTcy
+NTksLTM1MjE4ODY0MCwtMTEyNjczMDA2NywtNzcwODE2NjA4LD
+IxMTg1MTYzNzUsLTExMTA5OTYzMjksMjQ2Nzk4NTA1LDE0NzEx
+OTMzNjddfQ==
 -->
