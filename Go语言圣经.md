@@ -4319,7 +4319,7 @@ fmt.Errorf函数使用fmt.Sprintf格式化错误信息并返回。我们使用�
 genesis: crashed: no parachute: G-switch failed: bad relay orientation
 ```
 
-由于错误信息经常是以链式组合在一起的，所以错误信息中应避免大写和换行符。最终的错误信息可能很长，我们可以通过类似grep的工具处理错误信息（译者注：grep是一种文本搜索工具）。
+由于错误信息经常是以链式组合在一起的，所以**错误信息中应避免大写和换行符**。最终的错误信息可能很长，我们可以通过类似grep的工具处理错误信息（译者注：grep是一种文本搜索工具）。
 
 编写错误信息时，我们要确保错误信息对问题细节的描述是详尽的。尤其是要注意错误信息表达的一致性，即相同的函数或同包内的同一组函数返回的错误在构成和处理方式上是相似的。
 
@@ -8813,11 +8813,11 @@ go func() {
 	os.Stdin.Read(make([]byte, 1)) // read a single byte
 	abort
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMzU4MDY0MjIsLTEzNTM4OTc1NzgsMTY1Nz
-Q0MTgxNCwtMTAxNzE3NzEzMCwxNTU4ODUxNzk4LC03NjQwMTEx
-NzgsMTUzODM3Mzg0NiwyMTM4MDkyMjA1LDYzMjg2MjI3LC0xMT
-UyMjI3MDEsMjc0NjU5NjAzLDE5NzUwNzQ0MCwtMjI0MzEyNjkw
-LC0zMzU2MTcyNTksLTM1MjE4ODY0MCwtMTEyNjczMDA2NywtNz
-cwODE2NjA4LDIxMTg1MTYzNzUsLTExMTA5OTYzMjksMjQ2Nzk4
-NTA1XX0=
+eyJoaXN0b3J5IjpbMTI3NDc2MTQ5NCwtMTM1Mzg5NzU3OCwxNj
+U3NDQxODE0LC0xMDE3MTc3MTMwLDE1NTg4NTE3OTgsLTc2NDAx
+MTE3OCwxNTM4MzczODQ2LDIxMzgwOTIyMDUsNjMyODYyMjcsLT
+ExNTIyMjcwMSwyNzQ2NTk2MDMsMTk3NTA3NDQwLC0yMjQzMTI2
+OTAsLTMzNTYxNzI1OSwtMzUyMTg4NjQwLC0xMTI2NzMwMDY3LC
+03NzA4MTY2MDgsMjExODUxNjM3NSwtMTExMDk5NjMyOSwyNDY3
+OTg1MDVdfQ==
 -->
