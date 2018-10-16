@@ -4292,7 +4292,7 @@ fmt.Printf("%v", err)
 {% include "./ch5-04-2.md" %}
 ### 5.4.1. 错误处理策略
 
-当一次函数调用返回错误时，调用者应该选择合适的方式处理错误。根据情况的不同，有很多处理方式，让我们来看看常用的五种方式。
+当一次函数调用返回错误时，调用者应该选择合适的方式处理错误。根据情况的不同，有很多处理方式，让我们来看看**常用的五种方式**。
 
 首先，也是**最常用的方式是传播错误**。这意味着函数中某个子程序的失败，会变成该函数的失败。下面，我们以5.3节的findLinks函数作为例子。如果findLinks对http.Get的调用失败，findLinks会直接将这个HTTP错误返回给调用者：
 
@@ -8813,11 +8813,11 @@ go func() {
 	os.Stdin.Read(make([]byte, 1)) // read a single byte
 	abort
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEzNTM4OTc1NzgsMTY1NzQ0MTgxNCwtMT
-AxNzE3NzEzMCwxNTU4ODUxNzk4LC03NjQwMTExNzgsMTUzODM3
-Mzg0NiwyMTM4MDkyMjA1LDYzMjg2MjI3LC0xMTUyMjI3MDEsMj
-c0NjU5NjAzLDE5NzUwNzQ0MCwtMjI0MzEyNjkwLC0zMzU2MTcy
-NTksLTM1MjE4ODY0MCwtMTEyNjczMDA2NywtNzcwODE2NjA4LD
-IxMTg1MTYzNzUsLTExMTA5OTYzMjksMjQ2Nzk4NTA1LDE0NzEx
-OTMzNjddfQ==
+eyJoaXN0b3J5IjpbMzU4MDY0MjIsLTEzNTM4OTc1NzgsMTY1Nz
+Q0MTgxNCwtMTAxNzE3NzEzMCwxNTU4ODUxNzk4LC03NjQwMTEx
+NzgsMTUzODM3Mzg0NiwyMTM4MDkyMjA1LDYzMjg2MjI3LC0xMT
+UyMjI3MDEsMjc0NjU5NjAzLDE5NzUwNzQ0MCwtMjI0MzEyNjkw
+LC0zMzU2MTcyNTksLTM1MjE4ODY0MCwtMTEyNjczMDA2NywtNz
+cwODE2NjA4LDIxMTg1MTYzNzUsLTExMTA5OTYzMjksMjQ2Nzk4
+NTA1XX0=
 -->
