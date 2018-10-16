@@ -4272,7 +4272,7 @@ if !ok {
 
 通常，导致失败的原因不止一种，尤其是对I/O操作而言，用户需要了解更多的错误信息。因此，额外的返回值不再是简单的布尔类型，而是error类型。
 
-内置的error是接口类型。我们将在第七章了解接口类型的含义，以及它对错误处理的影响。现在我们只需要明白error类型可能是nil或者non-nil。nil意味着函数运行成功，non-nil表示失败。对于non-nil的error类型，我们可以通过调用error的Error函数或者输出函数获得字符串类型的错误信息。
+**内置的error是接口类型**。我们将在第七章了解接口类型的含义，以及它对错误处理的影响。现在我们只需要明白error类型可能是nil或者non-nil。nil意味着函数运行成功，non-nil表示失败。对于non-nil的error类型，我们可以通过调用error的Error函数或者输出函数获得字符串类型的错误信息。
 
 ```Go
 fmt.Println(err)
@@ -8813,11 +8813,11 @@ go func() {
 	os.Stdin.Read(make([]byte, 1)) // read a single byte
 	abort
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTU1ODg1MTc5OCwtNzY0MDExMTc4LDE1Mz
-gzNzM4NDYsMjEzODA5MjIwNSw2MzI4NjIyNywtMTE1MjIyNzAx
-LDI3NDY1OTYwMywxOTc1MDc0NDAsLTIyNDMxMjY5MCwtMzM1Nj
-E3MjU5LC0zNTIxODg2NDAsLTExMjY3MzAwNjcsLTc3MDgxNjYw
-OCwyMTE4NTE2Mzc1LC0xMTEwOTk2MzI5LDI0Njc5ODUwNSwxND
-cxMTkzMzY3LC03ODI4MDU3MiwtNzcyMDUxNjE4LDEyMzMyNDg0
-MDRdfQ==
+eyJoaXN0b3J5IjpbLTEwMTcxNzcxMzAsMTU1ODg1MTc5OCwtNz
+Y0MDExMTc4LDE1MzgzNzM4NDYsMjEzODA5MjIwNSw2MzI4NjIy
+NywtMTE1MjIyNzAxLDI3NDY1OTYwMywxOTc1MDc0NDAsLTIyND
+MxMjY5MCwtMzM1NjE3MjU5LC0zNTIxODg2NDAsLTExMjY3MzAw
+NjcsLTc3MDgxNjYwOCwyMTE4NTE2Mzc1LC0xMTEwOTk2MzI5LD
+I0Njc5ODUwNSwxNDcxMTkzMzY3LC03ODI4MDU3MiwtNzcyMDUx
+NjE4XX0=
 -->
