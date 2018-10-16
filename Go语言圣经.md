@@ -4381,7 +4381,7 @@ log.SetPrefix("wait: ") //SetPrefix设置标准logger的输出前缀
 log.SetFlags(0) //SetFlags设置logger的输出选项。 Ldate = 1 << [iota]  // 日期：2009/01/23
 ```
 
-**第四种策略：有时，我们只需要输出错误信息就足够了，不需要中断程序的运行。**我们可以通过log包提供函数
+**第四种策略：有时，我们只需要输出错误信息就足够了，不需要中断程序的运行**。我们可以通过log包提供函数
 
 ```Go
 if err := Ping(); err != nil {
@@ -8813,11 +8813,11 @@ go func() {
 	os.Stdin.Read(make([]byte, 1)) // read a single byte
 	abort
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTc3Mjc0MTQzNCwxMjc0NzYxNDk0LC0xMz
-UzODk3NTc4LDE2NTc0NDE4MTQsLTEwMTcxNzcxMzAsMTU1ODg1
-MTc5OCwtNzY0MDExMTc4LDE1MzgzNzM4NDYsMjEzODA5MjIwNS
-w2MzI4NjIyNywtMTE1MjIyNzAxLDI3NDY1OTYwMywxOTc1MDc0
-NDAsLTIyNDMxMjY5MCwtMzM1NjE3MjU5LC0zNTIxODg2NDAsLT
-ExMjY3MzAwNjcsLTc3MDgxNjYwOCwyMTE4NTE2Mzc1LC0xMTEw
-OTk2MzI5XX0=
+eyJoaXN0b3J5IjpbLTM0NjI5MzA1MCwtNzcyNzQxNDM0LDEyNz
+Q3NjE0OTQsLTEzNTM4OTc1NzgsMTY1NzQ0MTgxNCwtMTAxNzE3
+NzEzMCwxNTU4ODUxNzk4LC03NjQwMTExNzgsMTUzODM3Mzg0Ni
+wyMTM4MDkyMjA1LDYzMjg2MjI3LC0xMTUyMjI3MDEsMjc0NjU5
+NjAzLDE5NzUwNzQ0MCwtMjI0MzEyNjkwLC0zMzU2MTcyNTksLT
+M1MjE4ODY0MCwtMTEyNjczMDA2NywtNzcwODE2NjA4LDIxMTg1
+MTYzNzVdfQ==
 -->
