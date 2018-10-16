@@ -4375,7 +4375,9 @@ bad.gopl.io
 ```
 
 我们可以设置log的前缀信息屏蔽时间信息，一般而言，前缀信息会被设置成命令名。
-[]()
+
+[SetFlags 详情](https://github.com/golang/go/blob/master/src/log/log.go?name=release#251)
+
 ```Go
 log.SetPrefix("wait: ") //SetPrefix设置标准logger的输出前缀
 log.SetFlags(0) //SetFlags设置logger的输出选项。 Ldate = 1 << [iota]  // 日期：2009/01/23
@@ -8813,7 +8815,7 @@ go func() {
 	os.Stdin.Read(make([]byte, 1)) // read a single byte
 	abort
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE5OTM0Njc0NzksLTM0NjI5MzA1MCwtNz
+eyJoaXN0b3J5IjpbLTE5ODgwNzc2NjcsLTM0NjI5MzA1MCwtNz
 cyNzQxNDM0LDEyNzQ3NjE0OTQsLTEzNTM4OTc1NzgsMTY1NzQ0
 MTgxNCwtMTAxNzE3NzEzMCwxNTU4ODUxNzk4LC03NjQwMTExNz
 gsMTUzODM3Mzg0NiwyMTM4MDkyMjA1LDYzMjg2MjI3LC0xMTUy
