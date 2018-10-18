@@ -4483,7 +4483,7 @@ for {
 	}
 ```
 
-但是函数值之间是不可比较的，也不能用函数值作为map的key。
+但是**函数值之间是不可比较的，也不能用函数值作为map的key**。
 
 函数值使得我们不仅仅可以通过数据来参数化函数，亦可通过行为。标准库中包含许多这样的例子。下面的代码展示了如何使用这个技巧。strings.Map对字符串中的每个字符调用add1函数，并将每个add1函数的返回值组成一个新的字符串返回给调用者。
 
@@ -8846,9 +8846,9 @@ func crawl(url string) []string {
 func main() {
 	fmt.Println("Commencing countdown.")
 	tick := time.Tick(1 * time.Second)
-	for countdown := 10; countdown > 0; 
+	for countdown := 10; countdown 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTE5Njk1NTk5NiwyMDczMzQ4MTg0LDE3Mj
+eyJoaXN0b3J5IjpbMTQ2MTMzNDU2NSwyMDczMzQ4MTg0LDE3Mj
 k0MDIwNTAsLTE4Mjc2NzMyNjMsLTY2NjQxMTM3LC05NDQzNzk0
 MzksLTEwMDQ5NzY5NTAsLTE3NDM2NjQxMjUsODcyMzM0NzYwLC
 0xOTg4MDc3NjY3LC0zNDYyOTMwNTAsLTc3Mjc0MTQzNCwxMjc0
