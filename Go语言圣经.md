@@ -4508,7 +4508,7 @@ func forEachNode(n *html.Node, pre, post func(n *html.Node)) {
 		pre(n)
 	}
 	for c := n.FirstChild; c != nil; c = c.NextSibling {
-		forEachNode(c, pre, post)
+		forEachNode(c, pre, post)// 递归
 	}
 	if post != nil {
 		post(n)
@@ -4754,7 +4754,7 @@ func Extract(url string) ([]string, error) {
 			}
 		}
 	}
-	// 深度遍历
+	// 深度遍历 递归
 	forEachNode(doc, visitNode, nil)
 	return links, nil
 }
@@ -8847,9 +8847,9 @@ func crawl(url string) []string {
 func main() {
 	fmt.Println("Commencing countdown.")
 	tick := time.Tick(1 * time.Second)
-	for countd
+	for co
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTE4NjcyOTk4OSwtNDUwNjk0Njk3LDIwNz
+eyJoaXN0b3J5IjpbMTk3Njk0NjM1MCwtNDUwNjk0Njk3LDIwNz
 MzNDgxODQsMTcyOTQwMjA1MCwtMTgyNzY3MzI2MywtNjY2NDEx
 MzcsLTk0NDM3OTQzOSwtMTAwNDk3Njk1MCwtMTc0MzY2NDEyNS
 w4NzIzMzQ3NjAsLTE5ODgwNzc2NjcsLTM0NjI5MzA1MCwtNzcy
