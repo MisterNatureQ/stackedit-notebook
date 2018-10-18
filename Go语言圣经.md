@@ -4528,7 +4528,7 @@ func topoSort(m map[string][]string) []string {
 			// 没有见过的项 
 			if !seen[item] {
 				seen[item] = true // 闭包 访问上下文环境
-				visitAll(m[item]) // 递归 进入子节点 没有见过的项 的子项 顺着 节点key 往后走 直到找到 边界最后一项 开始递归 
+				visitAll(m[item]) // 递归 深入子节点 没有见过的项 的子项 顺着 节点key 往后走 直到找到 边界最后一项 开始递归 
 				order = append(order, item) // 访问上下文环境 最后一个 最先进入 
 			}
 		}
@@ -8812,13 +8812,13 @@ func main() {
 ```go
 abort := make(chan struct{})
 go func() {
-	os.Stdin.Read(make([]byte, 1)) // read a sin
+	os.Stdin.Read(make([]byte, 1)) // read a s
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbODcyMzM0NzYwLC0xOTg4MDc3NjY3LC0zND
-YyOTMwNTAsLTc3Mjc0MTQzNCwxMjc0NzYxNDk0LC0xMzUzODk3
-NTc4LDE2NTc0NDE4MTQsLTEwMTcxNzcxMzAsMTU1ODg1MTc5OC
-wtNzY0MDExMTc4LDE1MzgzNzM4NDYsMjEzODA5MjIwNSw2MzI4
-NjIyNywtMTE1MjIyNzAxLDI3NDY1OTYwMywxOTc1MDc0NDAsLT
-IyNDMxMjY5MCwtMzM1NjE3MjU5LC0zNTIxODg2NDAsLTExMjY3
-MzAwNjddfQ==
+eyJoaXN0b3J5IjpbLTE3NDM2NjQxMjUsODcyMzM0NzYwLC0xOT
+g4MDc3NjY3LC0zNDYyOTMwNTAsLTc3Mjc0MTQzNCwxMjc0NzYx
+NDk0LC0xMzUzODk3NTc4LDE2NTc0NDE4MTQsLTEwMTcxNzcxMz
+AsMTU1ODg1MTc5OCwtNzY0MDExMTc4LDE1MzgzNzM4NDYsMjEz
+ODA5MjIwNSw2MzI4NjIyNywtMTE1MjIyNzAxLDI3NDY1OTYwMy
+wxOTc1MDc0NDAsLTIyNDMxMjY5MCwtMzM1NjE3MjU5LC0zNTIx
+ODg2NDBdfQ==
 -->
