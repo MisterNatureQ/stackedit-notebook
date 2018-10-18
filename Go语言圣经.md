@@ -5344,9 +5344,10 @@ src/gopl.io/ch5/defer2/defer.go:15
 
 ## 5.10. Recover捕获异常
 
-通常来说，不应该对panic异常做任何处理，但有时，也许我们可以从异常中恢复，至少我们可以在程序崩溃前，做一些操作。举个例子，当web服务器遇到不可预料的严重问题时，在崩溃前应该将所有的连接关闭；如果不做任何处理，会使得客户端一直处于等待状态。如果web服务器还在开发阶段，服务器甚至可以将异常信息反馈到客户端，帮助调试。
+**通常来说，不应该对panic异常做任何处理，但有时，也许我们可以从异常中恢复，至少我们可以在程序崩溃前，做一些操作**。举个例子，当web服务器遇到不可预料的严重问题时，在崩溃前应该将所有的连接关闭；如果不做任何处理，会使得客户端一直处于等待状态。如果web服务器还在开发阶段，服务器甚至可以将异常信息反馈到客户端，帮助调试。
 
-如果在deferred函数中调用了内置函数recover，并且定义该defer语句的函数发生了panic异常，recover会使程序从panic中恢复，并返回panic value。导致panic异常的函数不会继续运行，但能正常返回。在未发生panic时调用recover，recover会返回nil。
+**如果在deferred函数中调用了内置函数recover，并且定义该defer语句的函数发生了panic异常，recover会使程序从panic中恢复，并返回panic value。导致panic异常的函数不会继续运行，但能正常返回。在未发生panic时调用recover，recover会返回nil**。
+
 
 让我们以语言解析器为例，说明recover的使用场景。考虑到语言解析器的复杂性，即使某个语言解析器目前工作正常，也无法肯定它没有漏洞。因此，当某个异常出现时，我们不会选择让解析器崩溃，而是会将panic异常当作普通的解析错误，并附加额外信息提醒用户报告此错误。
 
@@ -5356,7 +5357,7 @@ func Parse(input string) (s *Syntax, err error) {
 		if p := recover(); p != nil {
 			err = fmt.Errorf("internal error: %v", p)
 		}
-	}()
+	}() // 不要忘记()
 	// ...parser...
 }
 ```
@@ -8847,13 +8848,13 @@ https://golang.org/blog/
 
 这个程序实在是太他妈并行了。无穷无尽地并行化并不是什么好事情，因为不管怎么说，你的系统总是会有一些个限制因素，比如CPU核心数会限制你的计算负载，比如你的硬盘转轴和磁头数限制了你的本地磁盘IO操作频率，比如你的网络带宽限制了你的下载速度上限，或者是你的一个web服务的服务容量上限等等。为了解决这个问题，我们可以限制并发程序所使用的资源来使之适应自己的运行环境。对于我们的例子来说，最简单的方法就是限制对links.Extract在同一时间最多不会有超过n次调用，这里的n一般小于文件描述符的上限值，比如20。这和一个夜店里限制客人数目是一个道理，只有当有客人离开时，才会允许新的客人进入店内。
 
-我们可以用一个有容量限制的buffered channel来控制并发，这类似于操作系统里的计数信号量概念。从概念上讲，channel
+我们可以用一个有容量限制的buffered channel来控制并发，这类似于操作系统里
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTcxNDY0NjU5MywtMjAyODk5MTkzMywxNT
-ExMjU2MTEsNTg5OTQ4MDA2LC0xMjQ2MTQzNjgwLDEwMjMyNDIy
-NjcsODA0ODIyNTgsMTI0Mzk4NjU2OSwxOTA2MjIzMDYwLC0xNz
-YyNDQ0MzksLTEzMzUyODMzOTYsODk2MTg4NzU5LC00NTA2OTQ2
-OTcsMjA3MzM0ODE4NCwxNzI5NDAyMDUwLC0xODI3NjczMjYzLC
-02NjY0MTEzNywtOTQ0Mzc5NDM5LC0xMDA0OTc2OTUwLC0xNzQz
-NjY0MTI1XX0=
+eyJoaXN0b3J5IjpbLTIxMTIyNjU4OTksLTIwMjg5OTE5MzMsMT
+UxMTI1NjExLDU4OTk0ODAwNiwtMTI0NjE0MzY4MCwxMDIzMjQy
+MjY3LDgwNDgyMjU4LDEyNDM5ODY1NjksMTkwNjIyMzA2MCwtMT
+c2MjQ0NDM5LC0xMzM1MjgzMzk2LDg5NjE4ODc1OSwtNDUwNjk0
+Njk3LDIwNzMzNDgxODQsMTcyOTQwMjA1MCwtMTgyNzY3MzI2My
+wtNjY2NDExMzcsLTk0NDM3OTQzOSwtMTAwNDk3Njk1MCwtMTc0
+MzY2NDEyNV19
 -->
