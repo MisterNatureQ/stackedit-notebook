@@ -4880,7 +4880,7 @@ var rmdirs []func()
 for _, dir := range tempDirs() {
 	os.MkdirAll(dir, 0755)
 	rmdirs = append(rmdirs, func() {
-		os.RemoveAll(dir) // NOTE: incorrect!
+		os.RemoveAll(dir) // NOTE: incorrect! 这意味着，每次对os.RemoveAll的调用删除的都是相同的目录。
 	})
 }
 ```
@@ -8843,15 +8843,13 @@ https://golang.org/blog/
 ```go
 // tokens is a counting semaphore used to
 // enforce a limit of 20 concurrent requests.
-var tokens = make(chan struct{}, 20)
-
-func crawl(url str
+var tokens = make(chan struct
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEzMzUyODMzOTYsODk2MTg4NzU5LC00NT
-A2OTQ2OTcsMjA3MzM0ODE4NCwxNzI5NDAyMDUwLC0xODI3Njcz
-MjYzLC02NjY0MTEzNywtOTQ0Mzc5NDM5LC0xMDA0OTc2OTUwLC
-0xNzQzNjY0MTI1LDg3MjMzNDc2MCwtMTk4ODA3NzY2NywtMzQ2
-MjkzMDUwLC03NzI3NDE0MzQsMTI3NDc2MTQ5NCwtMTM1Mzg5Nz
-U3OCwxNjU3NDQxODE0LC0xMDE3MTc3MTMwLDE1NTg4NTE3OTgs
-LTc2NDAxMTE3OF19
+eyJoaXN0b3J5IjpbLTE3NjI0NDQzOSwtMTMzNTI4MzM5Niw4OT
+YxODg3NTksLTQ1MDY5NDY5NywyMDczMzQ4MTg0LDE3Mjk0MDIw
+NTAsLTE4Mjc2NzMyNjMsLTY2NjQxMTM3LC05NDQzNzk0MzksLT
+EwMDQ5NzY5NTAsLTE3NDM2NjQxMjUsODcyMzM0NzYwLC0xOTg4
+MDc3NjY3LC0zNDYyOTMwNTAsLTc3Mjc0MTQzNCwxMjc0NzYxND
+k0LC0xMzUzODk3NTc4LDE2NTc0NDE4MTQsLTEwMTcxNzcxMzAs
+MTU1ODg1MTc5OF19
 -->
