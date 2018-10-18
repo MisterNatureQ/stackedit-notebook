@@ -5087,7 +5087,7 @@ func lookup(key string) int {
 <u><i>gopl.io/ch5/trace</i></u>
 ```Go
 func bigSlowOperation() {
-	defer trace("bigSlowOperation")() // don't forget the extra parentheses
+	defer trace("bigSlowOperation")() // don't forget the extra parentheses 不要忘记defer语句后的圆括号，否则本该在进入时执行的操作会在退出时执行，而本该在退出时执行的，永远不会被执行。
 	// ...lots of work…
 	time.Sleep(10 * time.Second) // simulate slow operation by sleeping
 }
@@ -8847,10 +8847,9 @@ https://golang.org/blog/
 
 <u><i>gopl.io/ch8/crawl2</i></u>
 ```go
-// tokens is a counting semaphore used to
-// enforce a limit of
+// to
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTc2ODI2NDEwNywxOTA2MjIzMDYwLC0xNz
+eyJoaXN0b3J5IjpbLTU4ODg1MTU0MiwxOTA2MjIzMDYwLC0xNz
 YyNDQ0MzksLTEzMzUyODMzOTYsODk2MTg4NzU5LC00NTA2OTQ2
 OTcsMjA3MzM0ODE4NCwxNzI5NDAyMDUwLC0xODI3NjczMjYzLC
 02NjY0MTEzNywtOTQ0Mzc5NDM5LC0xMDA0OTc2OTUwLC0xNzQz
