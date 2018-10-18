@@ -4554,7 +4554,7 @@ visitAll := func(items []string) {
 }
 ```
 
-在topsort中，首先对prereqs中的key排序，再调用visitAll。**因为prereqs映射的是切片而不是更复杂的map，所以数据的遍历次序是固定的，**这意味着你每次运行topsort得到的输出都是一样的。	topsort的输出结果如下:
+在topsort中，首先对prereqs中的key排序，再调用visitAll。**因为prereqs映射的是切片而不是更复杂的map，所以数据的遍历次序是固定的，这意味着你每次运行topsort得到的输出都是一样的。**	topsort的输出结果如下:
 
 ```
 1: intro to programming
@@ -8814,11 +8814,11 @@ abort := make(chan struct{})
 go func() {
 	os.Stdin.Read(make([]byte, 1)) // read a s
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTUxODk1NzU1OCwtMTAwNDk3Njk1MCwtMT
-c0MzY2NDEyNSw4NzIzMzQ3NjAsLTE5ODgwNzc2NjcsLTM0NjI5
-MzA1MCwtNzcyNzQxNDM0LDEyNzQ3NjE0OTQsLTEzNTM4OTc1Nz
-gsMTY1NzQ0MTgxNCwtMTAxNzE3NzEzMCwxNTU4ODUxNzk4LC03
-NjQwMTExNzgsMTUzODM3Mzg0NiwyMTM4MDkyMjA1LDYzMjg2Mj
-I3LC0xMTUyMjI3MDEsMjc0NjU5NjAzLDE5NzUwNzQ0MCwtMjI0
-MzEyNjkwXX0=
+eyJoaXN0b3J5IjpbLTE2NjMzMTc5NDIsLTEwMDQ5NzY5NTAsLT
+E3NDM2NjQxMjUsODcyMzM0NzYwLC0xOTg4MDc3NjY3LC0zNDYy
+OTMwNTAsLTc3Mjc0MTQzNCwxMjc0NzYxNDk0LC0xMzUzODk3NT
+c4LDE2NTc0NDE4MTQsLTEwMTcxNzcxMzAsMTU1ODg1MTc5OCwt
+NzY0MDExMTc4LDE1MzgzNzM4NDYsMjEzODA5MjIwNSw2MzI4Nj
+IyNywtMTE1MjIyNzAxLDI3NDY1OTYwMywxOTc1MDc0NDAsLTIy
+NDMxMjY5MF19
 -->
