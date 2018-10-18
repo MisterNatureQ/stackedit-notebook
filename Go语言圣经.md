@@ -4601,7 +4601,7 @@ func Extract(url string) ([]string, error) {
 		return nil, fmt.Errorf("parsing %s as HTML: %v", url, err)
 	}
 	// 匿名函数
-	var links []string // 闭包保持的局部变量
+	var links []string // 闭包保持的局部变量 减少函数参数传递??
 	visitNode := func(n *html.Node) {
 		if n.Type == html.ElementNode && n.Data == "a" {
 			for _, a := range n.Attr {
@@ -8812,9 +8812,9 @@ func main() {
 ```go
 abort := make(chan struct{})
 go func() {
-	os.Stdin.Read(make([]byte, 1)
+	os.Stdin.Read(make
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjA1NjU1OTIwNiwtMTAwNDk3Njk1MCwtMT
+eyJoaXN0b3J5IjpbLTk0NDM3OTQzOSwtMTAwNDk3Njk1MCwtMT
 c0MzY2NDEyNSw4NzIzMzQ3NjAsLTE5ODgwNzc2NjcsLTM0NjI5
 MzA1MCwtNzcyNzQxNDM0LDEyNzQ3NjE0OTQsLTEzNTM4OTc1Nz
 gsMTY1NzQ0MTgxNCwtMTAxNzE3NzEzMCwxNTU4ODUxNzk4LC03
