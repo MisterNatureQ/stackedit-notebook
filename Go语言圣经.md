@@ -4754,7 +4754,7 @@ func Extract(url string) ([]string, error) {
 			}
 		}
 	}
-	// 深度遍历 递归
+	// 深度遍历 递归 **使用函数值，我们可以将遍历结点的逻辑和操作结点的逻辑分离，使得我们可以复用遍历的逻辑，从而对结点进行不同的操作**。
 	forEachNode(doc, visitNode, nil)
 	return links, nil
 }
@@ -8845,15 +8845,13 @@ var tokens = make(chan struct{}, 20)
 func crawl(url string) []string {
 	fmt```go
 func main() {
-	fmt.Println("Commencing countdown.")
-	tick := time.Tick(1 * time.Second)
-	for co
+	fmt.Println("Commenc
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTk3Njk0NjM1MCwtNDUwNjk0Njk3LDIwNz
-MzNDgxODQsMTcyOTQwMjA1MCwtMTgyNzY3MzI2MywtNjY2NDEx
-MzcsLTk0NDM3OTQzOSwtMTAwNDk3Njk1MCwtMTc0MzY2NDEyNS
-w4NzIzMzQ3NjAsLTE5ODgwNzc2NjcsLTM0NjI5MzA1MCwtNzcy
-NzQxNDM0LDEyNzQ3NjE0OTQsLTEzNTM4OTc1NzgsMTY1NzQ0MT
-gxNCwtMTAxNzE3NzEzMCwxNTU4ODUxNzk4LC03NjQwMTExNzgs
-MTUzODM3Mzg0Nl19
+eyJoaXN0b3J5IjpbODk2MTg4NzU5LC00NTA2OTQ2OTcsMjA3Mz
+M0ODE4NCwxNzI5NDAyMDUwLC0xODI3NjczMjYzLC02NjY0MTEz
+NywtOTQ0Mzc5NDM5LC0xMDA0OTc2OTUwLC0xNzQzNjY0MTI1LD
+g3MjMzNDc2MCwtMTk4ODA3NzY2NywtMzQ2MjkzMDUwLC03NzI3
+NDE0MzQsMTI3NDc2MTQ5NCwtMTM1Mzg5NzU3OCwxNjU3NDQxOD
+E0LC0xMDE3MTc3MTMwLDE1NTg4NTE3OTgsLTc2NDAxMTE3OCwx
+NTM4MzczODQ2XX0=
 -->
