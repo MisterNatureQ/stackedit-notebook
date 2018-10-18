@@ -5240,7 +5240,7 @@ func Reset(x *Buffer) {
 }
 ```
 
-虽然Go的panic机制类似于其他语言的异常，但panic的适用场景有一些不同。由于panic会引起程序的崩溃，因此panic一般用于严重错误，如程序内部的逻辑不一致。勤奋的程序员认为任何崩溃都表明代码中存在漏洞，所以对于大部分漏洞，我们应该使用Go提供的错误机制，而不是panic，尽量避免程序的崩溃。在健壮的程序中，任何可以预料到的错误，如不正确的输入、错误的配置或是失败的I/O操作都应该被优雅的处理，最好的处理方式，就是使用Go的错误机制。
+虽然Go的panic机制类似于其他语言的异常，但panic的适用场景有一些不同。由于panic会引起程序的崩溃，因此panic一般用于严重错误，如程序内部的逻辑不一致。勤奋的程序员认为任何崩溃都表明代码中存在漏洞，所以对于大部分漏洞，我们应该使用Go提供的错误机制，而不是panic，尽量避免程序的崩溃。在健壮的程序中，任何可以预料到的错误，如不正确的输入、错误的配置或是失败的I/O操作都应该被优雅的处理，**最好的处理方式，就是使用Go的错误机制**。
 
 考虑regexp.Compile函数，该函数将正则表达式编译成有效的可匹配格式。当输入的正则表达式不合法时，该函数会返回一个错误。当调用者明确的知道正确的输入不会引起函数错误时，要求调用者检查这个错误是不必要和累赘的。我们应该假设函数的输入一直合法，就如前面的断言一样：当调用者输入了不应该出现的输入时，触发panic异常。
 
@@ -8845,13 +8845,13 @@ https://golang.org/blog/
 
 这个程序实在是太他妈并行了。无穷无尽地并行化并不是什么好事情，因为不管怎么说，你的系统总是会有一些个限制因素，比如CPU核心数会限制你的计算负载，比如你的硬盘转轴和磁头数限制了你的本地磁盘IO操作频率，比如你的网络带宽限制了你的下载速度上限，或者是你的一个web服务的服务容量上限等等。为了解决这个问题，我们可以限制并发程序所使用的资源来使之适应自己的运行环境。对于我们的例子来说，最简单的方法就是限制对links.Extract在同一时间最多不会有超过n次调用，这里的n一般小于文件描述符的上限值，比如20。这和一个夜店里限制客人数目是一个道理，只有当有客人离开时，才会允许新的客人进入店内。
 
-我们可以用一个有容量限制的buffered channel来控制并发，这类似于操作系统里的计数信号量概念。从概念上讲，channel里的n个空槽代表n个可以处理
+我们可以用一个有容量限制的buffered channel来控制并发，这类似于操作系统里的计数信号量概念。从概念上讲，channel里的n个空槽代表n个
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTUxMTI1NjExLDU4OTk0ODAwNiwtMTI0Nj
-E0MzY4MCwxMDIzMjQyMjY3LDgwNDgyMjU4LDEyNDM5ODY1Njks
-MTkwNjIyMzA2MCwtMTc2MjQ0NDM5LC0xMzM1MjgzMzk2LDg5Nj
-E4ODc1OSwtNDUwNjk0Njk3LDIwNzMzNDgxODQsMTcyOTQwMjA1
-MCwtMTgyNzY3MzI2MywtNjY2NDExMzcsLTk0NDM3OTQzOSwtMT
-AwNDk3Njk1MCwtMTc0MzY2NDEyNSw4NzIzMzQ3NjAsLTE5ODgw
-Nzc2NjddfQ==
+eyJoaXN0b3J5IjpbLTIwMjg5OTE5MzMsMTUxMTI1NjExLDU4OT
+k0ODAwNiwtMTI0NjE0MzY4MCwxMDIzMjQyMjY3LDgwNDgyMjU4
+LDEyNDM5ODY1NjksMTkwNjIyMzA2MCwtMTc2MjQ0NDM5LC0xMz
+M1MjgzMzk2LDg5NjE4ODc1OSwtNDUwNjk0Njk3LDIwNzMzNDgx
+ODQsMTcyOTQwMjA1MCwtMTgyNzY3MzI2MywtNjY2NDExMzcsLT
+k0NDM3OTQzOSwtMTAwNDk3Njk1MCwtMTc0MzY2NDEyNSw4NzIz
+MzQ3NjBdfQ==
 -->
