@@ -4954,7 +4954,7 @@ fmt.Printf("%T\n", f) // "func(...int)"
 fmt.Printf("%T\n", g) // "func([]int)"
 ```
 
-可变参数函数经常被用于格式化字符串。下面的errorf函数构造了一个以行号开头的，经过格式化的错误信息。函数名的后缀f是一种通用的命名规范，代表该可变参数函数可以接收Printf风格的格式化字符串。
+可变参数函数经常被用于格式化字符串。下面的errorf函数构造了一个以行号开头的，经过格式化的错误信息。**函数名的后缀f是一种通用的命名规范，代表该可变参数函数可以接收Printf风格的格式化字符串**。
 
 ```Go
 func errorf(linenum int, format string, args ...interface{}) {
@@ -4966,7 +4966,8 @@ linenum, name := 12, "count"
 errorf(linenum, "undefined: %s", name) // "Line 12: undefined: count"
 ```
 
-interface{}表示函数的最后一个参数可以接收任意类型，我们会在第7章详细介绍。
+**interface{}表示函数的最后一个参数可以接收任意类型，我们会在第7章详细介绍**。
+
 
 **练习5.15：** 编写类似sum的可变参数函数max和min。考虑不传参时，max和min该如何处理，再编写至少接收1个参数的版本。
 
@@ -8845,14 +8846,13 @@ https://golang.org/blog/
 <u><i>gopl.io/ch8/crawl2</i></u>
 ```go
 // tokens is a counting semaphore used to
-// enforce a limit of 20 concurrent requests.
-va
+// enforce a limit of 20 concurrent req
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE2MDY0NjExNTksLTE3NjI0NDQzOSwtMT
-MzNTI4MzM5Niw4OTYxODg3NTksLTQ1MDY5NDY5NywyMDczMzQ4
-MTg0LDE3Mjk0MDIwNTAsLTE4Mjc2NzMyNjMsLTY2NjQxMTM3LC
-05NDQzNzk0MzksLTEwMDQ5NzY5NTAsLTE3NDM2NjQxMjUsODcy
-MzM0NzYwLC0xOTg4MDc3NjY3LC0zNDYyOTMwNTAsLTc3Mjc0MT
-QzNCwxMjc0NzYxNDk0LC0xMzUzODk3NTc4LDE2NTc0NDE4MTQs
-LTEwMTcxNzcxMzBdfQ==
+eyJoaXN0b3J5IjpbMTkwNjIyMzA2MCwtMTc2MjQ0NDM5LC0xMz
+M1MjgzMzk2LDg5NjE4ODc1OSwtNDUwNjk0Njk3LDIwNzMzNDgx
+ODQsMTcyOTQwMjA1MCwtMTgyNzY3MzI2MywtNjY2NDExMzcsLT
+k0NDM3OTQzOSwtMTAwNDk3Njk1MCwtMTc0MzY2NDEyNSw4NzIz
+MzQ3NjAsLTE5ODgwNzc2NjcsLTM0NjI5MzA1MCwtNzcyNzQxND
+M0LDEyNzQ3NjE0OTQsLTEzNTM4OTc1NzgsMTY1NzQ0MTgxNCwt
+MTAxNzE3NzEzMF19
 -->
