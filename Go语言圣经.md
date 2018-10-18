@@ -4944,7 +4944,7 @@ values := []int{1, 2, 3, 4}
 fmt.Println(sum(values...)) // "10"
 ```
 
-虽然在可变参数函数内部，...int 型参数的行为看起来很像切片类型，但实际上，可变参数函数和以切片作为参数的函数是不同的。
+虽然在可变参数函数内部，...int 型参数的行为看起来很像切片类型，但实际上，**可变参数函数和以切片作为参数的函数是不同的**。
 
 ```Go
 func f(...int) {}
@@ -8845,9 +8845,9 @@ https://golang.org/blog/
 ```go
 // tokens is a counting semaphore used to
 // enforce a limit of 20 concurrent requests.
-var tok
+var
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTM4MDI5MDYzNSwtMTc2MjQ0NDM5LC0xMz
+eyJoaXN0b3J5IjpbMTQ5MzQ0MTkxNSwtMTc2MjQ0NDM5LC0xMz
 M1MjgzMzk2LDg5NjE4ODc1OSwtNDUwNjk0Njk3LDIwNzMzNDgx
 ODQsMTcyOTQwMjA1MCwtMTgyNzY3MzI2MywtNjY2NDExMzcsLT
 k0NDM3OTQzOSwtMTAwNDk3Njk1MCwtMTc0MzY2NDEyNSw4NzIz
