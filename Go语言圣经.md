@@ -4782,6 +4782,7 @@ func Extract(url string) ([]string, error) {
 // Any items returned by f are added to the worklist.每次f执行完毕后，会返回一组待访问元素。这些元素会被加入到待访问列表中
 // f is called at most once for each item. 广度优先算法会为每个元素调用一次f
 func breadthFirst(f func(item string) []string, worklist []string) {
+	//为了避免同一个元素被访问两次，代码中维护了一个map。
 	seen := make(map[string]bool)
 	for len(worklist) > 0 {
 		items := worklist
@@ -8844,14 +8845,13 @@ var tokens = make(chan struct{}, 20)
 
 func crawl(url string) []string {
 	fmt```go
-func main() {
-	fmt.Println("Commenc
+func
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbODk2MTg4NzU5LC00NTA2OTQ2OTcsMjA3Mz
-M0ODE4NCwxNzI5NDAyMDUwLC0xODI3NjczMjYzLC02NjY0MTEz
-NywtOTQ0Mzc5NDM5LC0xMDA0OTc2OTUwLC0xNzQzNjY0MTI1LD
-g3MjMzNDc2MCwtMTk4ODA3NzY2NywtMzQ2MjkzMDUwLC03NzI3
-NDE0MzQsMTI3NDc2MTQ5NCwtMTM1Mzg5NzU3OCwxNjU3NDQxOD
-E0LC0xMDE3MTc3MTMwLDE1NTg4NTE3OTgsLTc2NDAxMTE3OCwx
-NTM4MzczODQ2XX0=
+eyJoaXN0b3J5IjpbLTExMDMzMzkzNjcsODk2MTg4NzU5LC00NT
+A2OTQ2OTcsMjA3MzM0ODE4NCwxNzI5NDAyMDUwLC0xODI3Njcz
+MjYzLC02NjY0MTEzNywtOTQ0Mzc5NDM5LC0xMDA0OTc2OTUwLC
+0xNzQzNjY0MTI1LDg3MjMzNDc2MCwtMTk4ODA3NzY2NywtMzQ2
+MjkzMDUwLC03NzI3NDE0MzQsMTI3NDc2MTQ5NCwtMTM1Mzg5Nz
+U3OCwxNjU3NDQxODE0LC0xMDE3MTc3MTMwLDE1NTg4NTE3OTgs
+LTc2NDAxMTE3OF19
 -->
