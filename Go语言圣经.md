@@ -4447,6 +4447,7 @@ for {
 因为文件结束这种错误不需要更多的描述，所以io.EOF有固定的错误信息——“EOF”。对于其他错误，我们可能需要在错误信息中描述错误的类型和数量，这使得我们不能像io.EOF一样采用固定的错误信息。**在7.11节中，我们会提出更系统的方法区分某些固定的错误值。**
 
 
+
 ## 5.5. 函数值
 
 在Go中，函数被看作第一类值（first-class values）：函数像其他值一样，拥有类型，可以被赋值给其他变量，传递给函数，从函数返回。对函数值（function value）的调用类似函数调用。例子如下：
@@ -8845,9 +8846,9 @@ func crawl(url string) []string {
 func main() {
 	fmt.Println("Commencing countdown.")
 	tick := time.Tick(1 * time.Second)
-	for countdown := 10; countdown > 0; c
+	for countdown := 10; countdown > 0; 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTYzOTk3ODAxOSwyMDczMzQ4MTg0LDE3Mj
+eyJoaXN0b3J5IjpbMTE5Njk1NTk5NiwyMDczMzQ4MTg0LDE3Mj
 k0MDIwNTAsLTE4Mjc2NzMyNjMsLTY2NjQxMTM3LC05NDQzNzk0
 MzksLTEwMDQ5NzY5NTAsLTE3NDM2NjQxMjUsODcyMzM0NzYwLC
 0xOTg4MDc3NjY3LC0zNDYyOTMwNTAsLTc3Mjc0MTQzNCwxMjc0
