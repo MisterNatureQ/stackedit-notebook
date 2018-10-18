@@ -4641,8 +4641,8 @@ func Extract(url string) ([]string, error) {
 <u><i>gopl.io/ch5/findlinks3</i></u>
 ```Go
 // breadthFirst calls f for each item in the worklist. **广度优先**
-// Any items returned by f are added to the worklist.
-// f is called at most once for each item.
+// Any items returned by f are added to the worklist.每次f执行完毕后，会返回一组待访问元素。这些元素会被加入到待访问列表中
+// f is called at most once for each item. 广度优先算法会为每个元素调用一次f
 func breadthFirst(f func(item string) []string, worklist []string) {
 	seen := make(map[string]bool)
 	for len(worklist) > 0 {
@@ -8805,13 +8805,9 @@ crawl函数爬到的链接在一个专有的goroutine中被发送到worklist中�
 func main() {
 	fmt.Println("Commencing countdown.")
 	tick := time.Tick(1 * time.Second)
-	for countdown := 10; countdown > 0; countdown-- {
-		fmt.Println(countdown)
-		<-tick
-	}
-	launch
+	for countdown := 10; countdown > 0; count
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTY4NDgwNjg1NiwxNzI5NDAyMDUwLC0xOD
+eyJoaXN0b3J5IjpbMjA3MzM0ODE4NCwxNzI5NDAyMDUwLC0xOD
 I3NjczMjYzLC02NjY0MTEzNywtOTQ0Mzc5NDM5LC0xMDA0OTc2
 OTUwLC0xNzQzNjY0MTI1LDg3MjMzNDc2MCwtMTk4ODA3NzY2Ny
 wtMzQ2MjkzMDUwLC03NzI3NDE0MzQsMTI3NDc2MTQ5NCwtMTM1
