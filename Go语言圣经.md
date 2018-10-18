@@ -4784,9 +4784,11 @@ func Extract(url string) ([]string, error) {
 func breadthFirst(f func(item string) []string, worklist []string) {
 	//为了避免同一个元素被访问两次，代码中维护了一个map。
 	seen := make(map[string]bool)
+	// 一层一层便利
 	for len(worklist) > 0 {
 		items := worklist
 		worklist = nil
+		// 进入下一层
 		for _, item := range items {
 			if !seen[item] {
 				seen[item] = true
@@ -8843,11 +8845,9 @@ https://golang.org/blog/
 // enforce a limit of 20 concurrent requests.
 var tokens = make(chan struct{}, 20)
 
-func crawl(url string) []string {
-	fmt```go
-func
+func crawl(url str
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTExMDMzMzkzNjcsODk2MTg4NzU5LC00NT
+eyJoaXN0b3J5IjpbLTEzMzUyODMzOTYsODk2MTg4NzU5LC00NT
 A2OTQ2OTcsMjA3MzM0ODE4NCwxNzI5NDAyMDUwLC0xODI3Njcz
 MjYzLC02NjY0MTEzNywtOTQ0Mzc5NDM5LC0xMDA0OTc2OTUwLC
 0xNzQzNjY0MTI1LDg3MjMzNDc2MCwtMTk4ODA3NzY2NywtMzQ2
