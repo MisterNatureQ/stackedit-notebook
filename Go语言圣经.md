@@ -5081,7 +5081,8 @@ func lookup(key string) int {
 }
 ```
 
-**调试复杂程序时，defer机制也常被用于记录何时进入和退出函数。下例中的bigSlowOperation函数，直接调用trace记录函数的被调情况。bigSlowOperation被调时，trace会返回一个函数值，该函数值会在bigSlowOperation退出时被调用。通过这种方式， 我们可以只通过一条语句控制函数的入口和所有的出口，甚至可以记录函数的运行时间，如例子中的start。需要注意一点：不要忘记defer语句后的圆括号，否则本该在进入时执行的操作会在退出时执行，而本该在退出时执行的，永远不会被执行。
+**调试复杂程序时，defer机制也常被用于记录何时进入和退出函数**。下例中的bigSlowOperation函数，直接调用trace记录函数的被调情况。bigSlowOperation被调时，trace会返回一个函数值，该函数值会在bigSlowOperation退出时被调用。通过这种方式， 我们可以只通过一条语句控制函数的入口和所有的出口，甚至可以记录函数的运行时间，如例子中的start。需要注意一点：不要忘记defer语句后的圆括号，否则本该在进入时执行的操作会在退出时执行，而本该在退出时执行的，永远不会被执行。
+
 
 <u><i>gopl.io/ch5/trace</i></u>
 ```Go
@@ -8847,9 +8848,9 @@ https://golang.org/blog/
 <u><i>gopl.io/ch8/crawl2</i></u>
 ```go
 // tokens is a counting semaphore used to
-// enforce a limit of 20
+// enforce a limit of
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTYyNzgwNjM5NywxOTA2MjIzMDYwLC0xNz
+eyJoaXN0b3J5IjpbMTc2ODI2NDEwNywxOTA2MjIzMDYwLC0xNz
 YyNDQ0MzksLTEzMzUyODMzOTYsODk2MTg4NzU5LC00NTA2OTQ2
 OTcsMjA3MzM0ODE4NCwxNzI5NDAyMDUwLC0xODI3NjczMjYzLC
 02NjY0MTEzNywtOTQ0Mzc5NDM5LC0xMDA0OTc2OTUwLC0xNzQz
