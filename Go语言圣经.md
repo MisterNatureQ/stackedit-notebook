@@ -5094,6 +5094,7 @@ func bigSlowOperation() {
 func trace(msg string) func() {
 	start := time.Now()
 	log.Printf("enter %s", msg)
+	//该函数值会在bigSlowOperation退出时被调用
 	return func() { 
 		log.Printf("exit %s (%s)", msg,time.Since(start)) 
 	}
@@ -5109,7 +5110,7 @@ $ ./trace
 2015/11/18 09:53:36 exit bigSlowOperation (10.000589217s)
 ```
 
-我们知道，defer语句中的函数会在return语句更新返回值变量后再执行，又因为在函数中定义的匿名函数可以访问该函数包括返回值变量在内的所有变量，所以，对匿名函数采用defer机制，可以使其观察函数的返回值。
+**我们知道，defer语句中的函数会在return语句更新返回值变量后再执行，又因为在函数中定义的匿名函数可以访问该函数包括返回值变量在内的所有变量，所以，对匿名函数采用defer机制，可以使其观察函数的返回值**。
 
 以double函数为例：
 
@@ -8845,11 +8846,9 @@ https://golang.org/blog/
 
 让我们重写crawl函数，将对links.Extract的调用操作用获取、释放token的操作包裹起来，来确保同一时间对其只有20个调用。信号量数量和其能操作的IO资源数量应保持接近。
 
-<u><i>gopl.io/ch8/crawl2</i></u>
-```go
-// to
+<u><i>go
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTU4ODg1MTU0MiwxOTA2MjIzMDYwLC0xNz
+eyJoaXN0b3J5IjpbMTI0Mzk4NjU2OSwxOTA2MjIzMDYwLC0xNz
 YyNDQ0MzksLTEzMzUyODMzOTYsODk2MTg4NzU5LC00NTA2OTQ2
 OTcsMjA3MzM0ODE4NCwxNzI5NDAyMDUwLC0xODI3NjczMjYzLC
 02NjY0MTEzNywtOTQ0Mzc5NDM5LC0xMDA0OTc2OTUwLC0xNzQz
