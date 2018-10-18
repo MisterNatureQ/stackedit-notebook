@@ -4540,7 +4540,7 @@ func topoSort(m map[string][]string) []string {
 	}
 	sort.Strings(keys) // 对key排序 确保 访问顺序 统一
 	visitAll(keys) // 只要不是环形就不会死循环
-	return order
+	return order // 返回访问过的元素
 }
 ```
 
@@ -8812,14 +8812,13 @@ func main() {
 ```go
 abort := make(chan struct{})
 go func() {
-	os.Stdin.Read(make([]byte, 1)) // read a single byte
-	abort
+	os.Stdin.Read(make([]byte, 1)) // read a single by
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE5ODgwNzc2NjcsLTM0NjI5MzA1MCwtNz
-cyNzQxNDM0LDEyNzQ3NjE0OTQsLTEzNTM4OTc1NzgsMTY1NzQ0
-MTgxNCwtMTAxNzE3NzEzMCwxNTU4ODUxNzk4LC03NjQwMTExNz
-gsMTUzODM3Mzg0NiwyMTM4MDkyMjA1LDYzMjg2MjI3LC0xMTUy
-MjI3MDEsMjc0NjU5NjAzLDE5NzUwNzQ0MCwtMjI0MzEyNjkwLC
-0zMzU2MTcyNTksLTM1MjE4ODY0MCwtMTEyNjczMDA2NywtNzcw
-ODE2NjA4XX0=
+eyJoaXN0b3J5IjpbOTcyNDg4MTE3LC0xOTg4MDc3NjY3LC0zND
+YyOTMwNTAsLTc3Mjc0MTQzNCwxMjc0NzYxNDk0LC0xMzUzODk3
+NTc4LDE2NTc0NDE4MTQsLTEwMTcxNzcxMzAsMTU1ODg1MTc5OC
+wtNzY0MDExMTc4LDE1MzgzNzM4NDYsMjEzODA5MjIwNSw2MzI4
+NjIyNywtMTE1MjIyNzAxLDI3NDY1OTYwMywxOTc1MDc0NDAsLT
+IyNDMxMjY5MCwtMzM1NjE3MjU5LC0zNTIxODg2NDAsLTExMjY3
+MzAwNjddfQ==
 -->
