@@ -5197,7 +5197,7 @@ func fetch(url string) (filename string, n int64, err error) {
 		return "", 0, err
 	}
 	n, err = io.Copy(f, resp.Body)
-	// Close file, but prefer error from Copy, if any.
+	// Close file, but prefer error from Copy, if any. **如果io.Copy和f.close都失败了，我们倾向于将io.Copy的错误信息反馈给调用者，因为它先于f.close发生，更有可能接近问题的本质**
 	if closeErr := f.Close(); err == nil {
 		err = closeErr
 	}
@@ -8844,13 +8844,13 @@ https://golang.org/blog/
 
 这个程序实在是太他妈并行了。无穷无尽地并行化并不是什么好事情，因为不管怎么说，你的系统总是会有一些个限制因素，比如CPU核心数会限制你的计算负载，比如你的硬盘转轴和磁头数限制了你的本地磁盘IO操作频率，比如你的网络带宽限制了你的下载速度上限，或者是你的一个web服务的服务容量上限等等。为了解决这个问题，我们可以限制并发程序所使用的资源来使之适应自己的运行环境。对于我们的例子来说，最简单的方法就是限制对links.Extract在同一时间最多不会有超过n次调用，这里的n一般小于文件描述符的上限值，比如20。这和一个夜店里限制客人数目是一个道理，只有当有客人离开时，才会允许新的客人进入店内。
 
-我们可以用一个有容量限制的buffered channel来控制并发，这类似于操作系统里的计数信号量概念。从概念上讲，channel里的n个空槽代表n个可以处理内容的token（通行证），从channel里接收一个值会释放其中的一个token，并且生成一个新的空槽位。这样保证了在没有接收介入时最多有n个发送操作。（这里可能我们拿cha
+我们可以用一个有容量限制的buffered channel来控制并发，这类似于操作系统里的计数信号量概念。从概念上讲，channel里的n个空槽代表n个可以处理内容的token（通
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNzQ2NjQyOTQsMTAyMzI0MjI2Nyw4MDQ4Mj
-I1OCwxMjQzOTg2NTY5LDE5MDYyMjMwNjAsLTE3NjI0NDQzOSwt
-MTMzNTI4MzM5Niw4OTYxODg3NTksLTQ1MDY5NDY5NywyMDczMz
-Q4MTg0LDE3Mjk0MDIwNTAsLTE4Mjc2NzMyNjMsLTY2NjQxMTM3
-LC05NDQzNzk0MzksLTEwMDQ5NzY5NTAsLTE3NDM2NjQxMjUsOD
-cyMzM0NzYwLC0xOTg4MDc3NjY3LC0zNDYyOTMwNTAsLTc3Mjc0
-MTQzNF19
+eyJoaXN0b3J5IjpbLTEyNDYxNDM2ODAsMTAyMzI0MjI2Nyw4MD
+Q4MjI1OCwxMjQzOTg2NTY5LDE5MDYyMjMwNjAsLTE3NjI0NDQz
+OSwtMTMzNTI4MzM5Niw4OTYxODg3NTksLTQ1MDY5NDY5NywyMD
+czMzQ4MTg0LDE3Mjk0MDIwNTAsLTE4Mjc2NzMyNjMsLTY2NjQx
+MTM3LC05NDQzNzk0MzksLTEwMDQ5NzY5NTAsLTE3NDM2NjQxMj
+UsODcyMzM0NzYwLC0xOTg4MDc3NjY3LC0zNDYyOTMwNTAsLTc3
+Mjc0MTQzNF19
 -->
