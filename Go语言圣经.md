@@ -4754,6 +4754,7 @@ func Extract(url string) ([]string, error) {
 			}
 		}
 	}
+	// 深度遍历
 	forEachNode(doc, visitNode, nil)
 	return links, nil
 }
@@ -8846,13 +8847,13 @@ func crawl(url string) []string {
 func main() {
 	fmt.Println("Commencing countdown.")
 	tick := time.Tick(1 * time.Second)
-	for countdown := 10; cou
+	for countd
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTQ1MDY5NDY5NywyMDczMzQ4MTg0LDE3Mj
-k0MDIwNTAsLTE4Mjc2NzMyNjMsLTY2NjQxMTM3LC05NDQzNzk0
-MzksLTEwMDQ5NzY5NTAsLTE3NDM2NjQxMjUsODcyMzM0NzYwLC
-0xOTg4MDc3NjY3LC0zNDYyOTMwNTAsLTc3Mjc0MTQzNCwxMjc0
-NzYxNDk0LC0xMzUzODk3NTc4LDE2NTc0NDE4MTQsLTEwMTcxNz
-cxMzAsMTU1ODg1MTc5OCwtNzY0MDExMTc4LDE1MzgzNzM4NDYs
-MjEzODA5MjIwNV19
+eyJoaXN0b3J5IjpbMTE4NjcyOTk4OSwtNDUwNjk0Njk3LDIwNz
+MzNDgxODQsMTcyOTQwMjA1MCwtMTgyNzY3MzI2MywtNjY2NDEx
+MzcsLTk0NDM3OTQzOSwtMTAwNDk3Njk1MCwtMTc0MzY2NDEyNS
+w4NzIzMzQ3NjAsLTE5ODgwNzc2NjcsLTM0NjI5MzA1MCwtNzcy
+NzQxNDM0LDEyNzQ3NjE0OTQsLTEzNTM4OTc1NzgsMTY1NzQ0MT
+gxNCwtMTAxNzE3NzEzMCwxNTU4ODUxNzk4LC03NjQwMTExNzgs
+MTUzODM3Mzg0Nl19
 -->
