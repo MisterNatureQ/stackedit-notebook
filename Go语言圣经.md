@@ -4909,7 +4909,8 @@ for i := 0; i < len(dirs); i++ {
 }
 ```
 
-如果你使用go语句（第八章）或者defer语句（5.8节）会经常遇到此类问题。这不是go或defer本身导致的，而是因为它们都会等待循环结束后，再执行函数值。
+如果你使用go语句（第八章）或者defer语句（5.8节）会经常遇到此类问题。**这不是go或defer本身导致的，而是因为它们都会等待循环结束后，再执行函数值**。
+
 ## 5.7. 可变参数
 
 参数数量可变的函数称为可变参数函数。典型的例子就是fmt.Printf和类似函数。Printf首先接收一个必备的参数，之后接收任意个数的后续参数。
@@ -8843,9 +8844,9 @@ https://golang.org/blog/
 ```go
 // tokens is a counting semaphore used to
 // enforce a limit of 20 concurrent requests.
-var tokens = make(cha
+var tokens = mak
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTg3NTQyMDg4MCwtMTc2MjQ0NDM5LC0xMz
+eyJoaXN0b3J5IjpbLTgxMzI0ODYxNSwtMTc2MjQ0NDM5LC0xMz
 M1MjgzMzk2LDg5NjE4ODc1OSwtNDUwNjk0Njk3LDIwNzMzNDgx
 ODQsMTcyOTQwMjA1MCwtMTgyNzY3MzI2MywtNjY2NDExMzcsLT
 k0NDM3OTQzOSwtMTAwNDk3Njk1MCwtMTc0MzY2NDEyNSw4NzIz
