@@ -4632,6 +4632,11 @@ func Extract(url string) ([]string, error) {
 
 [总结深度优先与广度优先的区别](https://www.cnblogs.com/attitudeY/p/6790219.html)
 
+深度优先搜素算法：不全部保留结点，占用空间少；有回溯操作(即有入栈、出栈操作)，运行速度慢。
+
+广度优先搜索算法：保留全部结点，占用空间大； 无回溯操作(即无入栈、出栈操作)，运行速度快。
+
+
 下面的函数实现了**广度优先算法**。调用者需要输入一个初始的待访问列表和一个函数f。待访问列表中的每个元素被定义为string类型。广度优先算法会为每个元素调用一次f。每次f执行完毕后，会返回一组待访问元素。这些元素会被加入到待访问列表中。当待访问列表中的所有元素都被访问后，breadthFirst函数运行结束。为了避免同一个元素被访问两次，代码中维护了一个map。
 
 <u><i>gopl.io/ch5/findlinks3</i></u>
@@ -8805,17 +8810,13 @@ func main() {
 		fmt.Println(countdown)
 		<-tick
 	}
-	launch()
-}
-```
-
-现在我们让这个程序支持在倒计时中，用户按下return键时直接中断发射流程。首先，我们启动一个goroutine，这个goroutine会尝试从标准输入中读入一个单独的by
+	launch(
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE4Mjc2NzMyNjMsLTY2NjQxMTM3LC05ND
-QzNzk0MzksLTEwMDQ5NzY5NTAsLTE3NDM2NjQxMjUsODcyMzM0
-NzYwLC0xOTg4MDc3NjY3LC0zNDYyOTMwNTAsLTc3Mjc0MTQzNC
-wxMjc0NzYxNDk0LC0xMzUzODk3NTc4LDE2NTc0NDE4MTQsLTEw
-MTcxNzcxMzAsMTU1ODg1MTc5OCwtNzY0MDExMTc4LDE1MzgzNz
-M4NDYsMjEzODA5MjIwNSw2MzI4NjIyNywtMTE1MjIyNzAxLDI3
-NDY1OTYwM119
+eyJoaXN0b3J5IjpbMTcyOTQwMjA1MCwtMTgyNzY3MzI2MywtNj
+Y2NDExMzcsLTk0NDM3OTQzOSwtMTAwNDk3Njk1MCwtMTc0MzY2
+NDEyNSw4NzIzMzQ3NjAsLTE5ODgwNzc2NjcsLTM0NjI5MzA1MC
+wtNzcyNzQxNDM0LDEyNzQ3NjE0OTQsLTEzNTM4OTc1NzgsMTY1
+NzQ0MTgxNCwtMTAxNzE3NzEzMCwxNTU4ODUxNzk4LC03NjQwMT
+ExNzgsMTUzODM3Mzg0NiwyMTM4MDkyMjA1LDYzMjg2MjI3LC0x
+MTUyMjI3MDFdfQ==
 -->
