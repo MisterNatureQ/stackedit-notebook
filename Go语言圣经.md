@@ -4946,6 +4946,7 @@ fmt.Println(sum(values...)) // "10"
 
 虽然在可变参数函数内部，...int 型参数的行为看起来很像切片类型，但实际上，**可变参数函数和以切片作为参数的函数是不同的**。
 
+
 ```Go
 func f(...int) {}
 func g([]int) {}
@@ -8845,13 +8846,13 @@ https://golang.org/blog/
 ```go
 // tokens is a counting semaphore used to
 // enforce a limit of 20 concurrent requests.
-var
+va
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTQ5MzQ0MTkxNSwtMTc2MjQ0NDM5LC0xMz
-M1MjgzMzk2LDg5NjE4ODc1OSwtNDUwNjk0Njk3LDIwNzMzNDgx
-ODQsMTcyOTQwMjA1MCwtMTgyNzY3MzI2MywtNjY2NDExMzcsLT
-k0NDM3OTQzOSwtMTAwNDk3Njk1MCwtMTc0MzY2NDEyNSw4NzIz
-MzQ3NjAsLTE5ODgwNzc2NjcsLTM0NjI5MzA1MCwtNzcyNzQxND
-M0LDEyNzQ3NjE0OTQsLTEzNTM4OTc1NzgsMTY1NzQ0MTgxNCwt
-MTAxNzE3NzEzMF19
+eyJoaXN0b3J5IjpbLTE2MDY0NjExNTksLTE3NjI0NDQzOSwtMT
+MzNTI4MzM5Niw4OTYxODg3NTksLTQ1MDY5NDY5NywyMDczMzQ4
+MTg0LDE3Mjk0MDIwNTAsLTE4Mjc2NzMyNjMsLTY2NjQxMTM3LC
+05NDQzNzk0MzksLTEwMDQ5NzY5NTAsLTE3NDM2NjQxMjUsODcy
+MzM0NzYwLC0xOTg4MDc3NjY3LC0zNDYyOTMwNTAsLTc3Mjc0MT
+QzNCwxMjc0NzYxNDk0LC0xMzUzODk3NTc4LDE2NTc0NDE4MTQs
+LTEwMTcxNzcxMzBdfQ==
 -->
