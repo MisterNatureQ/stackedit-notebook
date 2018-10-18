@@ -5364,7 +5364,7 @@ func Parse(input string) (s *Syntax, err error) {
 
 deferred函数帮助Parse从panic中恢复。在deferred函数内部，panic value被附加到错误信息中；并用err变量接收错误信息，返回给调用者。我们也可以通过调用runtime.Stack往错误信息中添加完整的堆栈调用信息。
 
-不加区分的恢复所有的panic异常，不是可取的做法；因为在panic之后，无法保证包级变量的状态仍然和我们预期一致。比如，对数据结构的一次重要更新没有被完整完成、文件或者网络连接没有被关闭、获得的锁没有被释放。此外，如果写日志时产生的panic被不加区分的恢复，可能会导致漏洞被忽略。
+**不加区分的恢复所有的panic异常，不是可取的做法；因为在panic之后，无法保证包级变量的状态仍然和我们预期一致。比如，对数据结构的一次重要更新没有被完整完成、文件或者网络连接没有被关闭、获得的锁没有被释放。此外，如果写日志时产生的panic被不加区分的恢复，可能会导致漏洞被忽略**。
 
 虽然把对panic的处理都集中在一个包下，有助于简化对复杂和不可以预料问题的处理，但作为被广泛遵守的规范，你不应该试图去恢复其他包引起的panic。公有的API应该将函数的运行失败作为error返回，而不是panic。同样的，你也不应该恢复一个由他人开发的函数引起的panic，比如说调用者传入的回调函数，因为你无法确保这样做是安全的。
 
@@ -8848,13 +8848,13 @@ https://golang.org/blog/
 
 这个程序实在是太他妈并行了。无穷无尽地并行化并不是什么好事情，因为不管怎么说，你的系统总是会有一些个限制因素，比如CPU核心数会限制你的计算负载，比如你的硬盘转轴和磁头数限制了你的本地磁盘IO操作频率，比如你的网络带宽限制了你的下载速度上限，或者是你的一个web服务的服务容量上限等等。为了解决这个问题，我们可以限制并发程序所使用的资源来使之适应自己的运行环境。对于我们的例子来说，最简单的方法就是限制对links.Extract在同一时间最多不会有超过n次调用，这里的n一般小于文件描述符的上限值，比如20。这和一个夜店里限制客人数目是一个道理，只有当有客人离开时，才会允许新的客人进入店内。
 
-我们可以用一个有容量限制的buffered channel来控制并发，这类似于操作系统里
+我们可以用一个有容量限制的buffered channel来控制并发，这类似于操作系统
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIxMTIyNjU4OTksLTIwMjg5OTE5MzMsMT
-UxMTI1NjExLDU4OTk0ODAwNiwtMTI0NjE0MzY4MCwxMDIzMjQy
-MjY3LDgwNDgyMjU4LDEyNDM5ODY1NjksMTkwNjIyMzA2MCwtMT
-c2MjQ0NDM5LC0xMzM1MjgzMzk2LDg5NjE4ODc1OSwtNDUwNjk0
-Njk3LDIwNzMzNDgxODQsMTcyOTQwMjA1MCwtMTgyNzY3MzI2My
-wtNjY2NDExMzcsLTk0NDM3OTQzOSwtMTAwNDk3Njk1MCwtMTc0
-MzY2NDEyNV19
+eyJoaXN0b3J5IjpbMTA1ODQyNDY1OSwtMjAyODk5MTkzMywxNT
+ExMjU2MTEsNTg5OTQ4MDA2LC0xMjQ2MTQzNjgwLDEwMjMyNDIy
+NjcsODA0ODIyNTgsMTI0Mzk4NjU2OSwxOTA2MjIzMDYwLC0xNz
+YyNDQ0MzksLTEzMzUyODMzOTYsODk2MTg4NzU5LC00NTA2OTQ2
+OTcsMjA3MzM0ODE4NCwxNzI5NDAyMDUwLC0xODI3NjczMjYzLC
+02NjY0MTEzNywtOTQ0Mzc5NDM5LC0xMDA0OTc2OTUwLC0xNzQz
+NjY0MTI1XX0=
 -->
