@@ -5205,7 +5205,7 @@ func fetch(url string) (filename string, n int64, err error) {
 }
 ```
 
-对resp.Body.Close延迟调用我们已经见过了，在此不做解释。上例中，通过os.Create打开文件进行写入，在关闭文件时，我们没有对f.close采用defer机制，因为这会产生一些微妙的错误。许多文件系统，尤其是NFS，写入文件时发生的错误会被延迟到文件关闭时反馈。如果没有检查文件关闭时的反馈信息，可能会导致数据丢失，而我们还误以为写入操作成功。如果io.Copy和f.close都失败了，我们倾向于将io.Copy的错误信息反馈给调用者，因为它先于f.close发生，更有可能接近问题的本质。
+对resp.Body.Close延迟调用我们已经见过了，在此不做解释。上例中，通过os.Create打开文件进行写入，**在关闭文件时，我们没有对f.close采用defer机制，因为这会产生一些微妙的错误。许多文件系统，尤其是NFS，写入文件时发生的错误会被延迟到文件关闭时反馈。如果没有检查文件关闭时的反馈信息，可能会导致数据丢失，而我们还误以为写入操作成功。如果io.Copy和f.close都失败了，我们倾向于将io.Copy的错误信息反馈给调用者，因为它先于f.close发生，更有可能接近问题的本质**。
 
 **练习5.18：**不修改fetch的行为，重写fetch函数，要求使用defer机制关闭文件。
 ## 5.9. Panic异常
@@ -8843,13 +8843,13 @@ https://golang.org/blog/
 
 这个程序实在是太他妈并行了。无穷无尽地并行化并不是什么好事情，因为不管怎么说，你的系统总是会有一些个限制因素，比如CPU核心数会限制你的计算负载，比如你的硬盘转轴和磁头数限制了你的本地磁盘IO操作频率，比如你的网络带宽限制了你的下载速度上限，或者是你的一个web服务的服务容量上限等等。为了解决这个问题，我们可以限制并发程序所使用的资源来使之适应自己的运行环境。对于我们的例子来说，最简单的方法就是限制对links.Extract在同一时间最多不会有超过n次调用，这里的n一般小于文件描述符的上限值，比如20。这和一个夜店里限制客人数目是一个道理，只有当有客人离开时，才会允许新的客人进入店内。
 
-我们可以用一个有容量限制的buffered channel来控制并发，这类似于操作系统里的计数信号量概念。从概念上讲，channel里的n个空槽代表n个可以处理内容的token（通行证），从channel里接收一个值会释放其中的一个token，并且生成一个新的空槽位。这样保证了在没有接收介入时最多有n个发送操作。（这里可能我们拿channel里
+我们可以用一个有容量限制的buffered channel来控制并发，这类似于操作系统里的计数信号量概念。从概念上讲，channel里的n个空槽代表n个可以处理内容的token（通行证），从channel里接收一个值会释放其中的一个token，并且生成一个新的空槽位。这样保证了在没有接收介入时最多有n个发送操作。（这里可能我们拿chan
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTAyMzI0MjI2Nyw4MDQ4MjI1OCwxMjQzOT
-g2NTY5LDE5MDYyMjMwNjAsLTE3NjI0NDQzOSwtMTMzNTI4MzM5
-Niw4OTYxODg3NTksLTQ1MDY5NDY5NywyMDczMzQ4MTg0LDE3Mj
-k0MDIwNTAsLTE4Mjc2NzMyNjMsLTY2NjQxMTM3LC05NDQzNzk0
-MzksLTEwMDQ5NzY5NTAsLTE3NDM2NjQxMjUsODcyMzM0NzYwLC
-0xOTg4MDc3NjY3LC0zNDYyOTMwNTAsLTc3Mjc0MTQzNCwxMjc0
-NzYxNDk0XX0=
+eyJoaXN0b3J5IjpbMzE3NDg5NzQ2LDEwMjMyNDIyNjcsODA0OD
+IyNTgsMTI0Mzk4NjU2OSwxOTA2MjIzMDYwLC0xNzYyNDQ0Mzks
+LTEzMzUyODMzOTYsODk2MTg4NzU5LC00NTA2OTQ2OTcsMjA3Mz
+M0ODE4NCwxNzI5NDAyMDUwLC0xODI3NjczMjYzLC02NjY0MTEz
+NywtOTQ0Mzc5NDM5LC0xMDA0OTc2OTUwLC0xNzQzNjY0MTI1LD
+g3MjMzNDc2MCwtMTk4ODA3NzY2NywtMzQ2MjkzMDUwLC03NzI3
+NDE0MzRdfQ==
 -->
