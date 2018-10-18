@@ -5145,7 +5145,7 @@ func triple(x int) (result int) {
 fmt.Println(triple(4)) // "12"
 ```
 
-在循环体中的defer语句需要特别注意，因为只有在函数执行完毕后，这些被延迟的函数才会执行。下面的代码会导致系统的文件描述符耗尽，因为在所有文件都被处理之前，没有文件会被关闭。
+**在循环体中的defer语句需要特别注意，因为只有在函数执行完毕后，这些被延迟的函数才会执行。下面的代码会导致系统的文件描述符耗尽，因为在所有文件都被处理之前，没有文件会被关闭**。
 
 ```Go
 for _, filename := range filenames {
@@ -5153,7 +5153,7 @@ for _, filename := range filenames {
 	if err != nil {
 		return err
 	}
-	defer f.Close() // NOTE: risky; could run out of file descriptors
+	defer f.Close() // NOTE: risky; could run out of file descriptors 因为只有在函数执行完毕后，这些被延迟的函数才会执行。下面的代码会导致系统的文件描述符耗尽，因为在所有文件都被处理之前，没有文件会被关闭
 	// ...process f…
 }
 ```
@@ -8845,13 +8845,13 @@ https://golang.org/blog/
 
 我们可以用一个有容量限制的buffered channel来控制并发，这类似于操作系统里的计数信号量概念。从概念上讲，channel里的n个空槽代表n个可以处理内容的token（通行证），从channel里接收一个值会释放其中的一个token，并且生成一个新的空槽位。这样保证了在没有接收介入时最多有n个发送操作。（这里可能我们拿channel里填充的槽来做token更直观一些，不过还是这样吧。）由于channel里的元素类型并不重要，我们用一个零值的struct{}来作为其元素。
 
-让我们重写crawl函数，将对links.Extract的调用操作用获取、释放token的操作包裹起来，来确保同一时间对其只有20个调用。信号量数量和其能
+让我们重写c
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTIyNDMzMTg4LDEyNDM5ODY1NjksMTkwNj
-IyMzA2MCwtMTc2MjQ0NDM5LC0xMzM1MjgzMzk2LDg5NjE4ODc1
-OSwtNDUwNjk0Njk3LDIwNzMzNDgxODQsMTcyOTQwMjA1MCwtMT
-gyNzY3MzI2MywtNjY2NDExMzcsLTk0NDM3OTQzOSwtMTAwNDk3
-Njk1MCwtMTc0MzY2NDEyNSw4NzIzMzQ3NjAsLTE5ODgwNzc2Nj
-csLTM0NjI5MzA1MCwtNzcyNzQxNDM0LDEyNzQ3NjE0OTQsLTEz
-NTM4OTc1NzhdfQ==
+eyJoaXN0b3J5IjpbODA0ODIyNTgsMTI0Mzk4NjU2OSwxOTA2Mj
+IzMDYwLC0xNzYyNDQ0MzksLTEzMzUyODMzOTYsODk2MTg4NzU5
+LC00NTA2OTQ2OTcsMjA3MzM0ODE4NCwxNzI5NDAyMDUwLC0xOD
+I3NjczMjYzLC02NjY0MTEzNywtOTQ0Mzc5NDM5LC0xMDA0OTc2
+OTUwLC0xNzQzNjY0MTI1LDg3MjMzNDc2MCwtMTk4ODA3NzY2Ny
+wtMzQ2MjkzMDUwLC03NzI3NDE0MzQsMTI3NDc2MTQ5NCwtMTM1
+Mzg5NzU3OF19
 -->
