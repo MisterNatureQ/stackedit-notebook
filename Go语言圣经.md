@@ -4608,6 +4608,7 @@ func Extract(url string) ([]string, error) {
 				if a.Key != "href" {
 					continue
 				}
+				// 现在links中存储的不是href属性的原始值，而是通过resp.Request.URL解析后的值
 				link, err := resp.Request.URL.Parse(a.Val)
 				if err != nil {
 					continue // ignore bad URLs
@@ -8810,15 +8811,13 @@ func main() {
 
 <u><i>gopl.io/ch8/countdown2</i></u>
 ```go
-abort := make(chan struct{})
-go func() {
-	os.Stdin.Read(make
+abort :
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTk0NDM3OTQzOSwtMTAwNDk3Njk1MCwtMT
-c0MzY2NDEyNSw4NzIzMzQ3NjAsLTE5ODgwNzc2NjcsLTM0NjI5
-MzA1MCwtNzcyNzQxNDM0LDEyNzQ3NjE0OTQsLTEzNTM4OTc1Nz
-gsMTY1NzQ0MTgxNCwtMTAxNzE3NzEzMCwxNTU4ODUxNzk4LC03
-NjQwMTExNzgsMTUzODM3Mzg0NiwyMTM4MDkyMjA1LDYzMjg2Mj
-I3LC0xMTUyMjI3MDEsMjc0NjU5NjAzLDE5NzUwNzQ0MCwtMjI0
-MzEyNjkwXX0=
+eyJoaXN0b3J5IjpbLTY2NjQxMTM3LC05NDQzNzk0MzksLTEwMD
+Q5NzY5NTAsLTE3NDM2NjQxMjUsODcyMzM0NzYwLC0xOTg4MDc3
+NjY3LC0zNDYyOTMwNTAsLTc3Mjc0MTQzNCwxMjc0NzYxNDk0LC
+0xMzUzODk3NTc4LDE2NTc0NDE4MTQsLTEwMTcxNzcxMzAsMTU1
+ODg1MTc5OCwtNzY0MDExMTc4LDE1MzgzNzM4NDYsMjEzODA5Mj
+IwNSw2MzI4NjIyNywtMTE1MjIyNzAxLDI3NDY1OTYwMywxOTc1
+MDc0NDBdfQ==
 -->
