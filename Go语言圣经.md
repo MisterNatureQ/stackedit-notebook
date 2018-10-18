@@ -4445,6 +4445,142 @@ for {
 ```
 
 因为文件结束这种错误不需要更多的描述，所以io.EOF有固定的错误信息——“EOF”。对于其他错误，我们可能需要在错误信息中描述错误的类型和数量，这使得我们不能像io.EOF一样采用固定的错误信息。**在7.11节中，我们会提出更系统的方法区分某些固定的错误值。**
+
+
+## 5.5. 函数值
+
+在Go中，函数被看作第一类值（first-class values）：函数像其他值一样，拥有类型，可以被赋值给其他变量，传递给函数，从函数返回。对函数值（function value）的调用类似函数调用。例子如下：
+
+```Go
+	func square(n int) int { return n * n }
+	func negative(n int) int { return -n }
+	func product(m, n int) int { return m * n }
+
+	f := square
+	fmt.Println(f(3)) // "9"
+
+	f = negative
+	fmt.Println(f(3))     // "-3"
+	fmt.Printf("%T\n", f) // "func(int) int"
+
+	f = product // compile error: can't assign func(int, int) int to func(int) int
+```
+
+函数类型的零值是nil。调用值为nil的函数值会引起panic错误：
+
+```Go
+	var f func(int) int
+	f(3) // 此处f的值为nil, 会引起panic错误
+```
+
+函数值可以与nil比较：
+
+```Go
+	var f func(int) int
+	if f != nil {
+		f(3)
+	}
+```
+
+但是函数值之间是不可比较的，也不能用函数值作为map的key。
+
+函数值使得我们不仅仅可以通过数据来参数化函数，亦可通过行为。标准库中包含许多这样的例子。下面的代码展示了如何使用这个技巧。strings.Map对字符串中的每个字符调用add1函数，并将每个add1函数的返回值组成一个新的字符串返回给调用者。
+
+```Go
+	func add1(r rune) rune { return r + 1 }
+
+	fmt.Println(strings.Map(add1, "HAL-9000")) // "IBM.:111"
+	fmt.Println(strings.Map(add1, "VMS"))      // "WNT"
+	fmt.Println(strings.Map(add1, "Admix"))    // "Benjy"
+```
+
+5.2节的findLinks函数使用了辅助函数visit，遍历和操作了HTML页面的所有结点。使用函数值，我们可以将遍历结点的逻辑和操作结点的逻辑分离，使得我们可以复用遍历的逻辑，从而对结点进行不同的操作。
+
+<u><i>gopl.io/ch5/outline2</i></u>
+```Go
+// forEachNode针对每个结点x，都会调用pre(x)和post(x)。
+// pre和post都是可选的。
+// 遍历孩子结点之前，pre被调用
+// 遍历孩子结点之后，post被调用
+func forEachNode(n *html.Node, pre, post func(n *html.Node)) {
+	if pre != nil {
+		pre(n)
+	}
+	for c := n.FirstChild; c != nil; c = c.NextSibling {
+		forEachNode(c, pre, post)
+	}
+	if post != nil {
+		post(n)
+	}
+}
+```
+
+该函数接收2个函数作为参数，分别在结点的孩子被访问前和访问后调用。这样的设计给调用者更大的灵活性。举个例子，现在我们有startElemen和endElement两个函数用于输出HTML元素的开始标签和结束标签`<b>...</b>`：
+
+```Go
+var depth int
+func startElement(n *html.Node) {
+	if n.Type == html.ElementNode {
+		fmt.Printf("%*s<%s>\n", depth*2, "", n.Data)
+		depth++
+	}
+}
+func endElement(n *html.Node) {
+	if n.Type == html.ElementNode {
+		depth--
+		fmt.Printf("%*s</%s>\n", depth*2, "", n.Data)
+	}
+}
+```
+
+上面的代码利用fmt.Printf的一个小技巧控制输出的缩进。`%*s`中的`*`会在字符串之前填充一些空格。在例子中，每次输出会先填充`depth*2`数量的空格，再输出""，最后再输出HTML标签。
+
+如果我们像下面这样调用forEachNode：
+
+```Go
+forEachNode(doc, startElement, endElement)
+```
+
+与之前的outline程序相比，我们得到了更加详细的页面结构：
+
+```
+$ go build gopl.io/ch5/outline2
+$ ./outline2 http://gopl.io
+<html>
+  <head>
+    <meta>
+    </meta>
+    <title>
+	</title>
+	<style>
+	</style>
+  </head>
+  <body>
+    <table>
+      <tbody>
+        <tr>
+          <td>
+            <a>
+              <img>
+              </img>
+...
+```
+
+**练习 5.7：** 完善startElement和endElement函数，使其成为通用的HTML输出器。要求：输出注释结点，文本结点以及每个元素的属性（< a href='...'>）。使用简略格式输出没有孩子结点的元素（即用`<img/>`代替`<img></img>`）。编写测试，验证程序输出的格式正确。（详见11章）
+
+**练习 5.8：** 修改pre和post函数，使其返回布尔类型的返回值。返回false时，中止forEachNoded的遍历。使用修改后的代码编写ElementByID函数，根据用户输入的id查找第一个拥有该id元素的HTML元素，查找成功后，停止遍历。
+
+```Go
+func ElementByID(doc *html.Node, id string) *html.Node
+```
+
+**练习 5.9：** 编写函数expand，将s中的"foo"替换为f("foo")的返回值。
+
+```Go
+func expand(s string, f func(string) string) string
+```
+
+
 ## 5.6. 匿名函数
 
 **拥有函数名的函数只能在包级语法块中被声明，通过函数字面量（function literal），我们可绕过这一限制，在任何表达式中表示一个函数值。函数字面量的语法和函数声明相似，区别在于func关键字后没有函数名。函数值字面量是一种表达式，它的值被称为匿名函数（anonymous function）。**
@@ -8705,113 +8841,17 @@ https://golang.org/blog/
 var tokens = make(chan struct{}, 20)
 
 func crawl(url string) []string {
-	fmt.Println(url)
-	tokens <- struct{}{} // acquire a token
-	list, err := links.Extract(url)
-	<-tokens // release the token
-	if err != nil {
-		log.Print(err)
-	}
-	return list
-}
-```
-
-第二个问题是这个程序永远都不会终止，即使它已经爬到了所有初始链接衍生出的链接。（当然，除非你慎重地选择了合适的初始化URL或者已经实现了练习8.6中的深度限制，你应该还没有意识到这个问题。）为了使这个程序能够终止，我们需要在worklist为空或者没有crawl的goroutine在运行时退出主循环。
-
-```go
-func main() {
-	worklist := make(chan []string)
-	var n int // number of pending sends to worklist
-
-	// Start with the command-line arguments.
-	n++
-	go func() { worklist <- os.Args[1:] }()
-
-	// Crawl the web concurrently.
-	seen := make(map[string]bool)
-
-	for ; n > 0; n-- {
-		list := <-worklist
-		for _, link := range list {
-			if !seen[link] {
-				seen[link] = true
-				n++
-				go func(link string) {
-					worklist <- crawl(link)
-				}(link)
-			}
-		}
-	}
-}
-```
-
-这个版本中，计数器n对worklist的发送操作数量进行了限制。每一次我们发现有元素需要被发送到worklist时，我们都会对n进行++操作，在向worklist中发送初始的命令行参数之前，我们也进行过一次++操作。这里的操作++是在每启动一个crawler的goroutine之前。主循环会在n减为0时终止，这时候说明没活可干了。
-
-现在这个并发爬虫会比5.6节中的深度优先搜索版快上20倍，而且不会出什么错，并且在其完成任务时也会正确地终止。
-
-下面的程序是避免过度并发的另一种思路。这个版本使用了原来的crawl函数，但没有使用计数信号量，取而代之用了20个常驻的crawler goroutine，这样来保证最多20个HTTP请求在并发。
-
-```go
-func main() {
-	worklist := make(chan []string)  // lists of URLs, may have duplicates
-	unseenLinks := make(chan string) // de-duplicated URLs
-
-	// Add command-line arguments to worklist.
-	go func() { worklist <- os.Args[1:] }()
-
-	// Create 20 crawler goroutines to fetch each unseen link.
-	for i := 0; i < 20; i++ {
-		go func() {
-			for link := range unseenLinks {
-				foundLinks := crawl(link)
-				go func() { worklist <- foundLinks }()
-			}
-		}()
-	}
-
-	// The main goroutine de-duplicates worklist items
-	// and sends the unseen ones to the crawlers.
-	seen := make(map[string]bool)
-	for list := range worklist {
-		for _, link := range list {
-			if !seen[link] {
-				seen[link] = true
-				unseenLinks <- link
-			}
-		}
-	}
-}
-```
-
-所有的爬虫goroutine现在都是被同一个channel - unseenLinks喂饱的了。主goroutine负责拆分它从worklist里拿到的元素，然后把没有抓过的经由unseenLinks channel发送给一个爬虫的goroutine。
-
-seen这个map被限定在main goroutine中；也就是说这个map只能在main goroutine中进行访问。类似于其它的信息隐藏方式，这样的约束可以让我们从一定程度上保证程序的正确性。例如，内部变量不能够在函数外部被访问到；变量（§2.3.4）在没有发生变量逃逸（译注：局部变量被全局变量引用地址导致变量被分配在堆上）的情况下是无法在函数外部访问的；一个对象的封装字段无法被该对象的方法以外的方法访问到。在所有的情况下，信息隐藏都可以帮助我们约束我们的程序，使其不发生意料之外的情况。
-
-crawl函数爬到的链接在一个专有的goroutine中被发送到worklist中来避免死锁。为了节省篇幅，这个例子的终止问题我们先不进行详细阐述了。
-
-**练习 8.6：** 为并发爬虫增加深度限制。也就是说，如果用户设置了depth=3，那么只有从首页跳转三次以内能够跳到的页面才能被抓取到。
-
-**练习 8.7：** 完成一个并发程序来创建一个线上网站的本地镜像，把该站点的所有可达的页面都抓取到本地硬盘。为了省事，我们这里可以只取出现在该域下的所有页面（比如golang.org开头，译注：外链的应该就不算了。）当然了，出现在页面里的链接你也需要进行一些处理，使其能够在你的镜像站点上进行跳转，而不是指向原始的链接。
-
-
-**译注：**
-拓展阅读 [Handling 1 Million Requests per Minute with Go](http://marcio.io/2015/07/handling-1-million-requests-per-minute-with-golang/)。
-## 8.7. 基于select的多路复用
-
-下面的程序会进行火箭发射的倒计时。time.Tick函数返回一个channel，程序会周期性地像一个节拍器一样向这个channel发送事件。每一个事件的值是一个时间戳，不过更有意思的是其传送方式。
-
-<u><i>gopl.io/ch8/countdown1</i></u>
-```go
+	fmt```go
 func main() {
 	fmt.Println("Commencing countdown.")
 	tick := time.Tick(1 * time.Second)
-	for countdown := 10; countdown > 0; count
+	for countdown := 10; countdown > 0; c
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjA3MzM0ODE4NCwxNzI5NDAyMDUwLC0xOD
-I3NjczMjYzLC02NjY0MTEzNywtOTQ0Mzc5NDM5LC0xMDA0OTc2
-OTUwLC0xNzQzNjY0MTI1LDg3MjMzNDc2MCwtMTk4ODA3NzY2Ny
-wtMzQ2MjkzMDUwLC03NzI3NDE0MzQsMTI3NDc2MTQ5NCwtMTM1
-Mzg5NzU3OCwxNjU3NDQxODE0LC0xMDE3MTc3MTMwLDE1NTg4NT
-E3OTgsLTc2NDAxMTE3OCwxNTM4MzczODQ2LDIxMzgwOTIyMDUs
-NjMyODYyMjddfQ==
+eyJoaXN0b3J5IjpbMTYzOTk3ODAxOSwyMDczMzQ4MTg0LDE3Mj
+k0MDIwNTAsLTE4Mjc2NzMyNjMsLTY2NjQxMTM3LC05NDQzNzk0
+MzksLTEwMDQ5NzY5NTAsLTE3NDM2NjQxMjUsODcyMzM0NzYwLC
+0xOTg4MDc3NjY3LC0zNDYyOTMwNTAsLTc3Mjc0MTQzNCwxMjc0
+NzYxNDk0LC0xMzUzODk3NTc4LDE2NTc0NDE4MTQsLTEwMTcxNz
+cxMzAsMTU1ODg1MTc5OCwtNzY0MDExMTc4LDE1MzgzNzM4NDYs
+MjEzODA5MjIwNV19
 -->
