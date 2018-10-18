@@ -4885,9 +4885,9 @@ for _, dir := range tempDirs() {
 }
 ```
 
-问题的原因在于循环变量的作用域。在上面的程序中，for循环语句引入了新的词法块，循环变量dir在这个词法块中被声明。在该循环中生成的所有函数值都共享相同的循环变量。需要注意，函数值中记录的是循环变量的内存地址，而不是循环变量某一时刻的值。以dir为例，后续的迭代会不断更新dir的值，当删除操作执行时，for循环已完成，dir中存储的值等于最后一次迭代的值。这意味着，每次对os.RemoveAll的调用删除的都是相同的目录。
+问题的原因在于循环变量的作用域。在上面的程序中，for循环语句引入了新的词法块，循环变量dir在这个词法块中被声明。在该循环中生成的所有函数值都共享相同的循环变量。需要注意，**函数值中记录的是循环变量的内存地址，而不是循环变量某一时刻的值。以dir为例，后续的迭代会不断更新dir的值，当删除操作执行时，for循环已完成，dir中存储的值等于最后一次迭代的值。这意味着，每次对os.RemoveAll的调用删除的都是相同的目录**。
 
-通常，为了解决这个问题，我们会引入一个与循环变量同名的局部变量，作为循环变量的副本。比如下面的变量dir，虽然这看起来很奇怪，但却很有用。
+通常，为了解决这个问题，**我们会引入一个与循环变量同名的局部变量，作为循环变量的副本。比如下面的变量dir，虽然这看起来很奇怪，但却很有用**。
 
 ```Go
 for _, dir := range tempDirs() {
@@ -8843,13 +8843,13 @@ https://golang.org/blog/
 ```go
 // tokens is a counting semaphore used to
 // enforce a limit of 20 concurrent requests.
-var tokens = make(chan struct
+var tokens = make(cha
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE3NjI0NDQzOSwtMTMzNTI4MzM5Niw4OT
-YxODg3NTksLTQ1MDY5NDY5NywyMDczMzQ4MTg0LDE3Mjk0MDIw
-NTAsLTE4Mjc2NzMyNjMsLTY2NjQxMTM3LC05NDQzNzk0MzksLT
-EwMDQ5NzY5NTAsLTE3NDM2NjQxMjUsODcyMzM0NzYwLC0xOTg4
-MDc3NjY3LC0zNDYyOTMwNTAsLTc3Mjc0MTQzNCwxMjc0NzYxND
-k0LC0xMzUzODk3NTc4LDE2NTc0NDE4MTQsLTEwMTcxNzcxMzAs
-MTU1ODg1MTc5OF19
+eyJoaXN0b3J5IjpbMTg3NTQyMDg4MCwtMTc2MjQ0NDM5LC0xMz
+M1MjgzMzk2LDg5NjE4ODc1OSwtNDUwNjk0Njk3LDIwNzMzNDgx
+ODQsMTcyOTQwMjA1MCwtMTgyNzY3MzI2MywtNjY2NDExMzcsLT
+k0NDM3OTQzOSwtMTAwNDk3Njk1MCwtMTc0MzY2NDEyNSw4NzIz
+MzQ3NjAsLTE5ODgwNzc2NjcsLTM0NjI5MzA1MCwtNzcyNzQxND
+M0LDEyNzQ3NjE0OTQsLTEzNTM4OTc1NzgsMTY1NzQ0MTgxNCwt
+MTAxNzE3NzEzMF19
 -->
