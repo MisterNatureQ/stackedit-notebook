@@ -4485,7 +4485,7 @@ for {
 
 但是**函数值之间是不可比较的，也不能用函数值作为map的key**。
 
-函数值使得我们不仅仅可以通过数据来参数化函数，亦可通过行为。标准库中包含许多这样的例子。下面的代码展示了如何使用这个技巧。strings.Map对字符串中的每个字符调用add1函数，并将每个add1函数的返回值组成一个新的字符串返回给调用者。
+**函数值使得我们不仅仅可以通过数据来参数化函数，亦可通过行为**。标准库中包含许多这样的例子。下面的代码展示了如何使用这个技巧。strings.Map对字符串中的每个字符调用add1函数，并将每个add1函数的返回值组成一个新的字符串返回给调用者。
 
 ```Go
 	func add1(r rune) rune { return r + 1 }
@@ -4495,7 +4495,7 @@ for {
 	fmt.Println(strings.Map(add1, "Admix"))    // "Benjy"
 ```
 
-5.2节的findLinks函数使用了辅助函数visit，遍历和操作了HTML页面的所有结点。使用函数值，我们可以将遍历结点的逻辑和操作结点的逻辑分离，使得我们可以复用遍历的逻辑，从而对结点进行不同的操作。
+5.2节的findLinks函数使用了辅助函数visit，遍历和操作了HTML页面的所有结点。**使用函数值，我们可以将遍历结点的逻辑和操作结点的逻辑分离，使得我们可以复用遍历的逻辑，从而对结点进行不同的操作**。
 
 <u><i>gopl.io/ch5/outline2</i></u>
 ```Go
@@ -8846,9 +8846,9 @@ func crawl(url string) []string {
 func main() {
 	fmt.Println("Commencing countdown.")
 	tick := time.Tick(1 * time.Second)
-	for countdown := 10; countdown 
+	for countdown := 10; cou
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTQ2MTMzNDU2NSwyMDczMzQ4MTg0LDE3Mj
+eyJoaXN0b3J5IjpbLTQ1MDY5NDY5NywyMDczMzQ4MTg0LDE3Mj
 k0MDIwNTAsLTE4Mjc2NzMyNjMsLTY2NjQxMTM3LC05NDQzNzk0
 MzksLTEwMDQ5NzY5NTAsLTE3NDM2NjQxMjUsODcyMzM0NzYwLC
 0xOTg4MDc3NjY3LC0zNDYyOTMwNTAsLTc3Mjc0MTQzNCwxMjc0
