@@ -4938,6 +4938,7 @@ fmt.Println(sum(1, 2, 3, 4)) // "10"
 
 在上面的代码中，调用者隐式的创建一个数组，并将原始参数复制到数组中，再把数组的一个切片作为参数传给被调用函数。**如果原始参数已经是切片类型，我们该如何传递给sum？只需在最后一个参数后加上省略符**。下面的代码功能与上个例子中最后一条语句相同。
 
+
 ```Go
 values := []int{1, 2, 3, 4}
 fmt.Println(sum(values...)) // "10"
@@ -8844,9 +8845,9 @@ https://golang.org/blog/
 ```go
 // tokens is a counting semaphore used to
 // enforce a limit of 20 concurrent requests.
-var toke
+var tok
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTA0NTAzNjQ5OCwtMTc2MjQ0NDM5LC0xMz
+eyJoaXN0b3J5IjpbMTM4MDI5MDYzNSwtMTc2MjQ0NDM5LC0xMz
 M1MjgzMzk2LDg5NjE4ODc1OSwtNDUwNjk0Njk3LDIwNzMzNDgx
 ODQsMTcyOTQwMjA1MCwtMTgyNzY3MzI2MywtNjY2NDExMzcsLT
 k0NDM3OTQzOSwtMTAwNDk3Njk1MCwtMTc0MzY2NDEyNSw4NzIz
