@@ -4608,7 +4608,7 @@ func Extract(url string) ([]string, error) {
 				if a.Key != "href" {
 					continue
 				}
-				// 现在links中存储的不是href属性的原始值，而是通过resp.Request.URL解析后的值
+				// 现在links中存储的不是href属性的原始值，而是通过resp.Request.URL解析后的值，可以直接被http.Get访问
 				link, err := resp.Request.URL.Parse(a.Val)
 				if err != nil {
 					continue // ignore bad URLs
@@ -8809,15 +8809,13 @@ func main() {
 
 现在我们让这个程序支持在倒计时中，用户按下return键时直接中断发射流程。首先，我们启动一个goroutine，这个goroutine会尝试从标准输入中读入一个单独的byte并且，如果成功了，会向名为abort的channel发送一个值。
 
-<u><i>gopl.io/ch8/countdown2</i></u>
-```go
-abort :
+<u><i>gopl.io/ch8/countdown2</i></
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTY2NjQxMTM3LC05NDQzNzk0MzksLTEwMD
-Q5NzY5NTAsLTE3NDM2NjQxMjUsODcyMzM0NzYwLC0xOTg4MDc3
-NjY3LC0zNDYyOTMwNTAsLTc3Mjc0MTQzNCwxMjc0NzYxNDk0LC
-0xMzUzODk3NTc4LDE2NTc0NDE4MTQsLTEwMTcxNzcxMzAsMTU1
-ODg1MTc5OCwtNzY0MDExMTc4LDE1MzgzNzM4NDYsMjEzODA5Mj
-IwNSw2MzI4NjIyNywtMTE1MjIyNzAxLDI3NDY1OTYwMywxOTc1
-MDc0NDBdfQ==
+eyJoaXN0b3J5IjpbMzk3NzE5MjAzLC02NjY0MTEzNywtOTQ0Mz
+c5NDM5LC0xMDA0OTc2OTUwLC0xNzQzNjY0MTI1LDg3MjMzNDc2
+MCwtMTk4ODA3NzY2NywtMzQ2MjkzMDUwLC03NzI3NDE0MzQsMT
+I3NDc2MTQ5NCwtMTM1Mzg5NzU3OCwxNjU3NDQxODE0LC0xMDE3
+MTc3MTMwLDE1NTg4NTE3OTgsLTc2NDAxMTE3OCwxNTM4MzczOD
+Q2LDIxMzgwOTIyMDUsNjMyODYyMjcsLTExNTIyMjcwMSwyNzQ2
+NTk2MDNdfQ==
 -->
