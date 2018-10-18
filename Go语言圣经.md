@@ -5213,9 +5213,10 @@ func fetch(url string) (filename string, n int64, err error) {
 
 Go的类型系统会在编译时捕获很多错误，但有些错误只能在运行时检查，如数组访问越界、空指针引用等。这些运行时错误会引起painc异常。
 
-一般而言，当panic异常发生时，程序会中断运行，并立即执行在该goroutine（可以先理解成线程，在第8章会详细介绍）中被延迟的函数（defer 机制）。随后，程序崩溃并输出日志信息。日志信息包括panic value和函数调用的堆栈跟踪信息。panic value通常是某种错误信息。对于每个goroutine，日志信息中都会有与之相对的，发生panic时的函数调用堆栈跟踪信息。通常，我们不需要再次运行程序去定位问题，日志信息已经提供了足够的诊断依据。因此，在我们填写问题报告时，一般会将panic异常和日志信息一并记录。
+**一般而言，当panic异常发生时，程序会中断运行，并立即执行在该goroutine（可以先理解成线程，在第8章会详细介绍）中被延迟的函数（defer 机制）。随后，程序崩溃并输出日志信息。日志信息包括panic value和函数调用的堆栈跟踪信息。panic value通常是某种错误信息。对于每个goroutine，日志信息中都会有与之相对的，发生panic时的函数调用堆栈跟踪信息。通常，我们不需要再次运行程序去定位问题，日志信息已经提供了足够的诊断依据。因此，在我们填写问题报告时，一般会将panic异常和日志信息一并记录**。
 
-不是所有的panic异常都来自运行时，直接调用内置的panic函数也会引发panic异常；panic函数接受任何值作为参数。当某些不应该发生的场景发生时，我们就应该调用panic。比如，当程序到达了某条逻辑上不可能到达的路径：
+
+不是所有的panic异常都来自运行时，**直接调用内置的panic函数也会引发panic异常**；panic函数接受任何值作为参数。当某些不应该发生的场景发生时，我们就应该调用panic。比如，当程序到达了某条逻辑上不可能到达的路径：
 
 ```Go
 switch s := suit(drawCard()); s {
@@ -8844,13 +8845,13 @@ https://golang.org/blog/
 
 这个程序实在是太他妈并行了。无穷无尽地并行化并不是什么好事情，因为不管怎么说，你的系统总是会有一些个限制因素，比如CPU核心数会限制你的计算负载，比如你的硬盘转轴和磁头数限制了你的本地磁盘IO操作频率，比如你的网络带宽限制了你的下载速度上限，或者是你的一个web服务的服务容量上限等等。为了解决这个问题，我们可以限制并发程序所使用的资源来使之适应自己的运行环境。对于我们的例子来说，最简单的方法就是限制对links.Extract在同一时间最多不会有超过n次调用，这里的n一般小于文件描述符的上限值，比如20。这和一个夜店里限制客人数目是一个道理，只有当有客人离开时，才会允许新的客人进入店内。
 
-我们可以用一个有容量限制的buffered channel来控制并发，这类似于操作系统里的计数信号量概念。从概念上讲，channel里的n个空槽代表n个可以处理内容的token（通
+我们可以用一个有容量限制的buffered channel来控制并发，这类似于操作系统里的计数信号量概念。从概念上讲，channel里的n个空槽代表n个可以处理内
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEyNDYxNDM2ODAsMTAyMzI0MjI2Nyw4MD
-Q4MjI1OCwxMjQzOTg2NTY5LDE5MDYyMjMwNjAsLTE3NjI0NDQz
-OSwtMTMzNTI4MzM5Niw4OTYxODg3NTksLTQ1MDY5NDY5NywyMD
-czMzQ4MTg0LDE3Mjk0MDIwNTAsLTE4Mjc2NzMyNjMsLTY2NjQx
-MTM3LC05NDQzNzk0MzksLTEwMDQ5NzY5NTAsLTE3NDM2NjQxMj
-UsODcyMzM0NzYwLC0xOTg4MDc3NjY3LC0zNDYyOTMwNTAsLTc3
-Mjc0MTQzNF19
+eyJoaXN0b3J5IjpbNTg5OTQ4MDA2LC0xMjQ2MTQzNjgwLDEwMj
+MyNDIyNjcsODA0ODIyNTgsMTI0Mzk4NjU2OSwxOTA2MjIzMDYw
+LC0xNzYyNDQ0MzksLTEzMzUyODMzOTYsODk2MTg4NzU5LC00NT
+A2OTQ2OTcsMjA3MzM0ODE4NCwxNzI5NDAyMDUwLC0xODI3Njcz
+MjYzLC02NjY0MTEzNywtOTQ0Mzc5NDM5LC0xMDA0OTc2OTUwLC
+0xNzQzNjY0MTI1LDg3MjMzNDc2MCwtMTk4ODA3NzY2NywtMzQ2
+MjkzMDUwXX0=
 -->
