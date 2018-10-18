@@ -4601,7 +4601,7 @@ func Extract(url string) ([]string, error) {
 		return nil, fmt.Errorf("parsing %s as HTML: %v", url, err)
 	}
 	// 匿名函数
-	var links []string
+	var links []string // 闭包保持的局部变量
 	visitNode := func(n *html.Node) {
 		if n.Type == html.ElementNode && n.Data == "a" {
 			for _, a := range n.Attr {
@@ -8812,13 +8812,13 @@ func main() {
 ```go
 abort := make(chan struct{})
 go func() {
-	os.Stdin.Read(make([]byte, 1)) // read a s
+	os.Stdin.Read(make([]byte, 1)
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE2NjMzMTc5NDIsLTEwMDQ5NzY5NTAsLT
-E3NDM2NjQxMjUsODcyMzM0NzYwLC0xOTg4MDc3NjY3LC0zNDYy
-OTMwNTAsLTc3Mjc0MTQzNCwxMjc0NzYxNDk0LC0xMzUzODk3NT
-c4LDE2NTc0NDE4MTQsLTEwMTcxNzcxMzAsMTU1ODg1MTc5OCwt
-NzY0MDExMTc4LDE1MzgzNzM4NDYsMjEzODA5MjIwNSw2MzI4Nj
-IyNywtMTE1MjIyNzAxLDI3NDY1OTYwMywxOTc1MDc0NDAsLTIy
-NDMxMjY5MF19
+eyJoaXN0b3J5IjpbMjA1NjU1OTIwNiwtMTAwNDk3Njk1MCwtMT
+c0MzY2NDEyNSw4NzIzMzQ3NjAsLTE5ODgwNzc2NjcsLTM0NjI5
+MzA1MCwtNzcyNzQxNDM0LDEyNzQ3NjE0OTQsLTEzNTM4OTc1Nz
+gsMTY1NzQ0MTgxNCwtMTAxNzE3NzEzMCwxNTU4ODUxNzk4LC03
+NjQwMTExNzgsMTUzODM3Mzg0NiwyMTM4MDkyMjA1LDYzMjg2Mj
+I3LC0xMTUyMjI3MDEsMjc0NjU5NjAzLDE5NzUwNzQ0MCwtMjI0
+MzEyNjkwXX0=
 -->
