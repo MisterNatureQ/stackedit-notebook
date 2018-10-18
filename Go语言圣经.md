@@ -5026,7 +5026,7 @@ $ ./title1 https://golang.org/doc/gopher/frontpage.png
 title: https://golang.org/doc/gopher/frontpage.png has type image/png, not text/html
 ```
 
-resp.Body.close调用了多次，这是为了确保title在所有执行路径下（即使函数运行失败）都关闭了网络连接。随着函数变得复杂，需要处理的错误也变多，维护清理逻辑变得越来越困难。而Go语言独有的defer机制可以让事情变得简单。
+**resp.Body.close调用了多次，这是为了确保title在所有执行路径下（即使函数运行失败）都关闭了网络连接。随着函数变得复杂，需要处理的错误也变多，维护清理逻辑变得越来越困难。而Go语言独有的defer机制可以让事情变得简单。
 
 你只需要在调用普通函数或方法前加上关键字defer，就完成了defer所需要的语法。当执行到该条语句时，函数和参数表达式得到计算，但直到包含该defer语句的函数执行完毕时，defer后的函数才会被执行，不论包含defer语句的函数是通过return正常结束，还是由于panic导致的异常结束。你可以在一个函数中执行多条defer语句，它们的执行顺序与声明顺序相反。
 
@@ -8846,13 +8846,13 @@ https://golang.org/blog/
 <u><i>gopl.io/ch8/crawl2</i></u>
 ```go
 // tokens is a counting semaphore used to
-// enforce a limit of 20 concurrent req
+// enforce a limit of 20 concurrent r
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTkwNjIyMzA2MCwtMTc2MjQ0NDM5LC0xMz
-M1MjgzMzk2LDg5NjE4ODc1OSwtNDUwNjk0Njk3LDIwNzMzNDgx
-ODQsMTcyOTQwMjA1MCwtMTgyNzY3MzI2MywtNjY2NDExMzcsLT
-k0NDM3OTQzOSwtMTAwNDk3Njk1MCwtMTc0MzY2NDEyNSw4NzIz
-MzQ3NjAsLTE5ODgwNzc2NjcsLTM0NjI5MzA1MCwtNzcyNzQxND
-M0LDEyNzQ3NjE0OTQsLTEzNTM4OTc1NzgsMTY1NzQ0MTgxNCwt
-MTAxNzE3NzEzMF19
+eyJoaXN0b3J5IjpbLTE3ODAxNzE2NDgsMTkwNjIyMzA2MCwtMT
+c2MjQ0NDM5LC0xMzM1MjgzMzk2LDg5NjE4ODc1OSwtNDUwNjk0
+Njk3LDIwNzMzNDgxODQsMTcyOTQwMjA1MCwtMTgyNzY3MzI2My
+wtNjY2NDExMzcsLTk0NDM3OTQzOSwtMTAwNDk3Njk1MCwtMTc0
+MzY2NDEyNSw4NzIzMzQ3NjAsLTE5ODgwNzc2NjcsLTM0NjI5Mz
+A1MCwtNzcyNzQxNDM0LDEyNzQ3NjE0OTQsLTEzNTM4OTc1Nzgs
+MTY1NzQ0MTgxNF19
 -->
