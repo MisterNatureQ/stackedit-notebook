@@ -5026,11 +5026,12 @@ $ ./title1 https://golang.org/doc/gopher/frontpage.png
 title: https://golang.org/doc/gopher/frontpage.png has type image/png, not text/html
 ```
 
-**resp.Body.close调用了多次，这是为了确保title在所有执行路径下（即使函数运行失败）都关闭了网络连接。随着函数变得复杂，需要处理的错误也变多，维护清理逻辑变得越来越困难。而Go语言独有的defer机制可以让事情变得简单。
+**resp.Body.close调用了多次，这是为了确保title在所有执行路径下（即使函数运行失败）都关闭了网络连接。随着函数变得复杂，需要处理的错误也变多，维护清理逻辑变得越来越困难。而Go语言独有的defer机制可以让事情变得简单**。
 
-你只需要在调用普通函数或方法前加上关键字defer，就完成了defer所需要的语法。当执行到该条语句时，函数和参数表达式得到计算，但直到包含该defer语句的函数执行完毕时，defer后的函数才会被执行，不论包含defer语句的函数是通过return正常结束，还是由于panic导致的异常结束。你可以在一个函数中执行多条defer语句，它们的执行顺序与声明顺序相反。
+**你只需要在调用普通函数或方法前加上关键字defer，就完成了defer所需要的语法。当执行到该条语句时，函数和参数表达式得到计算，但直到包含该defer语句的函数执行完毕时，defer后的函数才会被执行，不论包含defer语句的函数是通过return正常结束，还是由于panic导致的异常结束。你可以在一个函数中执行多条defer语句，它们的执行顺序与声明顺序相反**。
 
-defer语句经常被用于处理成对的操作，如打开、关闭、连接、断开连接、加锁、释放锁。通过defer机制，不论函数逻辑多复杂，都能保证在任何执行路径下，资源被释放。释放资源的defer应该直接跟在请求资源的语句后。在下面的代码中，一条defer语句替代了之前的所有resp.Body.Close
+**defer语句经常被用于处理成对的操作，如打开、关闭、连接、断开连接、加锁、释放锁。通过defer机制，不论函数逻辑多复杂，都能保证在任何执行路径下，资源被释放。释放资源的defer应该直接跟在请求资源的语句后**。在下面的代码中，一条defer语句替代了之前的所有resp.Body.Close
+
 
 <u><i>gopl.io/ch5/title2</i></u>
 ```Go
@@ -8846,13 +8847,13 @@ https://golang.org/blog/
 <u><i>gopl.io/ch8/crawl2</i></u>
 ```go
 // tokens is a counting semaphore used to
-// enforce a limit of 20 concurrent r
+// enforce a limit of 20 c
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE3ODAxNzE2NDgsMTkwNjIyMzA2MCwtMT
-c2MjQ0NDM5LC0xMzM1MjgzMzk2LDg5NjE4ODc1OSwtNDUwNjk0
-Njk3LDIwNzMzNDgxODQsMTcyOTQwMjA1MCwtMTgyNzY3MzI2My
-wtNjY2NDExMzcsLTk0NDM3OTQzOSwtMTAwNDk3Njk1MCwtMTc0
-MzY2NDEyNSw4NzIzMzQ3NjAsLTE5ODgwNzc2NjcsLTM0NjI5Mz
-A1MCwtNzcyNzQxNDM0LDEyNzQ3NjE0OTQsLTEzNTM4OTc1Nzgs
-MTY1NzQ0MTgxNF19
+eyJoaXN0b3J5IjpbLTg2MTQzNjI2MiwxOTA2MjIzMDYwLC0xNz
+YyNDQ0MzksLTEzMzUyODMzOTYsODk2MTg4NzU5LC00NTA2OTQ2
+OTcsMjA3MzM0ODE4NCwxNzI5NDAyMDUwLC0xODI3NjczMjYzLC
+02NjY0MTEzNywtOTQ0Mzc5NDM5LC0xMDA0OTc2OTUwLC0xNzQz
+NjY0MTI1LDg3MjMzNDc2MCwtMTk4ODA3NzY2NywtMzQ2MjkzMD
+UwLC03NzI3NDE0MzQsMTI3NDc2MTQ5NCwtMTM1Mzg5NzU3OCwx
+NjU3NDQxODE0XX0=
 -->
