@@ -5613,9 +5613,10 @@ pptr.Distance(q) // implicit (*pptr)
 **译注：** 作者这里说的比较绕，其实有两点：
 
 1. 不管你的method的receiver是指针类型还是非指针类型，都是可以通过指针/非指针类型进行调用的，编译器会帮你做类型转换。
-2. 在声明一个method的receiver该是指针还是非指针类型时，你需要考虑两方面的因素，第一方面是这个对象本身是不是特别大，如果声明为非指针变量时，调用会产生一次拷贝；第二方面是如果你用指针类型作为receiver，那么你一定要注意，这种指针类型指向的始终是一块内存地址，就算你对其进行了拷贝。熟悉C或者C++的人这里应该很快能明白。
+2. 在声明一个method的receiver该是指针还是非指针类型时，你需要考虑两方面的因素，第一方面是这个对象本身是不是特别大，如果声明为非指针变量时，调用会产生一次拷贝；第二方面是如果你用指针类型作为receiver，那么你一定要注意，这种指针类型指向的始终是一块内存地址，就算你对其进行了拷贝。熟悉C或者C++的人这里应该很快能明白。   浅拷贝
 
 {% include "./ch6-02-1.md" %}
+
 ### 6.2.1. Nil也是一个合法的接收器类型
 
 就像一些函数允许nil指针作为参数一样，方法理论上也可以用nil指针作为其接收器，尤其当nil对于对象来说是合法的零值时，比如map或者slice。在下面的简单int链表的例子里，nil代表的是空链表：
@@ -8850,13 +8851,13 @@ https://golang.org/blog/
 
 最初的错误信息是一个让人莫名的DNS查找失败，即使这个域名是完全可靠的。而随后的错误信息揭示了原因：这个程序一次性创建了太多网络连接，超过了每一个进程的打开文件数限制，既而导致了在调用net.Dial像DNS查找失败这样的问题。
 
-这个程序实在是太他妈并行了。无穷无尽地并行化并不是什么好事情，因为不管怎么说，你的系统总是会有一些个限制因素，比如CPU核心数会限制你的计算负载，比如你的硬盘转轴和磁头数限制了你的本地磁盘IO操作频率，比如你的网络带宽限制了你的下载速度上限，或者是你的一个web服务的服务容量上限等等。为了解决这个问题，我们可以限制并发程序所使用的资源来使之适应自己的运行环境。对于我们的例子来说，最简单的方法就
+这个程序实在是太他妈并行了。无穷无尽地并行化并不是什么好事情，因为不管怎么说，你的系统总是会有一些个限制因素，比如CPU核心数会限制你的计算负载，比如你的硬盘转轴和磁头数限制了你的本地磁盘IO操作频率，比如你的网络带宽限制了你的下载速度上限，或者是你的一个web服务的服务容量上限等等。为了解决这个问题，我们可以限制并发程序所使用的资源来使之适应自己的运行环境。对于
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTY1NjU2Mjc3LDgwMTIyNTU3NSwyMzUyOT
-Q4MDAsLTE2ODI4NDMyNzMsLTE3NDU5OTgzODYsODg4NjYwNzc5
-LDg1MDY4MTU3NSw0NjIzOTExNzYsMjU4MTEyNjQ2LDEwNTg0Mj
-Q2NTksLTIwMjg5OTE5MzMsMTUxMTI1NjExLDU4OTk0ODAwNiwt
-MTI0NjE0MzY4MCwxMDIzMjQyMjY3LDgwNDgyMjU4LDEyNDM5OD
-Y1NjksMTkwNjIyMzA2MCwtMTc2MjQ0NDM5LC0xMzM1MjgzMzk2
-XX0=
+eyJoaXN0b3J5IjpbLTE3MzI5MTQ5NSwtNjU2NTYyNzcsODAxMj
+I1NTc1LDIzNTI5NDgwMCwtMTY4Mjg0MzI3MywtMTc0NTk5ODM4
+Niw4ODg2NjA3NzksODUwNjgxNTc1LDQ2MjM5MTE3NiwyNTgxMT
+I2NDYsMTA1ODQyNDY1OSwtMjAyODk5MTkzMywxNTExMjU2MTEs
+NTg5OTQ4MDA2LC0xMjQ2MTQzNjgwLDEwMjMyNDIyNjcsODA0OD
+IyNTgsMTI0Mzk4NjU2OSwxOTA2MjIzMDYwLC0xNzYyNDQ0Mzld
+fQ==
 -->
