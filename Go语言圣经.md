@@ -5460,7 +5460,7 @@ func (p Point) Distance(q Point) float64 {
 
 **在Go语言中，我们并不会像其它语言那样用this或者self作为接收器；我们可以任意的选择接收器的名字**。由于接收器的名字经常会被使用到，所以保持其在方法间传递时的一致性和简短性是不错的主意。这里的建议是可以使用其类型的第一个字母，比如这里使用了Point的首字母p。
 
-在方法调用过程中，接收器参数一般会在方法名之前出现。这和方法声明是一样的，都是接收器参数在方法名字之前。下面是例子：
+在方法调用过程中，**接收器参数一般会在方法名之前出现。这和方法声明是一样的，都是接收器参数在方法名字之前**。下面是例子：
 
 ```Go
 p := Point{1, 2}
@@ -8849,13 +8849,13 @@ https://golang.org/blog/
 
 这个程序实在是太他妈并行了。无穷无尽地并行化并不是什么好事情，因为不管怎么说，你的系统总是会有一些个限制因素，比如CPU核心数会限制你的计算负载，比如你的硬盘转轴和磁头数限制了你的本地磁盘IO操作频率，比如你的网络带宽限制了你的下载速度上限，或者是你的一个web服务的服务容量上限等等。为了解决这个问题，我们可以限制并发程序所使用的资源来使之适应自己的运行环境。对于我们的例子来说，最简单的方法就是限制对links.Extract在同一时间最多不会有超过n次调用，这里的n一般小于文件描述符的上限值，比如20。这和一个夜店里限制客人数目是一个道理，只有当有客人离开时，才会允许新的客人进入店内。
 
-我们可以用一个有容量限制的buffered 
+我们可以用一个有容量限制的buffe
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNDYyMzkxMTc2LDI1ODExMjY0NiwxMDU4ND
-I0NjU5LC0yMDI4OTkxOTMzLDE1MTEyNTYxMSw1ODk5NDgwMDYs
-LTEyNDYxNDM2ODAsMTAyMzI0MjI2Nyw4MDQ4MjI1OCwxMjQzOT
-g2NTY5LDE5MDYyMjMwNjAsLTE3NjI0NDQzOSwtMTMzNTI4MzM5
-Niw4OTYxODg3NTksLTQ1MDY5NDY5NywyMDczMzQ4MTg0LDE3Mj
-k0MDIwNTAsLTE4Mjc2NzMyNjMsLTY2NjQxMTM3LC05NDQzNzk0
-MzldfQ==
+eyJoaXN0b3J5IjpbMTAzMDc2MDU1LDQ2MjM5MTE3NiwyNTgxMT
+I2NDYsMTA1ODQyNDY1OSwtMjAyODk5MTkzMywxNTExMjU2MTEs
+NTg5OTQ4MDA2LC0xMjQ2MTQzNjgwLDEwMjMyNDIyNjcsODA0OD
+IyNTgsMTI0Mzk4NjU2OSwxOTA2MjIzMDYwLC0xNzYyNDQ0Mzks
+LTEzMzUyODMzOTYsODk2MTg4NzU5LC00NTA2OTQ2OTcsMjA3Mz
+M0ODE4NCwxNzI5NDAyMDUwLC0xODI3NjczMjYzLC02NjY0MTEz
+N119
 -->
