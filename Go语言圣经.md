@@ -5793,6 +5793,8 @@ func Lookup(key string) string {
 下面这个版本在功能上是一致的，但将两个包级别的变量放在了cache这个struct一组内：
 
 ```go
+
+// 注重这种写法
 var cache = struct {
 	sync.Mutex
 	mapping map[string]string
@@ -8846,13 +8848,13 @@ https://golang.org/doc/
 https://golang.org/blog/
 ...
 2015/07/15 18:22:12 Get ...: dial tcp: lookup blog.golang.org: no such host
-2015/07/15 18:22:12 Get ...: dial tcp 23.21.222.120:443: 
+2015/07/15 18:22:12 Get ...: dial tcp 23.2
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEzNzkxNzQwNDUsLTIwOTk3MDMxMzcsNT
-YzOTU1MzgwLDY1NDI1NjM0NiwtMTU2MTY1ODY1MiwtNjU2NTYy
-NzcsODAxMjI1NTc1LDIzNTI5NDgwMCwtMTY4Mjg0MzI3MywtMT
-c0NTk5ODM4Niw4ODg2NjA3NzksODUwNjgxNTc1LDQ2MjM5MTE3
-NiwyNTgxMTI2NDYsMTA1ODQyNDY1OSwtMjAyODk5MTkzMywxNT
-ExMjU2MTEsNTg5OTQ4MDA2LC0xMjQ2MTQzNjgwLDEwMjMyNDIy
-NjddfQ==
+eyJoaXN0b3J5IjpbLTEyNTYzMTEwMzMsLTEzNzkxNzQwNDUsLT
+IwOTk3MDMxMzcsNTYzOTU1MzgwLDY1NDI1NjM0NiwtMTU2MTY1
+ODY1MiwtNjU2NTYyNzcsODAxMjI1NTc1LDIzNTI5NDgwMCwtMT
+Y4Mjg0MzI3MywtMTc0NTk5ODM4Niw4ODg2NjA3NzksODUwNjgx
+NTc1LDQ2MjM5MTE3NiwyNTgxMTI2NDYsMTA1ODQyNDY1OSwtMj
+AyODk5MTkzMywxNTExMjU2MTEsNTg5OTQ4MDA2LC0xMjQ2MTQz
+NjgwXX0=
 -->
