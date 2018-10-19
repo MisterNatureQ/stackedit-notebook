@@ -5574,7 +5574,7 @@ fmt.Println(p) // "{2, 4}"
 p.ScaleBy(2)
 ```
 
-**编译器会隐式地帮我们用&p去调用ScaleBy这个方法。这种简写方法只适用于“变量”，包括struct里的字段比如p.X，以及array和slice内的元素比如perim[0]。我们不能通过一个无法取到地址的接收器来调用指针方法，比如临时变量的内存地址就无法获取得到：
+**编译器会隐式地帮我们用&p去调用ScaleBy这个方法。这种简写方法只适用于“变量”，包括struct里的字段比如p.X，以及array和slice内的元素比如perim[0]。我们不能通过一个无法取到地址的接收器来调用指针方法，比如临时变量的内存地址就无法获取得到：**
 
 ```go
 Point{1, 2}.ScaleBy(2) // compile error: can't take address of Point literal
@@ -8850,9 +8850,9 @@ https://golang.org/blog/
 
 最初的错误信息是一个让人莫名的DNS查找失败，即使这个域名是完全可靠的。而随后的错误信息揭示了原因：这个程序一次性创建了太多网络连接，超过了每一个进程的打开文件数限制，既而导致了在调用net.Dial像DNS查找失败这样的问题。
 
-这个程序实在是太他妈并行了。无穷无尽地并行化并不是什么好事情，因为不管怎么说，你的系统总是会有一些个限制因素，比如CPU核心数会限制你的计算负载，比如你的硬盘转轴和磁头数限制了你的本地磁盘IO操作频率，比如你的网络带宽限制了你的下载速度上限，或者是你的一个web服务的服务容量上限等等。为了解决这个问题，我们可以限制并发程序所使用的资源来使之适应自己的运行环境。对于我们的例子来说，最简单的方法就是限制对links.Extract在同一时间最多不会
+这个程序实在是太他妈并行了。无穷无尽地并行化并不是什么好事情，因为不管怎么说，你的系统总是会有一些个限制因素，比如CPU核心数会限制你的计算负载，比如你的硬盘转轴和磁头数限制了你的本地磁盘IO操作频率，比如你的网络带宽限制了你的下载速度上限，或者是你的一个web服务的服务容量上限等等。为了解决这个问题，我们可以限制并发程序所使用的资源来使之适应自己的运行环境。对于我们的例子来说，最简单的方法就是限制对links.Extract在同一时间最多
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE1OTEwMDE5NjYsMjM1Mjk0ODAwLC0xNj
+eyJoaXN0b3J5IjpbLTIwOTkwNDAzNTMsMjM1Mjk0ODAwLC0xNj
 gyODQzMjczLC0xNzQ1OTk4Mzg2LDg4ODY2MDc3OSw4NTA2ODE1
 NzUsNDYyMzkxMTc2LDI1ODExMjY0NiwxMDU4NDI0NjU5LC0yMD
 I4OTkxOTMzLDE1MTEyNTYxMSw1ODk5NDgwMDYsLTEyNDYxNDM2
