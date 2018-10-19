@@ -5829,7 +5829,7 @@ scaleP(3)           //      then (6, 12)
 scaleP(10)          //      then (60, 120)
 ```
 
-**在一个包的API需要一个函数值、且调用方希望操作的是某一个绑定了对象的方法的话，方法“值”会非常实用（``=_=`真是绕）。举例来说，下面例子中的time.AfterFunc这个函数的功能是在指定的延迟时间之后来执行一个（译注：另外的）函数。且这个函数操作的是一个Rocket对象r
+**在一个包的API需要一个函数值、且调用方希望操作的是某一个绑定了对象的方法的话，方法“值”会非常实用**（``=_=`真是绕）。举例来说，下面例子中的time.AfterFunc这个函数的功能是在指定的延迟时间之后来执行一个（译注：另外的）函数。且这个函数操作的是一个Rocket对象r
 
 ```go
 type Rocket struct { /* ... */ }
@@ -8846,13 +8846,13 @@ https://golang.org/doc/
 https://golang.org/blog/
 ...
 2015/07/15 18:22:12 Get ...: dial tcp: lookup blog.golang.org: no such host
-2015/07/15 18:22:12 Get ...: dial tcp 23.21.222.120:443: so
+2015/07/15 18:22:12 Get ...: dial tcp 23.21.222.120:443: 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTY4MDE2NDgwNywtMjA5OTcwMzEzNyw1Nj
-M5NTUzODAsNjU0MjU2MzQ2LC0xNTYxNjU4NjUyLC02NTY1NjI3
-Nyw4MDEyMjU1NzUsMjM1Mjk0ODAwLC0xNjgyODQzMjczLC0xNz
-Q1OTk4Mzg2LDg4ODY2MDc3OSw4NTA2ODE1NzUsNDYyMzkxMTc2
-LDI1ODExMjY0NiwxMDU4NDI0NjU5LC0yMDI4OTkxOTMzLDE1MT
-EyNTYxMSw1ODk5NDgwMDYsLTEyNDYxNDM2ODAsMTAyMzI0MjI2
-N119
+eyJoaXN0b3J5IjpbLTEzNzkxNzQwNDUsLTIwOTk3MDMxMzcsNT
+YzOTU1MzgwLDY1NDI1NjM0NiwtMTU2MTY1ODY1MiwtNjU2NTYy
+NzcsODAxMjI1NTc1LDIzNTI5NDgwMCwtMTY4Mjg0MzI3MywtMT
+c0NTk5ODM4Niw4ODg2NjA3NzksODUwNjgxNTc1LDQ2MjM5MTE3
+NiwyNTgxMTI2NDYsMTA1ODQyNDY1OSwtMjAyODk5MTkzMywxNT
+ExMjU2MTEsNTg5OTQ4MDA2LC0xMjQ2MTQzNjgwLDEwMjMyNDIy
+NjddfQ==
 -->
