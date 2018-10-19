@@ -5415,7 +5415,7 @@ func soleTitle(doc *html.Node) (title string, err error) {
 
 从90年代早期开始，面向对象编程（OOP）就成为了称霸工程界和教育界的编程范式，所以之后几乎所有大规模被应用的语言都包含了对OOP的支持，go语言也不例外。
 
-尽管没有被大众所接受的明确的OOP的定义，从我们的理解来讲，一个对象其实也就是一个简单的值或者一个变量，在这个对象中会包含一些方法，而一个方法则是一个一个和特殊类型关联的函数。一个面向对象的程序会用方法来表达其属性和对应的操作，这样使用这个对象的用户就不需要直接去操作对象，而是借助方法来做这些事情。
+**尽管没有被大众所接受的明确的OOP的定义，从我们的理解来讲，一个对象其实也就是一个简单的值或者一个变量，在这个对象中会包含一些方法，而一个方法则是一个一个和特殊类型关联的函数。一个面向对象的程序会用方法来表达其属性和对应的操作，这样使用这个对象的用户就不需要直接去操作对象，而是借助方法来做这些事情**。
 
 在早些的章节中，我们已经使用了标准库提供的一些方法，比如time.Duration这个类型的Seconds方法：
 
@@ -5433,7 +5433,7 @@ func (c Celsius) String() string { return fmt.Sprintf("%g°C", c) }
 在本章中，OOP编程的第一方面，我们会向你展示如何有效地定义和使用方法。我们会覆盖到OOP编程的两个关键点，封装和组合。
 ## 6.1. 方法声明
 
-在函数声明时，在其名字之前放上一个变量，即是一个方法。这个附加的参数会将该函数附加到这种类型上，即相当于为这种类型定义了一个独占的方法。
+**在函数声明时，在其名字之前放上一个变量，即是一个方法。这个附加的参数会将该函数附加到这种类型上，即相当于为这种类型定义了一个独占的方法**。
 
 下面来写我们第一个方法的例子，这个例子在package geometry下：
 
@@ -5456,7 +5456,7 @@ func (p Point) Distance(q Point) float64 {
 }
 ```
 
-上面的代码里那个附加的参数p，叫做方法的接收器（receiver），早期的面向对象语言留下的遗产将调用一个方法称为“向一个对象发送消息”。
+上面的代码里那个附加的参数p，叫做**方法的接收器（receiver）**，早期的面向对象语言留下的遗产将调用一个方法称为“向一个对象发送消息”。
 
 在Go语言中，我们并不会像其它语言那样用this或者self作为接收器；我们可以任意的选择接收器的名字。由于接收器的名字经常会被使用到，所以保持其在方法间传递时的一致性和简短性是不错的主意。这里的建议是可以使用其类型的第一个字母，比如这里使用了Point的首字母p。
 
@@ -8849,13 +8849,13 @@ https://golang.org/blog/
 
 这个程序实在是太他妈并行了。无穷无尽地并行化并不是什么好事情，因为不管怎么说，你的系统总是会有一些个限制因素，比如CPU核心数会限制你的计算负载，比如你的硬盘转轴和磁头数限制了你的本地磁盘IO操作频率，比如你的网络带宽限制了你的下载速度上限，或者是你的一个web服务的服务容量上限等等。为了解决这个问题，我们可以限制并发程序所使用的资源来使之适应自己的运行环境。对于我们的例子来说，最简单的方法就是限制对links.Extract在同一时间最多不会有超过n次调用，这里的n一般小于文件描述符的上限值，比如20。这和一个夜店里限制客人数目是一个道理，只有当有客人离开时，才会允许新的客人进入店内。
 
-我们可以用一个有容量限制的buffered channel来控制并发，这类似于操作系
+我们可以用一个有容量限制的buffered channel来
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTE1OTM1MjQzMiwxMDU4NDI0NjU5LC0yMD
-I4OTkxOTMzLDE1MTEyNTYxMSw1ODk5NDgwMDYsLTEyNDYxNDM2
-ODAsMTAyMzI0MjI2Nyw4MDQ4MjI1OCwxMjQzOTg2NTY5LDE5MD
-YyMjMwNjAsLTE3NjI0NDQzOSwtMTMzNTI4MzM5Niw4OTYxODg3
-NTksLTQ1MDY5NDY5NywyMDczMzQ4MTg0LDE3Mjk0MDIwNTAsLT
-E4Mjc2NzMyNjMsLTY2NjQxMTM3LC05NDQzNzk0MzksLTEwMDQ5
-NzY5NTBdfQ==
+eyJoaXN0b3J5IjpbMjU4MTEyNjQ2LDEwNTg0MjQ2NTksLTIwMj
+g5OTE5MzMsMTUxMTI1NjExLDU4OTk0ODAwNiwtMTI0NjE0MzY4
+MCwxMDIzMjQyMjY3LDgwNDgyMjU4LDEyNDM5ODY1NjksMTkwNj
+IyMzA2MCwtMTc2MjQ0NDM5LC0xMzM1MjgzMzk2LDg5NjE4ODc1
+OSwtNDUwNjk0Njk3LDIwNzMzNDgxODQsMTcyOTQwMjA1MCwtMT
+gyNzY3MzI2MywtNjY2NDExMzcsLTk0NDM3OTQzOSwtMTAwNDk3
+Njk1MF19
 -->
