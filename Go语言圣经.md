@@ -5745,7 +5745,7 @@ func (p *ColoredPoint) ScaleBy(factor float64) {
 
 当Point.Distance被第一个包装方法调用时，它的接收器值是p.Point，而不是p，当然了，在Point类的方法里，你是访问不到ColoredPoint的任何字段的。
 
-在类型中内嵌的匿名字段也可能是一个命名类型的指针，这种情况下字段和方法会被间接地引入到当前的类型中（译注：访问需要通过该指针指向的对象去取）。添加这一层间接关系让我们可以共享通用的结构并动态地改变对象之间的关系。下面这个ColoredPoint的声明内嵌了一个*Point的指针。
+**在类型中内嵌的匿名字段也可能是一个命名类型的指针，这种情况下字段和方法会被间接地引入到当前的类型中（译注：访问需要通过该指针指向的对象去取）。添加这一层间接关系让我们可以共享通用的结构并动态地改变对象之间的关系**。下面这个ColoredPoint的声明内嵌了一个*Point的指针。
 
 ```go
 type ColoredPoint struct {
@@ -8850,9 +8850,9 @@ https://golang.org/blog/
 ...
 ```
 
-最初的错误信息是一个让人莫名的DNS查找失败，即使这个域名是完全可靠的。而随后的错误信息揭示了原因：这个程序一次性创建了太多网络连接，超过了每一个进程的打开文件数限制，既而导致了在调用net.Dial像DNS查找失败这样的问题
+最初的错误信息是一个让人莫名的DNS查找失败，即使这个域名是完全可靠的。而随后的错误信息揭示了原因：这个程序一次性创建了太多网络连接，超过了每一个进程的打开文件数限制，既而导致了在调用net.Dial像DNS查找失败这
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNjU3ODkzMjEwLDY1NDI1NjM0NiwtMTU2MT
+eyJoaXN0b3J5IjpbODQxOTUzMTA1LDY1NDI1NjM0NiwtMTU2MT
 Y1ODY1MiwtNjU2NTYyNzcsODAxMjI1NTc1LDIzNTI5NDgwMCwt
 MTY4Mjg0MzI3MywtMTc0NTk5ODM4Niw4ODg2NjA3NzksODUwNj
 gxNTc1LDQ2MjM5MTE3NiwyNTgxMTI2NDYsMTA1ODQyNDY1OSwt
