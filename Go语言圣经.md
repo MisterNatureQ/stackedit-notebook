@@ -5802,9 +5802,9 @@ var cache = struct {
 
 
 func Lookup(key string) string {
-	cache.Lock()
+	cache.Lock() // 因为sync.Mutex字段也被嵌入到了这个struct里，其Lock和Unlock方法也就都被引入到了这个匿名结构中了，这让我们能够以一个简单明了的语法来对其进行加锁解锁操作
 	v := cache.mapping[key]
-	cache.Unlock()
+	cache.Unlock() // **多亏了内嵌，有些时候我们给匿名struct类型来定义方法也有了手段**。
 	return v
 }
 ```
@@ -8846,17 +8846,13 @@ https://golang.org/doc/
 https://golang.org/blog/
 ...
 2015/07/15 18:22:12 Get ...: dial tcp: lookup blog.golang.org: no such host
-2015/07/15 18:22:12 Get ...: dial tcp 23.21.222.120:443: socket: too many open files
-...
-```
-
-最初的错误信息是一个让人莫名的DNS查找失败，即使这个域名是完全可靠的。而随后的错误信息揭示了原因：这个程序一次性创建了太多网络连接，超过了每一个进程的打开文件数限制，既而导致了在调用net.Dial像
+2015/07/15 18:22:12 Get ...: dial tcp 23.21.222.120:443: sock
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNTYzOTU1MzgwLDY1NDI1NjM0NiwtMTU2MT
-Y1ODY1MiwtNjU2NTYyNzcsODAxMjI1NTc1LDIzNTI5NDgwMCwt
-MTY4Mjg0MzI3MywtMTc0NTk5ODM4Niw4ODg2NjA3NzksODUwNj
-gxNTc1LDQ2MjM5MTE3NiwyNTgxMTI2NDYsMTA1ODQyNDY1OSwt
-MjAyODk5MTkzMywxNTExMjU2MTEsNTg5OTQ4MDA2LC0xMjQ2MT
-QzNjgwLDEwMjMyNDIyNjcsODA0ODIyNTgsMTI0Mzk4NjU2OV19
-
+eyJoaXN0b3J5IjpbLTIwOTk3MDMxMzcsNTYzOTU1MzgwLDY1ND
+I1NjM0NiwtMTU2MTY1ODY1MiwtNjU2NTYyNzcsODAxMjI1NTc1
+LDIzNTI5NDgwMCwtMTY4Mjg0MzI3MywtMTc0NTk5ODM4Niw4OD
+g2NjA3NzksODUwNjgxNTc1LDQ2MjM5MTE3NiwyNTgxMTI2NDYs
+MTA1ODQyNDY1OSwtMjAyODk5MTkzMywxNTExMjU2MTEsNTg5OT
+Q4MDA2LC0xMjQ2MTQzNjgwLDEwMjMyNDIyNjcsODA0ODIyNThd
+fQ==
 -->
