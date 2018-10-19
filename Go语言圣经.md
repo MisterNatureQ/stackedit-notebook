@@ -5518,7 +5518,8 @@ fmt.Println(geometry.PathDistance(perim)) // "12", standalone function
 fmt.Println(perim.Distance())             // "12", method of geometry.Path
 ```
 
-**译注：** 如果我们要用方法去计算perim的distance，还需要去写全geometry的包名，和其函数名，但是因为Path这个类型定义了一个可以直接用的Distance方法，所以我们可以直接写perim.Distance()。相当于可以少打很多字，作者应该是这个意思。因为在Go里包外调用函数需要带上包名，还是挺麻烦的。
+**译注：** 如果我们要用方法去计算perim的distance，还需要去写全geometry的包名，和其函数名，但是因为Path这个类型定义了一个可以直接用的Distance方法，所以我们可以直接写perim.Distance()。相当于可以少打很多字，作者应该是这个意思。因为**在Go里包外调用函数需要带上包名**，还是挺麻烦的。
+
 ## 6.2. 基于指针对象的方法
 
 当调用一个函数时，会对其每一个参数值进行拷贝，如果一个函数需要更新一个变量，或者函数的其中一个参数实在太大我们希望能够避免进行这种默认的拷贝，这种情况下我们就需要用到指针了。对应到我们这里用来更新接收器的对象的方法，当这个接受者变量本身比较大时，我们就可以用其指针而不是对象来声明方法，如下：
@@ -8847,15 +8848,13 @@ https://golang.org/blog/
 
 最初的错误信息是一个让人莫名的DNS查找失败，即使这个域名是完全可靠的。而随后的错误信息揭示了原因：这个程序一次性创建了太多网络连接，超过了每一个进程的打开文件数限制，既而导致了在调用net.Dial像DNS查找失败这样的问题。
 
-这个程序实在是太他妈并行了。无穷无尽地并行化并不是什么好事情，因为不管怎么说，你的系统总是会有一些个限制因素，比如CPU核心数会限制你的计算负载，比如你的硬盘转轴和磁头数限制了你的本地磁盘IO操作频率，比如你的网络带宽限制了你的下载速度上限，或者是你的一个web服务的服务容量上限等等。为了解决这个问题，我们可以限制并发程序所使用的资源来使之适应自己的运行环境。对于我们的例子来说，最简单的方法就是限制对links.Extract在同一时间最多不会有超过n次调用，这里的n一般小于文件描述符的上限值，比如20。这和一个夜店里限制客人数目是一个道理，只有当有客人离开时，才会允许新的客人进入店内。
-
-我们
+这个程序实在是太他妈并行了。无穷无尽地并行化并不是什么好事情，因为不管怎么说，你的系统总是会有一些个限制因素，比如CPU核心数会限制你的计算负载，比如你的硬盘转轴和磁头数限制了你的本地磁盘IO操作频率，比如你的网络带宽限制了你的下载速度上限，或者是你的一个web服务的服务容量上限等等。为了解决这个问题，我们可以限制并发程序所使用的资源来使之适应自己的运行环境。对于我们的例子来说，最简单的方法就是限制对links.Extract在同一时间最多不会有超过n次调用，这里的n一般小于文件描述符的上限值，比如20。这和一个夜店里限制客人数目是一个道理，只有当有客人离开时，才会允许新的客人进入店内
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE3NDU5OTgzODYsODg4NjYwNzc5LDg1MD
-Y4MTU3NSw0NjIzOTExNzYsMjU4MTEyNjQ2LDEwNTg0MjQ2NTks
-LTIwMjg5OTE5MzMsMTUxMTI1NjExLDU4OTk0ODAwNiwtMTI0Nj
-E0MzY4MCwxMDIzMjQyMjY3LDgwNDgyMjU4LDEyNDM5ODY1Njks
-MTkwNjIyMzA2MCwtMTc2MjQ0NDM5LC0xMzM1MjgzMzk2LDg5Nj
-E4ODc1OSwtNDUwNjk0Njk3LDIwNzMzNDgxODQsMTcyOTQwMjA1
-MF19
+eyJoaXN0b3J5IjpbLTE2ODI4NDMyNzMsLTE3NDU5OTgzODYsOD
+g4NjYwNzc5LDg1MDY4MTU3NSw0NjIzOTExNzYsMjU4MTEyNjQ2
+LDEwNTg0MjQ2NTksLTIwMjg5OTE5MzMsMTUxMTI1NjExLDU4OT
+k0ODAwNiwtMTI0NjE0MzY4MCwxMDIzMjQyMjY3LDgwNDgyMjU4
+LDEyNDM5ODY1NjksMTkwNjIyMzA2MCwtMTc2MjQ0NDM5LC0xMz
+M1MjgzMzk2LDg5NjE4ODc1OSwtNDUwNjk0Njk3LDIwNzMzNDgx
+ODRdfQ==
 -->
