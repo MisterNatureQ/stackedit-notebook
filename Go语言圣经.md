@@ -5723,9 +5723,9 @@ q.ScaleBy(2)
 fmt.Println(p.Distance(q.Point)) // "10"
 ```
 
-Point类的方法也被引入了ColoredPoint。用这种方式，**内嵌可以使我们定义字段特别多的复杂类型，我们可以将字段先按小类型分组，然后定义小类型的方法，之后再把它们组合起来。
+Point类的方法也被引入了ColoredPoint。用这种方式，**内嵌可以使我们定义字段特别多的复杂类型，我们可以将字段先按小类型分组，然后定义小类型的方法，之后再把它们组合起来**。
 
-读者如果对基于类来实现面向对象的语言比较熟悉的话，可能会倾向于将Point看作一个基类，而ColoredPoint看作其子类或者继承类，或者将ColoredPoint看作"is a" Point类型。但这是错误的理解。请注意上面例子中对Distance方法的调用。Distance有一个参数是Point类型，但q并不是一个Point类，所以尽管q有着Point这个内嵌类型，我们也必须要显式地选择它。尝试直接传q的话你会看到下面这样的错误：
+读者如果对基于类来实现面向对象的语言比较熟悉的话，可能会倾向于将Point看作一个基类，而ColoredPoint看作其子类或者继承类，**或者将ColoredPoint看作"is a" Point类型。但这是错误的理解。请注意上面例子中对Distance方法的调用。Distance有一个参数是Point类型，但q并不是一个Point类，所以尽管q有着Point这个内嵌类型，我们也必须要显式地选择它。尝试直接传q的话你会看到下面这样的错误：
 
 ```go
 p.Distance(q) // compile error: cannot use q (ColoredPoint) as Point
@@ -8852,13 +8852,13 @@ https://golang.org/blog/
 
 最初的错误信息是一个让人莫名的DNS查找失败，即使这个域名是完全可靠的。而随后的错误信息揭示了原因：这个程序一次性创建了太多网络连接，超过了每一个进程的打开文件数限制，既而导致了在调用net.Dial像DNS查找失败这样的问题。
 
-这个程序实在是太他妈并行了。无穷无尽地并行化并不是什么好事情，因为不管怎么说，你的系统总是会有一些个限制因素，比如CPU核心数会限制你的计算负载，比如你的硬盘转轴和磁头数限制了你的本地磁盘IO操作频率，比如你的网络带宽限制了你的下载速度上限，或者是你的一个web服务的服务容
+这个程序实在是太他妈并行了。无穷无尽地并行化并不是什么好事情，因为不管怎么说，你的系统总是会有一些个限制因素，比如CPU核心数会限制你的计算负载，比如你的硬盘转轴和磁头数限制了你的本地磁盘IO操作频率，比如你的网络带宽限制了你的下载速度上限，或者是你的一个web服务
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTkyNDMzNzQyOSw2NTQyNTYzNDYsLTE1Nj
-E2NTg2NTIsLTY1NjU2Mjc3LDgwMTIyNTU3NSwyMzUyOTQ4MDAs
-LTE2ODI4NDMyNzMsLTE3NDU5OTgzODYsODg4NjYwNzc5LDg1MD
-Y4MTU3NSw0NjIzOTExNzYsMjU4MTEyNjQ2LDEwNTg0MjQ2NTks
-LTIwMjg5OTE5MzMsMTUxMTI1NjExLDU4OTk0ODAwNiwtMTI0Nj
-E0MzY4MCwxMDIzMjQyMjY3LDgwNDgyMjU4LDEyNDM5ODY1Njld
-fQ==
+eyJoaXN0b3J5IjpbMzg3MTk1MTI2LDY1NDI1NjM0NiwtMTU2MT
+Y1ODY1MiwtNjU2NTYyNzcsODAxMjI1NTc1LDIzNTI5NDgwMCwt
+MTY4Mjg0MzI3MywtMTc0NTk5ODM4Niw4ODg2NjA3NzksODUwNj
+gxNTc1LDQ2MjM5MTE3NiwyNTgxMTI2NDYsMTA1ODQyNDY1OSwt
+MjAyODk5MTkzMywxNTExMjU2MTEsNTg5OTQ4MDA2LC0xMjQ2MT
+QzNjgwLDEwMjMyNDIyNjcsODA0ODIyNTgsMTI0Mzk4NjU2OV19
+
 -->
