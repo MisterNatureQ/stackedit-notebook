@@ -5580,29 +5580,29 @@ p.ScaleBy(2)
 Point{1, 2}.ScaleBy(2) // compile error: can't take address of Point literal
 ```
 
-但是我们可以用一个`*Point`这样的接收器来调用Point的方法，因为我们可以通过地址来找到这个变量，只要用解引用符号`*`来取到该变量即可。编译器在这里也会给我们隐式地插入`*`这个操作符，所以下面这两种写法等价的：
+**但是我们可以用一个`*Point`这样的接收器来调用Point的方法，因为我们可以通过地址来找到这个变量，只要用解引用符号`*`来取到该变量即可。编译器在这里也会给我们隐式地插入`*`这个操作符，所以下面这两种写法等价的：**
 
 ```Go
 pptr.Distance(q)
 (*pptr).Distance(q)
 ```
 
-这里的几个例子可能让你有些困惑，所以我们总结一下：在每一个合法的方法调用表达式中，也就是下面三种情况里的任意一种情况都是可以的：
+这里的几个例子可能让你有些困惑，所以我们**总结一下：在每一个合法的方法调用表达式中，也就是下面三种情况里的任意一种情况都是可以的：**
 
-不论接收器的实际参数和其形式参数是相同，比如两者都是类型T或者都是类型`*T`：
+**不论接收器的实际参数和其形式参数是相同，比如两者都是类型T或者都是类型`*T`：**
 
 ```go
 Point{1, 2}.Distance(q) //  Point
 pptr.ScaleBy(2)         // *Point
 ```
 
-或者接收器实参是类型T，但接收器形参是类型`*T`，这种情况下编译器会隐式地为我们取变量的地址：
+**或者接收器实参是类型T，但接收器形参是类型`*T`，这种情况下编译器会隐式地为我们取变量的地址：**
 
 ```go
 p.ScaleBy(2) // implicit (&p)
 ```
 
-或者接收器实参是类型`*T`，形参是类型T。编译器会隐式地为我们解引用，取到指针指向的实际变量：
+**或者接收器实参是类型`*T`，形参是类型T。编译器会隐式地为我们解引用，取到指针指向的实际变量：**
 
 ```go
 pptr.Distance(q) // implicit (*pptr)
@@ -8850,13 +8850,13 @@ https://golang.org/blog/
 
 最初的错误信息是一个让人莫名的DNS查找失败，即使这个域名是完全可靠的。而随后的错误信息揭示了原因：这个程序一次性创建了太多网络连接，超过了每一个进程的打开文件数限制，既而导致了在调用net.Dial像DNS查找失败这样的问题。
 
-这个程序实在是太他妈并行了。无穷无尽地并行化并不是什么好事情，因为不管怎么说，你的系统总是会有一些个限制因素，比如CPU核心数会限制你的计算负载，比如你的硬盘转轴和磁头数限制了你的本地磁盘IO操作频率，比如你的网络带宽限制了你的下载速度上限，或者是你的一个web服务的服务容量上限等等。为了解决这个问题，我们可以限制并发程序所使用的资源来使之适应自己的运行环境。对于我们的例子来说，最简单的方法就是限制对links.Extract在同一时间最多
+这个程序实在是太他妈并行了。无穷无尽地并行化并不是什么好事情，因为不管怎么说，你的系统总是会有一些个限制因素，比如CPU核心数会限制你的计算负载，比如你的硬盘转轴和磁头数限制了你的本地磁盘IO操作频率，比如你的网络带宽限制了你的下载速度上限，或者是你的一个web服务的服务容量上限等等。为了解决这个问题，我们可以限制并发程序所使用的资源来使之适应自己的运行环境。对于我们的例子来说，最简单的方法就是限制对
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIwOTkwNDAzNTMsMjM1Mjk0ODAwLC0xNj
-gyODQzMjczLC0xNzQ1OTk4Mzg2LDg4ODY2MDc3OSw4NTA2ODE1
-NzUsNDYyMzkxMTc2LDI1ODExMjY0NiwxMDU4NDI0NjU5LC0yMD
-I4OTkxOTMzLDE1MTEyNTYxMSw1ODk5NDgwMDYsLTEyNDYxNDM2
-ODAsMTAyMzI0MjI2Nyw4MDQ4MjI1OCwxMjQzOTg2NTY5LDE5MD
-YyMjMwNjAsLTE3NjI0NDQzOSwtMTMzNTI4MzM5Niw4OTYxODg3
-NTldfQ==
+eyJoaXN0b3J5IjpbODAxMjI1NTc1LDIzNTI5NDgwMCwtMTY4Mj
+g0MzI3MywtMTc0NTk5ODM4Niw4ODg2NjA3NzksODUwNjgxNTc1
+LDQ2MjM5MTE3NiwyNTgxMTI2NDYsMTA1ODQyNDY1OSwtMjAyOD
+k5MTkzMywxNTExMjU2MTEsNTg5OTQ4MDA2LC0xMjQ2MTQzNjgw
+LDEwMjMyNDIyNjcsODA0ODIyNTgsMTI0Mzk4NjU2OSwxOTA2Mj
+IzMDYwLC0xNzYyNDQ0MzksLTEzMzUyODMzOTYsODk2MTg4NzU5
+XX0=
 -->
