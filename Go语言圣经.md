@@ -5682,7 +5682,8 @@ m.Add("item", "3")         // panic: assignment to entry in nil map
 
 对Get的最后一次调用中，nil接收器的行为即是一个空map的行为。我们可以等价地将这个操作写成Value(nil).Get("item")，但是如果你直接写nil.Get("item")的话是无法通过编译的，因为nil的字面量编译器无法判断其准确类型。所以相比之下，最后的那行m.Add的调用就会产生一个panic，因为他尝试更新一个空map。
 
-由于url.Values是一个map类型，并且间接引用了其key/value对，因此url.Values.Add对这个map里的元素做任何的更新、删除操作对调用方都是可见的。实际上，就像在普通函数中一样，虽然可以通过引用来操作内部值，但在方法想要修改引用本身时是不会影响原始值的，比如把他置换为nil，或者让这个引用指向了其它的对象，调用方都不会受影响。（译注：因为传入的是存储了内存地址的变量，你改变这个变量本身是影响不了原始的变量的，想想C语言，是差不多的）
+**由于url.Values是一个map类型，并且间接引用了其key/value对，因此url.Values.Add对这个map里的元素做任何的更新、删除操作对调用方都是可见的。实际上，就像在普通函数中一样，虽然可以通过引用来操作内部值，但在方法想要修改引用本身时是不会影响原始值的，比如把他置换为nil，或者让这个引用指向了其它的对象，调用方都不会受影响。（译注：因为传入的是存储了内存地址的变量，你改变这个变量本身是影响不了原始的变量的，想想C语言，是差不多的）**
+
 ## 6.3. 通过嵌入结构体来扩展类型
 
 来看看ColoredPoint这个类型：
@@ -8851,13 +8852,13 @@ https://golang.org/blog/
 
 最初的错误信息是一个让人莫名的DNS查找失败，即使这个域名是完全可靠的。而随后的错误信息揭示了原因：这个程序一次性创建了太多网络连接，超过了每一个进程的打开文件数限制，既而导致了在调用net.Dial像DNS查找失败这样的问题。
 
-这个程序实在是太他妈并行了。无穷无尽地并行化并不是什么好事情，因为不管怎么说，你的系统总是会有一些个限制因素，比如CPU核心数会限制你的计算负载，比如你的硬盘转轴和磁头数限制了你的本地磁盘IO操作频率，比如你的网络带宽限制了你的下载速度上限，或者是你的一个web服务的服务容量上限等等。为
+这个程序实在是太他妈并行了。无穷无尽地并行化并不是什么好事情，因为不管怎么说，你的系统总是会有一些个限制因素，比如CPU核心数会限制你的计算负载，比如你的硬盘转轴和磁头数限制了你的本地磁盘IO操作频率，比如你的网络带宽限制了你的下载速度上限，或者是你的一个web服务的服务容量上
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE1NjE2NTg2NTIsLTY1NjU2Mjc3LDgwMT
-IyNTU3NSwyMzUyOTQ4MDAsLTE2ODI4NDMyNzMsLTE3NDU5OTgz
-ODYsODg4NjYwNzc5LDg1MDY4MTU3NSw0NjIzOTExNzYsMjU4MT
-EyNjQ2LDEwNTg0MjQ2NTksLTIwMjg5OTE5MzMsMTUxMTI1NjEx
-LDU4OTk0ODAwNiwtMTI0NjE0MzY4MCwxMDIzMjQyMjY3LDgwND
-gyMjU4LDEyNDM5ODY1NjksMTkwNjIyMzA2MCwtMTc2MjQ0NDM5
-XX0=
+eyJoaXN0b3J5IjpbNjU0MjU2MzQ2LC0xNTYxNjU4NjUyLC02NT
+Y1NjI3Nyw4MDEyMjU1NzUsMjM1Mjk0ODAwLC0xNjgyODQzMjcz
+LC0xNzQ1OTk4Mzg2LDg4ODY2MDc3OSw4NTA2ODE1NzUsNDYyMz
+kxMTc2LDI1ODExMjY0NiwxMDU4NDI0NjU5LC0yMDI4OTkxOTMz
+LDE1MTEyNTYxMSw1ODk5NDgwMDYsLTEyNDYxNDM2ODAsMTAyMz
+I0MjI2Nyw4MDQ4MjI1OCwxMjQzOTg2NTY5LDE5MDYyMjMwNjBd
+fQ==
 -->
