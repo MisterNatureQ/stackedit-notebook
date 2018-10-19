@@ -5537,7 +5537,7 @@ func (p *Point) ScaleBy(factor float64) {
 
 在现实的程序里，一般会约定如果Point这个类有一个指针作为接收器的方法，那么所有Point的方法都必须有一个指针接收器，即使是那些并不需要这个指针接收器的函数。我们在这里打破了这个约定只是为了展示一下两种方法的异同而已。
 
-只有类型（Point）和指向他们的指针`(*Point)`，才可能是出现在接收器声明里的两种接收器。此外，c为了避免歧义，在声明方法时，如果一个类型名本身是一个指针的话，是不允许其出现在接收器中的**，比如下面这个例子：
+只有类型（Point）和指向他们的指针`(*Point)`，才可能是出现在接收器声明里的两种接收器。此外，**为了避免歧义，在声明方法时，如果一个类型名本身是一个指针的话，是不允许其出现在接收器中的**，比如下面这个例子：
 
 ```go
 type P *int
@@ -8850,13 +8850,13 @@ https://golang.org/blog/
 
 最初的错误信息是一个让人莫名的DNS查找失败，即使这个域名是完全可靠的。而随后的错误信息揭示了原因：这个程序一次性创建了太多网络连接，超过了每一个进程的打开文件数限制，既而导致了在调用net.Dial像DNS查找失败这样的问题。
 
-这个程序实在是太他妈并行了。无穷无尽地并行化并不是什么好事情，因为不管怎么说，你的系统总是会有一些个限制因素，比如CPU核心数会限制你的计算负载，比如你的硬盘转轴和磁头数限制了你的本地磁盘IO操作频率，比如你的网络带宽限制了你的下载速度上限，或者是你的一个web服务的服务容量上限等等。为了解决这个问题，我们可以限制并发程序所使用的资源来使之适应自己的运行环境。对于我们的例子来说，最简单的方法就是限制对links.Extract在同一时间最多不会有超过
+这个程序实在是太他妈并行了。无穷无尽地并行化并不是什么好事情，因为不管怎么说，你的系统总是会有一些个限制因素，比如CPU核心数会限制你的计算负载，比如你的硬盘转轴和磁头数限制了你的本地磁盘IO操作频率，比如你的网络带宽限制了你的下载速度上限，或者是你的一个web服务的服务容量上限等等。为了解决这个问题，我们可以限制并发程序所使用的资源来使之适应自己的运行环境。对于我们的例子来说，最简单的方法就是限制对links.Extract在同一时间最多不会有超
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTc0MTE0Njg0LDIzNTI5NDgwMCwtMTY4Mj
-g0MzI3MywtMTc0NTk5ODM4Niw4ODg2NjA3NzksODUwNjgxNTc1
-LDQ2MjM5MTE3NiwyNTgxMTI2NDYsMTA1ODQyNDY1OSwtMjAyOD
-k5MTkzMywxNTExMjU2MTEsNTg5OTQ4MDA2LC0xMjQ2MTQzNjgw
-LDEwMjMyNDIyNjcsODA0ODIyNTgsMTI0Mzk4NjU2OSwxOTA2Mj
-IzMDYwLC0xNzYyNDQ0MzksLTEzMzUyODMzOTYsODk2MTg4NzU5
-XX0=
+eyJoaXN0b3J5IjpbLTY4MTA2MDkzOCwyMzUyOTQ4MDAsLTE2OD
+I4NDMyNzMsLTE3NDU5OTgzODYsODg4NjYwNzc5LDg1MDY4MTU3
+NSw0NjIzOTExNzYsMjU4MTEyNjQ2LDEwNTg0MjQ2NTksLTIwMj
+g5OTE5MzMsMTUxMTI1NjExLDU4OTk0ODAwNiwtMTI0NjE0MzY4
+MCwxMDIzMjQyMjY3LDgwNDgyMjU4LDEyNDM5ODY1NjksMTkwNj
+IyMzA2MCwtMTc2MjQ0NDM5LC0xMzM1MjgzMzk2LDg5NjE4ODc1
+OV19
 -->
