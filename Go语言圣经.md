@@ -5608,7 +5608,7 @@ p.ScaleBy(2) // implicit (&p)
 pptr.Distance(q) // implicit (*pptr)
 ```
 
-如果命名类型T（译注：用type xxx定义的类型）的所有方法都是用T类型自己来做接收器（而不是`*T`），那么拷贝这种类型的实例就是安全的；调用他的任何一个方法也就会产生一个值的拷贝。比如time.Duration的这个类型，在调用其方法时就会被全部拷贝一份，包括在作为参数传入函数的时候。但是如果一个方法使用指针作为接收器，你需要避免对其进行拷贝，因为这样可能会破坏掉该类型内部的不变性。比如你对bytes.Buffer对象进行了拷贝，那么可能会引起原始对象和拷贝对象只是别名而已，实际上它们指向的对象是一样的。紧接着对拷贝后的变量进行修改可能会有让你有意外的结果。
+**如果命名类型T（译注：用type xxx定义的类型）的所有方法都是用T类型自己来做接收器（而不是`*T`），那么拷贝这种类型的实例就是安全的；调用他的任何一个方法也就会产生一个值的拷贝。比如time.Duration的这个类型，在调用其方法时就会被全部拷贝一份，包括在作为参数传入函数的时候。但是如果一个方法使用指针作为接收器，你需要避免对其进行拷贝，因为这样可能会破坏掉该类型内部的不变性。比如你对bytes.Buffer对象进行了拷贝，那么可能会引起原始对象和拷贝对象只是别名而已，实际上它们指向的对象是一样的。紧接着对拷贝后的变量进行修改可能会有让你有意外的结果。**
 
 **译注：** 作者这里说的比较绕，其实有两点：
 
@@ -8850,13 +8850,13 @@ https://golang.org/blog/
 
 最初的错误信息是一个让人莫名的DNS查找失败，即使这个域名是完全可靠的。而随后的错误信息揭示了原因：这个程序一次性创建了太多网络连接，超过了每一个进程的打开文件数限制，既而导致了在调用net.Dial像DNS查找失败这样的问题。
 
-这个程序实在是太他妈并行了。无穷无尽地并行化并不是什么好事情，因为不管怎么说，你的系统总是会有一些个限制因素，比如CPU核心数会限制你的计算负载，比如你的硬盘转轴和磁头数限制了你的本地磁盘IO操作频率，比如你的网络带宽限制了你的下载速度上限，或者是你的一个web服务的服务容量上限等等。为了解决这个问题，我们可以限制并发程序所使用的资源来使之适应自己的运行环境。对于我们的例子来说，最简单的方法就是限制对
+这个程序实在是太他妈并行了。无穷无尽地并行化并不是什么好事情，因为不管怎么说，你的系统总是会有一些个限制因素，比如CPU核心数会限制你的计算负载，比如你的硬盘转轴和磁头数限制了你的本地磁盘IO操作频率，比如你的网络带宽限制了你的下载速度上限，或者是你的一个web服务的服务容量上限等等。为了解决这个问题，我们可以限制并发程序所使用的资源来使之适应自己的运行环境。对于我们的例子来说，最简单的方法就
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbODAxMjI1NTc1LDIzNTI5NDgwMCwtMTY4Mj
-g0MzI3MywtMTc0NTk5ODM4Niw4ODg2NjA3NzksODUwNjgxNTc1
-LDQ2MjM5MTE3NiwyNTgxMTI2NDYsMTA1ODQyNDY1OSwtMjAyOD
-k5MTkzMywxNTExMjU2MTEsNTg5OTQ4MDA2LC0xMjQ2MTQzNjgw
-LDEwMjMyNDIyNjcsODA0ODIyNTgsMTI0Mzk4NjU2OSwxOTA2Mj
-IzMDYwLC0xNzYyNDQ0MzksLTEzMzUyODMzOTYsODk2MTg4NzU5
+eyJoaXN0b3J5IjpbLTY1NjU2Mjc3LDgwMTIyNTU3NSwyMzUyOT
+Q4MDAsLTE2ODI4NDMyNzMsLTE3NDU5OTgzODYsODg4NjYwNzc5
+LDg1MDY4MTU3NSw0NjIzOTExNzYsMjU4MTEyNjQ2LDEwNTg0Mj
+Q2NTksLTIwMjg5OTE5MzMsMTUxMTI1NjExLDU4OTk0ODAwNiwt
+MTI0NjE0MzY4MCwxMDIzMjQyMjY3LDgwNDgyMjU4LDEyNDM5OD
+Y1NjksMTkwNjIyMzA2MCwtMTc2MjQ0NDM5LC0xMzM1MjgzMzk2
 XX0=
 -->
