@@ -5770,7 +5770,7 @@ type ColoredPoint struct {
 }
 ```
 
-然后这种类型的值便会拥有Point和RGBA类型的所有方法，以及直接定义在ColoredPoint中的方法。当编译器解析一个选择器到方法时，比如p.ScaleBy，它会首先去找直接定义在这个类型里的ScaleBy方法，然后找被ColoredPoint的内嵌字段们引入的方法，然后去找Point和RGBA的内嵌字段引入的方法，然后一直递归向下找。如果选择器有二义性的话编译器会报错，比如你在同一级里有两个同名的方法。
+然后这种类型的值便会拥有Point和RGBA类型的所有方法，以及直接定义在ColoredPoint中的方法。当编译器解析一个选择器到方法时，比如p.ScaleBy，它会首先去找直接定义在这个类型里的ScaleBy方法，然后找被ColoredPoint的内嵌字段们引入的方法，然后去找Point和RGBA的内嵌字段引入的方法，然后一直递归向下找。**如果选择器有二义性的话编译器会报错，比如你在同一级里有两个同名的方法**。
 
 方法只能在命名类型（像Point）或者指向类型的指针上定义，但是多亏了内嵌，有些时候我们给匿名struct类型来定义方法也有了手段。
 
@@ -8850,13 +8850,13 @@ https://golang.org/blog/
 ...
 ```
 
-最初的错误信息是一个让人莫名的DNS查找失败，即使这个域名是完全可靠的。而随后的错误信息揭示了原因：这个程序一次性创建了太多网络连接，超过了每一个进程的打开文件数限制，既而导致了在调用net.Dial像DNS查找失败这
+最初的错误信息是一个让人莫名的DNS查找失败，即使这个域名是完全可靠的。而随后的错误信息揭示了原因：这个程序一次性创建了太多网络连接，超过了每一个进程的打开文件数限制，既而导致了在调用net.Dial像DNS查
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbODQxOTUzMTA1LDY1NDI1NjM0NiwtMTU2MT
-Y1ODY1MiwtNjU2NTYyNzcsODAxMjI1NTc1LDIzNTI5NDgwMCwt
-MTY4Mjg0MzI3MywtMTc0NTk5ODM4Niw4ODg2NjA3NzksODUwNj
-gxNTc1LDQ2MjM5MTE3NiwyNTgxMTI2NDYsMTA1ODQyNDY1OSwt
-MjAyODk5MTkzMywxNTExMjU2MTEsNTg5OTQ4MDA2LC0xMjQ2MT
-QzNjgwLDEwMjMyNDIyNjcsODA0ODIyNTgsMTI0Mzk4NjU2OV19
-
+eyJoaXN0b3J5IjpbLTc4MjU5MTQ5Niw2NTQyNTYzNDYsLTE1Nj
+E2NTg2NTIsLTY1NjU2Mjc3LDgwMTIyNTU3NSwyMzUyOTQ4MDAs
+LTE2ODI4NDMyNzMsLTE3NDU5OTgzODYsODg4NjYwNzc5LDg1MD
+Y4MTU3NSw0NjIzOTExNzYsMjU4MTEyNjQ2LDEwNTg0MjQ2NTks
+LTIwMjg5OTE5MzMsMTUxMTI1NjExLDU4OTk0ODAwNiwtMTI0Nj
+E0MzY4MCwxMDIzMjQyMjY3LDgwNDgyMjU4LDEyNDM5ODY1Njld
+fQ==
 -->
