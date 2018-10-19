@@ -5471,7 +5471,7 @@ fmt.Println(p.Distance(q))  // "5", method call
 
 可以看到，上面的两个函数调用都是Distance，但是却没有发生冲突。第一个Distance的调用实际上用的是包级别的函数geometry.Distance，而第二个则是使用刚刚声明的Point，调用的是Point类下声明的Point.Distance方法。
 
-这种p.Distance的表达式叫做选择器，因为他会选择合适的对应p这个对象的Distance方法来执行。选择器也会被用来选择一个struct类型的字段，比如p.X。由于方法和字段都是在同一命名空间，所以如果我们在这里声明一个X方法的话，编译器会报错，因为在调用p.X时会有歧义（译注：这里确实挺奇怪的）。
+**这种p.Distance的表达式叫做选择器，因为他会选择合适的对应p这个对象的Distance方法来执行。选择器也会被用来选择一个struct类型的字段，比如p.X。由于方法和字段都是在同一命名空间，所以如果我们在这里声明一个X方法的话，编译器会报错，因为在调用p.X时会有歧义（译注：这里确实挺奇怪的）**。
 
 因为每种类型都有其方法的命名空间，我们在用Distance这个名字的时候，不同的Distance调用指向了不同类型里的Distance方法。让我们来定义一个Path类型，这个Path代表一个线段的集合，并且也给这个Path定义一个叫Distance的方法。
 
@@ -8849,9 +8849,9 @@ https://golang.org/blog/
 
 这个程序实在是太他妈并行了。无穷无尽地并行化并不是什么好事情，因为不管怎么说，你的系统总是会有一些个限制因素，比如CPU核心数会限制你的计算负载，比如你的硬盘转轴和磁头数限制了你的本地磁盘IO操作频率，比如你的网络带宽限制了你的下载速度上限，或者是你的一个web服务的服务容量上限等等。为了解决这个问题，我们可以限制并发程序所使用的资源来使之适应自己的运行环境。对于我们的例子来说，最简单的方法就是限制对links.Extract在同一时间最多不会有超过n次调用，这里的n一般小于文件描述符的上限值，比如20。这和一个夜店里限制客人数目是一个道理，只有当有客人离开时，才会允许新的客人进入店内。
 
-我们可以用一个有容量限制的buffe
+我们可以用一个有容量限制的b
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTAzMDc2MDU1LDQ2MjM5MTE3NiwyNTgxMT
+eyJoaXN0b3J5IjpbODUwNjgxNTc1LDQ2MjM5MTE3NiwyNTgxMT
 I2NDYsMTA1ODQyNDY1OSwtMjAyODk5MTkzMywxNTExMjU2MTEs
 NTg5OTQ4MDA2LC0xMjQ2MTQzNjgwLDEwMjMyNDIyNjcsODA0OD
 IyNTgsMTI0Mzk4NjU2OSwxOTA2MjIzMDYwLC0xNzYyNDQ0Mzks
