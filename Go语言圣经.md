@@ -5409,6 +5409,7 @@ func soleTitle(doc *html.Node) (title string, err error) {
 
 有些情况下，我们无法恢复。某些致命错误会导致Go在运行时终止程序，如内存不足。
 
+
 **练习5.19：** 使用panic和recover编写一个不包含return语句但能返回一个非零值的函数。
 # 第六章　方法
 
@@ -8848,13 +8849,13 @@ https://golang.org/blog/
 
 这个程序实在是太他妈并行了。无穷无尽地并行化并不是什么好事情，因为不管怎么说，你的系统总是会有一些个限制因素，比如CPU核心数会限制你的计算负载，比如你的硬盘转轴和磁头数限制了你的本地磁盘IO操作频率，比如你的网络带宽限制了你的下载速度上限，或者是你的一个web服务的服务容量上限等等。为了解决这个问题，我们可以限制并发程序所使用的资源来使之适应自己的运行环境。对于我们的例子来说，最简单的方法就是限制对links.Extract在同一时间最多不会有超过n次调用，这里的n一般小于文件描述符的上限值，比如20。这和一个夜店里限制客人数目是一个道理，只有当有客人离开时，才会允许新的客人进入店内。
 
-我们可以用一个有容量限制的buffered channel来控制并发，这类似于操作系统
+我们可以用一个有容量限制的buffered channel来控制并发，这类似于操作系
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTA1ODQyNDY1OSwtMjAyODk5MTkzMywxNT
-ExMjU2MTEsNTg5OTQ4MDA2LC0xMjQ2MTQzNjgwLDEwMjMyNDIy
-NjcsODA0ODIyNTgsMTI0Mzk4NjU2OSwxOTA2MjIzMDYwLC0xNz
-YyNDQ0MzksLTEzMzUyODMzOTYsODk2MTg4NzU5LC00NTA2OTQ2
-OTcsMjA3MzM0ODE4NCwxNzI5NDAyMDUwLC0xODI3NjczMjYzLC
-02NjY0MTEzNywtOTQ0Mzc5NDM5LC0xMDA0OTc2OTUwLC0xNzQz
-NjY0MTI1XX0=
+eyJoaXN0b3J5IjpbMTE1OTM1MjQzMiwxMDU4NDI0NjU5LC0yMD
+I4OTkxOTMzLDE1MTEyNTYxMSw1ODk5NDgwMDYsLTEyNDYxNDM2
+ODAsMTAyMzI0MjI2Nyw4MDQ4MjI1OCwxMjQzOTg2NTY5LDE5MD
+YyMjMwNjAsLTE3NjI0NDQzOSwtMTMzNTI4MzM5Niw4OTYxODg3
+NTksLTQ1MDY5NDY5NywyMDczMzQ4MTg0LDE3Mjk0MDIwNTAsLT
+E4Mjc2NzMyNjMsLTY2NjQxMTM3LC05NDQzNzk0MzksLTEwMDQ5
+NzY5NTBdfQ==
 -->
