@@ -5735,11 +5735,11 @@ p.Distance(q) // compile error: cannot use q (ColoredPoint) as Point
 
 ```go
 func (p ColoredPoint) Distance(q Point) float64 {
-	return p.Point.Distance(q)
+	return p.Point.Distance(q) //它的接收器值是p.Point，而不是p，当然了，在Point类的方法里，你是访问不到ColoredPoint的任何字段的
 }
 
 func (p *ColoredPoint) ScaleBy(factor float64) {
-	p.Point.ScaleBy(factor)
+	p.Point.ScaleBy(factor)// 它的接收器值是p.Point，而不是p，当然了，在Point类的方法里，你是访问不到ColoredPoint的任何字段的
 }
 ```
 
@@ -8850,15 +8850,13 @@ https://golang.org/blog/
 ...
 ```
 
-最初的错误信息是一个让人莫名的DNS查找失败，即使这个域名是完全可靠的。而随后的错误信息揭示了原因：这个程序一次性创建了太多网络连接，超过了每一个进程的打开文件数限制，既而导致了在调用net.Dial像DNS查找失败这样的问题。
-
-这个程序实在是太他妈并行了。无穷无尽地并行化并不是什么好事情，因为不管怎么说，你的系统总是会有一些个限制因素，比如CPU核心数会限制你的计算负载，比如你的硬盘转轴和磁头数限制了你的本地磁盘IO操作频率，比如你的网络带宽限制了你的下载速度上限，或者
+最初的错误信息是一个让人莫名的DNS查找失败，即使这个域名是完全可靠的。而随后的错误信息揭示了原因：这个程序一次性创建了太多网络连接，超过了每一个进程的打开文件数限制，既而导致了在调用net.Dial像DNS查找失败这样的问题
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE1NDkyODM3NzUsNjU0MjU2MzQ2LC0xNT
-YxNjU4NjUyLC02NTY1NjI3Nyw4MDEyMjU1NzUsMjM1Mjk0ODAw
-LC0xNjgyODQzMjczLC0xNzQ1OTk4Mzg2LDg4ODY2MDc3OSw4NT
-A2ODE1NzUsNDYyMzkxMTc2LDI1ODExMjY0NiwxMDU4NDI0NjU5
-LC0yMDI4OTkxOTMzLDE1MTEyNTYxMSw1ODk5NDgwMDYsLTEyND
-YxNDM2ODAsMTAyMzI0MjI2Nyw4MDQ4MjI1OCwxMjQzOTg2NTY5
-XX0=
+eyJoaXN0b3J5IjpbNjU3ODkzMjEwLDY1NDI1NjM0NiwtMTU2MT
+Y1ODY1MiwtNjU2NTYyNzcsODAxMjI1NTc1LDIzNTI5NDgwMCwt
+MTY4Mjg0MzI3MywtMTc0NTk5ODM4Niw4ODg2NjA3NzksODUwNj
+gxNTc1LDQ2MjM5MTE3NiwyNTgxMTI2NDYsMTA1ODQyNDY1OSwt
+MjAyODk5MTkzMywxNTExMjU2MTEsNTg5OTQ4MDA2LC0xMjQ2MT
+QzNjgwLDEwMjMyNDIyNjcsODA0ODIyNTgsMTI0Mzk4NjU2OV19
+
 -->
