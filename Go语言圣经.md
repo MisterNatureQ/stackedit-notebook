@@ -5619,11 +5619,11 @@ pptr.Distance(q) // implicit (*pptr)
 
 ### 6.2.1. Nil也是一个合法的接收器类型
 
-就像一些函数允许nil指针作为参数一样，方法理论上也可以用nil指针作为其接收器，尤其当nil对于对象来说是合法的零值时，比如map或者slice。在下面的简单int链表的例子里，nil代表的是空链表：
+**就像一些函数允许nil指针作为参数一样，方法理论上也可以用nil指针作为其接收器，尤其当nil对于对象来说是合法的零值时，比如map或者slice。在下面的简单int链表的例子里，nil代表的是空链表：**
 
 ```go
 // An IntList is a linked list of integers.
-// A nil *IntList represents the empty list.
+// A nil *IntList represents the empty list. 在类型前面的注释中指出nil变量代表的意义是很有必要的，就像我们上面例子里做的这样。
 type IntList struct {
 	Value int
 	Tail  *IntList
@@ -8851,13 +8851,13 @@ https://golang.org/blog/
 
 最初的错误信息是一个让人莫名的DNS查找失败，即使这个域名是完全可靠的。而随后的错误信息揭示了原因：这个程序一次性创建了太多网络连接，超过了每一个进程的打开文件数限制，既而导致了在调用net.Dial像DNS查找失败这样的问题。
 
-这个程序实在是太他妈并行了。无穷无尽地并行化并不是什么好事情，因为不管怎么说，你的系统总是会有一些个限制因素，比如CPU核心数会限制你的计算负载，比如你的硬盘转轴和磁头数限制了你的本地磁盘IO操作频率，比如你的网络带宽限制了你的下载速度上限，或者是你的一个web服务的服务容量上限等等。为了解决这个问题，我们可以限制并发程序所使用的资源来使之适应自己的运行环境。对于
+这个程序实在是太他妈并行了。无穷无尽地并行化并不是什么好事情，因为不管怎么说，你的系统总是会有一些个限制因素，比如CPU核心数会限制你的计算负载，比如你的硬盘转轴和磁头数限制了你的本地磁盘IO操作频率，比如你的网络带宽限制了你的下载速度上限，或者是你的一个web服务的服务容量上限等等。为
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE3MzI5MTQ5NSwtNjU2NTYyNzcsODAxMj
-I1NTc1LDIzNTI5NDgwMCwtMTY4Mjg0MzI3MywtMTc0NTk5ODM4
-Niw4ODg2NjA3NzksODUwNjgxNTc1LDQ2MjM5MTE3NiwyNTgxMT
-I2NDYsMTA1ODQyNDY1OSwtMjAyODk5MTkzMywxNTExMjU2MTEs
-NTg5OTQ4MDA2LC0xMjQ2MTQzNjgwLDEwMjMyNDIyNjcsODA0OD
-IyNTgsMTI0Mzk4NjU2OSwxOTA2MjIzMDYwLC0xNzYyNDQ0Mzld
-fQ==
+eyJoaXN0b3J5IjpbLTE1NjE2NTg2NTIsLTY1NjU2Mjc3LDgwMT
+IyNTU3NSwyMzUyOTQ4MDAsLTE2ODI4NDMyNzMsLTE3NDU5OTgz
+ODYsODg4NjYwNzc5LDg1MDY4MTU3NSw0NjIzOTExNzYsMjU4MT
+EyNjQ2LDEwNTg0MjQ2NTksLTIwMjg5OTE5MzMsMTUxMTI1NjEx
+LDU4OTk0ODAwNiwtMTI0NjE0MzY4MCwxMDIzMjQyMjY3LDgwND
+gyMjU4LDEyNDM5ODY1NjksMTkwNjIyMzA2MCwtMTc2MjQ0NDM5
+XX0=
 -->
