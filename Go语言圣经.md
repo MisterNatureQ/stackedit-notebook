@@ -5490,7 +5490,7 @@ func (path Path) Distance() float64 {
 }
 ```
 
-Path是一个命名的slice类型，而不是Point那样的struct类型，然而我们依然可以为它定义方法。在能够给任意类型定义方法这一点上，Go和很多其它的面向对象的语言不太一样。因此在Go语言里，我们为一些简单的数值、字符串、slice、map来定义一些附加行为很方便。我们可以给同一个包内的任意命名类型定义方法，只要这个命名类型的底层类型（译注：这个例子里，底层类型是指[]Point这个slice，Path就是命名类型）不是指针或者interface。
+Path是一个命名的slice类型，而不是Point那样的struct类型，然而我们依然可以为它定义方法。**在能够给任意类型定义方法这一点上，Go和很多其它的面向对象的语言不太一样。因此在Go语言里，我们为一些简单的数值、字符串、slice、map来定义一些附加行为很方便。我们可以给同一个包内的任意命名类型定义方法，只要这个命名类型的底层类型（译注：这个例子里，底层类型是指[]Point这个slice，Path就是命名类型）不是指针或者interface**。
 
 两个Distance方法有不同的类型。他们两个方法之间没有任何关系，尽管Path的Distance方法会在内部调用Point.Distance方法来计算每个连接邻接点的线段的长度。
 
@@ -8849,13 +8849,13 @@ https://golang.org/blog/
 
 这个程序实在是太他妈并行了。无穷无尽地并行化并不是什么好事情，因为不管怎么说，你的系统总是会有一些个限制因素，比如CPU核心数会限制你的计算负载，比如你的硬盘转轴和磁头数限制了你的本地磁盘IO操作频率，比如你的网络带宽限制了你的下载速度上限，或者是你的一个web服务的服务容量上限等等。为了解决这个问题，我们可以限制并发程序所使用的资源来使之适应自己的运行环境。对于我们的例子来说，最简单的方法就是限制对links.Extract在同一时间最多不会有超过n次调用，这里的n一般小于文件描述符的上限值，比如20。这和一个夜店里限制客人数目是一个道理，只有当有客人离开时，才会允许新的客人进入店内。
 
-我们可以用一个有容量限制的b
+我们可以用一个有容量
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbODUwNjgxNTc1LDQ2MjM5MTE3NiwyNTgxMT
-I2NDYsMTA1ODQyNDY1OSwtMjAyODk5MTkzMywxNTExMjU2MTEs
-NTg5OTQ4MDA2LC0xMjQ2MTQzNjgwLDEwMjMyNDIyNjcsODA0OD
-IyNTgsMTI0Mzk4NjU2OSwxOTA2MjIzMDYwLC0xNzYyNDQ0Mzks
-LTEzMzUyODMzOTYsODk2MTg4NzU5LC00NTA2OTQ2OTcsMjA3Mz
-M0ODE4NCwxNzI5NDAyMDUwLC0xODI3NjczMjYzLC02NjY0MTEz
-N119
+eyJoaXN0b3J5IjpbODg4NjYwNzc5LDg1MDY4MTU3NSw0NjIzOT
+ExNzYsMjU4MTEyNjQ2LDEwNTg0MjQ2NTksLTIwMjg5OTE5MzMs
+MTUxMTI1NjExLDU4OTk0ODAwNiwtMTI0NjE0MzY4MCwxMDIzMj
+QyMjY3LDgwNDgyMjU4LDEyNDM5ODY1NjksMTkwNjIyMzA2MCwt
+MTc2MjQ0NDM5LC0xMzM1MjgzMzk2LDg5NjE4ODc1OSwtNDUwNj
+k0Njk3LDIwNzMzNDgxODQsMTcyOTQwMjA1MCwtMTgyNzY3MzI2
+M119
 -->
