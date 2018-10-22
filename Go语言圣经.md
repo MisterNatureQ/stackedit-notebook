@@ -5941,7 +5941,7 @@ func (s *IntSet) Has(x int) bool {
 func (s *IntSet) Add(x int) {
 	word, bit := x/64, uint(x%64)
 	for word >= len(s.words) {
-		s.words = append(s.words, 0)
+		s.words = append(s.words, 0) // 补齐空间
 	}
 	s.words[word] |= 1 << bit
 }
@@ -8840,13 +8840,12 @@ func main() {
 	worklist := make(chan []string)
 
 	// Start with the command-line arguments.
-	go func()
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbODcyNzg4NjA3LDQ1NDY4MTk4MCwxNDE5NT
-YyNjIzLC01NjUzNjA2OTAsNzQ4MDE3ODUyLDE4MzM3MTEwODEs
-LTEzNzI2NzI4MTMsNDcwMzAxMjMxLC0xODMzNDY1NDkwLC0xNz
-UzNTI1OTYwLC0xMDQ3NjM3NzkwLDcxNzI3NjMyNCwtODA0MzA3
-MTgyLC0xNzgwODY1ODgzLDQxNTg0MjQzNSwyMTA0NDE3MzczLC
-0yMDM0NDU2MjcyLC0xODA1NDkyMTUyLDE1ODE4NzIzOTEsLTk2
-NDc5NTEwM119
+eyJoaXN0b3J5IjpbMTg3OTY1ODExOSw0NTQ2ODE5ODAsMTQxOT
+U2MjYyMywtNTY1MzYwNjkwLDc0ODAxNzg1MiwxODMzNzExMDgx
+LC0xMzcyNjcyODEzLDQ3MDMwMTIzMSwtMTgzMzQ2NTQ5MCwtMT
+c1MzUyNTk2MCwtMTA0NzYzNzc5MCw3MTcyNzYzMjQsLTgwNDMw
+NzE4MiwtMTc4MDg2NTg4Myw0MTU4NDI0MzUsMjEwNDQxNzM3My
+wtMjAzNDQ1NjI3MiwtMTgwNTQ5MjE1MiwxNTgxODcyMzkxLC05
+NjQ3OTUxMDNdfQ==
 -->
