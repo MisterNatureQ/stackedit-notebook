@@ -5916,9 +5916,9 @@ Go语言里的**集合一般会用map[T]bool这种形式来表示，T代表元�
 **一个bit数组通常会用一个无符号数或者称之为“字”的slice来表示，每一个元素的每一位都表示集合里的一个值。当集合的第i位被设置时，我们才说这个集合包含元素i。下面的这个程序展示了一个简单的bit数组类型，并且实现了三个函数来对这个bit数组来进行操作：**
 
 <u><i>gopl.io/ch6/intset</i></u>
-
-数据流分析 集合 每一个字都有64个二进制位  
-// 10 进制转 64 进制
+//**bit数组** ??
+//数据流分析 集合 每一个字都有64个二进制位  
+// 10 进制转 64 进制 ？？
 
 ```go
 // An IntSet is a set of small non-negative integers.
@@ -8842,15 +8842,13 @@ func crawl(url string) []string {
 
 ```go
 func main() {
-	worklist := make(chan []string)
-
-	// 
+	worklist := make(c
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTExMTEwMDEyMCwtMTc5MzEzNTMwNiwxMT
-I1MjkzNzgwLDU5ODAwMzkzMyw0NTQ2ODE5ODAsMTQxOTU2MjYy
-MywtNTY1MzYwNjkwLDc0ODAxNzg1MiwxODMzNzExMDgxLC0xMz
-cyNjcyODEzLDQ3MDMwMTIzMSwtMTgzMzQ2NTQ5MCwtMTc1MzUy
-NTk2MCwtMTA0NzYzNzc5MCw3MTcyNzYzMjQsLTgwNDMwNzE4Mi
-wtMTc4MDg2NTg4Myw0MTU4NDI0MzUsMjEwNDQxNzM3MywtMjAz
-NDQ1NjI3Ml19
+eyJoaXN0b3J5IjpbLTE1OTc2NzIzNzYsLTE3OTMxMzUzMDYsMT
+EyNTI5Mzc4MCw1OTgwMDM5MzMsNDU0NjgxOTgwLDE0MTk1NjI2
+MjMsLTU2NTM2MDY5MCw3NDgwMTc4NTIsMTgzMzcxMTA4MSwtMT
+M3MjY3MjgxMyw0NzAzMDEyMzEsLTE4MzM0NjU0OTAsLTE3NTM1
+MjU5NjAsLTEwNDc2Mzc3OTAsNzE3Mjc2MzI0LC04MDQzMDcxOD
+IsLTE3ODA4NjU4ODMsNDE1ODQyNDM1LDIxMDQ0MTczNzMsLTIw
+MzQ0NTYyNzJdfQ==
 -->
