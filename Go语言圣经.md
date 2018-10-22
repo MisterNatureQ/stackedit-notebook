@@ -5493,6 +5493,8 @@ func (path Path) Distance() float64 {
 Path是一个命名的slice类型，而不是Point那样的struct类型，然而我们依然可以为它定义方法。**在能够给任意类型定义方法这一点上，Go和很多其它的面向对象的语言不太一样。因此在Go语言里，我们为一些简单的数值、字符串、slice、map来定义一些附加行为很方便。我们可以给同一个包内的任意命名类型定义方法，只要这个命名类型的底层类型（译注：这个例子里，底层类型是指[]Point这个slice，Path就是命名类型）不是指针或者interface**。
 
 ?? 指针或者interface  添加方法?   **方法可以被声明到任意类型，只要不是一个指针或者一个interface**
+**如果一个类型名本身是一个指针的话，是不允许其出现在接收器中的** 在语法糖中会有歧义??
+
 
 两个Distance方法有不同的类型。他们两个方法之间没有任何关系，尽管Path的Distance方法会在内部调用Point.Distance方法来计算每个连接邻接点的线段的长度。
 
@@ -8851,11 +8853,11 @@ https://golang.org/blog/
 ...
 2015/07/15 18:22:lookup blog.golang.org: no suc1
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEzMDM1MzI1MTIsLTY5NzgzNzE1MiwtMT
-Y2NTg4NzU4NCwtMTM5NTc5ODI3OCwtMTI1NjMxMTAzMywtMTM3
-OTE3NDA0NSwtMjA5OTcwMzEzNyw1NjM5NTUzODAsNjU0MjU2Mz
-Q2LC0xNTYxNjU4NjUyLC02NTY1NjI3Nyw4MDEyMjU1NzUsMjM1
-Mjk0ODAwLC0xNjgyODQzMjczLC0xNzQ1OTk4Mzg2LDg4ODY2MD
-c3OSw4NTA2ODE1NzUsNDYyMzkxMTc2LDI1ODExMjY0NiwxMDU4
-NDI0NjU5XX0=
+eyJoaXN0b3J5IjpbMTYyMzMxMzQxNiwtNjk3ODM3MTUyLC0xNj
+Y1ODg3NTg0LC0xMzk1Nzk4Mjc4LC0xMjU2MzExMDMzLC0xMzc5
+MTc0MDQ1LC0yMDk5NzAzMTM3LDU2Mzk1NTM4MCw2NTQyNTYzND
+YsLTE1NjE2NTg2NTIsLTY1NjU2Mjc3LDgwMTIyNTU3NSwyMzUy
+OTQ4MDAsLTE2ODI4NDMyNzMsLTE3NDU5OTgzODYsODg4NjYwNz
+c5LDg1MDY4MTU3NSw0NjIzOTExNzYsMjU4MTEyNjQ2LDEwNTg0
+MjQ2NTldfQ==
 -->
