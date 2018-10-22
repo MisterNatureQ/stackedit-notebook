@@ -5535,7 +5535,7 @@ func (p *Point) ScaleBy(factor float64) {
 
 这个方法的名字是`(*Point).ScaleBy`。这里的括号是必须的；没有括号的话这个表达式可能会被理解为`*(Point.ScaleBy)`。
 
-在现实的程序里，一般会约定如果Point这个类有一个指针作为接收器的方法，那么所有Point的方法都必须有一个指针接收器，即使是那些并不需要这个指针接收器的函数。我们在这里打破了这个约定只是为了展示一下两种方法的异同而已。
+**在现实的程序里，一般会约定如果Point这个类有一个指针作为接收器的方法，那么所有Point的方法都必须有一个指针接收器，即使是那些并不需要这个指针接收器的函数**。我们在这里打破了这个约定只是为了展示一下两种方法的异同而已。
 
 只有类型（Point）和指向他们的指针`(*Point)`，才可能是出现在接收器声明里的两种接收器。此外，**为了避免歧义，在声明方法时，如果一个类型名本身是一个指针的话，是不允许其出现在接收器中的**，比如下面这个例子：
 
@@ -8851,11 +8851,11 @@ https://golang.org/blog/
 ...
 2015/07/15 18:22:lookup blog.golang.org: no suc1
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTY5NzgzNzE1MiwtMTY2NTg4NzU4NCwtMT
-M5NTc5ODI3OCwtMTI1NjMxMTAzMywtMTM3OTE3NDA0NSwtMjA5
-OTcwMzEzNyw1NjM5NTUzODAsNjU0MjU2MzQ2LC0xNTYxNjU4Nj
-UyLC02NTY1NjI3Nyw4MDEyMjU1NzUsMjM1Mjk0ODAwLC0xNjgy
-ODQzMjczLC0xNzQ1OTk4Mzg2LDg4ODY2MDc3OSw4NTA2ODE1Nz
-UsNDYyMzkxMTc2LDI1ODExMjY0NiwxMDU4NDI0NjU5LC0yMDI4
-OTkxOTMzXX0=
+eyJoaXN0b3J5IjpbLTEzMDM1MzI1MTIsLTY5NzgzNzE1MiwtMT
+Y2NTg4NzU4NCwtMTM5NTc5ODI3OCwtMTI1NjMxMTAzMywtMTM3
+OTE3NDA0NSwtMjA5OTcwMzEzNyw1NjM5NTUzODAsNjU0MjU2Mz
+Q2LC0xNTYxNjU4NjUyLC02NTY1NjI3Nyw4MDEyMjU1NzUsMjM1
+Mjk0ODAwLC0xNjgyODQzMjczLC0xNzQ1OTk4Mzg2LDg4ODY2MD
+c3OSw4NTA2ODE1NzUsNDYyMzkxMTc2LDI1ODExMjY0NiwxMDU4
+NDI0NjU5XX0=
 -->
