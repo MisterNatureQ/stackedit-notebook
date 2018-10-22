@@ -6031,7 +6031,11 @@ func (*IntSet) Copy() *IntSet // return a copy of the set
 
 ***练习6.4: ** 实现一个Elems方法，返回集合中的所有元素，用于做一些range之类的遍历操作。
 
-**练习 6.5：** 我们这章定义的IntSet里的每个字都是用的uint64类型，但是64位的数值可能在32位的平台上不高效。修改程序，使其使用uint类型，这种类型对于32位平台来说更合适。当然了，这里我们可以不用简单粗暴地除64，可以定义一个常量来决定是用32还是64，这里你可能会用到平台的自动判断的一个智能表达式：32 << (^uint(0) >> 63)
+**练习 6.5：** 我们这章定义的IntSet里的每个字都是用的uint64类型，但是64位的数值可能在32位的平台上不高效。修改程序，使其使用uint类型，这种类型对于32位平台来说更合适。当然了，这里我们可以不用简单粗暴地除64，可以**定义一个常量来决定是用32还是64，这里你可能会用到平台的自动判断的一个智能表达式：32 << (^uint(0) >> 63)**
+
+
+
+
 ## 6.6. 封装
 
 一个对象的变量或者方法如果对调用方是不可见的话，一般就被定义为“封装”。封装有时候也被叫做信息隐藏，同时也是面向对象编程最关键的一个方面。
@@ -8840,13 +8844,13 @@ func crawl(url string) []string {
 func main() {
 	worklist := make(chan []string)
 
-	// Start wi
+	// Star
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjA5NTAxMzU2OCwxMTI1MjkzNzgwLDU5OD
-AwMzkzMyw0NTQ2ODE5ODAsMTQxOTU2MjYyMywtNTY1MzYwNjkw
-LDc0ODAxNzg1MiwxODMzNzExMDgxLC0xMzcyNjcyODEzLDQ3MD
-MwMTIzMSwtMTgzMzQ2NTQ5MCwtMTc1MzUyNTk2MCwtMTA0NzYz
-Nzc5MCw3MTcyNzYzMjQsLTgwNDMwNzE4MiwtMTc4MDg2NTg4My
-w0MTU4NDI0MzUsMjEwNDQxNzM3MywtMjAzNDQ1NjI3MiwtMTgw
-NTQ5MjE1Ml19
+eyJoaXN0b3J5IjpbLTE3OTMxMzUzMDYsMTEyNTI5Mzc4MCw1OT
+gwMDM5MzMsNDU0NjgxOTgwLDE0MTk1NjI2MjMsLTU2NTM2MDY5
+MCw3NDgwMTc4NTIsMTgzMzcxMTA4MSwtMTM3MjY3MjgxMyw0Nz
+AzMDEyMzEsLTE4MzM0NjU0OTAsLTE3NTM1MjU5NjAsLTEwNDc2
+Mzc3OTAsNzE3Mjc2MzI0LC04MDQzMDcxODIsLTE3ODA4NjU4OD
+MsNDE1ODQyNDM1LDIxMDQ0MTczNzMsLTIwMzQ0NTYyNzIsLTE4
+MDU0OTIxNTJdfQ==
 -->
