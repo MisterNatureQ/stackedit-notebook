@@ -5945,7 +5945,7 @@ func (s *IntSet) Add(x int) {
 		s.words = append(s.words, 0) // 补齐空间
 	}
 	//数组 
-	s.words[word] |= 1 << bit // 这个word 的1 在那个bit
+	s.words[word] |= 1 << bit // 存入余数
 }
 
 // UnionWith sets s to the union of s and t.  完成64个元素的或计算
@@ -8841,11 +8841,11 @@ func crawl(url string) []string {
 
 主函数和5.6节中的breadthFirst(广度优先)类似。像之前一样，一个worklist是一个记录了需要处理的元素的队列，每一个元素都是一个需要抓取的URL列表，不过这一次我们用channel代替slice来做这个队列。每一个对crawl
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjYzOTk4ODY1LDE5MzgwODM0MzcsLTE1OT
-c2NzIzNzYsLTE3OTMxMzUzMDYsMTEyNTI5Mzc4MCw1OTgwMDM5
-MzMsNDU0NjgxOTgwLDE0MTk1NjI2MjMsLTU2NTM2MDY5MCw3ND
-gwMTc4NTIsMTgzMzcxMTA4MSwtMTM3MjY3MjgxMyw0NzAzMDEy
-MzEsLTE4MzM0NjU0OTAsLTE3NTM1MjU5NjAsLTEwNDc2Mzc3OT
-AsNzE3Mjc2MzI0LC04MDQzMDcxODIsLTE3ODA4NjU4ODMsNDE1
-ODQyNDM1XX0=
+eyJoaXN0b3J5IjpbLTIxMTQ1NzIxNTEsMTkzODA4MzQzNywtMT
+U5NzY3MjM3NiwtMTc5MzEzNTMwNiwxMTI1MjkzNzgwLDU5ODAw
+MzkzMyw0NTQ2ODE5ODAsMTQxOTU2MjYyMywtNTY1MzYwNjkwLD
+c0ODAxNzg1MiwxODMzNzExMDgxLC0xMzcyNjcyODEzLDQ3MDMw
+MTIzMSwtMTgzMzQ2NTQ5MCwtMTc1MzUyNTk2MCwtMTA0NzYzNz
+c5MCw3MTcyNzYzMjQsLTgwNDMwNzE4MiwtMTc4MDg2NTg4Myw0
+MTU4NDI0MzVdfQ==
 -->
