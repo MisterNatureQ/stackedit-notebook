@@ -5943,7 +5943,7 @@ func (s *IntSet) Add(x int) {
 	for word >= len(s.words) {
 		s.words = append(s.words, 0) // 补齐空间
 	}
-	s.words[word] |= 1 << bit // z
+	s.words[word] |= 1 << bit // 这个word 的1 在那个bit
 }
 
 // UnionWith sets s to the union of s and t.  完成64个元素的或计算
@@ -8839,13 +8839,13 @@ func crawl(url string) []string {
 func main() {
 	worklist := make(chan []string)
 
-	// Start with the command-line argum
+	// Start with the command-l
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTYyNTgyNDIzOSw0NTQ2ODE5ODAsMTQxOT
-U2MjYyMywtNTY1MzYwNjkwLDc0ODAxNzg1MiwxODMzNzExMDgx
-LC0xMzcyNjcyODEzLDQ3MDMwMTIzMSwtMTgzMzQ2NTQ5MCwtMT
-c1MzUyNTk2MCwtMTA0NzYzNzc5MCw3MTcyNzYzMjQsLTgwNDMw
-NzE4MiwtMTc4MDg2NTg4Myw0MTU4NDI0MzUsMjEwNDQxNzM3My
-wtMjAzNDQ1NjI3MiwtMTgwNTQ5MjE1MiwxNTgxODcyMzkxLC05
-NjQ3OTUxMDNdfQ==
+eyJoaXN0b3J5IjpbNTg2NzUxMDUxLDQ1NDY4MTk4MCwxNDE5NT
+YyNjIzLC01NjUzNjA2OTAsNzQ4MDE3ODUyLDE4MzM3MTEwODEs
+LTEzNzI2NzI4MTMsNDcwMzAxMjMxLC0xODMzNDY1NDkwLC0xNz
+UzNTI1OTYwLC0xMDQ3NjM3NzkwLDcxNzI3NjMyNCwtODA0MzA3
+MTgyLC0xNzgwODY1ODgzLDQxNTg0MjQzNSwyMTA0NDE3MzczLC
+0yMDM0NDU2MjcyLC0xODA1NDkyMTUyLDE1ODE4NzIzOTEsLTk2
+NDc5NTEwM119
 -->
