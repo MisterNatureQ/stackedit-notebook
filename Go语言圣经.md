@@ -5869,7 +5869,7 @@ time.AfterFunc(10 * time.Second, r.Launch) // 省掉了上面那个例子里的�
 p := Point{1, 2}
 q := Point{4, 6}
 
-distance := Point.Distance   // method expression  返回一个函数“值”，这种函数会将其第一个参数用作接收器，所以可以用通常（译注：不写选择器）的方式来对其进行调用
+distance := Point.Distance   // method expression 来自 _[gopl.io/ch6/geometry](http://gopl.io/ch6/geometry)_  返回一个函数“值”，这种函数会将其第一个参数用作接收器，所以可以用通常（译注：不写选择器）的方式来对其进行调用
 fmt.Println(distance(p, q))  // "5"
 fmt.Printf("%T\n", distance) // "func(Point, Point) float64"
 
@@ -8847,13 +8847,13 @@ func main() {
 }
 ```
 
-注意这里的crawl所在的goroutine会将link作为一个显式的参数传入，来避免“循环变量快照”的问题（在5.6.1中有讲解）。另外注意这
+注意这里的crawl所在的go
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNDE1ODQyNDM1LDIxMDQ0MTczNzMsLTIwMz
-Q0NTYyNzIsLTE4MDU0OTIxNTIsMTU4MTg3MjM5MSwtOTY0Nzk1
-MTAzLDU1OTc0MjMzOSwtNzI2MTcwOTQyLC0xNjA0MjE4ODc5LD
-E2MjMzMTM0MTYsLTY5NzgzNzE1MiwtMTY2NTg4NzU4NCwtMTM5
-NTc5ODI3OCwtMTI1NjMxMTAzMywtMTM3OTE3NDA0NSwtMjA5OT
-cwMzEzNyw1NjM5NTUzODAsNjU0MjU2MzQ2LC0xNTYxNjU4NjUy
-LC02NTY1NjI3N119
+eyJoaXN0b3J5IjpbLTE3ODA4NjU4ODMsNDE1ODQyNDM1LDIxMD
+Q0MTczNzMsLTIwMzQ0NTYyNzIsLTE4MDU0OTIxNTIsMTU4MTg3
+MjM5MSwtOTY0Nzk1MTAzLDU1OTc0MjMzOSwtNzI2MTcwOTQyLC
+0xNjA0MjE4ODc5LDE2MjMzMTM0MTYsLTY5NzgzNzE1MiwtMTY2
+NTg4NzU4NCwtMTM5NTc5ODI3OCwtMTI1NjMxMTAzMywtMTM3OT
+E3NDA0NSwtMjA5OTcwMzEzNyw1NjM5NTUzODAsNjU0MjU2MzQ2
+LC0xNTYxNjU4NjUyXX0=
 -->
