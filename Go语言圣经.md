@@ -5943,7 +5943,7 @@ func (s *IntSet) Add(x int) {
 	for word >= len(s.words) {
 		s.words = append(s.words, 0) // 补齐空间
 	}
-	s.words[word] |= 1 << bit
+	s.words[word] |= 1 << bit // z
 }
 
 // UnionWith sets s to the union of s and t.  完成64个元素的或计算
@@ -8839,9 +8839,9 @@ func crawl(url string) []string {
 func main() {
 	worklist := make(chan []string)
 
-	// Start with the command-line arguments.
+	// Start with the command-line argum
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTg3OTY1ODExOSw0NTQ2ODE5ODAsMTQxOT
+eyJoaXN0b3J5IjpbLTYyNTgyNDIzOSw0NTQ2ODE5ODAsMTQxOT
 U2MjYyMywtNTY1MzYwNjkwLDc0ODAxNzg1MiwxODMzNzExMDgx
 LC0xMzcyNjcyODEzLDQ3MDMwMTIzMSwtMTgzMzQ2NTQ5MCwtMT
 c1MzUyNTk2MCwtMTA0NzYzNzc5MCw3MTcyNzYzMjQsLTgwNDMw
