@@ -5774,7 +5774,7 @@ type ColoredPoint struct {
 }
 ```
 
-然后这种类型的值便会拥有Point和RGBA类型的所有方法，以及直接定义在ColoredPoint中的方法。当编译器解析一个选择器到方法时，比如p.ScaleBy，它会首先去找直接定义在这个类型里的ScaleBy方法，然后找被ColoredPoint的内嵌字段们引入的方法，然后去找Point和RGBA的内嵌字段引入的方法，然后一直递归向下找。** 多个匿名字段 ,如果选择器有二义性的话编译器会报错，比如你在同一级里有两个同名的方法**。
+然后这种类型的值便会拥有Point和RGBA类型的所有方法，以及直接定义在ColoredPoint中的方法。当编译器解析一个选择器到方法时，比如p.ScaleBy，它会首先去找直接定义在这个类型里的ScaleBy方法，然后找被ColoredPoint的内嵌字段们引入的方法，然后去找Point和RGBA的内嵌字段引入的方法，然后一直递归向下找。** 如果选择器有二义性的话编译器会报错，比如你在同一级里有两个同名的方法**。
 
 
 **方法只能在命名类型（像Point）或者指向类型的指针上定义，但是多亏了内嵌，有些时候我们给匿名struct类型来定义方法也有了手段**。
@@ -5804,7 +5804,7 @@ var cache = struct {
 	sync.Mutex
 	mapping map[string]string
 }{
-	// 类似构造函数？
+	// 类似构造函数 或者定义 用于匿名结构体成员的初始化？
 	mapping: make(map[string]string),
 }
 
@@ -8850,14 +8850,13 @@ $ go build gopl.io/ch8/crawl1
 $ ./crawl1 http://gopl.io/
 http://gopl.io/
 https://golang.org/help/
-https://golang.org/doc/
-https://
+https://golang.or
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTk2NDc5NTEwMyw1NTk3NDIzMzksLTcyNj
-E3MDk0MiwtMTYwNDIxODg3OSwxNjIzMzEzNDE2LC02OTc4Mzcx
-NTIsLTE2NjU4ODc1ODQsLTEzOTU3OTgyNzgsLTEyNTYzMTEwMz
-MsLTEzNzkxNzQwNDUsLTIwOTk3MDMxMzcsNTYzOTU1MzgwLDY1
-NDI1NjM0NiwtMTU2MTY1ODY1MiwtNjU2NTYyNzcsODAxMjI1NT
-c1LDIzNTI5NDgwMCwtMTY4Mjg0MzI3MywtMTc0NTk5ODM4Niw4
-ODg2NjA3NzldfQ==
+eyJoaXN0b3J5IjpbMTU4MTg3MjM5MSwtOTY0Nzk1MTAzLDU1OT
+c0MjMzOSwtNzI2MTcwOTQyLC0xNjA0MjE4ODc5LDE2MjMzMTM0
+MTYsLTY5NzgzNzE1MiwtMTY2NTg4NzU4NCwtMTM5NTc5ODI3OC
+wtMTI1NjMxMTAzMywtMTM3OTE3NDA0NSwtMjA5OTcwMzEzNyw1
+NjM5NTUzODAsNjU0MjU2MzQ2LC0xNTYxNjU4NjUyLC02NTY1Nj
+I3Nyw4MDEyMjU1NzUsMjM1Mjk0ODAwLC0xNjgyODQzMjczLC0x
+NzQ1OTk4Mzg2XX0=
 -->
