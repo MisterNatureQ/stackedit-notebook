@@ -5684,6 +5684,8 @@ m.Add("item", "3")         // panic: assignment to entry in nil map
 
 **由于url.Values是一个map类型，并且间接引用了其key/value对，因此url.Values.Add对这个map里的元素做任何的更新、删除操作对调用方都是可见的。实际上，就像在普通函数中一样，虽然可以通过引用来操作内部值，但在方法想要修改引用本身时是不会影响原始值的，比如把他置换为nil，或者让这个引用指向了其它的对象，调用方都不会受影响。（译注：因为传入的是存储了内存地址的变量，你改变这个变量本身是影响不了原始的变量的，想想C语言，是差不多的）**
 
+?? 传入的是引用的拷贝
+
 ## 6.3. 通过嵌入结构体来扩展类型
 
 来看看ColoredPoint这个类型：
@@ -5700,7 +5702,7 @@ type ColoredPoint struct {
 }
 ```
 
-我们完全可以将ColoredPoint定义为一个有三个字段的struct，但是我们却将Point这个类型嵌入到ColoredPoint来提供X和Y这两个字段。像我们在4.4节中看到的那样，内嵌可以使我们在定义ColoredPoint时得到一种句法上的简写形式，并使其包含Point类型所具有的一切字段，然后再定义一些自己的。如果我们想要的话，我们可以直接认为通过嵌入的字段就是ColoredPoint自身的字段，而完全不需要在调用时指出Point，比如下面这样。
+我们完全可以将ColoredPoint定义为一个有三个字段的struct，但是我们却将Point这个类型嵌入到ColoredPoint来提供X和Y这两个字段。像我们在4.4节中看到的那样，内嵌可以使我们在定义ColoredPoint时**得到一种句法上的简写形式，并使其包含Point类型所具有的一切字段，然后再定义一些自己的**。如果我们想要的话，我们可以直接认为通过嵌入的字段就是ColoredPoint自身的字段，而完全不需要在调用时指出Point，比如下面这样。
 
 ```go
 var cp ColoredPoint
@@ -8847,14 +8849,13 @@ https://golang.org/help/
 https://golang.org/doc/
 https://golang.org/blog/
 ...
-2015/07/15 18:22:12 Get ...: dial tcp: lookup blog.golang.org: no such host
-2015/07/15 18:22:12 G
+2015/07/15 18:22:lookup blog.golang.org: no suc1
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEzOTU3OTgyNzgsLTEyNTYzMTEwMzMsLT
-EzNzkxNzQwNDUsLTIwOTk3MDMxMzcsNTYzOTU1MzgwLDY1NDI1
-NjM0NiwtMTU2MTY1ODY1MiwtNjU2NTYyNzcsODAxMjI1NTc1LD
-IzNTI5NDgwMCwtMTY4Mjg0MzI3MywtMTc0NTk5ODM4Niw4ODg2
-NjA3NzksODUwNjgxNTc1LDQ2MjM5MTE3NiwyNTgxMTI2NDYsMT
-A1ODQyNDY1OSwtMjAyODk5MTkzMywxNTExMjU2MTEsNTg5OTQ4
-MDA2XX0=
+eyJoaXN0b3J5IjpbMTMzMjk5NDUyMiwtMTM5NTc5ODI3OCwtMT
+I1NjMxMTAzMywtMTM3OTE3NDA0NSwtMjA5OTcwMzEzNyw1NjM5
+NTUzODAsNjU0MjU2MzQ2LC0xNTYxNjU4NjUyLC02NTY1NjI3Ny
+w4MDEyMjU1NzUsMjM1Mjk0ODAwLC0xNjgyODQzMjczLC0xNzQ1
+OTk4Mzg2LDg4ODY2MDc3OSw4NTA2ODE1NzUsNDYyMzkxMTc2LD
+I1ODExMjY0NiwxMDU4NDI0NjU5LC0yMDI4OTkxOTMzLDE1MTEy
+NTYxMV19
 -->
