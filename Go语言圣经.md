@@ -5935,6 +5935,7 @@ func (s *IntSet) Has(x int) bool {
 	// 并且用x%64得到的值作为这个字内的bit的所在位置
 	// 一个数的商和余数是唯一的 可以带入什么样的模型
 	word, bit := x/64, uint(x%64) // 商作为字的下标 余数  作为这个字内的bit的所在位置
+	// false && (0)false
 	return word < len(s.words) && s.words[word]&(1<<bit) != 0
 }
  
@@ -8839,13 +8840,13 @@ func crawl(url string) []string {
 }
 ```
 
-主函数和5.6节中的breadthFirst(广度优先)类似。像之前一样，一个worklist是一个记录了需要处理的元素的队列，每一个元素都是一个需要抓取的URL列表，不过这一次我们用channel代替slice来做这个队列。每一个对crawl
+主函数和5.6节中的breadthFirst(广度优先)类似。像之前一样，一个worklist是一个记录了需要处理的元素的队列，每一个元素都是一个需要抓取的URL列表，不过这一次我们用channel代替slice来做这个队列
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNDY4NDkwNzAzLDE5MzgwODM0MzcsLTE1OT
-c2NzIzNzYsLTE3OTMxMzUzMDYsMTEyNTI5Mzc4MCw1OTgwMDM5
-MzMsNDU0NjgxOTgwLDE0MTk1NjI2MjMsLTU2NTM2MDY5MCw3ND
-gwMTc4NTIsMTgzMzcxMTA4MSwtMTM3MjY3MjgxMyw0NzAzMDEy
-MzEsLTE4MzM0NjU0OTAsLTE3NTM1MjU5NjAsLTEwNDc2Mzc3OT
-AsNzE3Mjc2MzI0LC04MDQzMDcxODIsLTE3ODA4NjU4ODMsNDE1
-ODQyNDM1XX0=
+eyJoaXN0b3J5IjpbMTU5NDg2ODA2Nyw0Njg0OTA3MDMsMTkzOD
+A4MzQzNywtMTU5NzY3MjM3NiwtMTc5MzEzNTMwNiwxMTI1Mjkz
+NzgwLDU5ODAwMzkzMyw0NTQ2ODE5ODAsMTQxOTU2MjYyMywtNT
+Y1MzYwNjkwLDc0ODAxNzg1MiwxODMzNzExMDgxLC0xMzcyNjcy
+ODEzLDQ3MDMwMTIzMSwtMTgzMzQ2NTQ5MCwtMTc1MzUyNTk2MC
+wtMTA0NzYzNzc5MCw3MTcyNzYzMjQsLTgwNDMwNzE4MiwtMTc4
+MDg2NTg4M119
 -->
