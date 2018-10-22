@@ -5979,6 +5979,7 @@ func (s *IntSet) String() string {
 		if word == 0 {
 			continue
 		}
+		// 这里是取出 余数
 		for j := 0; j < 64; j++ {
 			if word&(1<<uint(j)) != 0 {
 				if buf.Len() > len("{") {
@@ -8834,11 +8835,11 @@ sizes channel携带了每一个文件的大小到main goroutine，在main gorout
 
 在5.6节中，我们做了一个简单的记录了需要
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTg5NDA0NjYzNywtOTk0MjIzODYyLC0xMj
-AyMDczMDkzLDE1OTQ4NjgwNjcsNDY4NDkwNzAzLDE5MzgwODM0
-MzcsLTE1OTc2NzIzNzYsLTE3OTMxMzUzMDYsMTEyNTI5Mzc4MC
-w1OTgwMDM5MzMsNDU0NjgxOTgwLDE0MTk1NjI2MjMsLTU2NTM2
-MDY5MCw3NDgwMTc4NTIsMTgzMzcxMTA4MSwtMTM3MjY3MjgxMy
-w0NzAzMDEyMzEsLTE4MzM0NjU0OTAsLTE3NTM1MjU5NjAsLTEw
-NDc2Mzc3OTBdfQ==
+eyJoaXN0b3J5IjpbLTE3NzEyOTM4OCwxODk0MDQ2NjM3LC05OT
+QyMjM4NjIsLTEyMDIwNzMwOTMsMTU5NDg2ODA2Nyw0Njg0OTA3
+MDMsMTkzODA4MzQzNywtMTU5NzY3MjM3NiwtMTc5MzEzNTMwNi
+wxMTI1MjkzNzgwLDU5ODAwMzkzMyw0NTQ2ODE5ODAsMTQxOTU2
+MjYyMywtNTY1MzYwNjkwLDc0ODAxNzg1MiwxODMzNzExMDgxLC
+0xMzcyNjcyODEzLDQ3MDMwMTIzMSwtMTgzMzQ2NTQ5MCwtMTc1
+MzUyNTk2MF19
 -->
