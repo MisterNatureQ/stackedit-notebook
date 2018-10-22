@@ -5943,6 +5943,7 @@ func (s *IntSet) Add(x int) {
 	for word >= len(s.words) {
 		s.words = append(s.words, 0) // 补齐空间
 	}
+	//数组 
 	s.words[word] |= 1 << bit // 这个word 的1 在那个bit
 }
 
@@ -8839,9 +8840,9 @@ func crawl(url string) []string {
 func main() {
 	worklist := make(chan []string)
 
-	// Start with the command-l
+	// Start with the
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNTg2NzUxMDUxLDQ1NDY4MTk4MCwxNDE5NT
+eyJoaXN0b3J5IjpbNTk4MDAzOTMzLDQ1NDY4MTk4MCwxNDE5NT
 YyNjIzLC01NjUzNjA2OTAsNzQ4MDE3ODUyLDE4MzM3MTEwODEs
 LTEzNzI2NzI4MTMsNDcwMzAxMjMxLC0xODMzNDY1NDkwLC0xNz
 UzNTI1OTYwLC0xMDQ3NjM3NzkwLDcxNzI3NjMyNCwtODA0MzA3
