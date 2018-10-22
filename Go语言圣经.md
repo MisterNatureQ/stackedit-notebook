@@ -5844,9 +5844,7 @@ scaleP(10)          //      then (60, 120)
 **在一个包的API需要一个函数值、且调用方希望操作的是某一个绑定了对象的方法的话，方法“值”会非常实用**（``=_=`真是绕）。举例来说，下面例子中的time.AfterFunc这个函数的功能是在指定的延迟时间之后来执行一个（译注：另外的）函数。且这个函数操作的是一个Rocket对象r
 
 
-func AfterFunc(d [Duration](https://studygolang.com/static/pkgdoc/pkg/time.htm#Duration), f func()) *[Timer](https://studygolang.com/static/pkgdoc/pkg/time.htm#Timer)
-
-AfterFunc另起一个go程等待时间段d过去，然后调用f。它返回一个Timer，可以通过调用其Stop方法来取消等待和对f的调用。
+func AfterFunc(d [Duration](https://studygolang.com/static/pkgdoc/pkg/time.htm#Duration), f func()) *[Timer](https://studygolang.com/static/pkgdoc/pkg/time.htm#Timer)   	//AfterFunc另起一个go程等待时间段d过去，然后调用f。它返回一个Timer，可以通过调用其Stop方法来取消等待和对f的调用。
 
 ```go
 type Rocket struct { /* ... */ }
@@ -8849,9 +8847,9 @@ func main() {
 }
 ```
 
-注意这里的crawl所在的goroutine会将link作为一个显式的参数传入，来避免“循环变量快照”的问题（在5.6.1中有讲解）。另外注意这里将命令行参数传入worklist也是在一个另外的goroutine中进行的，这是为了避免channel两端的main goroutine与crawler goroutine都尝试向对
+注意这里的crawl所在的goroutine会将link作为一个显式的参数传入，来避免“循环变量快照”的问题（在5.6.1中有讲解）。另外注意这里将命令行参数传入worklist也是在一个另外的goroutine中进行的，这是为了避免channel两端的main goroutine与crawler goroutine都
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTk2NzMzNjQ1NiwtMTgwNTQ5MjE1MiwxNT
+eyJoaXN0b3J5IjpbLTg5ODAxOTA3NCwtMTgwNTQ5MjE1MiwxNT
 gxODcyMzkxLC05NjQ3OTUxMDMsNTU5NzQyMzM5LC03MjYxNzA5
 NDIsLTE2MDQyMTg4NzksMTYyMzMxMzQxNiwtNjk3ODM3MTUyLC
 0xNjY1ODg3NTg0LC0xMzk1Nzk4Mjc4LC0xMjU2MzExMDMzLC0x
