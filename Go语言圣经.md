@@ -5856,7 +5856,7 @@ time.AfterFunc(10 * time.Second, func() { r.Launch() })
 直接用方法“值”传入AfterFunc的话可以更为简短：
 
 ```go
-time.AfterFunc(10 * time.Second, r.Launch) // 省掉了上面那个例子里的匿名函数
+time.AfterFunc(10 * time.Second, r.Launch) // 省掉了上面那个例子里的匿名函数 使用的是方法值
 ```
 
 译注：省掉了上面那个例子里的匿名函数。
@@ -8847,13 +8847,13 @@ func main() {
 }
 ```
 
-注意这里的crawl所在的goroutine会将link作为一个显式的参数传入，来避免“循环变量快照”的问题（在5.6.1中有讲解）。另外注意这里将命令行参数传入worklist也是在一个另外的goroutine中进行的，这是为了避免channel两端的main goroutine
+注意这里的crawl所在的goroutine会将link作为一个显式的参数传入，来避免“循环变量快照”的问题（在5.6.1中有讲解）。另外注意这里将命令行参数传入worklist也是在一个另外的goroutine中进行的，这是为了避免channel两端的mai
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIwMzQ0NTYyNzIsLTE4MDU0OTIxNTIsMT
-U4MTg3MjM5MSwtOTY0Nzk1MTAzLDU1OTc0MjMzOSwtNzI2MTcw
-OTQyLC0xNjA0MjE4ODc5LDE2MjMzMTM0MTYsLTY5NzgzNzE1Mi
-wtMTY2NTg4NzU4NCwtMTM5NTc5ODI3OCwtMTI1NjMxMTAzMywt
-MTM3OTE3NDA0NSwtMjA5OTcwMzEzNyw1NjM5NTUzODAsNjU0Mj
-U2MzQ2LC0xNTYxNjU4NjUyLC02NTY1NjI3Nyw4MDEyMjU1NzUs
-MjM1Mjk0ODAwXX0=
+eyJoaXN0b3J5IjpbMjA0NDc0NjUxMCwtMjAzNDQ1NjI3MiwtMT
+gwNTQ5MjE1MiwxNTgxODcyMzkxLC05NjQ3OTUxMDMsNTU5NzQy
+MzM5LC03MjYxNzA5NDIsLTE2MDQyMTg4NzksMTYyMzMxMzQxNi
+wtNjk3ODM3MTUyLC0xNjY1ODg3NTg0LC0xMzk1Nzk4Mjc4LC0x
+MjU2MzExMDMzLC0xMzc5MTc0MDQ1LC0yMDk5NzAzMTM3LDU2Mz
+k1NTM4MCw2NTQyNTYzNDYsLTE1NjE2NTg2NTIsLTY1NjU2Mjc3
+LDgwMTIyNTU3NV19
 -->
