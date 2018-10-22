@@ -5869,7 +5869,7 @@ time.AfterFunc(10 * time.Second, r.Launch) // 省掉了上面那个例子里的�
 p := Point{1, 2}
 q := Point{4, 6}
 
-distance := Point.Distance   // method expression
+distance := Point.Distance   // method expression  返回一个函数“值”，这种函数会将其第一个参数用作接收器，所以可以用通常（译注：不写选择器）的方式来对其进行调用
 fmt.Println(distance(p, q))  // "5"
 fmt.Printf("%T\n", distance) // "func(Point, Point) float64"
 
@@ -8847,13 +8847,13 @@ func main() {
 }
 ```
 
-注意这里的crawl所在的goroutine会将link作为一个显式的参数传入，来避免“循环变量快照”的问题（在5.6.1中有讲解）。另外注意这里将命令行参数传入worklist也是在一个另外的goroutine中进行的，这是为了避免channel两端的ma
+注意这里的crawl所在的goroutine会将link作为一个显式的参数传入，来避免“循环变量快照”的问题（在5.6.1中有讲解）。另外注意这
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjEwNDQxNzM3MywtMjAzNDQ1NjI3MiwtMT
-gwNTQ5MjE1MiwxNTgxODcyMzkxLC05NjQ3OTUxMDMsNTU5NzQy
-MzM5LC03MjYxNzA5NDIsLTE2MDQyMTg4NzksMTYyMzMxMzQxNi
-wtNjk3ODM3MTUyLC0xNjY1ODg3NTg0LC0xMzk1Nzk4Mjc4LC0x
-MjU2MzExMDMzLC0xMzc5MTc0MDQ1LC0yMDk5NzAzMTM3LDU2Mz
-k1NTM4MCw2NTQyNTYzNDYsLTE1NjE2NTg2NTIsLTY1NjU2Mjc3
-LDgwMTIyNTU3NV19
+eyJoaXN0b3J5IjpbNDE1ODQyNDM1LDIxMDQ0MTczNzMsLTIwMz
+Q0NTYyNzIsLTE4MDU0OTIxNTIsMTU4MTg3MjM5MSwtOTY0Nzk1
+MTAzLDU1OTc0MjMzOSwtNzI2MTcwOTQyLC0xNjA0MjE4ODc5LD
+E2MjMzMTM0MTYsLTY5NzgzNzE1MiwtMTY2NTg4NzU4NCwtMTM5
+NTc5ODI3OCwtMTI1NjMxMTAzMywtMTM3OTE3NDA0NSwtMjA5OT
+cwMzEzNyw1NjM5NTUzODAsNjU0MjU2MzQ2LC0xNTYxNjU4NjUy
+LC02NTY1NjI3N119
 -->
