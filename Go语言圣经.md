@@ -5881,7 +5881,7 @@ fmt.Printf("%T\n", scale) // "func(*Point, float64)"
 // 译注：这个Distance实际上是指定了Point对象为接收器的一个方法func (p Point) Distance()，
 // 但通过Point.Distance得到的函数需要比实际的Distance方法多一个参数，
 // 即其需要用第一个额外参数指定接收器，后面排列Distance方法的参数。
-// 看起来本书中函数和方法的区别是指有没有接收器，而不像其他语言那样是指有没有返回值。
+// **看起来本书中函数和方法的区别是指有没有接收器，而不像其他语言那样是指有没有返回值。**
 ```
 
 当你根据一个变量来决定调用同一个类型的哪个函数时，方法表达式就显得很有用了。你可以根据选择来调用接收器各不相同的方法。下面的例子，变量op代表Point类型的addition或者subtraction方法，Path.TranslateBy方法会为其Path数组中的每一个Point来调用对应的方法：
@@ -8847,11 +8847,11 @@ func main() {
 }
 `
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbOTg2NzI2NDk5LC0xNzgwODY1ODgzLDQxNT
-g0MjQzNSwyMTA0NDE3MzczLC0yMDM0NDU2MjcyLC0xODA1NDky
-MTUyLDE1ODE4NzIzOTEsLTk2NDc5NTEwMyw1NTk3NDIzMzksLT
-cyNjE3MDk0MiwtMTYwNDIxODg3OSwxNjIzMzEzNDE2LC02OTc4
-MzcxNTIsLTE2NjU4ODc1ODQsLTEzOTU3OTgyNzgsLTEyNTYzMT
-EwMzMsLTEzNzkxNzQwNDUsLTIwOTk3MDMxMzcsNTYzOTU1Mzgw
-LDY1NDI1NjM0Nl19
+eyJoaXN0b3J5IjpbLTE5MzM0NTA3ODEsLTE3ODA4NjU4ODMsND
+E1ODQyNDM1LDIxMDQ0MTczNzMsLTIwMzQ0NTYyNzIsLTE4MDU0
+OTIxNTIsMTU4MTg3MjM5MSwtOTY0Nzk1MTAzLDU1OTc0MjMzOS
+wtNzI2MTcwOTQyLC0xNjA0MjE4ODc5LDE2MjMzMTM0MTYsLTY5
+NzgzNzE1MiwtMTY2NTg4NzU4NCwtMTM5NTc5ODI3OCwtMTI1Nj
+MxMTAzMywtMTM3OTE3NDA0NSwtMjA5OTcwMzEzNyw1NjM5NTUz
+ODAsNjU0MjU2MzQ2XX0=
 -->
