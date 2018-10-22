@@ -5861,7 +5861,7 @@ time.AfterFunc(10 * time.Second, r.Launch) // 省掉了上面那个例子里的�
 
 译注：省掉了上面那个例子里的匿名函数。
 
-和方法“值”相关的还有**方法表达式**。当调用一个方法时，与调用一个普通的函数相比，我们必须要用选择器（p.Distance）语法来指定方法的接收器。
+**和方法“值”相关的还有方法表达式。当调用一个方法时，与调用一个普通的函数相比，我们必须要用选择器（p.Distance）语法来指定方法的接收器**。
 
 当T是一个类型时，方法表达式可能会写作`T.f`或者`(*T).f`，会返回一个函数“值”，这种函数会将其第一个参数用作接收器，所以可以用通常（译注：不写选择器）的方式来对其进行调用：
 
@@ -8849,7 +8849,7 @@ func main() {
 
 注意这里的crawl所在的goroutine会将link作为一个显式的参数传入，来避免“循环变量快照”的问题（在5.6.1中有讲解）。另外注意这里将命令行参数传入worklist也是在一个另外的goroutine中进行的，这是为了避免channel两端的ma
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTI1OTA3MzY5OSwtMjAzNDQ1NjI3MiwtMT
+eyJoaXN0b3J5IjpbMjEwNDQxNzM3MywtMjAzNDQ1NjI3MiwtMT
 gwNTQ5MjE1MiwxNTgxODcyMzkxLC05NjQ3OTUxMDMsNTU5NzQy
 MzM5LC03MjYxNzA5NDIsLTE2MDQyMTg4NzksMTYyMzMxMzQxNi
 wtNjk3ODM3MTUyLC0xNjY1ODg3NTg0LC0xMzk1Nzk4Mjc4LC0x
