@@ -5456,7 +5456,7 @@ func (p Point) Distance(q Point) float64 {
 }
 ```
 
-上面的代码里那个附加的参数p，叫做**方法的接收器（receiver）**，早期的面向对象语言留下的遗产将**调用一个方法称为“向一个对象发送消息”**。
+上面的代码里那个附加的参数p，叫做**方法的接收器（receiver）**，早期的面向对象语言留下的遗产**将调用一个方法称为“向一个对象发送消息”**。
 
 **在Go语言中，我们并不会像其它语言那样用this或者self作为接收器；我们可以任意的选择接收器的名字**。由于接收器的名字经常会被使用到，所以保持其在方法间传递时的一致性和简短性是不错的主意。这里的建议是可以使用其类型的第一个字母，比如这里使用了Point的首字母p。
 
@@ -8851,11 +8851,11 @@ https://golang.org/blog/
 ...
 2015/07/15 18:22:lookup blog.golang.org: no suc1
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE2NjU4ODc1ODQsLTEzOTU3OTgyNzgsLT
-EyNTYzMTEwMzMsLTEzNzkxNzQwNDUsLTIwOTk3MDMxMzcsNTYz
-OTU1MzgwLDY1NDI1NjM0NiwtMTU2MTY1ODY1MiwtNjU2NTYyNz
-csODAxMjI1NTc1LDIzNTI5NDgwMCwtMTY4Mjg0MzI3MywtMTc0
-NTk5ODM4Niw4ODg2NjA3NzksODUwNjgxNTc1LDQ2MjM5MTE3Ni
-wyNTgxMTI2NDYsMTA1ODQyNDY1OSwtMjAyODk5MTkzMywxNTEx
-MjU2MTFdfQ==
+eyJoaXN0b3J5IjpbLTY5NzgzNzE1MiwtMTY2NTg4NzU4NCwtMT
+M5NTc5ODI3OCwtMTI1NjMxMTAzMywtMTM3OTE3NDA0NSwtMjA5
+OTcwMzEzNyw1NjM5NTUzODAsNjU0MjU2MzQ2LC0xNTYxNjU4Nj
+UyLC02NTY1NjI3Nyw4MDEyMjU1NzUsMjM1Mjk0ODAwLC0xNjgy
+ODQzMjczLC0xNzQ1OTk4Mzg2LDg4ODY2MDc3OSw4NTA2ODE1Nz
+UsNDYyMzkxMTc2LDI1ODExMjY0NiwxMDU4NDI0NjU5LC0yMDI4
+OTkxOTMzXX0=
 -->
