@@ -5894,6 +5894,7 @@ func (p Point) Sub(q Point) Point { return Point{p.X - q.X, p.Y - q.Y} }
 
 type Path []Point
 
+// 根据一个变量来决定调用同一个类型的哪个函数时，方法表达式就显得很有用了。你可以根据选择来调用接收器各不相同的方法的例子
 func (path Path) TranslateBy(offset Point, add bool) {
 	var op func(p, q Point) Point
 	if add {
@@ -5907,9 +5908,10 @@ func (path Path) TranslateBy(offset Point, add bool) {
 	}
 }
 ```
+
 ## 6.5. 示例: Bit数组
 
-Go语言里的集合一般会用map[T]bool这种形式来表示，T代表元素类型。集合用map类型来表示虽然非常灵活，但我们可以以一种更好的形式来表示它。例如在数据流分析领域，集合元素通常是一个非负整数，集合会包含很多元素，并且集合会经常进行并集、交集操作，这种情况下，bit数组会比map表现更加理想。（译注：这里再补充一个例子，比如我们执行一个http下载任务，把文件按照16kb一块划分为很多块，需要有一个全局变量来标识哪些块下载完成了，这种时候也需要用到bit数组。）
+Go语言里的**集合一般会用map[T]bool这种形式来表示，T代表元素类型。集合用map类型来表示虽然非常灵活，但我们可以以一种更好的形式来表示它**。例如在数据流分析领域，集合元素通常是一个非负整数，集合会包含很多元素，并且集合会经常进行并集、交集操作，这种情况下，bit数组会比map表现更加理想。（译注：这里再补充一个例子，比如我们执行一个http下载任务，把文件按照16kb一块划分为很多块，需要有一个全局变量来标识哪些块下载完成了，这种时候也需要用到bit数组。）
 
 一个bit数组通常会用一个无符号数或者称之为“字”的slice来表示，每一个元素的每一位都表示集合里的一个值。当集合的第i位被设置时，我们才说这个集合包含元素i。下面的这个程序展示了一个简单的bit数组类型，并且实现了三个函数来对这个bit数组来进行操作：
 
@@ -8838,19 +8840,13 @@ func main() {
 		for _, link := range list {
 			if !seen[link] {
 				seen[link] = true
-				go func(link string) {
-					worklist <- crawl(link)
-				}(link)
-			}
-		}
-	}
-}
+				go func(l
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE3MzkzNjc0ODUsLTE3ODA4NjU4ODMsND
-E1ODQyNDM1LDIxMDQ0MTczNzMsLTIwMzQ0NTYyNzIsLTE4MDU0
-OTIxNTIsMTU4MTg3MjM5MSwtOTY0Nzk1MTAzLDU1OTc0MjMzOS
-wtNzI2MTcwOTQyLC0xNjA0MjE4ODc5LDE2MjMzMTM0MTYsLTY5
-NzgzNzE1MiwtMTY2NTg4NzU4NCwtMTM5NTc5ODI3OCwtMTI1Nj
-MxMTAzMywtMTM3OTE3NDA0NSwtMjA5OTcwMzEzNyw1NjM5NTUz
-ODAsNjU0MjU2MzQ2XX0=
+eyJoaXN0b3J5IjpbLTgwNDMwNzE4MiwtMTc4MDg2NTg4Myw0MT
+U4NDI0MzUsMjEwNDQxNzM3MywtMjAzNDQ1NjI3MiwtMTgwNTQ5
+MjE1MiwxNTgxODcyMzkxLC05NjQ3OTUxMDMsNTU5NzQyMzM5LC
+03MjYxNzA5NDIsLTE2MDQyMTg4NzksMTYyMzMxMzQxNiwtNjk3
+ODM3MTUyLC0xNjY1ODg3NTg0LC0xMzk1Nzk4Mjc4LC0xMjU2Mz
+ExMDMzLC0xMzc5MTc0MDQ1LC0yMDk5NzAzMTM3LDU2Mzk1NTM4
+MCw2NTQyNTYzNDZdfQ==
 -->
