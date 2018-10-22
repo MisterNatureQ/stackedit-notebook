@@ -5923,7 +5923,7 @@ Go语言里的**集合一般会用map[T]bool这种形式来表示，T代表元�
 // An IntSet is a set of small non-negative integers.
 // Its zero value represents the empty set.
 type IntSet struct {
-	words []uint64
+	words []uint64 // slice
 }
 
 // Has reports whether the set contains the non-negative value x.
@@ -8842,14 +8842,13 @@ func main() {
 	for list := range worklist {
 		for _, link := range list {
 			if !seen[link] {
-				seen[link] = true
-		
+				seen[link] =
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE3NTM1MjU5NjAsLTEwNDc2Mzc3OTAsNz
-E3Mjc2MzI0LC04MDQzMDcxODIsLTE3ODA4NjU4ODMsNDE1ODQy
-NDM1LDIxMDQ0MTczNzMsLTIwMzQ0NTYyNzIsLTE4MDU0OTIxNT
-IsMTU4MTg3MjM5MSwtOTY0Nzk1MTAzLDU1OTc0MjMzOSwtNzI2
-MTcwOTQyLC0xNjA0MjE4ODc5LDE2MjMzMTM0MTYsLTY5NzgzNz
-E1MiwtMTY2NTg4NzU4NCwtMTM5NTc5ODI3OCwtMTI1NjMxMTAz
-MywtMTM3OTE3NDA0NV19
+eyJoaXN0b3J5IjpbLTE4MzM0NjU0OTAsLTE3NTM1MjU5NjAsLT
+EwNDc2Mzc3OTAsNzE3Mjc2MzI0LC04MDQzMDcxODIsLTE3ODA4
+NjU4ODMsNDE1ODQyNDM1LDIxMDQ0MTczNzMsLTIwMzQ0NTYyNz
+IsLTE4MDU0OTIxNTIsMTU4MTg3MjM5MSwtOTY0Nzk1MTAzLDU1
+OTc0MjMzOSwtNzI2MTcwOTQyLC0xNjA0MjE4ODc5LDE2MjMzMT
+M0MTYsLTY5NzgzNzE1MiwtMTY2NTg4NzU4NCwtMTM5NTc5ODI3
+OCwtMTI1NjMxMTAzM119
 -->
