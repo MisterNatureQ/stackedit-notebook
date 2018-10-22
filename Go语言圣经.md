@@ -5843,6 +5843,11 @@ scaleP(10)          //      then (60, 120)
 
 **在一个包的API需要一个函数值、且调用方希望操作的是某一个绑定了对象的方法的话，方法“值”会非常实用**（``=_=`真是绕）。举例来说，下面例子中的time.AfterFunc这个函数的功能是在指定的延迟时间之后来执行一个（译注：另外的）函数。且这个函数操作的是一个Rocket对象r
 
+
+func AfterFunc(d [Duration](https://studygolang.com/static/pkgdoc/pkg/time.htm#Duration), f func()) *[Timer](https://studygolang.com/static/pkgdoc/pkg/time.htm#Timer)
+
+AfterFunc另起一个go程等待时间段d过去，然后调用f。它返回一个Timer，可以通过调用其Stop方法来取消等待和对f的调用。
+
 ```go
 type Rocket struct { /* ... */ }
 func (r *Rocket) Launch() { /* ... */ }
@@ -8844,22 +8849,13 @@ func main() {
 }
 ```
 
-注意这里的crawl所在的goroutine会将link作为一个显式的参数传入，来避免“循环变量快照”的问题（在5.6.1中有讲解）。另外注意这里将命令行参数传入worklist也是在一个另外的goroutine中进行的，这是为了避免channel两端的main goroutine与crawler goroutine都尝试向对方发送内容，却没有一端接收内容时发生死锁。当然，这里我们也可以用buffered channel来解决问题，这里不再赘述。
-
-现在爬虫可以高并发地运行起来，并且可以产生一大坨的URL了，不过还是会有俩问题。一个问题是在运行一段时间后可能会出现在log的错误信息里的：
-
-
-```
-$ go build gopl.io/ch8/crawl1
-$ ./crawl1 http://gopl.io/
-http://gopl.io/
-https://golang.org/hel
+注意这里的crawl所在的goroutine会将link作为一个显式的参数传入，来避免“循环变量快照”的问题（在5.6.1中有讲解）。另外注意这里将命令行参数传入worklist也是在一个另外的goroutine中进行的，这是为了避免channel两端的main goroutine与crawler goroutine都尝试向对
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE4MDU0OTIxNTIsMTU4MTg3MjM5MSwtOT
-Y0Nzk1MTAzLDU1OTc0MjMzOSwtNzI2MTcwOTQyLC0xNjA0MjE4
-ODc5LDE2MjMzMTM0MTYsLTY5NzgzNzE1MiwtMTY2NTg4NzU4NC
-wtMTM5NTc5ODI3OCwtMTI1NjMxMTAzMywtMTM3OTE3NDA0NSwt
-MjA5OTcwMzEzNyw1NjM5NTUzODAsNjU0MjU2MzQ2LC0xNTYxNj
-U4NjUyLC02NTY1NjI3Nyw4MDEyMjU1NzUsMjM1Mjk0ODAwLC0x
-NjgyODQzMjczXX0=
+eyJoaXN0b3J5IjpbLTk2NzMzNjQ1NiwtMTgwNTQ5MjE1MiwxNT
+gxODcyMzkxLC05NjQ3OTUxMDMsNTU5NzQyMzM5LC03MjYxNzA5
+NDIsLTE2MDQyMTg4NzksMTYyMzMxMzQxNiwtNjk3ODM3MTUyLC
+0xNjY1ODg3NTg0LC0xMzk1Nzk4Mjc4LC0xMjU2MzExMDMzLC0x
+Mzc5MTc0MDQ1LC0yMDk5NzAzMTM3LDU2Mzk1NTM4MCw2NTQyNT
+YzNDYsLTE1NjE2NTg2NTIsLTY1NjU2Mjc3LDgwMTIyNTU3NSwy
+MzUyOTQ4MDBdfQ==
 -->
