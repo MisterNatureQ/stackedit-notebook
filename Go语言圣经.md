@@ -5951,10 +5951,10 @@ func (s *IntSet) Add(x int) {
 		s.words = append(s.words, 0) // 补齐空间
 	}
 	//数组 
-	s.words[word] |= 1 << bit // 存入  商  和  余数
+	s.words[word] |= 1 << bit // 存入  商(x/64)  和  余数(1 << bit) 
 }
 
-// UnionWith sets s to the union of s and t.  完成64个元素的或计算
+// UnionWith sets s to the union of s and t.  一次完成64个元素的或计算
 func (s *IntSet) UnionWith(t *IntSet) {
 	for i, tword := range t.words {
 		if i < len(s.words) {
@@ -8834,7 +8834,7 @@ sizes channel携带了每一个文件的大小到main goroutine，在main gorout
 
 在5.6节中，我们做了一个简单的记录了需要
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTc0MzM3NzQzNSwtOTk0MjIzODYyLC0xMj
+eyJoaXN0b3J5IjpbMTg5NDA0NjYzNywtOTk0MjIzODYyLC0xMj
 AyMDczMDkzLDE1OTQ4NjgwNjcsNDY4NDkwNzAzLDE5MzgwODM0
 MzcsLTE1OTc2NzIzNzYsLTE3OTMxMzUzMDYsMTEyNTI5Mzc4MC
 w1OTgwMDM5MzMsNDU0NjgxOTgwLDE0MTk1NjI2MjMsLTU2NTM2
