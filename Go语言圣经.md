@@ -5760,7 +5760,7 @@ type ColoredPoint struct {
 p := ColoredPoint{&Point{1, 1}, red}
 q := ColoredPoint{&Point{5, 4}, blue}
 fmt.Println(p.Distance(*q.Point)) // "5"
-q.Point = p.Point                 // p and q now share the same Point
+q.Point = p.Point                 // p and q now share the same Point  这里体现了?? **动态地改变对象之间的关系**
 p.ScaleBy(2)
 fmt.Println(*p.Point, *q.Point) // "{2 2} {2 2}"
 ```
@@ -8851,13 +8851,13 @@ https://golang.org/help/
 https://golang.org/doc/
 https://golang.org/blog/
 ...
-2015/07/15 18:22:lookup blog.golang.org: no suc1
+2015/07/15 18:22:lookup blog.gola
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTYyMzMxMzQxNiwtNjk3ODM3MTUyLC0xNj
-Y1ODg3NTg0LC0xMzk1Nzk4Mjc4LC0xMjU2MzExMDMzLC0xMzc5
-MTc0MDQ1LC0yMDk5NzAzMTM3LDU2Mzk1NTM4MCw2NTQyNTYzND
-YsLTE1NjE2NTg2NTIsLTY1NjU2Mjc3LDgwMTIyNTU3NSwyMzUy
-OTQ4MDAsLTE2ODI4NDMyNzMsLTE3NDU5OTgzODYsODg4NjYwNz
-c5LDg1MDY4MTU3NSw0NjIzOTExNzYsMjU4MTEyNjQ2LDEwNTg0
-MjQ2NTldfQ==
+eyJoaXN0b3J5IjpbLTE2MDQyMTg4NzksMTYyMzMxMzQxNiwtNj
+k3ODM3MTUyLC0xNjY1ODg3NTg0LC0xMzk1Nzk4Mjc4LC0xMjU2
+MzExMDMzLC0xMzc5MTc0MDQ1LC0yMDk5NzAzMTM3LDU2Mzk1NT
+M4MCw2NTQyNTYzNDYsLTE1NjE2NTg2NTIsLTY1NjU2Mjc3LDgw
+MTIyNTU3NSwyMzUyOTQ4MDAsLTE2ODI4NDMyNzMsLTE3NDU5OT
+gzODYsODg4NjYwNzc5LDg1MDY4MTU3NSw0NjIzOTExNzYsMjU4
+MTEyNjQ2XX0=
 -->
