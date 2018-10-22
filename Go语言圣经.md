@@ -5928,7 +5928,7 @@ type IntSet struct {
 
 // Has reports whether the set contains the non-negative value x.
 func (s *IntSet) Has(x int) bool {
-	word, bit := x/64, uint(x%64) // 除数 余数
+	word, bit := x/64, uint(x%64) // 商作为字的下标 余数
 	return word < len(s.words) && s.words[word]&(1<<bit) != 0
 }
  
@@ -8841,13 +8841,13 @@ func main() {
 	seen := make(map[string]bool)
 	for list := range worklist {
 		for _, link := range list {
-			if !seen[link] {
+			if !seen[link] 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNDcwMzAxMjMxLC0xODMzNDY1NDkwLC0xNz
-UzNTI1OTYwLC0xMDQ3NjM3NzkwLDcxNzI3NjMyNCwtODA0MzA3
-MTgyLC0xNzgwODY1ODgzLDQxNTg0MjQzNSwyMTA0NDE3MzczLC
-0yMDM0NDU2MjcyLC0xODA1NDkyMTUyLDE1ODE4NzIzOTEsLTk2
-NDc5NTEwMyw1NTk3NDIzMzksLTcyNjE3MDk0MiwtMTYwNDIxOD
-g3OSwxNjIzMzEzNDE2LC02OTc4MzcxNTIsLTE2NjU4ODc1ODQs
-LTEzOTU3OTgyNzhdfQ==
+eyJoaXN0b3J5IjpbLTEzNzI2NzI4MTMsNDcwMzAxMjMxLC0xOD
+MzNDY1NDkwLC0xNzUzNTI1OTYwLC0xMDQ3NjM3NzkwLDcxNzI3
+NjMyNCwtODA0MzA3MTgyLC0xNzgwODY1ODgzLDQxNTg0MjQzNS
+wyMTA0NDE3MzczLC0yMDM0NDU2MjcyLC0xODA1NDkyMTUyLDE1
+ODE4NzIzOTEsLTk2NDc5NTEwMyw1NTk3NDIzMzksLTcyNjE3MD
+k0MiwtMTYwNDIxODg3OSwxNjIzMzEzNDE2LC02OTc4MzcxNTIs
+LTE2NjU4ODc1ODRdfQ==
 -->
