@@ -5676,7 +5676,7 @@ fmt.Println(m.Get("item")) // "1"      (first value)
 fmt.Println(m["item"])     // "[1 2]"  (direct map access)
 
 m = nil
-fmt.Println(m.Get("item")) // ""
+fmt.Println(m.Get("item")) // ""   Value(nil).Get(“item”)
 m.Add("item", "3")         // panic: assignment to entry in nil map
 ```
 
@@ -8848,13 +8848,13 @@ https://golang.org/doc/
 https://golang.org/blog/
 ...
 2015/07/15 18:22:12 Get ...: dial tcp: lookup blog.golang.org: no such host
-2015/07/15 18:22:12 Get ...: dial tcp 23.2
+2015/07/15 18:22:12 G
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEyNTYzMTEwMzMsLTEzNzkxNzQwNDUsLT
-IwOTk3MDMxMzcsNTYzOTU1MzgwLDY1NDI1NjM0NiwtMTU2MTY1
-ODY1MiwtNjU2NTYyNzcsODAxMjI1NTc1LDIzNTI5NDgwMCwtMT
-Y4Mjg0MzI3MywtMTc0NTk5ODM4Niw4ODg2NjA3NzksODUwNjgx
-NTc1LDQ2MjM5MTE3NiwyNTgxMTI2NDYsMTA1ODQyNDY1OSwtMj
-AyODk5MTkzMywxNTExMjU2MTEsNTg5OTQ4MDA2LC0xMjQ2MTQz
-NjgwXX0=
+eyJoaXN0b3J5IjpbLTEzOTU3OTgyNzgsLTEyNTYzMTEwMzMsLT
+EzNzkxNzQwNDUsLTIwOTk3MDMxMzcsNTYzOTU1MzgwLDY1NDI1
+NjM0NiwtMTU2MTY1ODY1MiwtNjU2NTYyNzcsODAxMjI1NTc1LD
+IzNTI5NDgwMCwtMTY4Mjg0MzI3MywtMTc0NTk5ODM4Niw4ODg2
+NjA3NzksODUwNjgxNTc1LDQ2MjM5MTE3NiwyNTgxMTI2NDYsMT
+A1ODQyNDY1OSwtMjAyODk5MTkzMywxNTExMjU2MTEsNTg5OTQ4
+MDA2XX0=
 -->
