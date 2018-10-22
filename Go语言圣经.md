@@ -5869,7 +5869,7 @@ time.AfterFunc(10 * time.Second, r.Launch) // 省掉了上面那个例子里的�
 p := Point{1, 2}
 q := Point{4, 6}
 
-distance := Point.Distance   // method expression 来自 _[gopl.io/ch6/geometry](http://gopl.io/ch6/geometry)_ 前面的案例  返回一个函数“值”，这种函数会将其第一个参数用作接收器，所以可以用通常（译注：不写选择器）的方式来对其进行调用
+distance := Point.Distance   // method expression 来自 _[gopl.io/ch6/geometry](http://gopl.io/ch6/geometry)_ 前面的案例  这个函数表达式返回一个函数“值”，这种函数会将其第一个参数用作接收器，所以可以用通常（译注：不写选择器）的方式来对其进行调用
 fmt.Println(distance(p, q))  // "5"
 fmt.Printf("%T\n", distance) // "func(Point, Point) float64"
 
@@ -8845,15 +8845,13 @@ func main() {
 		}
 	}
 }
-```
-
-注意这里的c
+`
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTg2NjUwOTYwMSwtMTc4MDg2NTg4Myw0MT
-U4NDI0MzUsMjEwNDQxNzM3MywtMjAzNDQ1NjI3MiwtMTgwNTQ5
-MjE1MiwxNTgxODcyMzkxLC05NjQ3OTUxMDMsNTU5NzQyMzM5LC
-03MjYxNzA5NDIsLTE2MDQyMTg4NzksMTYyMzMxMzQxNiwtNjk3
-ODM3MTUyLC0xNjY1ODg3NTg0LC0xMzk1Nzk4Mjc4LC0xMjU2Mz
-ExMDMzLC0xMzc5MTc0MDQ1LC0yMDk5NzAzMTM3LDU2Mzk1NTM4
-MCw2NTQyNTYzNDZdfQ==
+eyJoaXN0b3J5IjpbOTg2NzI2NDk5LC0xNzgwODY1ODgzLDQxNT
+g0MjQzNSwyMTA0NDE3MzczLC0yMDM0NDU2MjcyLC0xODA1NDky
+MTUyLDE1ODE4NzIzOTEsLTk2NDc5NTEwMyw1NTk3NDIzMzksLT
+cyNjE3MDk0MiwtMTYwNDIxODg3OSwxNjIzMzEzNDE2LC02OTc4
+MzcxNTIsLTE2NjU4ODc1ODQsLTEzOTU3OTgyNzgsLTEyNTYzMT
+EwMzMsLTEzNzkxNzQwNDUsLTIwOTk3MDMxMzcsNTYzOTU1Mzgw
+LDY1NDI1NjM0Nl19
 -->
