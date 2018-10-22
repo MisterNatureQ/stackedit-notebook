@@ -5884,7 +5884,7 @@ fmt.Printf("%T\n", scale) // "func(*Point, float64)"
 // **看起来本书中函数和方法的区别是指有没有接收器，而不像其他语言那样是指有没有返回值。**
 ```
 
-当你根据一个变量来决定调用同一个类型的哪个函数时，方法表达式就显得很有用了。你可以根据选择来调用接收器各不相同的方法。下面的例子，变量op代表Point类型的addition或者subtraction方法，Path.TranslateBy方法会为其Path数组中的每一个Point来调用对应的方法：
+**当你根据一个变量来决定调用同一个类型的哪个函数时，方法表达式就显得很有用了。你可以根据选择来调用接收器各不相同的方法**。下面的例子，变量op代表Point类型的addition或者subtraction方法，Path.TranslateBy方法会为其Path数组中的每一个Point来调用对应的方法：
 
 ```go
 type Point struct{ X, Y float64 }
@@ -8845,9 +8845,8 @@ func main() {
 		}
 	}
 }
-`
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE5MzM0NTA3ODEsLTE3ODA4NjU4ODMsND
+eyJoaXN0b3J5IjpbLTE3MzkzNjc0ODUsLTE3ODA4NjU4ODMsND
 E1ODQyNDM1LDIxMDQ0MTczNzMsLTIwMzQ0NTYyNzIsLTE4MDU0
 OTIxNTIsMTU4MTg3MjM5MSwtOTY0Nzk1MTAzLDU1OTc0MjMzOS
 wtNzI2MTcwOTQyLC0xNjA0MjE4ODc5LDE2MjMzMTM0MTYsLTY5
