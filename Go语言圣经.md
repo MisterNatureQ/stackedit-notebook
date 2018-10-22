@@ -5919,7 +5919,10 @@ Go语言里的**集合一般会用map[T]bool这种形式来表示，T代表元�
 //**bit数组** ??
 //数据流分析 集合 每一个字都有64个二进制位 
 // 2的64次方：18446744073709551616
- 
+ #define UINT_LEAST8_MAX ((uint_least8_t) 255)
+#define UINT_LEAST16_MAX ((uint_least16_t) 65535)
+#define UINT_LEAST32_MAX ((uint_least32_t) 4294967295)
+#define UINT_LEAST64_MAX ((uint_least64_t) 18446744073709551615)
 // 不是 10 进制转 64 进制 ？？ 2的6 次方 64 
 // Base64常用于在通常处理文本数据的场合，表示、传输、存储一些二进制数据。包括MIME的email，email via MIME,在XML中存储复杂数据.
 
@@ -8829,23 +8832,9 @@ sizes channel携带了每一个文件的大小到main goroutine，在main gorout
 **练习 8.5：** 使用一个已有的CPU绑定的顺序程序，比如在3.3节中我们写的Mandelbrot程序或者3.2节中的3-D surface计算程序，并将他们的主循环改为并发形式，使用channel来进行通信。在多核计算机上这个程序得到了多少速度上的改进？使用多少个goroutine是最合适的呢？
 ## 8.6. 示例: 并发的Web爬虫
 
-在5.6节中，我们做了一个简单的web爬虫，用bfs(广度优先)算法来抓取整个网站。在本节中，我们会让这个爬虫并行化，这样每一个彼此独立的抓取命令可以并行进行IO，最大化利用网络资源。crawl函数和gopl.io/ch5/findlinks3中的是一样的。
-
-<u><i>gopl.io/ch8/crawl1</i></u>
-```go
-func crawl(url string) []string {
-	fmt.Println(url)
-	list, err := links.Extract(url)
-	if err != nil {
-		log.Print(err)
-	}
-	return list
-}
-```
-
-主函数和5.6节中的breadthFirst(广度优先)类似。像之前一样，一个worklist是一个记录了需要
+在5.6节中，我们做了一个简单的记录了需要
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEwMTMxNTEzNDcsLTk5NDIyMzg2MiwtMT
+eyJoaXN0b3J5IjpbLTE2NDU0NzIyOTMsLTk5NDIyMzg2MiwtMT
 IwMjA3MzA5MywxNTk0ODY4MDY3LDQ2ODQ5MDcwMywxOTM4MDgz
 NDM3LC0xNTk3NjcyMzc2LC0xNzkzMTM1MzA2LDExMjUyOTM3OD
 AsNTk4MDAzOTMzLDQ1NDY4MTk4MCwxNDE5NTYyNjIzLC01NjUz
