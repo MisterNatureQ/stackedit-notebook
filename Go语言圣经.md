@@ -5944,7 +5944,7 @@ func (s *IntSet) Add(x int) {
 	s.words[word] |= 1 << bit
 }
 
-// UnionWith sets s to the union of s and t.  并集
+// UnionWith sets s to the union of s and t.  完成64个元素的或计算
 func (s *IntSet) UnionWith(t *IntSet) {
 	for i, tword := range t.words {
 		if i < len(s.words) {
@@ -8840,13 +8840,13 @@ func main() {
 	// Start with the command-line arguments.
 	go func() { worklist <- os.Args[1:] }()
 
-	// Crawl the web con
+	// Crawl th
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTQxOTU2MjYyMywtNTY1MzYwNjkwLDc0OD
-AxNzg1MiwxODMzNzExMDgxLC0xMzcyNjcyODEzLDQ3MDMwMTIz
-MSwtMTgzMzQ2NTQ5MCwtMTc1MzUyNTk2MCwtMTA0NzYzNzc5MC
-w3MTcyNzYzMjQsLTgwNDMwNzE4MiwtMTc4MDg2NTg4Myw0MTU4
-NDI0MzUsMjEwNDQxNzM3MywtMjAzNDQ1NjI3MiwtMTgwNTQ5Mj
-E1MiwxNTgxODcyMzkxLC05NjQ3OTUxMDMsNTU5NzQyMzM5LC03
-MjYxNzA5NDJdfQ==
+eyJoaXN0b3J5IjpbNDk2NzY2Njc3LDE0MTk1NjI2MjMsLTU2NT
+M2MDY5MCw3NDgwMTc4NTIsMTgzMzcxMTA4MSwtMTM3MjY3Mjgx
+Myw0NzAzMDEyMzEsLTE4MzM0NjU0OTAsLTE3NTM1MjU5NjAsLT
+EwNDc2Mzc3OTAsNzE3Mjc2MzI0LC04MDQzMDcxODIsLTE3ODA4
+NjU4ODMsNDE1ODQyNDM1LDIxMDQ0MTczNzMsLTIwMzQ0NTYyNz
+IsLTE4MDU0OTIxNTIsMTU4MTg3MjM5MSwtOTY0Nzk1MTAzLDU1
+OTc0MjMzOV19
 -->
