@@ -5917,7 +5917,7 @@ Go语言里的**集合一般会用map[T]bool这种形式来表示，T代表元�
 
 <u><i>gopl.io/ch6/intset</i></u>
 
-集合
+数据流分析 集合
 
 ```go
 // An IntSet is a set of small non-negative integers.
@@ -8840,14 +8840,13 @@ func main() {
 	// Crawl the web concurrently.
 	seen := make(map[string]bool)
 	for list := range worklist {
-		for _, link := range list {
-	
+		for _, link := range li
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTgzMzcxMTA4MSwtMTM3MjY3MjgxMyw0Nz
-AzMDEyMzEsLTE4MzM0NjU0OTAsLTE3NTM1MjU5NjAsLTEwNDc2
-Mzc3OTAsNzE3Mjc2MzI0LC04MDQzMDcxODIsLTE3ODA4NjU4OD
-MsNDE1ODQyNDM1LDIxMDQ0MTczNzMsLTIwMzQ0NTYyNzIsLTE4
-MDU0OTIxNTIsMTU4MTg3MjM5MSwtOTY0Nzk1MTAzLDU1OTc0Mj
-MzOSwtNzI2MTcwOTQyLC0xNjA0MjE4ODc5LDE2MjMzMTM0MTYs
-LTY5NzgzNzE1Ml19
+eyJoaXN0b3J5IjpbNzQ4MDE3ODUyLDE4MzM3MTEwODEsLTEzNz
+I2NzI4MTMsNDcwMzAxMjMxLC0xODMzNDY1NDkwLC0xNzUzNTI1
+OTYwLC0xMDQ3NjM3NzkwLDcxNzI3NjMyNCwtODA0MzA3MTgyLC
+0xNzgwODY1ODgzLDQxNTg0MjQzNSwyMTA0NDE3MzczLC0yMDM0
+NDU2MjcyLC0xODA1NDkyMTUyLDE1ODE4NzIzOTEsLTk2NDc5NT
+EwMyw1NTk3NDIzMzksLTcyNjE3MDk0MiwtMTYwNDIxODg3OSwx
+NjIzMzEzNDE2XX0=
 -->
