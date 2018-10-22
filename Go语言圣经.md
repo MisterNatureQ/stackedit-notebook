@@ -5820,7 +5820,7 @@ func Lookup(key string) string {
 我们给新的变量起了一个更具表达性的名字：cache。因为sync.Mutex字段也被嵌入到了这个struct里，其Lock和Unlock方法也就都被引入到了这个匿名结构中了，这让我们能够以一个简单明了的语法来对其进行加锁解锁操作。
 ## 6.4. 方法值和方法表达式
 
-我们经常选择一个方法，并且在同一个表达式里执行，比如常见的p.Distance()形式，实际上将其分成两步来执行也是可能的。p.Distance叫作“选择器”，选择器会返回一个方法“值”->一个将方法（Point.Distance）绑定到特定接收器变量的函数。这个函数可以不通过指定其接收器即可被调用；即调用时不需要指定接收器（译注：因为已经在前文中指定过了），只要传入函数的参数即可：
+我们经常选择一个方法，并且在同一个表达式里执行，比如常见的p.Distance()形式，实际上将其分成两步来执行也是可能的。p.Distance叫作“选择器”，**选择器会返回一个方法“值”->一个将方法（Point.Distance）绑定到特定接收器变量的函数。这个函数可以不通过指定其接收器即可被调用；即调用时不需要指定接收器（译注：因为已经在前文中指定过了），只要传入函数的参数即可：
 
 ```go
 p := Point{1, 2}
@@ -8852,11 +8852,11 @@ http://gopl.io/
 https://golang.org/help/
 https://golang.or
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTU4MTg3MjM5MSwtOTY0Nzk1MTAzLDU1OT
-c0MjMzOSwtNzI2MTcwOTQyLC0xNjA0MjE4ODc5LDE2MjMzMTM0
-MTYsLTY5NzgzNzE1MiwtMTY2NTg4NzU4NCwtMTM5NTc5ODI3OC
-wtMTI1NjMxMTAzMywtMTM3OTE3NDA0NSwtMjA5OTcwMzEzNyw1
-NjM5NTUzODAsNjU0MjU2MzQ2LC0xNTYxNjU4NjUyLC02NTY1Nj
-I3Nyw4MDEyMjU1NzUsMjM1Mjk0ODAwLC0xNjgyODQzMjczLC0x
-NzQ1OTk4Mzg2XX0=
+eyJoaXN0b3J5IjpbLTE4MzE3MjM1MTMsMTU4MTg3MjM5MSwtOT
+Y0Nzk1MTAzLDU1OTc0MjMzOSwtNzI2MTcwOTQyLC0xNjA0MjE4
+ODc5LDE2MjMzMTM0MTYsLTY5NzgzNzE1MiwtMTY2NTg4NzU4NC
+wtMTM5NTc5ODI3OCwtMTI1NjMxMTAzMywtMTM3OTE3NDA0NSwt
+MjA5OTcwMzEzNyw1NjM5NTUzODAsNjU0MjU2MzQ2LC0xNTYxNj
+U4NjUyLC02NTY1NjI3Nyw4MDEyMjU1NzUsMjM1Mjk0ODAwLC0x
+NjgyODQzMjczXX0=
 -->
