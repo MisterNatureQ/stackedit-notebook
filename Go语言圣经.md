@@ -5941,7 +5941,7 @@ func (s *IntSet) Add(x int) {
 	s.words[word] |= 1 << bit
 }
 
-// UnionWith sets s to the union of s and t.  bingji
+// UnionWith sets s to the union of s and t.  并集
 func (s *IntSet) UnionWith(t *IntSet) {
 	for i, tword := range t.words {
 		if i < len(s.words) {
@@ -8843,11 +8843,11 @@ func main() {
 		for _, link := range list {
 			if !seen[link] {
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTU5NTg5ODA4MCwtMTgzMzQ2NTQ5MCwtMT
-c1MzUyNTk2MCwtMTA0NzYzNzc5MCw3MTcyNzYzMjQsLTgwNDMw
-NzE4MiwtMTc4MDg2NTg4Myw0MTU4NDI0MzUsMjEwNDQxNzM3My
-wtMjAzNDQ1NjI3MiwtMTgwNTQ5MjE1MiwxNTgxODcyMzkxLC05
-NjQ3OTUxMDMsNTU5NzQyMzM5LC03MjYxNzA5NDIsLTE2MDQyMT
-g4NzksMTYyMzMxMzQxNiwtNjk3ODM3MTUyLC0xNjY1ODg3NTg0
-LC0xMzk1Nzk4Mjc4XX0=
+eyJoaXN0b3J5IjpbNDcwMzAxMjMxLC0xODMzNDY1NDkwLC0xNz
+UzNTI1OTYwLC0xMDQ3NjM3NzkwLDcxNzI3NjMyNCwtODA0MzA3
+MTgyLC0xNzgwODY1ODgzLDQxNTg0MjQzNSwyMTA0NDE3MzczLC
+0yMDM0NDU2MjcyLC0xODA1NDkyMTUyLDE1ODE4NzIzOTEsLTk2
+NDc5NTEwMyw1NTk3NDIzMzksLTcyNjE3MDk0MiwtMTYwNDIxOD
+g3OSwxNjIzMzEzNDE2LC02OTc4MzcxNTIsLTE2NjU4ODc1ODQs
+LTEzOTU3OTgyNzhdfQ==
 -->
