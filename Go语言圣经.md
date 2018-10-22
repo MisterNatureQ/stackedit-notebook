@@ -5951,7 +5951,7 @@ func (s *IntSet) Add(x int) {
 		s.words = append(s.words, 0) // 补齐空间
 	}
 	//数组 
-	s.words[word] |= 1 << bit // 存入商和余数
+	s.words[word] |= 1 << bit // 存入  商  和  余数
 }
 
 // UnionWith sets s to the union of s and t.  完成64个元素的或计算
@@ -8834,11 +8834,11 @@ sizes channel携带了每一个文件的大小到main goroutine，在main gorout
 
 在5.6节中，我们做了一个简单的记录了需要
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE2NDU0NzIyOTMsLTk5NDIyMzg2MiwtMT
-IwMjA3MzA5MywxNTk0ODY4MDY3LDQ2ODQ5MDcwMywxOTM4MDgz
-NDM3LC0xNTk3NjcyMzc2LC0xNzkzMTM1MzA2LDExMjUyOTM3OD
-AsNTk4MDAzOTMzLDQ1NDY4MTk4MCwxNDE5NTYyNjIzLC01NjUz
-NjA2OTAsNzQ4MDE3ODUyLDE4MzM3MTEwODEsLTEzNzI2NzI4MT
-MsNDcwMzAxMjMxLC0xODMzNDY1NDkwLC0xNzUzNTI1OTYwLC0x
-MDQ3NjM3NzkwXX0=
+eyJoaXN0b3J5IjpbMTc0MzM3NzQzNSwtOTk0MjIzODYyLC0xMj
+AyMDczMDkzLDE1OTQ4NjgwNjcsNDY4NDkwNzAzLDE5MzgwODM0
+MzcsLTE1OTc2NzIzNzYsLTE3OTMxMzUzMDYsMTEyNTI5Mzc4MC
+w1OTgwMDM5MzMsNDU0NjgxOTgwLDE0MTk1NjI2MjMsLTU2NTM2
+MDY5MCw3NDgwMTc4NTIsMTgzMzcxMTA4MSwtMTM3MjY3MjgxMy
+w0NzAzMDEyMzEsLTE4MzM0NjU0OTAsLTE3NTM1MjU5NjAsLTEw
+NDc2Mzc3OTBdfQ==
 -->
