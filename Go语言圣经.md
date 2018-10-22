@@ -5911,7 +5911,7 @@ func (path Path) TranslateBy(offset Point, add bool) {
 
 ## 6.5. 示例: Bit数组
 
-Go语言里的**集合一般会用map[T]bool这种形式来表示，T代表元素类型。集合用map类型来表示虽然非常灵活，但我们可以以一种更好的形式来表示它**。例如在数据流分析领域，集合元素通常是一个非负整数，集合会包含很多元素，并且集合会经常进行并集、交集操作，这种情况下，bit数组会比map表现更加理想。（译注：这里再补充一个例子，比如我们执行一个http下载任务，把文件按照16kb一块划分为很多块，需要有一个全局变量来标识哪些块下载完成了，这种时候也需要用到bit数组。）
+Go语言里的**集合一般会用map[T]bool这种形式来表示，T代表元素类型。集合用map类型来表示虽然非常灵活，但我们可以以一种更好的形式来表示它**。例如在数据流分析领域，集合元素通常是一个非负整数，集合会包含很多元素，并且集合会经常进行并集、交集操作，这种情况下，**bit数组会比map表现更加理想**。（译注：这里再补充一个例子，比如我们执行一个http下载任务，把文件按照16kb一块划分为很多块，需要有一个全局变量来标识哪些块下载完成了，这种时候也需要用到bit数组。）
 
 一个bit数组通常会用一个无符号数或者称之为“字”的slice来表示，每一个元素的每一位都表示集合里的一个值。当集合的第i位被设置时，我们才说这个集合包含元素i。下面的这个程序展示了一个简单的bit数组类型，并且实现了三个函数来对这个bit数组来进行操作：
 
@@ -8840,13 +8840,13 @@ func main() {
 		for _, link := range list {
 			if !seen[link] {
 				seen[link] = true
-				go func(
+				go f
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNzE3Mjc2MzI0LC04MDQzMDcxODIsLTE3OD
-A4NjU4ODMsNDE1ODQyNDM1LDIxMDQ0MTczNzMsLTIwMzQ0NTYy
-NzIsLTE4MDU0OTIxNTIsMTU4MTg3MjM5MSwtOTY0Nzk1MTAzLD
-U1OTc0MjMzOSwtNzI2MTcwOTQyLC0xNjA0MjE4ODc5LDE2MjMz
-MTM0MTYsLTY5NzgzNzE1MiwtMTY2NTg4NzU4NCwtMTM5NTc5OD
-I3OCwtMTI1NjMxMTAzMywtMTM3OTE3NDA0NSwtMjA5OTcwMzEz
-Nyw1NjM5NTUzODBdfQ==
+eyJoaXN0b3J5IjpbLTEwNDc2Mzc3OTAsNzE3Mjc2MzI0LC04MD
+QzMDcxODIsLTE3ODA4NjU4ODMsNDE1ODQyNDM1LDIxMDQ0MTcz
+NzMsLTIwMzQ0NTYyNzIsLTE4MDU0OTIxNTIsMTU4MTg3MjM5MS
+wtOTY0Nzk1MTAzLDU1OTc0MjMzOSwtNzI2MTcwOTQyLC0xNjA0
+MjE4ODc5LDE2MjMzMTM0MTYsLTY5NzgzNzE1MiwtMTY2NTg4Nz
+U4NCwtMTM5NTc5ODI3OCwtMTI1NjMxMTAzMywtMTM3OTE3NDA0
+NSwtMjA5OTcwMzEzN119
 -->
