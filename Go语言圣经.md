@@ -5737,11 +5737,11 @@ p.Distance(q) // compile error: cannot use q (ColoredPoint) as Point
 
 ```go
 func (p ColoredPoint) Distance(q Point) float64 {
-	return p.Point.Distance(q) //它的接收器值是p.Point，而不是p，当然了，在Point类的方法里，你是访问不到ColoredPoint的任何字段的
+	return p.Point.Distance(q) //当Point.Distance被第一个包装方法调用时，它的接收器值是p.Point，而不是p，当然了，在Point类的方法里，你是访问不到ColoredPoint的任何字段的。
 }
 
 func (p *ColoredPoint) ScaleBy(factor float64) {
-	p.Point.ScaleBy(factor)// 它的接收器值是p.Point，而不是p，当然了，在Point类的方法里，你是访问不到ColoredPoint的任何字段的
+	p.Point.ScaleBy(factor)// 
 }
 ```
 
@@ -8851,11 +8851,11 @@ https://golang.org/blog/
 ...
 2015/07/15 18:22:lookup blog.golang.org: no suc1
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTMzMjk5NDUyMiwtMTM5NTc5ODI3OCwtMT
-I1NjMxMTAzMywtMTM3OTE3NDA0NSwtMjA5OTcwMzEzNyw1NjM5
-NTUzODAsNjU0MjU2MzQ2LC0xNTYxNjU4NjUyLC02NTY1NjI3Ny
-w4MDEyMjU1NzUsMjM1Mjk0ODAwLC0xNjgyODQzMjczLC0xNzQ1
-OTk4Mzg2LDg4ODY2MDc3OSw4NTA2ODE1NzUsNDYyMzkxMTc2LD
-I1ODExMjY0NiwxMDU4NDI0NjU5LC0yMDI4OTkxOTMzLDE1MTEy
-NTYxMV19
+eyJoaXN0b3J5IjpbLTE2NjU4ODc1ODQsLTEzOTU3OTgyNzgsLT
+EyNTYzMTEwMzMsLTEzNzkxNzQwNDUsLTIwOTk3MDMxMzcsNTYz
+OTU1MzgwLDY1NDI1NjM0NiwtMTU2MTY1ODY1MiwtNjU2NTYyNz
+csODAxMjI1NTc1LDIzNTI5NDgwMCwtMTY4Mjg0MzI3MywtMTc0
+NTk5ODM4Niw4ODg2NjA3NzksODUwNjgxNTc1LDQ2MjM5MTE3Ni
+wyNTgxMTI2NDYsMTA1ODQyNDY1OSwtMjAyODk5MTkzMywxNTEx
+MjU2MTFdfQ==
 -->
