@@ -5917,7 +5917,7 @@ Go语言里的**集合一般会用map[T]bool这种形式来表示，T代表元�
 
 <u><i>gopl.io/ch6/intset</i></u>
 
-数据流分析 集合
+数据流分析 集合 每一个字都有64个二进制位
 
 ```go
 // An IntSet is a set of small non-negative integers.
@@ -8840,13 +8840,13 @@ func main() {
 	// Crawl the web concurrently.
 	seen := make(map[string]bool)
 	for list := range worklist {
-		for _, link := range li
+		for _, li
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNzQ4MDE3ODUyLDE4MzM3MTEwODEsLTEzNz
-I2NzI4MTMsNDcwMzAxMjMxLC0xODMzNDY1NDkwLC0xNzUzNTI1
-OTYwLC0xMDQ3NjM3NzkwLDcxNzI3NjMyNCwtODA0MzA3MTgyLC
-0xNzgwODY1ODgzLDQxNTg0MjQzNSwyMTA0NDE3MzczLC0yMDM0
-NDU2MjcyLC0xODA1NDkyMTUyLDE1ODE4NzIzOTEsLTk2NDc5NT
-EwMyw1NTk3NDIzMzksLTcyNjE3MDk0MiwtMTYwNDIxODg3OSwx
-NjIzMzEzNDE2XX0=
+eyJoaXN0b3J5IjpbLTU2NTM2MDY5MCw3NDgwMTc4NTIsMTgzMz
+cxMTA4MSwtMTM3MjY3MjgxMyw0NzAzMDEyMzEsLTE4MzM0NjU0
+OTAsLTE3NTM1MjU5NjAsLTEwNDc2Mzc3OTAsNzE3Mjc2MzI0LC
+04MDQzMDcxODIsLTE3ODA4NjU4ODMsNDE1ODQyNDM1LDIxMDQ0
+MTczNzMsLTIwMzQ0NTYyNzIsLTE4MDU0OTIxNTIsMTU4MTg3Mj
+M5MSwtOTY0Nzk1MTAzLDU1OTc0MjMzOSwtNzI2MTcwOTQyLC0x
+NjA0MjE4ODc5XX0=
 -->
