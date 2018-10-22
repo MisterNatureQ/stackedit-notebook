@@ -6008,7 +6008,8 @@ fmt.Println(x.String()) // "{1 9 42 144}"
 fmt.Println(x.Has(9), x.Has(123)) // "true false"
 ```
 
-这里要注意：我们声明的String和Has两个方法都是以指针类型`*IntSet`来作为接收器的，但实际上对于这两个类型来说，把接收器声明为指针类型也没什么必要。不过另外两个函数就不是这样了，因为另外两个函数操作的是s.words对象，如果你不把接收器声明为指针对象，那么实际操作的是拷贝对象，而不是原来的那个对象。因此，因为我们的String方法定义在IntSet指针上，所以当我们的变量是IntSet类型而不是IntSet指针时，可能会有下面这样让人意外的情况：
+这里要注意：我们声明的String和Has两个方法都是以指针类型`*IntSet`来作为接收器的，但实际上对于这两个类型来说，把接收器声明为指针类型也没什么必要。不过另外两个函数就不是这样了，因为另外两个函数操作的是s.words对象，**如果你不把接收器声明为指针对象，那么实际操作的是拷贝对象，而不是原来的那个对象。因此，因为我们的String方法定义在IntSet指针上，所以当我们的变量是IntSet类型而不是IntSet指针时，可能会有下面这样让人意外的情况：**
+
 
 ```go
 fmt.Println(&x)         // "{1 9 42 144}"
@@ -8840,13 +8841,13 @@ func crawl(url string) []string {
 }
 ```
 
-主函数和5.6节中的breadthFirst(广度优先)类似。像之前一样，一个worklist是一个记录了需要处理的元素的队列，每一个元素都是一个需要抓取的URL列表，不过这一次我们用channel代替sl
+主函数和5.6节中的breadthFirst(广度优先)类似。像之前一样，一个worklist是一个记录了需要处理的元素的队列，每一个元素都是一个需要抓取的URL列表，不过这一次我们用channe
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEyMDIwNzMwOTMsMTU5NDg2ODA2Nyw0Nj
-g0OTA3MDMsMTkzODA4MzQzNywtMTU5NzY3MjM3NiwtMTc5MzEz
-NTMwNiwxMTI1MjkzNzgwLDU5ODAwMzkzMyw0NTQ2ODE5ODAsMT
-QxOTU2MjYyMywtNTY1MzYwNjkwLDc0ODAxNzg1MiwxODMzNzEx
-MDgxLC0xMzcyNjcyODEzLDQ3MDMwMTIzMSwtMTgzMzQ2NTQ5MC
-wtMTc1MzUyNTk2MCwtMTA0NzYzNzc5MCw3MTcyNzYzMjQsLTgw
-NDMwNzE4Ml19
+eyJoaXN0b3J5IjpbLTk5NDIyMzg2MiwtMTIwMjA3MzA5MywxNT
+k0ODY4MDY3LDQ2ODQ5MDcwMywxOTM4MDgzNDM3LC0xNTk3Njcy
+Mzc2LC0xNzkzMTM1MzA2LDExMjUyOTM3ODAsNTk4MDAzOTMzLD
+Q1NDY4MTk4MCwxNDE5NTYyNjIzLC01NjUzNjA2OTAsNzQ4MDE3
+ODUyLDE4MzM3MTEwODEsLTEzNzI2NzI4MTMsNDcwMzAxMjMxLC
+0xODMzNDY1NDkwLC0xNzUzNTI1OTYwLC0xMDQ3NjM3NzkwLDcx
+NzI3NjMyNF19
 -->
