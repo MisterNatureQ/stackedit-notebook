@@ -5918,7 +5918,7 @@ Go语言里的**集合一般会用map[T]bool这种形式来表示，T代表元�
 <u><i>gopl.io/ch6/intset</i></u>
 //**bit数组** ??
 //数据流分析 集合 每一个字都有64个二进制位  
-// 10 进制转 64 进制 ？？
+// 不是 10 进制转 64 进制 ？？
 // Base64常用于在通常处理文本数据的场合，表示、传输、存储一些二进制数据。包括MIME的email，email via MIME,在XML中存储复杂数据.
 
 ```go
@@ -8839,13 +8839,13 @@ func crawl(url string) []string {
 }
 ```
 
-主函数和5.6节中的breadthFirst(广度优先)类似。像之前一样，一个worklist是一个记录了需要处理的元素的队列，每一个元素都是一个需要抓取的URL列表，不过这一次我们用channel代替slice来做这个队列。每一个对crawl的调用都会
+主函数和5.6节中的breadthFirst(广度优先)类似。像之前一样，一个worklist是一个记录了需要处理的元素的队列，每一个元素都是一个需要抓取的URL列表，不过这一次我们用channel代替slice来做这个队列。每一个对crawl
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTkzODA4MzQzNywtMTU5NzY3MjM3NiwtMT
-c5MzEzNTMwNiwxMTI1MjkzNzgwLDU5ODAwMzkzMyw0NTQ2ODE5
-ODAsMTQxOTU2MjYyMywtNTY1MzYwNjkwLDc0ODAxNzg1MiwxOD
-MzNzExMDgxLC0xMzcyNjcyODEzLDQ3MDMwMTIzMSwtMTgzMzQ2
-NTQ5MCwtMTc1MzUyNTk2MCwtMTA0NzYzNzc5MCw3MTcyNzYzMj
-QsLTgwNDMwNzE4MiwtMTc4MDg2NTg4Myw0MTU4NDI0MzUsMjEw
-NDQxNzM3M119
+eyJoaXN0b3J5IjpbMjYzOTk4ODY1LDE5MzgwODM0MzcsLTE1OT
+c2NzIzNzYsLTE3OTMxMzUzMDYsMTEyNTI5Mzc4MCw1OTgwMDM5
+MzMsNDU0NjgxOTgwLDE0MTk1NjI2MjMsLTU2NTM2MDY5MCw3ND
+gwMTc4NTIsMTgzMzcxMTA4MSwtMTM3MjY3MjgxMyw0NzAzMDEy
+MzEsLTE4MzM0NjU0OTAsLTE3NTM1MjU5NjAsLTEwNDc2Mzc3OT
+AsNzE3Mjc2MzI0LC04MDQzMDcxODIsLTE3ODA4NjU4ODMsNDE1
+ODQyNDM1XX0=
 -->
