@@ -5776,6 +5776,7 @@ type ColoredPoint struct {
 
 然后这种类型的值便会拥有Point和RGBA类型的所有方法，以及直接定义在ColoredPoint中的方法。当编译器解析一个选择器到方法时，比如p.ScaleBy，它会首先去找直接定义在这个类型里的ScaleBy方法，然后找被ColoredPoint的内嵌字段们引入的方法，然后去找Point和RGBA的内嵌字段引入的方法，然后一直递归向下找。** 多个匿名字段 ,如果选择器有二义性的话编译器会报错，比如你在同一级里有两个同名的方法**。
 
+
 **方法只能在命名类型（像Point）或者指向类型的指针上定义，但是多亏了内嵌，有些时候我们给匿名struct类型来定义方法也有了手段**。
 
 下面是一个小trick。这个例子展示了简单的cache，其使用两个包级别的变量来实现，一个mutex互斥量（§9.2）和它所操作的cache：
@@ -5798,11 +5799,12 @@ func Lookup(key string) string {
 
 ```go
 
-// 注重这种写法
-var cache = struct {
+// 注这种写法    **给匿名struct类型来定义方法**
+var cache = struct {   
 	sync.Mutex
 	mapping map[string]string
 }{
+	// 类似构造函数？
 	mapping: make(map[string]string),
 }
 
@@ -8849,15 +8851,13 @@ $ ./crawl1 http://gopl.io/
 http://gopl.io/
 https://golang.org/help/
 https://golang.org/doc/
-https://golang.org/blog/
-...
-2015/07/15 18:22:lookup 
+https://gola
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTcyNjE3MDk0MiwtMTYwNDIxODg3OSwxNj
-IzMzEzNDE2LC02OTc4MzcxNTIsLTE2NjU4ODc1ODQsLTEzOTU3
-OTgyNzgsLTEyNTYzMTEwMzMsLTEzNzkxNzQwNDUsLTIwOTk3MD
-MxMzcsNTYzOTU1MzgwLDY1NDI1NjM0NiwtMTU2MTY1ODY1Miwt
-NjU2NTYyNzcsODAxMjI1NTc1LDIzNTI5NDgwMCwtMTY4Mjg0Mz
-I3MywtMTc0NTk5ODM4Niw4ODg2NjA3NzksODUwNjgxNTc1LDQ2
-MjM5MTE3Nl19
+eyJoaXN0b3J5IjpbNTU5NzQyMzM5LC03MjYxNzA5NDIsLTE2MD
+QyMTg4NzksMTYyMzMxMzQxNiwtNjk3ODM3MTUyLC0xNjY1ODg3
+NTg0LC0xMzk1Nzk4Mjc4LC0xMjU2MzExMDMzLC0xMzc5MTc0MD
+Q1LC0yMDk5NzAzMTM3LDU2Mzk1NTM4MCw2NTQyNTYzNDYsLTE1
+NjE2NTg2NTIsLTY1NjU2Mjc3LDgwMTIyNTU3NSwyMzUyOTQ4MD
+AsLTE2ODI4NDMyNzMsLTE3NDU5OTgzODYsODg4NjYwNzc5LDg1
+MDY4MTU3NV19
 -->
