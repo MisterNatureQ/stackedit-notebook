@@ -5946,7 +5946,7 @@ func (s *IntSet) Has(x int) bool {
  
 // Add adds the non-negative value x to the set.
 func (s *IntSet) Add(x int) {
-	word, bit := x/64, uint(x%64)
+	word, bit := x/64, uint(x%64) // 商 余数
 	for word >= len(s.words) {
 		s.words = append(s.words, 0) // 补齐空间
 	}
@@ -8835,11 +8835,11 @@ sizes channel携带了每一个文件的大小到main goroutine，在main gorout
 
 在5.6节中，我们做了一个简单的记录了需要
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTUyNDI2Nzc2NSwtMTgwOTc4ODgwNyw0ND
-k3NjgwNjYsLTE3NzEyOTM4OCwxODk0MDQ2NjM3LC05OTQyMjM4
-NjIsLTEyMDIwNzMwOTMsMTU5NDg2ODA2Nyw0Njg0OTA3MDMsMT
-kzODA4MzQzNywtMTU5NzY3MjM3NiwtMTc5MzEzNTMwNiwxMTI1
-MjkzNzgwLDU5ODAwMzkzMyw0NTQ2ODE5ODAsMTQxOTU2MjYyMy
-wtNTY1MzYwNjkwLDc0ODAxNzg1MiwxODMzNzExMDgxLC0xMzcy
-NjcyODEzXX0=
+eyJoaXN0b3J5IjpbLTQ1NTUzNjA2LC0xODA5Nzg4ODA3LDQ0OT
+c2ODA2NiwtMTc3MTI5Mzg4LDE4OTQwNDY2MzcsLTk5NDIyMzg2
+MiwtMTIwMjA3MzA5MywxNTk0ODY4MDY3LDQ2ODQ5MDcwMywxOT
+M4MDgzNDM3LC0xNTk3NjcyMzc2LC0xNzkzMTM1MzA2LDExMjUy
+OTM3ODAsNTk4MDAzOTMzLDQ1NDY4MTk4MCwxNDE5NTYyNjIzLC
+01NjUzNjA2OTAsNzQ4MDE3ODUyLDE4MzM3MTEwODEsLTEzNzI2
+NzI4MTNdfQ==
 -->
