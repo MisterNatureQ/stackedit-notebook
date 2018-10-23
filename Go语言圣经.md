@@ -5930,7 +5930,7 @@ Go语言里的**集合一般会用map[T]bool这种形式来表示，T代表元�
 // An IntSet is a set of small non-negative integers.
 // Its zero value represents the empty set.
 type IntSet struct {
-	words []uint64 // slice  len 
+	words []uint64 // slice  len 应该会超过 64  slice   的元素 不会超过 2的64次方
 }
 
 // Has reports whether the set contains the non-negative value x.
@@ -8835,7 +8835,7 @@ sizes channel携带了每一个文件的大小到main goroutine，在main gorout
 
 在5.6节中，我们做了一个简单的记录了需要
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNzEwNDI2NDMxLC0xNzcxMjkzODgsMTg5ND
+eyJoaXN0b3J5IjpbNDQ5NzY4MDY2LC0xNzcxMjkzODgsMTg5ND
 A0NjYzNywtOTk0MjIzODYyLC0xMjAyMDczMDkzLDE1OTQ4Njgw
 NjcsNDY4NDkwNzAzLDE5MzgwODM0MzcsLTE1OTc2NzIzNzYsLT
 E3OTMxMzUzMDYsMTEyNTI5Mzc4MCw1OTgwMDM5MzMsNDU0Njgx
