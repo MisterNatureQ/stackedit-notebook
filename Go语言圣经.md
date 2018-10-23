@@ -5950,7 +5950,7 @@ func (s *IntSet) Add(x int) {
 	for word >= len(s.words) {
 		s.words = append(s.words, 0) // 补齐空间
 	}
-	//在确认的位置上(word 商) 按位或
+	//在确认的位置上(word 商) 按位或 在这里的特殊意义  0|n = n ; n|n = n 确保不会覆盖
 	s.words[word] |= 1 << bit // 存入  商(x/64)  和  余数(1 << bit) 
 }
 
@@ -5981,11 +5981,12 @@ func (s *IntSet) String() string {
 		}
 		// 这里是取出 商 和 余数
 		for j := 0; j < 64; j++ {
+			// word = 1<<余数   & 与运算两个数相同才 !=0
 			if word&(1<<uint(j)) != 0 {
 				if buf.Len() > len("{") {
 					buf.WriteByte(' ')
 				}
-				fmt.Fprintf(&buf, "%d", 64*i+j)
+				fmt.Fprintf(&buf, "%d", 64*i+j)// 取出余数 可能要循环64次
 			}
 		}
 	}
@@ -8830,16 +8831,13 @@ sizes channel携带了每一个文件的大小到main goroutine，在main gorout
 ![](https://github.com/gopl-zh/gopl-zh.github.com/blob/master/images/ch83-051.png?raw=true)
 **练习 8.4：** 修改reverb2服务器，在每一个连接中使用sync.WaitGroup来计数活跃的echo goroutine。当计数减为零时，关闭TCP连接的写入，像练习8.3中一样。验证一下你的修改版netcat3客户端会一直等待所有的并发“喊叫”完成，即使是在标准输入流已经关闭的情况下。
 
-**练习 8.5：** 使用一个已有的CPU绑定的顺序程序，比如在3.3节中我们写的Mandelbrot程序或者3.2节中的3-D surface计算程序，并将他们的主循环改为并发形式，使用channel来进行通信。在多核计算机上这个程序得到了多少速度上的改进？使用多少个goroutine是最合适的呢？
-## 8.6. 示例: 并发的Web爬虫
-
-在5.6节中，我们做了一个简单的记录了需要
+**练习 8.5：** 使用一个已有的CPU绑定的顺序程序，比如在3.3节中我们写的Mandelbrot程序或者3.2节中的3-D surface计算程序，并将他们的主循环改为并发形式，使用channel来进行通信。在多核计
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjQxMjUzNDcyLC00NTU1MzYwNiwtMTgwOT
-c4ODgwNyw0NDk3NjgwNjYsLTE3NzEyOTM4OCwxODk0MDQ2NjM3
-LC05OTQyMjM4NjIsLTEyMDIwNzMwOTMsMTU5NDg2ODA2Nyw0Nj
-g0OTA3MDMsMTkzODA4MzQzNywtMTU5NzY3MjM3NiwtMTc5MzEz
-NTMwNiwxMTI1MjkzNzgwLDU5ODAwMzkzMyw0NTQ2ODE5ODAsMT
-QxOTU2MjYyMywtNTY1MzYwNjkwLDc0ODAxNzg1MiwxODMzNzEx
-MDgxXX0=
+eyJoaXN0b3J5IjpbMTg3ODA2ODc1NSwyNDEyNTM0NzIsLTQ1NT
+UzNjA2LC0xODA5Nzg4ODA3LDQ0OTc2ODA2NiwtMTc3MTI5Mzg4
+LDE4OTQwNDY2MzcsLTk5NDIyMzg2MiwtMTIwMjA3MzA5MywxNT
+k0ODY4MDY3LDQ2ODQ5MDcwMywxOTM4MDgzNDM3LC0xNTk3Njcy
+Mzc2LC0xNzkzMTM1MzA2LDExMjUyOTM3ODAsNTk4MDAzOTMzLD
+Q1NDY4MTk4MCwxNDE5NTYyNjIzLC01NjUzNjA2OTAsNzQ4MDE3
+ODUyXX0=
 -->
