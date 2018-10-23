@@ -5919,10 +5919,10 @@ Go语言里的**集合一般会用map[T]bool这种形式来表示，T代表元�
 //**bit数组** ??
 //数据流分析 集合 每一个字都有64个二进制位 
 // 2的64次方：18446744073709551616
- #define UINT_LEAST8_MAX ((uint_least8_t) 255)
-#define UINT_LEAST16_MAX ((uint_least16_t) 65535)
-#define UINT_LEAST32_MAX ((uint_least32_t) 4294967295)
-#define UINT_LEAST64_MAX ((uint_least64_t) 18446744073709551615)
+ #define UINT_LEAST8_MAX ((uint_least8_t) 255)
+#define UINT_LEAST16_MAX ((uint_least16_t) 65535)
+#define UINT_LEAST32_MAX ((uint_least32_t) 4294967295)
+#define UINT_LEAST64_MAX ((uint_least64_t) 18446744073709551615)
 // 不是 10 进制转 64 进制 ？？ 2的6 次方 64 
 // Base64常用于在通常处理文本数据的场合，表示、传输、存储一些二进制数据。包括MIME的email，email via MIME,在XML中存储复杂数据.
 
@@ -5930,7 +5930,7 @@ Go语言里的**集合一般会用map[T]bool这种形式来表示，T代表元�
 // An IntSet is a set of small non-negative integers.
 // Its zero value represents the empty set.
 type IntSet struct {
-	words []uint64 // slice
+	words []uint64 // slice  len 
 }
 
 // Has reports whether the set contains the non-negative value x.
@@ -8835,11 +8835,11 @@ sizes channel携带了每一个文件的大小到main goroutine，在main gorout
 
 在5.6节中，我们做了一个简单的记录了需要
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE3NzEyOTM4OCwxODk0MDQ2NjM3LC05OT
-QyMjM4NjIsLTEyMDIwNzMwOTMsMTU5NDg2ODA2Nyw0Njg0OTA3
-MDMsMTkzODA4MzQzNywtMTU5NzY3MjM3NiwtMTc5MzEzNTMwNi
-wxMTI1MjkzNzgwLDU5ODAwMzkzMyw0NTQ2ODE5ODAsMTQxOTU2
-MjYyMywtNTY1MzYwNjkwLDc0ODAxNzg1MiwxODMzNzExMDgxLC
-0xMzcyNjcyODEzLDQ3MDMwMTIzMSwtMTgzMzQ2NTQ5MCwtMTc1
-MzUyNTk2MF19
+eyJoaXN0b3J5IjpbNzEwNDI2NDMxLC0xNzcxMjkzODgsMTg5ND
+A0NjYzNywtOTk0MjIzODYyLC0xMjAyMDczMDkzLDE1OTQ4Njgw
+NjcsNDY4NDkwNzAzLDE5MzgwODM0MzcsLTE1OTc2NzIzNzYsLT
+E3OTMxMzUzMDYsMTEyNTI5Mzc4MCw1OTgwMDM5MzMsNDU0Njgx
+OTgwLDE0MTk1NjI2MjMsLTU2NTM2MDY5MCw3NDgwMTc4NTIsMT
+gzMzcxMTA4MSwtMTM3MjY3MjgxMyw0NzAzMDEyMzEsLTE4MzM0
+NjU0OTBdfQ==
 -->
