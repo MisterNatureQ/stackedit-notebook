@@ -6155,7 +6155,7 @@ fmt.Println(day.Seconds()) // "86400"
 在本章，我们会开始看到接口类型和值的一些基本技巧。顺着这种方式我们将学习几个来自标准库的重要接口。很多Go程序中都尽可能多的去使用标准库中的接口。最后，我们会在（§7.10）看到类型断言的知识，在（§7.13）看到类型开关的使用并且学到他们是怎样让不同的类型的概括成为可能。
 ## 7.1. 接口约定
 
-目前为止，我们看到的类型都是具体的类型。一个具体的类型可以准确的描述它所代表的值，并且展示出对类型本身的一些操作方式：就像数字类型的算术操作，切片类型的取下标、添加元素和范围获取操作。具体的类型还可以通过它的内置方法提供额外的行为操作。总的来说，当你拿到一个具体的类型时你就知道它的本身是什么和你可以用它来做什么。
+目前为止，我们看到的类型都是具体的类型。**一个具体的类型可以准确的描述它所代表的值，并且展示出对类型本身的一些操作方式：就像数字类型的算术操作，切片类型的取下标、添加元素和范围获取操作。具体的类型还可以通过它的内置方法提供额外的行为操作。总的来说，当你拿到一个具体的类型时你就知道它的本身是什么和你可以用它来做什么**。
 
 在Go语言中还存在着另外一种类型：接口类型。接口类型是一种抽象的类型。它不会暴露出它所代表的对象的内部值的结构和这个对象支持的基础操作的集合；它们只会表现出它们自己的方法。也就是说当你有看到一个接口类型的值时，你不知道它是什么，唯一知道的就是可以通过它的方法来做什么。
 
@@ -8841,11 +8841,11 @@ sizes channel携带了每一个文件的大小到main goroutine，在main gorout
 ![](https://github.com/gopl-zh/gopl-zh.github.com/blob/master/images/ch83-051.png?raw=true)
 **练习 8.4：** 修改reverb2服务器，在每一个连接中使用s
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE0Nzc0OTA4ODAsLTU0Mzg1NTQyNCw3Mz
-MyOTU5MTgsMTUxNzczNDc1MiwxMzYxODEwNjA3LDc4Mzg1MDkz
-LC0xMjU2MTAyNTQ3LDEwMDUyNDk2MDUsLTU0MDA5NDIxNiwxMj
-c4Njg1MjY2LDE4NzgwNjg3NTUsMjQxMjUzNDcyLC00NTU1MzYw
-NiwtMTgwOTc4ODgwNyw0NDk3NjgwNjYsLTE3NzEyOTM4OCwxOD
-k0MDQ2NjM3LC05OTQyMjM4NjIsLTEyMDIwNzMwOTMsMTU5NDg2
-ODA2N119
+eyJoaXN0b3J5IjpbLTIwOTQzNDIzMzYsLTE0Nzc0OTA4ODAsLT
+U0Mzg1NTQyNCw3MzMyOTU5MTgsMTUxNzczNDc1MiwxMzYxODEw
+NjA3LDc4Mzg1MDkzLC0xMjU2MTAyNTQ3LDEwMDUyNDk2MDUsLT
+U0MDA5NDIxNiwxMjc4Njg1MjY2LDE4NzgwNjg3NTUsMjQxMjUz
+NDcyLC00NTU1MzYwNiwtMTgwOTc4ODgwNyw0NDk3NjgwNjYsLT
+E3NzEyOTM4OCwxODk0MDQ2NjM3LC05OTQyMjM4NjIsLTEyMDIw
+NzMwOTNdfQ==
 -->
