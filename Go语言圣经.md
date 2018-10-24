@@ -6157,7 +6157,7 @@ fmt.Println(day.Seconds()) // "86400"
 
 目前为止，我们看到的类型都是具体的类型。**一个具体的类型可以准确的描述它所代表的值，并且展示出对类型本身的一些操作方式：就像数字类型的算术操作，切片类型的取下标、添加元素和范围获取操作。具体的类型还可以通过它的内置方法提供额外的行为操作。总的来说，当你拿到一个具体的类型时你就知道它的本身是什么和你可以用它来做什么**。
 
-在Go语言中还存在着另外一种类型：**接口类型。接口类型是一种抽象的类型。它不会暴露出它所代表的对象的内部值的结构和这个对象支持的基础操作的集合；它们只会表现出它们自己的方法。也就是说当你有看到一个接口类型的值时，你不知道它是什么，唯一知道的就是可以通过它的方法来做什么。
+在Go语言中还存在着另外一种类型：**接口类型。接口类型是一种抽象的类型。它不会暴露出它所代表的对象的内部值的结构和这个对象支持的基础操作的集合；它们只会表现出它们自己的方法。也就是说当你有看到一个接口类型的值时，你不知道它是什么，唯一知道的就是可以通过它的方法来做什么**。
 
 在本书中，我们一直使用两个相似的函数来进行字符串的格式化：fmt.Printf，它会把结果写到标准输出，和fmt.Sprintf，它会把结果以字符串的形式返回。得益于使用接口，我们不必可悲的因为返回结果在使用方式上的一些浅显不同就必需把格式化这个最困难的过程复制一份。实际上，这两个函数都使用了另一个函数fmt.Fprintf来进行封装。fmt.Fprintf这个函数对它的计算结果会被怎么使用是完全不知道的。
 
@@ -8841,7 +8841,7 @@ sizes channel携带了每一个文件的大小到main goroutine，在main gorout
 ![](https://github.com/gopl-zh/gopl-zh.github.com/blob/master/images/ch83-051.png?raw=true)
 **练习 8.4：** 修改reverb2服务器，在每一个连接中使用s
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE5MjUyMzkwNDAsLTE0Nzc0OTA4ODAsLT
+eyJoaXN0b3J5IjpbLTIwMDk4MjE2OTYsLTE0Nzc0OTA4ODAsLT
 U0Mzg1NTQyNCw3MzMyOTU5MTgsMTUxNzczNDc1MiwxMzYxODEw
 NjA3LDc4Mzg1MDkzLC0xMjU2MTAyNTQ3LDEwMDUyNDk2MDUsLT
 U0MDA5NDIxNiwxMjc4Njg1MjY2LDE4NzgwNjg3NTUsMjQxMjUz
