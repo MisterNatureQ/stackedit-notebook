@@ -7,6 +7,8 @@ game_lua_build>cmake ../game-lua -DGEN_COCOS_PREBUILT=ON
 #ndk.dir=F\:\\AndroidStudioSDK\\ndk-bundle
 ndk.dir=F\:\\AndroidStudioSDK\\android-ndk-r16b
 
+$(call import-add-path, $(LOCAL_PATH)/../../../../cocos2d-x/extensions)  
+$(call import-add-path, $(LOCAL_PATH)/../../../../cocos2d-x/external)
 
 #Android Studio 更换国内源下载依赖库
 
@@ -27,5 +29,5 @@ https://blog.csdn.net/qq_36982160/article/details/80722093?utm_source=blogxgwz0
 #Android Studio首次连接不上网易mumu模拟器解决办法
 https://blog.csdn.net/piqtytu520/article/details/78908966?utm_source=blogxgwz2
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEwNjgwNjU3OV19
+eyJoaXN0b3J5IjpbLTE4OTg2MjA4NzQsLTEwNjgwNjU3OV19
 -->
