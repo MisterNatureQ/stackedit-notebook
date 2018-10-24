@@ -5956,12 +5956,16 @@ func (s *IntSet) Add(x int) {
 
 // UnionWith sets s to the union of s and t.  
 //  一次完成64个元素的或计算
+// 存入的数据越大越慢
 func (s *IntSet) UnionWith(t *IntSet) {
-	//
+	// 便利 t
 	for i, tword := range t.words {
+		// 比较 len
 		if i < len(s.words) {
+			// 把 t 中的元素拷贝过来 且不会覆盖
 			s.words[i] |= tword
 		} else {
+			// 追加空间
 			s.words = append(s.words, tword)
 		}
 	}
@@ -8833,9 +8837,9 @@ sizes channel携带了每一个文件的大小到main goroutine，在main gorout
 ![](https://github.com/gopl-zh/gopl-zh.github.com/blob/master/images/ch83-051.png?raw=true)
 **练习 8.4：** 修改reverb2服务器，在每一个连接中使用sync.WaitGroup来计数活跃的echo goroutine。当计数减为零时，关闭TCP连接的写入，像练习8.3中一样。验证一下你的修改版netcat3客户端会一直等待所有的并发“喊叫”完成，即使是在标准输入流已经关闭的情况下。
 
-**练习 8.5：** 使用一个已有的CPU绑定的顺序程序，比如在3.3节中我们写的Mandelbrot程序或者3.2节中的3-D surface计算程序，并将他们的主循环改为并发形式，使用channel来
+**练习 8.5：** 使用一个已有的CPU绑定的顺序程序，比如在3.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE2ODkzNzc2MCwxMjc4Njg1MjY2LDE4Nz
+eyJoaXN0b3J5IjpbLTU0MDA5NDIxNiwxMjc4Njg1MjY2LDE4Nz
 gwNjg3NTUsMjQxMjUzNDcyLC00NTU1MzYwNiwtMTgwOTc4ODgw
 Nyw0NDk3NjgwNjYsLTE3NzEyOTM4OCwxODk0MDQ2NjM3LC05OT
 QyMjM4NjIsLTEyMDIwNzMwOTMsMTU5NDg2ODA2Nyw0Njg0OTA3
