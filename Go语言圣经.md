@@ -6095,6 +6095,7 @@ func (b *Buffer) Grow(n int) {
     if b.buf == nil {
         b.buf = b.initial[:0] // use preallocated space initially
     }
+    // 检测空间是否足够
     if len(b.buf)+n > cap(b.buf) {
         buf := make([]byte, b.Len(), 2*cap(b.buf) + n)
         copy(buf, b.buf)
@@ -6103,7 +6104,7 @@ func (b *Buffer) Grow(n int) {
 }
 ```
 
-封装的第三个优点也是最重要的优点，是阻止了外部调用方对对象内部的值任意地进行修改。因为对象内部变量只可以被同一个包内的函数修改，所以包的作者可以让这些函数确保对象内部的一些值的不变性。比如下面的Counter类型允许调用方来增加counter变量的值，并且允许将这个值reset为0，但是不允许随便设置这个值（译注：因为压根就访问不到）：
+**封装的第三个优点也是最重要的优点，是阻止了外部调用方对对象内部的值任意地进行修改**。因为对象内部变量只可以被同一个包内的函数修改，所以包的作者可以让这些函数确保对象内部的一些值的不变性。比如下面的Counter类型允许调用方来增加counter变量的值，并且允许将这个值reset为0，但是不允许随便设置这个值（译注：因为压根就访问不到）：
 
 ```go
 type Counter struct { n int }
@@ -8835,13 +8836,13 @@ sizes channel携带了每一个文件的大小到main goroutine，在main gorout
 
 ![](../images/ch8-05.png)
 ![](https://github.com/gopl-zh/gopl-zh.github.com/blob/master/images/ch83-051.png?raw=true)
-**练习 8.4：** 修改reverb2服务器，在每一个连接中使用sync.WaitGroup来计数活跃的echo goroutine。当计数减为零时，关闭TCP连接的写入，像练习8.3中一样。验证一下你的修
+**练习 8.4：** 修改reverb2服务器，在每一个连接中使用sync.WaitGroup来计数活跃的echo goroutine。当计数减为零时，关闭TCP连接的写
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNzgzODUwOTMsLTEyNTYxMDI1NDcsMTAwNT
-I0OTYwNSwtNTQwMDk0MjE2LDEyNzg2ODUyNjYsMTg3ODA2ODc1
-NSwyNDEyNTM0NzIsLTQ1NTUzNjA2LC0xODA5Nzg4ODA3LDQ0OT
-c2ODA2NiwtMTc3MTI5Mzg4LDE4OTQwNDY2MzcsLTk5NDIyMzg2
-MiwtMTIwMjA3MzA5MywxNTk0ODY4MDY3LDQ2ODQ5MDcwMywxOT
-M4MDgzNDM3LC0xNTk3NjcyMzc2LC0xNzkzMTM1MzA2LDExMjUy
-OTM3ODBdfQ==
+eyJoaXN0b3J5IjpbMTM2MTgxMDYwNyw3ODM4NTA5MywtMTI1Nj
+EwMjU0NywxMDA1MjQ5NjA1LC01NDAwOTQyMTYsMTI3ODY4NTI2
+NiwxODc4MDY4NzU1LDI0MTI1MzQ3MiwtNDU1NTM2MDYsLTE4MD
+k3ODg4MDcsNDQ5NzY4MDY2LC0xNzcxMjkzODgsMTg5NDA0NjYz
+NywtOTk0MjIzODYyLC0xMjAyMDczMDkzLDE1OTQ4NjgwNjcsND
+Y4NDkwNzAzLDE5MzgwODM0MzcsLTE1OTc2NzIzNzYsLTE3OTMx
+MzUzMDZdfQ==
 -->
