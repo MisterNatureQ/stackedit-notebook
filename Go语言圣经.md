@@ -6069,7 +6069,7 @@ type IntSet struct {
 当然，我们也可以把IntSet定义为一个slice类型，但这样我们就需要把代码中所有方法里用到的s.words用`*s`替换掉了：
 
 ```go
-type IntSet []uint64
+type IntSet []uint64//和上面比 缺失了封装 fangkong性
 ```
 
 尽管这个版本的IntSet在本质上是一样的，但它也允许其它包中可以直接读取并编辑这个slice。换句话说，相对于`*s`这个表达式会出现在所有的包中，s.words只需要在定义IntSet的包中出现（译注：所以还是推荐后者吧的意思）。
@@ -8835,15 +8835,13 @@ sizes channel携带了每一个文件的大小到main goroutine，在main gorout
 
 ![](../images/ch8-05.png)
 ![](https://github.com/gopl-zh/gopl-zh.github.com/blob/master/images/ch83-051.png?raw=true)
-**练习 8.4：** 修改reverb2服务器，在每一个连接中使用sync.WaitGroup来计数活跃的echo goroutine。当计数减为零时，关闭TCP连接的写入，像练习8.3中一样。验证一下你的修改版netcat3客户端会一直等待所有的并发“喊叫”完成，即使是在标准输入流已经关闭的情况下。
-
-**练习 8.5
+**练习 8.4：** 修改reverb2服务器，在每一个连接中使用sync.WaitGroup来计数活跃的echo goroutine。当计数减为零时，关闭TCP连接的写入，像练习8.3中一样。验证一下你的修改版netcat3客户端会一直等待所有的并发“喊叫”完成，即使是在标准输入流已
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEyNTYxMDI1NDcsMTAwNTI0OTYwNSwtNT
-QwMDk0MjE2LDEyNzg2ODUyNjYsMTg3ODA2ODc1NSwyNDEyNTM0
-NzIsLTQ1NTUzNjA2LC0xODA5Nzg4ODA3LDQ0OTc2ODA2NiwtMT
-c3MTI5Mzg4LDE4OTQwNDY2MzcsLTk5NDIyMzg2MiwtMTIwMjA3
-MzA5MywxNTk0ODY4MDY3LDQ2ODQ5MDcwMywxOTM4MDgzNDM3LC
-0xNTk3NjcyMzc2LC0xNzkzMTM1MzA2LDExMjUyOTM3ODAsNTk4
-MDAzOTMzXX0=
+eyJoaXN0b3J5IjpbLTkxNTA0NTAzNCwtMTI1NjEwMjU0NywxMD
+A1MjQ5NjA1LC01NDAwOTQyMTYsMTI3ODY4NTI2NiwxODc4MDY4
+NzU1LDI0MTI1MzQ3MiwtNDU1NTM2MDYsLTE4MDk3ODg4MDcsND
+Q5NzY4MDY2LC0xNzcxMjkzODgsMTg5NDA0NjYzNywtOTk0MjIz
+ODYyLC0xMjAyMDczMDkzLDE1OTQ4NjgwNjcsNDY4NDkwNzAzLD
+E5MzgwODM0MzcsLTE1OTc2NzIzNzYsLTE3OTMxMzUzMDYsMTEy
+NTI5Mzc4MF19
 -->
