@@ -6054,9 +6054,9 @@ func (*IntSet) Copy() *IntSet // return a copy of the set
 
 ## 6.6. 封装
 
-一个对象的变量或者方法如果对调用方是不可见的话，一般就被定义为“封装”。封装有时候也被叫做信息隐藏，同时也是面向对象编程最关键的一个方面。
+**一个对象的变量或者方法如果对调用方是不可见的话，一般就被定义为“封装”。封装有时候也被叫做信息隐藏，同时也是面向对象编程最关键的一个方面**。
 
-Go语言只有一种控制可见性的手段：大写首字母的标识符会从定义它们的包中被导出，小写字母的则不会。这种限制包内成员的方式同样适用于struct或者一个类型的方法。因而如果我们想要封装一个对象，我们必须将其定义为一个struct。
+**Go语言只有一种控制可见性的手段：大写首字母的标识符会从定义它们的包中被导出，小写字母的则不会。这种限制包内成员的方式同样适用于struct或者一个类型的方法。因而如果我们想要封装一个对象，我们必须将其定义为一个struct**。
 
 这也就是前面的小节中IntSet被定义为struct类型的原因，尽管它只有一个字段：
 
@@ -8837,13 +8837,13 @@ sizes channel携带了每一个文件的大小到main goroutine，在main gorout
 ![](https://github.com/gopl-zh/gopl-zh.github.com/blob/master/images/ch83-051.png?raw=true)
 **练习 8.4：** 修改reverb2服务器，在每一个连接中使用sync.WaitGroup来计数活跃的echo goroutine。当计数减为零时，关闭TCP连接的写入，像练习8.3中一样。验证一下你的修改版netcat3客户端会一直等待所有的并发“喊叫”完成，即使是在标准输入流已经关闭的情况下。
 
-**练习 8.5：** 使用一个已有的CPU绑定的顺序程序，比如在3.
+**练习 8.5：** 使用一个已有的CPU绑定的顺序
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTU0MDA5NDIxNiwxMjc4Njg1MjY2LDE4Nz
-gwNjg3NTUsMjQxMjUzNDcyLC00NTU1MzYwNiwtMTgwOTc4ODgw
-Nyw0NDk3NjgwNjYsLTE3NzEyOTM4OCwxODk0MDQ2NjM3LC05OT
-QyMjM4NjIsLTEyMDIwNzMwOTMsMTU5NDg2ODA2Nyw0Njg0OTA3
-MDMsMTkzODA4MzQzNywtMTU5NzY3MjM3NiwtMTc5MzEzNTMwNi
-wxMTI1MjkzNzgwLDU5ODAwMzkzMyw0NTQ2ODE5ODAsMTQxOTU2
-MjYyM119
+eyJoaXN0b3J5IjpbMTAwNTI0OTYwNSwtNTQwMDk0MjE2LDEyNz
+g2ODUyNjYsMTg3ODA2ODc1NSwyNDEyNTM0NzIsLTQ1NTUzNjA2
+LC0xODA5Nzg4ODA3LDQ0OTc2ODA2NiwtMTc3MTI5Mzg4LDE4OT
+QwNDY2MzcsLTk5NDIyMzg2MiwtMTIwMjA3MzA5MywxNTk0ODY4
+MDY3LDQ2ODQ5MDcwMywxOTM4MDgzNDM3LC0xNTk3NjcyMzc2LC
+0xNzkzMTM1MzA2LDExMjUyOTM3ODAsNTk4MDAzOTMzLDQ1NDY4
+MTk4MF19
 -->
