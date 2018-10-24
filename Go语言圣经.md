@@ -6128,9 +6128,9 @@ func (l *Logger) Prefix() string
 func (l *Logger) SetPrefix(prefix string)
 ```
 
-**Go的编码风格不禁止直接导出字段。当然，一旦进行了导出，就没有办法在保证API兼容的情况下去除对其的导出，所以在一开始的选择一定要经过深思熟虑并且要考虑到包内部的一些不变量的保证，未来可能的变化，以及调用方的代码质量是否会因为包的一点修改而变差**。
+**Go的编码风格不禁止直接导出字段**。当然，**一旦进行了导出，就没有办法在保证API兼容的情况下去除对其的导出**，所以在一开始的选择一定要经过深思熟虑并且要**考虑到包内部的一些不变量的保证，未来可能的变化，以及调用方的代码质量是否会因为包的一点修改而变差**。
 
-	??一旦进行了导出，就没有办法在保证API兼容的情况下去除对其的导出
+	??上面这段需要仔细体会 
 
 **封装并不总是理想的**。
 虽然封装在有些情况是必要的，但有时候我们也需要暴露一些内部内容，比如：time.Duration将其表现暴露为一个int64数字的纳秒，使得我们可以用一般的数值操作来对时间进行对比，甚至可以定义这种类型的常量：
@@ -8838,13 +8838,13 @@ sizes channel携带了每一个文件的大小到main goroutine，在main gorout
 
 ![](../images/ch8-05.png)
 ![](https://github.com/gopl-zh/gopl-zh.github.com/blob/master/images/ch83-051.png?raw=true)
-**练习 8.4：** 修改reverb2服务器，在每一个连接中使用sync.Wai
+**练习 8.4：** 修改reverb2服务器，在每一个连接中使用s
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTUxNzczNDc1MiwxMzYxODEwNjA3LDc4Mz
-g1MDkzLC0xMjU2MTAyNTQ3LDEwMDUyNDk2MDUsLTU0MDA5NDIx
-NiwxMjc4Njg1MjY2LDE4NzgwNjg3NTUsMjQxMjUzNDcyLC00NT
-U1MzYwNiwtMTgwOTc4ODgwNyw0NDk3NjgwNjYsLTE3NzEyOTM4
-OCwxODk0MDQ2NjM3LC05OTQyMjM4NjIsLTEyMDIwNzMwOTMsMT
-U5NDg2ODA2Nyw0Njg0OTA3MDMsMTkzODA4MzQzNywtMTU5NzY3
-MjM3Nl19
+eyJoaXN0b3J5IjpbNzMzMjk1OTE4LDE1MTc3MzQ3NTIsMTM2MT
+gxMDYwNyw3ODM4NTA5MywtMTI1NjEwMjU0NywxMDA1MjQ5NjA1
+LC01NDAwOTQyMTYsMTI3ODY4NTI2NiwxODc4MDY4NzU1LDI0MT
+I1MzQ3MiwtNDU1NTM2MDYsLTE4MDk3ODg4MDcsNDQ5NzY4MDY2
+LC0xNzcxMjkzODgsMTg5NDA0NjYzNywtOTk0MjIzODYyLC0xMj
+AyMDczMDkzLDE1OTQ4NjgwNjcsNDY4NDkwNzAzLDE5MzgwODM0
+MzddfQ==
 -->
