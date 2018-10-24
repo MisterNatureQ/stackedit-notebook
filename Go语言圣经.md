@@ -6080,7 +6080,7 @@ type IntSet []uint64//和上面比 缺失了封装 访控性 可见性
 
 **第二，隐藏实现的细节，可以防止调用方依赖那些可能变化的具体实现，这样使设计包的程序员在不破坏对外的api情况下能得到更大的自由**。
 
-把bytes.Buffer这个类型作为例子来考虑。这个类型在做短字符串叠加的时候很常用，所以在设计的时候可以做一些预先的优化，比如提前预留一部分空间，来避免反复的内存分配。又因为Buffer是一个struct类型，这些额外的空间可以用附加的字节数组来保存，且放在一个小写字母开头的字段中。这样在外部的调用方只能看到性能的提升，但并不会得到这个附加变量。Buffer和其增长算法我们列在这里，为了简洁性稍微做了一些精简：
+把bytes.Buffer这个类型作为例子来考虑。**这个类型在做短字符串叠加的时候很常用**，所以在设计的时候可以做一些预先的优化，比如提前预留一部分空间，来避免反复的内存分配。又因为Buffer是一个struct类型，这些额外的空间可以用附加的字节数组来保存，且放在一个小写字母开头的字段中。这样在外部的调用方只能看到性能的提升，但并不会得到这个附加变量。Buffer和其增长算法我们列在这里，为了简洁性稍微做了一些精简：
 
 ```go
 type Buffer struct {
@@ -8835,13 +8835,13 @@ sizes channel携带了每一个文件的大小到main goroutine，在main gorout
 
 ![](../images/ch8-05.png)
 ![](https://github.com/gopl-zh/gopl-zh.github.com/blob/master/images/ch83-051.png?raw=true)
-**练习 8.4：** 修改reverb2服务器，在每一个连接中使用sync.WaitGroup来计数活跃的echo goroutine。当计数减为零时，关闭TCP连接的写入，像练习8.3中一样。验证一下你的修改版netcat3客户端会一直等待所有的并发“喊叫”完成，即
+**练习 8.4：** 修改reverb2服务器，在每一个连接中使用sync.WaitGroup来计数活跃的echo goroutine。当计数减为零时，关闭TCP连接的写入，像练习8.3中一样。验证一下你的修改版netcat3客户端会一直等待所有的并发“喊叫”
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTYwNDE0Mzc0NiwtMTI1NjEwMjU0NywxMD
-A1MjQ5NjA1LC01NDAwOTQyMTYsMTI3ODY4NTI2NiwxODc4MDY4
-NzU1LDI0MTI1MzQ3MiwtNDU1NTM2MDYsLTE4MDk3ODg4MDcsND
-Q5NzY4MDY2LC0xNzcxMjkzODgsMTg5NDA0NjYzNywtOTk0MjIz
-ODYyLC0xMjAyMDczMDkzLDE1OTQ4NjgwNjcsNDY4NDkwNzAzLD
-E5MzgwODM0MzcsLTE1OTc2NzIzNzYsLTE3OTMxMzUzMDYsMTEy
-NTI5Mzc4MF19
+eyJoaXN0b3J5IjpbLTIxMzIzODU3NzksLTEyNTYxMDI1NDcsMT
+AwNTI0OTYwNSwtNTQwMDk0MjE2LDEyNzg2ODUyNjYsMTg3ODA2
+ODc1NSwyNDEyNTM0NzIsLTQ1NTUzNjA2LC0xODA5Nzg4ODA3LD
+Q0OTc2ODA2NiwtMTc3MTI5Mzg4LDE4OTQwNDY2MzcsLTk5NDIy
+Mzg2MiwtMTIwMjA3MzA5MywxNTk0ODY4MDY3LDQ2ODQ5MDcwMy
+wxOTM4MDgzNDM3LC0xNTk3NjcyMzc2LC0xNzkzMTM1MzA2LDEx
+MjUyOTM3ODBdfQ==
 -->
