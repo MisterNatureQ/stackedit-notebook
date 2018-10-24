@@ -6084,8 +6084,8 @@ type IntSet []uint64//和上面比 缺失了封装 访控性 可见性
 
 ```go
 type Buffer struct {
-    buf     []byte
-    initial [64]byte
+    buf     []byte // slice
+    initial [64]byte // 预分配 数组
     /* ... */
 }
 
@@ -8835,13 +8835,13 @@ sizes channel携带了每一个文件的大小到main goroutine，在main gorout
 
 ![](../images/ch8-05.png)
 ![](https://github.com/gopl-zh/gopl-zh.github.com/blob/master/images/ch83-051.png?raw=true)
-**练习 8.4：** 修改reverb2服务器，在每一个连接中使用sync.WaitGroup来计数活跃的echo goroutine。当计数减为零时，关闭TCP连接的写入，像练习8.3中一样。验证一下你的修改版netcat3客户端会一直等待所有的并发
+**练习 8.4：** 修改reverb2服务器，在每一个连接中使用sync.WaitGroup来计数活跃的echo goroutine。当计数减为零时，关闭TCP连接的写入，像练习8.3中一样。验证一下你的修
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTQzOTI3NzU4MSwtMTI1NjEwMjU0NywxMD
-A1MjQ5NjA1LC01NDAwOTQyMTYsMTI3ODY4NTI2NiwxODc4MDY4
-NzU1LDI0MTI1MzQ3MiwtNDU1NTM2MDYsLTE4MDk3ODg4MDcsND
-Q5NzY4MDY2LC0xNzcxMjkzODgsMTg5NDA0NjYzNywtOTk0MjIz
-ODYyLC0xMjAyMDczMDkzLDE1OTQ4NjgwNjcsNDY4NDkwNzAzLD
-E5MzgwODM0MzcsLTE1OTc2NzIzNzYsLTE3OTMxMzUzMDYsMTEy
-NTI5Mzc4MF19
+eyJoaXN0b3J5IjpbNzgzODUwOTMsLTEyNTYxMDI1NDcsMTAwNT
+I0OTYwNSwtNTQwMDk0MjE2LDEyNzg2ODUyNjYsMTg3ODA2ODc1
+NSwyNDEyNTM0NzIsLTQ1NTUzNjA2LC0xODA5Nzg4ODA3LDQ0OT
+c2ODA2NiwtMTc3MTI5Mzg4LDE4OTQwNDY2MzcsLTk5NDIyMzg2
+MiwtMTIwMjA3MzA5MywxNTk0ODY4MDY3LDQ2ODQ5MDcwMywxOT
+M4MDgzNDM3LC0xNTk3NjcyMzc2LC0xNzkzMTM1MzA2LDExMjUy
+OTM3ODBdfQ==
 -->
