@@ -3212,6 +3212,7 @@ if _, ok := seen[s]; !ok {
 
 
 ### 4.4.1. 结构体字面值
+?? 字面值 const 属性
 
 结构体值也可以用结构体字面值表示，结构体字面值可以指定每个成员的值。
 
@@ -3369,7 +3370,7 @@ w.Circle.Radius = 5
 w.Spokes = 20
 ```
 
-**Go语言有一个特性让我们只声明一个成员对应的数据类型而不指名成员的名字；这类成员就叫匿名成员。匿名成员的数据类型必须是命名的类型或指向一个命名的类型的指针。**下面的代码中，Circle和Wheel各自都有一个匿名成员。我们可以说Point类型被嵌入到了Circle结构体，同时Circle类型被嵌入到了Wheel结构体。
+**Go语言有一个特性让我们只声明一个成员对应的数据类型而不指名成员的名字；这类成员就叫匿名成员。匿名成员的数据类型必须是命名的类型或指向一个命名的类型的指针**。下面的代码中，Circle和Wheel各自都有一个匿名成员。我们可以说Point类型被嵌入到了Circle结构体，同时Circle类型被嵌入到了Wheel结构体。
 
 ```Go
 type Circle struct {
@@ -3437,14 +3438,14 @@ w.X = 8 // equivalent to w.circle.point.X = 8 但是在包外部，因为circle�
 
 **但是在包外部，因为circle和point没有导出，不能访问它们的成员，因此简短的匿名成员访问语法也是禁止的。**
 
-到目前为止，我们看到匿名成员特性只是对访问嵌套成员的点运算符提供了简短的语法糖。稍后，我们将会看到**匿名成员并不要求是结构体类型；其实任何命名的类型都可以作为结构体的匿名成员。**但是为什么要嵌入一个没有任何子成员类型的匿名成员类型呢？
+到目前为止，我们看到匿名成员特性只是对访问嵌套成员的点运算符提供了简短的语法糖。稍后，我们将会看到**匿名成员并不要求是结构体类型；其实任何命名的类型都可以作为结构体的匿名成员**。但是为什么要嵌入一个没有任何子成员类型的匿名成员类型呢？
 
 答案是**匿名类型的方法集。简短的点运算符语法可以用于选择匿名成员嵌套的成员，也可以用于访问它们的方法。实际上，外层的结构体不仅仅是获得了匿名成员类型的所有成员，而且也获得了该类型导出的全部的方法。这个机制可以用于将一些有简单行为的对象组合成有复杂行为的对象。组合是Go语言中面向对象编程的核心**，我们将在6.3节中专门讨论。
 
 
 ## 4.5. JSON
 
-JavaScript对象表示法（JSON）是一种用于发送和接收结构化信息的标准协议。在类似的协议中，JSON并不是唯一的一个标准协议。 XML（§7.14）、ASN.1和Google的Protocol Buffers都是类似的协议，并且有各自的特色，但是由于简洁性、可读性和流行程度等原因，JSON是应用最广泛的一个。
+**JavaScript对象表示法（JSON）是一种用于发送和接收结构化信息的标准协议。在类似的协议中，JSON并不是唯一的一个标准协议。 XML（§7.14）、ASN.1和Google的Protocol Buffers都是类似的协议，并且有各自的特色，但是由于简洁性、可读性和流行程度等原因，JSON是应用最广泛的一个**。
 
 Go语言对于这些标准格式的编码和解码都有良好的支持，由标准库中的encoding/json、encoding/xml、encoding/asn1等包提供支持（译注：Protocol Buffers的支持由 github.com/golang/protobuf 包提供），并且这类包都有着相似的API接口。本节，我们将对重要的encoding/json包的用法做个概述。
 
@@ -3452,7 +3453,7 @@ JSON是对JavaScript中各种类型的值——字符串、数字、布尔值和
 
 基本的JSON类型有数字（十进制或科学记数法）、布尔值（true或false）、字符串，其中字符串是以双引号包含的Unicode字符序列，支持和Go语言类似的反斜杠转义特性，不过JSON使用的是`\Uhhhh`转义数字来表示一个UTF-16编码（译注：**UTF-16和UTF-8一样是一种变长的编码，有些Unicode码点较大的字符需要用4个字节表示；而且UTF-16还有大端和小端的问题**），而不是Go语言的rune类型。
 
-这些基础类型可以通过JSON的数组和对象类型进行递归组合。一个JSON数组是一个有序的值序列，写在一个方括号中并以逗号分隔；一个JSON数组可以用于编码Go语言的数组和slice。一个JSON对象是一个字符串到值的映射，写成一系列的name:value对形式，用花括号包含并以逗号分隔；JSON的对象类型可以用于编码Go语言的map类型（key类型是字符串）和结构体。例如：
+这些基础类型可以通过JSON的数组和对象类型进行递归组合。一个JSON数组是一个有序的值序列，写在一个方括号中并以逗号分隔；一个JSON数组可以用于编码Go语言的数组和slice。一个JSON对象是一个字符串到值的映射，写成一系列的name:value对形式，用花括号包含并以逗号分隔；**JSON的对象类型可以用于编码Go语言的map类型（key类型是字符串）和结构体**。例如：
 
 ```
 boolean         true
@@ -3474,7 +3475,7 @@ type Movie struct {
 	Color  bool `json:"color,omitempty"` // 成员Tag
 	Actors []string
 }
-
+// slice
 var movies = []Movie{
 	{Title: "Casablanca", Year: 1942, Color: false,
 		Actors: []string{"Humphrey Bogart", "Ingrid Bergman"}},
@@ -3549,7 +3550,7 @@ fmt.Printf("%s\n", data)
 
 在编码时，默认使用Go语言结构体的成员名字作为JSON的对象（**通过reflect反射技术**，我们将在12.6节讨论）。**只有导出的结构体成员才会被编码**，这也就是我们为什么选择用大写字母开头的成员名称。
 
-细心的读者可能已经注意到，其中Year名字的成员在编码后变成了released，还有Color成员编码后变成了小写字母开头的color。这是因为结构体成员Tag所导致的。一个结构体成员Tag是和在编译阶段关联到该成员的元信息字符串：
+细心的读者可能已经注意到，其中Year名字的成员在编码后变成了released，还有Color成员编码后变成了小写字母开头的color。这是因为结构体成员Tag所导致的。**一个结构体成员Tag是和在编译阶段关联到该成员的元信息字符串：**
 
 ```
 Year  int  `json:"released"`
@@ -3558,7 +3559,7 @@ Color bool `json:"color,omitempty"`
 
 结构体的成员Tag可以是任意的字符串面值，但是通常是一系列用空格分隔的key:"value"键值对序列；因为值中含有双引号字符，因此成员Tag一般用原生字符串面值的形式书写。json开头键名对应的值用于控制encoding/json包的编码和解码的行为，并且encoding/...下面其它的包也遵循这个约定。成员Tag中json对应值的第一部分用于指定JSON对象的名字，比如将Go语言中的TotalCount成员对应到JSON中的total_count对象。Color成员的Tag还带了一个额外的**omitempty选项，表示当Go语言结构体成员为空或零值时不生成该JSON对象（这里false为零值）**。果然，Casablanca是一个黑白电影，并没有输出Color成员。
 
-编码的逆操作是解码，对应将JSON数据解码为Go语言的数据结构，Go语言中一般叫unmarshaling，通过json.Unmarshal函数完成。下面的代码将JSON格式的电影数据解码为一个结构体slice，结构体中只有Title成员。**通过定义合适的Go语言数据结构，我们可以选择性地解码JSON中感兴趣的成员。**当Unmarshal函数调用返回，slice将被只含有Title信息的值填充，其它JSON成员将被忽略。
+编码的逆操作是解码，对应将JSON数据解码为Go语言的数据结构，**Go语言中一般叫unmarshaling，通过json.Unmarshal函数完成**。下面的代码将JSON格式的电影数据解码为一个结构体slice，结构体中只有Title成员。**通过定义合适的Go语言数据结构，我们可以选择性地解码JSON中感兴趣的成员**。当Unmarshal函数调用返回，slice将被只含有Title信息的值填充，其它JSON成员将被忽略。
 
 ```Go
 var titles []struct{ Title string }
@@ -3602,9 +3603,9 @@ type User struct {
 }
 ```
 
-和前面一样，即使对应的JSON对象名是小写字母，每个结构体的成员名也是声明为大写字母开头的。因为有些JSON成员名字和Go结构体成员名字并不相同，因此需要Go语言结构体成员Tag来指定对应的JSON名字。同样，在解码的时候也需要做同样的处理，GitHub服务返回的信息比我们定义的要多很多。
+和前面一样，即使对应的JSON对象名是小写字母，每个结构体的成员名也是声明为大写字母开头的。因为有些JSON成员名字和Go结构体成员名字并不相同，因此**需要Go语言结构体成员Tag来指定对应的JSON名字。同样，在解码的时候也需要做同样的处理**，GitHub服务返回的信息比我们定义的要多很多。
 
-SearchIssues函数发出一个HTTP请求，然后解码返回的JSON格式的结果。因为用户提供的查询条件可能包含类似`?`和`&`之类的特殊字符，为了避免对URL造成冲突，我们用url.QueryEscape来对查询中的特殊字符进行转义操作。
+SearchIssues函数发出一个HTTP请求，然后解码返回的JSON格式的结果。因为用户提供的查询条件可能包含类似`?`和`&`之类的特殊字符，为了避免对URL造成冲突，我们用**url.QueryEscape来对查询中的特殊字符进行转义操作**。
 
 <u><i>gopl.io/ch4/github</i></u>
 ```Go
@@ -3620,7 +3621,10 @@ import (
 
 // SearchIssues queries the GitHub issue tracker.
 func SearchIssues(terms []string) (*IssuesSearchResult, error) {
-	q := url.QueryEscape(strings.Join(terms, " ")) //为了避免对URL造成冲突，我们用url.QueryEscape来对查询中的特殊字符进行转义操作
+	// strings.Join 将一系列字符串连接为一个字符串，之间用sep来分隔。
+	// 为了避免对URL造成冲突，我们用url.QueryEscape来对查询中的特殊字符进行转义操作
+	q := url.QueryEscape(strings.Join(terms, " ")) 
+	// 
 	resp, err := http.Get(IssuesURL + "?q=" + q)
 	if err != nil {
 		return nil, err
@@ -3635,6 +3639,7 @@ func SearchIssues(terms []string) (*IssuesSearchResult, error) {
 
 	var result IssuesSearchResult
 	// 基于流式的解码器json.Decoder，它可以从一个输入流解码JSON数据
+	// Decode从输入流读取下一个json编码值并保存在v指向的值里，参见Unmarshal函数的文档获取细节信息
 	if err := json.NewDecoder(resp.Body).Decode(&result); err != nil {
 		resp.Body.Close()
 		return nil, err
@@ -3737,7 +3742,7 @@ Age:    {{.CreatedAt | daysAgo}} days // daysAgo的函数
 
 {% endraw %}
 
-在一个action中，`|`操作符表示将前一个表达式的结果作为后一个函数的输入，类似于UNIX中管道的概念。在Title这一行的action中，第二个操作是一个printf函数，是一个基于fmt.Sprintf实现的内置函数，所有模板都可以直接使用。对于Age部分，第二个动作是一个叫daysAgo的函数，通过time.Since函数将CreatedAt成员转换为过去的时间长度：
+**在一个action中，`|`操作符表示将前一个表达式的结果作为后一个函数的输入，类似于UNIX中管道的概念**。在Title这一行的action中，第二个操作是一个printf函数，是一个基于fmt.Sprintf实现的内置函数，所有模板都可以直接使用。对于Age部分，第二个动作是一个叫daysAgo的函数，通过time.Since函数将CreatedAt成员转换为过去的时间长度：
 
 ```Go
 func daysAgo(t time.Time) int {
@@ -3914,7 +3919,7 @@ func name(parameter-list) (result-list) {
 }
 ```
 
-形式参数列表描述了函数的参数名以及参数类型。这些参数作为局部变量，其值由参数调用者提供。返回值列表描述了函数返回值的变量名以及类型。**如果函数返回一个无名变量或者没有返回值，返回值列表的括号是可以省略的。如果一个函数声明不包括返回值列表，那么函数体执行完毕后，不会返回任何值。**在hypot函数中：
+形式参数列表描述了函数的参数名以及参数类型。这些参数作为局部变量，其值由参数调用者提供。返回值列表描述了函数返回值的变量名以及类型。**如果函数返回一个无名变量或者没有返回值，返回值列表的括号是可以省略的。如果一个函数声明不包括返回值列表，那么函数体执行完毕后，不会返回任何值**。在hypot函数中：
 
 ```Go
 func hypot(x, y float64) float64 {
@@ -3924,7 +3929,7 @@ fmt.Println(hypot(3,4)) // "5"
 ```
 
 x和y是形参名，3和4是调用时的传入的实参，函数返回了一个float64类型的值。
-返回值也可以像形式参数一样被命名。在这种情况下，每个返回值被声明成一个局部变量，并根据该返回值的类型，将其初始化为该类型的零值。
+**返回值也可以像形式参数一样被命名。在这种情况下，每个返回值被声明成一个局部变量，并根据该返回值的类型，将其初始化为该类型的零值**。
 如果一个函数在声明时，包含返回值列表，该函数必须以 return语句结尾，除非函数明显无法运行到结尾处。例如函数在结尾时调用了panic异常或函数中存在无限循环。
 
 正如hypot一样，如果一组形参或返回值有相同的类型，我们不必为每个形参都写出参数类型。下面2个声明是等价的：
@@ -3950,7 +3955,7 @@ fmt.Printf("%T\n", zero)  // "func(int, int) int"
 
 函数的类型被称为函数的签名。如果两个函数形式参数列表和返回值列表中的变量类型一一对应，那么这两个函数被认为有相同的类型或签名。形参和返回值的变量名不影响函数签名，也不影响它们是否可以以省略参数类型的形式表示。
 
-**每一次函数调用都必须按照声明顺序为所有参数提供实参（参数值）。在函数调用时，Go语言没有默认参数值，也没有任何方法可以通过参数名指定形参，因此形参和返回值的变量名对于函数调用者而言没有意义。**
+**每一次函数调用都必须按照声明顺序为所有参数提供实参（参数值）。在函数调用时，Go语言没有默认参数值，也没有任何方法可以通过参数名指定形参，因此形参和返回值的变量名对于函数调用者而言没有意义**。
 
 在函数体中，函数的形参作为局部变量，被初始化为调用者提供的值。函数的形参和有名返回值作为函数最外层的局部变量，被存储在相同的词法块中。
 
@@ -3971,7 +3976,7 @@ func Sin(x float64) float //implemented in assembly language
 
 下文的示例代码使用了非标准包 golang.org/x/net/html ，解析HTML。golang.org/x/... 目录下存储了一些由Go团队设计、维护，对网络编程、国际化文件处理、移动平台、图像处理、加密解密、开发者工具提供支持的扩展包。未将这些扩展包加入到标准库原因有二，一是部分包仍在开发中，二是对大多数Go语言的开发者而言，扩展包提供的功能很少被使用。
 
-例子中调用golang.org/x/net/html的部分api如下所示。html.Parse函数读入一组bytes解析后，返回html.Node类型的HTML页面树状结构根节点。HTML拥有很多类型的结点如text（文本）、commnets（注释）类型，在下面的例子中，我们 只关注< name key='value' >形式的结点。
+ 例子中调用 golang.org/x/net/html 的部分api如下所示。html.Parse函数读入一组bytes解析后，返回html.Node类型的HTML页面树状结构根节点。HTML拥有很多类型的结点如text（文本）、commnets（注释）类型，在下面的例子中，我们只关注 < name key='value '>形式的结点。
 
 <u><i>golang.org/x/net/html</i></u>
 ```Go
@@ -4033,6 +4038,7 @@ visit函数遍历HTML的节点树，从每一个anchor元素的href属性获得l
 ```Go
 // visit appends to links each link found in n and returns the result.
 func visit(links []string, n *html.Node) []string {
+	// HTML a标签 
 	if n.Type == html.ElementNode && n.Data == "a" {
 		for _, a := range n.Attr {
 			if a.Key == "href" {
@@ -4086,7 +4092,7 @@ func main() {
 }
 func outline(stack []string, n *html.Node) {
 	if n.Type == html.ElementNode {
-		stack = append(stack, n.Data) // push tag
+		stack = append(stack, n.Data) // push tag 入栈操作
 		fmt.Println(stack)
 	}
 	for c := n.FirstChild; c != nil; c = c.NextSibling {
@@ -4095,7 +4101,7 @@ func outline(stack []string, n *html.Node) {
 }
 ```
 
-有一点值得注意：outline有入栈操作，但没有相对应的出栈操作。当outline调用自身时，被调用者接收的是stack的拷贝。被调用者对stack的元素追加操作，修改的是stack的拷贝，其可能会修改slice底层的数组甚至是申请一块新的内存空间进行扩容；但这个过程并不会修改调用方的stack。因此当函数返回时，调用方的stack与其调用自身之前完全一致。
+**有一点值得注意：outline有入栈操作，但没有相对应的出栈操作**。当outline调用自身时，被调用者接收的是stack的拷贝。被调用者对stack的元素追加操作，修改的是stack的拷贝，其可能会修改slice底层的数组甚至是申请一块新的内存空间进行扩容；但这个过程并不会修改调用方的stack。因此当函数返回时，调用方的stack与其调用自身之前完全一致。
 
 下面是 https://golang.org 页面的简要结构:
 
@@ -4212,7 +4218,7 @@ func HourMinSec(t time.Time) (hour, minute, second int)
 
 虽然良好的命名很重要，但你也不必为每一个返回值都取一个适当的名字。比如，按照惯例，函数的最后一个bool类型的返回值表示函数是否运行成功，error类型的返回值代表函数的错误信息，对于这些类似的惯例，我们不必思考合适的命名，它们都无需解释。
 
-**如果一个函数所有的返回值都有显式的变量名，那么该函数的return语句可以省略操作数。**这称之为bare return。
+**如果一个函数所有的返回值都有显式的变量名，那么该函数的return语句可以省略操作数。这称之为bare return**。
 
 ```Go
 // CountWordsAndImages does an HTTP GET request for the HTML
@@ -4266,7 +4272,7 @@ if !ok {
 
 通常，导致失败的原因不止一种，尤其是对I/O操作而言，用户需要了解更多的错误信息。因此，额外的返回值不再是简单的布尔类型，而是error类型。
 
-内置的error是接口类型。我们将在第七章了解接口类型的含义，以及它对错误处理的影响。现在我们只需要明白error类型可能是nil或者non-nil。nil意味着函数运行成功，non-nil表示失败。对于non-nil的error类型，我们可以通过调用error的Error函数或者输出函数获得字符串类型的错误信息。
+**内置的error是接口类型**。我们将在第七章了解接口类型的含义，以及它对错误处理的影响。现在我们只需要明白error类型可能是nil或者non-nil。nil意味着函数运行成功，non-nil表示失败。对于non-nil的error类型，我们可以通过调用error的Error函数或者输出函数获得字符串类型的错误信息。
 
 ```Go
 fmt.Println(err)
@@ -4275,9 +4281,9 @@ fmt.Printf("%v", err)
 
 **通常，当函数返回non-nil的error时，其他的返回值是未定义的（undefined），这些未定义的返回值应该被忽略。然而，有少部分函数在发生错误时，仍然会返回一些有用的返回值。比如，当读取文件发生错误时，Read函数会返回可以读取的字节数以及错误信息。对于这种情况，正确的处理方式应该是先处理这些不完整的数据，再处理错误。因此对函数的返回值要有清晰的说明，以便于其他人使用。**
 
-在Go中，函数运行失败时会返回错误信息，这些错误信息被认为是一种预期的值而非异常（exception），这使得**Go有别于那些将函数运行失败看作是异常的语言**。虽然Go有各种异常机制，但这些机制仅被使用在处理那些未被预料到的错误，即bug，而不是那些在健壮程序中应该被避免的程序错误。对于Go的异常机制我们将在5.9介绍。
+**在Go中，函数运行失败时会返回错误信息，这些错误信息被认为是一种预期的值而非异常（exception），这使得Go有别于那些将函数运行失败看作是异常的语言**。虽然Go有各种异常机制，但这些机制仅被使用在处理那些未被预料到的错误，即bug，而不是那些在健壮程序中应该被避免的程序错误。对于Go的异常机制我们将在5.9介绍。
 
-Go这样设计的原因是由于对于某个应该在控制流程中处理的错误而言，将这个错误以异常的形式抛出会混乱对错误的描述，这通常会导致一些糟糕的后果。当某个程序错误被当作异常处理后，这个错误会将堆栈跟踪信息返回给终端用户，这些信息复杂且无用，无法帮助定位错误。
+**Go这样设计的原因是由于对于某个应该在控制流程中处理的错误而言，将这个错误以异常的形式抛出会混乱对错误的描述，这通常会导致一些糟糕的后果。当某个程序错误被当作异常处理后，这个错误会将堆栈跟踪信息返回给终端用户，这些信息复杂且无用，无法帮助定位错误**。
 
 正因此，**Go使用控制流机制（如if和return）处理错误，这使得编码人员能更多的关注错误处理。**
 
@@ -4286,7 +4292,7 @@ Go这样设计的原因是由于对于某个应该在控制流程中处理的错
 {% include "./ch5-04-2.md" %}
 ### 5.4.1. 错误处理策略
 
-当一次函数调用返回错误时，调用者应该选择合适的方式处理错误。根据情况的不同，有很多处理方式，让我们来看看常用的五种方式。
+当一次函数调用返回错误时，调用者应该选择合适的方式处理错误。根据情况的不同，有很多处理方式，让我们来看看**常用的五种方式**。
 
 首先，也是**最常用的方式是传播错误**。这意味着函数中某个子程序的失败，会变成该函数的失败。下面，我们以5.3节的findLinks函数作为例子。如果findLinks对http.Get的调用失败，findLinks会直接将这个HTTP错误返回给调用者：
 
@@ -4313,7 +4319,7 @@ fmt.Errorf函数使用fmt.Sprintf格式化错误信息并返回。我们使用�
 genesis: crashed: no parachute: G-switch failed: bad relay orientation
 ```
 
-由于错误信息经常是以链式组合在一起的，所以错误信息中应避免大写和换行符。最终的错误信息可能很长，我们可以通过类似grep的工具处理错误信息（译者注：grep是一种文本搜索工具）。
+由于错误信息经常是以链式组合在一起的，所以**错误信息中应避免大写和换行符**。最终的错误信息可能很长，我们可以通过类似grep的工具处理错误信息（译者注：grep是一种文本搜索工具）。
 
 编写错误信息时，我们要确保错误信息对问题细节的描述是详尽的。尤其是要注意错误信息表达的一致性，即相同的函数或同包内的同一组函数返回的错误在构成和处理方式上是相似的。
 
@@ -4337,7 +4343,7 @@ func WaitForServer(url string) error {
 			return nil // success
 		}
 		log.Printf("server not responding (%s);retrying…", err)
-		time.Sleep(time.Second << uint(tries)) // exponential back-off
+		time.Sleep(time.Second << uint(tries)) // exponential back-off 指数增长
 	}
 	return fmt.Errorf("server %s failed to respond after %s", url, timeout)
 }
@@ -4370,12 +4376,14 @@ bad.gopl.io
 
 我们可以设置log的前缀信息屏蔽时间信息，一般而言，前缀信息会被设置成命令名。
 
+[SetFlags 详情](https://github.com/golang/go/blob/master/src/log/log.go?name=release#251)
+
 ```Go
 log.SetPrefix("wait: ") //SetPrefix设置标准logger的输出前缀
 log.SetFlags(0) //SetFlags设置logger的输出选项。 Ldate = 1 << [iota]  // 日期：2009/01/23
 ```
 
-**第四种策略：有时，我们只需要输出错误信息就足够了，不需要中断程序的运行。**我们可以通过log包提供函数
+**第四种策略：有时，我们只需要输出错误信息就足够了，不需要中断程序的运行**。我们可以通过log包提供函数
 
 ```Go
 if err := Ping(); err != nil {
@@ -4437,6 +4445,143 @@ for {
 ```
 
 因为文件结束这种错误不需要更多的描述，所以io.EOF有固定的错误信息——“EOF”。对于其他错误，我们可能需要在错误信息中描述错误的类型和数量，这使得我们不能像io.EOF一样采用固定的错误信息。**在7.11节中，我们会提出更系统的方法区分某些固定的错误值。**
+
+
+
+## 5.5. 函数值
+
+在Go中，函数被看作第一类值（first-class values）：函数像其他值一样，拥有类型，可以被赋值给其他变量，传递给函数，从函数返回。对函数值（function value）的调用类似函数调用。例子如下：
+
+```Go
+	func square(n int) int { return n * n }
+	func negative(n int) int { return -n }
+	func product(m, n int) int { return m * n }
+
+	f := square
+	fmt.Println(f(3)) // "9"
+
+	f = negative
+	fmt.Println(f(3))     // "-3"
+	fmt.Printf("%T\n", f) // "func(int) int"
+
+	f = product // compile error: can't assign func(int, int) int to func(int) int
+```
+
+函数类型的零值是nil。调用值为nil的函数值会引起panic错误：
+
+```Go
+	var f func(int) int
+	f(3) // 此处f的值为nil, 会引起panic错误
+```
+
+函数值可以与nil比较：
+
+```Go
+	var f func(int) int
+	if f != nil {
+		f(3)
+	}
+```
+
+但是**函数值之间是不可比较的，也不能用函数值作为map的key**。
+
+**函数值使得我们不仅仅可以通过数据来参数化函数，亦可通过行为**。标准库中包含许多这样的例子。下面的代码展示了如何使用这个技巧。strings.Map对字符串中的每个字符调用add1函数，并将每个add1函数的返回值组成一个新的字符串返回给调用者。
+
+```Go
+	func add1(r rune) rune { return r + 1 }
+
+	fmt.Println(strings.Map(add1, "HAL-9000")) // "IBM.:111"
+	fmt.Println(strings.Map(add1, "VMS"))      // "WNT"
+	fmt.Println(strings.Map(add1, "Admix"))    // "Benjy"
+```
+
+5.2节的findLinks函数使用了辅助函数visit，遍历和操作了HTML页面的所有结点。**使用函数值，我们可以将遍历结点的逻辑和操作结点的逻辑分离，使得我们可以复用遍历的逻辑，从而对结点进行不同的操作**。
+
+<u><i>gopl.io/ch5/outline2</i></u>
+```Go
+// forEachNode针对每个结点x，都会调用pre(x)和post(x)。
+// pre和post都是可选的。
+// 遍历孩子结点之前，pre被调用
+// 遍历孩子结点之后，post被调用
+func forEachNode(n *html.Node, pre, post func(n *html.Node)) {
+	if pre != nil {
+		pre(n)
+	}
+	for c := n.FirstChild; c != nil; c = c.NextSibling {
+		forEachNode(c, pre, post)// 递归
+	}
+	if post != nil {
+		post(n)
+	}
+}
+```
+
+该函数接收2个函数作为参数，分别在结点的孩子被访问前和访问后调用。这样的设计给调用者更大的灵活性。举个例子，现在我们有startElemen和endElement两个函数用于输出HTML元素的开始标签和结束标签`<b>...</b>`：
+
+```Go
+var depth int
+func startElement(n *html.Node) {
+	if n.Type == html.ElementNode {
+		fmt.Printf("%*s<%s>\n", depth*2, "", n.Data)
+		depth++
+	}
+}
+func endElement(n *html.Node) {
+	if n.Type == html.ElementNode {
+		depth--
+		fmt.Printf("%*s</%s>\n", depth*2, "", n.Data)
+	}
+}
+```
+
+上面的代码利用fmt.Printf的一个小技巧控制输出的缩进。`%*s`中的`*`会在字符串之前填充一些空格。在例子中，每次输出会先填充`depth*2`数量的空格，再输出""，最后再输出HTML标签。
+
+如果我们像下面这样调用forEachNode：
+
+```Go
+forEachNode(doc, startElement, endElement)
+```
+
+与之前的outline程序相比，我们得到了更加详细的页面结构：
+
+```
+$ go build gopl.io/ch5/outline2
+$ ./outline2 http://gopl.io
+<html>
+  <head>
+    <meta>
+    </meta>
+    <title>
+	</title>
+	<style>
+	</style>
+  </head>
+  <body>
+    <table>
+      <tbody>
+        <tr>
+          <td>
+            <a>
+              <img>
+              </img>
+...
+```
+
+**练习 5.7：** 完善startElement和endElement函数，使其成为通用的HTML输出器。要求：输出注释结点，文本结点以及每个元素的属性（< a href='...'>）。使用简略格式输出没有孩子结点的元素（即用`<img/>`代替`<img></img>`）。编写测试，验证程序输出的格式正确。（详见11章）
+
+**练习 5.8：** 修改pre和post函数，使其返回布尔类型的返回值。返回false时，中止forEachNoded的遍历。使用修改后的代码编写ElementByID函数，根据用户输入的id查找第一个拥有该id元素的HTML元素，查找成功后，停止遍历。
+
+```Go
+func ElementByID(doc *html.Node, id string) *html.Node
+```
+
+**练习 5.9：** 编写函数expand，将s中的"foo"替换为f("foo")的返回值。
+
+```Go
+func expand(s string, f func(string) string) string
+```
+
+
 ## 5.6. 匿名函数
 
 **拥有函数名的函数只能在包级语法块中被声明，通过函数字面量（function literal），我们可绕过这一限制，在任何表达式中表示一个函数值。函数字面量的语法和函数声明相似，区别在于func关键字后没有函数名。函数值字面量是一种表达式，它的值被称为匿名函数（anonymous function）。**
@@ -4520,7 +4665,7 @@ func topoSort(m map[string][]string) []string {
 			// 没有见过的项 
 			if !seen[item] {
 				seen[item] = true // 闭包 访问上下文环境
-				visitAll(m[item]) // 递归 没有见过的项 的子项 顺着 七点key 往后走 直到找到 边界最后一项 开始递归 
+				visitAll(m[item]) // 递归 深入子节点 没有见过的项 的子项 顺着 节点key 往后走 直到找到 边界最后一项 开始递归 
 				order = append(order, item) // 访问上下文环境 最后一个 最先进入 
 			}
 		}
@@ -4532,7 +4677,7 @@ func topoSort(m map[string][]string) []string {
 	}
 	sort.Strings(keys) // 对key排序 确保 访问顺序 统一
 	visitAll(keys) // 只要不是环形就不会死循环
-	return order
+	return order // 返回排序后的元素
 }
 ```
 
@@ -4546,7 +4691,7 @@ visitAll := func(items []string) {
 }
 ```
 
-在topsort中，首先对prereqs中的key排序，再调用visitAll。因为prereqs映射的是切片而不是更复杂的map，所以数据的遍历次序是固定的，这意味着你每次运行topsort得到的输出都是一样的。	topsort的输出结果如下:
+在topsort中，首先对prereqs中的key排序，再调用visitAll。**因为prereqs映射的是切片而不是更复杂的map，所以数据的遍历次序是固定的，这意味着你每次运行topsort得到的输出都是一样的。**	topsort的输出结果如下:
 
 ```
 1: intro to programming
@@ -4593,13 +4738,14 @@ func Extract(url string) ([]string, error) {
 		return nil, fmt.Errorf("parsing %s as HTML: %v", url, err)
 	}
 	// 匿名函数
-	var links []string
+	var links []string // 闭包保持的局部变量 减少函数参数传递??
 	visitNode := func(n *html.Node) {
 		if n.Type == html.ElementNode && n.Data == "a" {
 			for _, a := range n.Attr {
 				if a.Key != "href" {
 					continue
 				}
+				// 现在links中存储的不是href属性的原始值，而是通过resp.Request.URL解析后的值，可以直接被http.Get访问
 				link, err := resp.Request.URL.Parse(a.Val)
 				if err != nil {
 					continue // ignore bad URLs
@@ -4608,6 +4754,7 @@ func Extract(url string) ([]string, error) {
 			}
 		}
 	}
+	// 深度遍历 递归 **使用函数值，我们可以将遍历结点的逻辑和操作结点的逻辑分离，使得我们可以复用遍历的逻辑，从而对结点进行不同的操作**。
 	forEachNode(doc, visitNode, nil)
 	return links, nil
 }
@@ -4621,18 +4768,27 @@ func Extract(url string) ([]string, error) {
 
 [算法 图&深度优先与广度优先算法](https://blog.csdn.net/leonliu1995/article/details/78509599)
 
+[总结深度优先与广度优先的区别](https://www.cnblogs.com/attitudeY/p/6790219.html)
+
+	深度优先搜素算法：不全部保留结点，占用空间少；有回溯操作(即有入栈、出栈操作)，运行速度慢。
+
+	广度优先搜索算法：保留全部结点，占用空间大； 无回溯操作(即无入栈、出栈操作)，运行速度快。
+
 下面的函数实现了**广度优先算法**。调用者需要输入一个初始的待访问列表和一个函数f。待访问列表中的每个元素被定义为string类型。广度优先算法会为每个元素调用一次f。每次f执行完毕后，会返回一组待访问元素。这些元素会被加入到待访问列表中。当待访问列表中的所有元素都被访问后，breadthFirst函数运行结束。为了避免同一个元素被访问两次，代码中维护了一个map。
 
 <u><i>gopl.io/ch5/findlinks3</i></u>
 ```Go
 // breadthFirst calls f for each item in the worklist. **广度优先**
-// Any items returned by f are added to the worklist.
-// f is called at most once for each item.
+// Any items returned by f are added to the worklist.每次f执行完毕后，会返回一组待访问元素。这些元素会被加入到待访问列表中
+// f is called at most once for each item. 广度优先算法会为每个元素调用一次f
 func breadthFirst(f func(item string) []string, worklist []string) {
+	//为了避免同一个元素被访问两次，代码中维护了一个map。
 	seen := make(map[string]bool)
+	// 一层一层便利
 	for len(worklist) > 0 {
 		items := worklist
 		worklist = nil
+		// 进入下一层
 		for _, item := range items {
 			if !seen[item] {
 				seen[item] = true
@@ -4724,14 +4880,14 @@ var rmdirs []func()
 for _, dir := range tempDirs() {
 	os.MkdirAll(dir, 0755)
 	rmdirs = append(rmdirs, func() {
-		os.RemoveAll(dir) // NOTE: incorrect!
+		os.RemoveAll(dir) // NOTE: incorrect! 这意味着，每次对os.RemoveAll的调用删除的都是相同的目录。
 	})
 }
 ```
 
-问题的原因在于循环变量的作用域。在上面的程序中，for循环语句引入了新的词法块，循环变量dir在这个词法块中被声明。在该循环中生成的所有函数值都共享相同的循环变量。需要注意，函数值中记录的是循环变量的内存地址，而不是循环变量某一时刻的值。以dir为例，后续的迭代会不断更新dir的值，当删除操作执行时，for循环已完成，dir中存储的值等于最后一次迭代的值。这意味着，每次对os.RemoveAll的调用删除的都是相同的目录。
+问题的原因在于循环变量的作用域。在上面的程序中，for循环语句引入了新的词法块，循环变量dir在这个词法块中被声明。在该循环中生成的所有函数值都共享相同的循环变量。需要注意，**函数值中记录的是循环变量的内存地址，而不是循环变量某一时刻的值。以dir为例，后续的迭代会不断更新dir的值，当删除操作执行时，for循环已完成，dir中存储的值等于最后一次迭代的值。这意味着，每次对os.RemoveAll的调用删除的都是相同的目录**。
 
-通常，为了解决这个问题，我们会引入一个与循环变量同名的局部变量，作为循环变量的副本。比如下面的变量dir，虽然这看起来很奇怪，但却很有用。
+通常，为了解决这个问题，**我们会引入一个与循环变量同名的局部变量，作为循环变量的副本。比如下面的变量dir，虽然这看起来很奇怪，但却很有用**。
 
 ```Go
 for _, dir := range tempDirs() {
@@ -4753,7 +4909,8 @@ for i := 0; i < len(dirs); i++ {
 }
 ```
 
-如果你使用go语句（第八章）或者defer语句（5.8节）会经常遇到此类问题。这不是go或defer本身导致的，而是因为它们都会等待循环结束后，再执行函数值。
+如果你使用go语句（第八章）或者defer语句（5.8节）会经常遇到此类问题。**这不是go或defer本身导致的，而是因为它们都会等待循环结束后，再执行函数值**。
+
 ## 5.7. 可变参数
 
 参数数量可变的函数称为可变参数函数。典型的例子就是fmt.Printf和类似函数。Printf首先接收一个必备的参数，之后接收任意个数的后续参数。
@@ -4771,7 +4928,7 @@ func sum(vals...int) int {
 }
 ```
 
-sum函数返回任意个int型参数的和。在函数体中，vals被看作是类型为[] int的切片。sum可以接收任意数量的int型参数：
+sum函数返回任意个int型参数的和。**在函数体中，vals被看作是类型为[] int的切片。sum可以接收任意数量的int型参数**：
 
 ```Go
 fmt.Println(sum())           // "0"
@@ -4779,14 +4936,16 @@ fmt.Println(sum(3))          // "3"
 fmt.Println(sum(1, 2, 3, 4)) // "10"
 ```
 
-在上面的代码中，调用者隐式的创建一个数组，并将原始参数复制到数组中，再把数组的一个切片作为参数传给被调用函数。如果原始参数已经是切片类型，我们该如何传递给sum？只需在最后一个参数后加上省略符。下面的代码功能与上个例子中最后一条语句相同。
+在上面的代码中，调用者隐式的创建一个数组，并将原始参数复制到数组中，再把数组的一个切片作为参数传给被调用函数。**如果原始参数已经是切片类型，我们该如何传递给sum？只需在最后一个参数后加上省略符**。下面的代码功能与上个例子中最后一条语句相同。
+
 
 ```Go
 values := []int{1, 2, 3, 4}
 fmt.Println(sum(values...)) // "10"
 ```
 
-虽然在可变参数函数内部，...int 型参数的行为看起来很像切片类型，但实际上，可变参数函数和以切片作为参数的函数是不同的。
+虽然在可变参数函数内部，...int 型参数的行为看起来很像切片类型，但实际上，**可变参数函数和以切片作为参数的函数是不同的**。
+
 
 ```Go
 func f(...int) {}
@@ -4795,7 +4954,7 @@ fmt.Printf("%T\n", f) // "func(...int)"
 fmt.Printf("%T\n", g) // "func([]int)"
 ```
 
-可变参数函数经常被用于格式化字符串。下面的errorf函数构造了一个以行号开头的，经过格式化的错误信息。函数名的后缀f是一种通用的命名规范，代表该可变参数函数可以接收Printf风格的格式化字符串。
+可变参数函数经常被用于格式化字符串。下面的errorf函数构造了一个以行号开头的，经过格式化的错误信息。**函数名的后缀f是一种通用的命名规范，代表该可变参数函数可以接收Printf风格的格式化字符串**。
 
 ```Go
 func errorf(linenum int, format string, args ...interface{}) {
@@ -4807,7 +4966,8 @@ linenum, name := 12, "count"
 errorf(linenum, "undefined: %s", name) // "Line 12: undefined: count"
 ```
 
-interface{}表示函数的最后一个参数可以接收任意类型，我们会在第7章详细介绍。
+**interface{}表示函数的最后一个参数可以接收任意类型，我们会在第7章详细介绍**。
+
 
 **练习5.15：** 编写类似sum的可变参数函数max和min。考虑不传参时，max和min该如何处理，再编写至少接收1个参数的版本。
 
@@ -4866,11 +5026,12 @@ $ ./title1 https://golang.org/doc/gopher/frontpage.png
 title: https://golang.org/doc/gopher/frontpage.png has type image/png, not text/html
 ```
 
-resp.Body.close调用了多次，这是为了确保title在所有执行路径下（即使函数运行失败）都关闭了网络连接。随着函数变得复杂，需要处理的错误也变多，维护清理逻辑变得越来越困难。而Go语言独有的defer机制可以让事情变得简单。
+**resp.Body.close调用了多次，这是为了确保title在所有执行路径下（即使函数运行失败）都关闭了网络连接。随着函数变得复杂，需要处理的错误也变多，维护清理逻辑变得越来越困难。而Go语言独有的defer机制可以让事情变得简单**。
 
-你只需要在调用普通函数或方法前加上关键字defer，就完成了defer所需要的语法。当执行到该条语句时，函数和参数表达式得到计算，但直到包含该defer语句的函数执行完毕时，defer后的函数才会被执行，不论包含defer语句的函数是通过return正常结束，还是由于panic导致的异常结束。你可以在一个函数中执行多条defer语句，它们的执行顺序与声明顺序相反。
+**你只需要在调用普通函数或方法前加上关键字defer，就完成了defer所需要的语法。当执行到该条语句时，函数和参数表达式得到计算，但直到包含该defer语句的函数执行完毕时，defer后的函数才会被执行，不论包含defer语句的函数是通过return正常结束，还是由于panic导致的异常结束。你可以在一个函数中执行多条defer语句，它们的执行顺序与声明顺序相反**。
 
-defer语句经常被用于处理成对的操作，如打开、关闭、连接、断开连接、加锁、释放锁。通过defer机制，不论函数逻辑多复杂，都能保证在任何执行路径下，资源被释放。释放资源的defer应该直接跟在请求资源的语句后。在下面的代码中，一条defer语句替代了之前的所有resp.Body.Close
+**defer语句经常被用于处理成对的操作，如打开、关闭、连接、断开连接、加锁、释放锁。通过defer机制，不论函数逻辑多复杂，都能保证在任何执行路径下，资源被释放。释放资源的defer应该直接跟在请求资源的语句后**。在下面的代码中，一条defer语句替代了之前的所有resp.Body.Close
+
 
 <u><i>gopl.io/ch5/title2</i></u>
 ```Go
@@ -4920,18 +5081,20 @@ func lookup(key string) int {
 }
 ```
 
-调试复杂程序时，defer机制也常被用于记录何时进入和退出函数。下例中的bigSlowOperation函数，直接调用trace记录函数的被调情况。bigSlowOperation被调时，trace会返回一个函数值，该函数值会在bigSlowOperation退出时被调用。通过这种方式， 我们可以只通过一条语句控制函数的入口和所有的出口，甚至可以记录函数的运行时间，如例子中的start。需要注意一点：不要忘记defer语句后的圆括号，否则本该在进入时执行的操作会在退出时执行，而本该在退出时执行的，永远不会被执行。
+**调试复杂程序时，defer机制也常被用于记录何时进入和退出函数**。下例中的bigSlowOperation函数，直接调用trace记录函数的被调情况。bigSlowOperation被调时，trace会返回一个函数值，该函数值会在bigSlowOperation退出时被调用。通过这种方式， 我们可以只通过一条语句控制函数的入口和所有的出口，甚至可以记录函数的运行时间，如例子中的start。需要注意一点：不要忘记defer语句后的圆括号，否则本该在进入时执行的操作会在退出时执行，而本该在退出时执行的，永远不会被执行。
+
 
 <u><i>gopl.io/ch5/trace</i></u>
 ```Go
 func bigSlowOperation() {
-	defer trace("bigSlowOperation")() // don't forget the extra parentheses
+	defer trace("bigSlowOperation")() // don't forget the extra parentheses 不要忘记defer语句后的圆括号，否则本该在进入时执行的操作会在退出时执行，而本该在退出时执行的，永远不会被执行。
 	// ...lots of work…
 	time.Sleep(10 * time.Second) // simulate slow operation by sleeping
 }
 func trace(msg string) func() {
 	start := time.Now()
 	log.Printf("enter %s", msg)
+	//该函数值会在bigSlowOperation退出时被调用
 	return func() { 
 		log.Printf("exit %s (%s)", msg,time.Since(start)) 
 	}
@@ -4947,7 +5110,7 @@ $ ./trace
 2015/11/18 09:53:36 exit bigSlowOperation (10.000589217s)
 ```
 
-我们知道，defer语句中的函数会在return语句更新返回值变量后再执行，又因为在函数中定义的匿名函数可以访问该函数包括返回值变量在内的所有变量，所以，对匿名函数采用defer机制，可以使其观察函数的返回值。
+**我们知道，defer语句中的函数会在return语句更新返回值变量后再执行，又因为在函数中定义的匿名函数可以访问该函数包括返回值变量在内的所有变量，所以，对匿名函数采用defer机制，可以使其观察函数的返回值**。
 
 以double函数为例：
 
@@ -4961,6 +5124,7 @@ func double(x int) int {
 
 ```Go
 func double(x int) (result int) {
+	//可以使其观察函数的返回值
 	defer func() { fmt.Printf("double(%d) = %d\n", x,result) }()
 	return x + x
 }
@@ -4969,9 +5133,9 @@ _ = double(4)
 // "double(4) = 8"
 ```
 
-可能double函数过于简单，看不出这个小技巧的作用，但对于有许多return语句的函数而言，这个技巧很有用。
+可能double函数过于简单，看不出这个小技巧的作用，但**对于有许多return语句的函数而言，这个技巧很有用**。
 
-被延迟执行的匿名函数甚至可以修改函数返回给调用者的返回值：
+**被延迟执行的匿名函数甚至可以修改函数返回给调用者的返回值**：
 
 ```Go
 func triple(x int) (result int) {
@@ -4981,7 +5145,7 @@ func triple(x int) (result int) {
 fmt.Println(triple(4)) // "12"
 ```
 
-在循环体中的defer语句需要特别注意，因为只有在函数执行完毕后，这些被延迟的函数才会执行。下面的代码会导致系统的文件描述符耗尽，因为在所有文件都被处理之前，没有文件会被关闭。
+**在循环体中的defer语句需要特别注意，因为只有在函数执行完毕后，这些被延迟的函数才会执行。下面的代码会导致系统的文件描述符耗尽，因为在所有文件都被处理之前，没有文件会被关闭**。
 
 ```Go
 for _, filename := range filenames {
@@ -4989,12 +5153,12 @@ for _, filename := range filenames {
 	if err != nil {
 		return err
 	}
-	defer f.Close() // NOTE: risky; could run out of file descriptors
+	defer f.Close() // NOTE: risky; could run out of file descriptors 因为只有在函数执行完毕后，这些被延迟的函数才会执行。下面的代码会导致系统的文件描述符耗尽，因为在所有文件都被处理之前，没有文件会被关闭
 	// ...process f…
 }
 ```
 
-一种解决方法是将循环体中的defer语句移至另外一个函数。在每次循环时，调用这个函数。
+**一种解决方法是将循环体中的defer语句移至另外一个函数。在每次循环时，调用这个函数**。
 
 ```Go
 for _, filename := range filenames {
@@ -5008,7 +5172,7 @@ func doFile(filename string) error {
 		return err
 	}
 	defer f.Close()
-	// ...process f…
+	// ...process f… 确保开关一对一 在循环中不会严重延迟导致 fd 耗尽   一种解决方法是将循环体中的defer语句移至另外一个函数。在每次循环时，调用这个函数*
 }
 ```
 
@@ -5033,7 +5197,7 @@ func fetch(url string) (filename string, n int64, err error) {
 		return "", 0, err
 	}
 	n, err = io.Copy(f, resp.Body)
-	// Close file, but prefer error from Copy, if any.
+	// Close file, but prefer error from Copy, if any. **如果io.Copy和f.close都失败了，我们倾向于将io.Copy的错误信息反馈给调用者，因为它先于f.close发生，更有可能接近问题的本质**
 	if closeErr := f.Close(); err == nil {
 		err = closeErr
 	}
@@ -5041,16 +5205,18 @@ func fetch(url string) (filename string, n int64, err error) {
 }
 ```
 
-对resp.Body.Close延迟调用我们已经见过了，在此不做解释。上例中，通过os.Create打开文件进行写入，在关闭文件时，我们没有对f.close采用defer机制，因为这会产生一些微妙的错误。许多文件系统，尤其是NFS，写入文件时发生的错误会被延迟到文件关闭时反馈。如果没有检查文件关闭时的反馈信息，可能会导致数据丢失，而我们还误以为写入操作成功。如果io.Copy和f.close都失败了，我们倾向于将io.Copy的错误信息反馈给调用者，因为它先于f.close发生，更有可能接近问题的本质。
+对resp.Body.Close延迟调用我们已经见过了，在此不做解释。上例中，通过os.Create打开文件进行写入，**在关闭文件时，我们没有对f.close采用defer机制，因为这会产生一些微妙的错误。许多文件系统，尤其是NFS，写入文件时发生的错误会被延迟到文件关闭时反馈。如果没有检查文件关闭时的反馈信息，可能会导致数据丢失，而我们还误以为写入操作成功。如果io.Copy和f.close都失败了，我们倾向于将io.Copy的错误信息反馈给调用者，因为它先于f.close发生，更有可能接近问题的本质**。
+
 
 **练习5.18：**不修改fetch的行为，重写fetch函数，要求使用defer机制关闭文件。
 ## 5.9. Panic异常
 
 Go的类型系统会在编译时捕获很多错误，但有些错误只能在运行时检查，如数组访问越界、空指针引用等。这些运行时错误会引起painc异常。
 
-一般而言，当panic异常发生时，程序会中断运行，并立即执行在该goroutine（可以先理解成线程，在第8章会详细介绍）中被延迟的函数（defer 机制）。随后，程序崩溃并输出日志信息。日志信息包括panic value和函数调用的堆栈跟踪信息。panic value通常是某种错误信息。对于每个goroutine，日志信息中都会有与之相对的，发生panic时的函数调用堆栈跟踪信息。通常，我们不需要再次运行程序去定位问题，日志信息已经提供了足够的诊断依据。因此，在我们填写问题报告时，一般会将panic异常和日志信息一并记录。
+**一般而言，当panic异常发生时，程序会中断运行，并立即执行在该goroutine（可以先理解成线程，在第8章会详细介绍）中被延迟的函数（defer 机制）。随后，程序崩溃并输出日志信息。日志信息包括panic value和函数调用的堆栈跟踪信息。panic value通常是某种错误信息。对于每个goroutine，日志信息中都会有与之相对的，发生panic时的函数调用堆栈跟踪信息。通常，我们不需要再次运行程序去定位问题，日志信息已经提供了足够的诊断依据。因此，在我们填写问题报告时，一般会将panic异常和日志信息一并记录**。
 
-不是所有的panic异常都来自运行时，直接调用内置的panic函数也会引发panic异常；panic函数接受任何值作为参数。当某些不应该发生的场景发生时，我们就应该调用panic。比如，当程序到达了某条逻辑上不可能到达的路径：
+
+不是所有的panic异常都来自运行时，**直接调用内置的panic函数也会引发panic异常；panic函数接受任何值作为参数。当某些不应该发生的场景发生时，我们就应该调用panic** 。比如，当程序到达了某条逻辑上不可能到达的路径：
 
 ```Go
 switch s := suit(drawCard()); s {
@@ -5074,7 +5240,7 @@ func Reset(x *Buffer) {
 }
 ```
 
-虽然Go的panic机制类似于其他语言的异常，但panic的适用场景有一些不同。由于panic会引起程序的崩溃，因此panic一般用于严重错误，如程序内部的逻辑不一致。勤奋的程序员认为任何崩溃都表明代码中存在漏洞，所以对于大部分漏洞，我们应该使用Go提供的错误机制，而不是panic，尽量避免程序的崩溃。在健壮的程序中，任何可以预料到的错误，如不正确的输入、错误的配置或是失败的I/O操作都应该被优雅的处理，最好的处理方式，就是使用Go的错误机制。
+虽然Go的panic机制类似于其他语言的异常，但panic的适用场景有一些不同。由于panic会引起程序的崩溃，因此panic一般用于严重错误，如程序内部的逻辑不一致。勤奋的程序员认为任何崩溃都表明代码中存在漏洞，所以对于大部分漏洞，我们应该使用Go提供的错误机制，而不是panic，尽量避免程序的崩溃。在健壮的程序中，任何可以预料到的错误，如不正确的输入、错误的配置或是失败的I/O操作都应该被优雅的处理，**最好的处理方式，就是使用Go的错误机制**。
 
 考虑regexp.Compile函数，该函数将正则表达式编译成有效的可匹配格式。当输入的正则表达式不合法时，该函数会返回一个错误。当调用者明确的知道正确的输入不会引起函数错误时，要求调用者检查这个错误是不必要和累赘的。我们应该假设函数的输入一直合法，就如前面的断言一样：当调用者输入了不应该出现的输入时，触发panic异常。
 
@@ -5140,7 +5306,8 @@ src/gopl.io/ch5/defer1/defer.go:10
 
 我们在下一节将看到，如何使程序从panic异常中恢复，阻止程序的崩溃。
 
-为了方便诊断问题，runtime包允许程序员输出堆栈信息。在下面的例子中，我们通过在main函数中延迟调用printStack输出堆栈信息。
+**为了方便诊断问题，runtime包允许程序员输出堆栈信息。在下面的例子中，我们通过在main函数中延迟调用printStack输出堆栈信息**。
+
 
 ```Go
 gopl.io/ch5/defer2
@@ -5173,12 +5340,14 @@ main.main()
 src/gopl.io/ch5/defer2/defer.go:15
 ```
 
-将panic机制类比其他语言异常机制的读者可能会惊讶，runtime.Stack为何能输出已经被释放函数的信息？在Go的panic机制中，延迟函数的调用在释放堆栈信息之前。
+将panic机制类比其他语言异常机制的读者可能会惊讶，runtime.Stack为何能输出已经被释放函数的信息？**在Go的panic机制中，延迟函数的调用在释放堆栈信息之前**。
+
 ## 5.10. Recover捕获异常
 
-通常来说，不应该对panic异常做任何处理，但有时，也许我们可以从异常中恢复，至少我们可以在程序崩溃前，做一些操作。举个例子，当web服务器遇到不可预料的严重问题时，在崩溃前应该将所有的连接关闭；如果不做任何处理，会使得客户端一直处于等待状态。如果web服务器还在开发阶段，服务器甚至可以将异常信息反馈到客户端，帮助调试。
+**通常来说，不应该对panic异常做任何处理，但有时，也许我们可以从异常中恢复，至少我们可以在程序崩溃前，做一些操作**。举个例子，当web服务器遇到不可预料的严重问题时，在崩溃前应该将所有的连接关闭；如果不做任何处理，会使得客户端一直处于等待状态。如果web服务器还在开发阶段，服务器甚至可以将异常信息反馈到客户端，帮助调试。
 
-如果在deferred函数中调用了内置函数recover，并且定义该defer语句的函数发生了panic异常，recover会使程序从panic中恢复，并返回panic value。导致panic异常的函数不会继续运行，但能正常返回。在未发生panic时调用recover，recover会返回nil。
+**如果在deferred函数中调用了内置函数recover，并且定义该defer语句的函数发生了panic异常，recover会使程序从panic中恢复，并返回panic value。导致panic异常的函数不会继续运行，但能正常返回。在未发生panic时调用recover，recover会返回nil**。
+
 
 让我们以语言解析器为例，说明recover的使用场景。考虑到语言解析器的复杂性，即使某个语言解析器目前工作正常，也无法肯定它没有漏洞。因此，当某个异常出现时，我们不会选择让解析器崩溃，而是会将panic异常当作普通的解析错误，并附加额外信息提醒用户报告此错误。
 
@@ -5188,14 +5357,14 @@ func Parse(input string) (s *Syntax, err error) {
 		if p := recover(); p != nil {
 			err = fmt.Errorf("internal error: %v", p)
 		}
-	}()
+	}() // 不要忘记()
 	// ...parser...
 }
 ```
 
 deferred函数帮助Parse从panic中恢复。在deferred函数内部，panic value被附加到错误信息中；并用err变量接收错误信息，返回给调用者。我们也可以通过调用runtime.Stack往错误信息中添加完整的堆栈调用信息。
 
-不加区分的恢复所有的panic异常，不是可取的做法；因为在panic之后，无法保证包级变量的状态仍然和我们预期一致。比如，对数据结构的一次重要更新没有被完整完成、文件或者网络连接没有被关闭、获得的锁没有被释放。此外，如果写日志时产生的panic被不加区分的恢复，可能会导致漏洞被忽略。
+**不加区分的恢复所有的panic异常，不是可取的做法；因为在panic之后，无法保证包级变量的状态仍然和我们预期一致。比如，对数据结构的一次重要更新没有被完整完成、文件或者网络连接没有被关闭、获得的锁没有被释放。此外，如果写日志时产生的panic被不加区分的恢复，可能会导致漏洞被忽略**。
 
 虽然把对panic的处理都集中在一个包下，有助于简化对复杂和不可以预料问题的处理，但作为被广泛遵守的规范，你不应该试图去恢复其他包引起的panic。公有的API应该将函数的运行失败作为error返回，而不是panic。同样的，你也不应该恢复一个由他人开发的函数引起的panic，比如说调用者传入的回调函数，因为你无法确保这样做是安全的。
 
@@ -5240,12 +5409,13 @@ func soleTitle(doc *html.Node) (title string, err error) {
 
 有些情况下，我们无法恢复。某些致命错误会导致Go在运行时终止程序，如内存不足。
 
+
 **练习5.19：** 使用panic和recover编写一个不包含return语句但能返回一个非零值的函数。
 # 第六章　方法
 
 从90年代早期开始，面向对象编程（OOP）就成为了称霸工程界和教育界的编程范式，所以之后几乎所有大规模被应用的语言都包含了对OOP的支持，go语言也不例外。
 
-尽管没有被大众所接受的明确的OOP的定义，从我们的理解来讲，一个对象其实也就是一个简单的值或者一个变量，在这个对象中会包含一些方法，而一个方法则是一个一个和特殊类型关联的函数。一个面向对象的程序会用方法来表达其属性和对应的操作，这样使用这个对象的用户就不需要直接去操作对象，而是借助方法来做这些事情。
+**尽管没有被大众所接受的明确的OOP的定义，从我们的理解来讲，一个对象其实也就是一个简单的值或者一个变量，在这个对象中会包含一些方法，而一个方法则是一个一个和特殊类型关联的函数。一个面向对象的程序会用方法来表达其属性和对应的操作，这样使用这个对象的用户就不需要直接去操作对象，而是借助方法来做这些事情**。
 
 在早些的章节中，我们已经使用了标准库提供的一些方法，比如time.Duration这个类型的Seconds方法：
 
@@ -5263,7 +5433,7 @@ func (c Celsius) String() string { return fmt.Sprintf("%g°C", c) }
 在本章中，OOP编程的第一方面，我们会向你展示如何有效地定义和使用方法。我们会覆盖到OOP编程的两个关键点，封装和组合。
 ## 6.1. 方法声明
 
-在函数声明时，在其名字之前放上一个变量，即是一个方法。这个附加的参数会将该函数附加到这种类型上，即相当于为这种类型定义了一个独占的方法。
+**在函数声明时，在其名字之前放上一个变量，即是一个方法。这个附加的参数会将该函数附加到这种类型上，即相当于为这种类型定义了一个独占的方法**。
 
 下面来写我们第一个方法的例子，这个例子在package geometry下：
 
@@ -5286,11 +5456,11 @@ func (p Point) Distance(q Point) float64 {
 }
 ```
 
-上面的代码里那个附加的参数p，叫做方法的接收器（receiver），早期的面向对象语言留下的遗产将调用一个方法称为“向一个对象发送消息”。
+上面的代码里那个附加的参数p，叫做**方法的接收器（receiver）**，早期的面向对象语言留下的遗产**将调用一个方法称为“向一个对象发送消息”**。
 
-在Go语言中，我们并不会像其它语言那样用this或者self作为接收器；我们可以任意的选择接收器的名字。由于接收器的名字经常会被使用到，所以保持其在方法间传递时的一致性和简短性是不错的主意。这里的建议是可以使用其类型的第一个字母，比如这里使用了Point的首字母p。
+**在Go语言中，我们并不会像其它语言那样用this或者self作为接收器；我们可以任意的选择接收器的名字**。由于接收器的名字经常会被使用到，所以保持其在方法间传递时的一致性和简短性是不错的主意。这里的建议是可以使用其类型的第一个字母，比如这里使用了Point的首字母p。
 
-在方法调用过程中，接收器参数一般会在方法名之前出现。这和方法声明是一样的，都是接收器参数在方法名字之前。下面是例子：
+在方法调用过程中，**接收器参数一般会在方法名之前出现。这和方法声明是一样的，都是接收器参数在方法名字之前**。下面是例子：
 
 ```Go
 p := Point{1, 2}
@@ -5301,7 +5471,7 @@ fmt.Println(p.Distance(q))  // "5", method call
 
 可以看到，上面的两个函数调用都是Distance，但是却没有发生冲突。第一个Distance的调用实际上用的是包级别的函数geometry.Distance，而第二个则是使用刚刚声明的Point，调用的是Point类下声明的Point.Distance方法。
 
-这种p.Distance的表达式叫做选择器，因为他会选择合适的对应p这个对象的Distance方法来执行。选择器也会被用来选择一个struct类型的字段，比如p.X。由于方法和字段都是在同一命名空间，所以如果我们在这里声明一个X方法的话，编译器会报错，因为在调用p.X时会有歧义（译注：这里确实挺奇怪的）。
+**这种p.Distance的表达式叫做选择器，因为他会选择合适的对应p这个对象的Distance方法来执行。选择器也会被用来选择一个struct类型的字段，比如p.X。由于方法和字段都是在同一命名空间，所以如果我们在这里声明一个X方法的话，编译器会报错，因为在调用p.X时会有歧义（译注：这里确实挺奇怪的）**。
 
 因为每种类型都有其方法的命名空间，我们在用Distance这个名字的时候，不同的Distance调用指向了不同类型里的Distance方法。让我们来定义一个Path类型，这个Path代表一个线段的集合，并且也给这个Path定义一个叫Distance的方法。
 
@@ -5320,7 +5490,11 @@ func (path Path) Distance() float64 {
 }
 ```
 
-Path是一个命名的slice类型，而不是Point那样的struct类型，然而我们依然可以为它定义方法。在能够给任意类型定义方法这一点上，Go和很多其它的面向对象的语言不太一样。因此在Go语言里，我们为一些简单的数值、字符串、slice、map来定义一些附加行为很方便。我们可以给同一个包内的任意命名类型定义方法，只要这个命名类型的底层类型（译注：这个例子里，底层类型是指[]Point这个slice，Path就是命名类型）不是指针或者interface。
+Path是一个命名的slice类型，而不是Point那样的struct类型，然而我们依然可以为它定义方法。**在能够给任意类型定义方法这一点上，Go和很多其它的面向对象的语言不太一样。因此在Go语言里，我们为一些简单的数值、字符串、slice、map来定义一些附加行为很方便。我们可以给同一个包内的任意命名类型定义方法，只要这个命名类型的底层类型（译注：这个例子里，底层类型是指[]Point这个slice，Path就是命名类型）不是指针或者interface**。
+
+?? 指针或者interface  添加方法?   **方法可以被声明到任意类型，只要不是一个指针或者一个interface**
+**如果一个类型名本身是一个指针的话，是不允许其出现在接收器中的** 在语法糖中会有歧义??
+
 
 两个Distance方法有不同的类型。他们两个方法之间没有任何关系，尽管Path的Distance方法会在内部调用Point.Distance方法来计算每个连接邻接点的线段的长度。
 
@@ -5338,7 +5512,7 @@ fmt.Println(perim.Distance()) // "12"
 
 在上面两个对Distance名字的方法的调用中，编译器会根据方法的名字以及接收器来决定具体调用的是哪一个函数。第一个例子中path[i-1]数组中的类型是Point，因此Point.Distance这个方法被调用；在第二个例子中perim的类型是Path，因此Distance调用的是Path.Distance。
 
-对于一个给定的类型，其内部的方法都必须有唯一的方法名，但是不同的类型却可以有同样的方法名，比如我们这里Point和Path就都有Distance这个名字的方法；所以我们没有必要非在方法名之前加类型名来消除歧义，比如PathDistance。这里我们已经看到了方法比之函数的一些好处：方法名可以简短。当我们在包外调用的时候这种好处就会被放大，因为我们可以使用这个短名字，而可以省略掉包的名字，下面是例子：
+**对于一个给定的类型，其内部的方法都必须有唯一的方法名，但是不同的类型却可以有同样的方法名**，比如我们这里Point和Path就都有Distance这个名字的方法；所以我们没有必要非在方法名之前加类型名来消除歧义，比如PathDistance。**这里我们已经看到了方法比之函数的一些好处：方法名可以简短。当我们在包外调用的时候这种好处就会被放大，因为我们可以使用这个短名字，而可以省略掉包的名字**，下面是例子：
 
 ```Go
 import "gopl.io/ch6/geometry"
@@ -5348,7 +5522,8 @@ fmt.Println(geometry.PathDistance(perim)) // "12", standalone function
 fmt.Println(perim.Distance())             // "12", method of geometry.Path
 ```
 
-**译注：** 如果我们要用方法去计算perim的distance，还需要去写全geometry的包名，和其函数名，但是因为Path这个类型定义了一个可以直接用的Distance方法，所以我们可以直接写perim.Distance()。相当于可以少打很多字，作者应该是这个意思。因为在Go里包外调用函数需要带上包名，还是挺麻烦的。
+**译注：** 如果我们要用方法去计算perim的distance，还需要去写全geometry的包名，和其函数名，但是因为Path这个类型定义了一个可以直接用的Distance方法，所以我们可以直接写perim.Distance()。相当于可以少打很多字，作者应该是这个意思。因为**在Go里包外调用函数需要带上包名**，还是挺麻烦的。
+
 ## 6.2. 基于指针对象的方法
 
 当调用一个函数时，会对其每一个参数值进行拷贝，如果一个函数需要更新一个变量，或者函数的其中一个参数实在太大我们希望能够避免进行这种默认的拷贝，这种情况下我们就需要用到指针了。对应到我们这里用来更新接收器的对象的方法，当这个接受者变量本身比较大时，我们就可以用其指针而不是对象来声明方法，如下：
@@ -5362,9 +5537,9 @@ func (p *Point) ScaleBy(factor float64) {
 
 这个方法的名字是`(*Point).ScaleBy`。这里的括号是必须的；没有括号的话这个表达式可能会被理解为`*(Point.ScaleBy)`。
 
-在现实的程序里，一般会约定如果Point这个类有一个指针作为接收器的方法，那么所有Point的方法都必须有一个指针接收器，即使是那些并不需要这个指针接收器的函数。我们在这里打破了这个约定只是为了展示一下两种方法的异同而已。
+**在现实的程序里，一般会约定如果Point这个类有一个指针作为接收器的方法，那么所有Point的方法都必须有一个指针接收器，即使是那些并不需要这个指针接收器的函数**。我们在这里打破了这个约定只是为了展示一下两种方法的异同而已。
 
-只有类型（Point）和指向他们的指针`(*Point)`，才可能是出现在接收器声明里的两种接收器。此外，为了避免歧义，在声明方法时，如果一个类型名本身是一个指针的话，是不允许其出现在接收器中的，比如下面这个例子：
+只有类型（Point）和指向他们的指针`(*Point)`，才可能是出现在接收器声明里的两种接收器。此外，**为了避免歧义，在声明方法时，如果一个类型名本身是一个指针的话，是不允许其出现在接收器中的**，比如下面这个例子：
 
 ```go
 type P *int
@@ -5401,55 +5576,56 @@ fmt.Println(p) // "{2, 4}"
 p.ScaleBy(2)
 ```
 
-编译器会隐式地帮我们用&p去调用ScaleBy这个方法。这种简写方法只适用于“变量”，包括struct里的字段比如p.X，以及array和slice内的元素比如perim[0]。我们不能通过一个无法取到地址的接收器来调用指针方法，比如临时变量的内存地址就无法获取得到：
+**编译器会隐式地帮我们用&p去调用ScaleBy这个方法。这种简写方法只适用于“变量”，包括struct里的字段比如p.X，以及array和slice内的元素比如perim[0]。我们不能通过一个无法取到地址的接收器来调用指针方法，比如临时变量的内存地址就无法获取得到：**
 
 ```go
 Point{1, 2}.ScaleBy(2) // compile error: can't take address of Point literal
 ```
 
-但是我们可以用一个`*Point`这样的接收器来调用Point的方法，因为我们可以通过地址来找到这个变量，只要用解引用符号`*`来取到该变量即可。编译器在这里也会给我们隐式地插入`*`这个操作符，所以下面这两种写法等价的：
+**但是我们可以用一个`*Point`这样的接收器来调用Point的方法，因为我们可以通过地址来找到这个变量，只要用解引用符号`*`来取到该变量即可。编译器在这里也会给我们隐式地插入`*`这个操作符，所以下面这两种写法等价的：**
 
 ```Go
 pptr.Distance(q)
 (*pptr).Distance(q)
 ```
 
-这里的几个例子可能让你有些困惑，所以我们总结一下：在每一个合法的方法调用表达式中，也就是下面三种情况里的任意一种情况都是可以的：
+这里的几个例子可能让你有些困惑，所以我们**总结一下：在每一个合法的方法调用表达式中，也就是下面三种情况里的任意一种情况都是可以的：**
 
-不论接收器的实际参数和其形式参数是相同，比如两者都是类型T或者都是类型`*T`：
+**不论接收器的实际参数和其形式参数是相同，比如两者都是类型T或者都是类型`*T`：**
 
 ```go
 Point{1, 2}.Distance(q) //  Point
 pptr.ScaleBy(2)         // *Point
 ```
 
-或者接收器实参是类型T，但接收器形参是类型`*T`，这种情况下编译器会隐式地为我们取变量的地址：
+**或者接收器实参是类型T，但接收器形参是类型`*T`，这种情况下编译器会隐式地为我们取变量的地址：**
 
 ```go
 p.ScaleBy(2) // implicit (&p)
 ```
 
-或者接收器实参是类型`*T`，形参是类型T。编译器会隐式地为我们解引用，取到指针指向的实际变量：
+**或者接收器实参是类型`*T`，形参是类型T。编译器会隐式地为我们解引用，取到指针指向的实际变量：**
 
 ```go
 pptr.Distance(q) // implicit (*pptr)
 ```
 
-如果命名类型T（译注：用type xxx定义的类型）的所有方法都是用T类型自己来做接收器（而不是`*T`），那么拷贝这种类型的实例就是安全的；调用他的任何一个方法也就会产生一个值的拷贝。比如time.Duration的这个类型，在调用其方法时就会被全部拷贝一份，包括在作为参数传入函数的时候。但是如果一个方法使用指针作为接收器，你需要避免对其进行拷贝，因为这样可能会破坏掉该类型内部的不变性。比如你对bytes.Buffer对象进行了拷贝，那么可能会引起原始对象和拷贝对象只是别名而已，实际上它们指向的对象是一样的。紧接着对拷贝后的变量进行修改可能会有让你有意外的结果。
+**如果命名类型T（译注：用type xxx定义的类型）的所有方法都是用T类型自己来做接收器（而不是`*T`），那么拷贝这种类型的实例就是安全的；调用他的任何一个方法也就会产生一个值的拷贝。比如time.Duration的这个类型，在调用其方法时就会被全部拷贝一份，包括在作为参数传入函数的时候。但是如果一个方法使用指针作为接收器，你需要避免对其进行拷贝，因为这样可能会破坏掉该类型内部的不变性。比如你对bytes.Buffer对象进行了拷贝，那么可能会引起原始对象和拷贝对象只是别名而已，实际上它们指向的对象是一样的。紧接着对拷贝后的变量进行修改可能会有让你有意外的结果。**
 
 **译注：** 作者这里说的比较绕，其实有两点：
 
 1. 不管你的method的receiver是指针类型还是非指针类型，都是可以通过指针/非指针类型进行调用的，编译器会帮你做类型转换。
-2. 在声明一个method的receiver该是指针还是非指针类型时，你需要考虑两方面的因素，第一方面是这个对象本身是不是特别大，如果声明为非指针变量时，调用会产生一次拷贝；第二方面是如果你用指针类型作为receiver，那么你一定要注意，这种指针类型指向的始终是一块内存地址，就算你对其进行了拷贝。熟悉C或者C++的人这里应该很快能明白。
+2. 在声明一个method的receiver该是指针还是非指针类型时，你需要考虑两方面的因素，第一方面是这个对象本身是不是特别大，如果声明为非指针变量时，调用会产生一次拷贝；第二方面是如果你用指针类型作为receiver，那么你一定要注意，这种指针类型指向的始终是一块内存地址，就算你对其进行了拷贝。熟悉C或者C++的人这里应该很快能明白。   浅拷贝
 
 {% include "./ch6-02-1.md" %}
+
 ### 6.2.1. Nil也是一个合法的接收器类型
 
-就像一些函数允许nil指针作为参数一样，方法理论上也可以用nil指针作为其接收器，尤其当nil对于对象来说是合法的零值时，比如map或者slice。在下面的简单int链表的例子里，nil代表的是空链表：
+**就像一些函数允许nil指针作为参数一样，方法理论上也可以用nil指针作为其接收器，尤其当nil对于对象来说是合法的零值时，比如map或者slice。在下面的简单int链表的例子里，nil代表的是空链表：**
 
 ```go
 // An IntList is a linked list of integers.
-// A nil *IntList represents the empty list.
+// A nil *IntList represents the empty list. 在类型前面的注释中指出nil变量代表的意义是很有必要的，就像我们上面例子里做的这样。
 type IntList struct {
 	Value int
 	Tail  *IntList
@@ -5502,13 +5678,16 @@ fmt.Println(m.Get("item")) // "1"      (first value)
 fmt.Println(m["item"])     // "[1 2]"  (direct map access)
 
 m = nil
-fmt.Println(m.Get("item")) // ""
+fmt.Println(m.Get("item")) // ""   Value(nil).Get(“item”)
 m.Add("item", "3")         // panic: assignment to entry in nil map
 ```
 
 对Get的最后一次调用中，nil接收器的行为即是一个空map的行为。我们可以等价地将这个操作写成Value(nil).Get("item")，但是如果你直接写nil.Get("item")的话是无法通过编译的，因为nil的字面量编译器无法判断其准确类型。所以相比之下，最后的那行m.Add的调用就会产生一个panic，因为他尝试更新一个空map。
 
-由于url.Values是一个map类型，并且间接引用了其key/value对，因此url.Values.Add对这个map里的元素做任何的更新、删除操作对调用方都是可见的。实际上，就像在普通函数中一样，虽然可以通过引用来操作内部值，但在方法想要修改引用本身时是不会影响原始值的，比如把他置换为nil，或者让这个引用指向了其它的对象，调用方都不会受影响。（译注：因为传入的是存储了内存地址的变量，你改变这个变量本身是影响不了原始的变量的，想想C语言，是差不多的）
+**由于url.Values是一个map类型，并且间接引用了其key/value对，因此url.Values.Add对这个map里的元素做任何的更新、删除操作对调用方都是可见的。实际上，就像在普通函数中一样，虽然可以通过引用来操作内部值，但在方法想要修改引用本身时是不会影响原始值的，比如把他置换为nil，或者让这个引用指向了其它的对象，调用方都不会受影响。（译注：因为传入的是存储了内存地址的变量，你改变这个变量本身是影响不了原始的变量的，想想C语言，是差不多的）**
+
+?? 传入的是引用的拷贝
+
 ## 6.3. 通过嵌入结构体来扩展类型
 
 来看看ColoredPoint这个类型：
@@ -5525,7 +5704,7 @@ type ColoredPoint struct {
 }
 ```
 
-我们完全可以将ColoredPoint定义为一个有三个字段的struct，但是我们却将Point这个类型嵌入到ColoredPoint来提供X和Y这两个字段。像我们在4.4节中看到的那样，内嵌可以使我们在定义ColoredPoint时得到一种句法上的简写形式，并使其包含Point类型所具有的一切字段，然后再定义一些自己的。如果我们想要的话，我们可以直接认为通过嵌入的字段就是ColoredPoint自身的字段，而完全不需要在调用时指出Point，比如下面这样。
+我们完全可以将ColoredPoint定义为一个有三个字段的struct，但是我们却将Point这个类型嵌入到ColoredPoint来提供X和Y这两个字段。像我们在4.4节中看到的那样，内嵌可以使我们在定义ColoredPoint时**得到一种句法上的简写形式，并使其包含Point类型所具有的一切字段，然后再定义一些自己的**。如果我们想要的话，我们可以直接认为通过嵌入的字段就是ColoredPoint自身的字段，而完全不需要在调用时指出Point，比如下面这样。
 
 ```go
 var cp ColoredPoint
@@ -5548,29 +5727,29 @@ q.ScaleBy(2)
 fmt.Println(p.Distance(q.Point)) // "10"
 ```
 
-Point类的方法也被引入了ColoredPoint。用这种方式，内嵌可以使我们定义字段特别多的复杂类型，我们可以将字段先按小类型分组，然后定义小类型的方法，之后再把它们组合起来。
+Point类的方法也被引入了ColoredPoint。用这种方式，**内嵌可以使我们定义字段特别多的复杂类型，我们可以将字段先按小类型分组，然后定义小类型的方法，之后再把它们组合起来**。
 
-读者如果对基于类来实现面向对象的语言比较熟悉的话，可能会倾向于将Point看作一个基类，而ColoredPoint看作其子类或者继承类，或者将ColoredPoint看作"is a" Point类型。但这是错误的理解。请注意上面例子中对Distance方法的调用。Distance有一个参数是Point类型，但q并不是一个Point类，所以尽管q有着Point这个内嵌类型，我们也必须要显式地选择它。尝试直接传q的话你会看到下面这样的错误：
+读者如果对基于类来实现面向对象的语言比较熟悉的话，可能会倾向于将Point看作一个基类，而ColoredPoint看作其子类或者继承类，**或者将ColoredPoint看作"is a" Point类型。但这是错误的理解。请注意上面例子中对Distance方法的调用。Distance有一个参数是Point类型，但q并不是一个Point类，所以尽管q有着Point这个内嵌类型，我们也必须要显式地选择它。尝试直接传q的话你会看到下面这样的错误：**
 
 ```go
 p.Distance(q) // compile error: cannot use q (ColoredPoint) as Point
 ```
 
-一个ColoredPoint并不是一个Point，但他"has a"Point，并且它有从Point类里引入的Distance和ScaleBy方法。如果你喜欢从实现的角度来考虑问题，内嵌字段会指导编译器去生成额外的包装方法来委托已经声明好的方法，和下面的形式是等价的：
+**一个ColoredPoint并不是一个Point，但他"has a"Point，并且它有从Point类里引入的Distance和ScaleBy方法**。如果你喜欢从实现的角度来考虑问题，**内嵌字段会指导编译器去生成额外的包装方法来委托已经声明好的方法，和下面的形式是等价的：**
 
 ```go
 func (p ColoredPoint) Distance(q Point) float64 {
-	return p.Point.Distance(q)
+	return p.Point.Distance(q) //当Point.Distance被第一个包装方法调用时，它的接收器值是p.Point，而不是p，当然了，在Point类的方法里，你是访问不到ColoredPoint的任何字段的。
 }
 
 func (p *ColoredPoint) ScaleBy(factor float64) {
-	p.Point.ScaleBy(factor)
+	p.Point.ScaleBy(factor)// 
 }
 ```
 
 当Point.Distance被第一个包装方法调用时，它的接收器值是p.Point，而不是p，当然了，在Point类的方法里，你是访问不到ColoredPoint的任何字段的。
 
-在类型中内嵌的匿名字段也可能是一个命名类型的指针，这种情况下字段和方法会被间接地引入到当前的类型中（译注：访问需要通过该指针指向的对象去取）。添加这一层间接关系让我们可以共享通用的结构并动态地改变对象之间的关系。下面这个ColoredPoint的声明内嵌了一个*Point的指针。
+**在类型中内嵌的匿名字段也可能是一个命名类型的指针，这种情况下字段和方法会被间接地引入到当前的类型中（译注：访问需要通过该指针指向的对象去取）。添加这一层间接关系让我们可以共享通用的结构并动态地改变对象之间的关系**。下面这个ColoredPoint的声明内嵌了一个*Point的指针。
 
 ```go
 type ColoredPoint struct {
@@ -5581,7 +5760,7 @@ type ColoredPoint struct {
 p := ColoredPoint{&Point{1, 1}, red}
 q := ColoredPoint{&Point{5, 4}, blue}
 fmt.Println(p.Distance(*q.Point)) // "5"
-q.Point = p.Point                 // p and q now share the same Point
+q.Point = p.Point                 // p and q now share the same Point  这里体现了?? **动态地改变对象之间的关系** 解耦
 p.ScaleBy(2)
 fmt.Println(*p.Point, *q.Point) // "{2 2} {2 2}"
 ```
@@ -5595,9 +5774,10 @@ type ColoredPoint struct {
 }
 ```
 
-然后这种类型的值便会拥有Point和RGBA类型的所有方法，以及直接定义在ColoredPoint中的方法。当编译器解析一个选择器到方法时，比如p.ScaleBy，它会首先去找直接定义在这个类型里的ScaleBy方法，然后找被ColoredPoint的内嵌字段们引入的方法，然后去找Point和RGBA的内嵌字段引入的方法，然后一直递归向下找。如果选择器有二义性的话编译器会报错，比如你在同一级里有两个同名的方法。
+然后这种类型的值便会拥有Point和RGBA类型的所有方法，以及直接定义在ColoredPoint中的方法。当编译器解析一个选择器到方法时，比如p.ScaleBy，它会首先去找直接定义在这个类型里的ScaleBy方法，然后找被ColoredPoint的内嵌字段们引入的方法，然后去找Point和RGBA的内嵌字段引入的方法，然后一直递归向下找。** 如果选择器有二义性的话编译器会报错，比如你在同一级里有两个同名的方法**。
 
-方法只能在命名类型（像Point）或者指向类型的指针上定义，但是多亏了内嵌，有些时候我们给匿名struct类型来定义方法也有了手段。
+
+**方法只能在命名类型（像Point）或者指向类型的指针上定义，但是多亏了内嵌，有些时候我们给匿名struct类型来定义方法也有了手段**。
 
 下面是一个小trick。这个例子展示了简单的cache，其使用两个包级别的变量来实现，一个mutex互斥量（§9.2）和它所操作的cache：
 
@@ -5618,26 +5798,31 @@ func Lookup(key string) string {
 下面这个版本在功能上是一致的，但将两个包级别的变量放在了cache这个struct一组内：
 
 ```go
-var cache = struct {
+
+// 注这种写法    **给匿名struct类型来定义方法**
+var cache = struct {   
 	sync.Mutex
 	mapping map[string]string
 }{
+	// 类似构造函数 或者定义 用于匿名结构体成员的初始化？
 	mapping: make(map[string]string),
 }
 
 
 func Lookup(key string) string {
-	cache.Lock()
+	cache.Lock() // 因为sync.Mutex字段也被嵌入到了这个struct里，其Lock和Unlock方法也就都被引入到了这个匿名结构中了，这让我们能够以一个简单明了的语法来对其进行加锁解锁操作
 	v := cache.mapping[key]
-	cache.Unlock()
+	cache.Unlock() // **多亏了内嵌，有些时候我们给匿名struct类型来定义方法也有了手段**。
 	return v
 }
 ```
 
 我们给新的变量起了一个更具表达性的名字：cache。因为sync.Mutex字段也被嵌入到了这个struct里，其Lock和Unlock方法也就都被引入到了这个匿名结构中了，这让我们能够以一个简单明了的语法来对其进行加锁解锁操作。
+
+
 ## 6.4. 方法值和方法表达式
 
-我们经常选择一个方法，并且在同一个表达式里执行，比如常见的p.Distance()形式，实际上将其分成两步来执行也是可能的。p.Distance叫作“选择器”，选择器会返回一个方法“值”->一个将方法（Point.Distance）绑定到特定接收器变量的函数。这个函数可以不通过指定其接收器即可被调用；即调用时不需要指定接收器（译注：因为已经在前文中指定过了），只要传入函数的参数即可：
+我们经常选择一个方法，并且在同一个表达式里执行，比如常见的p.Distance()形式，实际上将其分成两步来执行也是可能的。p.Distance叫作“选择器”，**选择器会返回一个方法“值”->一个将方法（Point.Distance）绑定到特定接收器变量的函数。这个函数可以不通过指定其接收器即可被调用；即调用时不需要指定接收器（译注：因为已经在前文中指定过了），只要传入函数的参数即可：**
 
 ```go
 p := Point{1, 2}
@@ -5654,7 +5839,12 @@ scaleP(3)           //      then (6, 12)
 scaleP(10)          //      then (60, 120)
 ```
 
-在一个包的API需要一个函数值、且调用方希望操作的是某一个绑定了对象的方法的话，方法“值”会非常实用（``=_=`真是绕）。举例来说，下面例子中的time.AfterFunc这个函数的功能是在指定的延迟时间之后来执行一个（译注：另外的）函数。且这个函数操作的是一个Rocket对象r
+	方法值更像是等待结果的回调??
+
+**在一个包的API需要一个函数值、且调用方希望操作的是某一个绑定了对象的方法的话，方法“值”会非常实用**（``=_=`真是绕）。举例来说，下面例子中的time.AfterFunc这个函数的功能是在指定的延迟时间之后来执行一个（译注：另外的）函数。且这个函数操作的是一个Rocket对象r
+
+
+func AfterFunc(d [Duration](https://studygolang.com/static/pkgdoc/pkg/time.htm#Duration), f func()) *[Timer](https://studygolang.com/static/pkgdoc/pkg/time.htm#Timer)   	//AfterFunc另起一个go程等待时间段d过去，然后调用f。它返回一个Timer，可以通过调用其Stop方法来取消等待和对f的调用。
 
 ```go
 type Rocket struct { /* ... */ }
@@ -5666,12 +5856,12 @@ time.AfterFunc(10 * time.Second, func() { r.Launch() })
 直接用方法“值”传入AfterFunc的话可以更为简短：
 
 ```go
-time.AfterFunc(10 * time.Second, r.Launch)
+time.AfterFunc(10 * time.Second, r.Launch) // 省掉了上面那个例子里的匿名函数 使用的是方法值
 ```
 
 译注：省掉了上面那个例子里的匿名函数。
 
-和方法“值”相关的还有方法表达式。当调用一个方法时，与调用一个普通的函数相比，我们必须要用选择器（p.Distance）语法来指定方法的接收器。
+**和方法“值”相关的还有方法表达式。当调用一个方法时，与调用一个普通的函数相比，我们必须要用选择器（p.Distance）语法来指定方法的接收器**。
 
 当T是一个类型时，方法表达式可能会写作`T.f`或者`(*T).f`，会返回一个函数“值”，这种函数会将其第一个参数用作接收器，所以可以用通常（译注：不写选择器）的方式来对其进行调用：
 
@@ -5679,7 +5869,7 @@ time.AfterFunc(10 * time.Second, r.Launch)
 p := Point{1, 2}
 q := Point{4, 6}
 
-distance := Point.Distance   // method expression
+distance := Point.Distance   // method expression 来自 _[gopl.io/ch6/geometry](http://gopl.io/ch6/geometry)_ 前面的案例  这个函数表达式返回一个函数“值”，这种函数会将其第一个参数用作接收器，所以可以用通常（译注：不写选择器）的方式来对其进行调用
 fmt.Println(distance(p, q))  // "5"
 fmt.Printf("%T\n", distance) // "func(Point, Point) float64"
 
@@ -5691,10 +5881,10 @@ fmt.Printf("%T\n", scale) // "func(*Point, float64)"
 // 译注：这个Distance实际上是指定了Point对象为接收器的一个方法func (p Point) Distance()，
 // 但通过Point.Distance得到的函数需要比实际的Distance方法多一个参数，
 // 即其需要用第一个额外参数指定接收器，后面排列Distance方法的参数。
-// 看起来本书中函数和方法的区别是指有没有接收器，而不像其他语言那样是指有没有返回值。
+// **看起来本书中函数和方法的区别是指有没有接收器，而不像其他语言那样是指有没有返回值。**
 ```
 
-当你根据一个变量来决定调用同一个类型的哪个函数时，方法表达式就显得很有用了。你可以根据选择来调用接收器各不相同的方法。下面的例子，变量op代表Point类型的addition或者subtraction方法，Path.TranslateBy方法会为其Path数组中的每一个Point来调用对应的方法：
+**当你根据一个变量来决定调用同一个类型的哪个函数时，方法表达式就显得很有用了。你可以根据选择来调用接收器各不相同的方法**。下面的例子，变量op代表Point类型的addition或者subtraction方法，Path.TranslateBy方法会为其Path数组中的每一个Point来调用对应的方法：
 
 ```go
 type Point struct{ X, Y float64 }
@@ -5704,6 +5894,7 @@ func (p Point) Sub(q Point) Point { return Point{p.X - q.X, p.Y - q.Y} }
 
 type Path []Point
 
+// 根据一个变量来决定调用同一个类型的哪个函数时，方法表达式就显得很有用了。你可以根据选择来调用接收器各不相同的方法的例子
 func (path Path) TranslateBy(offset Point, add bool) {
 	var op func(p, q Point) Point
 	if add {
@@ -5717,41 +5908,64 @@ func (path Path) TranslateBy(offset Point, add bool) {
 	}
 }
 ```
+
 ## 6.5. 示例: Bit数组
 
-Go语言里的集合一般会用map[T]bool这种形式来表示，T代表元素类型。集合用map类型来表示虽然非常灵活，但我们可以以一种更好的形式来表示它。例如在数据流分析领域，集合元素通常是一个非负整数，集合会包含很多元素，并且集合会经常进行并集、交集操作，这种情况下，bit数组会比map表现更加理想。（译注：这里再补充一个例子，比如我们执行一个http下载任务，把文件按照16kb一块划分为很多块，需要有一个全局变量来标识哪些块下载完成了，这种时候也需要用到bit数组。）
+Go语言里的**集合一般会用map[T]bool这种形式来表示，T代表元素类型。集合用map类型来表示虽然非常灵活，但我们可以以一种更好的形式来表示它**。例如在数据流分析领域，集合元素通常是一个非负整数，集合会包含很多元素，并且集合会经常进行并集、交集操作，这种情况下，**bit数组会比map表现更加理想**。（译注：这里再补充一个例子，比如我们执行一个http下载任务，把文件按照16kb一块划分为很多块，需要有一个全局变量来标识哪些块下载完成了，这种时候也需要用到bit数组。）
 
-一个bit数组通常会用一个无符号数或者称之为“字”的slice来表示，每一个元素的每一位都表示集合里的一个值。当集合的第i位被设置时，我们才说这个集合包含元素i。下面的这个程序展示了一个简单的bit数组类型，并且实现了三个函数来对这个bit数组来进行操作：
+**一个bit数组通常会用一个无符号数或者称之为“字”的slice来表示，每一个元素的每一位都表示集合里的一个值。当集合的第i位被设置时，我们才说这个集合包含元素i。下面的这个程序展示了一个简单的bit数组类型，并且实现了三个函数来对这个bit数组来进行操作：**
 
 <u><i>gopl.io/ch6/intset</i></u>
+//**bit数组** ??
+//数据流分析 集合 每一个字都有64个二进制位 
+// 2的64次方：18446744073709551616
+ #define UINT_LEAST8_MAX ((uint_least8_t) 255)
+#define UINT_LEAST16_MAX ((uint_least16_t) 65535)
+#define UINT_LEAST32_MAX ((uint_least32_t) 4294967295)
+#define UINT_LEAST64_MAX ((uint_least64_t) 18446744073709551615)
+// 不是 10 进制转 64 进制 ？？ 2的6 次方 64 
+// Base64常用于在通常处理文本数据的场合，表示、传输、存储一些二进制数据。包括MIME的email，email via MIME,在XML中存储复杂数据.
+
 ```go
 // An IntSet is a set of small non-negative integers.
 // Its zero value represents the empty set.
 type IntSet struct {
-	words []uint64
+	words []uint64 // slice  len 应该会超过 64 理论可以无限大  slice   的元素 不会超过 2的64次方 因为 取64的余数的操作
 }
 
 // Has reports whether the set contains the non-negative value x.
 func (s *IntSet) Has(x int) bool {
-	word, bit := x/64, uint(x%64)
+	// 因为每一个字都有64个二进制位
+	// 为了定位x的bit位，我们用了x/64的商作为字的下标
+	// 并且用x%64得到的值作为这个字内的bit的所在位置
+	// 一个数的商和余数是唯一的 可以带入什么样的模型
+	word, bit := x/64, uint(x%64) // 商作为字的下标 余数  作为这个字内的bit的所在位置
+	// false &&  按位与 两个数相同 = true
 	return word < len(s.words) && s.words[word]&(1<<bit) != 0
 }
-
+ 
 // Add adds the non-negative value x to the set.
 func (s *IntSet) Add(x int) {
-	word, bit := x/64, uint(x%64)
+	word, bit := x/64, uint(x%64) // 商 余数
 	for word >= len(s.words) {
-		s.words = append(s.words, 0)
+		s.words = append(s.words, 0) // 补齐空间
 	}
-	s.words[word] |= 1 << bit
+	//在确认的位置上(word 商) 按位或 在这里的特殊意义  0|n = n ; n|n = n 确保不会覆盖
+	s.words[word] |= 1 << bit // 存入  商(x/64)  和  余数(1 << bit) 
 }
 
-// UnionWith sets s to the union of s and t.
+// UnionWith sets s to the union of s and t.  
+//  一次完成64个元素的或计算
+// 存入的数据越大越慢
 func (s *IntSet) UnionWith(t *IntSet) {
+	// 便利 t
 	for i, tword := range t.words {
+		// 比较 len
 		if i < len(s.words) {
+			// 把 t 中的元素拷贝过来 且不会覆盖
 			s.words[i] |= tword
 		} else {
+			// 追加空间
 			s.words = append(s.words, tword)
 		}
 	}
@@ -5771,12 +5985,14 @@ func (s *IntSet) String() string {
 		if word == 0 {
 			continue
 		}
+		// 这里是取出 商 和 余数
 		for j := 0; j < 64; j++ {
+			// word = 1<<余数   & 与运算两个数相同才 !=0
 			if word&(1<<uint(j)) != 0 {
 				if buf.Len() > len("{") {
 					buf.WriteByte(' ')
 				}
-				fmt.Fprintf(&buf, "%d", 64*i+j)
+				fmt.Fprintf(&buf, "%d", 64*i+j)// 取出余数 可能要循环64次
 			}
 		}
 	}
@@ -5805,7 +6021,8 @@ fmt.Println(x.String()) // "{1 9 42 144}"
 fmt.Println(x.Has(9), x.Has(123)) // "true false"
 ```
 
-这里要注意：我们声明的String和Has两个方法都是以指针类型`*IntSet`来作为接收器的，但实际上对于这两个类型来说，把接收器声明为指针类型也没什么必要。不过另外两个函数就不是这样了，因为另外两个函数操作的是s.words对象，如果你不把接收器声明为指针对象，那么实际操作的是拷贝对象，而不是原来的那个对象。因此，因为我们的String方法定义在IntSet指针上，所以当我们的变量是IntSet类型而不是IntSet指针时，可能会有下面这样让人意外的情况：
+这里要注意：我们声明的String和Has两个方法都是以指针类型`*IntSet`来作为接收器的，但实际上对于这两个类型来说，把接收器声明为指针类型也没什么必要。不过另外两个函数就不是这样了，因为另外两个函数操作的是s.words对象，**如果你不把接收器声明为指针对象，那么实际操作的是拷贝对象，而不是原来的那个对象。因此，因为我们的String方法定义在IntSet指针上，所以当我们的变量是IntSet类型而不是IntSet指针时，可能会有下面这样让人意外的情况：**
+
 
 ```go
 fmt.Println(&x)         // "{1 9 42 144}"
@@ -5830,12 +6047,16 @@ func (*IntSet) Copy() *IntSet // return a copy of the set
 
 ***练习6.4: ** 实现一个Elems方法，返回集合中的所有元素，用于做一些range之类的遍历操作。
 
-**练习 6.5：** 我们这章定义的IntSet里的每个字都是用的uint64类型，但是64位的数值可能在32位的平台上不高效。修改程序，使其使用uint类型，这种类型对于32位平台来说更合适。当然了，这里我们可以不用简单粗暴地除64，可以定义一个常量来决定是用32还是64，这里你可能会用到平台的自动判断的一个智能表达式：32 << (^uint(0) >> 63)
+**练习 6.5：** 我们这章定义的IntSet里的每个字都是用的uint64类型，但是64位的数值可能在32位的平台上不高效。修改程序，使其使用uint类型，这种类型对于32位平台来说更合适。当然了，这里我们可以不用简单粗暴地除64，可以**定义一个常量来决定是用32还是64，这里你可能会用到平台的自动判断的一个智能表达式：32 << (^uint(0) >> 63)**
+
+
+
+
 ## 6.6. 封装
 
-一个对象的变量或者方法如果对调用方是不可见的话，一般就被定义为“封装”。封装有时候也被叫做信息隐藏，同时也是面向对象编程最关键的一个方面。
+**一个对象的变量或者方法如果对调用方是不可见的话，一般就被定义为“封装”。封装有时候也被叫做信息隐藏，同时也是面向对象编程最关键的一个方面**。
 
-Go语言只有一种控制可见性的手段：大写首字母的标识符会从定义它们的包中被导出，小写字母的则不会。这种限制包内成员的方式同样适用于struct或者一个类型的方法。因而如果我们想要封装一个对象，我们必须将其定义为一个struct。
+**Go语言只有一种控制可见性的手段：大写首字母的标识符会从定义它们的包中被导出，小写字母的则不会。这种限制包内成员的方式同样适用于struct或者一个类型的方法。因而如果我们想要封装一个对象，我们必须将其定义为一个struct**。
 
 这也就是前面的小节中IntSet被定义为struct类型的原因，尽管它只有一个字段：
 
@@ -8616,211 +8837,13 @@ sizes channel携带了每一个文件的大小到main goroutine，在main gorout
 ![](https://github.com/gopl-zh/gopl-zh.github.com/blob/master/images/ch83-051.png?raw=true)
 **练习 8.4：** 修改reverb2服务器，在每一个连接中使用sync.WaitGroup来计数活跃的echo goroutine。当计数减为零时，关闭TCP连接的写入，像练习8.3中一样。验证一下你的修改版netcat3客户端会一直等待所有的并发“喊叫”完成，即使是在标准输入流已经关闭的情况下。
 
-**练习 8.5：** 使用一个已有的CPU绑定的顺序程序，比如在3.3节中我们写的Mandelbrot程序或者3.2节中的3-D surface计算程序，并将他们的主循环改为并发形式，使用channel来进行通信。在多核计算机上这个程序得到了多少速度上的改进？使用多少个goroutine是最合适的呢？
-## 8.6. 示例: 并发的Web爬虫
-
-在5.6节中，我们做了一个简单的web爬虫，用bfs(广度优先)算法来抓取整个网站。在本节中，我们会让这个爬虫并行化，这样每一个彼此独立的抓取命令可以并行进行IO，最大化利用网络资源。crawl函数和gopl.io/ch5/findlinks3中的是一样的。
-
-<u><i>gopl.io/ch8/crawl1</i></u>
-```go
-func crawl(url string) []string {
-	fmt.Println(url)
-	list, err := links.Extract(url)
-	if err != nil {
-		log.Print(err)
-	}
-	return list
-}
-```
-
-主函数和5.6节中的breadthFirst(广度优先)类似。像之前一样，一个worklist是一个记录了需要处理的元素的队列，每一个元素都是一个需要抓取的URL列表，不过这一次我们用channel代替slice来做这个队列。每一个对crawl的调用都会在他们自己的goroutine中进行并且会把他们抓到的链接发送回worklist。
-
-```go
-func main() {
-	worklist := make(chan []string)
-
-	// Start with the command-line arguments.
-	go func() { worklist <- os.Args[1:] }()
-
-	// Crawl the web concurrently.
-	seen := make(map[string]bool)
-	for list := range worklist {
-		for _, link := range list {
-			if !seen[link] {
-				seen[link] = true
-				go func(link string) {
-					worklist <- crawl(link)
-				}(link)
-			}
-		}
-	}
-}
-```
-
-注意这里的crawl所在的goroutine会将link作为一个显式的参数传入，来避免“循环变量快照”的问题（在5.6.1中有讲解）。另外注意这里将命令行参数传入worklist也是在一个另外的goroutine中进行的，这是为了避免channel两端的main goroutine与crawler goroutine都尝试向对方发送内容，却没有一端接收内容时发生死锁。当然，这里我们也可以用buffered channel来解决问题，这里不再赘述。
-
-现在爬虫可以高并发地运行起来，并且可以产生一大坨的URL了，不过还是会有俩问题。一个问题是在运行一段时间后可能会出现在log的错误信息里的：
-
-
-```
-$ go build gopl.io/ch8/crawl1
-$ ./crawl1 http://gopl.io/
-http://gopl.io/
-https://golang.org/help/
-https://golang.org/doc/
-https://golang.org/blog/
-...
-2015/07/15 18:22:12 Get ...: dial tcp: lookup blog.golang.org: no such host
-2015/07/15 18:22:12 Get ...: dial tcp 23.21.222.120:443: socket: too many open files
-...
-```
-
-最初的错误信息是一个让人莫名的DNS查找失败，即使这个域名是完全可靠的。而随后的错误信息揭示了原因：这个程序一次性创建了太多网络连接，超过了每一个进程的打开文件数限制，既而导致了在调用net.Dial像DNS查找失败这样的问题。
-
-这个程序实在是太他妈并行了。无穷无尽地并行化并不是什么好事情，因为不管怎么说，你的系统总是会有一些个限制因素，比如CPU核心数会限制你的计算负载，比如你的硬盘转轴和磁头数限制了你的本地磁盘IO操作频率，比如你的网络带宽限制了你的下载速度上限，或者是你的一个web服务的服务容量上限等等。为了解决这个问题，我们可以限制并发程序所使用的资源来使之适应自己的运行环境。对于我们的例子来说，最简单的方法就是限制对links.Extract在同一时间最多不会有超过n次调用，这里的n一般小于文件描述符的上限值，比如20。这和一个夜店里限制客人数目是一个道理，只有当有客人离开时，才会允许新的客人进入店内。
-
-我们可以用一个有容量限制的buffered channel来控制并发，这类似于操作系统里的计数信号量概念。从概念上讲，channel里的n个空槽代表n个可以处理内容的token（通行证），从channel里接收一个值会释放其中的一个token，并且生成一个新的空槽位。这样保证了在没有接收介入时最多有n个发送操作。（这里可能我们拿channel里填充的槽来做token更直观一些，不过还是这样吧。）由于channel里的元素类型并不重要，我们用一个零值的struct{}来作为其元素。
-
-让我们重写crawl函数，将对links.Extract的调用操作用获取、释放token的操作包裹起来，来确保同一时间对其只有20个调用。信号量数量和其能操作的IO资源数量应保持接近。
-
-<u><i>gopl.io/ch8/crawl2</i></u>
-```go
-// tokens is a counting semaphore used to
-// enforce a limit of 20 concurrent requests.
-var tokens = make(chan struct{}, 20)
-
-func crawl(url string) []string {
-	fmt.Println(url)
-	tokens <- struct{}{} // acquire a token
-	list, err := links.Extract(url)
-	<-tokens // release the token
-	if err != nil {
-		log.Print(err)
-	}
-	return list
-}
-```
-
-第二个问题是这个程序永远都不会终止，即使它已经爬到了所有初始链接衍生出的链接。（当然，除非你慎重地选择了合适的初始化URL或者已经实现了练习8.6中的深度限制，你应该还没有意识到这个问题。）为了使这个程序能够终止，我们需要在worklist为空或者没有crawl的goroutine在运行时退出主循环。
-
-```go
-func main() {
-	worklist := make(chan []string)
-	var n int // number of pending sends to worklist
-
-	// Start with the command-line arguments.
-	n++
-	go func() { worklist <- os.Args[1:] }()
-
-	// Crawl the web concurrently.
-	seen := make(map[string]bool)
-
-	for ; n > 0; n-- {
-		list := <-worklist
-		for _, link := range list {
-			if !seen[link] {
-				seen[link] = true
-				n++
-				go func(link string) {
-					worklist <- crawl(link)
-				}(link)
-			}
-		}
-	}
-}
-```
-
-这个版本中，计数器n对worklist的发送操作数量进行了限制。每一次我们发现有元素需要被发送到worklist时，我们都会对n进行++操作，在向worklist中发送初始的命令行参数之前，我们也进行过一次++操作。这里的操作++是在每启动一个crawler的goroutine之前。主循环会在n减为0时终止，这时候说明没活可干了。
-
-现在这个并发爬虫会比5.6节中的深度优先搜索版快上20倍，而且不会出什么错，并且在其完成任务时也会正确地终止。
-
-下面的程序是避免过度并发的另一种思路。这个版本使用了原来的crawl函数，但没有使用计数信号量，取而代之用了20个常驻的crawler goroutine，这样来保证最多20个HTTP请求在并发。
-
-```go
-func main() {
-	worklist := make(chan []string)  // lists of URLs, may have duplicates
-	unseenLinks := make(chan string) // de-duplicated URLs
-
-	// Add command-line arguments to worklist.
-	go func() { worklist <- os.Args[1:] }()
-
-	// Create 20 crawler goroutines to fetch each unseen link.
-	for i := 0; i < 20; i++ {
-		go func() {
-			for link := range unseenLinks {
-				foundLinks := crawl(link)
-				go func() { worklist <- foundLinks }()
-			}
-		}()
-	}
-
-	// The main goroutine de-duplicates worklist items
-	// and sends the unseen ones to the crawlers.
-	seen := make(map[string]bool)
-	for list := range worklist {
-		for _, link := range list {
-			if !seen[link] {
-				seen[link] = true
-				unseenLinks <- link
-			}
-		}
-	}
-}
-```
-
-所有的爬虫goroutine现在都是被同一个channel - unseenLinks喂饱的了。主goroutine负责拆分它从worklist里拿到的元素，然后把没有抓过的经由unseenLinks channel发送给一个爬虫的goroutine。
-
-seen这个map被限定在main goroutine中；也就是说这个map只能在main goroutine中进行访问。类似于其它的信息隐藏方式，这样的约束可以让我们从一定程度上保证程序的正确性。例如，内部变量不能够在函数外部被访问到；变量（§2.3.4）在没有发生变量逃逸（译注：局部变量被全局变量引用地址导致变量被分配在堆上）的情况下是无法在函数外部访问的；一个对象的封装字段无法被该对象的方法以外的方法访问到。在所有的情况下，信息隐藏都可以帮助我们约束我们的程序，使其不发生意料之外的情况。
-
-crawl函数爬到的链接在一个专有的goroutine中被发送到worklist中来避免死锁。为了节省篇幅，这个例子的终止问题我们先不进行详细阐述了。
-
-**练习 8.6：** 为并发爬虫增加深度限制。也就是说，如果用户设置了depth=3，那么只有从首页跳转三次以内能够跳到的页面才能被抓取到。
-
-**练习 8.7：** 完成一个并发程序来创建一个线上网站的本地镜像，把该站点的所有可达的页面都抓取到本地硬盘。为了省事，我们这里可以只取出现在该域下的所有页面（比如golang.org开头，译注：外链的应该就不算了。）当然了，出现在页面里的链接你也需要进行一些处理，使其能够在你的镜像站点上进行跳转，而不是指向原始的链接。
-
-
-**译注：**
-拓展阅读 [Handling 1 Million Requests per Minute with Go](http://marcio.io/2015/07/handling-1-million-requests-per-minute-with-golang/)。
-## 8.7. 基于select的多路复用
-
-下面的程序会进行火箭发射的倒计时。time.Tick函数返回一个channel，程序会周期性地像一个节拍器一样向这个channel发送事件。每一个事件的值是一个时间戳，不过更有意思的是其传送方式。
-
-<u><i>gopl.io/ch8/countdown1</i></u>
-```go
-func main() {
-	fmt.Println("Commencing countdown.")
-	tick := time.Tick(1 * time.Second)
-	for countdown := 10; countdown > 0; countdown-- {
-		fmt.Println(countdown)
-		<-tick
-	}
-	launch()
-}
-```
-
-现在我们让这个程序支持在倒计时中，用户按下return键时直接中断发射流程。首先，我们启动一个goroutine，这个goroutine会尝试从标准输入中读入一个单独的byte并且，如果成功了，会向名为abort的channel发送一个值。
-
-<u><i>gopl.io/ch8/countdown2</i></u>
-```go
-abort := make(chan struct{})
-go func() {
-	os.Stdin.Read(make([]byte, 1)) // read a single byte
-	abort <- struct{}{}
-}()
-```
-
-现在每一次计数循环的迭代都需要等待两个channel中的其中一个返回事件了：当一切正常时的ticker channel（就像NASA jorgon的"nominal"，译注：这梗估计我们是不懂了）或者异常时返回的abort事件。我们无法做到从每一个channel中接收信息，如果我们这么做的话，如果第一个channel中没有事件发过来那么程序就会立刻被阻塞，这样我们就无法收到第二个channel中发过来的事件。这时候我们需要多路复用（multiplex）这些操作了，为了能够多路复用，我们使用了select语句。
-
-```go
-select {
-case <-ch1:
-	//
+**练习 8.5：** 使用一个已有的CPU绑定的顺序
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTc3MDgxNjYwOCwyMTE4NTE2Mzc1LC0xMT
-EwOTk2MzI5LDI0Njc5ODUwNSwxNDcxMTkzMzY3LC03ODI4MDU3
-MiwtNzcyMDUxNjE4LDEyMzMyNDg0MDQsMTQ5NzkwNTU4NywtMT
-E3NDAyMTU4OSwxMjEzMDcyODUxLDE4MDIxMjA3NzUsMTI3NDM4
-NDIxOSwtOTA1OTkxNDQ3LDU0NTkwMzQ4MiwtMTI3MzIwNzEwLD
-U0MjU2NjA0MywxODgyNDE0MDgsLTcyNzEwMjg5OSwtMTM5NjQ0
-MDUzN119
+eyJoaXN0b3J5IjpbMTAwNTI0OTYwNSwtNTQwMDk0MjE2LDEyNz
+g2ODUyNjYsMTg3ODA2ODc1NSwyNDEyNTM0NzIsLTQ1NTUzNjA2
+LC0xODA5Nzg4ODA3LDQ0OTc2ODA2NiwtMTc3MTI5Mzg4LDE4OT
+QwNDY2MzcsLTk5NDIyMzg2MiwtMTIwMjA3MzA5MywxNTk0ODY4
+MDY3LDQ2ODQ5MDcwMywxOTM4MDgzNDM3LC0xNTk3NjcyMzc2LC
+0xNzkzMTM1MzA2LDExMjUyOTM3ODAsNTk4MDAzOTMzLDQ1NDY4
+MTk4MF19
 -->
