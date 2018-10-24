@@ -6069,16 +6069,16 @@ type IntSet struct {
 当然，我们也可以把IntSet定义为一个slice类型，但这样我们就需要把代码中所有方法里用到的s.words用`*s`替换掉了：
 
 ```go
-type IntSet []uint64//和上面比 缺失了封装 fangkong性
+type IntSet []uint64//和上面比 缺失了封装 访控性 可见性
 ```
 
 尽管这个版本的IntSet在本质上是一样的，但它也允许其它包中可以直接读取并编辑这个slice。换句话说，相对于`*s`这个表达式会出现在所有的包中，s.words只需要在定义IntSet的包中出现（译注：所以还是推荐后者吧的意思）。
 
 这种基于名字的手段使得在语言中最小的封装单元是package，而不是像其它语言一样的类型。一个struct类型的字段对同一个包的所有代码都有可见性，无论你的代码是写在一个函数还是一个方法里。
 
-封装提供了三方面的优点。首先，因为调用方不能直接修改对象的变量值，其只需要关注少量的语句并且只要弄懂少量变量的可能的值即可。
+**封装提供了三方面的优点。首先**，因为调用方不能直接修改对象的变量值，其**只需要关注少量的语句并且只要弄懂少量变量的可能的值**即可。
 
-第二，隐藏实现的细节，可以防止调用方依赖那些可能变化的具体实现，这样使设计包的程序员在不破坏对外的api情况下能得到更大的自由。
+**第二，隐藏实现的细节，可以防止调用方依赖那些可能变化的具体实现，这样使设计包的程序员在不破坏对外的api情况下能得到更大的自由**。
 
 把bytes.Buffer这个类型作为例子来考虑。这个类型在做短字符串叠加的时候很常用，所以在设计的时候可以做一些预先的优化，比如提前预留一部分空间，来避免反复的内存分配。又因为Buffer是一个struct类型，这些额外的空间可以用附加的字节数组来保存，且放在一个小写字母开头的字段中。这样在外部的调用方只能看到性能的提升，但并不会得到这个附加变量。Buffer和其增长算法我们列在这里，为了简洁性稍微做了一些精简：
 
@@ -8835,9 +8835,9 @@ sizes channel携带了每一个文件的大小到main goroutine，在main gorout
 
 ![](../images/ch8-05.png)
 ![](https://github.com/gopl-zh/gopl-zh.github.com/blob/master/images/ch83-051.png?raw=true)
-**练习 8.4：** 修改reverb2服务器，在每一个连接中使用sync.WaitGroup来计数活跃的echo goroutine。当计数减为零时，关闭TCP连接的写入，像练习8.3中一样。验证一下你的修改版netcat3客户端会一直等待所有的并发“喊叫”完成，即使是在标准输入流已
+**练习 8.4：** 修改reverb2服务器，在每一个连接中使用sync.WaitGroup来计数活跃的echo goroutine。当计数减为零时，关闭TCP连接的写入，像练习8.3中一样。验证一下你的修改版netcat3客户端会一直等待所有的并发“喊叫”完成，即
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTkxNTA0NTAzNCwtMTI1NjEwMjU0NywxMD
+eyJoaXN0b3J5IjpbMTYwNDE0Mzc0NiwtMTI1NjEwMjU0NywxMD
 A1MjQ5NjA1LC01NDAwOTQyMTYsMTI3ODY4NTI2NiwxODc4MDY4
 NzU1LDI0MTI1MzQ3MiwtNDU1NTM2MDYsLTE4MDk3ODg4MDcsND
 Q5NzY4MDY2LC0xNzcxMjkzODgsMTg5NDA0NjYzNywtOTk0MjIz
