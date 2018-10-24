@@ -5954,7 +5954,8 @@ func (s *IntSet) Add(x int) {
 	s.words[word] |= 1 << bit // 存入  商(x/64)  和  余数(1 << bit) 
 }
 
-// UnionWith sets s to the union of s and t.  一次完成64个元素的或计算
+// UnionWith sets s to the union of s and t.  
+//  一次完成64个元素的或计算
 func (s *IntSet) UnionWith(t *IntSet) {
 	for i, tword := range t.words {
 		if i < len(s.words) {
@@ -8831,13 +8832,13 @@ sizes channel携带了每一个文件的大小到main goroutine，在main gorout
 ![](https://github.com/gopl-zh/gopl-zh.github.com/blob/master/images/ch83-051.png?raw=true)
 **练习 8.4：** 修改reverb2服务器，在每一个连接中使用sync.WaitGroup来计数活跃的echo goroutine。当计数减为零时，关闭TCP连接的写入，像练习8.3中一样。验证一下你的修改版netcat3客户端会一直等待所有的并发“喊叫”完成，即使是在标准输入流已经关闭的情况下。
 
-**练习 8.5：** 使用一个已有的CPU绑定的顺序程序，比如在3.3节中我们写的Mandelbrot程序或者3.2节中的3-D surface计算程序，并将他们的主循环改为并发形式，使用channel来进行通信。在多核计
+**练习 8.5：** 使用一个已有的CPU绑定的顺序程序，比如在3.3节中我们写的Mandelbrot程序或者3.2节中的3-D surface计算程序，并将他们的主循环改为并发形式，使用channel来进行通信
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTg3ODA2ODc1NSwyNDEyNTM0NzIsLTQ1NT
-UzNjA2LC0xODA5Nzg4ODA3LDQ0OTc2ODA2NiwtMTc3MTI5Mzg4
-LDE4OTQwNDY2MzcsLTk5NDIyMzg2MiwtMTIwMjA3MzA5MywxNT
-k0ODY4MDY3LDQ2ODQ5MDcwMywxOTM4MDgzNDM3LC0xNTk3Njcy
-Mzc2LC0xNzkzMTM1MzA2LDExMjUyOTM3ODAsNTk4MDAzOTMzLD
-Q1NDY4MTk4MCwxNDE5NTYyNjIzLC01NjUzNjA2OTAsNzQ4MDE3
-ODUyXX0=
+eyJoaXN0b3J5IjpbMTI3ODY4NTI2NiwxODc4MDY4NzU1LDI0MT
+I1MzQ3MiwtNDU1NTM2MDYsLTE4MDk3ODg4MDcsNDQ5NzY4MDY2
+LC0xNzcxMjkzODgsMTg5NDA0NjYzNywtOTk0MjIzODYyLC0xMj
+AyMDczMDkzLDE1OTQ4NjgwNjcsNDY4NDkwNzAzLDE5MzgwODM0
+MzcsLTE1OTc2NzIzNzYsLTE3OTMxMzUzMDYsMTEyNTI5Mzc4MC
+w1OTgwMDM5MzMsNDU0NjgxOTgwLDE0MTk1NjI2MjMsLTU2NTM2
+MDY5MF19
 -->
