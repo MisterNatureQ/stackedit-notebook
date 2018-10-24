@@ -6062,7 +6062,7 @@ func (*IntSet) Copy() *IntSet // return a copy of the set
 
 ```go
 type IntSet struct {
-    words []uint64
+    words []uint64 //封装 的不可见性
 }
 ```
 
@@ -8837,13 +8837,13 @@ sizes channel携带了每一个文件的大小到main goroutine，在main gorout
 ![](https://github.com/gopl-zh/gopl-zh.github.com/blob/master/images/ch83-051.png?raw=true)
 **练习 8.4：** 修改reverb2服务器，在每一个连接中使用sync.WaitGroup来计数活跃的echo goroutine。当计数减为零时，关闭TCP连接的写入，像练习8.3中一样。验证一下你的修改版netcat3客户端会一直等待所有的并发“喊叫”完成，即使是在标准输入流已经关闭的情况下。
 
-**练习 8.5：** 使用一个已有的CPU绑定的顺序
+**练习 8.5：*
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTAwNTI0OTYwNSwtNTQwMDk0MjE2LDEyNz
-g2ODUyNjYsMTg3ODA2ODc1NSwyNDEyNTM0NzIsLTQ1NTUzNjA2
-LC0xODA5Nzg4ODA3LDQ0OTc2ODA2NiwtMTc3MTI5Mzg4LDE4OT
-QwNDY2MzcsLTk5NDIyMzg2MiwtMTIwMjA3MzA5MywxNTk0ODY4
-MDY3LDQ2ODQ5MDcwMywxOTM4MDgzNDM3LC0xNTk3NjcyMzc2LC
-0xNzkzMTM1MzA2LDExMjUyOTM3ODAsNTk4MDAzOTMzLDQ1NDY4
-MTk4MF19
+eyJoaXN0b3J5IjpbLTEwMjEwNzQ4NDcsMTAwNTI0OTYwNSwtNT
+QwMDk0MjE2LDEyNzg2ODUyNjYsMTg3ODA2ODc1NSwyNDEyNTM0
+NzIsLTQ1NTUzNjA2LC0xODA5Nzg4ODA3LDQ0OTc2ODA2NiwtMT
+c3MTI5Mzg4LDE4OTQwNDY2MzcsLTk5NDIyMzg2MiwtMTIwMjA3
+MzA5MywxNTk0ODY4MDY3LDQ2ODQ5MDcwMywxOTM4MDgzNDM3LC
+0xNTk3NjcyMzc2LC0xNzkzMTM1MzA2LDExMjUyOTM3ODAsNTk4
+MDAzOTMzXX0=
 -->
