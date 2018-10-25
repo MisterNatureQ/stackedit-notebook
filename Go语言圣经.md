@@ -6356,7 +6356,7 @@ rwc = w                 // compile error: io.Writer lacks Close method
 ```go
 type IntSet struct { /* ... */ }
 func (*IntSet) String() string
-var _ = IntSet{}.String() // compile error: String requires *IntSet receiver
+var _ = IntSet{}.String() // compile error: String requires *IntSet receiver **参数是一个变量**
 ```
 
 但是我们可以在一个IntSet变量上调用这个方法：
@@ -8850,9 +8850,9 @@ func makeThumbnails6(filenames <-chan string) int64 {
 }
 ```
 
-注意Add和Done方法的不对称。Add是为计数器加一，必须在worker goroutine开始之前调用，
+注意Add和Done方法的不对称。Add是为计数器加一，必须在worker goro
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTMzMzUzNTcxOSwtMjAyMTIwNDM0OCwtNz
+eyJoaXN0b3J5IjpbMTI2Nzc5Mjc5OCwtMjAyMTIwNDM0OCwtNz
 AyODY0NzUxLDY3OTIxNDE5MCwtNDY3OTIzODAxLDkwMDI3NjI3
 NiwxMDUwODEyMTU2LC0xMzEwMTMxMTEyLDY0MzAwMTI4OSwxND
 A1ODg2NzI2LC00NDQxNDIyMjcsMTcyMjA2MjU1NywtMjAwOTgy
