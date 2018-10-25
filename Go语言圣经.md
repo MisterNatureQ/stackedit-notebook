@@ -6270,7 +6270,7 @@ func CountingWriter(w io.Writer) (io.Writer, *int64)
 
 **接口类型具体描述了一系列方法的集合，一个实现了这些方法的具体类型是这个接口类型的实例**。
 
-**io.Writer类型是用得最广泛的接口之一，因为它提供了所有类型的写入bytes的抽象，包括文件类型，内存缓冲区，网络链接，HTTP客户端，压缩工具，哈希等等。io包中定义了很多其它有用的接口类型。Reader可以代表任意可以读取bytes的类型，Closer可以是任意可以关闭的值，例如一个文件或是网络链接。（到现在你可能注意到了很多Go语言中单方法接口的命名习惯）
+**io.Writer类型是用得最广泛的接口之一，因为它提供了所有类型的写入bytes的抽象，包括文件类型，内存缓冲区，网络链接，HTTP客户端，压缩工具，哈希等等**。io包中定义了很多其它有用的接口类型。**Reader可以代表任意可以读取bytes的类型，Closer可以是任意可以关闭的值，例如一个文件或是网络链接。**（到现在你可能注意到了很多Go语言中单方法接口的命名习惯）
 
 ```go
 package io
@@ -8849,9 +8849,9 @@ func makeThumbnails6(filenames <-chan string) int64 {
 }
 ```
 
-注意Add和Done方法的不对称。Add是为计数器加一，必须在worker goroutine开始之前调用，而不是在goroutine中；否则的话我们没办法确定Add是在"clo
+注意Add和Done方法的不对称。Add是为计数器加一，必须在worker goroutine开始之前调用，而不是在goroutine中；否则的话我们没办法确定Add
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTgyNzU2NDc0Miw5MDAyNzYyNzYsMTA1MD
+eyJoaXN0b3J5IjpbLTQ2NzkyMzgwMSw5MDAyNzYyNzYsMTA1MD
 gxMjE1NiwtMTMxMDEzMTExMiw2NDMwMDEyODksMTQwNTg4Njcy
 NiwtNDQ0MTQyMjI3LDE3MjIwNjI1NTcsLTIwMDk4MjE2OTYsLT
 E0Nzc0OTA4ODAsLTU0Mzg1NTQyNCw3MzMyOTU5MTgsMTUxNzcz
