@@ -6165,9 +6165,11 @@ fmt.Println(day.Seconds()) // "86400"
 package fmt
 
 func Fprintf(w io.Writer, format string, args ...interface{}) (int, error)
+// 它会把结果写到标准输出
 func Printf(format string, args ...interface{}) (int, error) {
 	return Fprintf(os.Stdout, format, args...)
 }
+//它会把结果以字符串的形式返回
 func Sprintf(format string, args ...interface{}) string {
 	var buf bytes.Buffer
 	Fprintf(&buf, format, args...)
@@ -8839,13 +8841,13 @@ sizes channel携带了每一个文件的大小到main goroutine，在main gorout
 
 ![](../images/ch8-05.png)
 ![](https://github.com/gopl-zh/gopl-zh.github.com/blob/master/images/ch83-051.png?raw=true)
-**练习 8.4：** 修改reverb2服务器，在每一个连接中使用s
+**练
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIwMDk4MjE2OTYsLTE0Nzc0OTA4ODAsLT
-U0Mzg1NTQyNCw3MzMyOTU5MTgsMTUxNzczNDc1MiwxMzYxODEw
-NjA3LDc4Mzg1MDkzLC0xMjU2MTAyNTQ3LDEwMDUyNDk2MDUsLT
-U0MDA5NDIxNiwxMjc4Njg1MjY2LDE4NzgwNjg3NTUsMjQxMjUz
-NDcyLC00NTU1MzYwNiwtMTgwOTc4ODgwNyw0NDk3NjgwNjYsLT
-E3NzEyOTM4OCwxODk0MDQ2NjM3LC05OTQyMjM4NjIsLTEyMDIw
-NzMwOTNdfQ==
+eyJoaXN0b3J5IjpbLTE0ODc1NDc5NCwtMjAwOTgyMTY5NiwtMT
+Q3NzQ5MDg4MCwtNTQzODU1NDI0LDczMzI5NTkxOCwxNTE3NzM0
+NzUyLDEzNjE4MTA2MDcsNzgzODUwOTMsLTEyNTYxMDI1NDcsMT
+AwNTI0OTYwNSwtNTQwMDk0MjE2LDEyNzg2ODUyNjYsMTg3ODA2
+ODc1NSwyNDEyNTM0NzIsLTQ1NTUzNjA2LC0xODA5Nzg4ODA3LD
+Q0OTc2ODA2NiwtMTc3MTI5Mzg4LDE4OTQwNDY2MzcsLTk5NDIy
+Mzg2Ml19
 -->
