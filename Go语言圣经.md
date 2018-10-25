@@ -6372,10 +6372,14 @@ var _ = s.String() // OK: s is a variable and &s has a String method
 var _ fmt.Stringer = &s // OK
 var _ fmt.Stringer = s  // compile error: IntSet lacks String method
 ```
+[go doc && godoc使用](http://wiki.jikexueyuan.com/project/go-command-tutorial/0.5.html)
+
+godoc -analysis=type os File
+godoc -analysis=pointer os File
 
 12.8章包含了一个打印出任意值的所有方法的程序，然后可以使用godoc -analysis=type tool(§10.7.4)展示每个类型的方法和具体类型和接口之间的关系
 
-就像信封封装和隐藏起信件来一样，接口类型封装和隐藏具体类型和它的值。即使具体类型有其它的方法，也只有接口类型暴露出来的方法会被调用到：
+就像信封封装和隐藏起信件来一样，**接口类型封装和隐藏具体类型和它的值。即使具体类型有其它的方法，也只有接口类型暴露出来的方法会被调用到**：
 
 ```go
 os.Stdout.Write([]byte("hello")) // OK: *os.File has Write method
@@ -8838,25 +8842,13 @@ func makeThumbnails6(filenames <-chan string) int64 {
 
 	// closer
 	go func() {
-		wg.Wait()
-		close(sizes)
-	}()
-
-	var total int64
-	for size := range sizes {
-		total += size
-	}
-	return total
-}
-```
-
-注意Add和Done方法的不对称。Add是为计数器加一，必须在worker goro
+		wg.Wa
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTI2Nzc5Mjc5OCwtMjAyMTIwNDM0OCwtNz
-AyODY0NzUxLDY3OTIxNDE5MCwtNDY3OTIzODAxLDkwMDI3NjI3
-NiwxMDUwODEyMTU2LC0xMzEwMTMxMTEyLDY0MzAwMTI4OSwxND
-A1ODg2NzI2LC00NDQxNDIyMjcsMTcyMjA2MjU1NywtMjAwOTgy
-MTY5NiwtMTQ3NzQ5MDg4MCwtNTQzODU1NDI0LDczMzI5NTkxOC
-wxNTE3NzM0NzUyLDEzNjE4MTA2MDcsNzgzODUwOTMsLTEyNTYx
-MDI1NDddfQ==
+eyJoaXN0b3J5IjpbLTE3MzkzMjMwNTAsMTI2Nzc5Mjc5OCwtMj
+AyMTIwNDM0OCwtNzAyODY0NzUxLDY3OTIxNDE5MCwtNDY3OTIz
+ODAxLDkwMDI3NjI3NiwxMDUwODEyMTU2LC0xMzEwMTMxMTEyLD
+Y0MzAwMTI4OSwxNDA1ODg2NzI2LC00NDQxNDIyMjcsMTcyMjA2
+MjU1NywtMjAwOTgyMTY5NiwtMTQ3NzQ5MDg4MCwtNTQzODU1ND
+I0LDczMzI5NTkxOCwxNTE3NzM0NzUyLDEzNjE4MTA2MDcsNzgz
+ODUwOTNdfQ==
 -->
