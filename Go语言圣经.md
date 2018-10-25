@@ -6165,6 +6165,8 @@ fmt.Println(day.Seconds()) // "86400"
 package fmt
 
 //这个函数对它的计算结果会被怎么使用是完全不知道的
+//Fprintf的前缀F表示文件（File）也表明格式化输出结果应该被写入第一个参数提供的文件中
+
 func Fprintf(w io.Writer, format string, args ...interface{}) (int, error)
 
 // 它会把结果写到标准输出
@@ -6180,7 +6182,7 @@ func Sprintf(format string, args ...interface{}) string {
 }
 ```
 
-Fprintf的前缀F表示文件（File）也表明格式化输出结果应该被写入第一个参数提供的文件中。在Printf函数中的第一个参数os.Stdout是`*os.File`类型；在Sprintf函数中的第一个参数&buf是一个指向可以写入字节的内存缓冲区，然而它
+**Fprintf的前缀F表示文件（File）也表明格式化输出结果应该被写入第一个参数提供的文件中**。在Printf函数中的第一个参数os.Stdout是`*os.File`类型；在Sprintf函数中的第一个参数&buf是一个指向可以写入字节的内存缓冲区，然而它
 并不是一个文件类型尽管它在某种意义上和文件类型相似。
 
 即使Fprintf函数中的第一个参数也不是一个文件类型。它是io.Writer类型，这是一个接口类型定义如下：
@@ -8843,9 +8845,9 @@ sizes channel携带了每一个文件的大小到main goroutine，在main gorout
 图8.5 表明了makethumbnails6函数中事件的序列。纵列表示goroutine。窄线段代表sleep，粗线段代表活动。斜线箭头代表用来同步两个goroutine的事件。时间向下流动。注意main goroutine是如何大部分的时间被唤醒执行其range循环，等待worker发送值或者closer来关闭channel的。
 
 ![](../images/ch8-05.png)
-![](https://github.com/gopl-zh/gopl-zh.github.com/blob/master
+![]
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTI3MTU3ODY2OSwxNzIyMDYyNTU3LC0yMD
+eyJoaXN0b3J5IjpbMTYyOTE1NDkzOCwxNzIyMDYyNTU3LC0yMD
 A5ODIxNjk2LC0xNDc3NDkwODgwLC01NDM4NTU0MjQsNzMzMjk1
 OTE4LDE1MTc3MzQ3NTIsMTM2MTgxMDYwNyw3ODM4NTA5MywtMT
 I1NjEwMjU0NywxMDA1MjQ5NjA1LC01NDAwOTQyMTYsMTI3ODY4
