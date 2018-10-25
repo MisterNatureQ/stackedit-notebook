@@ -6205,6 +6205,8 @@ type Writer interface {
 	// Write must return a non-nil error if it returns n < len(p).
 	// Write must not modify the slice data, even temporarily.
 	//
+	// Writer接口用于包装基本的写入方法。
+	// Write方法len(p) 字节数据从p写入底层的数据流。它会返回写入的字节数(0 <= n <= len(p))和遇到的任何导致写入提取结束的错误。Write必须返回非nil的错误，如果它返回的 n < len(p)。Write不能修改切片p中的数据，即使临时修改也不行。
 	// Implementations must not retain p.
 	Write(p []byte) (n int, err error)
 }
@@ -8845,15 +8847,13 @@ func makeThumbnails6(filenames <-chan string) int64 {
 }
 ```
 
-注意Add和Done方法的不对称。Add是为计数器加一，必须在worker goroutine开始之前调用，而不是在goroutine中；否则的话我们没办法确定Add是在"closer" goroutine调用Wait之前被调用。并且Add还有一个参数，但Done却没有任何参数；其实它和Add(-1)是等价的。我们使用defer来确保计数器即使是在出错的情况下依然能够正确地被减掉。上面的程序代码结构是当我们使用并发循环，但又不知道迭代次数时很通常而且很地道的写法。
-
-sizes channel携带了每一个文件的大小到main goroutine，在main goroutine中使用了range loop来计算总和。观察一下我们是怎样创建一个closer goroutine，并让其在所有worker goroutine们结束之后再关闭sizes channel的。两步操作：wait
+注意Add和Done方法的不对称。Add是为计数器加一，必须在worker goroutine开始之前调用，而不是在goroutine中；否则的话我们没办法确定Add是在"closer" goroutine调用Wait之前被调用。并且Add还有一个参数，但Done却没有任何参数；其实它和Add(-1)是等价的。我们使用defer来确保计数器即使是在出错的情况下依然能够正确地被减掉。上面的程序代码结构是当我们使用并发循环，但又不知道迭代次数时很通常而且很地道
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEzMTAxMzExMTIsNjQzMDAxMjg5LDE0MD
-U4ODY3MjYsLTQ0NDE0MjIyNywxNzIyMDYyNTU3LC0yMDA5ODIx
-Njk2LC0xNDc3NDkwODgwLC01NDM4NTU0MjQsNzMzMjk1OTE4LD
-E1MTc3MzQ3NTIsMTM2MTgxMDYwNyw3ODM4NTA5MywtMTI1NjEw
-MjU0NywxMDA1MjQ5NjA1LC01NDAwOTQyMTYsMTI3ODY4NTI2Ni
-wxODc4MDY4NzU1LDI0MTI1MzQ3MiwtNDU1NTM2MDYsLTE4MDk3
-ODg4MDddfQ==
+eyJoaXN0b3J5IjpbMTA1MDgxMjE1NiwtMTMxMDEzMTExMiw2ND
+MwMDEyODksMTQwNTg4NjcyNiwtNDQ0MTQyMjI3LDE3MjIwNjI1
+NTcsLTIwMDk4MjE2OTYsLTE0Nzc0OTA4ODAsLTU0Mzg1NTQyNC
+w3MzMyOTU5MTgsMTUxNzczNDc1MiwxMzYxODEwNjA3LDc4Mzg1
+MDkzLC0xMjU2MTAyNTQ3LDEwMDUyNDk2MDUsLTU0MDA5NDIxNi
+wxMjc4Njg1MjY2LDE4NzgwNjg3NTUsMjQxMjUzNDcyLC00NTU1
+MzYwNl19
 -->
