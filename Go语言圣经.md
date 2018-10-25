@@ -6391,9 +6391,9 @@ w.Write([]byte("hello")) // OK: io.Writer has Write method
 w.Close()                // compile error: io.Writer lacks Close method
 ```
 
-一个有更多方法的接口类型，比如io.ReadWriter，和少一些方法的接口类型例如io.Reader，进行对比；更多方法的接口类型会告诉我们更多关于它的值持有的信息，并且对实现它的类型要求更加严格。那么关于interface{}类型，它没有任何方法，请讲出哪些具体的类型实现了它？
+一个有更多方法的接口类型，比如io.ReadWriter，和少一些方法的接口类型例如io.Reader，进行对比；**更多方法的接口类型会告诉我们更多关于它的值持有的信息，并且对实现它的类型要求更加严格**。那么关于interface{}类型，它没有任何方法，请讲出哪些具体的类型实现了它？
 
-这看上去好像没有用，但实际上interface{}被称为空接口类型是不可或缺的。因为空接口类型对实现它的类型没有要求，所以我们可以将任意一个值赋给空接口类型。
+这看上去好像没有用，但实际上interface{}被称为空接口类型是不可或缺的。因为空接口类型对实现它的类型没有要求，所以我们**可以将任意一个值赋给空接口类型**。
 
 ```go
 var any interface{}
@@ -8842,13 +8842,12 @@ func makeThumbnails6(filenames <-chan string) int64 {
 
 	// closer
 	go func() {
-		wg.Wa
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE3MzkzMjMwNTAsMTI2Nzc5Mjc5OCwtMj
-AyMTIwNDM0OCwtNzAyODY0NzUxLDY3OTIxNDE5MCwtNDY3OTIz
-ODAxLDkwMDI3NjI3NiwxMDUwODEyMTU2LC0xMzEwMTMxMTEyLD
-Y0MzAwMTI4OSwxNDA1ODg2NzI2LC00NDQxNDIyMjcsMTcyMjA2
-MjU1NywtMjAwOTgyMTY5NiwtMTQ3NzQ5MDg4MCwtNTQzODU1ND
-I0LDczMzI5NTkxOCwxNTE3NzM0NzUyLDEzNjE4MTA2MDcsNzgz
-ODUwOTNdfQ==
+eyJoaXN0b3J5IjpbLTk0MzU2Mzc4NCwxMjY3NzkyNzk4LC0yMD
+IxMjA0MzQ4LC03MDI4NjQ3NTEsNjc5MjE0MTkwLC00Njc5MjM4
+MDEsOTAwMjc2Mjc2LDEwNTA4MTIxNTYsLTEzMTAxMzExMTIsNj
+QzMDAxMjg5LDE0MDU4ODY3MjYsLTQ0NDE0MjIyNywxNzIyMDYy
+NTU3LC0yMDA5ODIxNjk2LC0xNDc3NDkwODgwLC01NDM4NTU0Mj
+QsNzMzMjk1OTE4LDE1MTc3MzQ3NTIsMTM2MTgxMDYwNyw3ODM4
+NTA5M119
 -->
