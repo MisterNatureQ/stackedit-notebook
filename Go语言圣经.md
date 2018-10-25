@@ -6164,12 +6164,15 @@ fmt.Println(day.Seconds()) // "86400"
 ``` go
 package fmt
 
+//
 func Fprintf(w io.Writer, format string, args ...interface{}) (int, error)
+
 // 它会把结果写到标准输出
 func Printf(format string, args ...interface{}) (int, error) {
 	return Fprintf(os.Stdout, format, args...)
 }
-//它会把结果以字符串的形式返回
+
+// 它会把结果以字符串的形式返回
 func Sprintf(format string, args ...interface{}) string {
 	var buf bytes.Buffer
 	Fprintf(&buf, format, args...)
@@ -8840,10 +8843,9 @@ sizes channel携带了每一个文件的大小到main goroutine，在main gorout
 图8.5 表明了makethumbnails6函数中事件的序列。纵列表示goroutine。窄线段代表sleep，粗线段代表活动。斜线箭头代表用来同步两个goroutine的事件。时间向下流动。注意main goroutine是如何大部分的时间被唤醒执行其range循环，等待worker发送值或者closer来关闭channel的。
 
 ![](../images/ch8-05.png)
-![](https://github.com/gopl-zh/gopl-zh.github.com/blob/master/images/ch83-051.png?raw=true)
-**练
+![](https://github.com/gopl-zh/gopl-zh.github.com/blob/master/images/ch83-051.png?raw=tru
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE0ODc1NDc5NCwtMjAwOTgyMTY5NiwtMT
+eyJoaXN0b3J5IjpbMTcyMjA2MjU1NywtMjAwOTgyMTY5NiwtMT
 Q3NzQ5MDg4MCwtNTQzODU1NDI0LDczMzI5NTkxOCwxNTE3NzM0
 NzUyLDEzNjE4MTA2MDcsNzgzODUwOTMsLTEyNTYxMDI1NDcsMT
 AwNTI0OTYwNSwtNTQwMDk0MjE2LDEyNzg2ODUyNjYsMTg3ODA2
