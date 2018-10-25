@@ -6383,7 +6383,7 @@ var _ fmt.Stringer = s  // compile error: IntSet lacks String method
 就像信封封装和隐藏起信件来一样，**接口类型封装和隐藏具体类型和它的值。即使具体类型有其它的方法，也只有接口类型暴露出来的方法会被调用到**：
 
 ```go
-// os.Stdout 是匿名导出变量 Write
+// os.Stdout 是匿名导出变量 可以调用 io.Writer os File Write
 os.Stdout.Write([]byte("hello")) // OK: *os.File has Write method
 os.Stdout.Close()                // OK: *os.File has Close method
 
@@ -8834,16 +8834,13 @@ func makeThumbnails6(filenames <-chan string) int64 {
 			defer wg.Done()
 			thumb, err := thumbnail.ImageFile(f)
 			if err != nil {
-				log.Println(err)
-				return
-			}
-		
+				log.Println(
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTYwOTY0MjQ0NiwtODM0NTMyNTAzLDEyNj
-c3OTI3OTgsLTIwMjEyMDQzNDgsLTcwMjg2NDc1MSw2NzkyMTQx
-OTAsLTQ2NzkyMzgwMSw5MDAyNzYyNzYsMTA1MDgxMjE1NiwtMT
-MxMDEzMTExMiw2NDMwMDEyODksMTQwNTg4NjcyNiwtNDQ0MTQy
-MjI3LDE3MjIwNjI1NTcsLTIwMDk4MjE2OTYsLTE0Nzc0OTA4OD
-AsLTU0Mzg1NTQyNCw3MzMyOTU5MTgsMTUxNzczNDc1MiwxMzYx
-ODEwNjA3XX0=
+eyJoaXN0b3J5IjpbLTE5Nzc3NTEzMjMsLTYwOTY0MjQ0NiwtOD
+M0NTMyNTAzLDEyNjc3OTI3OTgsLTIwMjEyMDQzNDgsLTcwMjg2
+NDc1MSw2NzkyMTQxOTAsLTQ2NzkyMzgwMSw5MDAyNzYyNzYsMT
+A1MDgxMjE1NiwtMTMxMDEzMTExMiw2NDMwMDEyODksMTQwNTg4
+NjcyNiwtNDQ0MTQyMjI3LDE3MjIwNjI1NTcsLTIwMDk4MjE2OT
+YsLTE0Nzc0OTA4ODAsLTU0Mzg1NTQyNCw3MzMyOTU5MTgsMTUx
+NzczNDc1Ml19
 -->
