@@ -6282,7 +6282,7 @@ type Closer interface {
 }
 ```
 
-再往下看，我们发现有些新的接口类型通过组合已有的接口来定义。下面是两个例子：
+再往下看，我们发现**有些新的接口类型通过组合已有的接口来定义**。下面是两个例子：
 
 ```go
 type ReadWriter interface {
@@ -8849,13 +8849,13 @@ func makeThumbnails6(filenames <-chan string) int64 {
 }
 ```
 
-注意Add和Done方法的不对称。Add是为计数器加一，必须在worker goroutine开始之前调用，而不是在goroutine中；否则的话我们没办法确定Add
+注意Add和Done方法的不对称。Add是为计数器加一，必须在worker goroutine开始之前调用，而不是在goroutine中；否则的话我们没办法确
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTQ2NzkyMzgwMSw5MDAyNzYyNzYsMTA1MD
-gxMjE1NiwtMTMxMDEzMTExMiw2NDMwMDEyODksMTQwNTg4Njcy
-NiwtNDQ0MTQyMjI3LDE3MjIwNjI1NTcsLTIwMDk4MjE2OTYsLT
-E0Nzc0OTA4ODAsLTU0Mzg1NTQyNCw3MzMyOTU5MTgsMTUxNzcz
-NDc1MiwxMzYxODEwNjA3LDc4Mzg1MDkzLC0xMjU2MTAyNTQ3LD
-EwMDUyNDk2MDUsLTU0MDA5NDIxNiwxMjc4Njg1MjY2LDE4Nzgw
-Njg3NTVdfQ==
+eyJoaXN0b3J5IjpbNjc5MjE0MTkwLC00Njc5MjM4MDEsOTAwMj
+c2Mjc2LDEwNTA4MTIxNTYsLTEzMTAxMzExMTIsNjQzMDAxMjg5
+LDE0MDU4ODY3MjYsLTQ0NDE0MjIyNywxNzIyMDYyNTU3LC0yMD
+A5ODIxNjk2LC0xNDc3NDkwODgwLC01NDM4NTU0MjQsNzMzMjk1
+OTE4LDE1MTc3MzQ3NTIsMTM2MTgxMDYwNyw3ODM4NTA5MywtMT
+I1NjEwMjU0NywxMDA1MjQ5NjA1LC01NDAwOTQyMTYsMTI3ODY4
+NTI2Nl19
 -->
