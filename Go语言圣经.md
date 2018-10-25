@@ -6384,7 +6384,7 @@ var _ fmt.Stringer = s  // compile error: IntSet lacks String method
 
 ```go
 // io.Writer 接口 os.Stdout 的 *os.File has Write method
-// os.Stdout  
+// os.Stdout os.File  func  (f  *File)  Write(b  []byte)  (n  int,  err  error) 
 os.Stdout.Write([]byte("hello")) // OK: *os.File has Write method
 os.Stdout.Close()                // OK: *os.File has Close method
 
@@ -8832,14 +8832,13 @@ func makeThumbnails6(filenames <-chan string) int64 {
 		wg.Add(1)
 		// worker
 		go func(f string) {
-			defer wg.Done()
-			thumb, err := thum
+			defer 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNTA1MDg2NTc1LC0xMTAyMTgwNTI0LC0xOT
-c3NzUxMzIzLC02MDk2NDI0NDYsLTgzNDUzMjUwMywxMjY3Nzky
-Nzk4LC0yMDIxMjA0MzQ4LC03MDI4NjQ3NTEsNjc5MjE0MTkwLC
-00Njc5MjM4MDEsOTAwMjc2Mjc2LDEwNTA4MTIxNTYsLTEzMTAx
-MzExMTIsNjQzMDAxMjg5LDE0MDU4ODY3MjYsLTQ0NDE0MjIyNy
-wxNzIyMDYyNTU3LC0yMDA5ODIxNjk2LC0xNDc3NDkwODgwLC01
-NDM4NTU0MjRdfQ==
+eyJoaXN0b3J5IjpbMTE2NDc0ODc4OCwtMTEwMjE4MDUyNCwtMT
+k3Nzc1MTMyMywtNjA5NjQyNDQ2LC04MzQ1MzI1MDMsMTI2Nzc5
+Mjc5OCwtMjAyMTIwNDM0OCwtNzAyODY0NzUxLDY3OTIxNDE5MC
+wtNDY3OTIzODAxLDkwMDI3NjI3NiwxMDUwODEyMTU2LC0xMzEw
+MTMxMTEyLDY0MzAwMTI4OSwxNDA1ODg2NzI2LC00NDQxNDIyMj
+csMTcyMjA2MjU1NywtMjAwOTgyMTY5NiwtMTQ3NzQ5MDg4MCwt
+NTQzODU1NDI0XX0=
 -->
