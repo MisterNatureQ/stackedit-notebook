@@ -6327,7 +6327,7 @@ func LimitReader(r io.Reader, n int64) io.Reader
 
 **一个类型如果拥有一个接口需要的所有方法，那么这个类型就实现了这个接口**。例如，`*os.File`类型实现了io.Reader，Writer，Closer，和ReadWriter接口。`*bytes.Buffer`实现了Reader，Writer，和ReadWriter这些接口，但是它没有实现Closer接口因为它不具有Close方法。**Go的程序员经常会简要的把一个具体的类型描述成一个特定的接口类型**。举个例子，`*bytes.Buffer`是io.Writer；`*os.Files`是io.ReadWriter。
 
-接口指定的规则非常简单：表达一个类型属于某个接口只要这个类型实现这个接口。所以：
+接口指定的规则非常简单：**表达一个类型属于某个接口只要这个类型实现这个接口**。所以：
 
 ```go
 var w io.Writer
@@ -6340,7 +6340,7 @@ rwc = os.Stdout         // OK: *os.File has Read, Write, Close methods
 rwc = new(bytes.Buffer) // compile error: *bytes.Buffer lacks Close method
 ```
 
-这个规则甚至适用于等式右边本身也是一个接口类型
+**这个规则甚至适用于等式右边本身也是一个接口类型**
 
 ```go
 w = rwc                 // OK: io.ReadWriteCloser has Write method
@@ -8850,13 +8850,13 @@ func makeThumbnails6(filenames <-chan string) int64 {
 }
 ```
 
-注意Add和Done方法的不对称。Add是为计数器加一，必须在worker goroutine开始之前调用，而不是在goroutin
+注意Add和Done方法的不对称。Add是为计数器加一，必须在worker goroutine开始之前调用，而不是在
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIwMjEyMDQzNDgsLTcwMjg2NDc1MSw2Nz
-kyMTQxOTAsLTQ2NzkyMzgwMSw5MDAyNzYyNzYsMTA1MDgxMjE1
-NiwtMTMxMDEzMTExMiw2NDMwMDEyODksMTQwNTg4NjcyNiwtND
-Q0MTQyMjI3LDE3MjIwNjI1NTcsLTIwMDk4MjE2OTYsLTE0Nzc0
-OTA4ODAsLTU0Mzg1NTQyNCw3MzMyOTU5MTgsMTUxNzczNDc1Mi
-wxMzYxODEwNjA3LDc4Mzg1MDkzLC0xMjU2MTAyNTQ3LDEwMDUy
-NDk2MDVdfQ==
+eyJoaXN0b3J5IjpbLTEyMTcxNDMyMTksLTIwMjEyMDQzNDgsLT
+cwMjg2NDc1MSw2NzkyMTQxOTAsLTQ2NzkyMzgwMSw5MDAyNzYy
+NzYsMTA1MDgxMjE1NiwtMTMxMDEzMTExMiw2NDMwMDEyODksMT
+QwNTg4NjcyNiwtNDQ0MTQyMjI3LDE3MjIwNjI1NTcsLTIwMDk4
+MjE2OTYsLTE0Nzc0OTA4ODAsLTU0Mzg1NTQyNCw3MzMyOTU5MT
+gsMTUxNzczNDc1MiwxMzYxODEwNjA3LDc4Mzg1MDkzLC0xMjU2
+MTAyNTQ3XX0=
 -->
