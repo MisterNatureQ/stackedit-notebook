@@ -6295,7 +6295,7 @@ type ReadWriteCloser interface {
 	Closer
 }
 ```
-上面用到的语法和结构内嵌相似，我们可以用这种方式以一个简写命名一个接口，而不用声明它所有的方法。这种方式称为接口内嵌。尽管略失简洁，我们可以像下面这样，不使用内嵌来声明io.ReadWriter接口。
+上面用到的语法和结构内嵌相似，我们可以用这种方式以一个简写命名一个接口，而不用声明它所有的方法。这种方式称为**接口内嵌**。尽管略失简洁，我们可以像下面这样，不使用内嵌来声明io.ReadWriter接口。
 
 ```go
 type ReadWriter interface {
@@ -6322,9 +6322,10 @@ type ReadWriter interface {
 ```go
 func LimitReader(r io.Reader, n int64) io.Reader
 ```
+
 ## 7.3. 实现接口的条件
 
-一个类型如果拥有一个接口需要的所有方法，那么这个类型就实现了这个接口。例如，`*os.File`类型实现了io.Reader，Writer，Closer，和ReadWriter接口。`*bytes.Buffer`实现了Reader，Writer，和ReadWriter这些接口，但是它没有实现Closer接口因为它不具有Close方法。Go的程序员经常会简要的把一个具体的类型描述成一个特定的接口类型。举个例子，`*bytes.Buffer`是io.Writer；`*os.Files`是io.ReadWriter。
+**一个类型如果拥有一个接口需要的所有方法，那么这个类型就实现了这个接口**。例如，`*os.File`类型实现了io.Reader，Writer，Closer，和ReadWriter接口。`*bytes.Buffer`实现了Reader，Writer，和ReadWriter这些接口，但是它没有实现Closer接口因为它不具有Close方法。Go的程序员经常会简要的把一个具体的类型描述成一个特定的接口类型。举个例子，`*bytes.Buffer`是io.Writer；`*os.Files`是io.ReadWriter。
 
 接口指定的规则非常简单：表达一个类型属于某个接口只要这个类型实现这个接口。所以：
 
@@ -8849,13 +8850,13 @@ func makeThumbnails6(filenames <-chan string) int64 {
 }
 ```
 
-注意Add和Done方法的不对称。Add是为计数器加一，必须在worker goroutine开始之前调用，而不是在goroutine中；否则的话我们没办法确
+注意Add和Done方法的不对称。Add是为计数器加一，必须在worker goroutine开始之前调用，而不是在goroutine中；否
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNjc5MjE0MTkwLC00Njc5MjM4MDEsOTAwMj
-c2Mjc2LDEwNTA4MTIxNTYsLTEzMTAxMzExMTIsNjQzMDAxMjg5
-LDE0MDU4ODY3MjYsLTQ0NDE0MjIyNywxNzIyMDYyNTU3LC0yMD
-A5ODIxNjk2LC0xNDc3NDkwODgwLC01NDM4NTU0MjQsNzMzMjk1
-OTE4LDE1MTc3MzQ3NTIsMTM2MTgxMDYwNyw3ODM4NTA5MywtMT
-I1NjEwMjU0NywxMDA1MjQ5NjA1LC01NDAwOTQyMTYsMTI3ODY4
-NTI2Nl19
+eyJoaXN0b3J5IjpbLTcwMjg2NDc1MSw2NzkyMTQxOTAsLTQ2Nz
+kyMzgwMSw5MDAyNzYyNzYsMTA1MDgxMjE1NiwtMTMxMDEzMTEx
+Miw2NDMwMDEyODksMTQwNTg4NjcyNiwtNDQ0MTQyMjI3LDE3Mj
+IwNjI1NTcsLTIwMDk4MjE2OTYsLTE0Nzc0OTA4ODAsLTU0Mzg1
+NTQyNCw3MzMyOTU5MTgsMTUxNzczNDc1MiwxMzYxODEwNjA3LD
+c4Mzg1MDkzLC0xMjU2MTAyNTQ3LDEwMDUyNDk2MDUsLTU0MDA5
+NDIxNl19
 -->
