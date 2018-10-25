@@ -6374,10 +6374,11 @@ var _ fmt.Stringer = s  // compile error: IntSet lacks String method
 ```
 [go doc && godoc使用](http://wiki.jikexueyuan.com/project/go-command-tutorial/0.5.html)
 
-godoc -analysis=type os File
-godoc -analysis=pointer os File
+	godoc  -analysis=type  和 -analysis=pointer  命令行标志参数用于打开文档和代码中关于静态分析的结果
+	godoc -analysis=type os File
+	godoc -analysis=pointer os File
 
-12.8章包含了一个打印出任意值的所有方法的程序，然后可以使用godoc -analysis=type tool(§10.7.4)展示每个类型的方法和具体类型和接口之间的关系
+12.8章包含了一个打印出任意值的所有方法的程序，然后可以使用godoc -analysis=type		 tool(§10.7.4)**展示每个类型的方法和具体类型和接口之间的关系**
 
 就像信封封装和隐藏起信件来一样，**接口类型封装和隐藏具体类型和它的值。即使具体类型有其它的方法，也只有接口类型暴露出来的方法会被调用到**：
 
@@ -8835,15 +8836,9 @@ func makeThumbnails6(filenames <-chan string) int64 {
 				log.Println(err)
 				return
 			}
-			info, _ := os.Stat(thumb) // OK to ignore error
-			sizes <- info.Size()
-		}(f)
-	}
-
-	// closer
-	go func() {
+			info, _ := os.Stat(thumb) 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTk0MzU2Mzc4NCwxMjY3NzkyNzk4LC0yMD
+eyJoaXN0b3J5IjpbLTgzNDUzMjUwMywxMjY3NzkyNzk4LC0yMD
 IxMjA0MzQ4LC03MDI4NjQ3NTEsNjc5MjE0MTkwLC00Njc5MjM4
 MDEsOTAwMjc2Mjc2LDEwNTA4MTIxNTYsLTEzMTAxMzExMTIsNj
 QzMDAxMjg5LDE0MDU4ODY3MjYsLTQ0NDE0MjIyNywxNzIyMDYy
