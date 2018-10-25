@@ -6248,6 +6248,7 @@ package fmt
 // The String method is used to print values passed
 // as an operand to any format that accepts a string
 // or to an unformatted printer such as Print.
+// 实现了Stringer接口的类型（即有String方法），定义了该类型值的原始显示。当采用任何接受字符的verb（%v %s %q %x %X）动作格式化一个操作数时，或者被不使用格式字符串如Print函数打印操作数时，会调用String方法来生成输出的文本。
 type Stringer interface {
 	String() string
 }
@@ -8847,13 +8848,13 @@ func makeThumbnails6(filenames <-chan string) int64 {
 }
 ```
 
-注意Add和Done方法的不对称。Add是为计数器加一，必须在worker goroutine开始之前调用，而不是在goroutine中；否则的话我们没办法确定Add是在"closer" goroutine调用Wait之前被调用。并且Add还有一个参数，但Done却没有任何参数；其实它和Add(-1)是等价的。我们使用defer来确保计数器即使是在出错的情况下依然能够正确地被减掉。上面的程序代码结构是当我们使用并发循环，但又不知道迭代次数时很通常而且很地道
+注意Add和Done方法的不对称。Add是为计数器加一，必须在worker goroutine开始之前调用，而不是在goroutine中；否则的话我们没办法确定Add是在"closer" gor
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTA1MDgxMjE1NiwtMTMxMDEzMTExMiw2ND
-MwMDEyODksMTQwNTg4NjcyNiwtNDQ0MTQyMjI3LDE3MjIwNjI1
-NTcsLTIwMDk4MjE2OTYsLTE0Nzc0OTA4ODAsLTU0Mzg1NTQyNC
-w3MzMyOTU5MTgsMTUxNzczNDc1MiwxMzYxODEwNjA3LDc4Mzg1
-MDkzLC0xMjU2MTAyNTQ3LDEwMDUyNDk2MDUsLTU0MDA5NDIxNi
-wxMjc4Njg1MjY2LDE4NzgwNjg3NTUsMjQxMjUzNDcyLC00NTU1
-MzYwNl19
+eyJoaXN0b3J5IjpbLTEyNzQwMDkzMDYsMTA1MDgxMjE1NiwtMT
+MxMDEzMTExMiw2NDMwMDEyODksMTQwNTg4NjcyNiwtNDQ0MTQy
+MjI3LDE3MjIwNjI1NTcsLTIwMDk4MjE2OTYsLTE0Nzc0OTA4OD
+AsLTU0Mzg1NTQyNCw3MzMyOTU5MTgsMTUxNzczNDc1MiwxMzYx
+ODEwNjA3LDc4Mzg1MDkzLC0xMjU2MTAyNTQ3LDEwMDUyNDk2MD
+UsLTU0MDA5NDIxNiwxMjc4Njg1MjY2LDE4NzgwNjg3NTUsMjQx
+MjUzNDcyXX0=
 -->
