@@ -6264,7 +6264,8 @@ type Stringer interface {
 func CountingWriter(w io.Writer) (io.Writer, *int64)
 ```
 
-**练习 7.3：** 为在gopl.io/ch4/treesort（§4.4）中的*tree类型实现一个String方法去展示tree类型的值序列。
+**练习 7.3：**  为在gopl.io/ch4/treesort（§4.4）中的*tree类型实现一个String方法去展示tree类型的值序列。
+
 ## 7.2. 接口类型
 
 接口类型具体描述了一系列方法的集合，一个实现了这些方法的具体类型是这个接口类型的实例。
@@ -8848,13 +8849,13 @@ func makeThumbnails6(filenames <-chan string) int64 {
 }
 ```
 
-注意Add和Done方法的不对称。Add是为计数器加一，必须在worker goroutine开始之前调用，而不是在goroutine中；否则的话我们没办法确定Add是在"closer" gor
+注意Add和Done方法的不对称。Add是为计数器加一，必须在worker goroutine开始之前调用，而不是在goroutine中；否则的话我们没办法确定Add是在"closer" g
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEyNzQwMDkzMDYsMTA1MDgxMjE1NiwtMT
-MxMDEzMTExMiw2NDMwMDEyODksMTQwNTg4NjcyNiwtNDQ0MTQy
-MjI3LDE3MjIwNjI1NTcsLTIwMDk4MjE2OTYsLTE0Nzc0OTA4OD
-AsLTU0Mzg1NTQyNCw3MzMyOTU5MTgsMTUxNzczNDc1MiwxMzYx
-ODEwNjA3LDc4Mzg1MDkzLC0xMjU2MTAyNTQ3LDEwMDUyNDk2MD
-UsLTU0MDA5NDIxNiwxMjc4Njg1MjY2LDE4NzgwNjg3NTUsMjQx
-MjUzNDcyXX0=
+eyJoaXN0b3J5IjpbMTEzMTY0MTA4OSwxMDUwODEyMTU2LC0xMz
+EwMTMxMTEyLDY0MzAwMTI4OSwxNDA1ODg2NzI2LC00NDQxNDIy
+MjcsMTcyMjA2MjU1NywtMjAwOTgyMTY5NiwtMTQ3NzQ5MDg4MC
+wtNTQzODU1NDI0LDczMzI5NTkxOCwxNTE3NzM0NzUyLDEzNjE4
+MTA2MDcsNzgzODUwOTMsLTEyNTYxMDI1NDcsMTAwNTI0OTYwNS
+wtNTQwMDk0MjE2LDEyNzg2ODUyNjYsMTg3ODA2ODc1NSwyNDEy
+NTM0NzJdfQ==
 -->
