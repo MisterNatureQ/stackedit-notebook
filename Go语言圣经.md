@@ -6159,6 +6159,8 @@ fmt.Println(day.Seconds()) // "86400"
 
 在Go语言中还存在着另外一种类型：**接口类型。接口类型是一种抽象的类型。它不会暴露出它所代表的对象的内部值的结构和这个对象支持的基础操作的集合；它们只会表现出它们自己的方法。也就是说当你有看到一个接口类型的值时，你不知道它是什么，唯一知道的就是可以通过它的方法来做什么**。
 
+	忽略类型突出方法
+
 在本书中，我们一直使用两个相似的函数来进行字符串的格式化：fmt.Printf，它会把结果写到标准输出，和fmt.Sprintf，它会把结果以字符串的形式返回。**得益于使用接口，我们不必可悲的因为返回结果在使用方式上的一些浅显不同就必需把格式化这个最困难的过程复制一份**。实际上，这两个函数都使用了另一个函数fmt.Fprintf来进行封装。fmt.Fprintf这个函数对它的计算结果会被怎么使用是完全不知道的。
 
 ``` go
@@ -8845,13 +8847,13 @@ func makeThumbnails6(filenames <-chan string) int64 {
 
 注意Add和Done方法的不对称。Add是为计数器加一，必须在worker goroutine开始之前调用，而不是在goroutine中；否则的话我们没办法确定Add是在"closer" goroutine调用Wait之前被调用。并且Add还有一个参数，但Done却没有任何参数；其实它和Add(-1)是等价的。我们使用defer来确保计数器即使是在出错的情况下依然能够正确地被减掉。上面的程序代码结构是当我们使用并发循环，但又不知道迭代次数时很通常而且很地道的写法。
 
-sizes channel携带了每一个文件的大小到main goroutine，在main goroutine中使用了range loop来计算总和。观察一下我们是怎样创建一个closer goroutine，并让其在所有worker goroutine们结束之后再关闭sizes channel的。两步操作：wait和close，必须是基于sizes
+sizes channel携带了每一个文件的大小到main goroutine，在main goroutine中使用了range loop来计算总和。观察一下我们是怎样创建一个closer goroutine，并让其在所有worker goroutine们结束之后再关闭sizes channel的。两步操作：wait和c
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTQwNTg4NjcyNiwtNDQ0MTQyMjI3LDE3Mj
-IwNjI1NTcsLTIwMDk4MjE2OTYsLTE0Nzc0OTA4ODAsLTU0Mzg1
-NTQyNCw3MzMyOTU5MTgsMTUxNzczNDc1MiwxMzYxODEwNjA3LD
-c4Mzg1MDkzLC0xMjU2MTAyNTQ3LDEwMDUyNDk2MDUsLTU0MDA5
-NDIxNiwxMjc4Njg1MjY2LDE4NzgwNjg3NTUsMjQxMjUzNDcyLC
-00NTU1MzYwNiwtMTgwOTc4ODgwNyw0NDk3NjgwNjYsLTE3NzEy
-OTM4OF19
+eyJoaXN0b3J5IjpbNjQzMDAxMjg5LDE0MDU4ODY3MjYsLTQ0ND
+E0MjIyNywxNzIyMDYyNTU3LC0yMDA5ODIxNjk2LC0xNDc3NDkw
+ODgwLC01NDM4NTU0MjQsNzMzMjk1OTE4LDE1MTc3MzQ3NTIsMT
+M2MTgxMDYwNyw3ODM4NTA5MywtMTI1NjEwMjU0NywxMDA1MjQ5
+NjA1LC01NDAwOTQyMTYsMTI3ODY4NTI2NiwxODc4MDY4NzU1LD
+I0MTI1MzQ3MiwtNDU1NTM2MDYsLTE4MDk3ODg4MDcsNDQ5NzY4
+MDY2XX0=
 -->
