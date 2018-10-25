@@ -6208,7 +6208,7 @@ type Writer interface {
 }
 ```
 
-io.Writer类型定义了函数Fprintf和这个函数调用者之间的约定。一方面这个约定需要调用者提供具体类型的值就像`*os.File`和`*bytes.Buffer`，**约定这些类型都有一个特定签名和行为的Write的函数**。另一方面这个约定保证了Fprintf接受任何满足io.Writer接口的值都可以工作。Fprintf函数可能没有假定写入的是一个文件或是一段内存，而是写入一个可以调用Write函数的值。
+io.Writer类型定义了函数Fprintf和这个函数调用者之间的约定。一方面这个约定需要调用者提供具体类型的值就像`*os.File`和`*bytes.Buffer`，**约定这些类型都有一个特定签名和行为的Write的函数。另一方面这个约定保证了Fprintf接受任何满足io.Writer接口的值都可以工作**。Fprintf函数可能没有假定写入的是一个文件或是一段内存，而是**写入一个可以调用Write函数的值**。
 
 因为fmt.Fprintf函数没有对具体操作的值做任何假设，而是仅仅通过io.Writer接口的约定来保证行为，所以第一个参数可以安全地传入一个只需要满足io.Writer接口的任意具体类型的值。一个类型可以自由地被另一个满足相同接口的类型替换，被称作可替换性（LSP里氏替换）。这是一个面向对象的特征。
 
@@ -8845,9 +8845,9 @@ func makeThumbnails6(filenames <-chan string) int64 {
 
 注意Add和Done方法的不对称。Add是为计数器加一，必须在worker goroutine开始之前调用，而不是在goroutine中；否则的话我们没办法确定Add是在"closer" goroutine调用Wait之前被调用。并且Add还有一个参数，但Done却没有任何参数；其实它和Add(-1)是等价的。我们使用defer来确保计数器即使是在出错的情况下依然能够正确地被减掉。上面的程序代码结构是当我们使用并发循环，但又不知道迭代次数时很通常而且很地道的写法。
 
-sizes channel携带了每一个文件的大小到main goroutine，在main goroutine中使用了range loop来计算总和。观察一下我们是怎样创建一个closer goroutine，并让其在所有worker goroutine们结束之后再关闭sizes channel的。两步操作：wait和close，必须是基于sizes的循环的并发。考
+sizes channel携带了每一个文件的大小到main goroutine，在main goroutine中使用了range loop来计算总和。观察一下我们是怎样创建一个closer goroutine，并让其在所有worker goroutine们结束之后再关闭sizes channel的。两步操作：wait和close，必须是基于sizes的循环的
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTMxOTA3Nzc3NywtNDQ0MTQyMjI3LDE3Mj
+eyJoaXN0b3J5IjpbLTgzNTA1MDI5MywtNDQ0MTQyMjI3LDE3Mj
 IwNjI1NTcsLTIwMDk4MjE2OTYsLTE0Nzc0OTA4ODAsLTU0Mzg1
 NTQyNCw3MzMyOTU5MTgsMTUxNzczNDc1MiwxMzYxODEwNjA3LD
 c4Mzg1MDkzLC0xMjU2MTAyNTQ3LDEwMDUyNDk2MDUsLTU0MDA5
