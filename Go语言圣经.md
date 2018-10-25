@@ -6159,12 +6159,12 @@ fmt.Println(day.Seconds()) // "86400"
 
 在Go语言中还存在着另外一种类型：**接口类型。接口类型是一种抽象的类型。它不会暴露出它所代表的对象的内部值的结构和这个对象支持的基础操作的集合；它们只会表现出它们自己的方法。也就是说当你有看到一个接口类型的值时，你不知道它是什么，唯一知道的就是可以通过它的方法来做什么**。
 
-在本书中，我们一直使用两个相似的函数来进行字符串的格式化：fmt.Printf，它会把结果写到标准输出，和fmt.Sprintf，它会把结果以字符串的形式返回。得益于使用接口，我们不必可悲的因为返回结果在使用方式上的一些浅显不同就必需把格式化这个最困难的过程复制一份。实际上，这两个函数都使用了另一个函数fmt.Fprintf来进行封装。fmt.Fprintf这个函数对它的计算结果会被怎么使用是完全不知道的。
+在本书中，我们一直使用两个相似的函数来进行字符串的格式化：fmt.Printf，它会把结果写到标准输出，和fmt.Sprintf，它会把结果以字符串的形式返回。**得益于使用接口，我们不必可悲的因为返回结果在使用方式上的一些浅显不同就必需把格式化这个最困难的过程复制一份**。实际上，这两个函数都使用了另一个函数fmt.Fprintf来进行封装。fmt.Fprintf这个函数对它的计算结果会被怎么使用是完全不知道的。
 
 ``` go
 package fmt
 
-//
+//这个函数对它的计算结果会被怎么使用是完全不知道的
 func Fprintf(w io.Writer, format string, args ...interface{}) (int, error)
 
 // 它会把结果写到标准输出
@@ -8843,13 +8843,13 @@ sizes channel携带了每一个文件的大小到main goroutine，在main gorout
 图8.5 表明了makethumbnails6函数中事件的序列。纵列表示goroutine。窄线段代表sleep，粗线段代表活动。斜线箭头代表用来同步两个goroutine的事件。时间向下流动。注意main goroutine是如何大部分的时间被唤醒执行其range循环，等待worker发送值或者closer来关闭channel的。
 
 ![](../images/ch8-05.png)
-![](https://github.com/gopl-zh/gopl-zh.github.com/blob/master/images/ch83-051.png?raw=tru
+![](https://github.com/gopl-zh/gopl-zh.github.com/blob/master
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTcyMjA2MjU1NywtMjAwOTgyMTY5NiwtMT
-Q3NzQ5MDg4MCwtNTQzODU1NDI0LDczMzI5NTkxOCwxNTE3NzM0
-NzUyLDEzNjE4MTA2MDcsNzgzODUwOTMsLTEyNTYxMDI1NDcsMT
-AwNTI0OTYwNSwtNTQwMDk0MjE2LDEyNzg2ODUyNjYsMTg3ODA2
-ODc1NSwyNDEyNTM0NzIsLTQ1NTUzNjA2LC0xODA5Nzg4ODA3LD
-Q0OTc2ODA2NiwtMTc3MTI5Mzg4LDE4OTQwNDY2MzcsLTk5NDIy
-Mzg2Ml19
+eyJoaXN0b3J5IjpbMTI3MTU3ODY2OSwxNzIyMDYyNTU3LC0yMD
+A5ODIxNjk2LC0xNDc3NDkwODgwLC01NDM4NTU0MjQsNzMzMjk1
+OTE4LDE1MTc3MzQ3NTIsMTM2MTgxMDYwNyw3ODM4NTA5MywtMT
+I1NjEwMjU0NywxMDA1MjQ5NjA1LC01NDAwOTQyMTYsMTI3ODY4
+NTI2NiwxODc4MDY4NzU1LDI0MTI1MzQ3MiwtNDU1NTM2MDYsLT
+E4MDk3ODg4MDcsNDQ5NzY4MDY2LC0xNzcxMjkzODgsMTg5NDA0
+NjYzN119
 -->
