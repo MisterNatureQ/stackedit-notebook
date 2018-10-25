@@ -6166,7 +6166,7 @@ package fmt
 
 //这个函数对它的计算结果会被怎么使用是完全不知道的
 //Fprintf的前缀F表示文件（File）也表明格式化输出结果应该被写入第一个参数提供的文件中
-
+// 第一个参数也不是一个文件类型。它是io.Writer类型
 func Fprintf(w io.Writer, format string, args ...interface{}) (int, error)
 
 // 它会把结果写到标准输出
@@ -6178,6 +6178,7 @@ func Printf(format string, args ...interface{}) (int, error) {
 // 它会把结果以字符串的形式返回
 func Sprintf(format string, args ...interface{}) string {
 	var buf bytes.Buffer
+	// 第一个参数&buf是一个指向可以写入字节的内存缓冲区
 	Fprintf(&buf, format, args...)
 	return buf.String()
 }
@@ -8843,9 +8844,9 @@ func makeThumbnails6(filenames <-chan string) int64 {
 
 sizes channel携带了每一个文件的大小到main goroutine，在main goroutine中使用了range loop来计算总和。观察一下我们是怎样创建一个closer goroutine，并让其在所有worker goroutine们结束之后再关闭sizes channel的。两步操作：wait和close，必须是基于sizes的循环的并发。考虑一下另一种方案：如果等待操作被放在了main goroutine中，在循环之前，这样的话就永远都不会结束了，如果在循环之后，那么又变成了不可达的部分，因为没有任何东西去关闭这个channel，这个循环就永远都不会终止。
 
-图8.5 表明了makethumbnails6函数中事件的序列。纵列表示goroutine。窄线段代表sleep，粗线段代表活动。斜线箭头代表用来同步两个goroutine的事件。时间向下流动。注意main goroutine是如何大部分的时间被唤醒执行其range循环，等待worker发送值或者closer来关闭channel的。
+图8.5 表明了makethumbnails6函数中事件的序列。纵列表示goroutine。窄线段代表sleep，粗线段代表活动。斜线箭头代表用来同步两个goroutine的事件。时间向下流动。注意main go
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTQ5NTY0NDYwMywxNzIyMDYyNTU3LC0yMD
+eyJoaXN0b3J5IjpbLTQ0NDE0MjIyNywxNzIyMDYyNTU3LC0yMD
 A5ODIxNjk2LC0xNDc3NDkwODgwLC01NDM4NTU0MjQsNzMzMjk1
 OTE4LDE1MTc3MzQ3NTIsMTM2MTgxMDYwNyw3ODM4NTA5MywtMT
 I1NjEwMjU0NywxMDA1MjQ5NjA1LC01NDAwOTQyMTYsMTI3ODY4
