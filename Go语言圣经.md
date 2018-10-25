@@ -6349,7 +6349,7 @@ rwc = w                 // compile error: io.Writer lacks Close method
 
 因为ReadWriter和ReadWriteCloser包含有Writer的方法，所以任何实现了ReadWriter和ReadWriteCloser的类型必定也实现了Writer接口
 
-在进一步学习前，必须先解释一个类型持有一个方法的表示当中的细节。回想在6.2章中，对于每一个命名过的具体类型T；它的一些方法的接收者是类型T本身然而另一些则是一个`*T`的指针。还记得在T类型的参数上调用一个`*T`的方法是合法的，只要这个参数是一个变量；编译器隐式的获取了它的地址。但这仅仅是一个语法糖：T类型的值不拥有所有`*T`指针的方法，这样它就可能只实现了更少的接口。
+在进一步学习前，必须先解释一个类型持有一个方法的表示当中的细节。回想在6.2章中，**对于每一个命名过的具体类型T；它的一些方法的接收者是类型T本身然而另一些则是一个`*T`的指针。还记得在T类型的参数上调用一个`*T`的方法是合法的，只要这个参数是一个变量；编译器隐式的获取了它的地址。但这仅仅是一个语法糖：T类型的值不拥有所有`*T`指针的方法，这样它就可能只实现了更少的接口**。
 
 举个例子可能会更清晰一点。在第6.5章中，IntSet类型的String方法的接收者是一个指针类型，所以我们不能在一个不能寻址的IntSet值上调用这个方法：
 
@@ -8850,13 +8850,13 @@ func makeThumbnails6(filenames <-chan string) int64 {
 }
 ```
 
-注意Add和Done方法的不对称。Add是为计数器加一，必须在worker goroutine开始之前调用，而不是在
+注意Add和Done方法的不对称。Add是为计数器加一，必须在worker goroutine开始之前调用，
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEyMTcxNDMyMTksLTIwMjEyMDQzNDgsLT
-cwMjg2NDc1MSw2NzkyMTQxOTAsLTQ2NzkyMzgwMSw5MDAyNzYy
-NzYsMTA1MDgxMjE1NiwtMTMxMDEzMTExMiw2NDMwMDEyODksMT
-QwNTg4NjcyNiwtNDQ0MTQyMjI3LDE3MjIwNjI1NTcsLTIwMDk4
-MjE2OTYsLTE0Nzc0OTA4ODAsLTU0Mzg1NTQyNCw3MzMyOTU5MT
-gsMTUxNzczNDc1MiwxMzYxODEwNjA3LDc4Mzg1MDkzLC0xMjU2
-MTAyNTQ3XX0=
+eyJoaXN0b3J5IjpbMTMzMzUzNTcxOSwtMjAyMTIwNDM0OCwtNz
+AyODY0NzUxLDY3OTIxNDE5MCwtNDY3OTIzODAxLDkwMDI3NjI3
+NiwxMDUwODEyMTU2LC0xMzEwMTMxMTEyLDY0MzAwMTI4OSwxND
+A1ODg2NzI2LC00NDQxNDIyMjcsMTcyMjA2MjU1NywtMjAwOTgy
+MTY5NiwtMTQ3NzQ5MDg4MCwtNTQzODU1NDI0LDczMzI5NTkxOC
+wxNTE3NzM0NzUyLDEzNjE4MTA2MDcsNzgzODUwOTMsLTEyNTYx
+MDI1NDddfQ==
 -->
