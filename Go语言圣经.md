@@ -6177,8 +6177,9 @@ func Fprintf(w io.Writer, format string, args ...interface{}) (int, error)
 // 它会把结果写到标准输出
 func Printf(format string, args ...interface{}) (int, error) {
 	//  第一个参数os.Stdout是`*os.File`类型
-	// 因为 Stdout 调用NewFile
-	、、  func  NewFile(fd  uintptr,  name  string)  *File
+	//  因为 Stdout 调用NewFile 返回的是 *File
+	//  *File 
+	//  func  NewFile(fd  uintptr,  name  string)  *File
 	return Fprintf(os.Stdout, format, args...)
 }
 
@@ -8829,10 +8830,9 @@ func makeThumbnails5(filenames []string) (thumbfiles []string, err error) {
 // It returns the number of bytes occupied by the files it creates.
 func makeThumbnails6(filenames <-chan string) int64 {
 	sizes := make(chan int64)
-	var wg sync.WaitGroup // number of working goroutines
-	
+	var wg sync.WaitGroup // number
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE4NzAzNjIwNDcsLTIwMDMwOTU4MDcsMT
+eyJoaXN0b3J5IjpbLTE5NjE3MTYxMTksLTIwMDMwOTU4MDcsMT
 E2NDc0ODc4OCwtMTEwMjE4MDUyNCwtMTk3Nzc1MTMyMywtNjA5
 NjQyNDQ2LC04MzQ1MzI1MDMsMTI2Nzc5Mjc5OCwtMjAyMTIwND
 M0OCwtNzAyODY0NzUxLDY3OTIxNDE5MCwtNDY3OTIzODAxLDkw
