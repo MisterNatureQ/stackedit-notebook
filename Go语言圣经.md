@@ -6177,6 +6177,8 @@ func Fprintf(w io.Writer, format string, args ...interface{}) (int, error)
 // 它会把结果写到标准输出
 func Printf(format string, args ...interface{}) (int, error) {
 	//  第一个参数os.Stdout是`*os.File`类型
+	// 因为 Stdout 调用NewFile
+	、、  func  NewFile(fd  uintptr,  name  string)  *File
 	return Fprintf(os.Stdout, format, args...)
 }
 
@@ -8828,17 +8830,13 @@ func makeThumbnails5(filenames []string) (thumbfiles []string, err error) {
 func makeThumbnails6(filenames <-chan string) int64 {
 	sizes := make(chan int64)
 	var wg sync.WaitGroup // number of working goroutines
-	for f := range filenames {
-		wg.Add(1)
-		// worker
-		go func(f string) {
-			de
+	
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIwMDMwOTU4MDcsMTE2NDc0ODc4OCwtMT
-EwMjE4MDUyNCwtMTk3Nzc1MTMyMywtNjA5NjQyNDQ2LC04MzQ1
-MzI1MDMsMTI2Nzc5Mjc5OCwtMjAyMTIwNDM0OCwtNzAyODY0Nz
-UxLDY3OTIxNDE5MCwtNDY3OTIzODAxLDkwMDI3NjI3NiwxMDUw
-ODEyMTU2LC0xMzEwMTMxMTEyLDY0MzAwMTI4OSwxNDA1ODg2Nz
-I2LC00NDQxNDIyMjcsMTcyMjA2MjU1NywtMjAwOTgyMTY5Niwt
-MTQ3NzQ5MDg4MF19
+eyJoaXN0b3J5IjpbLTE4NzAzNjIwNDcsLTIwMDMwOTU4MDcsMT
+E2NDc0ODc4OCwtMTEwMjE4MDUyNCwtMTk3Nzc1MTMyMywtNjA5
+NjQyNDQ2LC04MzQ1MzI1MDMsMTI2Nzc5Mjc5OCwtMjAyMTIwND
+M0OCwtNzAyODY0NzUxLDY3OTIxNDE5MCwtNDY3OTIzODAxLDkw
+MDI3NjI3NiwxMDUwODEyMTU2LC0xMzEwMTMxMTEyLDY0MzAwMT
+I4OSwxNDA1ODg2NzI2LC00NDQxNDIyMjcsMTcyMjA2MjU1Nywt
+MjAwOTgyMTY5Nl19
 -->
