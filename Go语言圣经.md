@@ -6171,14 +6171,15 @@ package fmt
 // 第一个参数也不是一个文件类型。它是io.Writer类型
 // io.Writer类型定义了函数Fprintf和这个函数调用者之间的约定。一方面这个约定需要调用者提供具体类型的值就像`*os.File`和`*bytes.Buffer`，这些类型都有一个特定签名和行为的Write的函数。
 // 另一方面这个约定保证了Fprintf接受任何满足io.Writer接口的值都可以工作。Fprintf函数可能没有假定写入的是一个文件或是一段内存，而是写入一个可以调用Write函数的值
-
+// https://github.com/golang/go/blob/master/src/io/io.go#L90:6
 func Fprintf(w io.Writer, format string, args ...interface{}) (int, error)
 
 // 它会把结果写到标准输出
 func Printf(format string, args ...interface{}) (int, error) {
+	//  io.Writer 是一个接口类型
 	//  第一个参数os.Stdout是`*os.File`类型
 	//  因为 Stdout 调用NewFile 返回的是 *File
-	//  *File 
+	//  *File 有 Writer 方法
 	//  func  NewFile(fd  uintptr,  name  string)  *File
 	return Fprintf(os.Stdout, format, args...)
 }
@@ -8828,15 +8829,13 @@ func makeThumbnails5(filenames []string) (thumbfiles []string, err error) {
 ```go
 // makeThumbnails6 makes thumbnails for each file received from the channel.
 // It returns the number of bytes occupied by the files it creates.
-func makeThumbnails6(filenames <-chan string) int64 {
-	sizes := make(chan int64)
-	var wg sync.WaitGroup // number
+func makeThum
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE5NjE3MTYxMTksLTIwMDMwOTU4MDcsMT
-E2NDc0ODc4OCwtMTEwMjE4MDUyNCwtMTk3Nzc1MTMyMywtNjA5
-NjQyNDQ2LC04MzQ1MzI1MDMsMTI2Nzc5Mjc5OCwtMjAyMTIwND
-M0OCwtNzAyODY0NzUxLDY3OTIxNDE5MCwtNDY3OTIzODAxLDkw
-MDI3NjI3NiwxMDUwODEyMTU2LC0xMzEwMTMxMTEyLDY0MzAwMT
-I4OSwxNDA1ODg2NzI2LC00NDQxNDIyMjcsMTcyMjA2MjU1Nywt
-MjAwOTgyMTY5Nl19
+eyJoaXN0b3J5IjpbLTc2NDQyMjY2MCwtMjAwMzA5NTgwNywxMT
+Y0NzQ4Nzg4LC0xMTAyMTgwNTI0LC0xOTc3NzUxMzIzLC02MDk2
+NDI0NDYsLTgzNDUzMjUwMywxMjY3NzkyNzk4LC0yMDIxMjA0Mz
+Q4LC03MDI4NjQ3NTEsNjc5MjE0MTkwLC00Njc5MjM4MDEsOTAw
+Mjc2Mjc2LDEwNTA4MTIxNTYsLTEzMTAxMzExMTIsNjQzMDAxMj
+g5LDE0MDU4ODY3MjYsLTQ0NDE0MjIyNywxNzIyMDYyNTU3LC0y
+MDA5ODIxNjk2XX0=
 -->
