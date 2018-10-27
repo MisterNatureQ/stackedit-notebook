@@ -6389,6 +6389,7 @@ var _ fmt.Stringer = s  // compile error: IntSet lacks String method
 ```go
 // io.Writer 接口 os.Stdout 的 *os.File has Write method
 // os.Stdout os.File  func  (f  *File)  Write(b  []byte)  (n  int,  err  error) 
+// 还没有理解清楚
 os.Stdout.Write([]byte("hello")) // OK: *os.File has Write method
 os.Stdout.Close()                // OK: *os.File has Close method
 
@@ -8829,9 +8830,9 @@ func makeThumbnails5(filenames []string) (thumbfiles []string, err error) {
 ```go
 // makeThumbnails6 makes thumbnails for each file received from the channel.
 // It returns the number of bytes occupied by the files it creates.
-func makeThum
+func m
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTc2NDQyMjY2MCwtMjAwMzA5NTgwNywxMT
+eyJoaXN0b3J5IjpbLTIxMzkxMDE0NTEsLTc2NDQyMjY2MCwxMT
 Y0NzQ4Nzg4LC0xMTAyMTgwNTI0LC0xOTc3NzUxMzIzLC02MDk2
 NDI0NDYsLTgzNDUzMjUwMywxMjY3NzkyNzk4LC0yMDIxMjA0Mz
 Q4LC03MDI4NjQ3NTEsNjc5MjE0MTkwLC00Njc5MjM4MDEsOTAw
