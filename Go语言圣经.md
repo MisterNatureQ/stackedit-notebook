@@ -6175,7 +6175,7 @@ package fmt
 func Fprintf(w io.Writer, format string, args ...interface{}) (int, error)
 
 // 它会把结果写到标准输出
-// 
+//  print format
 func Printf(format string, args ...interface{}) (int, error) {
 	//  io.Writer 是一个接口类型
 	//  第一个参数os.Stdout是`*os.File`类型
@@ -6186,6 +6186,7 @@ func Printf(format string, args ...interface{}) (int, error) {
 }
 
 // 它会把结果以字符串的形式返回
+// string print format
 func Sprintf(format string, args ...interface{}) string {
 	var buf bytes.Buffer
 	// 第一个参数&buf是一个指向可以写入字节的内存缓冲区
@@ -8830,13 +8831,13 @@ func makeThumbnails5(filenames []string) (thumbfiles []string, err error) {
 
 ```go
 // makeThumbnails6 makes thumbnails for each file received from the channel.
-// It returns the number of bytes occupied by 
+// It retu
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTM3MjI1NzEzNiwtMTEzODcwMDMxMiwtMj
-EzOTEwMTQ1MSwtNzY0NDIyNjYwLDExNjQ3NDg3ODgsLTExMDIx
-ODA1MjQsLTE5Nzc3NTEzMjMsLTYwOTY0MjQ0NiwtODM0NTMyNT
-AzLDEyNjc3OTI3OTgsLTIwMjEyMDQzNDgsLTcwMjg2NDc1MSw2
-NzkyMTQxOTAsLTQ2NzkyMzgwMSw5MDAyNzYyNzYsMTA1MDgxMj
-E1NiwtMTMxMDEzMTExMiw2NDMwMDEyODksMTQwNTg4NjcyNiwt
-NDQ0MTQyMjI3XX0=
+eyJoaXN0b3J5IjpbLTE1MDMwMjk3MzEsLTExMzg3MDAzMTIsLT
+IxMzkxMDE0NTEsLTc2NDQyMjY2MCwxMTY0NzQ4Nzg4LC0xMTAy
+MTgwNTI0LC0xOTc3NzUxMzIzLC02MDk2NDI0NDYsLTgzNDUzMj
+UwMywxMjY3NzkyNzk4LC0yMDIxMjA0MzQ4LC03MDI4NjQ3NTEs
+Njc5MjE0MTkwLC00Njc5MjM4MDEsOTAwMjc2Mjc2LDEwNTA4MT
+IxNTYsLTEzMTAxMzExMTIsNjQzMDAxMjg5LDE0MDU4ODY3MjYs
+LTQ0NDE0MjIyN119
 -->
