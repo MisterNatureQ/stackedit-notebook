@@ -6522,7 +6522,9 @@ type Streamer interface {
 
 在本章，我们会学到另一个**标准的接口类型flag.Value是怎么帮助命令行标记定义新的符号的**。思考下面这个会休眠特定时间的程序：
 
-	标准库 godoc -analysis=type flag Value
+	标准库 
+	godoc -analysis=type flag Value
+	godoc -analysis=type flag Duration
 
 <u><i>gopl.io/ch7/sleep</i></u>
 ```go
@@ -8839,16 +8841,13 @@ func makeThumbnails4(filenames []string) error {
 func makeThumbnails5(filenames []string) (thumbfiles []string, err error) {
 	type item struct {
 		thumbfile string
-		err       error
-	}
-
-	ch := make(chan ite
+		er
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTEwNTc0NTUyNywtMTA0MjU4NDcwMSwyMD
-U2MjA4MTk1LDk0NDY5MzQ5MCwxMjg0NDczMzM2LDEyODkwNzky
-MzMsMTA3MjExNDAwNiwtOTgzOTc3Mzk4LDIxMDIzNzMyMiwtMT
-E4OTY1MDU0OCwtNjMyNzM5OTk4LDkzODMyNzc2NiwxNTgxNDQ2
-OTMxLDE2OTIxOTc1NTEsLTIxMjUxMzY2ODcsMzEzNTUzNiwtMT
-EzODcwMDMxMiwtMjEzOTEwMTQ1MSwtNzY0NDIyNjYwLDExNjQ3
-NDg3ODhdfQ==
+eyJoaXN0b3J5IjpbLTQ0NDE4NTY4OCwxMTA1NzQ1NTI3LC0xMD
+QyNTg0NzAxLDIwNTYyMDgxOTUsOTQ0NjkzNDkwLDEyODQ0NzMz
+MzYsMTI4OTA3OTIzMywxMDcyMTE0MDA2LC05ODM5NzczOTgsMj
+EwMjM3MzIyLC0xMTg5NjUwNTQ4LC02MzI3Mzk5OTgsOTM4MzI3
+NzY2LDE1ODE0NDY5MzEsMTY5MjE5NzU1MSwtMjEyNTEzNjY4Ny
+wzMTM1NTM2LC0xMTM4NzAwMzEyLC0yMTM5MTAxNDUxLC03NjQ0
+MjI2NjBdfQ==
 -->
