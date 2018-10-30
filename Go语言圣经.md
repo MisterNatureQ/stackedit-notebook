@@ -6435,7 +6435,7 @@ any = new(bytes.Buffer)
 
 尽管不是很明显，从本书最早的例子中我们就已经在使用空接口类型。它允许像fmt.Println或者5.7章中的errorf函数接受任何类型的参数。
 
-对于创建的一个interface{}值持有一个boolean，float，string，map，pointer，或者任意其它的类型；我们当然**不能直接对它持有的值做操作，因为interface{}没有任何方法**。我们会在7.10章中学到一种用类型断言来获取interface{}中值的方法。
+对于创建的一个interface{}值持有一个boolean，float，string，map，pointer，或者任意其它的类型；我们当然**不能直接对它持有的值做操作，因为interface{}没有任何方法。我们会在7.10章中学到一种用类型断言来获取interface{}中值的方法**。
 
 因为接口与实现只依赖于判断两个类型的方法，所以没有必要定义一个具体类型和它实现的接口之间的关系。也就是说，尝试文档化和断言这种关系几乎没有用，所以并没有通过程序强制定义。下面的定义在编译期断言一个`*bytes.Buffer`的值实现了io.Writer接口类型:
 
@@ -8846,11 +8846,11 @@ func makeThumbnails5(filenames []string) (thumbfiles []string, err error) {
 
 我们最后一个版本的makeThumbnails返回了新文件们的大小总计数（b
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjEwMjM3MzIyLC0xMTg5NjUwNTQ4LC02Mz
-I3Mzk5OTgsOTM4MzI3NzY2LDE1ODE0NDY5MzEsMTY5MjE5NzU1
-MSwtMjEyNTEzNjY4NywzMTM1NTM2LC0xMTM4NzAwMzEyLC0yMT
-M5MTAxNDUxLC03NjQ0MjI2NjAsMTE2NDc0ODc4OCwtMTEwMjE4
-MDUyNCwtMTk3Nzc1MTMyMywtNjA5NjQyNDQ2LC04MzQ1MzI1MD
-MsMTI2Nzc5Mjc5OCwtMjAyMTIwNDM0OCwtNzAyODY0NzUxLDY3
-OTIxNDE5MF19
+eyJoaXN0b3J5IjpbLTE3NTU2NjMwOTQsMjEwMjM3MzIyLC0xMT
+g5NjUwNTQ4LC02MzI3Mzk5OTgsOTM4MzI3NzY2LDE1ODE0NDY5
+MzEsMTY5MjE5NzU1MSwtMjEyNTEzNjY4NywzMTM1NTM2LC0xMT
+M4NzAwMzEyLC0yMTM5MTAxNDUxLC03NjQ0MjI2NjAsMTE2NDc0
+ODc4OCwtMTEwMjE4MDUyNCwtMTk3Nzc1MTMyMywtNjA5NjQyND
+Q2LC04MzQ1MzI1MDMsMTI2Nzc5Mjc5OCwtMjAyMTIwNDM0OCwt
+NzAyODY0NzUxXX0=
 -->
