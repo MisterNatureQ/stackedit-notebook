@@ -6570,6 +6570,16 @@ invalid value "1 day" for flag -period: time: invalid duration 1 day
 package flag
 
 // Value is the interface to the value stored in a flag.
+//  Value  is  the  interface  to  the  dynamic  value  stored  in  a  flag.
+
+//  (The  default  value  is  represented  as  a  string.)
+
+//  If  a  Value  has  an  IsBoolFlag()  bool  method  returning  true,
+//  the  command-line  parser  makes  -name  equivalent  to  -name=true
+//  rather  than  using  the  next  command-line  argument.
+//  Set  is  called  once,  in  command  line  order,  for  each  flag  present.
+//  The  flag  package  may  call  the  String  method  with  a  zero-valued  receiver,
+//  such  as  a  nil  pointer.
 // Value接口是用于将动态的值保存在一个flag里。（默认值被表示为一个字符串）
 
 // 如果Value接口具有IsBoolFlag() bool方法，且返回真。命令行解析其会将-name等价为-name=true而不是使用下一个命令行参数。
@@ -8831,23 +8841,13 @@ func makeThumbnails4(filenames []string) error {
 }
 ```
 
-这个程序有一个微妙的bug。当它遇到第一个非nil的error时会直接将error返回到调用方，使得没有一个goroutine去排空errors channel。这样剩下的worker goroutine在向这个channel中发送值时，都会永远地阻塞下去，并且永远都不会退出。这种情况叫做goroutine泄露（§8.4.4），可能会导致整个程序卡住或者跑出out of memory的错误。
-
-最简单的解决办法就是用一个具有合适大小的buffered channel，这样这些worker goroutine向channel中发送错误时就不会被阻塞。（一个可选的解决办法是创建一个另外的goroutine，当main goroutine返回第一个错误的同时去排空channel。）
-
-下一个版本的makeThumbnails使用了一个buffered channel来返回生成的图片文件的名字，附带生成时的错误。
-
-```go
-// makeThumbnails5 makes thumbnails for the specified files in parallel.
-// It returns the generated file names in an arbitrary order,
-// or an error if any step failed.
-func makeThum
+这个程序有一个微妙的bug。当它遇到第一个非nil的error时会直接将error返回到调
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIxMjUwNjk4NTAsLTgxMTYzNTY4MiwxMT
-A1NzQ1NTI3LC0xMDQyNTg0NzAxLDIwNTYyMDgxOTUsOTQ0Njkz
-NDkwLDEyODQ0NzMzMzYsMTI4OTA3OTIzMywxMDcyMTE0MDA2LC
-05ODM5NzczOTgsMjEwMjM3MzIyLC0xMTg5NjUwNTQ4LC02MzI3
-Mzk5OTgsOTM4MzI3NzY2LDE1ODE0NDY5MzEsMTY5MjE5NzU1MS
-wtMjEyNTEzNjY4NywzMTM1NTM2LC0xMTM4NzAwMzEyLC0yMTM5
-MTAxNDUxXX0=
+eyJoaXN0b3J5IjpbLTE4MzU3OTM4NSwtMjEyNTA2OTg1MCwtOD
+ExNjM1NjgyLDExMDU3NDU1MjcsLTEwNDI1ODQ3MDEsMjA1NjIw
+ODE5NSw5NDQ2OTM0OTAsMTI4NDQ3MzMzNiwxMjg5MDc5MjMzLD
+EwNzIxMTQwMDYsLTk4Mzk3NzM5OCwyMTAyMzczMjIsLTExODk2
+NTA1NDgsLTYzMjczOTk5OCw5MzgzMjc3NjYsMTU4MTQ0NjkzMS
+wxNjkyMTk3NTUxLC0yMTI1MTM2Njg3LDMxMzU1MzYsLTExMzg3
+MDAzMTJdfQ==
 -->
