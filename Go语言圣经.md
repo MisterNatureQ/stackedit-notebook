@@ -6527,7 +6527,8 @@ type Streamer interface {
 	godoc -analysis=type flag Duration
 	godoc -analysis=pointer time Duration
 	godoc -analysis=type fmt Printf
-	
+	godoc -analysis=type fmt Printf
+
 <u><i>gopl.io/ch7/sleep</i></u>
 ```go
 var period = flag.Duration("period", 1*time.Second, "sleep period")
@@ -8840,13 +8841,13 @@ func makeThumbnails4(filenames []string) error {
 // makeThumbnails5 makes thumbnails for the specified files in parallel.
 // It returns the generated file names in an arbitrary order,
 // or an error if any step failed.
-func makeThumbnails5(filenames []string)
+func makeThum
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMzMzMzg1MjkyLDExMDU3NDU1MjcsLTEwND
-I1ODQ3MDEsMjA1NjIwODE5NSw5NDQ2OTM0OTAsMTI4NDQ3MzMz
-NiwxMjg5MDc5MjMzLDEwNzIxMTQwMDYsLTk4Mzk3NzM5OCwyMT
-AyMzczMjIsLTExODk2NTA1NDgsLTYzMjczOTk5OCw5MzgzMjc3
-NjYsMTU4MTQ0NjkzMSwxNjkyMTk3NTUxLC0yMTI1MTM2Njg3LD
-MxMzU1MzYsLTExMzg3MDAzMTIsLTIxMzkxMDE0NTEsLTc2NDQy
-MjY2MF19
+eyJoaXN0b3J5IjpbLTgxMTYzNTY4MiwxMTA1NzQ1NTI3LC0xMD
+QyNTg0NzAxLDIwNTYyMDgxOTUsOTQ0NjkzNDkwLDEyODQ0NzMz
+MzYsMTI4OTA3OTIzMywxMDcyMTE0MDA2LC05ODM5NzczOTgsMj
+EwMjM3MzIyLC0xMTg5NjUwNTQ4LC02MzI3Mzk5OTgsOTM4MzI3
+NzY2LDE1ODE0NDY5MzEsMTY5MjE5NzU1MSwtMjEyNTEzNjY4Ny
+wzMTM1NTM2LC0xMTM4NzAwMzEyLC0yMTM5MTAxNDUxLC03NjQ0
+MjI2NjBdfQ==
 -->
