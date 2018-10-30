@@ -6415,7 +6415,7 @@ os.Stdout.Write([]byte("hello")) // OK: *os.File has Write method
 os.Stdout.Close()                // OK: *os.File has Close method
 
 var w io.Writer
-w = os.Stdout // 虽然 os Stdout 实现了 Close() 但是 赋值之后 访控属性 发生了改变 接口没有 声明的
+w = os.Stdout // 虽然 os Stdout 实现了 Close() 但是 赋值之后 访控属性 发生了改变 接口没有声明的方法不能被调用
 w.Write([]byte("hello")) // OK: io.Writer has Write method
 w.Close()                // compile error: io.Writer lacks Close method
 ```
@@ -8844,13 +8844,13 @@ func makeThumbnails5(filenames []string) (thumbfiles []string, err error) {
 }
 ```
 
-我们最后一个版本的makeThumbnails返回了新文件们的大小总计数（bytes）。和前
+我们最后一个版本的makeThumbnails返回了新文件们的大小总计数（b
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEzMzMxODg3MjEsLTExODk2NTA1NDgsLT
-YzMjczOTk5OCw5MzgzMjc3NjYsMTU4MTQ0NjkzMSwxNjkyMTk3
-NTUxLC0yMTI1MTM2Njg3LDMxMzU1MzYsLTExMzg3MDAzMTIsLT
-IxMzkxMDE0NTEsLTc2NDQyMjY2MCwxMTY0NzQ4Nzg4LC0xMTAy
-MTgwNTI0LC0xOTc3NzUxMzIzLC02MDk2NDI0NDYsLTgzNDUzMj
-UwMywxMjY3NzkyNzk4LC0yMDIxMjA0MzQ4LC03MDI4NjQ3NTEs
-Njc5MjE0MTkwXX0=
+eyJoaXN0b3J5IjpbMjEwMjM3MzIyLC0xMTg5NjUwNTQ4LC02Mz
+I3Mzk5OTgsOTM4MzI3NzY2LDE1ODE0NDY5MzEsMTY5MjE5NzU1
+MSwtMjEyNTEzNjY4NywzMTM1NTM2LC0xMTM4NzAwMzEyLC0yMT
+M5MTAxNDUxLC03NjQ0MjI2NjAsMTE2NDc0ODc4OCwtMTEwMjE4
+MDUyNCwtMTk3Nzc1MTMyMywtNjA5NjQyNDQ2LC04MzQ1MzI1MD
+MsMTI2Nzc5Mjc5OCwtMjAyMTIwNDM0OCwtNzAyODY0NzUxLDY3
+OTIxNDE5MF19
 -->
