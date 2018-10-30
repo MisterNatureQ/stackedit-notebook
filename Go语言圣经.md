@@ -6516,7 +6516,7 @@ type Streamer interface {
 每一个具体类型的组基于它们相同的行为可以表示成一个接口类型。不像基于类的语言，他们一个类实现的接口集合需要进行显式的定义，在Go语言中我们可以在需要的时候定义一个新的抽象或者特定特点的组，而不需要修改具体类型的定义。当具体的类型来自不同的作者时这种方式会特别有用。当然也确实没有必要在具体的类型中指出这些共性。
 ## 7.4. flag.Value接口
 
-在本章，我们会学到另一个标准的接口类型flag.Value是怎么帮助命令行标记定义新的符号的。思考下面这个会休眠特定时间的程序：
+在本章，我们会学到另一个**标准的接口类型flag.Value是怎么帮助命令行标记定义新的符号的**。思考下面这个会休眠特定时间的程序：
 
 <u><i>gopl.io/ch7/sleep</i></u>
 ```go
@@ -8842,13 +8842,13 @@ func makeThumbnails5(filenames []string) (thumbfiles []string, err error) {
 
 	for range filenames {
 		it := <-ch
-		if it.err !
+		if it.er
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbOTQ0NjkzNDkwLDEyODQ0NzMzMzYsMTI4OT
-A3OTIzMywxMDcyMTE0MDA2LC05ODM5NzczOTgsMjEwMjM3MzIy
-LC0xMTg5NjUwNTQ4LC02MzI3Mzk5OTgsOTM4MzI3NzY2LDE1OD
-E0NDY5MzEsMTY5MjE5NzU1MSwtMjEyNTEzNjY4NywzMTM1NTM2
-LC0xMTM4NzAwMzEyLC0yMTM5MTAxNDUxLC03NjQ0MjI2NjAsMT
-E2NDc0ODc4OCwtMTEwMjE4MDUyNCwtMTk3Nzc1MTMyMywtNjA5
-NjQyNDQ2XX0=
+eyJoaXN0b3J5IjpbLTE2NDkxOTIxLDk0NDY5MzQ5MCwxMjg0ND
+czMzM2LDEyODkwNzkyMzMsMTA3MjExNDAwNiwtOTgzOTc3Mzk4
+LDIxMDIzNzMyMiwtMTE4OTY1MDU0OCwtNjMyNzM5OTk4LDkzOD
+MyNzc2NiwxNTgxNDQ2OTMxLDE2OTIxOTc1NTEsLTIxMjUxMzY2
+ODcsMzEzNTUzNiwtMTEzODcwMDMxMiwtMjEzOTEwMTQ1MSwtNz
+Y0NDIyNjYwLDExNjQ3NDg3ODgsLTExMDIxODA1MjQsLTE5Nzc3
+NTEzMjNdfQ==
 -->
