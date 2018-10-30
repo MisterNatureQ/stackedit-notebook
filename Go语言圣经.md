@@ -6180,7 +6180,8 @@ package fmt
 //Fprintf的前缀F表示文件（File）也表明格式化输出结果应该被写入第一个参数提供的文件中
 // 第一个参数也不是一个文件类型。它是io.Writer 接口类型
 // io.Writer类型定义了函数Fprintf和这个函数调用者之间的约定。一方面这个约定需要调用者提供具体类型的值就像`*os.File`和`*bytes.Buffer`，这些类型都有一个特定签名和行为的Write的函数。
-// 另一方面这个约定保证了Fprintf接受任何满足io.Writer接口的值都可以工作。Fprintf函数可能没有假定写入的是一个文件或是一段内存，而是写入一个可以调用Write函数的值
+// 另一方面这个约定保证了Fprintf接受任何满足io.Writer接口的值都可以工作。
+// Fprintf函数可能没有假定写入的是一个文件或是一段内存，而是写入一个可以调用Write函数的值
 // https://github.com/golang/go/blob/master/src/io/io.go#L90:6
 func Fprintf(w io.Writer, format string, args ...interface{}) (int, error)
 
@@ -8839,11 +8840,11 @@ func makeThumbnails5(filenames []string) (thumbfiles []string, err error) {
 
 为了知道最后一个goroutine什么时候结束（最后一个结束并不一定是最后一个开始），我们需要一个递增的计数器，在每一个goroutine启动时加一，在goroutine退出时减一。这需要一种特殊的
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIxMjUxMzY2ODcsMzEzNTUzNiwtMTEzOD
-cwMDMxMiwtMjEzOTEwMTQ1MSwtNzY0NDIyNjYwLDExNjQ3NDg3
-ODgsLTExMDIxODA1MjQsLTE5Nzc3NTEzMjMsLTYwOTY0MjQ0Ni
-wtODM0NTMyNTAzLDEyNjc3OTI3OTgsLTIwMjEyMDQzNDgsLTcw
-Mjg2NDc1MSw2NzkyMTQxOTAsLTQ2NzkyMzgwMSw5MDAyNzYyNz
-YsMTA1MDgxMjE1NiwtMTMxMDEzMTExMiw2NDMwMDEyODksMTQw
-NTg4NjcyNl19
+eyJoaXN0b3J5IjpbMTY5MjE5NzU1MSwtMjEyNTEzNjY4NywzMT
+M1NTM2LC0xMTM4NzAwMzEyLC0yMTM5MTAxNDUxLC03NjQ0MjI2
+NjAsMTE2NDc0ODc4OCwtMTEwMjE4MDUyNCwtMTk3Nzc1MTMyMy
+wtNjA5NjQyNDQ2LC04MzQ1MzI1MDMsMTI2Nzc5Mjc5OCwtMjAy
+MTIwNDM0OCwtNzAyODY0NzUxLDY3OTIxNDE5MCwtNDY3OTIzOD
+AxLDkwMDI3NjI3NiwxMDUwODEyMTU2LC0xMzEwMTMxMTEyLDY0
+MzAwMTI4OV19
 -->
