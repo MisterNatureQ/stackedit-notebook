@@ -6527,7 +6527,7 @@ type Streamer interface {
 	godoc -analysis=type flag Duration
 	godoc -analysis=pointer time Duration
 	godoc -analysis=type fmt Printf
-	godoc -analysis=type fmt Printf
+	godoc -analysis=type time Sleep
 
 <u><i>gopl.io/ch7/sleep</i></u>
 ```go
@@ -8843,11 +8843,11 @@ func makeThumbnails4(filenames []string) error {
 // or an error if any step failed.
 func makeThum
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTgxMTYzNTY4MiwxMTA1NzQ1NTI3LC0xMD
-QyNTg0NzAxLDIwNTYyMDgxOTUsOTQ0NjkzNDkwLDEyODQ0NzMz
-MzYsMTI4OTA3OTIzMywxMDcyMTE0MDA2LC05ODM5NzczOTgsMj
-EwMjM3MzIyLC0xMTg5NjUwNTQ4LC02MzI3Mzk5OTgsOTM4MzI3
-NzY2LDE1ODE0NDY5MzEsMTY5MjE5NzU1MSwtMjEyNTEzNjY4Ny
-wzMTM1NTM2LC0xMTM4NzAwMzEyLC0yMTM5MTAxNDUxLC03NjQ0
-MjI2NjBdfQ==
+eyJoaXN0b3J5IjpbLTIxMjUwNjk4NTAsLTgxMTYzNTY4MiwxMT
+A1NzQ1NTI3LC0xMDQyNTg0NzAxLDIwNTYyMDgxOTUsOTQ0Njkz
+NDkwLDEyODQ0NzMzMzYsMTI4OTA3OTIzMywxMDcyMTE0MDA2LC
+05ODM5NzczOTgsMjEwMjM3MzIyLC0xMTg5NjUwNTQ4LC02MzI3
+Mzk5OTgsOTM4MzI3NzY2LDE1ODE0NDY5MzEsMTY5MjE5NzU1MS
+wtMjEyNTEzNjY4NywzMTM1NTM2LC0xMTM4NzAwMzEyLC0yMTM5
+MTAxNDUxXX0=
 -->
