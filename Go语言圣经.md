@@ -6155,7 +6155,7 @@ fmt.Println(day.Seconds()) // "86400"
 在本章，我们会开始看到接口类型和值的一些基本技巧。顺着这种方式我们将学习几个来自标准库的重要接口。很多Go程序中都尽可能多的去使用标准库中的接口。最后，我们会在（§7.10）看到类型断言的知识，在（§7.13）看到类型开关的使用并且学到他们是怎样让不同的类型的概括成为可能。
 ## 7.1. 接口约定
 
-目前为止，我们看到的类型都是具体的类型。**一个具体的类型可以准确的描述它所代表的值，并且展示出对类型本身的一些操作方式：就像数字类型的算术操作，切片类型的取下标、添加元素和范围获取操作。具体的类型还可以通过它的内置方法提供额外的行为操作。总的来说，当你拿到一个具体的类型时你就知道它的本身是什么和你可以用它来做什么**。
+目前为止，我们看到的类型都是具体的类型。**一个具体的类型可以准确的描述它所代表的值，并且展示出对类型本身的一些操作方式**：就像数字类型的算术操作，切片类型的取下标、添加元素和范围获取操作。具体的类型还可以通过它的内置方法提供额外的行为操作。**总的来说，当你拿到一个具体的类型时你就知道它的本身是什么和你可以用它来做什么**。
 
 在Go语言中还存在着另外一种类型：**接口类型。接口类型是一种抽象的类型。它不会暴露出它所代表的对象的内部值的结构和这个对象支持的基础操作的集合；它们只会表现出它们自己的方法。也就是说当你有看到一个接口类型的值时，你不知道它是什么，唯一知道的就是可以通过它的方法来做什么**。
 
@@ -8830,13 +8830,13 @@ func makeThumbnails5(filenames []string) (thumbfiles []string, err error) {
 ```go
 // makeThumbnails6 makes thumbnails for each file received from the channel.
 // It returns the number of bytes occupied by the files it creates.
-func m
+fu
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIxMzkxMDE0NTEsLTc2NDQyMjY2MCwxMT
-Y0NzQ4Nzg4LC0xMTAyMTgwNTI0LC0xOTc3NzUxMzIzLC02MDk2
-NDI0NDYsLTgzNDUzMjUwMywxMjY3NzkyNzk4LC0yMDIxMjA0Mz
-Q4LC03MDI4NjQ3NTEsNjc5MjE0MTkwLC00Njc5MjM4MDEsOTAw
-Mjc2Mjc2LDEwNTA4MTIxNTYsLTEzMTAxMzExMTIsNjQzMDAxMj
-g5LDE0MDU4ODY3MjYsLTQ0NDE0MjIyNywxNzIyMDYyNTU3LC0y
-MDA5ODIxNjk2XX0=
+eyJoaXN0b3J5IjpbMTU2Njk3MTc2NywtMjEzOTEwMTQ1MSwtNz
+Y0NDIyNjYwLDExNjQ3NDg3ODgsLTExMDIxODA1MjQsLTE5Nzc3
+NTEzMjMsLTYwOTY0MjQ0NiwtODM0NTMyNTAzLDEyNjc3OTI3OT
+gsLTIwMjEyMDQzNDgsLTcwMjg2NDc1MSw2NzkyMTQxOTAsLTQ2
+NzkyMzgwMSw5MDAyNzYyNzYsMTA1MDgxMjE1NiwtMTMxMDEzMT
+ExMiw2NDMwMDEyODksMTQwNTg4NjcyNiwtNDQ0MTQyMjI3LDE3
+MjIwNjI1NTddfQ==
 -->
