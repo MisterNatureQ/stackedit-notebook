@@ -6163,6 +6163,13 @@ fmt.Println(day.Seconds()) // "86400"
 
 在本书中，我们一直使用两个相似的函数来进行字符串的格式化：fmt.Printf，它会把结果写到标准输出，和fmt.Sprintf，它会把结果以字符串的形式返回。**得益于使用接口，我们不必可悲的因为返回结果在使用方式上的一些浅显不同就必需把格式化这个最困难的过程复制一份**。实际上，这两个函数都使用了另一个函数fmt.Fprintf来进行封装。fmt.Fprintf这个函数对它的计算结果会被怎么使用是完全不知道的。
 
+
+
+	分析命令
+	godoc -analysis=type io Write
+	godoc -analysis=pointer os File
+	
+	
 ``` go
 package fmt
 
@@ -8830,10 +8837,9 @@ func makeThumbnails5(filenames []string) (thumbfiles []string, err error) {
 为了知道最后一个goroutine什么时候结束（最后一个结束并不一定是最后一个开始），我们需要一个递增的计数器，在每一个goroutine启动时加一，在goroutine退出时减一。这需要一种特殊的计数器，这个计数器需要在多个goroutine操作时做到安全并且提供在其减为零之前一直等待的一种方法。这种计数类型被称为sync.WaitGroup，下面的代码就用到了这种方法：
 
 ```go
-// makeThumbnails6 makes thumbnails for each file received from the channel.
-// It retu
+// makeThu
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE1MDMwMjk3MzEsLTExMzg3MDAzMTIsLT
+eyJoaXN0b3J5IjpbLTE0OTExMTk2MjgsLTExMzg3MDAzMTIsLT
 IxMzkxMDE0NTEsLTc2NDQyMjY2MCwxMTY0NzQ4Nzg4LC0xMTAy
 MTgwNTI0LC0xOTc3NzUxMzIzLC02MDk2NDI0NDYsLTgzNDUzMj
 UwMywxMjY3NzkyNzk4LC0yMDIxMjA0MzQ4LC03MDI4NjQ3NTEs
