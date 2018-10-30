@@ -6447,14 +6447,16 @@ var w io.Writer = new(bytes.Buffer)
 
 因为任意`*bytes.Buffer`的值，甚至包括nil通过`(*bytes.Buffer)(nil)`进行显示的转换都实现了这个接口，所以我们不必分配一个新的变量。并且因为我们绝不会引用变量w，我们可以使用空标识符来进行代替。总的看，这些变化可以让我们得到一个更朴素的版本：
 
+	godoc -analysis=type bytes Buffer
+	
 ```go
 // *bytes.Buffer must satisfy io.Writer
 var _ io.Writer = (*bytes.Buffer)(nil)
 ```
 
-非空的接口类型比如io.Writer经常被指针类型实现，尤其当一个或多个接口方法像Write方法那样隐式的给接收者带来变化的时候。一个结构体的指针是非常常见的承载方法的类型。
+非空的接口类型比如io.Writer经常被指针类型实现，尤其当一个或多个接口方法像Write方法那样隐式的给接收者带来变化的时候。**一个结构体的指针是非常常见的承载方法的类型**。
 
-但是并不意味着只有指针类型满足接口类型，甚至连一些有设置方法的接口类型也可能会被Go语言中其它的引用类型实现。我们已经看过slice类型的方法（geometry.Path，§6.1）和map类型的方法（url.Values，§6.2.1），后面还会看到函数类型的方法的例子（http.HandlerFunc，§7.7）。甚至基本的类型也可能会实现一些接口；就如我们在7.4章中看到的time.Duration类型实现了fmt.Stringer接口。
+**但是并不意味着只有指针类型满足接口类型，甚至连一些有设置方法的接口类型也可能会被Go语言中其它的引用类型实现**。我们已经看过slice类型的方法（geometry.Path，§6.1）和map类型的方法（url.Values，§6.2.1），后面还会看到函数类型的方法的例子（http.HandlerFunc，§7.7）。甚至基本的类型也可能会实现一些接口；就如我们在7.4章中看到的time.Duration类型实现了fmt.Stringer接口。
 
 一个具体的类型可能实现了很多不相关的接口。考虑在一个组织出售数字文化产品比如音乐，电影和书籍的程序中可能定义了下列的具体类型：
 
@@ -8843,15 +8845,12 @@ func makeThumbnails5(filenames []string) (thumbfiles []string, err error) {
 
 	return thumbfiles, nil
 }
-```
-
-我们最后一个版本的makeThumbnails返回了新文件们的大小总计数（b
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNzU0NjE2MTIwLC05ODM5NzczOTgsMjEwMj
-M3MzIyLC0xMTg5NjUwNTQ4LC02MzI3Mzk5OTgsOTM4MzI3NzY2
-LDE1ODE0NDY5MzEsMTY5MjE5NzU1MSwtMjEyNTEzNjY4NywzMT
-M1NTM2LC0xMTM4NzAwMzEyLC0yMTM5MTAxNDUxLC03NjQ0MjI2
-NjAsMTE2NDc0ODc4OCwtMTEwMjE4MDUyNCwtMTk3Nzc1MTMyMy
-wtNjA5NjQyNDQ2LC04MzQ1MzI1MDMsMTI2Nzc5Mjc5OCwtMjAy
-MTIwNDM0OF19
+eyJoaXN0b3J5IjpbMTA3MjExNDAwNiwtOTgzOTc3Mzk4LDIxMD
+IzNzMyMiwtMTE4OTY1MDU0OCwtNjMyNzM5OTk4LDkzODMyNzc2
+NiwxNTgxNDQ2OTMxLDE2OTIxOTc1NTEsLTIxMjUxMzY2ODcsMz
+EzNTUzNiwtMTEzODcwMDMxMiwtMjEzOTEwMTQ1MSwtNzY0NDIy
+NjYwLDExNjQ3NDg3ODgsLTExMDIxODA1MjQsLTE5Nzc3NTEzMj
+MsLTYwOTY0MjQ0NiwtODM0NTMyNTAzLDEyNjc3OTI3OTgsLTIw
+MjEyMDQzNDhdfQ==
 -->
