@@ -6374,6 +6374,8 @@ rwc = w                 // compile error: io.Writer lacks Close method
 
 在进一步学习前，必须先解释一个类型持有一个方法的表示当中的细节。回想在6.2章中，**对于每一个命名过的具体类型T；它的一些方法的接收者是类型T本身然而另一些则是一个`*T`的指针。还记得在T类型的参数上调用一个`*T`的方法是合法的，只要这个参数是一个变量；编译器隐式的获取了它的地址。但这仅仅是一个语法糖：T类型的值不拥有所有`*T`指针的方法，这样它就可能只实现了更少的接口**。
 
+	T类型的值不拥有所有`*T`指针的方法，这样它就可能只实现了更少的接口。
+
 举个例子可能会更清晰一点。在第6.5章中，IntSet类型的String方法的接收者是一个指针类型，所以我们不能在一个不能寻址的IntSet值上调用这个方法：
 
 ```go
@@ -8842,15 +8844,13 @@ func makeThumbnails5(filenames []string) (thumbfiles []string, err error) {
 }
 ```
 
-我们最后一个版本的makeThumbnails返回了新文件们的大小总计数（bytes）。和前面的版本都不一样的一点是我们在这个版本里没有把文件名放在slice里，而是通过一个string的channel传过来，所以我们无法对循环的次数进行预测。
-
-为了知道最后一个gor
+我们最后一个版本的makeThumbnails返回了新文件们的大小总计数（bytes）。和前面的版本都不一样的一点是我们在这个版本里没有把文件名放在slice里，而是通过一个strin
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTYzMjczOTk5OCw5MzgzMjc3NjYsMTU4MT
-Q0NjkzMSwxNjkyMTk3NTUxLC0yMTI1MTM2Njg3LDMxMzU1MzYs
-LTExMzg3MDAzMTIsLTIxMzkxMDE0NTEsLTc2NDQyMjY2MCwxMT
-Y0NzQ4Nzg4LC0xMTAyMTgwNTI0LC0xOTc3NzUxMzIzLC02MDk2
-NDI0NDYsLTgzNDUzMjUwMywxMjY3NzkyNzk4LC0yMDIxMjA0Mz
-Q4LC03MDI4NjQ3NTEsNjc5MjE0MTkwLC00Njc5MjM4MDEsOTAw
-Mjc2Mjc2XX0=
+eyJoaXN0b3J5IjpbLTExODk2NTA1NDgsLTYzMjczOTk5OCw5Mz
+gzMjc3NjYsMTU4MTQ0NjkzMSwxNjkyMTk3NTUxLC0yMTI1MTM2
+Njg3LDMxMzU1MzYsLTExMzg3MDAzMTIsLTIxMzkxMDE0NTEsLT
+c2NDQyMjY2MCwxMTY0NzQ4Nzg4LC0xMTAyMTgwNTI0LC0xOTc3
+NzUxMzIzLC02MDk2NDI0NDYsLTgzNDUzMjUwMywxMjY3NzkyNz
+k4LC0yMDIxMjA0MzQ4LC03MDI4NjQ3NTEsNjc5MjE0MTkwLC00
+Njc5MjM4MDFdfQ==
 -->
