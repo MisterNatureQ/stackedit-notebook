@@ -6562,18 +6562,15 @@ $ ./sleep -period "1 day"
 invalid value "1 day" for flag -period: time: invalid duration 1 day
 ```
 
-因为时间周期标记值非常的有用，所以这个特性被构建到了flag包中；但是我们为我们自己的数据类型定义新的标记符号是简单容易的。我们只需要定义一个实现flag.Value接口的类型，如下：
+因为时间周期标记值非常的有用，所以这个特性被构建到了flag包中；但是我们**为我们自己的数据类型定义新的标记符号是简单容易的。我们只需要定义一个实现flag.Value接口的类型，如下**：
 
 	
 
 ```go
 package flag
 
-// Value is the interface to the value stored in a flag.
 //  Value  is  the  interface  to  the  dynamic  value  stored  in  a  flag.
-
 //  (The  default  value  is  represented  as  a  string.)
-
 //  If  a  Value  has  an  IsBoolFlag()  bool  method  returning  true,
 //  the  command-line  parser  makes  -name  equivalent  to  -name=true
 //  rather  than  using  the  next  command-line  argument.
@@ -8843,7 +8840,7 @@ func makeThumbnails4(filenames []string) error {
 
 这个程序有一个微妙的bug。当它遇到第一个非nil的error时会直接将error返回到调
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE4MzU3OTM4NSwtMjEyNTA2OTg1MCwtOD
+eyJoaXN0b3J5IjpbMTE4MDg5NDA2NiwtMjEyNTA2OTg1MCwtOD
 ExNjM1NjgyLDExMDU3NDU1MjcsLTEwNDI1ODQ3MDEsMjA1NjIw
 ODE5NSw5NDQ2OTM0OTAsMTI4NDQ3MzMzNiwxMjg5MDc5MjMzLD
 EwNzIxMTQwMDYsLTk4Mzk3NzM5OCwyMTAyMzczMjIsLTExODk2
