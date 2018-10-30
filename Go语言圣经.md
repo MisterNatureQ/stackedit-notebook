@@ -6276,7 +6276,8 @@ type Stringer interface {
 }
 ```
 
-我们会在7.10节解释fmt包怎么发现哪些值是满足这个接口类型的。
+我们会在**7.10节解释fmt包怎么发现哪些值是满足这个接口类型的**。
+
 
 **练习 7.1：** 使用来自ByteCounter的思路，实现一个针对单词和行数的计数器。你会发现bufio.ScanWords非常的有用。
 
@@ -8843,9 +8844,9 @@ func makeThumbnails5(filenames []string) (thumbfiles []string, err error) {
 
 我们最后一个版本的makeThumbnails返回了新文件们的大小总计数（bytes）。和前面的版本都不一样的一点是我们在这个版本里没有把文件名放在slice里，而是通过一个string的channel传过来，所以我们无法对循环的次数进行预测。
 
-为了知道最后一个goroutin
+为了知道最后一个gor
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTIxNjU0NDgxNyw5MzgzMjc3NjYsMTU4MT
+eyJoaXN0b3J5IjpbLTYzMjczOTk5OCw5MzgzMjc3NjYsMTU4MT
 Q0NjkzMSwxNjkyMTk3NTUxLC0yMTI1MTM2Njg3LDMxMzU1MzYs
 LTExMzg3MDAzMTIsLTIxMzkxMDE0NTEsLTc2NDQyMjY2MCwxMT
 Y0NzQ4Nzg4LC0xMTAyMTgwNTI0LC0xOTc3NzUxMzIzLC02MDk2
