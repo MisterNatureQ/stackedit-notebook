@@ -6262,7 +6262,7 @@ fmt.Fprintf(&c, "hello, %s", name)
 fmt.Println(c) // "12", = len("hello, Dolly")
 ```
 
-除了io.Writer这个接口类型，还有另一个对fmt包很重要的接口类型。Fprintf和Fprintln函数向类型提供了一种控制它们值输出的途径。在2.5节中，我们为Celsius类型提供了一个String方法以便于可以打印成这样"100°C" ，在6.5节中我们给*IntSet添加一个String方法，这样集合可以用传统的符号来进行表示就像"{1 2 3}"。给一个类型定义String方法，可以让它满足最广泛使用之一的接口类型fmt.Stringer：
+除了io.Writer这个接口类型，还有另一个对fmt包很重要的接口类型。Fprintf和Fprintln函数向类型提供了一种控制它们值输出的途径。在2.5节中，我们为Celsius类型提供了一个String方法以便于可以打印成这样"100°C" ，在6.5节中我们给*IntSet添加一个String方法，这样集合可以用传统的符号来进行表示就像"{1 2 3}"。**给一个类型定义String方法，可以让它满足最广泛使用之一的接口类型fmt.Stringer**：
 
 ```go
 package fmt
@@ -8843,13 +8843,13 @@ func makeThumbnails5(filenames []string) (thumbfiles []string, err error) {
 
 我们最后一个版本的makeThumbnails返回了新文件们的大小总计数（bytes）。和前面的版本都不一样的一点是我们在这个版本里没有把文件名放在slice里，而是通过一个string的channel传过来，所以我们无法对循环的次数进行预测。
 
-为了知道最后一个goroutine什
+为了知道最后一个goroutin
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbOTM4MzI3NzY2LDE1ODE0NDY5MzEsMTY5Mj
-E5NzU1MSwtMjEyNTEzNjY4NywzMTM1NTM2LC0xMTM4NzAwMzEy
-LC0yMTM5MTAxNDUxLC03NjQ0MjI2NjAsMTE2NDc0ODc4OCwtMT
-EwMjE4MDUyNCwtMTk3Nzc1MTMyMywtNjA5NjQyNDQ2LC04MzQ1
-MzI1MDMsMTI2Nzc5Mjc5OCwtMjAyMTIwNDM0OCwtNzAyODY0Nz
-UxLDY3OTIxNDE5MCwtNDY3OTIzODAxLDkwMDI3NjI3NiwxMDUw
-ODEyMTU2XX0=
+eyJoaXN0b3J5IjpbMTIxNjU0NDgxNyw5MzgzMjc3NjYsMTU4MT
+Q0NjkzMSwxNjkyMTk3NTUxLC0yMTI1MTM2Njg3LDMxMzU1MzYs
+LTExMzg3MDAzMTIsLTIxMzkxMDE0NTEsLTc2NDQyMjY2MCwxMT
+Y0NzQ4Nzg4LC0xMTAyMTgwNTI0LC0xOTc3NzUxMzIzLC02MDk2
+NDI0NDYsLTgzNDUzMjUwMywxMjY3NzkyNzk4LC0yMDIxMjA0Mz
+Q4LC03MDI4NjQ3NTEsNjc5MjE0MTkwLC00Njc5MjM4MDEsOTAw
+Mjc2Mjc2XX0=
 -->
