@@ -6522,6 +6522,8 @@ type Streamer interface {
 
 在本章，我们会学到另一个**标准的接口类型flag.Value是怎么帮助命令行标记定义新的符号的**。思考下面这个会休眠特定时间的程序：
 
+	标准库 godoc -analysis=type flag Value
+
 <u><i>gopl.io/ch7/sleep</i></u>
 ```go
 var period = flag.Duration("period", 1*time.Second, "sleep period")
@@ -6557,7 +6559,7 @@ invalid value "1 day" for flag -period: time: invalid duration 1 day
 
 因为时间周期标记值非常的有用，所以这个特性被构建到了flag包中；但是我们为我们自己的数据类型定义新的标记符号是简单容易的。我们只需要定义一个实现flag.Value接口的类型，如下：
 
-	标准库 godoc -analysis=type flag Value
+	
 
 ```go
 package flag
@@ -8839,13 +8841,13 @@ func makeThumbnails5(filenames []string) (thumbfiles []string, err error) {
 	for _, f := range filenames {
 		go func(f string) {
 			var it item
-			it.thumbfile, it.err = thumbnail.ImageF
+			it.thumbfile, it.err = thumbnail.Imag
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTg0MTM2NzQzMSwtMTA0MjU4NDcwMSwyMD
-U2MjA4MTk1LDk0NDY5MzQ5MCwxMjg0NDczMzM2LDEyODkwNzky
-MzMsMTA3MjExNDAwNiwtOTgzOTc3Mzk4LDIxMDIzNzMyMiwtMT
-E4OTY1MDU0OCwtNjMyNzM5OTk4LDkzODMyNzc2NiwxNTgxNDQ2
-OTMxLDE2OTIxOTc1NTEsLTIxMjUxMzY2ODcsMzEzNTUzNiwtMT
-EzODcwMDMxMiwtMjEzOTEwMTQ1MSwtNzY0NDIyNjYwLDExNjQ3
-NDg3ODhdfQ==
+eyJoaXN0b3J5IjpbLTE4MjIzMTEyMDgsLTEwNDI1ODQ3MDEsMj
+A1NjIwODE5NSw5NDQ2OTM0OTAsMTI4NDQ3MzMzNiwxMjg5MDc5
+MjMzLDEwNzIxMTQwMDYsLTk4Mzk3NzM5OCwyMTAyMzczMjIsLT
+ExODk2NTA1NDgsLTYzMjczOTk5OCw5MzgzMjc3NjYsMTU4MTQ0
+NjkzMSwxNjkyMTk3NTUxLC0yMTI1MTM2Njg3LDMxMzU1MzYsLT
+ExMzg3MDAzMTIsLTIxMzkxMDE0NTEsLTc2NDQyMjY2MCwxMTY0
+NzQ4Nzg4XX0=
 -->
