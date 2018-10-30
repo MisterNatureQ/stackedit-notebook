@@ -6233,6 +6233,8 @@ io.Writer类型定义了函数Fprintf和这个函数调用者之间的约定。�
 
 **因为fmt.Fprintf函数没有对具体操作的值做任何假设，而是仅仅通过io.Writer接口的约定来保证行为，所以第一个参数可以安全地传入一个只需要满足io.Writer接口的任意具体类型的值。一个类型可以自由地被另一个满足相同接口的类型替换，被称作可替换性（LSP里氏替换）。这是一个面向对象的特征**。
 
+	通过接口的约定来保证行为 只需要满足接口的任意具体类型的值 **一个类型可以自由地被另一个满足相同接口的类型替换**
+
 让我们通过一个新的类型来进行校验，下面`*ByteCounter`类型里的Write方法，仅仅在丢弃写向它的字节前统计它们的长度。（在这个+=赋值语句中，让len(p)的类型和`*c`的类型匹配的转换是必须的。）
 
 <u><i>gopl.io/ch7/bytecounter</i></u>
@@ -8838,13 +8840,13 @@ func makeThumbnails5(filenames []string) (thumbfiles []string, err error) {
 
 我们最后一个版本的makeThumbnails返回了新文件们的大小总计数（bytes）。和前面的版本都不一样的一点是我们在这个版本里没有把文件名放在slice里，而是通过一个string的channel传过来，所以我们无法对循环的次数进行预测。
 
-为了知道最后一个goroutine什么时候结束（最后一个结束并不一定是最后一个开始），我们需要一个递增的计数器，在每一个goroutine启动时加一，在goroutine退出时减一。这需要一种特殊的
+为了知道最后一个goroutine什么时候结束（最后一个结束并不一定是最后一个
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTY5MjE5NzU1MSwtMjEyNTEzNjY4NywzMT
-M1NTM2LC0xMTM4NzAwMzEyLC0yMTM5MTAxNDUxLC03NjQ0MjI2
-NjAsMTE2NDc0ODc4OCwtMTEwMjE4MDUyNCwtMTk3Nzc1MTMyMy
-wtNjA5NjQyNDQ2LC04MzQ1MzI1MDMsMTI2Nzc5Mjc5OCwtMjAy
-MTIwNDM0OCwtNzAyODY0NzUxLDY3OTIxNDE5MCwtNDY3OTIzOD
-AxLDkwMDI3NjI3NiwxMDUwODEyMTU2LC0xMzEwMTMxMTEyLDY0
-MzAwMTI4OV19
+eyJoaXN0b3J5IjpbODM3MTI0NDkzLDE2OTIxOTc1NTEsLTIxMj
+UxMzY2ODcsMzEzNTUzNiwtMTEzODcwMDMxMiwtMjEzOTEwMTQ1
+MSwtNzY0NDIyNjYwLDExNjQ3NDg3ODgsLTExMDIxODA1MjQsLT
+E5Nzc3NTEzMjMsLTYwOTY0MjQ0NiwtODM0NTMyNTAzLDEyNjc3
+OTI3OTgsLTIwMjEyMDQzNDgsLTcwMjg2NDc1MSw2NzkyMTQxOT
+AsLTQ2NzkyMzgwMSw5MDAyNzYyNzYsMTA1MDgxMjE1NiwtMTMx
+MDEzMTExMl19
 -->
