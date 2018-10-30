@@ -6553,6 +6553,8 @@ invalid value "1 day" for flag -period: time: invalid duration 1 day
 
 因为时间周期标记值非常的有用，所以这个特性被构建到了flag包中；但是我们为我们自己的数据类型定义新的标记符号是简单容易的。我们只需要定义一个实现flag.Value接口的类型，如下：
 
+	标准库 godoc -analysis=type flag Value
+
 ```go
 package flag
 
@@ -8840,16 +8842,13 @@ func makeThumbnails5(filenames []string) (thumbfiles []string, err error) {
 
 	for range filenames {
 		it := <-ch
-		if it.err != nil {
-			return nil, it.err
-		}
-	
+		if it.err !
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTI4NDQ3MzMzNiwxMjg5MDc5MjMzLDEwNz
-IxMTQwMDYsLTk4Mzk3NzM5OCwyMTAyMzczMjIsLTExODk2NTA1
-NDgsLTYzMjczOTk5OCw5MzgzMjc3NjYsMTU4MTQ0NjkzMSwxNj
-kyMTk3NTUxLC0yMTI1MTM2Njg3LDMxMzU1MzYsLTExMzg3MDAz
-MTIsLTIxMzkxMDE0NTEsLTc2NDQyMjY2MCwxMTY0NzQ4Nzg4LC
-0xMTAyMTgwNTI0LC0xOTc3NzUxMzIzLC02MDk2NDI0NDYsLTgz
-NDUzMjUwM119
+eyJoaXN0b3J5IjpbOTQ0NjkzNDkwLDEyODQ0NzMzMzYsMTI4OT
+A3OTIzMywxMDcyMTE0MDA2LC05ODM5NzczOTgsMjEwMjM3MzIy
+LC0xMTg5NjUwNTQ4LC02MzI3Mzk5OTgsOTM4MzI3NzY2LDE1OD
+E0NDY5MzEsMTY5MjE5NzU1MSwtMjEyNTEzNjY4NywzMTM1NTM2
+LC0xMTM4NzAwMzEyLC0yMTM5MTAxNDUxLC03NjQ0MjI2NjAsMT
+E2NDc0ODc4OCwtMTEwMjE4MDUyNCwtMTk3Nzc1MTMyMywtNjA5
+NjQyNDQ2XX0=
 -->
