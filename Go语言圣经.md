@@ -6513,7 +6513,8 @@ type Streamer interface {
 	Format() string
 }
 ```
-
+ 下面的这个是重点
+ 
 **每一个具体类型的组基于它们相同的行为可以表示成一个接口类型。不像基于类的语言，他们一个类实现的接口集合需要进行显式的定义，在Go语言中我们可以在需要的时候定义一个新的抽象或者特定特点的组，而不需要修改具体类型的定义。当具体的类型来自不同的作者时这种方式会特别有用。当然也确实没有必要在具体的类型中指出这些共性**。
 
 ## 7.4. flag.Value接口
@@ -8838,14 +8839,13 @@ func makeThumbnails5(filenames []string) (thumbfiles []string, err error) {
 		go func(f string) {
 			var it item
 			it.thumbfile, it.err = thumbnail.ImageFile(f)
-			ch <- it
-		}(f)
+		
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTc1ODE0MzA1MSwyMDU2MjA4MTk1LDk0ND
-Y5MzQ5MCwxMjg0NDczMzM2LDEyODkwNzkyMzMsMTA3MjExNDAw
-NiwtOTgzOTc3Mzk4LDIxMDIzNzMyMiwtMTE4OTY1MDU0OCwtNj
-MyNzM5OTk4LDkzODMyNzc2NiwxNTgxNDQ2OTMxLDE2OTIxOTc1
-NTEsLTIxMjUxMzY2ODcsMzEzNTUzNiwtMTEzODcwMDMxMiwtMj
-EzOTEwMTQ1MSwtNzY0NDIyNjYwLDExNjQ3NDg3ODgsLTExMDIx
-ODA1MjRdfQ==
+eyJoaXN0b3J5IjpbLTEwNDI1ODQ3MDEsMjA1NjIwODE5NSw5ND
+Q2OTM0OTAsMTI4NDQ3MzMzNiwxMjg5MDc5MjMzLDEwNzIxMTQw
+MDYsLTk4Mzk3NzM5OCwyMTAyMzczMjIsLTExODk2NTA1NDgsLT
+YzMjczOTk5OCw5MzgzMjc3NjYsMTU4MTQ0NjkzMSwxNjkyMTk3
+NTUxLC0yMTI1MTM2Njg3LDMxMzU1MzYsLTExMzg3MDAzMTIsLT
+IxMzkxMDE0NTEsLTc2NDQyMjY2MCwxMTY0NzQ4Nzg4LC0xMTAy
+MTgwNTI0XX0=
 -->
