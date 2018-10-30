@@ -6167,6 +6167,9 @@ fmt.Println(day.Seconds()) // "86400"
 
 	分析命令
 	godoc -analysis=type io Write
+	godoc -analysis=type os Stdout
+	godoc -analysis=type os NewFile
+	godoc -analysis=type bytes Buffer
 	godoc -analysis=pointer os File
 	
 	
@@ -8834,16 +8837,13 @@ func makeThumbnails5(filenames []string) (thumbfiles []string, err error) {
 
 我们最后一个版本的makeThumbnails返回了新文件们的大小总计数（bytes）。和前面的版本都不一样的一点是我们在这个版本里没有把文件名放在slice里，而是通过一个string的channel传过来，所以我们无法对循环的次数进行预测。
 
-为了知道最后一个goroutine什么时候结束（最后一个结束并不一定是最后一个开始），我们需要一个递增的计数器，在每一个goroutine启动时加一，在goroutine退出时减一。这需要一种特殊的计数器，这个计数器需要在多个goroutine操作时做到安全并且提供在其减为零之前一直等待的一种方法。这种计数类型被称为sync.WaitGroup，下面的代码就用到了这种方法：
-
-```go
-// makeThu
+为了知道最后一个goroutine什么时候结束（最后一个结束并不一定是最后一个开始），我们需要一个递增的计数器，在每一个goroutine启动时加一，在goroutine退出时减一。这需要一种特殊的计数器，这个计数
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE0OTExMTk2MjgsLTExMzg3MDAzMTIsLT
-IxMzkxMDE0NTEsLTc2NDQyMjY2MCwxMTY0NzQ4Nzg4LC0xMTAy
-MTgwNTI0LC0xOTc3NzUxMzIzLC02MDk2NDI0NDYsLTgzNDUzMj
-UwMywxMjY3NzkyNzk4LC0yMDIxMjA0MzQ4LC03MDI4NjQ3NTEs
-Njc5MjE0MTkwLC00Njc5MjM4MDEsOTAwMjc2Mjc2LDEwNTA4MT
-IxNTYsLTEzMTAxMzExMTIsNjQzMDAxMjg5LDE0MDU4ODY3MjYs
-LTQ0NDE0MjIyN119
+eyJoaXN0b3J5IjpbMzEzNTUzNiwtMTEzODcwMDMxMiwtMjEzOT
+EwMTQ1MSwtNzY0NDIyNjYwLDExNjQ3NDg3ODgsLTExMDIxODA1
+MjQsLTE5Nzc3NTEzMjMsLTYwOTY0MjQ0NiwtODM0NTMyNTAzLD
+EyNjc3OTI3OTgsLTIwMjEyMDQzNDgsLTcwMjg2NDc1MSw2Nzky
+MTQxOTAsLTQ2NzkyMzgwMSw5MDAyNzYyNzYsMTA1MDgxMjE1Ni
+wtMTMxMDEzMTExMiw2NDMwMDEyODksMTQwNTg4NjcyNiwtNDQ0
+MTQyMjI3XX0=
 -->
