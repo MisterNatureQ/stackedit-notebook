@@ -6450,11 +6450,12 @@ var w io.Writer = new(bytes.Buffer)
 	godoc -analysis=type bytes Buffer
 	
 ```go
-// *bytes.Buffer must satisfy io.Writer
+// *bytes.Buffer must satisfy io.Writer 
+// 这里可能的意义在于检测这个 类型是否满足接口的一个 检测 通过编译期进行检测 类似于断言
 var _ io.Writer = (*bytes.Buffer)(nil)
 ```
 
-非空的接口类型比如io.Writer经常被指针类型实现，尤其当一个或多个接口方法像Write方法那样隐式的给接收者带来变化的时候。**一个结构体的指针是非常常见的承载方法的类型**。
+非空的接口类型比如io.Writer经常被指针类型实现，尤其当一个或多个接口方法像Write方法那样**隐式的给接收者带来变化的时候。一个结构体的指针是非常常见的承载方法的类型**。
 
 **但是并不意味着只有指针类型满足接口类型，甚至连一些有设置方法的接口类型也可能会被Go语言中其它的引用类型实现**。我们已经看过slice类型的方法（geometry.Path，§6.1）和map类型的方法（url.Values，§6.2.1），后面还会看到函数类型的方法的例子（http.HandlerFunc，§7.7）。甚至基本的类型也可能会实现一些接口；就如我们在7.4章中看到的time.Duration类型实现了fmt.Stringer接口。
 
@@ -8840,17 +8841,13 @@ func makeThumbnails5(filenames []string) (thumbfiles []string, err error) {
 		if it.err != nil {
 			return nil, it.err
 		}
-		thumbfiles = append(thumbfiles, it.thumbfile)
-	}
-
-	return thumbfiles, nil
-}
+		thumbfiles = append(t
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTA3MjExNDAwNiwtOTgzOTc3Mzk4LDIxMD
-IzNzMyMiwtMTE4OTY1MDU0OCwtNjMyNzM5OTk4LDkzODMyNzc2
-NiwxNTgxNDQ2OTMxLDE2OTIxOTc1NTEsLTIxMjUxMzY2ODcsMz
-EzNTUzNiwtMTEzODcwMDMxMiwtMjEzOTEwMTQ1MSwtNzY0NDIy
-NjYwLDExNjQ3NDg3ODgsLTExMDIxODA1MjQsLTE5Nzc3NTEzMj
-MsLTYwOTY0MjQ0NiwtODM0NTMyNTAzLDEyNjc3OTI3OTgsLTIw
-MjEyMDQzNDhdfQ==
+eyJoaXN0b3J5IjpbMTA5MzY1MTQ1NywxMDcyMTE0MDA2LC05OD
+M5NzczOTgsMjEwMjM3MzIyLC0xMTg5NjUwNTQ4LC02MzI3Mzk5
+OTgsOTM4MzI3NzY2LDE1ODE0NDY5MzEsMTY5MjE5NzU1MSwtMj
+EyNTEzNjY4NywzMTM1NTM2LC0xMTM4NzAwMzEyLC0yMTM5MTAx
+NDUxLC03NjQ0MjI2NjAsMTE2NDc0ODc4OCwtMTEwMjE4MDUyNC
+wtMTk3Nzc1MTMyMywtNjA5NjQyNDQ2LC04MzQ1MzI1MDMsMTI2
+Nzc5Mjc5OF19
 -->
