@@ -6459,7 +6459,8 @@ var _ io.Writer = (*bytes.Buffer)(nil)
 
 **但是并不意味着只有指针类型满足接口类型，甚至连一些有设置方法的接口类型也可能会被Go语言中其它的引用类型实现**。我们已经看过slice类型的方法（geometry.Path，§6.1）和map类型的方法（url.Values，§6.2.1），后面还会看到函数类型的方法的例子（http.HandlerFunc，§7.7）。甚至基本的类型也可能会实现一些接口；就如我们在7.4章中看到的time.Duration类型实现了fmt.Stringer接口。
 
-TODO 上面这些例子应该回顾一遍
+	godoc -analysis=type time Duration	
+	TODO 上面这些例子应该回顾一遍
 
 一个具体的类型可能实现了很多不相关的接口。考虑在一个组织出售数字文化产品比如音乐，电影和书籍的程序中可能定义了下列的具体类型：
 
@@ -8840,11 +8841,9 @@ func makeThumbnails5(filenames []string) (thumbfiles []string, err error) {
 		}(f)
 	}
 
-	for range filenames {
-		it := <-ch
-		if it.er
+	for ran
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE2NDkxOTIxLDk0NDY5MzQ5MCwxMjg0ND
+eyJoaXN0b3J5IjpbNjE3OTAxOTI0LDk0NDY5MzQ5MCwxMjg0ND
 czMzM2LDEyODkwNzkyMzMsMTA3MjExNDAwNiwtOTgzOTc3Mzk4
 LDIxMDIzNzMyMiwtMTE4OTY1MDU0OCwtNjMyNzM5OTk4LDkzOD
 MyNzc2NiwxNTgxNDQ2OTMxLDE2OTIxOTc1NTEsLTIxMjUxMzY2
