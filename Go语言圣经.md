@@ -6581,8 +6581,8 @@ package flag
 
 // 如果Value接口具有IsBoolFlag() bool方法，且返回真。命令行解析其会将-name等价为-name=true而不是使用下一个命令行参数。
 type Value interface {
-	String() string
-	Set(string) error
+	String() string // 这样每一个flag.Value也是一个fmt.Stringer
+	Set(string) error// 
 }
 ```
 
@@ -8840,11 +8840,11 @@ func makeThumbnails4(filenames []string) error {
 
 这个程序有一个微妙的bug。当它遇到第一个非nil的error时会直接将error返回到调
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTE4MDg5NDA2NiwtMjEyNTA2OTg1MCwtOD
-ExNjM1NjgyLDExMDU3NDU1MjcsLTEwNDI1ODQ3MDEsMjA1NjIw
-ODE5NSw5NDQ2OTM0OTAsMTI4NDQ3MzMzNiwxMjg5MDc5MjMzLD
-EwNzIxMTQwMDYsLTk4Mzk3NzM5OCwyMTAyMzczMjIsLTExODk2
-NTA1NDgsLTYzMjczOTk5OCw5MzgzMjc3NjYsMTU4MTQ0NjkzMS
-wxNjkyMTk3NTUxLC0yMTI1MTM2Njg3LDMxMzU1MzYsLTExMzg3
-MDAzMTJdfQ==
+eyJoaXN0b3J5IjpbNzgxMjI5Njg1LC0yMTI1MDY5ODUwLC04MT
+E2MzU2ODIsMTEwNTc0NTUyNywtMTA0MjU4NDcwMSwyMDU2MjA4
+MTk1LDk0NDY5MzQ5MCwxMjg0NDczMzM2LDEyODkwNzkyMzMsMT
+A3MjExNDAwNiwtOTgzOTc3Mzk4LDIxMDIzNzMyMiwtMTE4OTY1
+MDU0OCwtNjMyNzM5OTk4LDkzODMyNzc2NiwxNTgxNDQ2OTMxLD
+E2OTIxOTc1NTEsLTIxMjUxMzY2ODcsMzEzNTUzNiwtMTEzODcw
+MDMxMl19
 -->
