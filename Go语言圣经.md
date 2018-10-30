@@ -6171,7 +6171,7 @@ fmt.Println(day.Seconds()) // "86400"
 	godoc -analysis=type os NewFile
 	godoc -analysis=type bytes Buffer
 	godoc -analysis=pointer os File
-	
+	go doc fmt.Printf
 	
 ``` go
 package fmt
@@ -8843,13 +8843,13 @@ func makeThumbnails5(filenames []string) (thumbfiles []string, err error) {
 
 我们最后一个版本的makeThumbnails返回了新文件们的大小总计数（bytes）。和前面的版本都不一样的一点是我们在这个版本里没有把文件名放在slice里，而是通过一个string的channel传过来，所以我们无法对循环的次数进行预测。
 
-为了知道最后一个goroutine什么时候结束（最后一个结束并
+为了知道最后一个goroutine什
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTU4MTQ0NjkzMSwxNjkyMTk3NTUxLC0yMT
-I1MTM2Njg3LDMxMzU1MzYsLTExMzg3MDAzMTIsLTIxMzkxMDE0
-NTEsLTc2NDQyMjY2MCwxMTY0NzQ4Nzg4LC0xMTAyMTgwNTI0LC
-0xOTc3NzUxMzIzLC02MDk2NDI0NDYsLTgzNDUzMjUwMywxMjY3
-NzkyNzk4LC0yMDIxMjA0MzQ4LC03MDI4NjQ3NTEsNjc5MjE0MT
-kwLC00Njc5MjM4MDEsOTAwMjc2Mjc2LDEwNTA4MTIxNTYsLTEz
-MTAxMzExMTJdfQ==
+eyJoaXN0b3J5IjpbOTM4MzI3NzY2LDE1ODE0NDY5MzEsMTY5Mj
+E5NzU1MSwtMjEyNTEzNjY4NywzMTM1NTM2LC0xMTM4NzAwMzEy
+LC0yMTM5MTAxNDUxLC03NjQ0MjI2NjAsMTE2NDc0ODc4OCwtMT
+EwMjE4MDUyNCwtMTk3Nzc1MTMyMywtNjA5NjQyNDQ2LC04MzQ1
+MzI1MDMsMTI2Nzc5Mjc5OCwtMjAyMTIwNDM0OCwtNzAyODY0Nz
+UxLDY3OTIxNDE5MCwtNDY3OTIzODAxLDkwMDI3NjI3NiwxMDUw
+ODEyMTU2XX0=
 -->
