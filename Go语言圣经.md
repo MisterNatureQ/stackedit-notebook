@@ -6504,7 +6504,7 @@ type Video interface {
 }
 ```
 
-**这些接口不止是一种有用的方式来分组相关的具体类型和表示他们之间的共同特点。我们后面可能会发现其它的分组**。举例，如果我们发现我们需要以同样的方式处理Audio和Video，我们可以定义一个Streamer接口来代表它们之间相同的部分而不必对已经存在的类型做改变。
+**这些接口不止是一种有用的方式来分组相关的具体类型和表示他们之间的共同特点。我们后面可能会发现其它的分组**。举例，如果我们发现我们需要以同样的方式处理Audio和Video，我们可以定义一个Streamer接口来代表它们之间**相同的部分而不必对已经存在的类型做改变**。
 
 ```go
 type Streamer interface {
@@ -8841,13 +8841,12 @@ func makeThumbnails5(filenames []string) (thumbfiles []string, err error) {
 		}(f)
 	}
 
-	for
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjA1NjIwODE5NSw5NDQ2OTM0OTAsMTI4ND
-Q3MzMzNiwxMjg5MDc5MjMzLDEwNzIxMTQwMDYsLTk4Mzk3NzM5
-OCwyMTAyMzczMjIsLTExODk2NTA1NDgsLTYzMjczOTk5OCw5Mz
-gzMjc3NjYsMTU4MTQ0NjkzMSwxNjkyMTk3NTUxLC0yMTI1MTM2
-Njg3LDMxMzU1MzYsLTExMzg3MDAzMTIsLTIxMzkxMDE0NTEsLT
-c2NDQyMjY2MCwxMTY0NzQ4Nzg4LC0xMTAyMTgwNTI0LC0xOTc3
-NzUxMzIzXX0=
+eyJoaXN0b3J5IjpbLTY3MTE2NDI3MCwyMDU2MjA4MTk1LDk0ND
+Y5MzQ5MCwxMjg0NDczMzM2LDEyODkwNzkyMzMsMTA3MjExNDAw
+NiwtOTgzOTc3Mzk4LDIxMDIzNzMyMiwtMTE4OTY1MDU0OCwtNj
+MyNzM5OTk4LDkzODMyNzc2NiwxNTgxNDQ2OTMxLDE2OTIxOTc1
+NTEsLTIxMjUxMzY2ODcsMzEzNTUzNiwtMTEzODcwMDMxMiwtMj
+EzOTEwMTQ1MSwtNzY0NDIyNjYwLDExNjQ3NDg3ODgsLTExMDIx
+ODA1MjRdfQ==
 -->
