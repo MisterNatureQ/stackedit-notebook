@@ -6565,11 +6565,16 @@ invalid value "1 day" for flag -period: time: invalid duration 1 day
 package flag
 
 // Value is the interface to the value stored in a flag.
+// Value接口是用于将动态的值保存在一个flag里。（默认值被表示为一个字符串）
+
+// 如果Value接口具有IsBoolFlag() bool方法，且返回真。命令行解析其会将-name等价为-name=true而不是使用下一个命令行参数。
 type Value interface {
 	String() string
 	Set(string) error
 }
 ```
+
+
 
 String方法格式化标记的值用在命令行帮组消息中；这样每一个flag.Value也是一个fmt.Stringer。Set方法解析它的字符串参数并且更新标记变量的值。实际上，Set方法和String是两个相反的操作，所以最好的办法就是对他们使用相同的注解方式。
 
@@ -8837,17 +8842,13 @@ func makeThumbnails5(filenames []string) (thumbfiles []string, err error) {
 		err       error
 	}
 
-	ch := make(chan item, len(filenames))
-	for _, f := range filenames {
-		go func(f string) {
-			var it item
-			it.thumbfile, it.err = thumbnail.Imag
+	ch := make(chan ite
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE4MjIzMTEyMDgsLTEwNDI1ODQ3MDEsMj
-A1NjIwODE5NSw5NDQ2OTM0OTAsMTI4NDQ3MzMzNiwxMjg5MDc5
-MjMzLDEwNzIxMTQwMDYsLTk4Mzk3NzM5OCwyMTAyMzczMjIsLT
-ExODk2NTA1NDgsLTYzMjczOTk5OCw5MzgzMjc3NjYsMTU4MTQ0
-NjkzMSwxNjkyMTk3NTUxLC0yMTI1MTM2Njg3LDMxMzU1MzYsLT
-ExMzg3MDAzMTIsLTIxMzkxMDE0NTEsLTc2NDQyMjY2MCwxMTY0
-NzQ4Nzg4XX0=
+eyJoaXN0b3J5IjpbMTEwNTc0NTUyNywtMTA0MjU4NDcwMSwyMD
+U2MjA4MTk1LDk0NDY5MzQ5MCwxMjg0NDczMzM2LDEyODkwNzky
+MzMsMTA3MjExNDAwNiwtOTgzOTc3Mzk4LDIxMDIzNzMyMiwtMT
+E4OTY1MDU0OCwtNjMyNzM5OTk4LDkzODMyNzc2NiwxNTgxNDQ2
+OTMxLDE2OTIxOTc1NTEsLTIxMjUxMzY2ODcsMzEzNTUzNiwtMT
+EzODcwMDMxMiwtMjEzOTEwMTQ1MSwtNzY0NDIyNjYwLDExNjQ3
+NDg3ODhdfQ==
 -->
