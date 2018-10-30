@@ -6595,6 +6595,7 @@ String方法格式化标记的值用在命令行帮组消息中；这样每一�
 <u><i>gopl.io/ch7/tempconv</i></u>
 ```go
 // *celsiusFlag satisfies the flag.Value interface.
+// 因此不用实现本身就已经有String方法了。为了实现flag.Value
 type celsiusFlag struct{ Celsius }
 
 func (f *celsiusFlag) Set(s string) error {
@@ -8838,13 +8839,13 @@ func makeThumbnails4(filenames []string) error {
 }
 ```
 
-这个程序有一个微妙的bug。当它遇到第一个非nil的error时会直接将error返回到调
+这个程序有一个微妙的bug。当它遇到第一个非nil的error时会直接
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNzgxMjI5Njg1LC0yMTI1MDY5ODUwLC04MT
-E2MzU2ODIsMTEwNTc0NTUyNywtMTA0MjU4NDcwMSwyMDU2MjA4
-MTk1LDk0NDY5MzQ5MCwxMjg0NDczMzM2LDEyODkwNzkyMzMsMT
-A3MjExNDAwNiwtOTgzOTc3Mzk4LDIxMDIzNzMyMiwtMTE4OTY1
-MDU0OCwtNjMyNzM5OTk4LDkzODMyNzc2NiwxNTgxNDQ2OTMxLD
-E2OTIxOTc1NTEsLTIxMjUxMzY2ODcsMzEzNTUzNiwtMTEzODcw
-MDMxMl19
+eyJoaXN0b3J5IjpbMTU4ODc1ODg1OSw3ODEyMjk2ODUsLTIxMj
+UwNjk4NTAsLTgxMTYzNTY4MiwxMTA1NzQ1NTI3LC0xMDQyNTg0
+NzAxLDIwNTYyMDgxOTUsOTQ0NjkzNDkwLDEyODQ0NzMzMzYsMT
+I4OTA3OTIzMywxMDcyMTE0MDA2LC05ODM5NzczOTgsMjEwMjM3
+MzIyLC0xMTg5NjUwNTQ4LC02MzI3Mzk5OTgsOTM4MzI3NzY2LD
+E1ODE0NDY5MzEsMTY5MjE5NzU1MSwtMjEyNTEzNjY4NywzMTM1
+NTM2XX0=
 -->
