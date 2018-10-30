@@ -6159,7 +6159,7 @@ fmt.Println(day.Seconds()) // "86400"
 
 在Go语言中还存在着另外一种类型：**接口类型。接口类型是一种抽象的类型。它不会暴露出它所代表的对象的内部值的结构和这个对象支持的基础操作的集合；它们只会表现出它们自己的方法。也就是说当你有看到一个接口类型的值时，你不知道它是什么，唯一知道的就是可以通过它的方法来做什么**。
 
-	接口 忽略类型突出方法
+	接口 忽略类型突出方法 唯一知道的就是可以通过它的方法来做什么
 
 在本书中，我们一直使用两个相似的函数来进行字符串的格式化：fmt.Printf，它会把结果写到标准输出，和fmt.Sprintf，它会把结果以字符串的形式返回。**得益于使用接口，我们不必可悲的因为返回结果在使用方式上的一些浅显不同就必需把格式化这个最困难的过程复制一份**。实际上，这两个函数都使用了另一个函数fmt.Fprintf来进行封装。fmt.Fprintf这个函数对它的计算结果会被怎么使用是完全不知道的。
 
@@ -8829,14 +8829,13 @@ func makeThumbnails5(filenames []string) (thumbfiles []string, err error) {
 
 ```go
 // makeThumbnails6 makes thumbnails for each file received from the channel.
-// It returns the number of bytes occupied by the files it creates.
-fu
+// It returns the number of bytes occupied by 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTU2Njk3MTc2NywtMjEzOTEwMTQ1MSwtNz
-Y0NDIyNjYwLDExNjQ3NDg3ODgsLTExMDIxODA1MjQsLTE5Nzc3
-NTEzMjMsLTYwOTY0MjQ0NiwtODM0NTMyNTAzLDEyNjc3OTI3OT
-gsLTIwMjEyMDQzNDgsLTcwMjg2NDc1MSw2NzkyMTQxOTAsLTQ2
-NzkyMzgwMSw5MDAyNzYyNzYsMTA1MDgxMjE1NiwtMTMxMDEzMT
-ExMiw2NDMwMDEyODksMTQwNTg4NjcyNiwtNDQ0MTQyMjI3LDE3
-MjIwNjI1NTddfQ==
+eyJoaXN0b3J5IjpbLTExMzg3MDAzMTIsLTIxMzkxMDE0NTEsLT
+c2NDQyMjY2MCwxMTY0NzQ4Nzg4LC0xMTAyMTgwNTI0LC0xOTc3
+NzUxMzIzLC02MDk2NDI0NDYsLTgzNDUzMjUwMywxMjY3NzkyNz
+k4LC0yMDIxMjA0MzQ4LC03MDI4NjQ3NTEsNjc5MjE0MTkwLC00
+Njc5MjM4MDEsOTAwMjc2Mjc2LDEwNTA4MTIxNTYsLTEzMTAxMz
+ExMTIsNjQzMDAxMjg5LDE0MDU4ODY3MjYsLTQ0NDE0MjIyNywx
+NzIyMDYyNTU3XX0=
 -->
