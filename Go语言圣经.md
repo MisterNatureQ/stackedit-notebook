@@ -6437,6 +6437,7 @@ any = new(bytes.Buffer)
 
 对于创建的一个interface{}值持有一个boolean，float，string，map，pointer，或者任意其它的类型；我们当然**不能直接对它持有的值做操作，因为interface{}没有任何方法。我们会在7.10章中学到一种用类型断言来获取interface{}中值的方法**。
 
+
 **因为接口与实现只依赖于判断两个类型的方法，所以没有必要定义一个具体类型和它实现的接口之间的关系。也就是说，尝试文档化和断言这种关系几乎没有用，所以并没有通过程序强制定义**。下面的定义在编译期断言一个`*bytes.Buffer`的值实现了io.Writer接口类型:
 
 ```go
@@ -8846,11 +8847,11 @@ func makeThumbnails5(filenames []string) (thumbfiles []string, err error) {
 
 我们最后一个版本的makeThumbnails返回了新文件们的大小总计数（b
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTk4Mzk3NzM5OCwyMTAyMzczMjIsLTExOD
-k2NTA1NDgsLTYzMjczOTk5OCw5MzgzMjc3NjYsMTU4MTQ0Njkz
-MSwxNjkyMTk3NTUxLC0yMTI1MTM2Njg3LDMxMzU1MzYsLTExMz
-g3MDAzMTIsLTIxMzkxMDE0NTEsLTc2NDQyMjY2MCwxMTY0NzQ4
-Nzg4LC0xMTAyMTgwNTI0LC0xOTc3NzUxMzIzLC02MDk2NDI0ND
-YsLTgzNDUzMjUwMywxMjY3NzkyNzk4LC0yMDIxMjA0MzQ4LC03
-MDI4NjQ3NTFdfQ==
+eyJoaXN0b3J5IjpbNzU0NjE2MTIwLC05ODM5NzczOTgsMjEwMj
+M3MzIyLC0xMTg5NjUwNTQ4LC02MzI3Mzk5OTgsOTM4MzI3NzY2
+LDE1ODE0NDY5MzEsMTY5MjE5NzU1MSwtMjEyNTEzNjY4NywzMT
+M1NTM2LC0xMTM4NzAwMzEyLC0yMTM5MTAxNDUxLC03NjQ0MjI2
+NjAsMTE2NDc0ODc4OCwtMTEwMjE4MDUyNCwtMTk3Nzc1MTMyMy
+wtNjA5NjQyNDQ2LC04MzQ1MzI1MDMsMTI2Nzc5Mjc5OCwtMjAy
+MTIwNDM0OF19
 -->
