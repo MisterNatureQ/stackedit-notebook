@@ -6410,12 +6410,12 @@ var _ fmt.Stringer = s  // compile error: IntSet lacks String method
 ```go
 // io.Writer 接口 os.Stdout 的 *os.File has Write method
 // os.Stdout os.File  func  (f  *File)  Write(b  []byte)  (n  int,  err  error) 
-// 还没有理解清楚
+
 os.Stdout.Write([]byte("hello")) // OK: *os.File has Write method
 os.Stdout.Close()                // OK: *os.File has Close method
 
 var w io.Writer
-w = os.Stdout
+w = os.Stdout // 虽然 os Stdout 实现了 Close() 但是 赋值之后 访控属性 发生了改变 接口没有 声明的
 w.Write([]byte("hello")) // OK: io.Writer has Write method
 w.Close()                // compile error: io.Writer lacks Close method
 ```
@@ -8844,13 +8844,13 @@ func makeThumbnails5(filenames []string) (thumbfiles []string, err error) {
 }
 ```
 
-我们最后一个版本的makeThumbnails返回了新文件们的大小总计数（bytes）。和前面的版本都不一样的一点是我们在这个版本里没有把文件名放在slice里，而是通过一个strin
+我们最后一个版本的makeThumbnails返回了新文件们的大小总计数（bytes）。和前
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTExODk2NTA1NDgsLTYzMjczOTk5OCw5Mz
-gzMjc3NjYsMTU4MTQ0NjkzMSwxNjkyMTk3NTUxLC0yMTI1MTM2
-Njg3LDMxMzU1MzYsLTExMzg3MDAzMTIsLTIxMzkxMDE0NTEsLT
-c2NDQyMjY2MCwxMTY0NzQ4Nzg4LC0xMTAyMTgwNTI0LC0xOTc3
-NzUxMzIzLC02MDk2NDI0NDYsLTgzNDUzMjUwMywxMjY3NzkyNz
-k4LC0yMDIxMjA0MzQ4LC03MDI4NjQ3NTEsNjc5MjE0MTkwLC00
-Njc5MjM4MDFdfQ==
+eyJoaXN0b3J5IjpbLTEzMzMxODg3MjEsLTExODk2NTA1NDgsLT
+YzMjczOTk5OCw5MzgzMjc3NjYsMTU4MTQ0NjkzMSwxNjkyMTk3
+NTUxLC0yMTI1MTM2Njg3LDMxMzU1MzYsLTExMzg3MDAzMTIsLT
+IxMzkxMDE0NTEsLTc2NDQyMjY2MCwxMTY0NzQ4Nzg4LC0xMTAy
+MTgwNTI0LC0xOTc3NzUxMzIzLC02MDk2NDI0NDYsLTgzNDUzMj
+UwMywxMjY3NzkyNzk4LC0yMDIxMjA0MzQ4LC03MDI4NjQ3NTEs
+Njc5MjE0MTkwXX0=
 -->
