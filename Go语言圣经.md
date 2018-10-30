@@ -6438,7 +6438,7 @@ any = new(bytes.Buffer)
 对于创建的一个interface{}值持有一个boolean，float，string，map，pointer，或者任意其它的类型；我们当然**不能直接对它持有的值做操作，因为interface{}没有任何方法。我们会在7.10章中学到一种用类型断言来获取interface{}中值的方法**。
 
 
-**因为接口与实现只依赖于判断两个类型的方法，所以没有必要定义一个具体类型和它实现的接口之间的关系。也就是说，尝试文档化和断言这种关系几乎没有用，所以并没有通过程序强制定义**。下面的定义在编译期断言一个`*bytes.Buffer`的值实现了io.Writer接口类型:
+**因为接口与实现只依赖于判断两个类型的方法，所以没有必要定义一个具体类型和它实现的接口之间的关系。也就是说，尝试文档化和断言这种关系几乎没有用，所以并没有通过程序强制定义**。下面的定义在**编译期断言**一个`*bytes.Buffer`的值实现了io.Writer接口类型:
 
 ```go
 // *bytes.Buffer must satisfy io.Writer
@@ -8843,7 +8843,7 @@ func makeThumbnails5(filenames []string) (thumbfiles []string, err error) {
 		}
 		thumbfiles = append(t
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTA5MzY1MTQ1NywxMDcyMTE0MDA2LC05OD
+eyJoaXN0b3J5IjpbMTI4OTA3OTIzMywxMDcyMTE0MDA2LC05OD
 M5NzczOTgsMjEwMjM3MzIyLC0xMTg5NjUwNTQ4LC02MzI3Mzk5
 OTgsOTM4MzI3NzY2LDE1ODE0NDY5MzEsMTY5MjE5NzU1MSwtMj
 EyNTEzNjY4NywzMTM1NTM2LC0xMTM4NzAwMzEyLC0yMTM5MTAx
