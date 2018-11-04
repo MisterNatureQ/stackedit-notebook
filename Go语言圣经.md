@@ -6410,7 +6410,7 @@ var _ fmt.Stringer = s  // compile error: IntSet lacks String method
 ```go
 // io.Writer 接口 os.Stdout 的 *os.File has Write method
 // os.Stdout os.File  func  (f  *File)  Write(b  []byte)  (n  int,  err  error) 
-
+// 还没有理解清楚
 os.Stdout.Write([]byte("hello")) // OK: *os.File has Write method
 os.Stdout.Close()                // OK: *os.File has Close method
 
@@ -6562,9 +6562,9 @@ $ ./sleep -period "1 day"
 invalid value "1 day" for flag -period: time: invalid duration 1 day
 ```
 
-因为时间周期标记值非常的有用，所以这个特性被构建到了flag包中；但是我们**为我们自己的数据类型定义新的标记符号是简单容易的。我们只需要定义一个实现flag.Value接口的类型，如下**：
+因为时间周期标记值非常的有用，所以这个特性被构建到了flag包中；但是我们**为我们自己的数据类型定义新的标记符号是简单容易的。我们只需要定义一个实现flag.Value接口的类型，如下**
 
-	
+	：
 
 ```go
 package flag
@@ -8840,13 +8840,13 @@ func makeThumbnails4(filenames []string) error {
 }
 ```
 
-这个程序有一个微妙的bug
+这个程序
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTU1NTY0MzEsMTU4ODc1ODg1OSw3ODEyMj
-k2ODUsLTIxMjUwNjk4NTAsLTgxMTYzNTY4MiwxMTA1NzQ1NTI3
-LC0xMDQyNTg0NzAxLDIwNTYyMDgxOTUsOTQ0NjkzNDkwLDEyOD
-Q0NzMzMzYsMTI4OTA3OTIzMywxMDcyMTE0MDA2LC05ODM5Nzcz
-OTgsMjEwMjM3MzIyLC0xMTg5NjUwNTQ4LC02MzI3Mzk5OTgsOT
-M4MzI3NzY2LDE1ODE0NDY5MzEsMTY5MjE5NzU1MSwtMjEyNTEz
-NjY4N119
+eyJoaXN0b3J5IjpbMjY3Mzk0NTI1LDE1NTU2NDMxLDE1ODg3NT
+g4NTksNzgxMjI5Njg1LC0yMTI1MDY5ODUwLC04MTE2MzU2ODIs
+MTEwNTc0NTUyNywtMTA0MjU4NDcwMSwyMDU2MjA4MTk1LDk0ND
+Y5MzQ5MCwxMjg0NDczMzM2LDEyODkwNzkyMzMsMTA3MjExNDAw
+NiwtOTgzOTc3Mzk4LDIxMDIzNzMyMiwtMTE4OTY1MDU0OCwtNj
+MyNzM5OTk4LDkzODMyNzc2NiwxNTgxNDQ2OTMxLDE2OTIxOTc1
+NTFdfQ==
 -->
