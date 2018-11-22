@@ -75,12 +75,22 @@ go install google.golang.org/grpc
 git clone https://github.com/AsynkronIT/protoactor-go.git $GOPATH/src/github.com/protoactor-go
 
 
+
 #编译安装protobuf的编译器protoc
+wget https://github.com/google/protobuf/releases/download/v3.6.1/protobuf-all-3.6.1.tar.gz
+tar zxvf protobuf-all-3.6.1.tar.gz
+./autogen.sh
+./configure
+make
+make install
+
+
+
 
 > Wr
 itten with [StackEdit](https://stackedit.io/).
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjM2NTkxNDgxLDExMTQzMDI0MjQsMTkzOD
+eyJoaXN0b3J5IjpbMzA2MDYxNTM1LDExMTQzMDI0MjQsMTkzOD
 k5MDkwMCwtMTc0ODUyNjk1LDI4MzcxODY5MSwtMTA2MTY2Mjgx
 LC0xMjUxNTM5NTI1LC0xMjUzNDcxODcxLC0xOTY1MTkzNjQzLD
 Q3NzMwNDU3NSwxMTc2ODc0MDYyLDQyNTA5NjczMCwxNzA5MTAy
