@@ -56,21 +56,36 @@ go get github.com/golang/protobuf/protoc-gen-go
 
 所以不能使用go get的方式安装，正确的安装方式：
 
+
 git clone https://github.com/grpc/grpc-go.git $GOPATH/src/google.golang.org/grpc
+
+git clone https://github.com/golang/net.git $GOPATH/src/golang.org/x/net
+
+git clone https://github.com/golang/text.git $GOPATH/src/golang.org/x/text
+
+
 go get -u github.com/golang/protobuf/{proto,protoc-gen-go}
 
-git clone github.com/golang/protobuf
-$GOPATH/src/google.golang.org/protobuf
 git clone https://github.com/google/go-genproto.git $GOPATH/src/google.golang.org/genproto
+
 cd $GOPATH/src/
+
 go install google.golang.org/grpc
+
+  
+  
+作者：一语惊雷  
+链接：https://www.jianshu.com/p/dba4c7a6d608  
+來源：简书  
+简书著作权归作者所有，任何形式的转载都请联系作者获得授权并注明出处。
 
 
 > Wr
 itten with [StackEdit](https://stackedit.io/).
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE3NDg1MjY5NSwyODM3MTg2OTEsLTEwNj
-E2NjI4MSwtMTI1MTUzOTUyNSwtMTI1MzQ3MTg3MSwtMTk2NTE5
-MzY0Myw0NzczMDQ1NzUsMTE3Njg3NDA2Miw0MjUwOTY3MzAsMT
-cwOTEwMjE1NiwtMTc3MDYzNDQzMiwtMTQyMzE3MzUzXX0=
+eyJoaXN0b3J5IjpbLTIwNjEwNjc3MDUsLTE3NDg1MjY5NSwyOD
+M3MTg2OTEsLTEwNjE2NjI4MSwtMTI1MTUzOTUyNSwtMTI1MzQ3
+MTg3MSwtMTk2NTE5MzY0Myw0NzczMDQ1NzUsMTE3Njg3NDA2Mi
+w0MjUwOTY3MzAsMTcwOTEwMjE1NiwtMTc3MDYzNDQzMiwtMTQy
+MzE3MzUzXX0=
 -->
