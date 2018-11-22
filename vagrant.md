@@ -59,21 +59,12 @@ git clone https://github.com/google/go-genproto.git $GOPATH/src/google.golang.or
 cd $GOPATH/src/
 go install google.golang.org/grpc
 
-小礼物走
-
-  
-  
-作者：一语惊雷  
-链接：https://www.jianshu.com/p/dba4c7a6d608  
-來源：简书  
-简书著作权归作者所有，任何形式的转载都请联系作者获得授权并注明出处。
-
 
 > Wr
 itten with [StackEdit](https://stackedit.io/).
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEyNTE1Mzk1MjUsLTEyNTM0NzE4NzEsLT
-E5NjUxOTM2NDMsNDc3MzA0NTc1LDExNzY4NzQwNjIsNDI1MDk2
-NzMwLDE3MDkxMDIxNTYsLTE3NzA2MzQ0MzIsLTE0MjMxNzM1M1
-19
+eyJoaXN0b3J5IjpbLTEwNjE2NjI4MSwtMTI1MTUzOTUyNSwtMT
+I1MzQ3MTg3MSwtMTk2NTE5MzY0Myw0NzczMDQ1NzUsMTE3Njg3
+NDA2Miw0MjUwOTY3MzAsMTcwOTEwMjE1NiwtMTc3MDYzNDQzMi
+wtMTQyMzE3MzUzXX0=
 -->
