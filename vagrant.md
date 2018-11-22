@@ -39,7 +39,7 @@ golang.org/x/net
 google.golang.org/grpc
 
 
-#[golang 包管理工具](https://blog.csdn.net/fenglailea/article/details/79107124)
+# [golang 包管理工具](https://blog.csdn.net/fenglailea/article/details/79107124)
 
 mkdir -p $GOPATH/src/golang.org/x
 cd $GOPATH/src/golang.org/x
@@ -56,13 +56,12 @@ go get github.com/golang/protobuf/protoc-gen-go
 
 所以不能使用go get的方式安装，正确的安装方式：
 
-#golang安装gRpc
+# [golang安装gRpc](https://www.jianshu.com/p/dba4c7a6d608)
 git clone https://github.com/grpc/grpc-go.git $GOPATH/src/google.golang.org/grpc
 
 git clone https://github.com/golang/net.git $GOPATH/src/golang.org/x/net
 
 git clone https://github.com/golang/text.git $GOPATH/src/golang.org/x/text
-
 
 go get -u github.com/golang/protobuf/{proto,protoc-gen-go}
 
@@ -72,18 +71,12 @@ cd $GOPATH/src/
 
 go install google.golang.org/grpc
 
-  
-  
-作者：一语惊雷  
-链接：https://www.jianshu.com/p/dba4c7a6d608  
-來源：简书  
-简书著作权归作者所有，任何形式的转载都请联系作者获得授权并注明出处。
 
 
 > Wr
 itten with [StackEdit](https://stackedit.io/).
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTAwNTU2MzM2NiwtMTc0ODUyNjk1LDI4Mz
+eyJoaXN0b3J5IjpbMTkzODk5MDkwMCwtMTc0ODUyNjk1LDI4Mz
 cxODY5MSwtMTA2MTY2MjgxLC0xMjUxNTM5NTI1LC0xMjUzNDcx
 ODcxLC0xOTY1MTkzNjQzLDQ3NzMwNDU3NSwxMTc2ODc0MDYyLD
 QyNTA5NjczMCwxNzA5MTAyMTU2LC0xNzcwNjM0NDMyLC0xNDIz
