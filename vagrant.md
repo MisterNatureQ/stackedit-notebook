@@ -1,7 +1,8 @@
-基于 vagrant 的开发环境搭建
+# 基于 vagrant 的开发环境搭建
+
+需要先安装 virtual box  然后安装  vagrant 
 
 #安装go环境
-
 
 #安装开发环境
 sudo yum groupinstall "Development tools"
@@ -113,10 +114,10 @@ ok      github.com/AsynkronIT/protoactor-go/stream      (cached)
 itten with [StackEdit](https://stackedit.io/)
 .
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEyMjgyODI4ODYsMzIwNDkwMTM5LC02OD
-MxMzIzOTIsMzA2MDYxNTM1LDExMTQzMDI0MjQsMTkzODk5MDkw
-MCwtMTc0ODUyNjk1LDI4MzcxODY5MSwtMTA2MTY2MjgxLC0xMj
-UxNTM5NTI1LC0xMjUzNDcxODcxLC0xOTY1MTkzNjQzLDQ3NzMw
-NDU3NSwxMTc2ODc0MDYyLDQyNTA5NjczMCwxNzA5MTAyMTU2LC
-0xNzcwNjM0NDMyLC0xNDIzMTczNTNdfQ==
+eyJoaXN0b3J5IjpbNjIxNjQ2NTkxLC0xMjI4MjgyODg2LDMyMD
+Q5MDEzOSwtNjgzMTMyMzkyLDMwNjA2MTUzNSwxMTE0MzAyNDI0
+LDE5Mzg5OTA5MDAsLTE3NDg1MjY5NSwyODM3MTg2OTEsLTEwNj
+E2NjI4MSwtMTI1MTUzOTUyNSwtMTI1MzQ3MTg3MSwtMTk2NTE5
+MzY0Myw0NzczMDQ1NzUsMTE3Njg3NDA2Miw0MjUwOTY3MzAsMT
+cwOTEwMjE1NiwtMTc3MDYzNDQzMiwtMTQyMzE3MzUzXX0=
 -->
