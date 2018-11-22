@@ -2,8 +2,7 @@
 
 #安装go环境
 
-#跟新环境变量
-source /etc/profile
+
 
 
 
@@ -15,6 +14,13 @@ wget https://dl.google.com/go/go1.11.2.linux-amd64.tar.gz
 
 tar -C /usr/local -xzf go1.11.2.linux-amd64.tar.gz
 
+
+#安装go环境
+
+
+
+#跟新环境变量
+source /etc/profile
 
 #国内的go get问题的解决
 #安装gopm
@@ -33,7 +39,7 @@ google.golang.org/grpc
 
 > Written with [StackEdit](https://stackedit.io/).
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE1MDE5NDcwMTIsMTE3Njg3NDA2Miw0Mj
-UwOTY3MzAsMTcwOTEwMjE1NiwtMTc3MDYzNDQzMiwtMTQyMzE3
-MzUzXX0=
+eyJoaXN0b3J5IjpbLTc2MTM5NzA5MSwxMTc2ODc0MDYyLDQyNT
+A5NjczMCwxNzA5MTAyMTU2LC0xNzcwNjM0NDMyLC0xNDIzMTcz
+NTNdfQ==
 -->
