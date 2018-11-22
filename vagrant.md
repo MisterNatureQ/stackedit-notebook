@@ -55,6 +55,9 @@ git clone https://github.com/golang/image.git
 
 git clone https://github.com/grpc/grpc-go.git $GOPATH/src/google.golang.org/grpc
 go get -u github.com/golang/protobuf/{proto,protoc-gen-go}
+
+git clone github.com/golang/protobuf
+$GOPATH/src/google.golang.org/protobuf
 git clone https://github.com/google/go-genproto.git $GOPATH/src/google.golang.org/genproto
 cd $GOPATH/src/
 go install google.golang.org/grpc
@@ -63,8 +66,8 @@ go install google.golang.org/grpc
 > Wr
 itten with [StackEdit](https://stackedit.io/).
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEwNjE2NjI4MSwtMTI1MTUzOTUyNSwtMT
-I1MzQ3MTg3MSwtMTk2NTE5MzY0Myw0NzczMDQ1NzUsMTE3Njg3
-NDA2Miw0MjUwOTY3MzAsMTcwOTEwMjE1NiwtMTc3MDYzNDQzMi
-wtMTQyMzE3MzUzXX0=
+eyJoaXN0b3J5IjpbMjgzNzE4NjkxLC0xMDYxNjYyODEsLTEyNT
+E1Mzk1MjUsLTEyNTM0NzE4NzEsLTE5NjUxOTM2NDMsNDc3MzA0
+NTc1LDExNzY4NzQwNjIsNDI1MDk2NzMwLDE3MDkxMDIxNTYsLT
+E3NzA2MzQ0MzIsLTE0MjMxNzM1M119
 -->
