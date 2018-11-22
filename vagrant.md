@@ -74,9 +74,9 @@ go install google.golang.org/grpc
 
 git clone https://github.com/AsynkronIT/protoactor-go.git $GOPATH/src/github.com/protoactor-go
 
-#执行 ```
+#执行 
 go test `go list ./... | grep -v consul` | grep 'no test files'
-确实的包
+缺失的包
 go get github.com/stretchr/testify
 
 # 注意这里 protoactor 使用的是 gogoprotobuf 不是下面的这个工具
@@ -94,10 +94,10 @@ make install
 > Wr
 itten with [StackEdit](https://stackedit.io/).
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE0NjkzMTE4MDgsLTY4MzEzMjM5MiwzMD
-YwNjE1MzUsMTExNDMwMjQyNCwxOTM4OTkwOTAwLC0xNzQ4NTI2
-OTUsMjgzNzE4NjkxLC0xMDYxNjYyODEsLTEyNTE1Mzk1MjUsLT
-EyNTM0NzE4NzEsLTE5NjUxOTM2NDMsNDc3MzA0NTc1LDExNzY4
-NzQwNjIsNDI1MDk2NzMwLDE3MDkxMDIxNTYsLTE3NzA2MzQ0Mz
-IsLTE0MjMxNzM1M119
+eyJoaXN0b3J5IjpbMzIwNDkwMTM5LC02ODMxMzIzOTIsMzA2MD
+YxNTM1LDExMTQzMDI0MjQsMTkzODk5MDkwMCwtMTc0ODUyNjk1
+LDI4MzcxODY5MSwtMTA2MTY2MjgxLC0xMjUxNTM5NTI1LC0xMj
+UzNDcxODcxLC0xOTY1MTkzNjQzLDQ3NzMwNDU3NSwxMTc2ODc0
+MDYyLDQyNTA5NjczMCwxNzA5MTAyMTU2LC0xNzcwNjM0NDMyLC
+0xNDIzMTczNTNdfQ==
 -->
