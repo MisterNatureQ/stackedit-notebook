@@ -74,11 +74,6 @@ go install google.golang.org/grpc
 
 git clone https://github.com/AsynkronIT/protoactor-go.git $GOPATH/src/github.com/protoactor-go
 
-#执行 
-go test `go list ./... | grep -v consul` | grep 'no test files'
-缺失的包
-go get github.com/stretchr/testify
-
 # 注意这里 protoactor 使用的是 gogoprotobuf 不是下面的这个工具
 #编译安装protobuf的编译器protoc
 wget https://github.com/google/protobuf/releases/download/v3.6.1/protobuf-all-3.6.1.tar.gz
@@ -91,13 +86,37 @@ make install
 
 
 
+#执行 
+go test `go list ./... | grep -v consul` | grep 'no test files'
+缺失的包
+go get github.com/stretchr/testify
+
+
+```go
+[root@localhost protoactor-go]# go test `go list ./... | grep -v consul` | grep 'ok'           
+ok      github.com/AsynkronIT/protoactor-go/actor       (cached)
+ok      github.com/AsynkronIT/protoactor-go/cluster/weighted    (cached) [no tests to run]
+ok      github.com/AsynkronIT/protoactor-go/eventstream (cached)
+ok      github.com/AsynkronIT/protoactor-go/internal/queue/goring       (cached)
+ok      github.com/AsynkronIT/protoactor-go/internal/queue/mpsc (cached)
+ok      github.com/AsynkronIT/protoactor-go/log (cached)
+ok      github.com/AsynkronIT/protoactor-go/mailbox     (cached)
+ok      github.com/AsynkronIT/protoactor-go/persistence (cached)
+ok      github.com/AsynkronIT/protoactor-go/plugin      (cached)
+ok      github.com/AsynkronIT/protoactor-go/remote      (cached)
+ok      github.com/AsynkronIT/protoactor-go/router      (cached)
+ok      github.com/AsynkronIT/protoactor-go/stream      (cached)
+```
+
+
 > Wr
-itten with [StackEdit](https://stackedit.io/).
+itten with [StackEdit](https://stackedit.io/)
+.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMzIwNDkwMTM5LC02ODMxMzIzOTIsMzA2MD
-YxNTM1LDExMTQzMDI0MjQsMTkzODk5MDkwMCwtMTc0ODUyNjk1
-LDI4MzcxODY5MSwtMTA2MTY2MjgxLC0xMjUxNTM5NTI1LC0xMj
-UzNDcxODcxLC0xOTY1MTkzNjQzLDQ3NzMwNDU3NSwxMTc2ODc0
-MDYyLDQyNTA5NjczMCwxNzA5MTAyMTU2LC0xNzcwNjM0NDMyLC
-0xNDIzMTczNTNdfQ==
+eyJoaXN0b3J5IjpbLTEyMjgyODI4ODYsMzIwNDkwMTM5LC02OD
+MxMzIzOTIsMzA2MDYxNTM1LDExMTQzMDI0MjQsMTkzODk5MDkw
+MCwtMTc0ODUyNjk1LDI4MzcxODY5MSwtMTA2MTY2MjgxLC0xMj
+UxNTM5NTI1LC0xMjUzNDcxODcxLC0xOTY1MTkzNjQzLDQ3NzMw
+NDU3NSwxMTc2ODc0MDYyLDQyNTA5NjczMCwxNzA5MTAyMTU2LC
+0xNzcwNjM0NDMyLC0xNDIzMTczNTNdfQ==
 -->
