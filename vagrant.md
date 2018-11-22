@@ -4,7 +4,7 @@
 
 
 #安装开发环境
-
+sudo yum groupinstall "Development tools"
 
 
 #centos7 关闭防火墙
@@ -40,7 +40,7 @@ google.golang.org/grpc
 
 > Written with [StackEdit](https://stackedit.io/).
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE1ODkyNzE4NSwxMTc2ODc0MDYyLDQyNT
-A5NjczMCwxNzA5MTAyMTU2LC0xNzcwNjM0NDMyLC0xNDIzMTcz
-NTNdfQ==
+eyJoaXN0b3J5IjpbNDc3MzA0NTc1LDExNzY4NzQwNjIsNDI1MD
+k2NzMwLDE3MDkxMDIxNTYsLTE3NzA2MzQ0MzIsLTE0MjMxNzM1
+M119
 -->
