@@ -13,7 +13,7 @@ sudo yum -y groupinstall "Development tools"
 ## centos7 关闭防火墙
 systemctl status firewalld.service
 systemctl stop firewalld.service
-systemctl disable firewalld.service，禁止防火墙服务器
+systemctl disable firewalld.service#禁止防火墙服务器
 wget https://dl.google.com/go/go1.11.2.linux-amd64.tar.gz
 
 tar -C /usr/local -xzf go1.11.2.linux-amd64.tar.gz
@@ -112,5 +112,6 @@ ok      github.com/AsynkronIT/protoactor-go/stream      (cached)
 itten with [StackEdit](https://stackedit.io/)
 .
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEzODYwODI1MDUsLTMwNzYwNjY1NV19
+eyJoaXN0b3J5IjpbMTA2Njc0NDgzMiwtMTM4NjA4MjUwNSwtMz
+A3NjA2NjU1XX0=
 -->
