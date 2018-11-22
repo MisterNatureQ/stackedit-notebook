@@ -72,13 +72,14 @@ cd $GOPATH/src/
 go install google.golang.org/grpc
 
 
+git clone https://github.com/AsynkronIT/protoactor-go.git $GOPATH/src/github.com/protoactor-go
 
 > Wr
 itten with [StackEdit](https://stackedit.io/).
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTkzODk5MDkwMCwtMTc0ODUyNjk1LDI4Mz
-cxODY5MSwtMTA2MTY2MjgxLC0xMjUxNTM5NTI1LC0xMjUzNDcx
-ODcxLC0xOTY1MTkzNjQzLDQ3NzMwNDU3NSwxMTc2ODc0MDYyLD
-QyNTA5NjczMCwxNzA5MTAyMTU2LC0xNzcwNjM0NDMyLC0xNDIz
-MTczNTNdfQ==
+eyJoaXN0b3J5IjpbMTExNDMwMjQyNCwxOTM4OTkwOTAwLC0xNz
+Q4NTI2OTUsMjgzNzE4NjkxLC0xMDYxNjYyODEsLTEyNTE1Mzk1
+MjUsLTEyNTM0NzE4NzEsLTE5NjUxOTM2NDMsNDc3MzA0NTc1LD
+ExNzY4NzQwNjIsNDI1MDk2NzMwLDE3MDkxMDIxNTYsLTE3NzA2
+MzQ0MzIsLTE0MjMxNzM1M119
 -->
