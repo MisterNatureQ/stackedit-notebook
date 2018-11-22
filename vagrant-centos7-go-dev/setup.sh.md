@@ -1,3 +1,4 @@
+
 #!/bin/bash
 
 # Copy hosts info
@@ -67,18 +68,17 @@ sudo systemctl disable firewalld.service#禁止防火墙服务器
 #下载需要的包
 
 sudo mkdir -p "${GOPATH}/src/golang.org/x"
-sudo cd "${GOPATH}/src/golang.org/x"
-sudo git clone https://github.com/golang/net.git "${GOPATH}/src/golang.org/x"
-sudo git clone https://github.com/golang/crypto.git "${GOPATH}/src/golang.org/x"
-sudo git clone https://github.com/golang/sys.git "${GOPATH}/src/golang.org/x"
-sudo git clone https://github.com/golang/mobile.git "${GOPATH}/src/golang.org/x"
-sudo git clone https://github.com/golang/text.git "${GOPATH}/src/golang.org/x"
-sudo git clone https://github.com/golang/tools.git "${GOPATH}/src/golang.org/x"
-sudo git clone https://github.com/golang/image.git "${GOPATH}/src/golang.org/x"
+cd "${GOPATH}/src/golang.org/x"
+git clone https://github.com/golang/net.git "${GOPATH}/src/golang.org/x/net"
+git clone https://github.com/golang/crypto.git "${GOPATH}/src/golang.org/x/crypto"
+git clone https://github.com/golang/sys.git "${GOPATH}/src/golang.org/x/sys"
+git clone https://github.com/golang/mobile.git "${GOPATH}/src/golang.org/x/mobile"
+git clone https://github.com/golang/text.git "${GOPATH}/src/golang.org/x/text"
+git clone https://github.com/golang/tools.git "${GOPATH}/src/golang.org/x/tools"
+git clone https://github.com/golang/image.git "${GOPATH}/src/golang.org/x/image"
 
-sudo git clone https://github.com/grpc/grpc-go.git "${GOPATH}/src/google.golang.org/grpc"
-sudo git clone https://github.com/golang/net.git "${GOPATH}/src/golang.org/x/net"
-sudo git clone https://github.com/golang/text.git "${GOPATH}/src/golang.org/x/text"
+git clone https://github.com/grpc/grpc-go.git "${GOPATH}/src/google.golang.org/grpc"
+
 
 sudo git clone https://github.com/google/go-genproto.git "${GOPATH}/src/google.golang.org/genproto"
 
@@ -112,5 +112,6 @@ sysctl -p /etc/sysctl.d/k8s.conf
 swapoff -a && sysctl -w vm.swappiness=0
 sed '/vagrant--vg-swap_1/d' -i  /etc/fstab
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIzMzE5ODgyNywzODk2MDE1NDVdfQ==
+eyJoaXN0b3J5IjpbLTY5NTAwODI4NywtMjMzMTk4ODI3LDM4OT
+YwMTU0NV19
 -->
