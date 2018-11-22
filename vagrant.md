@@ -75,6 +75,8 @@ go install google.golang.org/grpc
 git clone https://github.com/AsynkronIT/protoactor-go.git $GOPATH/src/github.com/protoactor-go
 
 
+
+
 # 注意这里 protoactor 使用的是 gogoprotobuf 不是下面的这个工具
 #编译安装protobuf的编译器protoc
 wget https://github.com/google/protobuf/releases/download/v3.6.1/protobuf-all-3.6.1.tar.gz
@@ -90,10 +92,10 @@ make install
 > Wr
 itten with [StackEdit](https://stackedit.io/).
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbOTgzODQzNzAwLDMwNjA2MTUzNSwxMTE0Mz
-AyNDI0LDE5Mzg5OTA5MDAsLTE3NDg1MjY5NSwyODM3MTg2OTEs
-LTEwNjE2NjI4MSwtMTI1MTUzOTUyNSwtMTI1MzQ3MTg3MSwtMT
-k2NTE5MzY0Myw0NzczMDQ1NzUsMTE3Njg3NDA2Miw0MjUwOTY3
-MzAsMTcwOTEwMjE1NiwtMTc3MDYzNDQzMiwtMTQyMzE3MzUzXX
-0=
+eyJoaXN0b3J5IjpbLTY4MzEzMjM5MiwzMDYwNjE1MzUsMTExND
+MwMjQyNCwxOTM4OTkwOTAwLC0xNzQ4NTI2OTUsMjgzNzE4Njkx
+LC0xMDYxNjYyODEsLTEyNTE1Mzk1MjUsLTEyNTM0NzE4NzEsLT
+E5NjUxOTM2NDMsNDc3MzA0NTc1LDExNzY4NzQwNjIsNDI1MDk2
+NzMwLDE3MDkxMDIxNTYsLTE3NzA2MzQ0MzIsLTE0MjMxNzM1M1
+19
 -->
