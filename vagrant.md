@@ -52,6 +52,7 @@ git clone https://github.com/golang/tools.git
 git clone https://github.com/golang/image.git
 
 go get github.com/golang/protobuf/proto
+go get github.com/golang/protobuf/protoc-gen-go
 
 所以不能使用go get的方式安装，正确的安装方式：
 
@@ -68,7 +69,7 @@ go install google.golang.org/grpc
 > Wr
 itten with [StackEdit](https://stackedit.io/).
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTE5NzMxOTAyMywyODM3MTg2OTEsLTEwNj
+eyJoaXN0b3J5IjpbMTgxOTkwMTgyNiwyODM3MTg2OTEsLTEwNj
 E2NjI4MSwtMTI1MTUzOTUyNSwtMTI1MzQ3MTg3MSwtMTk2NTE5
 MzY0Myw0NzczMDQ1NzUsMTE3Njg3NDA2Miw0MjUwOTY3MzAsMT
 cwOTEwMjE1NiwtMTc3MDYzNDQzMiwtMTQyMzE3MzUzXX0=
