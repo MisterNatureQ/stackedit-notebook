@@ -1,5 +1,10 @@
 基于 vagrant 的开发环境搭建
 
+#安装go环境
+#
+source /etc/profile
+
+
 
 #centos7 关闭防火墙
 systemctl status firewalld.service
@@ -27,6 +32,7 @@ google.golang.org/grpc
 
 > Written with [StackEdit](https://stackedit.io/).
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTE3Njg3NDA2Miw0MjUwOTY3MzAsMTcwOT
-EwMjE1NiwtMTc3MDYzNDQzMiwtMTQyMzE3MzUzXX0=
+eyJoaXN0b3J5IjpbLTE4MzI5Nzg5MzgsMTE3Njg3NDA2Miw0Mj
+UwOTY3MzAsMTcwOTEwMjE1NiwtMTc3MDYzNDQzMiwtMTQyMzE3
+MzUzXX0=
 -->
