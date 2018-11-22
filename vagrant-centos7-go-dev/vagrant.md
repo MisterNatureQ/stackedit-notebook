@@ -7,7 +7,7 @@
 
 
 ## 安装开发环境
-sudo yum groupinstall "Development tools"
+sudo yum -y groupinstall "Development tools"
 
 
 ## centos7 关闭防火墙
@@ -112,5 +112,5 @@ ok      github.com/AsynkronIT/protoactor-go/stream      (cached)
 itten with [StackEdit](https://stackedit.io/)
 .
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTMwNzYwNjY1NV19
+eyJoaXN0b3J5IjpbLTEzODYwODI1MDUsLTMwNzYwNjY1NV19
 -->
