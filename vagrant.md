@@ -74,12 +74,15 @@ go install google.golang.org/grpc
 
 git clone https://github.com/AsynkronIT/protoactor-go.git $GOPATH/src/github.com/protoactor-go
 
+
+#编译安装protobuf的编译器protoc
+
 > Wr
 itten with [StackEdit](https://stackedit.io/).
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTExNDMwMjQyNCwxOTM4OTkwOTAwLC0xNz
-Q4NTI2OTUsMjgzNzE4NjkxLC0xMDYxNjYyODEsLTEyNTE1Mzk1
-MjUsLTEyNTM0NzE4NzEsLTE5NjUxOTM2NDMsNDc3MzA0NTc1LD
-ExNzY4NzQwNjIsNDI1MDk2NzMwLDE3MDkxMDIxNTYsLTE3NzA2
-MzQ0MzIsLTE0MjMxNzM1M119
+eyJoaXN0b3J5IjpbMjM2NTkxNDgxLDExMTQzMDI0MjQsMTkzOD
+k5MDkwMCwtMTc0ODUyNjk1LDI4MzcxODY5MSwtMTA2MTY2Mjgx
+LC0xMjUxNTM5NTI1LC0xMjUzNDcxODcxLC0xOTY1MTkzNjQzLD
+Q3NzMwNDU3NSwxMTc2ODc0MDYyLDQyNTA5NjczMCwxNzA5MTAy
+MTU2LC0xNzcwNjM0NDMyLC0xNDIzMTczNTNdfQ==
 -->
