@@ -3,6 +3,7 @@
 #安装go环境
 
 
+#安装开发环境
 
 
 
@@ -39,7 +40,7 @@ google.golang.org/grpc
 
 > Written with [StackEdit](https://stackedit.io/).
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTc2MTM5NzA5MSwxMTc2ODc0MDYyLDQyNT
+eyJoaXN0b3J5IjpbLTE1ODkyNzE4NSwxMTc2ODc0MDYyLDQyNT
 A5NjczMCwxNzA5MTAyMTU2LC0xNzcwNjM0NDMyLC0xNDIzMTcz
 NTNdfQ==
 -->
