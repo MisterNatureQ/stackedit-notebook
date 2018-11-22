@@ -1,4 +1,3 @@
-
 #!/bin/bash
 
 # Copy hosts info
@@ -113,5 +112,5 @@ sysctl -p /etc/sysctl.d/k8s.conf
 swapoff -a && sysctl -w vm.swappiness=0
 sed '/vagrant--vg-swap_1/d' -i  /etc/fstab
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNTAyMDk2MDY3LDM4OTYwMTU0NV19
+eyJoaXN0b3J5IjpbLTIzMzE5ODgyNywzODk2MDE1NDVdfQ==
 -->
