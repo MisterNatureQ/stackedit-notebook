@@ -1,3 +1,4 @@
+
 #!/bin/bash
 
 # Copy hosts info
@@ -33,11 +34,10 @@ export "GOPATH=/home/gocode"
 export "PATH=$PATH:$GOROOT/bin:$GOPATH/bin"
 
 GOPATH="/home/gocode"
+GOROOT="/usr/local/go"
 sudo mkdir -p "${GOPATH}/src/golang.org/x"
 
 
-sudo go install google.golang.org/grpc
-sudo go get -u github.com/golang/protobuf/{proto,protoc-gen-go}
 
 
 # 常用工具
@@ -69,13 +69,13 @@ sudo systemctl disable firewalld.service#禁止防火墙服务器
 
 sudo mkdir -p "${GOPATH}/src/golang.org/x"
 sudo cd "${GOPATH}/src/golang.org/x"
-sudo git clone https://github.com/golang/net.git #这个就是net包
-sudo git clone https://github.com/golang/crypto.git #这个就是crypto包
-sudo git clone https://github.com/golang/sys.git
-sudo git clone https://github.com/golang/mobile.git
-sudo git clone https://github.com/golang/text.git
-sudo git clone https://github.com/golang/tools.git
-sudo git clone https://github.com/golang/image.git
+sudo git clone https://github.com/golang/net.git "${GOPATH}/src/golang.org/x"
+sudo git clone https://github.com/golang/crypto.git "${GOPATH}/src/golang.org/x"
+sudo git clone https://github.com/golang/sys.git "${GOPATH}/src/golang.org/x"
+sudo git clone https://github.com/golang/mobile.git "${GOPATH}/src/golang.org/x"
+sudo git clone https://github.com/golang/text.git "${GOPATH}/src/golang.org/x"
+sudo git clone https://github.com/golang/tools.git "${GOPATH}/src/golang.org/x"
+sudo git clone https://github.com/golang/image.git "${GOPATH}/src/golang.org/x"
 
 sudo git clone https://github.com/grpc/grpc-go.git "${GOPATH}/src/google.golang.org/grpc"
 sudo git clone https://github.com/golang/net.git "${GOPATH}/src/golang.org/x/net"
@@ -87,10 +87,19 @@ sudo cd "${GOPATH}/src"
 sudo git clone https://github.com/AsynkronIT/protoactor-go.git "${GOPATH}/src/github.com/protoactor-go"
 
 sudo cd "${GOPATH}/src/github.com/AsynkronIT/protoactor-go"
-sudo go get ./...
 
-sudo go test `go list ./... | grep -v consul` | grep 'ok' 
+#sudo 
+#sudo 
+go get -u github.com/golang/protobuf/{proto,protoc-gen-go}
+go install google.golang.org/grpc
 
+sudo "${GOROOT}/bin/go" install google.golang.org/grpc
+sudo "${GOROOT}/bin/go" get -u github.com/golang/protobuf/{proto,protoc-gen-go}
+
+#sudo go get ./...
+sudo "${GOROOT}/bin/go" get ./...
+#sudo go test `go list ./... | grep -v consul` | grep 'ok' 
+sudo "${GOROOT}/bin/go" test `go list ./... | grep -v consul` | grep 'ok' 
 
 # Setup system vars
 cat <<EOF > /etc/sysctl.d/k8s.conf
@@ -104,5 +113,5 @@ sysctl -p /etc/sysctl.d/k8s.conf
 swapoff -a && sysctl -w vm.swappiness=0
 sed '/vagrant--vg-swap_1/d' -i  /etc/fstab
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMzg5NjAxNTQ1XX0=
+eyJoaXN0b3J5IjpbNTAyMDk2MDY3LDM4OTYwMTU0NV19
 -->
