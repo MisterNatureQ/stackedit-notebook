@@ -1,6 +1,7 @@
 基于 vagrant 的开发环境搭建
 
 #安装go环境
+
 #跟新环境变量
 source /etc/profile
 
@@ -32,7 +33,7 @@ google.golang.org/grpc
 
 > Written with [StackEdit](https://stackedit.io/).
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbODA4NjYxNDgyLDExNzY4NzQwNjIsNDI1MD
-k2NzMwLDE3MDkxMDIxNTYsLTE3NzA2MzQ0MzIsLTE0MjMxNzM1
-M119
+eyJoaXN0b3J5IjpbLTE1MDE5NDcwMTIsMTE3Njg3NDA2Miw0Mj
+UwOTY3MzAsMTcwOTEwMjE1NiwtMTc3MDYzNDQzMiwtMTQyMzE3
+MzUzXX0=
 -->
