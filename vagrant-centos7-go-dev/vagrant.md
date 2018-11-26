@@ -193,9 +193,12 @@ redis集群中挂掉一台也只需要重启即可，丢失的仅是缓存数据
 
 ### [# Go游戏服务器开发的一些思考（十一）：IO游戏同步](https://blog.csdn.net/u013272009/article/details/76708056)
 > 这里的介绍比较重要
->
 
-### []()
+
+### [[Go游戏服务器开发的一些思考（十二）：行为树behavior3go介绍](https://blog.csdn.net/u013272009/article/details/77131226)](https://blog.csdn.net/u013272009/article/details/77131226)
+> 在游戏开发中，以状态切换来驱动其执行流程的系统，引入行为树可以大大简化编码和配置
+behavior3go github网址为：[https://github.com/magicsea/behavior3go](https://github.com/magicsea/behavior3go)
+
 ### []()
 ### []()
 ### []()
@@ -211,8 +214,8 @@ redis集群中挂掉一台也只需要重启即可，丢失的仅是缓存数据
 go get -u github.com/go-redis/redis
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMzM2NDgyNjgzLC01OTUxNjUwODUsLTE3MD
-czMjAxMDEsLTEwMzc1MDkwNzksLTgwMDAxODk3OSwxNzM2MTA3
-NTksMzY0NTkyODU1LDEyMDY1ODQzMTYsNzQ1NTUzNTI0LDEwNj
-Y3NDQ4MzIsLTEzODYwODI1MDUsLTMwNzYwNjY1NV19
+eyJoaXN0b3J5IjpbMTIzNDAyMjI3MSwtNTk1MTY1MDg1LC0xNz
+A3MzIwMTAxLC0xMDM3NTA5MDc5LC04MDAwMTg5NzksMTczNjEw
+NzU5LDM2NDU5Mjg1NSwxMjA2NTg0MzE2LDc0NTU1MzUyNCwxMD
+Y2NzQ0ODMyLC0xMzg2MDgyNTA1LC0zMDc2MDY2NTVdfQ==
 -->
