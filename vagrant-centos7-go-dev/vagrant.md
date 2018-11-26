@@ -192,7 +192,8 @@ redis集群中挂掉一台也只需要重启即可，丢失的仅是缓存数据
 ### [# Go游戏服务器开发的一些思考（十）：goroutine和coroutine](https://blog.csdn.net/u013272009/article/details/76273380)
 
 ### [# Go游戏服务器开发的一些思考（十一）：IO游戏同步](https://blog.csdn.net/u013272009/article/details/76708056)
-
+> 这里的介绍比较重要
+>
 
 ### []()
 ### []()
@@ -210,8 +211,8 @@ redis集群中挂掉一台也只需要重启即可，丢失的仅是缓存数据
 go get -u github.com/go-redis/redis
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTU5NTE2NTA4NSwtMTcwNzMyMDEwMSwtMT
-AzNzUwOTA3OSwtODAwMDE4OTc5LDE3MzYxMDc1OSwzNjQ1OTI4
-NTUsMTIwNjU4NDMxNiw3NDU1NTM1MjQsMTA2Njc0NDgzMiwtMT
-M4NjA4MjUwNSwtMzA3NjA2NjU1XX0=
+eyJoaXN0b3J5IjpbMzM2NDgyNjgzLC01OTUxNjUwODUsLTE3MD
+czMjAxMDEsLTEwMzc1MDkwNzksLTgwMDAxODk3OSwxNzM2MTA3
+NTksMzY0NTkyODU1LDEyMDY1ODQzMTYsNzQ1NTUzNTI0LDEwNj
+Y3NDQ4MzIsLTEzODYwODI1MDUsLTMwNzYwNjY1NV19
 -->
