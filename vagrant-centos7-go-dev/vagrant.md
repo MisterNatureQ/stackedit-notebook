@@ -161,11 +161,16 @@ NavMesh 构成的世界
 
 > [https://github.com/mrazza/gonav.git](https://github.com/mrazza/gonav.git)
 
+astar寻路
+
+直接上github地址：
+
+> [https://github.com/beefsack/go-astar.git](https://github.com/beefsack/go-astar.git)
 
 go get -u github.com/go-redis/redis
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTczNjEwNzU5LDM2NDU5Mjg1NSwxMjA2NT
-g0MzE2LDc0NTU1MzUyNCwxMDY2NzQ0ODMyLC0xMzg2MDgyNTA1
-LC0zMDc2MDY2NTVdfQ==
+eyJoaXN0b3J5IjpbLTgwMDAxODk3OSwxNzM2MTA3NTksMzY0NT
+kyODU1LDEyMDY1ODQzMTYsNzQ1NTUzNTI0LDEwNjY3NDQ4MzIs
+LTEzODYwODI1MDUsLTMwNzYwNjY1NV19
 -->
