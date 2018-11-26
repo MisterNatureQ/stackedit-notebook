@@ -207,6 +207,44 @@ behavior3go github网址为：[https://github.com/magicsea/behavior3go](https://
 
 ### [Go游戏服务器开发的一些思考（十五）：gochart图表制作](https://blog.csdn.net/u013272009/article/details/78208957)
 
+### [Go游戏服务器开发的一些思考（十六）：IO游戏服务器架构](https://blog.csdn.net/u013272009/article/details/78209687)
+
+### [Go游戏服务器开发的一些思考（十七）：IO游戏同步（三）](https://blog.csdn.net/u013272009/article/details/78240679)
+
+### []()
+### []()
+### []()
+### []()
+### []()
+### []()
+### []()
+### []()
+### []()
+### []()
+### []()
+### []()
+### []()
+### []()
+### []()
+### []()
+### []()
+### []()
+### []()
+### []()
+### []()
+### []()
+### []()
+### []()
+### []()
+### []()
+### []()
+### []()
+### []()
+### []()
+### []()
+### []()
+### []()
+### []()
 ### []()
 ### []()
 ### []()
@@ -219,9 +257,9 @@ behavior3go github网址为：[https://github.com/magicsea/behavior3go](https://
 go get -u github.com/go-redis/redis
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjA2MDI4MTcyNywtMTA0MzA2NjcxMSwtNT
-k1MTY1MDg1LC0xNzA3MzIwMTAxLC0xMDM3NTA5MDc5LC04MDAw
-MTg5NzksMTczNjEwNzU5LDM2NDU5Mjg1NSwxMjA2NTg0MzE2LD
-c0NTU1MzUyNCwxMDY2NzQ0ODMyLC0xMzg2MDgyNTA1LC0zMDc2
-MDY2NTVdfQ==
+eyJoaXN0b3J5IjpbLTExMDI4NjA0MDYsLTEwNDMwNjY3MTEsLT
+U5NTE2NTA4NSwtMTcwNzMyMDEwMSwtMTAzNzUwOTA3OSwtODAw
+MDE4OTc5LDE3MzYxMDc1OSwzNjQ1OTI4NTUsMTIwNjU4NDMxNi
+w3NDU1NTM1MjQsMTA2Njc0NDgzMiwtMTM4NjA4MjUwNSwtMzA3
+NjA2NjU1XX0=
 -->
