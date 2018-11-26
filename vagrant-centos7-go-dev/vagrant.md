@@ -217,7 +217,8 @@ behavior3go github网址为：[https://github.com/magicsea/behavior3go](https://
 
 ### [Go游戏服务器开发的一些思考（二十）：Docker Swarm部署Etcd示例](https://blog.csdn.net/u013272009/article/details/78430827)
 
-### []()
+### [Go游戏服务器开发的一些思考（二十一）：Go语言的两处脑残设定](https://blog.csdn.net/u013272009/article/details/78441380)
+
 ### []()
 ### []()
 ### []()
@@ -260,9 +261,9 @@ behavior3go github网址为：[https://github.com/magicsea/behavior3go](https://
 go get -u github.com/go-redis/redis
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTYzMzY3MjYwOSwtMTA0MzA2NjcxMSwtNT
-k1MTY1MDg1LC0xNzA3MzIwMTAxLC0xMDM3NTA5MDc5LC04MDAw
-MTg5NzksMTczNjEwNzU5LDM2NDU5Mjg1NSwxMjA2NTg0MzE2LD
-c0NTU1MzUyNCwxMDY2NzQ0ODMyLC0xMzg2MDgyNTA1LC0zMDc2
-MDY2NTVdfQ==
+eyJoaXN0b3J5IjpbNjU0NjIxODc3LC0xMDQzMDY2NzExLC01OT
+UxNjUwODUsLTE3MDczMjAxMDEsLTEwMzc1MDkwNzksLTgwMDAx
+ODk3OSwxNzM2MTA3NTksMzY0NTkyODU1LDEyMDY1ODQzMTYsNz
+Q1NTUzNTI0LDEwNjY3NDQ4MzIsLTEzODYwODI1MDUsLTMwNzYw
+NjY1NV19
 -->
