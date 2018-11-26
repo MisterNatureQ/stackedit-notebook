@@ -111,7 +111,13 @@ ok      github.com/AsynkronIT/protoactor-go/stream      (cached)
 > Wr
 itten with [StackEdit](https://stackedit.io/)
 .
+
+
+
+
+## 开发环境
+go get 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNzQ1NTUzNTI0LDEwNjY3NDQ4MzIsLTEzOD
-YwODI1MDUsLTMwNzYwNjY1NV19
+eyJoaXN0b3J5IjpbNzc4ODAwMDQ3LDc0NTU1MzUyNCwxMDY2Nz
+Q0ODMyLC0xMzg2MDgyNTA1LC0zMDc2MDY2NTVdfQ==
 -->
