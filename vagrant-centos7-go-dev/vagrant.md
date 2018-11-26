@@ -211,7 +211,8 @@ behavior3go github网址为：[https://github.com/magicsea/behavior3go](https://
 
 ### [Go游戏服务器开发的一些思考（十七）：IO游戏同步（三）](https://blog.csdn.net/u013272009/article/details/78240679)
 
-### []()
+### [Go游戏服务器开发的一些思考（十八）：Docker内网环境搭建（备忘）](https://blog.csdn.net/u013272009/article/details/78363537)
+
 ### []()
 ### []()
 ### []()
@@ -257,9 +258,9 @@ behavior3go github网址为：[https://github.com/magicsea/behavior3go](https://
 go get -u github.com/go-redis/redis
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTExMDI4NjA0MDYsLTEwNDMwNjY3MTEsLT
-U5NTE2NTA4NSwtMTcwNzMyMDEwMSwtMTAzNzUwOTA3OSwtODAw
-MDE4OTc5LDE3MzYxMDc1OSwzNjQ1OTI4NTUsMTIwNjU4NDMxNi
-w3NDU1NTM1MjQsMTA2Njc0NDgzMiwtMTM4NjA4MjUwNSwtMzA3
-NjA2NjU1XX0=
+eyJoaXN0b3J5IjpbNDcwNjE4NTAyLC0xMDQzMDY2NzExLC01OT
+UxNjUwODUsLTE3MDczMjAxMDEsLTEwMzc1MDkwNzksLTgwMDAx
+ODk3OSwxNzM2MTA3NTksMzY0NTkyODU1LDEyMDY1ODQzMTYsNz
+Q1NTUzNTI0LDEwNjY3NDQ4MzIsLTEzODYwODI1MDUsLTMwNzYw
+NjY1NV19
 -->
