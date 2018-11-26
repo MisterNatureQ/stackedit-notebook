@@ -185,6 +185,9 @@ Redis集群只做内存数据库
 不用开slave、不用做数据持久化。这样redis对系统资源消耗最小 
 redis集群中挂掉一台也只需要重启即可，丢失的仅是缓存数据。
 
+## [Go游戏服务器开发的一些思考](https://blog.csdn.net/u013272009/article/list/3)
+
+
 ### [Eclipse + Golang 开发环境搭建 （要点备忘）](https://blog.csdn.net/u013272009/article/details/72933337)
 
 ### [Go游戏服务器开发的一些思考（一）：语言层面](https://blog.csdn.net/u013272009/article/details/72983690)
@@ -232,8 +235,10 @@ behavior3go github网址为：[https://github.com/magicsea/behavior3go](https://
 
 ### [Go游戏服务器开发的一些思考（二十三）：Go语言Log库封装技巧](https://blog.csdn.net/u013272009/article/details/78463086)
 
-### []()
-### []()
+### [goclipse的autoimport（备忘）](https://blog.csdn.net/u013272009/article/details/78483881)
+
+### [Dockerfile脚本示例：Python3+Protobuf+wxPython](https://blog.csdn.net/u013272009/article/details/78492501)
+
 ### []()
 ### []()
 ### []()
@@ -272,9 +277,9 @@ behavior3go github网址为：[https://github.com/magicsea/behavior3go](https://
 go get -u github.com/go-redis/redis
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTE2Nzk0Njc5LC0xMDQzMDY2NzExLC01OT
-UxNjUwODUsLTE3MDczMjAxMDEsLTEwMzc1MDkwNzksLTgwMDAx
-ODk3OSwxNzM2MTA3NTksMzY0NTkyODU1LDEyMDY1ODQzMTYsNz
-Q1NTUzNTI0LDEwNjY3NDQ4MzIsLTEzODYwODI1MDUsLTMwNzYw
-NjY1NV19
+eyJoaXN0b3J5IjpbMTk3MzAxMjIwOCwxMTY3OTQ2NzksLTEwND
+MwNjY3MTEsLTU5NTE2NTA4NSwtMTcwNzMyMDEwMSwtMTAzNzUw
+OTA3OSwtODAwMDE4OTc5LDE3MzYxMDc1OSwzNjQ1OTI4NTUsMT
+IwNjU4NDMxNiw3NDU1NTM1MjQsMTA2Njc0NDgzMiwtMTM4NjA4
+MjUwNSwtMzA3NjA2NjU1XX0=
 -->
