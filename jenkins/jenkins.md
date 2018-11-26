@@ -5,8 +5,9 @@
 
 
 ### 添加命令行 解决 脚本结束 进程就被杀掉的问题 最好不用全局变量 通过set 在需要的地方去昂添加
-BUILD_ID
-DONTKILLME
+
+	BUILD_ID
+	DONTKILLME
 
 
 [启动命令](https://www.cnblogs.com/wyx123/articles/4106802.html)
@@ -26,5 +27,5 @@ start "" C:\AServer.exe
 ping 127.0.0.1 -n 10>nul
 exit
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTQxMzc2NzcyMCwtNzkwMzA3ODBdfQ==
+eyJoaXN0b3J5IjpbMjk2NjQ2MTcwLC03OTAzMDc4MF19
 -->
