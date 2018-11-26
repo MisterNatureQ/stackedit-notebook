@@ -143,7 +143,20 @@ https://github.com/go-redis/redis.git
 
 https://github.com/go-sql-driver/mysql.git
 
+
+服务发现机制
+zookeeper
+
+该库比较出名，这里不得不罗列下。这里不考虑用它。原因见下面
+
+etcd
+
+使用 Go语言写的，模仿zookeeper的一个开源项目。由于在用Go语言开发，因此选择该库。github地址为：
+
+https://github.com/coreos/etcd.git
+
+
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNjMyNTQ5MjIyLDc0NTU1MzUyNCwxMDY2Nz
-Q0ODMyLC0xMzg2MDgyNTA1LC0zMDc2MDY2NTVdfQ==
+eyJoaXN0b3J5IjpbMTIwNjU4NDMxNiw3NDU1NTM1MjQsMTA2Nj
+c0NDgzMiwtMTM4NjA4MjUwNSwtMzA3NjA2NjU1XX0=
 -->
