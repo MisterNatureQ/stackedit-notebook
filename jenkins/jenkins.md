@@ -18,7 +18,13 @@ DONTKILLME
 java -jar jenkins.war --ajp13Port=-1 --httpPort=8080
 
 
-
+@echo off
+TASKKILL /F /IM Aserver.exe
+TASKKILL /F /IM Mserver.exe
+TASKKILL /F /IM GServer.exe
+start "" C:\AServer.exe
+ping 127.0.0.1 -n 10>nul
+exit
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjI2ODk4Nzk0XX0=
+eyJoaXN0b3J5IjpbMTUwNTE4OTI4NF19
 -->
