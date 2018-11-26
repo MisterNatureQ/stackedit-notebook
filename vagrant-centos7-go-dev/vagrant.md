@@ -116,8 +116,34 @@ itten with [StackEdit](https://stackedit.io/)
 
 
 ## 开发环境
-go get 
+
+
+## 多任务系统
+
+-   并发操作必须是引擎可控的
+    
+    提供并发操作的统一接口
+    
+-   Actor模式
+    
+    并发系统，以Actor模式独占鳌头。搜索了下github，使用该库应该足以应对：
+    
+    
+
+数据持久化方案
+使用redis做内存数据库
+
+官方推荐的redis github地址：
+
+https://github.com/go-redis/redis.git
+
+使用mysql做数据持久化
+
+官方推荐的mysql github地址：
+
+https://github.com/go-sql-driver/mysql.git
+
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNzc4ODAwMDQ3LDc0NTU1MzUyNCwxMDY2Nz
+eyJoaXN0b3J5IjpbNjMyNTQ5MjIyLDc0NTU1MzUyNCwxMDY2Nz
 Q0ODMyLC0xMzg2MDgyNTA1LC0zMDc2MDY2NTVdfQ==
 -->
