@@ -185,14 +185,17 @@ Redis集群只做内存数据库
 不用开slave、不用做数据持久化。这样redis对系统资源消耗最小 
 redis集群中挂掉一台也只需要重启即可，丢失的仅是缓存数据。
 
-# Go游戏服务器开发的一些思考（八）：Docker桥接网络及固定IP
+### [Go游戏服务器开发的一些思考（八）：Docker桥接网络及固定]IP(https://blog.csdn.net/u013272009/article/details/75093888)
 
+### [# Go游戏服务器开发的一些思考（九）：Docker桥接网络及固定IP (二)](https://blog.csdn.net/u013272009/article/details/75315042)
+
+#
 
 go get -u github.com/go-redis/redis
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNDYzNTE2MywtMTAzNzUwOTA3OSwtODAwMD
-E4OTc5LDE3MzYxMDc1OSwzNjQ1OTI4NTUsMTIwNjU4NDMxNiw3
-NDU1NTM1MjQsMTA2Njc0NDgzMiwtMTM4NjA4MjUwNSwtMzA3Nj
-A2NjU1XX0=
+eyJoaXN0b3J5IjpbLTE3MDczMjAxMDEsLTEwMzc1MDkwNzksLT
+gwMDAxODk3OSwxNzM2MTA3NTksMzY0NTkyODU1LDEyMDY1ODQz
+MTYsNzQ1NTUzNTI0LDEwNjY3NDQ4MzIsLTEzODYwODI1MDUsLT
+MwNzYwNjY1NV19
 -->
