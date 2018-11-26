@@ -9,5 +9,6 @@
 
 在本章，我们会开始看到接口类型和值的一些基本技巧。顺着这种方式我们将学习几个来自标准库的重要接口。很多Go程序中都尽可能多的去使用标准库中的接口。最后，我们会在（§7.10）看到类型断言的知识，在（§7.13）看到类型开关的使用并且学到他们是怎样让不同的类型的概括成为可能。
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTgyMzUwNTk2NywtMTAwNzEyMzk0OV19
+eyJoaXN0b3J5IjpbMTk3MDYxOTE3MywtODIzNTA1OTY3LC0xMD
+A3MTIzOTQ5XX0=
 -->
