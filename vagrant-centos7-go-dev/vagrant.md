@@ -185,6 +185,14 @@ Redis集群只做内存数据库
 不用开slave、不用做数据持久化。这样redis对系统资源消耗最小 
 redis集群中挂掉一台也只需要重启即可，丢失的仅是缓存数据。
 
+### []()
+
+### [Go游戏服务器开发的一些思考（一）：语言层面](https://blog.csdn.net/u013272009/article/details/72983690)
+
+### [Go游戏服务器开发的一些思考（二）：综合考察（上）](https://blog.csdn.net/u013272009/article/details/73001638)
+
+### [Go游戏服务器开发的一些思考（三）：综合考察（中）](https://blog.csdn.net/u013272009/article/details/73028642)
+
 ### [Go游戏服务器开发的一些思考（八）：Docker桥接网络及固定]IP(https://blog.csdn.net/u013272009/article/details/75093888)
 
 ### [# Go游戏服务器开发的一些思考（九）：Docker桥接网络及固定IP (二)](https://blog.csdn.net/u013272009/article/details/75315042)
@@ -222,7 +230,8 @@ behavior3go github网址为：[https://github.com/magicsea/behavior3go](https://
 ### [Go游戏服务器开发的一些思考（二十二）：Godep包管理介绍](https://blog.csdn.net/u013272009/article/details/78446118)
 
 
-### []()
+### [Go游戏服务器开发的一些思考（二十三）：Go语言Log库封装技巧](https://blog.csdn.net/u013272009/article/details/78463086)
+
 ### []()
 ### []()
 ### []()
@@ -263,9 +272,9 @@ behavior3go github网址为：[https://github.com/magicsea/behavior3go](https://
 go get -u github.com/go-redis/redis
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTQzNzk3MzI4MSwtMTA0MzA2NjcxMSwtNT
-k1MTY1MDg1LC0xNzA3MzIwMTAxLC0xMDM3NTA5MDc5LC04MDAw
-MTg5NzksMTczNjEwNzU5LDM2NDU5Mjg1NSwxMjA2NTg0MzE2LD
-c0NTU1MzUyNCwxMDY2NzQ0ODMyLC0xMzg2MDgyNTA1LC0zMDc2
-MDY2NTVdfQ==
+eyJoaXN0b3J5IjpbLTIwNjEzOTEzOTMsLTEwNDMwNjY3MTEsLT
+U5NTE2NTA4NSwtMTcwNzMyMDEwMSwtMTAzNzUwOTA3OSwtODAw
+MDE4OTc5LDE3MzYxMDc1OSwzNjQ1OTI4NTUsMTIwNjU4NDMxNi
+w3NDU1NTM1MjQsMTA2Njc0NDgzMiwtMTM4NjA4MjUwNSwtMzA3
+NjA2NjU1XX0=
 -->
