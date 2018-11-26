@@ -167,10 +167,29 @@ astar寻路
 
 > [https://github.com/beefsack/go-astar.git](https://github.com/beefsack/go-astar.git)
 
+
+
+### Redis集群 + Mysql分库
+这里提倡一种比较理想的数据库部署方案。Redis集群 + Mysql分库
+
+Mysql按ID分段，依次追加
+
+如 1- 100w 为第一个分库；100w - 200w 为第二个分库等等。分库按需追加即可
+
+mysql客户端可以稍作封装，来支持热发现mysql分库；插入数据操作重定向到最后一个分库（数据插入边界问题检查）
+
+Redis集群只做内存数据库
+
+热点数据有redis来分担，做缓存
+
+不用开slave、不用做数据持久化。这样redis对系统资源消耗最小 
+redis集群中挂掉一台也只需要重启即可，丢失的仅是缓存数据。
+
+
 go get -u github.com/go-redis/redis
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTgwMDAxODk3OSwxNzM2MTA3NTksMzY0NT
-kyODU1LDEyMDY1ODQzMTYsNzQ1NTUzNTI0LDEwNjY3NDQ4MzIs
-LTEzODYwODI1MDUsLTMwNzYwNjY1NV19
+eyJoaXN0b3J5IjpbLTEwMzc1MDkwNzksLTgwMDAxODk3OSwxNz
+M2MTA3NTksMzY0NTkyODU1LDEyMDY1ODQzMTYsNzQ1NTUzNTI0
+LDEwNjY3NDQ4MzIsLTEzODYwODI1MDUsLTMwNzYwNjY1NV19
 -->
