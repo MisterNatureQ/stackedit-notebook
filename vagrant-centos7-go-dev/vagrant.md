@@ -155,13 +155,17 @@ etcd
 
 https://github.com/coreos/etcd.git
 
+NavMesh 构成的世界
 
+目前貌似 go 相关的 NavMesh的资料不是很多。比如在github上搜索下，只有1个 4stars 的go 项目：
+
+> [https://github.com/mrazza/gonav.git](https://github.com/mrazza/gonav.git)
 
 
 go get -u github.com/go-redis/redis
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMzY0NTkyODU1LDEyMDY1ODQzMTYsNzQ1NT
-UzNTI0LDEwNjY3NDQ4MzIsLTEzODYwODI1MDUsLTMwNzYwNjY1
-NV19
+eyJoaXN0b3J5IjpbMTczNjEwNzU5LDM2NDU5Mjg1NSwxMjA2NT
+g0MzE2LDc0NTU1MzUyNCwxMDY2NzQ0ODMyLC0xMzg2MDgyNTA1
+LC0zMDc2MDY2NTVdfQ==
 -->
