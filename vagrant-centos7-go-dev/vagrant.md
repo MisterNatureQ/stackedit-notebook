@@ -199,7 +199,9 @@ redis集群中挂掉一台也只需要重启即可，丢失的仅是缓存数据
 > 在游戏开发中，以状态切换来驱动其执行流程的系统，引入行为树可以大大简化编码和配置
 behavior3go github网址为：[https://github.com/magicsea/behavior3go](https://github.com/magicsea/behavior3go)
 
-### []()
+
+### [Go游戏服务器开发的一些思考（十三）：behavior3go的一些坑（备忘）](https://blog.csdn.net/u013272009/article/details/78073587)
+
 ### []()
 ### []()
 ### []()
@@ -214,8 +216,8 @@ behavior3go github网址为：[https://github.com/magicsea/behavior3go](https://
 go get -u github.com/go-redis/redis
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTIzNDAyMjI3MSwtNTk1MTY1MDg1LC0xNz
-A3MzIwMTAxLC0xMDM3NTA5MDc5LC04MDAwMTg5NzksMTczNjEw
-NzU5LDM2NDU5Mjg1NSwxMjA2NTg0MzE2LDc0NTU1MzUyNCwxMD
-Y2NzQ0ODMyLC0xMzg2MDgyNTA1LC0zMDc2MDY2NTVdfQ==
+eyJoaXN0b3J5IjpbNDIyMTc4MDU0LC01OTUxNjUwODUsLTE3MD
+czMjAxMDEsLTEwMzc1MDkwNzksLTgwMDAxODk3OSwxNzM2MTA3
+NTksMzY0NTkyODU1LDEyMDY1ODQzMTYsNzQ1NTUzNTI0LDEwNj
+Y3NDQ4MzIsLTEzODYwODI1MDUsLTMwNzYwNjY1NV19
 -->
