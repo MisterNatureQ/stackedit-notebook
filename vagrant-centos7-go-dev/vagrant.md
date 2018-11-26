@@ -156,7 +156,12 @@ etcd
 https://github.com/coreos/etcd.git
 
 
+
+
+go get -u github.com/go-redis/redis
+
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTIwNjU4NDMxNiw3NDU1NTM1MjQsMTA2Nj
-c0NDgzMiwtMTM4NjA4MjUwNSwtMzA3NjA2NjU1XX0=
+eyJoaXN0b3J5IjpbMzY0NTkyODU1LDEyMDY1ODQzMTYsNzQ1NT
+UzNTI0LDEwNjY3NDQ4MzIsLTEzODYwODI1MDUsLTMwNzYwNjY1
+NV19
 -->
