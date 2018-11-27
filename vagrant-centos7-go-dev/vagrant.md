@@ -108,8 +108,6 @@ ok      github.com/AsynkronIT/protoactor-go/stream      (cached)
 ```
 
 
-> Wr
-itten with [StackEdit](https://stackedit.io/)
 .
 
 
@@ -277,9 +275,10 @@ behavior3go github网址为：[https://github.com/magicsea/behavior3go](https://
 go get -u github.com/go-redis/redis
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEzMDQxOTc3ODMsMTk3MzAxMjIwOCwxMT
-Y3OTQ2NzksLTEwNDMwNjY3MTEsLTU5NTE2NTA4NSwtMTcwNzMy
-MDEwMSwtMTAzNzUwOTA3OSwtODAwMDE4OTc5LDE3MzYxMDc1OS
-wzNjQ1OTI4NTUsMTIwNjU4NDMxNiw3NDU1NTM1MjQsMTA2Njc0
-NDgzMiwtMTM4NjA4MjUwNSwtMzA3NjA2NjU1XX0=
+eyJoaXN0b3J5IjpbNzIxNDk3MDcsLTEzMDQxOTc3ODMsMTk3Mz
+AxMjIwOCwxMTY3OTQ2NzksLTEwNDMwNjY3MTEsLTU5NTE2NTA4
+NSwtMTcwNzMyMDEwMSwtMTAzNzUwOTA3OSwtODAwMDE4OTc5LD
+E3MzYxMDc1OSwzNjQ1OTI4NTUsMTIwNjU4NDMxNiw3NDU1NTM1
+MjQsMTA2Njc0NDgzMiwtMTM4NjA4MjUwNSwtMzA3NjA2NjU1XX
+0=
 -->
