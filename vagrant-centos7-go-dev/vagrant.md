@@ -108,11 +108,6 @@ ok      github.com/AsynkronIT/protoactor-go/stream      (cached)
 ```
 
 
-.
-
-
-
-
 ## 开发环境
 
 
@@ -275,10 +270,10 @@ behavior3go github网址为：[https://github.com/magicsea/behavior3go](https://
 go get -u github.com/go-redis/redis
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNzIxNDk3MDcsLTEzMDQxOTc3ODMsMTk3Mz
-AxMjIwOCwxMTY3OTQ2NzksLTEwNDMwNjY3MTEsLTU5NTE2NTA4
-NSwtMTcwNzMyMDEwMSwtMTAzNzUwOTA3OSwtODAwMDE4OTc5LD
-E3MzYxMDc1OSwzNjQ1OTI4NTUsMTIwNjU4NDMxNiw3NDU1NTM1
-MjQsMTA2Njc0NDgzMiwtMTM4NjA4MjUwNSwtMzA3NjA2NjU1XX
-0=
+eyJoaXN0b3J5IjpbLTExNDY2Mzc5MjMsLTEzMDQxOTc3ODMsMT
+k3MzAxMjIwOCwxMTY3OTQ2NzksLTEwNDMwNjY3MTEsLTU5NTE2
+NTA4NSwtMTcwNzMyMDEwMSwtMTAzNzUwOTA3OSwtODAwMDE4OT
+c5LDE3MzYxMDc1OSwzNjQ1OTI4NTUsMTIwNjU4NDMxNiw3NDU1
+NTM1MjQsMTA2Njc0NDgzMiwtMTM4NjA4MjUwNSwtMzA3NjA2Nj
+U1XX0=
 -->
