@@ -1,4 +1,4 @@
-# 基于 vagrant 的开发环境搭建
+## 基于 vagrant 的开发环境搭建
 
 需要先安装 virtual box  然后安装  vagrant 
 
@@ -277,9 +277,9 @@ behavior3go github网址为：[https://github.com/magicsea/behavior3go](https://
 go get -u github.com/go-redis/redis
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTk3MzAxMjIwOCwxMTY3OTQ2NzksLTEwND
-MwNjY3MTEsLTU5NTE2NTA4NSwtMTcwNzMyMDEwMSwtMTAzNzUw
-OTA3OSwtODAwMDE4OTc5LDE3MzYxMDc1OSwzNjQ1OTI4NTUsMT
-IwNjU4NDMxNiw3NDU1NTM1MjQsMTA2Njc0NDgzMiwtMTM4NjA4
-MjUwNSwtMzA3NjA2NjU1XX0=
+eyJoaXN0b3J5IjpbLTEzMDQxOTc3ODMsMTk3MzAxMjIwOCwxMT
+Y3OTQ2NzksLTEwNDMwNjY3MTEsLTU5NTE2NTA4NSwtMTcwNzMy
+MDEwMSwtMTAzNzUwOTA3OSwtODAwMDE4OTc5LDE3MzYxMDc1OS
+wzNjQ1OTI4NTUsMTIwNjU4NDMxNiw3NDU1NTM1MjQsMTA2Njc0
+NDgzMiwtMTM4NjA4MjUwNSwtMzA3NjA2NjU1XX0=
 -->
