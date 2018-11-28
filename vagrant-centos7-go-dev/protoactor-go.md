@@ -4,6 +4,28 @@
 protoactor-go-dev
 ## 主要的功能是一个事物管理
 
+## internal 内核
+protoactor-go-dev/internal/core
+
+## goring 缝以补裆；刺
+protoactor-go-dev/internal/queue/goring
+
+## MPSC MultiProtocol Serial Controller 多协议串行控制器 ? MPSC（multi produce single consumer）多生产者单消费者
+protoactor-go-dev/internal/queue/mpsc
+实现了一个队列先进先出
+使用了 	
+	["sync/atomic"](https://studygolang.com/static/pkgdoc/pkg/sync_atomic.htm)
+		atomic包提供了底层的原子级内存操作，对于同步算法的实现很有用。
+		这些函数必须谨慎地保证正确使用。除了某些特殊的底层应用，使用通道或者sync包的函数/类型实现同步更好。
+		应通过通信来共享内存，而不通过共享内存实现通信		
+	["unsafe"](https://studygolang.com/static/pkgdoc/pkg/unsafe.htm)
+		unsafe包提供了一些跳过go语言类型安全限制的操作。
+		
+这两个包
+
+
+
+
 ## remote
 protoactor-go-dev/remote
 
@@ -45,14 +67,6 @@ protoactor-go-dev/cluster/consul
 ## weighted 加权
 protoactor-go-dev/cluster/weighted
 
-## internal 内核
-protoactor-go-dev/internal/core
-
-## goring 缝以补裆；刺
-protoactor-go-dev/internal/queue/goring
-## MPSC MultiProtocol Serial Controller 多协议串行控制器
-## MPSC（multi produce single consumer）多生产者单消费者
-protoactor-go-dev/internal/queue/mpsc
 
 ## protobuf
 protoactor-go-dev/protobuf/protoc-gen-csgrain
@@ -135,5 +149,5 @@ protoactor-go-dev/examples/supervision
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNzI5NTE5MjIxXX0=
+eyJoaXN0b3J5IjpbMTcyMzczMTU3OCw3Mjk1MTkyMjFdfQ==
 -->
