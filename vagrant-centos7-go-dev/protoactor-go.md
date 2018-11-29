@@ -4,12 +4,18 @@
 protoactor-go-dev
 ## 主要的功能是一个事物管理
 
-## internal 内核
+## internal 内核 IdentifyPanic 用于分析Panic 
 protoactor-go-dev/internal/core
+使用了 
+	["runtime"](https://studygolang.com/static/pkgdoc/pkg/runtime.htm)
 
-## goring 缝以补裆；刺
+## go ring 环形缓冲区
 protoactor-go-dev/internal/queue/goring
-
+	环形缓冲区
+	
+	
+	
+	
 ## MPSC MultiProtocol Serial Controller 多协议串行控制器 ? MPSC（multi produce single consumer）多生产者单消费者
 protoactor-go-dev/internal/queue/mpsc
 实现了一个队列先进先出
@@ -17,13 +23,16 @@ protoactor-go-dev/internal/queue/mpsc
 	["sync/atomic"](https://studygolang.com/static/pkgdoc/pkg/sync_atomic.htm)
 		atomic包提供了底层的原子级内存操作，对于同步算法的实现很有用。
 		这些函数必须谨慎地保证正确使用。除了某些特殊的底层应用，使用通道或者sync包的函数/类型实现同步更好。
-		应通过通信来共享内存，而不通过共享内存实现通信		
+		应通过通信来共享内存，而不通过共享内存实现通信	
+			
 	["unsafe"](https://studygolang.com/static/pkgdoc/pkg/unsafe.htm)
 		unsafe包提供了一些跳过go语言类型安全限制的操作。
 		
 这两个包
 
-
+prev := (*node)(atomic.SwapPointer((*unsafe.Pointer)(unsafe.Pointer(&q.head)), unsafe.Pointer(n)))
+next := (*node)(atomic.LoadPointer((*unsafe.Pointer)(unsafe.Pointer(&tail.next))))
+next := (*node)(atomic.LoadPointer((*unsafe.Pointer)(unsafe.Pointer(&tail.next))))
 
 
 ## remote
@@ -149,5 +158,6 @@ protoactor-go-dev/examples/supervision
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTcyMzczMTU3OCw3Mjk1MTkyMjFdfQ==
+eyJoaXN0b3J5IjpbMTE1NTM0NDY2MiwxNzIzNzMxNTc4LDcyOT
+UxOTIyMV19
 -->
