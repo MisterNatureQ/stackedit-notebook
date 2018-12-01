@@ -67,7 +67,7 @@ sudo systemctl disable firewalld.service#禁止防火墙服务器
 
 #下载需要的包
 
-sudo mkdir -p "${GOPATH}/src/golang.org/x"
+sudo mkdir -p ${GOPATH}/src/golang.org/x
 cd "${GOPATH}/src/golang.org/x"
 git clone https://github.com/golang/net.git "${GOPATH}/src/golang.org/x/net"
 git clone https://github.com/golang/crypto.git "${GOPATH}/src/golang.org/x/crypto"
@@ -112,6 +112,6 @@ sysctl -p /etc/sysctl.d/k8s.conf
 swapoff -a && sysctl -w vm.swappiness=0
 sed '/vagrant--vg-swap_1/d' -i  /etc/fstab
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEyODE3NTI1NDQsLTY5NTAwODI4NywtMj
-MzMTk4ODI3LDM4OTYwMTU0NV19
+eyJoaXN0b3J5IjpbNDYxMzM2NzQ4LC0xMjgxNzUyNTQ0LC02OT
+UwMDgyODcsLTIzMzE5ODgyNywzODk2MDE1NDVdfQ==
 -->
