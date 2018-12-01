@@ -77,6 +77,7 @@ git clone https://github.com/AsynkronIT/protoactor-go.git $GOPATH/src/github.com
 #编译安装protobuf的编译器protoc
 wget https://github.com/google/protobuf/releases/download/v3.6.1/protobuf-all-3.6.1.tar.gz
 tar zxvf protobuf-all-3.6.1.tar.gz
+cd protobuf-all-3.6.1
 ./autogen.sh
 ./configure
 make
@@ -270,10 +271,10 @@ behavior3go github网址为：[https://github.com/magicsea/behavior3go](https://
 go get -u github.com/go-redis/redis
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTExNDY2Mzc5MjMsLTEzMDQxOTc3ODMsMT
-k3MzAxMjIwOCwxMTY3OTQ2NzksLTEwNDMwNjY3MTEsLTU5NTE2
-NTA4NSwtMTcwNzMyMDEwMSwtMTAzNzUwOTA3OSwtODAwMDE4OT
-c5LDE3MzYxMDc1OSwzNjQ1OTI4NTUsMTIwNjU4NDMxNiw3NDU1
-NTM1MjQsMTA2Njc0NDgzMiwtMTM4NjA4MjUwNSwtMzA3NjA2Nj
-U1XX0=
+eyJoaXN0b3J5IjpbLTIzMTc1MTEwNCwtMTE0NjYzNzkyMywtMT
+MwNDE5Nzc4MywxOTczMDEyMjA4LDExNjc5NDY3OSwtMTA0MzA2
+NjcxMSwtNTk1MTY1MDg1LC0xNzA3MzIwMTAxLC0xMDM3NTA5MD
+c5LC04MDAwMTg5NzksMTczNjEwNzU5LDM2NDU5Mjg1NSwxMjA2
+NTg0MzE2LDc0NTU1MzUyNCwxMDY2NzQ0ODMyLC0xMzg2MDgyNT
+A1LC0zMDc2MDY2NTVdfQ==
 -->
