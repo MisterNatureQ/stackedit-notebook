@@ -77,7 +77,7 @@ git clone https://github.com/golang/text.git "${GOPATH}/src/golang.org/x/text"
 git clone https://github.com/golang/tools.git "${GOPATH}/src/golang.org/x/tools"
 git clone https://github.com/golang/image.git "${GOPATH}/src/golang.org/x/image"
 
-git clone https://github.com/golang/image.git "${GOPATH}/src/golang.org/x/[oauth2](https://godoc.org/golang.org/x/oauth2)"
+git clone https://github.com/golang/image.git "${GOPATH}/src/golang.org/x/oauth2"
 
 git clone https://github.com/grpc/grpc-go.git "${GOPATH}/src/google.golang.org/grpc"
 
@@ -117,8 +117,7 @@ sysctl -p /etc/sysctl.d/k8s.conf
 swapoff -a && sysctl -w vm.swappiness=0
 sed '/vagrant--vg-swap_1/d' -i  /etc/fstab
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE0Njc3MDc3MDksMTYxMDI1NjA0MCwtND
-I1MTk4Njg5LDE3MDgxMTYzNTMsNDYxMzM2NzQ4LC0xMjgxNzUy
-NTQ0LC02OTUwMDgyODcsLTIzMzE5ODgyNywzODk2MDE1NDVdfQ
-==
+eyJoaXN0b3J5IjpbMzM0MjE3OTIxLDE2MTAyNTYwNDAsLTQyNT
+E5ODY4OSwxNzA4MTE2MzUzLDQ2MTMzNjc0OCwtMTI4MTc1MjU0
+NCwtNjk1MDA4Mjg3LC0yMzMxOTg4MjcsMzg5NjAxNTQ1XX0=
 -->
