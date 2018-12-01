@@ -27,7 +27,8 @@ sudo echo 'export PATH=$PATH:$GOROOT/bin:$GOPATH/bin' >> /etc/profile
 
 
 #使环境变量生效 这里没有这个命令
-sudo source "/etc/profile"
+source "/etc/profile"
+
 #使环境变量生效
 export "GOROOT=/usr/local/go"
 export "GOPATH=/home/gocode"
@@ -36,7 +37,6 @@ export "PATH=$PATH:$GOROOT/bin:$GOPATH/bin"
 GOPATH="/home/gocode"
 GOROOT="/usr/local/go"
 sudo mkdir -p "${GOPATH}/src/golang.org/x"
-
 
 
 
@@ -112,6 +112,6 @@ sysctl -p /etc/sysctl.d/k8s.conf
 swapoff -a && sysctl -w vm.swappiness=0
 sed '/vagrant--vg-swap_1/d' -i  /etc/fstab
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTY5NTAwODI4NywtMjMzMTk4ODI3LDM4OT
-YwMTU0NV19
+eyJoaXN0b3J5IjpbLTEyODE3NTI1NDQsLTY5NTAwODI4NywtMj
+MzMTk4ODI3LDM4OTYwMTU0NV19
 -->
