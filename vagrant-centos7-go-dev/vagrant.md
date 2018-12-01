@@ -91,7 +91,10 @@ cd actor/; protoc --gogoslick_out=Mgoogle/protobuf/any.proto=github.com/gogo/pro
 protoc-gen-gogoslick: program not found or is not executable
 --gogoslick_out: protoc-gen-gogoslick: Plugin failed with status code 1.
 
-
+```
+go get -u -v github.com/golang/protobuf/protoc-gen-go
+go get -u -v github.com/gogo/protobuf/protoc-gen-gofast
+```
 
 #执行 
 go test `go list ./... | grep -v consul` | grep 'no test files'
@@ -278,10 +281,10 @@ behavior3go github网址为：[https://github.com/magicsea/behavior3go](https://
 go get -u github.com/go-redis/redis
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTEwOTA4NzA0OCwtMjMxNzUxMTA0LC0xMT
-Q2NjM3OTIzLC0xMzA0MTk3NzgzLDE5NzMwMTIyMDgsMTE2Nzk0
-Njc5LC0xMDQzMDY2NzExLC01OTUxNjUwODUsLTE3MDczMjAxMD
-EsLTEwMzc1MDkwNzksLTgwMDAxODk3OSwxNzM2MTA3NTksMzY0
-NTkyODU1LDEyMDY1ODQzMTYsNzQ1NTUzNTI0LDEwNjY3NDQ4Mz
-IsLTEzODYwODI1MDUsLTMwNzYwNjY1NV19
+eyJoaXN0b3J5IjpbNjk4OTM1NzY0LC0yMzE3NTExMDQsLTExND
+Y2Mzc5MjMsLTEzMDQxOTc3ODMsMTk3MzAxMjIwOCwxMTY3OTQ2
+NzksLTEwNDMwNjY3MTEsLTU5NTE2NTA4NSwtMTcwNzMyMDEwMS
+wtMTAzNzUwOTA3OSwtODAwMDE4OTc5LDE3MzYxMDc1OSwzNjQ1
+OTI4NTUsMTIwNjU4NDMxNiw3NDU1NTM1MjQsMTA2Njc0NDgzMi
+wtMTM4NjA4MjUwNSwtMzA3NjA2NjU1XX0=
 -->
