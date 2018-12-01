@@ -116,6 +116,7 @@ go test `go list ./... | grep -v consul` | grep 'no test files'
 缺失的包
 go get github.com/stretchr/testify
 
+# 继续make 遇见错误多make几次 
 
 ```go
 [root@localhost protoactor-go]# go test `go list ./... | grep -v consul` | grep 'ok'           
@@ -296,10 +297,11 @@ behavior3go github网址为：[https://github.com/magicsea/behavior3go](https://
 go get -u github.com/go-redis/redis
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTU3MTI4NzIyLDY5ODkzNTc2NCwtMjMxNz
-UxMTA0LC0xMTQ2NjM3OTIzLC0xMzA0MTk3NzgzLDE5NzMwMTIy
-MDgsMTE2Nzk0Njc5LC0xMDQzMDY2NzExLC01OTUxNjUwODUsLT
-E3MDczMjAxMDEsLTEwMzc1MDkwNzksLTgwMDAxODk3OSwxNzM2
-MTA3NTksMzY0NTkyODU1LDEyMDY1ODQzMTYsNzQ1NTUzNTI0LD
-EwNjY3NDQ4MzIsLTEzODYwODI1MDUsLTMwNzYwNjY1NV19
+eyJoaXN0b3J5IjpbLTEwMzYwNzA4NDQsMTU3MTI4NzIyLDY5OD
+kzNTc2NCwtMjMxNzUxMTA0LC0xMTQ2NjM3OTIzLC0xMzA0MTk3
+NzgzLDE5NzMwMTIyMDgsMTE2Nzk0Njc5LC0xMDQzMDY2NzExLC
+01OTUxNjUwODUsLTE3MDczMjAxMDEsLTEwMzc1MDkwNzksLTgw
+MDAxODk3OSwxNzM2MTA3NTksMzY0NTkyODU1LDEyMDY1ODQzMT
+YsNzQ1NTUzNTI0LDEwNjY3NDQ4MzIsLTEzODYwODI1MDUsLTMw
+NzYwNjY1NV19
 -->
