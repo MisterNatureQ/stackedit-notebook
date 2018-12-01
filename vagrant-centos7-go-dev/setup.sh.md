@@ -91,8 +91,7 @@ cd "${GOPATH}/src/github.com/AsynkronIT/protoactor-go"
 
 go get -v ./...
 
-#sudo 
-#sudo 
+#
 go get -u github.com/golang/protobuf/{proto,protoc-gen-go}
 go install google.golang.org/grpc
 
@@ -116,7 +115,7 @@ sysctl -p /etc/sysctl.d/k8s.conf
 swapoff -a && sysctl -w vm.swappiness=0
 sed '/vagrant--vg-swap_1/d' -i  /etc/fstab
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTQyNTE5ODY4OSwxNzA4MTE2MzUzLDQ2MT
-MzNjc0OCwtMTI4MTc1MjU0NCwtNjk1MDA4Mjg3LC0yMzMxOTg4
-MjcsMzg5NjAxNTQ1XX0=
+eyJoaXN0b3J5IjpbLTE3Mzk5NTQzODYsLTQyNTE5ODY4OSwxNz
+A4MTE2MzUzLDQ2MTMzNjc0OCwtMTI4MTc1MjU0NCwtNjk1MDA4
+Mjg3LC0yMzMxOTg4MjcsMzg5NjAxNTQ1XX0=
 -->
