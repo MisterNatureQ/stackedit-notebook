@@ -84,6 +84,13 @@ make
 make install
 
 
+# 执行 protoactor-go make  protoc-gen-gogoslick 报错
+
+[root@localhost protoactor-go]# make
+cd actor/; protoc --gogoslick_out=Mgoogle/protobuf/any.proto=github.com/gogo/protobuf/types,plugins=grpc:. --proto_path=. --proto_path=/home/gocode/src ./*.proto
+protoc-gen-gogoslick: program not found or is not executable
+--gogoslick_out: protoc-gen-gogoslick: Plugin failed with status code 1.
+
 
 
 #执行 
@@ -271,10 +278,10 @@ behavior3go github网址为：[https://github.com/magicsea/behavior3go](https://
 go get -u github.com/go-redis/redis
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIzMTc1MTEwNCwtMTE0NjYzNzkyMywtMT
-MwNDE5Nzc4MywxOTczMDEyMjA4LDExNjc5NDY3OSwtMTA0MzA2
-NjcxMSwtNTk1MTY1MDg1LC0xNzA3MzIwMTAxLC0xMDM3NTA5MD
-c5LC04MDAwMTg5NzksMTczNjEwNzU5LDM2NDU5Mjg1NSwxMjA2
-NTg0MzE2LDc0NTU1MzUyNCwxMDY2NzQ0ODMyLC0xMzg2MDgyNT
-A1LC0zMDc2MDY2NTVdfQ==
+eyJoaXN0b3J5IjpbMTEwOTA4NzA0OCwtMjMxNzUxMTA0LC0xMT
+Q2NjM3OTIzLC0xMzA0MTk3NzgzLDE5NzMwMTIyMDgsMTE2Nzk0
+Njc5LC0xMDQzMDY2NzExLC01OTUxNjUwODUsLTE3MDczMjAxMD
+EsLTEwMzc1MDkwNzksLTgwMDAxODk3OSwxNzM2MTA3NTksMzY0
+NTkyODU1LDEyMDY1ODQzMTYsNzQ1NTUzNTI0LDEwNjY3NDQ4Mz
+IsLTEzODYwODI1MDUsLTMwNzYwNjY1NV19
 -->
