@@ -93,9 +93,20 @@ protoc-gen-gogoslick: program not found or is not executable
 
 通过安装 updateproto.bat 里面指定的包解决
 
-
-
 ```
+# cat updateproto.bat 
+go get -u github.com/gogo/protobuf/proto
+go get -u github.com/gogo/protobuf/protoc-gen-gogo
+go get -u github.com/gogo/protobuf/gogoproto
+go get -u github.com/gogo/protobuf/protoc-gen-gofast
+go get -u google.golang.org/grpc
+go get -u github.com/gogo/protobuf/protoc-gen-gogofast
+go get -u github.com/gogo/protobuf/protoc-gen-gogofaster
+go get -u github.com/gogo/protobuf/protoc-gen-gogoslick
+```
+
+``
+`
 go get -u -v github.com/golang/protobuf/protoc-gen-go
 go get -u -v github.com/gogo/protobuf/protoc-gen-gofast
 ```
@@ -285,11 +296,10 @@ behavior3go github网址为：[https://github.com/magicsea/behavior3go](https://
 go get -u github.com/go-redis/redis
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTg5MTQ5OTk4MSw2OTg5MzU3NjQsLTIzMT
-c1MTEwNCwtMTE0NjYzNzkyMywtMTMwNDE5Nzc4MywxOTczMDEy
-MjA4LDExNjc5NDY3OSwtMTA0MzA2NjcxMSwtNTk1MTY1MDg1LC
-0xNzA3MzIwMTAxLC0xMDM3NTA5MDc5LC04MDAwMTg5NzksMTcz
-NjEwNzU5LDM2NDU5Mjg1NSwxMjA2NTg0MzE2LDc0NTU1MzUyNC
-wxMDY2NzQ0ODMyLC0xMzg2MDgyNTA1LC0zMDc2MDY2NTVdfQ==
-
+eyJoaXN0b3J5IjpbMTU3MTI4NzIyLDY5ODkzNTc2NCwtMjMxNz
+UxMTA0LC0xMTQ2NjM3OTIzLC0xMzA0MTk3NzgzLDE5NzMwMTIy
+MDgsMTE2Nzk0Njc5LC0xMDQzMDY2NzExLC01OTUxNjUwODUsLT
+E3MDczMjAxMDEsLTEwMzc1MDkwNzksLTgwMDAxODk3OSwxNzM2
+MTA3NTksMzY0NTkyODU1LDEyMDY1ODQzMTYsNzQ1NTUzNTI0LD
+EwNjY3NDQ4MzIsLTEzODYwODI1MDUsLTMwNzYwNjY1NV19
 -->
