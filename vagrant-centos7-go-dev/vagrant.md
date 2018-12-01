@@ -112,7 +112,9 @@ go get -u -v github.com/gogo/protobuf/protoc-gen-gofast
 ```
 
 #执行 
-go test `go list ./... | grep -v consul` | grep 'no test files'
+```
+go test `go list ./... | grep -v consul` | grep -v 'no test files'
+```
 缺失的包
 go get github.com/stretchr/testify
 
@@ -297,11 +299,11 @@ behavior3go github网址为：[https://github.com/magicsea/behavior3go](https://
 go get -u github.com/go-redis/redis
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEwMzYwNzA4NDQsMTU3MTI4NzIyLDY5OD
-kzNTc2NCwtMjMxNzUxMTA0LC0xMTQ2NjM3OTIzLC0xMzA0MTk3
-NzgzLDE5NzMwMTIyMDgsMTE2Nzk0Njc5LC0xMDQzMDY2NzExLC
-01OTUxNjUwODUsLTE3MDczMjAxMDEsLTEwMzc1MDkwNzksLTgw
-MDAxODk3OSwxNzM2MTA3NTksMzY0NTkyODU1LDEyMDY1ODQzMT
-YsNzQ1NTUzNTI0LDEwNjY3NDQ4MzIsLTEzODYwODI1MDUsLTMw
-NzYwNjY1NV19
+eyJoaXN0b3J5IjpbLTg1Mzg3MzIzMywxNTcxMjg3MjIsNjk4OT
+M1NzY0LC0yMzE3NTExMDQsLTExNDY2Mzc5MjMsLTEzMDQxOTc3
+ODMsMTk3MzAxMjIwOCwxMTY3OTQ2NzksLTEwNDMwNjY3MTEsLT
+U5NTE2NTA4NSwtMTcwNzMyMDEwMSwtMTAzNzUwOTA3OSwtODAw
+MDE4OTc5LDE3MzYxMDc1OSwzNjQ1OTI4NTUsMTIwNjU4NDMxNi
+w3NDU1NTM1MjQsMTA2Njc0NDgzMiwtMTM4NjA4MjUwNSwtMzA3
+NjA2NjU1XX0=
 -->
