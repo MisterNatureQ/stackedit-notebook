@@ -85,6 +85,8 @@ sudo git clone https://github.com/google/go-genproto.git "${GOPATH}/src/google.g
 cd "${GOPATH}/src"
 sudo git clone https://github.com/AsynkronIT/protoactor-go.git "${GOPATH}/src/github.com/protoactor-go"
 
+go get github.com/AsynkronIT/protoactor-go/...
+
 sudo cd "${GOPATH}/src/github.com/AsynkronIT/protoactor-go"
 
 #sudo 
@@ -112,7 +114,7 @@ sysctl -p /etc/sysctl.d/k8s.conf
 swapoff -a && sysctl -w vm.swappiness=0
 sed '/vagrant--vg-swap_1/d' -i  /etc/fstab
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTUwNzgzNTgwNSw0NjEzMzY3NDgsLTEyOD
-E3NTI1NDQsLTY5NTAwODI4NywtMjMzMTk4ODI3LDM4OTYwMTU0
-NV19
+eyJoaXN0b3J5IjpbNjE3MTYxMjk4LDQ2MTMzNjc0OCwtMTI4MT
+c1MjU0NCwtNjk1MDA4Mjg3LC0yMzMxOTg4MjcsMzg5NjAxNTQ1
+XX0=
 -->
