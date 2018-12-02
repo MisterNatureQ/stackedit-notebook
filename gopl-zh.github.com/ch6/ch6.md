@@ -18,3 +18,6 @@ func (c Celsius) String() string { return fmt.Sprintf("%g°C", c) }
 ```
 
 在本章中，OOP编程的第一方面，我们会向你展示如何有效地定义和使用方法。我们会覆盖到OOP编程的两个关键点，封装和组合。
+<!--stackedit_data:
+eyJoaXN0b3J5IjpbNzQxMTIxNjAzXX0=
+-->
