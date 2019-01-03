@@ -2,7 +2,7 @@
 
 Designing actor-based program is all about dividing tasks into smaller pieces. Fine-grained actors concentrate on their tasks, collaborate with other actors and accomplish a big task as a whole. Hence mastering actors’ communication mechanism and modeling well-defined messages are always the keys to designing an actor system. This article describes protoactor-go’s actor categories, their messaging methods and how those methods differ on referencing sender actors.
 
-设计 actor-based 的程序就是将任务分成更小的部分。  细粒度的演员专注于他们的任务，与其他演员合作，完成一项重大任务。  因此，掌握演员的沟通机制和对定义明确的消息进行建模始终是设计演员系统的关键。  本文描述了protoactor-go的actor类别，它们的消息传递方法以及这些方法在引用发送方actor方面的不同之处。
+设计 actor-based 的程序就是将任务分成更小的部分。  细粒度的 actors  专注于他们的任务，与其他actors 合作，完成一项重大任务。  因此，掌握演员的沟通机制和对定义明确的消息进行建模始终是设计演员系统的关键。  本文描述了protoactor-go的actor类别，它们的消息传递方法以及这些方法在引用发送方actor方面的不同之处。
 
 See my previous article,  [[Golang] protoactor-go 101: Introduction to golang’s actor model implementation](https://blog.oklahome.net/2018/07/protoactor-go-introduction.html), for protoactor-go’s basic concepts and terms.
 
@@ -447,5 +447,5 @@ By using  [gograin](https://github.com/AsynkronIT/protoactor-go/tree/dev/protobu
 
 While there are several kinds of actors, those actors have unified ways to communicate with other actors no matter where they are located at. However, because an actor.PID is not only a representation of an actor process but also a representation of any actor.Process implementation, extra work may be required for a recipient actor to refer to the sender actor since the returning actor.PID of Context.Sender() is not necessarily a sender actor’s representation. To ensure that the recipient actor can refer to the sender actor, include the sender actor’s PID in the sending message or use Request(). Visit [github.com/oklahomer/protoactor-go-sender-example](https://github.com/oklahomer/protoactor-go-sender-example) for more comprehensive examples.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTI1NTYwMDg2MiwyMDQ4MzI0NjY2XX0=
+eyJoaXN0b3J5IjpbMjA3NzIxMDUwMCwyMDQ4MzI0NjY2XX0=
 -->
