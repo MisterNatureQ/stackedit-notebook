@@ -1,4 +1,5 @@
-from [](https://blog.oklahome.net/2018/07/protoactor-go-introduction.html)
+# [[Golang] protoactor-go 101: Introduction to golang's actor model implementation](https://blog.oklahome.net/2018/07/protoactor-go-introduction.html)
+
 A year has passed since I officially launched  [go-sarah](https://github.com/oklahomer/go-sarah). While this bot framework had been a great help with my ChatOps, I found myself becoming more and more interested in designing a chat system as a whole. Not just a text-based communication tool or its varied extension; but as a customizable event aggregation system that provides and consumes any conceivable event varied from virtual to real-life. In the course of its server-side design, Golang’s actor model implementation,  [protoactor-go](https://github.com/AsynkronIT/protoactor-go/), seemed like a good option. However, protoactor-go is still in its Beta phase and has less documentation at this point in time. This article describes what I have learned about this product. The basic of actor model is not going to be covered, but for those who are interested, my previous post “[Yet another Akka introduction for dummies](https://blog.oklahome.net/2016/01/akka-introduction-for-dummies.html)“ might be a help.
 
 Unless otherwise noted, this introduction is based on the latest version as of  [2018-07-21](https://github.com/AsynkronIT/protoactor-go/commit/3992780c0af683deb5ec3746f4ec5845139c6e42).
@@ -224,5 +225,5 @@ See below articles for more information:
     
 -   [protoactor-go 201: Use plugins to add behaviors to an actor](https://blog.oklahome.net/2018/12/protoactor-go-use-plugin-to-add-behavior.html)
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTQ1OTU3NTQ0OV19
+eyJoaXN0b3J5IjpbMTMwNDg5NDM4M119
 -->
