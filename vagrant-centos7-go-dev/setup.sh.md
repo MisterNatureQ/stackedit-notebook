@@ -76,21 +76,11 @@ git clone https://github.com/golang/mobile.git "${GOPATH}/src/golang.org/x/mobil
 git clone https://github.com/golang/text.git "${GOPATH}/src/golang.org/x/text"
 git clone https://github.com/golang/tools.git "${GOPATH}/src/golang.org/x/tools"
 git clone https://github.com/golang/image.git "${GOPATH}/src/golang.org/x/image"
-
-git clone https://github.com/golang/image.git "${GOPATH}/src/golang.org/x/oauth2"
-
+git clone https://github.com/golang/oauth2.git "${GOPATH}/src/golang.org/x/oauth2"
 git clone https://github.com/grpc/grpc-go.git "${GOPATH}/src/google.golang.org/grpc"
-
-
-sudo git clone https://github.com/google/go-genproto.git "${GOPATH}/src/google.golang.org/genproto"
-
-cd "${GOPATH}/src"
-sudo git clone https://github.com/AsynkronIT/protoactor-go.git "${GOPATH}/src/github.com/protoactor-go"
-
-go get github.com/AsynkronIT/protoactor-go/...
-
+git clone https://github.com/google/go-genproto.git "${GOPATH}/src/google.golang.org/genproto"
+git clone https://github.com/AsynkronIT/protoactor-go.git "${GOPATH}/src/github.com/protoactor-go"
 cd "${GOPATH}/src/github.com/AsynkronIT/protoactor-go"
-
 go get -v ./...
 
 # grpc
@@ -117,7 +107,8 @@ sysctl -p /etc/sysctl.d/k8s.conf
 swapoff -a && sysctl -w vm.swappiness=0
 sed '/vagrant--vg-swap_1/d' -i  /etc/fstab
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMzM0MjE3OTIxLDE2MTAyNTYwNDAsLTQyNT
-E5ODY4OSwxNzA4MTE2MzUzLDQ2MTMzNjc0OCwtMTI4MTc1MjU0
-NCwtNjk1MDA4Mjg3LC0yMzMxOTg4MjcsMzg5NjAxNTQ1XX0=
+eyJoaXN0b3J5IjpbLTExOTgyNDIxNTcsMzM0MjE3OTIxLDE2MT
+AyNTYwNDAsLTQyNTE5ODY4OSwxNzA4MTE2MzUzLDQ2MTMzNjc0
+OCwtMTI4MTc1MjU0NCwtNjk1MDA4Mjg3LC0yMzMxOTg4MjcsMz
+g5NjAxNTQ1XX0=
 -->
