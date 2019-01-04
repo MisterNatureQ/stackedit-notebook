@@ -86,43 +86,25 @@ type ping struct {
 }
 
 type pongActor struct {
-
-timeOut bool
-
+	timeOut bool
 }
 
 func (p *pongActor) Receive(ctx actor.Context) {
-
-// Dead letter occurs because the PID of Future process ends and goes away when Future times out
-
-// so the pongActor fails to send message.
-
-switch ctx.Message().(type) {
-
-case *ping:
-
-var sleep time.Duration
-
-if p.timeOut {
-
-sleep = 2500 * time.Millisecond
-
-p.timeOut = false
-
-} else {
-
-sleep = 300 * time.Millisecond
-
-p.timeOut = true
-
-}
-
-time.Sleep(sleep)
-
-ctx.Sender().Tell(&pong{})
-
-}
-
+	// Dead letter occurs because the PID of Future process ends and goes away when Future times out
+	// so the pongActor fails to send message.
+	switch ctx.Message().(type) {
+		case *ping:
+		var sleep time.Duration
+		if p.timeOut {
+		sleep = 2500 * time.Millisecond
+		p.timeOut = false
+	} else {
+		sleep = 300 * time.Millisecond
+		p.timeOut = true
+		}
+		time.Sleep(sleep)
+		ctx.Sender().Tell(&pong{})
+	}
 }
 
 type pingActor struct {
@@ -650,6 +632,6 @@ log.Print("Finish")
 
 As described in above sections, Future provides various methods to synchronize concurrent execution. While concurrent execution is the core of actor model, these come in handy to synchronize concurrent execution with minimal cost.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNzg5MzEzMTUyLDE1OTM0MTkyNzUsLTE2Mz
-Y2ODgwNTcsLTM0MDI5MTg4LDIxMzcxMDM4NzhdfQ==
+eyJoaXN0b3J5IjpbLTU3ODY3NTQ2NCwxNTkzNDE5Mjc1LC0xNj
+M2Njg4MDU3LC0zNDAyOTE4OCwyMTM3MTAzODc4XX0=
 -->
