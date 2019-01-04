@@ -16,7 +16,7 @@ See my previous article,  [[Golang] protoactor-go 101: Introduction to golang’
     -   [Cluster grain’s unique RPC based messaging](https://blog.oklahome.net/2018/09/protoactor-go-messaging-protocol.html#toc_7)
 -   [Conclusion](https://blog.oklahome.net/2018/09/protoactor-go-messaging-protocol.html#toc_8)
 
-# TL;DR
+# TL;DR     Too long; Didn't read（太长，所以没有看）
 
 While there are several kinds of actors, those actors share a unified interface to communicate with each other. Various methods are provided for their communication, but always use Request() to acknowledge the recipient actor who the sender actor is. When that is not an option, include the sender actor’s [actor.PID](https://github.com/AsynkronIT/protoactor-go/blob/3992780c0af683deb5ec3746f4ec5845139c6e42/actor/pid.go#L12-L17) in the sending message.
 
@@ -447,5 +447,6 @@ By using  [gograin](https://github.com/AsynkronIT/protoactor-go/tree/dev/protobu
 
 While there are several kinds of actors, those actors have unified ways to communicate with other actors no matter where they are located at. However, because an actor.PID is not only a representation of an actor process but also a representation of any actor.Process implementation, extra work may be required for a recipient actor to refer to the sender actor since the returning actor.PID of Context.Sender() is not necessarily a sender actor’s representation. To ensure that the recipient actor can refer to the sender actor, include the sender actor’s PID in the sending message or use Request(). Visit [github.com/oklahomer/protoactor-go-sender-example](https://github.com/oklahomer/protoactor-go-sender-example) for more comprehensive examples.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTAzNjg3MTI3OCwyMDQ4MzI0NjY2XX0=
+eyJoaXN0b3J5IjpbMTIxOTgzNTk1NywxMDM2ODcxMjc4LDIwND
+gzMjQ2NjZdfQ==
 -->
