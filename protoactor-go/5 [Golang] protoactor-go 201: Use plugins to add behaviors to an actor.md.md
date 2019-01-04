@@ -235,6 +235,7 @@ func (state *MyActor) Receive(context actor.Context) {
 # Conclusion
 
 To add a pluggable behavior to an actor, a developer can provde a plugin by implementing  `plugin.plugin`  interface. By defining core interface and its embeddable default implementation of the plugin, it is quite easier to separate the areas of responsibility of a plugin and an actor.
+
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE5MTQ3MTAwXX0=
+eyJoaXN0b3J5IjpbODEzMDkxNzk0XX0=
 -->
