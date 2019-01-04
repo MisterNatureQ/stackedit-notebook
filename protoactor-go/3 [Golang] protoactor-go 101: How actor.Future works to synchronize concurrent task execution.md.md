@@ -28,9 +28,14 @@ In protoactor-go,  `actor.Future`  provides methods to wait for destination acto
 
 The implementation of protoactor-go’s Future mechanism is composed of  [`actor.Future`](https://github.com/AsynkronIT/protoactor-go/blob/f373762276d85e13d8b2999e58e36d01d44e569d/actor/future.go#L35-L45)  and  [`actor.futureProcess`](https://github.com/AsynkronIT/protoactor-go/blob/f373762276d85e13d8b2999e58e36d01d44e569d/actor/future.go#L109-L112), where  `actor.Future`  provides common Future methods while  `actor.futureProcess`  wraps  `actor.Future`  and works as a  `actor.Process`. A developer may call  `Context.RequestFuture()`  or  `PID.RequestFuture()`  instead of commonly used  `Context.Request()`or  `PID.Request()`  to acquire  `actor.Future`  that represents a non-determined result.
 
+protoactor-go的Future机制的实现由[`actor.Future`](https://github.com/AsynkronIT/protoactor-go/blob/f373762276d85e13d8b2999e58e36d01d44e569d/actor/future.go#L35-L45)和[`actor.futureProcess`](https://github.com/AsynkronIT/protoactor-go/blob/f373762276d85e13d8b2999e58e36d01d44e569d/actor/future.go#L109-L112)组成，其中`actor.Future`提供常见的Future方法，而`actor.futureProcess`包含`actor.Future`并作为`actor.Process`  。  开发人员可以调用`Context.RequestFuture()`或`PID.RequestFuture()`而不是常用的`Context.Request()`或`PID.Request()`来获取表示未确定结果的`actor.Future`  。
+
 In those method calls,  `actor.NewFuture()`  is called with preferred timeout duration as an argument. In  `actor.NewFuture()`,  `actor.Future`  and its wrapper –  `actor.futureProcess`  – are both constructed,  `actor.futureProcess`  is registered to protoactor-go’s internal process registry for a later reference and  `actor.Future`  is returned.
 
+在这些方法调用中，调用`actor.NewFuture()`  ，  `actor.NewFuture()`首选超时持续时间作为参数。  在`actor.NewFuture()`  ，  `actor.Future`及其包装器 -  `actor.futureProcess`  - 都被构造，  `actor.futureProcess`被注册到protoactor-go的内部进程注册表以供稍后的引用和`actor.Future`返回。
+
 As depicted in the below code fragment,  `actor.Future`’s  `actor.PID`  is set as a  `Sender`  of the requesting message. So when the receiving actor responds to the sender, the response is actually sent to the  `actor.Future`’s  `actor.PID`. When  `actor.Future`  receives the response, the result of the Future is set and becomes available to the subscriber.
+如下面的代码片段所示，  `actor.Future`的`actor.PID`被设置为请求消息的发送者。  因此，当`actor.Future`响应发送者时，响应实际上被发送给了`actor.Future`的`actor.PID`  。当`actor.Future`收到响应时，将设置Future的结果并使订户可以使用。
 
 ```go
 func (ctx *localContext) RequestFuture(pid *PID, message interface{}, timeout time.Duration) *Future {  
@@ -645,5 +650,6 @@ log.Print("Finish")
 
 As described in above sections, Future provides various methods to synchronize concurrent execution. While concurrent execution is the core of actor model, these come in handy to synchronize concurrent execution with minimal cost.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTM0MDI5MTg4LDIxMzcxMDM4NzhdfQ==
+eyJoaXN0b3J5IjpbLTE2MzY2ODgwNTcsLTM0MDI5MTg4LDIxMz
+cxMDM4NzhdfQ==
 -->
