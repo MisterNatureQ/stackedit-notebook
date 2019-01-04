@@ -1,23 +1,28 @@
-# [[Golang] protoactor-go 101: How actor.Future works to synchronize concurrent task execution](https://blog.oklahome.net/2018/11/protoactor-go-how-future-works.html)
+# [[Golang] protoactor-go 101: How actor.Future works to synchronize concurrent task execution](https://blog.oklahome.net/2018/11/protoactor-go-how-future-works.html)  actor.Future如何同步并发任务执行
 
 Fine-grained actors concentrate on their own tasks and communicate with others to accomplish a bigger task as a whole. That is how a well-designed actor system works. Because each actor handles a smaller part of an incoming task, pass it to another and then proceed to work on the next incoming task, actors can efficiently work in a concurrent manner to accomplish more tasks in the same amount of time. To pass a result of one actor’s job execution to another or to execute a task when another actor’s execution is done, actor.Future mechanism comes in handy.
 
+细粒度的actors 专注于自己的任务，并与他人沟通，以完成一个更大的任务。  这就是精心设计的 actor 系统的运作方式。  因为每个actor处理传入任务的较小部分，将其传递给另一个，然后继续处理下一个传入任务，actor可以以并发方式有效地工作，以在相同的时间内完成更多任务。**  要将一个actor的作业执行结果传递给另一个actor，或者在另一个actor的执行完成时执行任务，actor.Future机制就派上用场了。** 
+
 -   [Introducing Future](https://blog.oklahome.net/2018/11/protoactor-go-how-future-works.html#toc_0)
-    -   [How this works under the hood](https://blog.oklahome.net/2018/11/protoactor-go-how-future-works.html#toc_1)
+-   [How this works under the hood](https://blog.oklahome.net/2018/11/protoactor-go-how-future-works.html#toc_1)
 -   [Future.Wait() / Future.Result()](https://blog.oklahome.net/2018/11/protoactor-go-how-future-works.html#toc_2)
 -   [Future.PipeTo()](https://blog.oklahome.net/2018/11/protoactor-go-how-future-works.html#toc_3)
 -   [Context.AwaitFuture()](https://blog.oklahome.net/2018/11/protoactor-go-how-future-works.html#toc_4)
 -   [Conclusion](https://blog.oklahome.net/2018/11/protoactor-go-how-future-works.html#toc_5)
 
-# Introducing Future
+# Introducing Future 介绍 Future 
 
 The basic idea of “future” in this context is quite similar to that of  `future`  and  `promise`  implemented by many modern programming languages to coordinate concurrent executions.
+“future”的基本思想非常类似于`future`和`promise` 许多现代编程语言为 协调并发执行 的实现。
 
 For example,  [`Future`](https://docs.oracle.com/javase/8/docs/api/index.html?java/util/concurrent/Future.html)’s Javadoc reads as below:
 
 > A`Future`represents the result of an asynchronous computation. Methods are provided to check if the computation is complete, to wait for its completion, and to retrieve the result of the computation.
+>`Future`表示异步计算的结果。  提供方法以检查计算是否完成，等待其完成，以及取回计算结果。
 
 In protoactor-go,  `actor.Future`  provides methods to wait for destination actor’s response in a blocking manner, to pipe one actor’s response to another in a non-blocking manner and to execute a callback function when destination actor’s response arrives.
+在protoactor-go中， `actor.Future`提供了以阻塞方式等待目标actor的响应的方法，以非阻塞方式将一个actor的回应 传递给另一个actor，并在目标actor的 回应 到达时执行回调函数。
 
 ## How this works under the hood
 
@@ -640,5 +645,5 @@ log.Print("Finish")
 
 As described in above sections, Future provides various methods to synchronize concurrent execution. While concurrent execution is the core of actor model, these come in handy to synchronize concurrent execution with minimal cost.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjEzNzEwMzg3OF19
+eyJoaXN0b3J5IjpbLTM0MDI5MTg4LDIxMzcxMDM4NzhdfQ==
 -->
