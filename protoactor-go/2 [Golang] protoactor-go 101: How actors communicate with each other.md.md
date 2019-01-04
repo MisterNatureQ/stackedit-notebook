@@ -37,7 +37,7 @@ protoactor-go有三种 actors：本地，远程和集群。
 -   Local … Those actors located in the same process.  
     本地......那些actors  位于同一个进程中 并不是actor process
 -   Remote … Actors located in different processes or servers. An actor is considered to be “local” when addressed from within the same process; while this is “remote” when addressed across a network. Because a message is sent over a network, message serialization is required. Protocol Buffers is used for this task in protoactor-go.  
-    远程...位于不同进程或服务器中的Actor。  当在同一过程中处理时，行为者被认为是“本地的”;  虽然这是通过网络寻址的“远程”。  由于消息是通过网络发送的，因此需要进行消息序列化。  Protocol Buffers用于protoactor-go中的此任务。
+    远程...位于不同进程或服务器中的Actor。  当在同一过程中处理时，Actor被认为是“local”;  虽然这是通过网络寻址的“远程”。  由于消息是通过网络发送的，因此需要进行消息序列化。  Protocol Buffers用于protoactor-go中的此任务。
     
 -   Cluster grain … A kind of remote actor but the lifecycle and other complexity are taken care of by protoactor-go library. Cluster topology is managed by  [consul](https://www.consul.io/)  and a grain can be addressed over a network. Consul manages the cluster membership and the availability of each node.  
     
@@ -452,7 +452,7 @@ By using  [gograin](https://github.com/AsynkronIT/protoactor-go/tree/dev/protobu
 
 While there are several kinds of actors, those actors have unified ways to communicate with other actors no matter where they are located at. However, because an actor.PID is not only a representation of an actor process but also a representation of any actor.Process implementation, extra work may be required for a recipient actor to refer to the sender actor since the returning actor.PID of Context.Sender() is not necessarily a sender actor’s representation. To ensure that the recipient actor can refer to the sender actor, include the sender actor’s PID in the sending message or use Request(). Visit [github.com/oklahomer/protoactor-go-sender-example](https://github.com/oklahomer/protoactor-go-sender-example) for more comprehensive examples.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbODE2NTQ2MDEyLDY0MTQ0OTYzNiwxMDM5Nz
+eyJoaXN0b3J5IjpbNDMzNTU5OTU1LDY0MTQ0OTYzNiwxMDM5Nz
 Y4NTA2LDg3MDMyOTE4MiwxMDM2ODcxMjc4LDIwNDgzMjQ2NjZd
 fQ==
 -->
