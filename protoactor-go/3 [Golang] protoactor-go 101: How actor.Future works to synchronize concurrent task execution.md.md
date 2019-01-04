@@ -60,7 +60,11 @@ The usage of the  `actor.Future`  returned by those methods are covered in later
 
 To wait until the execution times out or the destination actor responds, use  `Future.Wait()`  or  `Future.Result()`. They both internally call a blocking private method,  `Future.wait()`, to block till the preconfigured timeout duration passes or the execution completes. The only difference is whether to return the result of the computation;  `Future.Wait()`  simply waits for completion just like  [`WaitGroup.Wait()`](https://golang.org/pkg/sync/#WaitGroup.Wait)  while  `Future.Result()`  waits for completion and additionally returns the result ot the computation as its name suggests.
 
+要等到执行超时或目标actor响应，请使用`Future.Wait()`或`Future.Result()`  。  它们都在内部调用阻塞私有方法`Future.wait()`  ，直到预配置的超时持续时间通过或执行完成为止。  唯一的区别是是否返回计算结果;  `Future.Wait()`只是像[`WaitGroup.Wait()`](https://golang.org/pkg/sync/#WaitGroup.Wait)一样等待完成，而`Future.Result()`等待完成，另外返回计算结果，顾名思义。
+
 ![](https://2.bp.blogspot.com/-1UlqPWNdFaY/W_fgLwxkgnI/AAAAAAAAA4Y/TwcDNHeR9Gg0QPALyRoHPvkVuh4udkysgCPcBGAYYCw/s1600/timeline.png)
+
+```go
 
 package main
 
@@ -231,7 +235,7 @@ log.Print("Finish")
 }
 
 }
-
+```
 [view raw](https://gist.github.com/oklahomer/96001c239d871890087e673d5908c3a9/raw/236c400f2004955211ccbc9dbf27b65c6096a264/wait.go)[wait.go](https://gist.github.com/oklahomer/96001c239d871890087e673d5908c3a9#file-wait-go)  hosted with ❤ by  [GitHub](https://github.com/)
 
 These methods are useful to retrieve the destination actors response and proceed own logic but are not usually preferred because the idea of such synchronous execution conflicts with the nature of actor model: concurrent computation.
@@ -653,6 +657,6 @@ log.Print("Finish")
 
 As described in above sections, Future provides various methods to synchronize concurrent execution. While concurrent execution is the core of actor model, these come in handy to synchronize concurrent execution with minimal cost.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEwNTI0ODc5NjEsLTE2MzY2ODgwNTcsLT
-M0MDI5MTg4LDIxMzcxMDM4NzhdfQ==
+eyJoaXN0b3J5IjpbMTU5MzQxOTI3NSwtMTYzNjY4ODA1NywtMz
+QwMjkxODgsMjEzNzEwMzg3OF19
 -->
