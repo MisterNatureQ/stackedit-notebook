@@ -112,31 +112,29 @@ type pingActor struct {
 }
 
 func (p *pingActor) Receive(ctx actor.Context) {
+
 	switch ctx.Message().(type) {
-	case struct{}:
-	// Output becomes somewhat like below.
-	// See a diagram at https://raw.githubusercontent.com/oklahomer/protoactor-go-future-example/master/docs/wait/timeline.png
-	//
-	// 2018/10/13 17:03:22 Received pong message &main.pong{}
-	// 2018/10/13 17:03:24 Timed out
-	// 2018/10/13 08:03:26 [ACTOR] [DeadLetter] pid="nonhost/future$4" message=&{} sender="nil"
-	// 2018/10/13 17:03:26 Received pong message &main.pong{}
-	// 2018/10/13 17:03:28 Timed out
-	// 2018/10/13 08:03:30 [ACTOR] [DeadLetter] pid="nonhost/future$6" message=&{} sender="nil"
-	// 2018/10/13 17:03:30 Received pong message &main.pong{}
+		case struct{}:
+		// Output becomes somewhat like below.
+		// See a diagram at https://raw.githubusercontent.com/oklahomer/protoactor-go-future-example/master/docs/wait/timeline.png
+		//
+		// 2018/10/13 17:03:22 Received pong message &main.pong{}
+		// 2018/10/13 17:03:24 Timed out
+		// 2018/10/13 08:03:26 [ACTOR] [DeadLetter] pid="nonhost/future$4" message=&{} sender="nil"
+		// 2018/10/13 17:03:26 Received pong message &main.pong{}
+		// 2018/10/13 17:03:28 Timed out
+		// 2018/10/13 08:03:30 [ACTOR] [DeadLetter] pid="nonhost/future$6" message=&{} sender="nil"
+		// 2018/10/13 17:03:30 Received pong message &main.pong{}
+		future := p.pongPid.RequestFuture(&ping{}, 1*time.Second)
 
-	future := p.pongPid.RequestFuture(&ping{}, 1*time.Second)
+		// Future.Result internally waits until response comes or times out
+		result, err := future.Result()
 
-	// Future.Result internally waits until response comes or times out
-
-	result, err := future.Result()
-
-	if err != nil {
-		log.Print("Timed out")
-		return
-	}
-
-	log.Printf("Received pong message %#v", result)
+		if err != nil {
+			log.Print("Timed out")
+			return
+		}
+		log.Printf("Received pong message %#v", result)
 	}
 }
 
@@ -591,6 +589,6 @@ log.Print("Finish")
 
 As described in above sections, Future provides various methods to synchronize concurrent execution. While concurrent execution is the core of actor model, these come in handy to synchronize concurrent execution with minimal cost.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTczOTExNzQwMiwxNTkzNDE5Mjc1LC0xNj
+eyJoaXN0b3J5IjpbMTA2MzQ3NzA1MCwxNTkzNDE5Mjc1LC0xNj
 M2Njg4MDU3LC0zNDAyOTE4OCwyMTM3MTAzODc4XX0=
 -->
