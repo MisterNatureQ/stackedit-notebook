@@ -54,6 +54,8 @@ func (ctx *localContext) RequestFuture(pid *PID, message interface{}, timeout ti
 
 The usage of the  `actor.Future`  returned by those methods are covered in later sections with detailed example codes. All example codes are available at  [github.com/oklahomer/protoactor-go-future-example](https://github.com/oklahomer/protoactor-go-future-example).
 
+这些方法返回的`actor.Future`的用法将在后面的章节中详细介绍示例代码。  所有示例代码均可在[github.com/oklahomer/protoactor-go-future-example上获得](https://github.com/oklahomer/protoactor-go-future-example).
+
 # Future.Wait() / Future.Result()
 
 To wait until the execution times out or the destination actor responds, use  `Future.Wait()`  or  `Future.Result()`. They both internally call a blocking private method,  `Future.wait()`, to block till the preconfigured timeout duration passes or the execution completes. The only difference is whether to return the result of the computation;  `Future.Wait()`  simply waits for completion just like  [`WaitGroup.Wait()`](https://golang.org/pkg/sync/#WaitGroup.Wait)  while  `Future.Result()`  waits for completion and additionally returns the result ot the computation as its name suggests.
@@ -651,6 +653,6 @@ log.Print("Finish")
 
 As described in above sections, Future provides various methods to synchronize concurrent execution. While concurrent execution is the core of actor model, these come in handy to synchronize concurrent execution with minimal cost.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTY1NTgzMzgyMiwtMTYzNjY4ODA1NywtMz
-QwMjkxODgsMjEzNzEwMzg3OF19
+eyJoaXN0b3J5IjpbLTEwNTI0ODc5NjEsLTE2MzY2ODgwNTcsLT
+M0MDI5MTg4LDIxMzcxMDM4NzhdfQ==
 -->
