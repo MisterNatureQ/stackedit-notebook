@@ -20,7 +20,7 @@ See my previous article,  [[Golang] protoactor-go 101: Introduction to golang’
 
 While there are several kinds of actors, those actors share a unified interface to communicate with each other. Various methods are provided for their communication, but always use Request() to acknowledge the recipient actor who the sender actor is. When that is not an option, include the sender actor’s [actor.PID](https://github.com/AsynkronIT/protoactor-go/blob/3992780c0af683deb5ec3746f4ec5845139c6e42/actor/pid.go#L12-L17) in the sending message.
 
-虽然有几种演员，但这些演员共享一个统一的界面来相互沟通。  为它们的通信提供了各种方法，但总是使用Request（）来确认发送方actor所在的接收方actor。  如果这不是一个选项，  [请](https://github.com/AsynkronIT/protoactor-go/blob/3992780c0af683deb5ec3746f4ec5845139c6e42/actor/pid.go#L12-L17)在发送消息中包含发送方actor的[actor.PID](https://github.com/AsynkronIT/protoactor-go/blob/3992780c0af683deb5ec3746f4ec5845139c6e42/actor/pid.go#L12-L17)  。
+虽然有几种 actors ，但这些 actors 共享一个统一的界面来相互沟通。  为它们的通信提供了各种方法，但总是使用Request（）来确认发送方actor所在的接收方actor。  如果这不是一个选项，  [请](https://github.com/AsynkronIT/protoactor-go/blob/3992780c0af683deb5ec3746f4ec5845139c6e42/actor/pid.go#L12-L17)在发送消息中包含发送方actor的[actor.PID](https://github.com/AsynkronIT/protoactor-go/blob/3992780c0af683deb5ec3746f4ec5845139c6e42/actor/pid.go#L12-L17)  。
 
 # Example codes
 
@@ -449,6 +449,6 @@ By using  [gograin](https://github.com/AsynkronIT/protoactor-go/tree/dev/protobu
 
 While there are several kinds of actors, those actors have unified ways to communicate with other actors no matter where they are located at. However, because an actor.PID is not only a representation of an actor process but also a representation of any actor.Process implementation, extra work may be required for a recipient actor to refer to the sender actor since the returning actor.PID of Context.Sender() is not necessarily a sender actor’s representation. To ensure that the recipient actor can refer to the sender actor, include the sender actor’s PID in the sending message or use Request(). Visit [github.com/oklahomer/protoactor-go-sender-example](https://github.com/oklahomer/protoactor-go-sender-example) for more comprehensive examples.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE0NzcxNzEzMjIsMTAzNjg3MTI3OCwyMD
-Q4MzI0NjY2XX0=
+eyJoaXN0b3J5IjpbMTkxNzU0NTkzMCwxMDM2ODcxMjc4LDIwND
+gzMjQ2NjZdfQ==
 -->
