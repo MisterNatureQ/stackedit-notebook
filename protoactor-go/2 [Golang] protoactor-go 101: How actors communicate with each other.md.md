@@ -31,7 +31,7 @@ Example codes that cover all communication means for all actor implementations a
 # Premise: Three major kinds of actors 引出：三大类actors 
 
 protoactor-go comes with three kinds of actors: local, remote and cluster grain.
-protoactor-go有三种 actors：本地，远程和集群。
+protoactor-go有三种 actors：本地，远程和集群粒子。
 [![](https://3.bp.blogspot.com/-Rn0COjNd0qQ/W6hy96hicDI/AAAAAAAAA2U/HjaHhdsEOLAYt3BrQT8GXFkKnjuxUwNlgCEwYBhgL/s1600/components.png)](https://3.bp.blogspot.com/-Rn0COjNd0qQ/W6hy96hicDI/AAAAAAAAA2U/HjaHhdsEOLAYt3BrQT8GXFkKnjuxUwNlgCEwYBhgL/s1600/components.png)
 
 -   Local … Those actors located in the same process.  
@@ -40,7 +40,7 @@ protoactor-go有三种 actors：本地，远程和集群。
     远程...位于不同进程或服务器中的Actor。  当收信地址 在同一过程中处理时，Actor被认为是“local”;  虽然这是通过网络寻址的“远程”。  由于消息是通过网络发送的，因此需要进行消息序列化。  Protocol Buffers用于protoactor-go中的此任务。
     
 -   Cluster grain … A kind of remote actor but the lifecycle and other complexity are taken care of by protoactor-go library. Cluster topology is managed by  [consul](https://www.consul.io/)  and a grain can be addressed over a network. Consul manages the cluster membership and the availability of each node.  
-    
+    集群粒子......一种远程演员，但生命周期和其他复杂性由protoactor-go库来处理。  群集拓扑由[consul](https://translate.googleusercontent.com/translate_c?depth=1&hl=zh-CN&rurl=translate.google.com&sl=en&sp=nmt4&tl=zh-CN&u=https://www.consul.io/&xid=17259,15700023,15700124,15700186,15700191,15700201,15700237,15700242,15700248&usg=ALkJrhj1dNigtoaWfyjmZnonELF3U6vZDA)管理，粮食可以通过网络进行寻址。  Consul管理集群成员资格和每个节点的可用性。
 
 Thanks to the location transparency, an actor can communicate with other actors in the same way without worrying about where the recipient actors are located at. In addition to those basic communication means, a cluster grain has an extra mechanism to provide RPC based interface.
 
@@ -452,7 +452,7 @@ By using  [gograin](https://github.com/AsynkronIT/protoactor-go/tree/dev/protobu
 
 While there are several kinds of actors, those actors have unified ways to communicate with other actors no matter where they are located at. However, because an actor.PID is not only a representation of an actor process but also a representation of any actor.Process implementation, extra work may be required for a recipient actor to refer to the sender actor since the returning actor.PID of Context.Sender() is not necessarily a sender actor’s representation. To ensure that the recipient actor can refer to the sender actor, include the sender actor’s PID in the sending message or use Request(). Visit [github.com/oklahomer/protoactor-go-sender-example](https://github.com/oklahomer/protoactor-go-sender-example) for more comprehensive examples.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbOTUxOTI5OTIwLDY0MTQ0OTYzNiwxMDM5Nz
-Y4NTA2LDg3MDMyOTE4MiwxMDM2ODcxMjc4LDIwNDgzMjQ2NjZd
-fQ==
+eyJoaXN0b3J5IjpbMTk0OTI1ODg3OCw2NDE0NDk2MzYsMTAzOT
+c2ODUwNiw4NzAzMjkxODIsMTAzNjg3MTI3OCwyMDQ4MzI0NjY2
+XX0=
 -->
