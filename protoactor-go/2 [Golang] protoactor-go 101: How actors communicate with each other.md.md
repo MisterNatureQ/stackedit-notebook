@@ -31,7 +31,7 @@ Example codes that cover all communication means for all actor implementations a
 # Premise: Three major kinds of actors 引出：三大类actors 
 
 protoactor-go comes with three kinds of actors: local, remote and cluster grain.
-
+protoactor-go有三种 actors：本地，远程和集群。
 [![](https://3.bp.blogspot.com/-Rn0COjNd0qQ/W6hy96hicDI/AAAAAAAAA2U/HjaHhdsEOLAYt3BrQT8GXFkKnjuxUwNlgCEwYBhgL/s1600/components.png)](https://3.bp.blogspot.com/-Rn0COjNd0qQ/W6hy96hicDI/AAAAAAAAA2U/HjaHhdsEOLAYt3BrQT8GXFkKnjuxUwNlgCEwYBhgL/s1600/components.png)
 
 -   Local … Those actors located in the same process.  
@@ -451,6 +451,6 @@ By using  [gograin](https://github.com/AsynkronIT/protoactor-go/tree/dev/protobu
 
 While there are several kinds of actors, those actors have unified ways to communicate with other actors no matter where they are located at. However, because an actor.PID is not only a representation of an actor process but also a representation of any actor.Process implementation, extra work may be required for a recipient actor to refer to the sender actor since the returning actor.PID of Context.Sender() is not necessarily a sender actor’s representation. To ensure that the recipient actor can refer to the sender actor, include the sender actor’s PID in the sending message or use Request(). Visit [github.com/oklahomer/protoactor-go-sender-example](https://github.com/oklahomer/protoactor-go-sender-example) for more comprehensive examples.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTAzOTc2ODUwNiw4NzAzMjkxODIsMTAzNj
-g3MTI3OCwyMDQ4MzI0NjY2XX0=
+eyJoaXN0b3J5IjpbNjQxNDQ5NjM2LDEwMzk3Njg1MDYsODcwMz
+I5MTgyLDEwMzY4NzEyNzgsMjA0ODMyNDY2Nl19
 -->
