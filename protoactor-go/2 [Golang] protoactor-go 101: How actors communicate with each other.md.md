@@ -44,7 +44,11 @@ protoactor-go有三种 actors：本地，远程和集群粒子。
 
 Thanks to the location transparency, an actor can communicate with other actors in the same way without worrying about where the recipient actors are located at. In addition to those basic communication means, a cluster grain has an extra mechanism to provide RPC based interface.
 
+由于位置透明，演员可以以相同的方式与其他演员沟通，而不必担心收件人演员所在的位置。除了那些基本的通信手段之外，群集粒度还有一个额外的机制来提供基于RPC的接口。
+
 Each actor is encapsulated in an actor.PID instance so developers communicate with actors via methods provided by this actor.PID. (actor.Context also provides equivalent methods, but these can be considered as wrappers for actor.PID’s corresponding methods.) One important thing to remember is that above actors are not the only entities encapsulated in actor.PIDs. As a matter of fact, any actor.Process implementation including mailbox, Future mechanism and others are also encapsulated in actor.PIDs. This may be familiar to those with Erlang background. Understanding this becomes vital when one tries referring to message sender actor. The rest of this article is going to describe each messaging method and how a recipient actor can refer to the sending actor.
+
+每个actor都封装在一个actor.PID实例中，因此开发人员可以通过此actor.PID提供的方法与actor进行通信。  （actor.Context也提供了等效的方法，但是这些方法可以被认为是actor.PID对应方法的包装。）要记住的一件重要事情是上面的actor不是封装在actor.PID中的唯一实体。  事实上，任何actor.Process实现，包括邮箱，Future机制等也都封装在actor.PID中。  这对于具有Erlang背景的人来说可能是熟悉的。  当人们尝试引用消息发送者actor时，理解这一点变得至关重要  本文的其余部分将描述每个消息传递方法以及收件人actor如何引用发送actor。
 
 # Communication methods
 
@@ -452,7 +456,7 @@ By using  [gograin](https://github.com/AsynkronIT/protoactor-go/tree/dev/protobu
 
 While there are several kinds of actors, those actors have unified ways to communicate with other actors no matter where they are located at. However, because an actor.PID is not only a representation of an actor process but also a representation of any actor.Process implementation, extra work may be required for a recipient actor to refer to the sender actor since the returning actor.PID of Context.Sender() is not necessarily a sender actor’s representation. To ensure that the recipient actor can refer to the sender actor, include the sender actor’s PID in the sending message or use Request(). Visit [github.com/oklahomer/protoactor-go-sender-example](https://github.com/oklahomer/protoactor-go-sender-example) for more comprehensive examples.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbODY5NzMyNjEzLDY0MTQ0OTYzNiwxMDM5Nz
+eyJoaXN0b3J5IjpbNjU5MjM0OTA3LDY0MTQ0OTYzNiwxMDM5Nz
 Y4NTA2LDg3MDMyOTE4MiwxMDM2ODcxMjc4LDIwNDgzMjQ2NjZd
 fQ==
 -->
