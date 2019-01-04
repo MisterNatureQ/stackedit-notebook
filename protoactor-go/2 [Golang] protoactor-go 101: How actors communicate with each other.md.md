@@ -26,7 +26,9 @@ While there are several kinds of actors, those actors share a unified interface 
 
 Example codes that cover all communication means for all actor implementations are located at  [github.com/oklahomer/protoactor-go-sender-example](https://github.com/oklahomer/protoactor-go-sender-example). Minimal examples are introduced in this article for description, but visit this repository for comprehensive examples.
 
-# Premise: Three major kinds of actors
+覆盖所有actor实现的所有通信手段的示例代码位于[github.com/oklahomer/protoactor-go-sender-example](https://translate.googleusercontent.com/translate_c?depth=1&hl=zh-CN&rurl=translate.google.com&sl=en&sp=nmt4&tl=zh-CN&u=https://github.com/oklahomer/protoactor-go-sender-example&xid=17259,15700023,15700124,15700186,15700191,15700201,15700237,15700242,15700248&usg=ALkJrhinCWgnXZUiXeTubLyMHvTqQr8MbA)  。  本文中介绍了最小的示例以供说明，但请访问此存储库以获取全面的示例。
+
+# Premise: Three major kinds of actors 引出：三大类actors 
 
 protoactor-go comes with three kinds of actors: local, remote and cluster grain.
 
@@ -449,6 +451,6 @@ By using  [gograin](https://github.com/AsynkronIT/protoactor-go/tree/dev/protobu
 
 While there are several kinds of actors, those actors have unified ways to communicate with other actors no matter where they are located at. However, because an actor.PID is not only a representation of an actor process but also a representation of any actor.Process implementation, extra work may be required for a recipient actor to refer to the sender actor since the returning actor.PID of Context.Sender() is not necessarily a sender actor’s representation. To ensure that the recipient actor can refer to the sender actor, include the sender actor’s PID in the sending message or use Request(). Visit [github.com/oklahomer/protoactor-go-sender-example](https://github.com/oklahomer/protoactor-go-sender-example) for more comprehensive examples.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTY0MzIzOTcwOSw4NzAzMjkxODIsMTAzNj
+eyJoaXN0b3J5IjpbMTAzOTc2ODUwNiw4NzAzMjkxODIsMTAzNj
 g3MTI3OCwyMDQ4MzI0NjY2XX0=
 -->
