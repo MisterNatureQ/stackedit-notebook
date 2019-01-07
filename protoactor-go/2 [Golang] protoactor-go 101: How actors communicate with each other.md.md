@@ -42,7 +42,7 @@ protoactor-go有三种 actors：本地，远程和集群粒子。
 -   Cluster grain … A kind of remote actor but the lifecycle and other complexity are taken care of by protoactor-go library. Cluster topology is managed by  [consul](https://www.consul.io/)  and a grain can be addressed over a network. Consul manages the cluster membership and the availability of each node.  
     集群粒子 actors ......一种remote actor，但生命周期和其他复杂性由protoactor-go库来处理。  群集拓扑由[consul](https://www.consul.io/)管理，粒子可以通过网络进行寻址。  Consul管理集群成员资格和每个节点的可用性。
 
-Thanks to the location transparency, an actor can communicate with other actors in the same way without worrying about where the recipient actors are located at. In addition to those basic communication means, a cluster grain has an extra mechanism to provide RPC based interface.
+Thanks to the location transparency, an actor can communicate with other actors in the same way without worrying about where the recipient actors are located at. In addition to those basic communication means, a cluster grain· has an extra mechanism to provide RPC based interface.
 
 由于位置透明，actor 可以以相同的方式与其他演员沟通，而不必担心收件人演员所在的位置。除了那些基本的通信手段之外，群集粒度还有一个额外的机制来提供基于RPC的接口。
 
@@ -802,9 +802,9 @@ time.Sleep(1 * time.Second) // Just to make sure system ends after actor executi
 
 虽然有几种演员，但这些演员有统一的方式与其他演员沟通，无论他们身在何处。  但是，因为actor.PID不仅是actor进程的表示，而且是任何actor.Process实现的表示，因为返回的actor的actor.PID，接收方actor可能需要额外的工作来引用发送方actor。 .Sender（）不一定是发送者角色的表示。  要确保收件人actor可以引用发送方actor，请在发送消息中包含发送方actor的PID或使用Request（）。  访问[github.com/oklahomer/protoactor-go-sender-example](https://translate.googleusercontent.com/translate_c?depth=1&hl=zh-CN&prev=search&rurl=translate.google.com&sl=en&sp=nmt4&u=https://github.com/oklahomer/protoactor-go-sender-example&xid=17259,15700023,15700124,15700186,15700191,15700201,15700237,15700242,15700248&usg=ALkJrhg0UJk0c1Kf4lY6TIgkjG3UdWQmsg)以获取更全面的示例。
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE0MDA2MDY4NjQsLTcyNzQyNzQ5NywtNj
-AzOTE3OTQsLTE0MTk0Njg4ODAsMTAxNzAzNTUwNCwxNTI0NTM2
-MTYyLDE3MTc2MDQwOTgsNjU5MjM0OTA3LDY0MTQ0OTYzNiwxMD
-M5NzY4NTA2LDg3MDMyOTE4MiwxMDM2ODcxMjc4LDIwNDgzMjQ2
-NjZdfQ==
+eyJoaXN0b3J5IjpbMTI3OTM4NDYzOSwtMTQwMDYwNjg2NCwtNz
+I3NDI3NDk3LC02MDM5MTc5NCwtMTQxOTQ2ODg4MCwxMDE3MDM1
+NTA0LDE1MjQ1MzYxNjIsMTcxNzYwNDA5OCw2NTkyMzQ5MDcsNj
+QxNDQ5NjM2LDEwMzk3Njg1MDYsODcwMzI5MTgyLDEwMzY4NzEy
+NzgsMjA0ODMyNDY2Nl19
 -->
