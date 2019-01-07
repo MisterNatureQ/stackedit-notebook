@@ -44,7 +44,7 @@ protoactor-go有三种 actors：本地，远程和集群粒子。
 
 Thanks to the location transparency, an actor can communicate with other actors in the same way without worrying about where the recipient actors are located at. In addition to those basic communication means, a cluster grain has an extra mechanism to provide RPC based interface.
 
-由于位置透明，演员可以以相同的方式与其他演员沟通，而不必担心收件人演员所在的位置。除了那些基本的通信手段之外，群集粒度还有一个额外的机制来提供基于RPC的接口。
+由于位置透明，actor 可以以相同的方式与其他演员沟通，而不必担心收件人演员所在的位置。除了那些基本的通信手段之外，群集粒度还有一个额外的机制来提供基于RPC的接口。
 
 Each actor is encapsulated in an actor.PID instance so developers communicate with actors via methods provided by this actor.PID. (actor.Context also provides equivalent methods, but these can be considered as wrappers for actor.PID’s corresponding methods.) One important thing to remember is that above actors are not the only entities encapsulated in actor.PIDs. As a matter of fact, any actor.Process implementation including mailbox, Future mechanism and others are also encapsulated in actor.PIDs. This may be familiar to those with Erlang background. Understanding this becomes vital when one tries referring to message sender actor. The rest of this article is going to describe each messaging method and how a recipient actor can refer to the sending actor.
 
@@ -802,8 +802,9 @@ time.Sleep(1 * time.Second) // Just to make sure system ends after actor executi
 
 虽然有几种演员，但这些演员有统一的方式与其他演员沟通，无论他们身在何处。  但是，因为actor.PID不仅是actor进程的表示，而且是任何actor.Process实现的表示，因为返回的actor的actor.PID，接收方actor可能需要额外的工作来引用发送方actor。 .Sender（）不一定是发送者角色的表示。  要确保收件人actor可以引用发送方actor，请在发送消息中包含发送方actor的PID或使用Request（）。  访问[github.com/oklahomer/protoactor-go-sender-example](https://translate.googleusercontent.com/translate_c?depth=1&hl=zh-CN&prev=search&rurl=translate.google.com&sl=en&sp=nmt4&u=https://github.com/oklahomer/protoactor-go-sender-example&xid=17259,15700023,15700124,15700186,15700191,15700201,15700237,15700242,15700248&usg=ALkJrhg0UJk0c1Kf4lY6TIgkjG3UdWQmsg)以获取更全面的示例。
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTcyNzQyNzQ5NywtNjAzOTE3OTQsLTE0MT
-k0Njg4ODAsMTAxNzAzNTUwNCwxNTI0NTM2MTYyLDE3MTc2MDQw
-OTgsNjU5MjM0OTA3LDY0MTQ0OTYzNiwxMDM5NzY4NTA2LDg3MD
-MyOTE4MiwxMDM2ODcxMjc4LDIwNDgzMjQ2NjZdfQ==
+eyJoaXN0b3J5IjpbLTE0MDA2MDY4NjQsLTcyNzQyNzQ5NywtNj
+AzOTE3OTQsLTE0MTk0Njg4ODAsMTAxNzAzNTUwNCwxNTI0NTM2
+MTYyLDE3MTc2MDQwOTgsNjU5MjM0OTA3LDY0MTQ0OTYzNiwxMD
+M5NzY4NTA2LDg3MDMyOTE4MiwxMDM2ODcxMjc4LDIwNDgzMjQ2
+NjZdfQ==
 -->
