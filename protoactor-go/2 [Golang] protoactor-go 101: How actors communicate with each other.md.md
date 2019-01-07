@@ -37,7 +37,7 @@ protoactor-go有三种 actors：本地，远程和集群粒子。
 -   Local … Those actors located in the same process.  
     本地 actors ......那些actors  位于同一个进程中 (process并不是actor.process)
 -   Remote … Actors located in different processes or servers. An actor is considered to be “local” when addressed from within the same process; while this is “remote” when addressed across a network. Because a message is sent over a network, message serialization is required. Protocol Buffers is used for this task in protoactor-go.  
-    远程 actors ...位于不同进程或服务器中的Actor。  当收信地址 在同一过程中处理时，Actor被认为是“local”;  虽然这是通过网络寻址的“远程”。  由于消息是通过网络发送的，因此需要进行消息序列化。  Protocol Buffers用于protoactor-go中的此任务。
+    远程 actors ...位于不同进程或服务器中的Actor。  当收信地址 在同一过程中处理时，Actor被认为是“local”;  虽然这是通过网络寻址的“remote”。  由于消息是通过网络发送的，因此需要进行消息序列化。  Protocol Buffers用于protoactor-go中的此任务。
     
 -   Cluster grain … A kind of remote actor but the lifecycle and other complexity are taken care of by protoactor-go library. Cluster topology is managed by  [consul](https://www.consul.io/)  and a grain can be addressed over a network. Consul manages the cluster membership and the availability of each node.  
     集群粒子 actors ......一种remote actor，但生命周期和其他复杂性由protoactor-go库来处理。  群集拓扑由[consul](https://www.consul.io/)管理，粒子可以通过网络进行寻址。  Consul管理集群成员资格和每个节点的可用性。
@@ -802,8 +802,8 @@ time.Sleep(1 * time.Second) // Just to make sure system ends after actor executi
 
 虽然有几种演员，但这些演员有统一的方式与其他演员沟通，无论他们身在何处。  但是，因为actor.PID不仅是actor进程的表示，而且是任何actor.Process实现的表示，因为返回的actor的actor.PID，接收方actor可能需要额外的工作来引用发送方actor。 .Sender（）不一定是发送者角色的表示。  要确保收件人actor可以引用发送方actor，请在发送消息中包含发送方actor的PID或使用Request（）。  访问[github.com/oklahomer/protoactor-go-sender-example](https://translate.googleusercontent.com/translate_c?depth=1&hl=zh-CN&prev=search&rurl=translate.google.com&sl=en&sp=nmt4&u=https://github.com/oklahomer/protoactor-go-sender-example&xid=17259,15700023,15700124,15700186,15700191,15700201,15700237,15700242,15700248&usg=ALkJrhg0UJk0c1Kf4lY6TIgkjG3UdWQmsg)以获取更全面的示例。
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTYwMzkxNzk0LC0xNDE5NDY4ODgwLDEwMT
-cwMzU1MDQsMTUyNDUzNjE2MiwxNzE3NjA0MDk4LDY1OTIzNDkw
-Nyw2NDE0NDk2MzYsMTAzOTc2ODUwNiw4NzAzMjkxODIsMTAzNj
-g3MTI3OCwyMDQ4MzI0NjY2XX0=
+eyJoaXN0b3J5IjpbLTcyNzQyNzQ5NywtNjAzOTE3OTQsLTE0MT
+k0Njg4ODAsMTAxNzAzNTUwNCwxNTI0NTM2MTYyLDE3MTc2MDQw
+OTgsNjU5MjM0OTA3LDY0MTQ0OTYzNiwxMDM5NzY4NTA2LDg3MD
+MyOTE4MiwxMDM2ODcxMjc4LDIwNDgzMjQ2NjZdfQ==
 -->
