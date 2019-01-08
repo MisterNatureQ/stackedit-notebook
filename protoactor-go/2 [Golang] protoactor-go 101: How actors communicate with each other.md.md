@@ -59,7 +59,7 @@ Below are the common communication methods – Tell(), Request() and RequestFutu
 ## Tell() tells nothing about the sender 没有告知发件人
 To send a message to an actor, one may call actor.PID’s Tell() method. When a message is sent from outside of an actor system by calling PID.Tell(), the recipient actor fails to refer to the sending actor with [Context.Sender()](https://github.com/AsynkronIT/protoactor-go/blob/3992780c0af683deb5ec3746f4ec5845139c6e42/actor/context.go#L16-L17). This is pretty obvious. Because the message is sent from outside, there is no such thing as sending actor. Below is an example:
 
-要向actor发送消息，可以调用actor.PID的Tell（）方法。  当通过调用PID.Tell（）从actor系统外部发送消息时，接收方actor无法使用[Context.Sender（）](https://github.com/AsynkronIT/protoactor-go/blob/3992780c0af683deb5ec3746f4ec5845139c6e42/actor/context.go#L16-L17)引用发送actor。  这很明显。  因为消息是从外部发送的，所以没有发送actor这样的东西。  以下是一个例子：
+要向actor发送消息，可以调用actor.PID的Tell（）方法。  当通过调用PID.Tell（）从actor系统外部发送消息时，接收方actor无法使用[Context.Sender（）](https://github.com/AsynkronIT/protoactor-go/blob/3992780c0af683deb5ec3746f4ec5845139c6e42/actor/context.go#L16-L17)引用发送actor。  这很明显。  因为消息是从外部发送的，所以没有 发送方actor 这样的东西。  以下是一个例子：
 
 ```go
 package main
@@ -109,6 +109,8 @@ time.Sleep(1 * time.Second) // Just to make sure system ends after actor executi
 
 
 In the above example, a message is directly sent to an actor from outside of an actor system. Therefore the recipient actor fails to refer to the sending actor. With Akka, this behavior is similar to set [ActorRef#noSender](https://doc.akka.io/japi/akka/2.4.2/akka/actor/ActorRef.html#noSender--) as the second argument of [ActorRef#tell](https://doc.akka.io/japi/akka/2.4.2/akka/actor/ActorRef.html#tell-java.lang.Object-akka.actor.ActorRef-) – when the recipient tries to respond, the message goes to the dead letter mailbox.
+
+?? 如何区分是系统外部 还是系统内部
 
 在上面的示例中，消息直接从actor系统外部发送给actor。  因此，接收方actor无法引用发送方。  对于Akka，此行为类似于将[ActorRef＃noSender](https://doc.akka.io/japi/akka/2.4.2/akka/actor/ActorRef.html#noSender--) 设置为[ActorRef＃tell](https://doc.akka.io/japi/akka/2.4.2/akka/actor/ActorRef.html#tell-java.lang.Object-akka.actor.ActorRef-) 的第二个参数 - 当收件人尝试响应时，邮件将转到死信邮箱。
 
@@ -180,11 +182,11 @@ func main() {
 	time.Sleep(1 * time.Second) // Just to make sure system ends after actor execution
 }
 ```
-[view raw](https://gist.github.com/oklahomer/7cd359f407f1cd59df7d73a20e1bafa0/raw/f2226a52a7f8e65375cb4f190bef8025300a62fe/no-sender-to-respond.go)[no-sender-to-respond.go](https://gist.github.com/oklahomer/7cd359f407f1cd59df7d73a20e1bafa0#file-no-sender-to-respond-go)  hosted with ❤ by  [GitHub](https://github.com/)
+[view raw](https://gist.github.com/oklahomer/7cd359f407f1cd59df7d73a20e1bafa0/raw/f2226a52a7f8e65375cb4f190bef8025300a62fe/no-sender-to-respond.go)[no-sender-to-respond.go] (https://gist.github.com/oklahomer/7cd359f407f1cd59df7d73a20e1bafa0#file-no-sender-to-respond-go)  hosted with ❤ by  [GitHub](https://github.com/)
 
 However, the recipient fails to refer to the sender actor in the same way it failed in the previous example. This may seem odd, but let us take a look at actor.Context’s implementation. A call to Context.Tell() is  [proxied to Context.sendUserMessage()](https://github.com/AsynkronIT/protoactor-go/blob/3992780c0af683deb5ec3746f4ec5845139c6e42/actor/local_context.go#L99-L101), where the message is stuffed into actor.MessageEnvelope with  [nil Sender field](https://github.com/AsynkronIT/protoactor-go/blob/3992780c0af683deb5ec3746f4ec5845139c6e42/actor/local_context.go#L120)  as below:
 
-但是，收件人无法以与上一示例中失败相同的方式引用发送方actor。  这可能看起来很奇怪，但让我们来看看actor.Context的实现。  对Context.Tell（）的调用[代理到Context.sendUserMessage（）](https://github.com/AsynkronIT/protoactor-go/blob/3992780c0af683deb5ec3746f4ec5845139c6e42/actor/local_context.go#L99-L101)  ，其中消息被填充到带有[nil Sender字段的](https://github.com/AsynkronIT/protoactor-go/blob/3992780c0af683deb5ec3746f4ec5845139c6e42/actor/local_context.go#L120)  actor.MessageEnvelope中，如下所示：
+但是，收件人无法以与上一示例中失败相同的方式引用发送方actor。  这可能看起来很奇怪，但让我们来看看actor.Context的实现。  对Context.Tell（）的调用[进入Context.sendUserMessage（）](https://github.com/AsynkronIT/protoactor-go/blob/3992780c0af683deb5ec3746f4ec5845139c6e42/actor/local_context.go#L99-L101)  ，其中消息被填充到带有[nil Sender字段的](https://github.com/AsynkronIT/protoactor-go/blob/3992780c0af683deb5ec3746f4ec5845139c6e42/actor/local_context.go#L120)  actor.MessageEnvelope中，如下所示：
 
 ```go
 func (ctx *localContext) Tell(pid *PID, message interface{}) {
@@ -242,7 +244,7 @@ This not only works for request-response model, but also works to propagate the 
 ## RequestFuture() only has its future
 
 The last method is ReqeustFuture(). This can be used as an extension of Request() where an actor.Future is returned to the requester. However, its behavior differs slightly but significantly when the recipient actor tries referring to the sender with Context.Sender() and treating this as a reference to the sender actor. Below is a simple example that demonstrates a regular request-response model:
-最后一个方法是ReqeustFuture（）。  这可以用作Request（）的扩展，其中actor.Future返回给请求者。  但是，，其行为略有不同, 但 当接收方actor尝试使用Context.Sender（）引用发送方并将其视为对发送方actor的引用时 显著不同。  下面是一个演示常规请求 - 响应模型的简单示例：
+最后一个方法是ReqeustFuture（）。  这可以用作Request（）的扩展，其中actor.Future返回给请求者。  但是，其行为略有不同, 但 当接收方actor尝试使用Context.Sender（）引用发送方并将其视为对发送方actor的引用时 显著不同。  下面是一个演示常规请求 - 响应模型的简单示例：
 
 [future.go · GitHub](https://gist.github.com/oklahomer/3b9b22ab159d473a13068cf2853a4b67)
 
@@ -802,9 +804,9 @@ time.Sleep(1 * time.Second) // Just to make sure system ends after actor executi
 
 虽然有几种演员，但这些演员有统一的方式与其他演员沟通，无论他们身在何处。  但是，因为actor.PID不仅是actor进程的表示，而且是任何actor.Process实现的表示，因为返回的actor的actor.PID，接收方actor可能需要额外的工作来引用发送方actor。 .Sender（）不一定是发送者角色的表示。  要确保收件人actor可以引用发送方actor，请在发送消息中包含发送方actor的PID或使用Request（）。  访问[github.com/oklahomer/protoactor-go-sender-example](https://translate.googleusercontent.com/translate_c?depth=1&hl=zh-CN&prev=search&rurl=translate.google.com&sl=en&sp=nmt4&u=https://github.com/oklahomer/protoactor-go-sender-example&xid=17259,15700023,15700124,15700186,15700191,15700201,15700237,15700242,15700248&usg=ALkJrhg0UJk0c1Kf4lY6TIgkjG3UdWQmsg)以获取更全面的示例。
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTI3OTM4NDYzOSwtMTQwMDYwNjg2NCwtNz
-I3NDI3NDk3LC02MDM5MTc5NCwtMTQxOTQ2ODg4MCwxMDE3MDM1
-NTA0LDE1MjQ1MzYxNjIsMTcxNzYwNDA5OCw2NTkyMzQ5MDcsNj
-QxNDQ5NjM2LDEwMzk3Njg1MDYsODcwMzI5MTgyLDEwMzY4NzEy
-NzgsMjA0ODMyNDY2Nl19
+eyJoaXN0b3J5IjpbLTY5NTY0MjA4OSwxMjc5Mzg0NjM5LC0xND
+AwNjA2ODY0LC03Mjc0Mjc0OTcsLTYwMzkxNzk0LC0xNDE5NDY4
+ODgwLDEwMTcwMzU1MDQsMTUyNDUzNjE2MiwxNzE3NjA0MDk4LD
+Y1OTIzNDkwNyw2NDE0NDk2MzYsMTAzOTc2ODUwNiw4NzAzMjkx
+ODIsMTAzNjg3MTI3OCwyMDQ4MzI0NjY2XX0=
 -->
