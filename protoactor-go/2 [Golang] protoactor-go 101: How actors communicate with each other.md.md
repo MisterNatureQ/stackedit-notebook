@@ -306,7 +306,7 @@ func main() {
 				//
 				// 下面这两种方法在本例中都有效，但是它们的行为略有不同。
 				// 如果发送方为nil，则 ctx.Sender().Tell() panics  并 recovers  ;
-				// 而ctx. response()检查发送方的存在，并将消息重定向到死信进程
+				// 而ctx. response()检查发送方的存在，并将消息重定向到死信进程、
 				//ctx.Sender().Tell(&pong{})
 				ctx.Respond(&pong{})
 
@@ -804,9 +804,10 @@ time.Sleep(1 * time.Second) // Just to make sure system ends after actor executi
 
 虽然有几种演员，但这些演员有统一的方式与其他演员沟通，无论他们身在何处。  但是，因为actor.PID不仅是actor进程的表示，而且是任何actor.Process实现的表示，因为返回的actor的actor.PID，接收方actor可能需要额外的工作来引用发送方actor。 .Sender（）不一定是发送者角色的表示。  要确保收件人actor可以引用发送方actor，请在发送消息中包含发送方actor的PID或使用Request（）。  访问[github.com/oklahomer/protoactor-go-sender-example](https://translate.googleusercontent.com/translate_c?depth=1&hl=zh-CN&prev=search&rurl=translate.google.com&sl=en&sp=nmt4&u=https://github.com/oklahomer/protoactor-go-sender-example&xid=17259,15700023,15700124,15700186,15700191,15700201,15700237,15700242,15700248&usg=ALkJrhg0UJk0c1Kf4lY6TIgkjG3UdWQmsg)以获取更全面的示例。
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTY5NTY0MjA4OSwxMjc5Mzg0NjM5LC0xND
-AwNjA2ODY0LC03Mjc0Mjc0OTcsLTYwMzkxNzk0LC0xNDE5NDY4
-ODgwLDEwMTcwMzU1MDQsMTUyNDUzNjE2MiwxNzE3NjA0MDk4LD
-Y1OTIzNDkwNyw2NDE0NDk2MzYsMTAzOTc2ODUwNiw4NzAzMjkx
-ODIsMTAzNjg3MTI3OCwyMDQ4MzI0NjY2XX0=
+eyJoaXN0b3J5IjpbLTEwMjY2MTU2MDYsLTY5NTY0MjA4OSwxMj
+c5Mzg0NjM5LC0xNDAwNjA2ODY0LC03Mjc0Mjc0OTcsLTYwMzkx
+Nzk0LC0xNDE5NDY4ODgwLDEwMTcwMzU1MDQsMTUyNDUzNjE2Mi
+wxNzE3NjA0MDk4LDY1OTIzNDkwNyw2NDE0NDk2MzYsMTAzOTc2
+ODUwNiw4NzAzMjkxODIsMTAzNjg3MTI3OCwyMDQ4MzI0NjY2XX
+0=
 -->
