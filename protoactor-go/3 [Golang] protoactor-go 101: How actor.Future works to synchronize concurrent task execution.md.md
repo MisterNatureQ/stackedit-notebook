@@ -253,10 +253,13 @@ func main() {
 				var sleep time.Duration
 				remainder := msg.count % 3
 				if remainder == 0 {
+					// 1.7s
 					sleep = 1700 * time.Millisecond
 				} else if remainder == 1 {
+					// 0.3s
 					sleep = 300 * time.Millisecond
 				} else {
+					// 2.9s
 					sleep = 2900 * time.Millisecond
 				}
 
@@ -540,8 +543,8 @@ As described in above sections, Future provides various methods to synchronize c
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTU3ODcwODk0NCwtMTg0ODYxNTIyNSwtMT
-g0OTYzMDc2NCwyNzE5MjM3NTgsLTEyOTQ0MTk5NTgsMTA2MzQ3
-NzA1MCwxNTkzNDE5Mjc1LC0xNjM2Njg4MDU3LC0zNDAyOTE4OC
-wyMTM3MTAzODc4XX0=
+eyJoaXN0b3J5IjpbMjcxNzczOTgzLC0xODQ4NjE1MjI1LC0xOD
+Q5NjMwNzY0LDI3MTkyMzc1OCwtMTI5NDQxOTk1OCwxMDYzNDc3
+MDUwLDE1OTM0MTkyNzUsLTE2MzY2ODgwNTcsLTM0MDI5MTg4LD
+IxMzcxMDM4NzhdfQ==
 -->
