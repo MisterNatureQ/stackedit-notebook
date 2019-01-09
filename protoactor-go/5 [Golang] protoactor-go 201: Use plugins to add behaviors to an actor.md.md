@@ -48,56 +48,30 @@ As shown in the above code fragment,  `plugin.OnStart`  is called on actor initi
 如上面的代码片段所示，在actor初始化时调用`plugin.OnStart`  ;  在后续的消息接收中调用`plugin.OnOtherMessage`  。  开发人员可以在`plugin.OnStart`上初始化插件，以便其逻辑可以在其他消息接收上运行。  请记住，  `next(context)`在执行结束时被调用，因此在插件逻辑运行后调用actor的`actor.Receive()`  。  最小的实现可能有点像下面：
 
 ```go
-package main
-
-import (
-
-"github.com/AsynkronIT/protoactor-go/actor"
-
-"github.com/AsynkronIT/protoactor-go/plugin"
-
-)
-
-type myPlugin struct {
-
-}
-
-func (_ *myPlugin) OnStart(actor.Context) {
-
-// Do nothing
-
-}
-
-func (_ *myPlugin) OnOtherMessage(actor.Context, interface{}) {
-
-// Do nothing
-
-}
-
-func main() {
-
-// Construct plugin implementation
-
-myPlugin := &myPlugin{}
-
-// Wrap plugin implementation in a form of InboundMiddleware
-
-middleware := plugin.Use(myPlugin)
-
-props := actor.
-
-FromFunc(func(ctx actor.Context) {
-
-// Some logic comes here
-
-}).
-
-WithMiddleware(middleware) // Set as a middleware
-
-pid := actor.Spawn(props)
-
-pid.Tell("dummy message")
-
+package main  
+import (  
+   "github.com/AsynkronIT/protoactor-go/actor"  
+ "github.com/AsynkronIT/protoactor-go/plugin")  
+type myPlugin struct {  
+}  
+func (_ *myPlugin) OnStart(actor.Context) {  
+   // Do nothing  
+}  
+func (_ *myPlugin) OnOtherMessage(actor.Context, interface{}) {  
+   // Do nothing  
+}  
+func main() {  
+   // Construct plugin implementation  
+  myPlugin := &myPlugin{}  
+   // Wrap plugin implementation in a form of InboundMiddleware  
+  middleware := plugin.Use(myPlugin)  
+   props := actor.  
+      FromFunc(func(ctx actor.Context) {  
+         // Some logic comes here  
+  }).  
+      WithMiddleware(middleware) // Set as a middleware  
+  pid := actor.Spawn(props)  
+   pid.Tell("dummy message")  
 }
 ```
 [view raw](https://gist.github.com/oklahomer/04d44b1e5436d9727d5ee283247b223f/raw/a1facbb96e43438c46f2d7c1caaca77cbc770894/main.go)[main.go](https://gist.github.com/oklahomer/04d44b1e5436d9727d5ee283247b223f#file-main-go)  hosted with ❤ by  [GitHub](https://github.com/)
@@ -113,120 +87,61 @@ One important thing to mention here is that this plugin makes an extra effort to
 这里要提到的一件重要的事情是，这个插件通过在actor结构中嵌入`plugin.PassivationHolder`来让演员实现`plugin.PassivationAware`  ，这样开发人员就不必自己实现`plugin.PassivationAware`了。
 
 ```go
-package plugin
-
-import (
-
-"log"
-
-"time"
-
-"github.com/AsynkronIT/protoactor-go/actor"
-
-)
-
-type PassivationAware interface {
-
-Init(*actor.PID, time.Duration)
-
-Reset(time.Duration)
-
-Cancel()
-
-}
-
-type PassivationHolder struct {
-
-timer *time.Timer
-
-done bool
-
-}
-
-func (state *PassivationHolder) Reset(duration time.Duration) {
-
-if state.timer == nil {
-
-log.Fatalf("Cannot reset passivation of a non-started actor")
-
-}
-
-if !state.done {
-
-state.timer.Reset(duration)
-
-}
-
-}
-
-func (state *PassivationHolder) Init(pid *actor.PID, duration time.Duration) {
-
-state.timer = time.NewTimer(duration)
-
-state.done = false
-
-go func() {
-
-select {
-
-case <-state.timer.C:
-
-pid.Stop()
-
-state.done = true
-
-break
-
-}
-
-}()
-
-}
-
-func (state *PassivationHolder) Cancel() {
-
-if state.timer != nil {
-
-state.timer.Stop()
-
-}
-
-}
-
-type PassivationPlugin struct {
-
-Duration time.Duration
-
-}
-
-func (pp *PassivationPlugin) OnStart(ctx actor.Context) {
-
-if a, ok := ctx.Actor().(PassivationAware); ok {
-
-a.Init(ctx.Self(), pp.Duration)
-
-}
-
-}
-
-func (pp *PassivationPlugin) OnOtherMessage(ctx actor.Context, msg interface{}) {
-
-if p, ok := ctx.Actor().(PassivationAware); ok {
-
-switch msg.(type) {
-
-case *actor.Stopped:
-
-p.Cancel()
-
-default:
-
-p.Reset(pp.Duration)
-
-}
-
-}
-
+package plugin  
+import (  
+   "log"  
+ "time" "github.com/AsynkronIT/protoactor-go/actor")  
+type PassivationAware interface {  
+   Init(*actor.PID, time.Duration)  
+   Reset(time.Duration)  
+   Cancel()  
+}  
+type PassivationHolder struct {  
+   timer *time.Timer  
+  done bool  
+}  
+func (state *PassivationHolder) Reset(duration time.Duration) {  
+   if state.timer == nil {  
+      log.Fatalf("Cannot reset passivation of a non-started actor")  
+   }  
+   if !state.done {  
+      state.timer.Reset(duration)  
+   }  
+}  
+func (state *PassivationHolder) Init(pid *actor.PID, duration time.Duration) {  
+   state.timer = time.NewTimer(duration)  
+   state.done = false  
+  go func() {  
+      select {  
+      case <-state.timer.C:  
+         pid.Stop()  
+         state.done = true  
+  break  
+  }  
+   }()  
+}  
+func (state *PassivationHolder) Cancel() {  
+   if state.timer != nil {  
+      state.timer.Stop()  
+   }  
+}  
+type PassivationPlugin struct {  
+   Duration time.Duration  
+}  
+func (pp *PassivationPlugin) OnStart(ctx actor.Context) {  
+   if a, ok := ctx.Actor().(PassivationAware); ok {  
+      a.Init(ctx.Self(), pp.Duration)  
+   }  
+}  
+func (pp *PassivationPlugin) OnOtherMessage(ctx actor.Context, msg interface{}) {  
+   if p, ok := ctx.Actor().(PassivationAware); ok {  
+      switch msg.(type) {  
+      case *actor.Stopped:  
+         p.Cancel()  
+      default:  
+         p.Reset(pp.Duration)  
+      }  
+   }  
 }
 ```
 [view raw](https://gist.github.com/oklahomer/7ee4d10c112230962ca4782b2e77aa1c/raw/d7b01516021dd9fd8ac86ce0c0f39e7f24a26b0c/passivation.go)[passivation.go](https://gist.github.com/oklahomer/7ee4d10c112230962ca4782b2e77aa1c#file-passivation-go)  hosted with ❤ by  [GitHub](https://github.com/)
@@ -258,5 +173,5 @@ To add a pluggable behavior to an actor, a developer can provde a plugin by impl
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE3MDg5Mzk2LDI5NzgwNTIxMV19
+eyJoaXN0b3J5IjpbMTc2NTExNTY1MiwyOTc4MDUyMTFdfQ==
 -->
