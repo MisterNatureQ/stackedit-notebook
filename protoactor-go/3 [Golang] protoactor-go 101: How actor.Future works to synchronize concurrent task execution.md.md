@@ -98,13 +98,16 @@ func (p *pongActor) Receive(ctx actor.Context) {
 		case *ping:
 			var sleep time.Duration
 			if p.timeOut {
+				// 次进入 0.25s
 				sleep = 2500 * time.Millisecond
 				p.timeOut = false
 			} else {
+				// 首先进入 0.3s 
 				sleep = 300 * time.Millisecond
 				p.timeOut = true
 			}
 			time.Sleep(sleep)
+			//回复 future
 			ctx.Sender().Tell(&pong{})
 	}
 }
@@ -606,7 +609,8 @@ As described in above sections, Future provides various methods to synchronize c
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE4NDk2MzA3NjQsMjcxOTIzNzU4LC0xMj
-k0NDE5OTU4LDEwNjM0NzcwNTAsMTU5MzQxOTI3NSwtMTYzNjY4
-ODA1NywtMzQwMjkxODgsMjEzNzEwMzg3OF19
+eyJoaXN0b3J5IjpbLTE4NDg2MTUyMjUsLTE4NDk2MzA3NjQsMj
+cxOTIzNzU4LC0xMjk0NDE5OTU4LDEwNjM0NzcwNTAsMTU5MzQx
+OTI3NSwtMTYzNjY4ODA1NywtMzQwMjkxODgsMjEzNzEwMzg3OF
+19
 -->
