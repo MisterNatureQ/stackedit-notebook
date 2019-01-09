@@ -182,8 +182,8 @@ These methods are useful to retrieve the destination actors response and proceed
 **这些方法对于 得到 目标actor  回应 和继续自己的逻辑很有用，但通常不是优选的，因为这种同步执行的想法与actor模型的性质冲突：并发计算。**
 # Future.PipeTo()
 
-While  `Future.Wait()`  and  `Future.Result()`  block until timeout or task completion,  `Future.PipeTo()`  asynchronously sends the result of computation to another actor. This can be a powerful tool when only the origination actor knows which actor should receive the result of a worker actor’s task; Actor A delegates a task to worker actor B but B does not know to what actor to pass the result message to. One important thing is that the message is transfered to the destination actor when and only when the comptation completes before it times out. Otherwise the response is sent to the dead letter mailbox.  
-Becausee this works in an asynchronous manner, origination actor can handle incoming messages right after dispatching tasks to worker actors no matter how long the worker actors take to respond.
+While  `Future.Wait()`  and  `Future.Result()`  block until timeout or task completion,  `Future.PipeTo()`  asynchronously sends the result of computation to another actor. This can be a powerful tool when only the origination actor knows which actor should receive the result of a worker actor’s task; Actor A delegates a task to worker actor B but B does not know to what actor to pass the result message to. One important thing is that the message is transfered to the destination actor when and only when the computation completes before it times out. Otherwise the response is sent to the dead letter mailbox.  
+Because this works in an asynchronous manner, origination actor can handle incoming messages right after dispatching tasks to worker actors no matter how long the worker actors take to respond.
 
 虽然`Future.Wait()`和`Future.Result()`阻塞直到超时或任务完成，但`Future.PipeTo()`异步地将计算结果发送给另一个actor。  当只有 起始 actor  知道哪个 actor  应该接收 工作 actor 的任务结果时，这可以是一个强大的工具;  Actor A将任务委托给worker actor B，但B不知道将结果消息传递给哪个actor。  一个重要的事情是，只有当计算在超时之前完成时，消息才会传递到目标actor。否则，响应将发送到 dead letter mailbox 。  
 因为它以异步方式工作，所以无论 worker actors 回应 花费 多长时间，起始 actor 都可以在将任务分派给工作者之后立即处理传入消息。
@@ -310,220 +310,135 @@ func main() {
 
 The task execution is done in an asynchronous manner like  `Future.PipeTo`  but, because this can refer to contextual information, a callback function is still called even when the computation times out.  `Context.Message()`  contains the same message as when the origination actor’s  `Actor.Receive()`  is called so a developer does not have to add a workaround to copy the message to refer from the callback function.
 
+任务执行以`Future.PipeTo`等异步方式完成，但由于这可以引用上下文信息，因此即使计算超时，仍会调用回调函数。  `Context.Message()`包含与调用原始actor的`Actor.Receive()`时相同的消息，因此开发人员不必添加变通方法来复制要从回调函数引用的消息。
+
+
 ![](https://1.bp.blogspot.com/-0DHuQHUzwQE/W_fgL95dpPI/AAAAAAAAA4g/mF48pNlyfNUhAL97EJjwHIqf51luq0n5QCPcBGAYYCw/s1600/timeline3.png)
 ```go
 package main
-
 import (
-
-"github.com/AsynkronIT/protoactor-go/actor"
-
-"github.com/AsynkronIT/protoactor-go/router"
-
-"log"
-
-"os"
-
-"os/signal"
-
-"syscall"
-
-"time"
-
+	"github.com/AsynkronIT/protoactor-go/actor"
+	"github.com/AsynkronIT/protoactor-go/router"
+	"log"
+	"os"
+	"os/signal"
+	"syscall"
+	"time"
 )
 
 type tick struct {
-
-count int
-
+	count int
 }
 
 type pong struct {
-
-count int
-
+	count int
 }
 
 type ping struct {
-
-count int
-
+	count int
 }
 
 type pingActor struct {
-
-pongPid *actor.PID
-
+	pongPid *actor.PID
 }
 
 func (p *pingActor) Receive(ctx actor.Context) {
+	switch msg := ctx.Message().(type) {
+	case *tick:
+		// Output becomes somewhat like below.
+		// See a diagram at https://raw.githubusercontent.com/oklahomer/protoactor-go-future-example/master/docs/await_future/timeline.png
+		//
+		// 2018/10/14 16:10:49 Received pong response: &main.pong{count:1}
+		// 2018/10/14 16:10:52 Received pong response: &main.pong{count:4}
+		// 2018/10/14 16:10:52 Failed to handle: 2. message: &main.tick{count:2}.
+		// 2018/10/14 16:10:53 Received pong response: &main.pong{count:3}
+		// 2018/10/14 07:10:53 [ACTOR] [DeadLetter] pid="nonhost/future$e" message=&{'\x02'} sender="nil"
+		// 2018/10/14 16:10:55 Received pong response: &main.pong{count:7}
+		// 2018/10/14 16:10:55 Failed to handle: 5. message: &main.tick{count:5}.
+		// 2018/10/14 16:10:56 Received pong response: &main.pong{count:6}
+		// 2018/10/14 07:10:56 [ACTOR] [DeadLetter] pid="nonhost/future$h" message=&{'\x05'} sender="nil"
+		// 2018/10/14 16:10:58 Received pong response: &main.pong{count:10}
+		// 2018/10/14 16:10:58 Failed to handle: 8. message: &main.tick{count:8}.
+		// 2018/10/14 16:10:59 Received pong response: &main.pong{count:9}
+		// 2018/10/14 07:10:59 [ACTOR] [DeadLetter] pid="nonhost/future$k" message=&{'\b'} sender="nil"
 
-switch msg := ctx.Message().(type) {
+		message := &ping{
+			count: msg.count,
+		}
+		future := p.pongPid.RequestFuture(message, 2500*time.Millisecond)
+		cnt := msg.count
+		ctx.AwaitFuture(future, func(res interface{}, err error) {
+			if err != nil {
+				// Context.Message() returns the exact message that was present on Context.AwaitFuture call.
+				// ref. https://github.com/AsynkronIT/protoactor-go/blob/3992780c0af683deb5ec3746f4ec5845139c6e42/actor/local_context.go#L289
+				log.Printf("Failed to handle: %d. message: %#v.", cnt, ctx.Message())
+				return
+			}
 
-case *tick:
-
-// Output becomes somewhat like below.
-
-// See a diagram at https://raw.githubusercontent.com/oklahomer/protoactor-go-future-example/master/docs/await_future/timeline.png
-
-//
-
-// 2018/10/14 16:10:49 Received pong response: &main.pong{count:1}
-
-// 2018/10/14 16:10:52 Received pong response: &main.pong{count:4}
-
-// 2018/10/14 16:10:52 Failed to handle: 2. message: &main.tick{count:2}.
-
-// 2018/10/14 16:10:53 Received pong response: &main.pong{count:3}
-
-// 2018/10/14 07:10:53 [ACTOR] [DeadLetter] pid="nonhost/future$e" message=&{'\x02'} sender="nil"
-
-// 2018/10/14 16:10:55 Received pong response: &main.pong{count:7}
-
-// 2018/10/14 16:10:55 Failed to handle: 5. message: &main.tick{count:5}.
-
-// 2018/10/14 16:10:56 Received pong response: &main.pong{count:6}
-
-// 2018/10/14 07:10:56 [ACTOR] [DeadLetter] pid="nonhost/future$h" message=&{'\x05'} sender="nil"
-
-// 2018/10/14 16:10:58 Received pong response: &main.pong{count:10}
-
-// 2018/10/14 16:10:58 Failed to handle: 8. message: &main.tick{count:8}.
-
-// 2018/10/14 16:10:59 Received pong response: &main.pong{count:9}
-
-// 2018/10/14 07:10:59 [ACTOR] [DeadLetter] pid="nonhost/future$k" message=&{'\b'} sender="nil"
-
-message := &ping{
-
-count: msg.count,
-
-}
-
-future := p.pongPid.RequestFuture(message, 2500*time.Millisecond)
-
-cnt := msg.count
-
-ctx.AwaitFuture(future, func(res interface{}, err error) {
-
-if err != nil {
-
-// Context.Message() returns the exact message that was present on Context.AwaitFuture call.
-
-// ref. https://github.com/AsynkronIT/protoactor-go/blob/3992780c0af683deb5ec3746f4ec5845139c6e42/actor/local_context.go#L289
-
-log.Printf("Failed to handle: %d. message: %#v.", cnt, ctx.Message())
-
-return
-
-}
-
-switch res.(type) {
-
-case *pong:
-
-log.Printf("Received pong response: %#v", res)
-
-default:
-
-log.Printf("Received unexpected response: %#v", res)
-
-}
-
-})
-
-}
-
+			switch res.(type) {
+			case *pong:
+				log.Printf("Received pong response: %#v", res)
+			default:
+				log.Printf("Received unexpected response: %#v", res)
+			}
+		})
+	}
 }
 
 func main() {
 
-pongProps := router.NewRoundRobinPool(10).
+	pongProps := router.NewRoundRobinPool(10).
+		WithFunc(func(ctx actor.Context) {
+			switch msg := ctx.Message().(type) {
+			case *ping:
+				var sleep time.Duration
+				remainder := msg.count % 3
+				if remainder == 0 {
+					sleep = 1700 * time.Millisecond
+				} else if remainder == 1 {
+					sleep = 300 * time.Millisecond
+				} else {
+					sleep = 2900 * time.Millisecond
+				}
 
-WithFunc(func(ctx actor.Context) {
+				time.Sleep(sleep)
 
-switch msg := ctx.Message().(type) {
+				message := &pong{
+					count: msg.count,
+				}
 
-case *ping:
+				ctx.Sender().Tell(message)
+			}
 
-var sleep time.Duration
+		})
 
-remainder := msg.count % 3
+	pongPid := actor.Spawn(pongProps)
+	pingProps := actor.FromProducer(func() actor.Actor {
+		return &pingActor{
+			pongPid: pongPid,
+		}
 
-if remainder == 0 {
+	})
 
-sleep = 1700 * time.Millisecond
+	pingPid := actor.Spawn(pingProps)
+	finish := make(chan os.Signal, 1)
+	signal.Notify(finish, os.Interrupt)
+	signal.Notify(finish, syscall.SIGTERM)
+	ticker := time.NewTicker(1 * time.Second)
 
-} else if remainder == 1 {
+	defer ticker.Stop()
 
-sleep = 300 * time.Millisecond
-
-} else {
-
-sleep = 2900 * time.Millisecond
-
-}
-
-time.Sleep(sleep)
-
-message := &pong{
-
-count: msg.count,
-
-}
-
-ctx.Sender().Tell(message)
-
-}
-
-})
-
-pongPid := actor.Spawn(pongProps)
-
-pingProps := actor.FromProducer(func() actor.Actor {
-
-return &pingActor{
-
-pongPid: pongPid,
-
-}
-
-})
-
-pingPid := actor.Spawn(pingProps)
-
-finish := make(chan os.Signal, 1)
-
-signal.Notify(finish, os.Interrupt)
-
-signal.Notify(finish, syscall.SIGTERM)
-
-ticker := time.NewTicker(1 * time.Second)
-
-defer ticker.Stop()
-
-count := 0
-
-for {
-
-select {
-
-case <-ticker.C:
-
-count++
-
-pingPid.Tell(&tick{count: count})
-
-case <-finish:
-
-return
-
-log.Print("Finish")
-
-}
-
-}
-
+	count := 0
+	for {
+		select {
+		case <-ticker.C:
+			count++
+			pingPid.Tell(&tick{count: count})
+		case <-finish:
+			return
+			log.Print("Finish")
+		}
+	}
 }
 ```
 [view raw](https://gist.github.com/oklahomer/cef28ea5911431a4a47fa69f8b3f35ed/raw/2f7d4f99ec8304b482aff79f0a7986004bca43ef/await_future.go)[await_future.go](https://gist.github.com/oklahomer/cef28ea5911431a4a47fa69f8b3f35ed#file-await_future-go)  hosted with ❤ by  [GitHub](https://github.com/)
@@ -537,8 +452,8 @@ As described in above sections, Future provides various methods to synchronize c
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjA3NTU5MzEyNiwyMDc3MTY3OTc5LC05Mz
-QxMjY2MDMsLTE4NDg2MTUyMjUsLTE4NDk2MzA3NjQsMjcxOTIz
-NzU4LC0xMjk0NDE5OTU4LDEwNjM0NzcwNTAsMTU5MzQxOTI3NS
-wtMTYzNjY4ODA1NywtMzQwMjkxODgsMjEzNzEwMzg3OF19
+eyJoaXN0b3J5IjpbOTIzNDIxMDk2LDIwNzcxNjc5NzksLTkzND
+EyNjYwMywtMTg0ODYxNTIyNSwtMTg0OTYzMDc2NCwyNzE5MjM3
+NTgsLTEyOTQ0MTk5NTgsMTA2MzQ3NzA1MCwxNTkzNDE5Mjc1LC
+0xNjM2Njg4MDU3LC0zNDAyOTE4OCwyMTM3MTAzODc4XX0=
 -->
