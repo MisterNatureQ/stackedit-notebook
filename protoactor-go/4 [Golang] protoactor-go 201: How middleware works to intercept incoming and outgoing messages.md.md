@@ -37,7 +37,7 @@ func (props *Props) WithOutboundMiddleware(middleware ...OutboundMiddleware) *Pr
 On actor construction, stashed middlewares are transformed into a middleware chain. At this point a group of one or more middlewares are combined together and shape one  `actor.ActorFunc()`. Middlewares are processed in reversed order in this process so they are executed in the registered order on message reception.
 
 在 actor  构建上，存储的中间件转变为中间件链。  此时，将一组一个或多个中间件组合在一起并形成一个`actor.ActorFunc()`  。  在此过程中，中间件以相反的顺序处理，因此它们在接收消息时以注册顺序执行。
-
+?? 
 ```go
 func makeInboundMiddlewareChain(middleware []InboundMiddleware, lastReceiver ActorFunc) ActorFunc {  
    if len(middleware) == 0 {  
@@ -65,6 +65,8 @@ func makeOutboundMiddlewareChain(outboundMiddleware []OutboundMiddleware, lastSe
 ```
 
 When  `actor.Context`  handles an incoming message, the  `actor.Context`  that holds all the contextual information including message itself is passed to that middleware chain. One important thing to notice at this point is that the original message reception method,  `actor.Receive()`, is wrapped in an anonymous function to match  `actor.ActorFunc()`  signature and is registered to the very end of the middleware chain. So when the context information is passed to the middleware chain, middlewares are executed in the registered order and  `actor.Receive()`  is called at last.
+
+当`actor.Context`处理传入消息时，包含消息本身的所有上下文信息的`actor.Context`将传递给该中间件链。  *此时需要注意的一件重要事情是原始消息接收方法`actor.Receive()`被包装在匿名函数中以匹配`actor.ActorFunc()`签名并被注册到中间件链的最末端。  因此，当上下文信息传递到中间件链时，中间件以注册的顺序执行，并且最后调用`actor.Receive()`  。
 
 ```go
 func (ctx *localContext) processMessage(m interface{}) {  
@@ -308,5 +310,6 @@ Middleware mechanism can be used to run a certain logic before and after the ori
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTcxNzMzOTgzMCw4NTU0NDYzNF19
+eyJoaXN0b3J5IjpbMTgxNDk0MTg2MywtNzE3MzM5ODMwLDg1NT
+Q0NjM0XX0=
 -->
