@@ -3,17 +3,19 @@
 As described in a previous article,  [Protoactor-go 101: How actors communicate with each other](https://blog.oklahome.net/2018/09/protoactor-go-messaging-protocol.html), the core of actor system is message passing. Fine-grained actors work on their own tasks, communicate with each other by passing messages and achieve a bigger task as a whole. To intercept the incoming and outgoing messages to execute tasks before and after the message handling, protoactor supports middleware mechanism.  
 Protoactor’s plugin mechanism is built on top of this middleware mechanism so knowing middleware is vital to building highly customized actor.
 
-如前一篇文章[Protoactor-go 101：演员如何相互沟通](https://blog.oklahome.net/2018/09/protoactor-go-messaging-protocol.html)所述，actor 系统的核心是消息传递。  细粒度的参与者可以完成自己的任务，通过传递信息来相互沟通，从而实现更大的任务。  为了拦截传入和传出的消息以在消息处理之前和之后执行任务，protoactor支持中间件机制。  
+如前一篇文章[Protoactor-go 101：演员如何相互沟通](https://blog.oklahome.net/2018/09/protoactor-go-messaging-protocol.html)所述，actor 系统的核心是消息传递。  细粒度的 actor  可以完成自己的任务，通过传递信息来相互沟通，从而实现更大的任务。  为了拦截传入和传出的消息以在消息处理之前和之后执行任务，protoactor支持中间件机制。  
 Protoactor的插件机制建立在这个中间件机制之上，因此了解中间件对于构建高度自定义的actor至关重要。
 
--   [Types of middleware](https://blog.oklahome.net/2018/11/protoactor-go-middleware.html#toc_0)
+-   [Types of middleware 中间件的类型](https://blog.oklahome.net/2018/11/protoactor-go-middleware.html#toc_0)
 -   [Under the hood](https://blog.oklahome.net/2018/11/protoactor-go-middleware.html#toc_1)
 -   [Example](https://blog.oklahome.net/2018/11/protoactor-go-middleware.html#toc_2)
 -   [Conclusion](https://blog.oklahome.net/2018/11/protoactor-go-middleware.html#toc_3)
 
-# Types of middleware
+# Types of middleware 中间件的类型
 
 To intercept incoming and outgoing messages, two kinds of middleware are provided:  [`actor.InboundMiddleware`](https://github.com/AsynkronIT/protoactor-go/blob/f373762276d85e13d8b2999e58e36d01d44e569d/actor/props.go#L5)  and  [`actor.OutboundMiddleware`](https://github.com/AsynkronIT/protoactor-go/blob/f373762276d85e13d8b2999e58e36d01d44e569d/actor/props.go#L6). Inbound middleware is invoked when a message reaches an actor; Outbound middleware is invoked when a message is sent to another actor. Multiple middlewares can be registered for a given actor so it is possible to divide middleware’s tasks into small pieces and create a middleware for each of them in favor of maintainability.
+
+为了拦截传入和传出的消息，提供了两种中间件：  [`actor.InboundMiddleware`](https://github.com/AsynkronIT/protoactor-go/blob/f373762276d85e13d8b2999e58e36d01d44e569d/actor/props.go#L5)和[`actor.OutboundMiddleware`](https://github.com/AsynkronIT/protoactor-go/blob/f373762276d85e13d8b2999e58e36d01d44e569d/actor/props.go#L6)  。  当消息到达actor时，调用入站中间件;  将消息发送给另一个actor时，将调用出站中间件。  可以为给定的actor注册多个中间件，因此可以将中间件的任务划分为小块，并为每个中间件的任务创建一个中间件，以支持可维护性。
 
 # Under the hood
 
@@ -304,5 +306,5 @@ Middleware mechanism can be used to run a certain logic before and after the ori
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTExMTc3OTU5MzcsODU1NDQ2MzRdfQ==
+eyJoaXN0b3J5IjpbNjA2MjAyNjAxLDg1NTQ0NjM0XX0=
 -->
