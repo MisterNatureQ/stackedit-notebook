@@ -270,7 +270,7 @@ func main() {
 				message := &pong{
 					count: msg.count,
 				}
-
+				// 返回发送方
 				ctx.Sender().Tell(message)
 		}
 	})
@@ -546,7 +546,7 @@ As described in above sections, Future provides various methods to synchronize c
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTUzNjk4NzUzMiwtOTM0MTI2NjAzLC0xOD
+eyJoaXN0b3J5IjpbMjEzMjUwMzM3MSwtOTM0MTI2NjAzLC0xOD
 Q4NjE1MjI1LC0xODQ5NjMwNzY0LDI3MTkyMzc1OCwtMTI5NDQx
 OTk1OCwxMDYzNDc3MDUwLDE1OTM0MTkyNzUsLTE2MzY2ODgwNT
 csLTM0MDI5MTg4LDIxMzcxMDM4NzhdfQ==
