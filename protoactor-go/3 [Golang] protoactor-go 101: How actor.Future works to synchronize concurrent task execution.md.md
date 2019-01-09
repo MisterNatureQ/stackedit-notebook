@@ -311,7 +311,7 @@ func main() {
 The task execution is done in an asynchronous manner like  `Future.PipeTo`  but, because this can refer to contextual information, a callback function is still called even when the computation times out.  `Context.Message()`  contains the same message as when the origination actor’s  `Actor.Receive()`  is called so a developer does not have to add a workaround to copy the message to refer from the callback function.
 
 ![](https://1.bp.blogspot.com/-0DHuQHUzwQE/W_fgL95dpPI/AAAAAAAAA4g/mF48pNlyfNUhAL97EJjwHIqf51luq0n5QCPcBGAYYCw/s1600/timeline3.png)
-
+```go
 package main
 
 import (
@@ -525,30 +525,20 @@ log.Print("Finish")
 }
 
 }
-
+```
 [view raw](https://gist.github.com/oklahomer/cef28ea5911431a4a47fa69f8b3f35ed/raw/2f7d4f99ec8304b482aff79f0a7986004bca43ef/await_future.go)[await_future.go](https://gist.github.com/oklahomer/cef28ea5911431a4a47fa69f8b3f35ed#file-await_future-go)  hosted with ❤ by  [GitHub](https://github.com/)
 
 # Conclusion
 
 As described in above sections, Future provides various methods to synchronize concurrent execution. While concurrent execution is the core of actor model, these come in handy to synchronize concurrent execution with minimal cost.
 
-
-### [Golang] protoactor-go 101：actor.Future如何同步并发任务执行
-
-细粒度的演员专注于自己的任务，并与他人沟通，以完成一个更大的任务。  这就是精心设计的演员系统的运作方式。  因为每个actor处理传入任务的较小部分，将其传递给另一个，然后继续处理下一个传入任务，actor可以以并发方式有效地工作，以在相同的时间内完成更多任务。  要将一个actor的作业执行结果传递给另一个actor，或者在另一个actor的执行完成时执行任务，actor.Future机制就派上用场了。
-
--   [介绍未来](https://translate.googleusercontent.com/translate_c?depth=1&hl=zh-CN&prev=search&rurl=translate.google.com&sl=en&sp=nmt4&u=https://blog.oklahome.net/2018/11/protoactor-go-how-future-works.html&xid=17259,15700023,15700124,15700186,15700191,15700201,15700237,15700242,15700248&usg=ALkJrhjsT-EjsssLRFpheUzv-cZruQzsHA#toc_0)
-    -   [如何在引擎盖下工作](https://translate.googleusercontent.com/translate_c?depth=1&hl=zh-CN&prev=search&rurl=translate.google.com&sl=en&sp=nmt4&u=https://blog.oklahome.net/2018/11/protoactor-go-how-future-works.html&xid=17259,15700023,15700124,15700186,15700191,15700201,15700237,15700242,15700248&usg=ALkJrhjsT-EjsssLRFpheUzv-cZruQzsHA#toc_1)
--   [Future.Wait（）/ Future.Result（）](https://translate.googleusercontent.com/translate_c?depth=1&hl=zh-CN&prev=search&rurl=translate.google.com&sl=en&sp=nmt4&u=https://blog.oklahome.net/2018/11/protoactor-go-how-future-works.html&xid=17259,15700023,15700124,15700186,15700191,15700201,15700237,15700242,15700248&usg=ALkJrhjsT-EjsssLRFpheUzv-cZruQzsHA#toc_2)
--   [Future.PipeTo（）](https://translate.googleusercontent.com/translate_c?depth=1&hl=zh-CN&prev=search&rurl=translate.google.com&sl=en&sp=nmt4&u=https://blog.oklahome.net/2018/11/protoactor-go-how-future-works.html&xid=17259,15700023,15700124,15700186,15700191,15700201,15700237,15700242,15700248&usg=ALkJrhjsT-EjsssLRFpheUzv-cZruQzsHA#toc_3)
--   [Context.AwaitFuture（）](https://translate.googleusercontent.com/translate_c?depth=1&hl=zh-CN&prev=search&rurl=translate.google.com&sl=en&sp=nmt4&u=https://blog.oklahome.net/2018/11/protoactor-go-how-future-works.html&xid=17259,15700023,15700124,15700186,15700191,15700201,15700237,15700242,15700248&usg=ALkJrhjsT-EjsssLRFpheUzv-cZruQzsHA#toc_4)
--   [结论](https://translate.googleusercontent.com/translate_c?depth=1&hl=zh-CN&prev=search&rurl=translate.google.com&sl=en&sp=nmt4&u=https://blog.oklahome.net/2018/11/protoactor-go-how-future-works.html&xid=17259,15700023,15700124,15700186,15700191,15700201,15700237,15700242,15700248&usg=ALkJrhjsT-EjsssLRFpheUzv-cZruQzsHA#toc_5)
+如上一节所述，Future提供了同步并发执行的各种方法。  虽然并发执行是actor模型的核心，但它们可以方便地以最小的成本同步并发执行。
 
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjA3NzE2Nzk3OSwtOTM0MTI2NjAzLC0xOD
-Q4NjE1MjI1LC0xODQ5NjMwNzY0LDI3MTkyMzc1OCwtMTI5NDQx
-OTk1OCwxMDYzNDc3MDUwLDE1OTM0MTkyNzUsLTE2MzY2ODgwNT
-csLTM0MDI5MTg4LDIxMzcxMDM4NzhdfQ==
+eyJoaXN0b3J5IjpbMjA3NTU5MzEyNiwyMDc3MTY3OTc5LC05Mz
+QxMjY2MDMsLTE4NDg2MTUyMjUsLTE4NDk2MzA3NjQsMjcxOTIz
+NzU4LC0xMjk0NDE5OTU4LDEwNjM0NzcwNTAsMTU5MzQxOTI3NS
+wtMTYzNjY4ODA1NywtMzQwMjkxODgsMjEzNzEwMzg3OF19
 -->
