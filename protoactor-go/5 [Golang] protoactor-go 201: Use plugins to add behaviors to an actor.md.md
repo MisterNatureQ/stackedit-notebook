@@ -2,6 +2,8 @@
 
 The previous article, “[How middleware works to intercept incoming and outgoing messages](https://blog.oklahome.net/2018/11/protoactor-go-middleware.html)”, introduced how middlewares can be used to add behaviors without modifying an actor’s implementation. This is a good AOP-ish approach for multiple types of actors to execute a common procedure such as logging on message receiving/sending. A plugin mechanism is implemented on top of this middleware mechanism to run a specific task on actor initialization and message reception to enhance an actor’s ability. This article covers the implementation of this plugin feature and how this can be used.
 
+前一篇文章“  [中间件如何拦截传入和传出的消息](https://blog.oklahome.net/2018/11/protoactor-go-middleware.html)  ”，介绍了如何在不修改actor的实现的情况下使用中间件来添加行为。  对于多种类型的actor来说，这是一种很好的AOP-ish方法，可以执行常见的过程，例如登录消息接收/发送。  在这个中间件机制之上实现了一个插件机制，用于在actor初始化和消息接收上运行特定任务，以增强actor的能力。  本文介绍了此插件功能的实现以及如何使用它。
+
 -   [Under the Hood](https://blog.oklahome.net/2018/12/protoactor-go-use-plugin-to-add-behavior.html#toc_0)
 -   [Example](https://blog.oklahome.net/2018/12/protoactor-go-use-plugin-to-add-behavior.html#toc_1)
 -   [Conclusion](https://blog.oklahome.net/2018/12/protoactor-go-use-plugin-to-add-behavior.html#toc_2)
@@ -242,5 +244,5 @@ To add a pluggable behavior to an actor, a developer can provde a plugin by impl
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbOTE4NDkxMzMwLDI5NzgwNTIxMV19
+eyJoaXN0b3J5IjpbMTUzNjc2MTIzMywyOTc4MDUyMTFdfQ==
 -->
