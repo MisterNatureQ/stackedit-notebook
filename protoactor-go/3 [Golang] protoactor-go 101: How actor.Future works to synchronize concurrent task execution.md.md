@@ -247,7 +247,7 @@ func (p *pingActor) Receive(ctx actor.Context) {
 }
 
 func main() {
-	// 创建了 router 轮询ci
+	// 创建了 router 轮询池 大小10 
 	pongProps := router.NewRoundRobinPool(10).
 	WithFunc(func(ctx actor.Context) {
 		switch msg := ctx.Message().(type) {
@@ -546,8 +546,8 @@ As described in above sections, Future provides various methods to synchronize c
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNjcxMDQ4MjQzLC05MzQxMjY2MDMsLTE4ND
-g2MTUyMjUsLTE4NDk2MzA3NjQsMjcxOTIzNzU4LC0xMjk0NDE5
-OTU4LDEwNjM0NzcwNTAsMTU5MzQxOTI3NSwtMTYzNjY4ODA1Ny
-wtMzQwMjkxODgsMjEzNzEwMzg3OF19
+eyJoaXN0b3J5IjpbMTUzNjk4NzUzMiwtOTM0MTI2NjAzLC0xOD
+Q4NjE1MjI1LC0xODQ5NjMwNzY0LDI3MTkyMzc1OCwtMTI5NDQx
+OTk1OCwxMDYzNDc3MDUwLDE1OTM0MTkyNzUsLTE2MzY2ODgwNT
+csLTM0MDI5MTg4LDIxMzcxMDM4NzhdfQ==
 -->
