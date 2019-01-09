@@ -276,8 +276,8 @@ func main() {
 	pongPid := actor.Spawn(pongProps)
 	pingProps := actor.FromProducer(func() actor.Actor {
 		return &pingActor{
-		count: 0,
-		pongPid: pongPid,
+			count: 0,
+			pongPid: pongPid,
 		}
 	})
 
@@ -292,6 +292,7 @@ func main() {
 	for {
 		select {
 		case <-ticker.C:
+			// 1s
 			pingPid.Tell(struct{}{})
 		case <-finish:
 			return
@@ -543,8 +544,8 @@ As described in above sections, Future provides various methods to synchronize c
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjcxNzczOTgzLC0xODQ4NjE1MjI1LC0xOD
-Q5NjMwNzY0LDI3MTkyMzc1OCwtMTI5NDQxOTk1OCwxMDYzNDc3
-MDUwLDE1OTM0MTkyNzUsLTE2MzY2ODgwNTcsLTM0MDI5MTg4LD
-IxMzcxMDM4NzhdfQ==
+eyJoaXN0b3J5IjpbLTMxNTk0ODYxMSwtMTg0ODYxNTIyNSwtMT
+g0OTYzMDc2NCwyNzE5MjM3NTgsLTEyOTQ0MTk5NTgsMTA2MzQ3
+NzA1MCwxNTkzNDE5Mjc1LC0xNjM2Njg4MDU3LC0zNDAyOTE4OC
+wyMTM3MTAzODc4XX0=
 -->
