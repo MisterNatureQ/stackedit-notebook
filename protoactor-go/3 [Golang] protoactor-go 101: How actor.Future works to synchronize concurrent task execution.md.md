@@ -235,11 +235,12 @@ func (p *pingActor) Receive(ctx actor.Context) {
 		message := &ping{
 			count: p.count,
 		}
-
+		// TODO ?? 这里使用了 PipeTo 记录了返回的结果需要发送给谁
 		p.
 		pongPid.
 		RequestFuture(message, 2500*time.Millisecond).
 		PipeTo(ctx.Self())
+		
 	case *pong:
 		log.Printf("Received pong message %#v", msg)
 	}
@@ -544,7 +545,7 @@ As described in above sections, Future provides various methods to synchronize c
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTMxNTk0ODYxMSwtMTg0ODYxNTIyNSwtMT
+eyJoaXN0b3J5IjpbLTkzNDEyNjYwMywtMTg0ODYxNTIyNSwtMT
 g0OTYzMDc2NCwyNzE5MjM3NTgsLTEyOTQ0MTk5NTgsMTA2MzQ3
 NzA1MCwxNTkzNDE5Mjc1LC0xNjM2Njg4MDU3LC0zNDAyOTE4OC
 wyMTM3MTAzODc4XX0=
