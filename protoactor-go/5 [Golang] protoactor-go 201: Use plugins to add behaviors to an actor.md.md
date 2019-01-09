@@ -233,6 +233,8 @@ p.Reset(pp.Duration)
 
 Thanks for that effort, an actor implementation can be as simple as below. This is obvious that, because the passivation implementation itself is implemented by embedded  `plugin.PassivationHolder`,  `MyActor`  developer can separate the passivation procedure and concentrate on her own business.
 
+感谢您的努力，演员实现可以如下所述。  很明显，因为钝化实现本身是由嵌入式`plugin.PassivationHolder`实现的，  `MyActor`开发人员可以分离钝化程序并专注于自己的业务。
+
 ```go
 type MyActor struct {  
   // Implement plugin.PassivationAware by embedding its default implementation: plugin.PassivationHolder
@@ -250,11 +252,11 @@ func (state *MyActor) Receive(context actor.Context) {
 
 To add a pluggable behavior to an actor, a developer can provde a plugin by implementing  `plugin.plugin`  interface. By defining core interface and its embeddable default implementation of the plugin, it is quite easier to separate the areas of responsibility of a plugin and an actor.
 
-
+要向actor添加可插入行为，开发人员可以通过实现`plugin.plugin`接口来提供插件。  通过定义核心接口及其嵌入式嵌入式默认实现，可以更容易地分离插件和actor的责任区域。
 
 
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTU1MTk2MzY1NCwyOTc4MDUyMTFdfQ==
+eyJoaXN0b3J5IjpbLTE3MDg5Mzk2LDI5NzgwNTIxMV19
 -->
