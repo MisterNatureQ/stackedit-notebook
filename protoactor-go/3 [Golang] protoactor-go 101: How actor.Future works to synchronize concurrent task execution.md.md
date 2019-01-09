@@ -158,6 +158,7 @@ func main() {
 
 	pingPid := actor.Spawn(pingProps)
 	finish := make(chan os.Signal, 1)
+	// 监听信号
 	signal.Notify(finish, os.Interrupt)
 	signal.Notify(finish, syscall.SIGTERM)
 	ticker := time.NewTicker(2 * time.Second)
@@ -178,195 +179,124 @@ func main() {
 
 These methods are useful to retrieve the destination actors response and proceed own logic but are not usually preferred because the idea of such synchronous execution conflicts with the nature of actor model: concurrent computation.
 
+**这些方法对于 得到 目标actor  回应 和继续自己的逻辑很有用，但通常不是优选的，因为这种同步执行的想法与actor模型的性质冲突：并发计算。**
 # Future.PipeTo()
 
 While  `Future.Wait()`  and  `Future.Result()`  block until timeout or task completion,  `Future.PipeTo()`  asynchronously sends the result of computation to another actor. This can be a powerful tool when only the origination actor knows which actor should receive the result of a worker actor’s task; Actor A delegates a task to worker actor B but B does not know to what actor to pass the result message to. One important thing is that the message is transfered to the destination actor when and only when the comptation completes before it times out. Otherwise the response is sent to the dead letter mailbox.  
 Becausee this works in an asynchronous manner, origination actor can handle incoming messages right after dispatching tasks to worker actors no matter how long the worker actors take to respond.
 
-![](https://1.bp.blogspot.com/-4N-KIngq5PI/W_fgL4GrNpI/AAAAAAAAA4c/zVcppmuvP4QIRzLc0Dw7jLGPo0rM-5mZACPcBGAYYCw/s1600/timeline2.png)
+虽然`Future.Wait()`和`Future.Result()`阻塞直到超时或任务完成，但`Future.PipeTo()`异步地将计算结果发送给另一个actor。  当只有 起始 actor  知道哪个 actor  应该接收 工作 actor 的任务结果时，这可以是一个强大的工具;  Actor A将任务委托给worker actor B，但B不知道将结果消息传递给哪个actor。  一个重要的事情是，只有当计算在超时之前完成时，消息才会传递到目标actor。否则，响应将发送到 dead letter mailbox 。  
+因为它以异步方式工作，所以无论 worker actors 回应 花费 多长时间，起始 actor 都可以在将任务分派给工作者之后立即处理传入消息。
 
+![](https://1.bp.blogspot.com/-4N-KIngq5PI/W_fgL4GrNpI/AAAAAAAAA4c/zVcppmuvP4QIRzLc0Dw7jLGPo0rM-5mZACPcBGAYYCw/s1600/timeline2.png)
+```go
 package main
 
 import (
-
 "github.com/AsynkronIT/protoactor-go/actor"
-
 "github.com/AsynkronIT/protoactor-go/router"
-
 "log"
-
 "os"
-
 "os/signal"
-
 "syscall"
-
 "time"
-
 )
 
 type pong struct {
-
-count uint
-
+	count uint
 }
 
 type ping struct {
-
-count uint
-
+	count uint
 }
 
 type pingActor struct {
-
-count uint
-
-pongPid *actor.PID
-
+	count uint
+	pongPid *actor.PID
 }
 
 func (p *pingActor) Receive(ctx actor.Context) {
+	switch msg := ctx.Message().(type) {
+	case struct{}:
+	p.count++
+	// Output becomes somewhat like below.
+	// See a diagram at https://raw.githubusercontent.com/oklahomer/protoactor-go-future-example/master/docs/pipe/timeline.png
+	// 2018/10/14 14:20:36 Received pong message &main.pong{count:1}
+	// 2018/10/14 14:20:39 Received pong message &main.pong{count:4}
+	// 2018/10/14 14:20:39 Received pong message &main.pong{count:3}
+	// 2018/10/14 05:20:39 [ACTOR] [DeadLetter] pid="nonhost/future$e" message=&{'\x02'} sender="nil"
+	// 2018/10/14 14:20:42 Received pong message &main.pong{count:7}
+	// 2018/10/14 14:20:42 Received pong message &main.pong{count:6}
+	// 2018/10/14 05:20:42 [ACTOR] [DeadLetter] pid="nonhost/future$h" message=&{'\x05'} sender="nil"
+	// 2018/10/14 14:20:45 Received pong message &main.pong{count:10}
+	// 2018/10/14 14:20:45 Received pong message &main.pong{count:9}
+	// 2018/10/14 05:20:45 [ACTOR] [DeadLetter] pid="nonhost/future$k" message=&{'\b'} sender="nil"
 
-switch msg := ctx.Message().(type) {
+	message := &ping{
+		count: p.count,
+	}
 
-case struct{}:
-
-p.count++
-
-// Output becomes somewhat like below.
-
-// See a diagram at https://raw.githubusercontent.com/oklahomer/protoactor-go-future-example/master/docs/pipe/timeline.png
-
-// 2018/10/14 14:20:36 Received pong message &main.pong{count:1}
-
-// 2018/10/14 14:20:39 Received pong message &main.pong{count:4}
-
-// 2018/10/14 14:20:39 Received pong message &main.pong{count:3}
-
-// 2018/10/14 05:20:39 [ACTOR] [DeadLetter] pid="nonhost/future$e" message=&{'\x02'} sender="nil"
-
-// 2018/10/14 14:20:42 Received pong message &main.pong{count:7}
-
-// 2018/10/14 14:20:42 Received pong message &main.pong{count:6}
-
-// 2018/10/14 05:20:42 [ACTOR] [DeadLetter] pid="nonhost/future$h" message=&{'\x05'} sender="nil"
-
-// 2018/10/14 14:20:45 Received pong message &main.pong{count:10}
-
-// 2018/10/14 14:20:45 Received pong message &main.pong{count:9}
-
-// 2018/10/14 05:20:45 [ACTOR] [DeadLetter] pid="nonhost/future$k" message=&{'\b'} sender="nil"
-
-message := &ping{
-
-count: p.count,
-
-}
-
-p.
-
-pongPid.
-
-RequestFuture(message, 2500*time.Millisecond).
-
-PipeTo(ctx.Self())
-
+	p.
+	pongPid.
+	RequestFuture(message, 2500*time.Millisecond).
+	PipeTo(ctx.Self())
 case *pong:
-
 log.Printf("Received pong message %#v", msg)
-
 }
-
 }
 
 func main() {
-
 pongProps := router.NewRoundRobinPool(10).
-
 WithFunc(func(ctx actor.Context) {
-
 switch msg := ctx.Message().(type) {
+	case *ping:
+	var sleep time.Duration
+	remainder := msg.count % 3
+	if remainder == 0 {
+	sleep = 1700 * time.Millisecond
+	} else if remainder == 1 {
+	sleep = 300 * time.Millisecond
+	} else {
+	sleep = 2900 * time.Millisecond
+	}
 
-case *ping:
+	time.Sleep(sleep)
 
-var sleep time.Duration
-
-remainder := msg.count % 3
-
-if remainder == 0 {
-
-sleep = 1700 * time.Millisecond
-
-} else if remainder == 1 {
-
-sleep = 300 * time.Millisecond
-
-} else {
-
-sleep = 2900 * time.Millisecond
-
-}
-
-time.Sleep(sleep)
-
-message := &pong{
-
-count: msg.count,
-
+	message := &pong{
+	count: msg.count,
 }
 
 ctx.Sender().Tell(message)
-
 }
-
 })
 
 pongPid := actor.Spawn(pongProps)
-
 pingProps := actor.FromProducer(func() actor.Actor {
-
-return &pingActor{
-
-count: 0,
-
-pongPid: pongPid,
-
-}
-
+	return &pingActor{
+	count: 0,
+	pongPid: pongPid,
+	}
 })
 
 pingPid := actor.Spawn(pingProps)
-
 finish := make(chan os.Signal, 1)
-
 signal.Notify(finish, os.Interrupt)
-
 signal.Notify(finish, syscall.SIGTERM)
-
 ticker := time.NewTicker(1 * time.Second)
 
 defer ticker.Stop()
 
-for {
-
-select {
-
-case <-ticker.C:
-
-pingPid.Tell(struct{}{})
-
-case <-finish:
-
-return
-
-log.Print("Finish")
-
+	for {
+		select {
+		case <-ticker.C:
+			pingPid.Tell(struct{}{})
+		case <-finish:
+			return
+			log.Print("Finish")
+		}
+	}
 }
-
-}
-
-}
-
+```
 [view raw](https://gist.github.com/oklahomer/a8cf524b8b5e71939f8ba93ae951718e/raw/7c98e932579ff880f30ca2c95b249540b94262cc/pipeto.go)[pipeto.go](https://gist.github.com/oklahomer/a8cf524b8b5e71939f8ba93ae951718e#file-pipeto-go)  hosted with ❤ by  [GitHub](https://github.com/)
 
 # Context.AwaitFuture()
@@ -610,8 +540,8 @@ As described in above sections, Future provides various methods to synchronize c
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE1NzYyMjE4NTYsLTE4NDg2MTUyMjUsLT
-E4NDk2MzA3NjQsMjcxOTIzNzU4LC0xMjk0NDE5OTU4LDEwNjM0
-NzcwNTAsMTU5MzQxOTI3NSwtMTYzNjY4ODA1NywtMzQwMjkxOD
-gsMjEzNzEwMzg3OF19
+eyJoaXN0b3J5IjpbLTU0MDYyNTA4OCwtMTg0ODYxNTIyNSwtMT
+g0OTYzMDc2NCwyNzE5MjM3NTgsLTEyOTQ0MTk5NTgsMTA2MzQ3
+NzA1MCwxNTkzNDE5Mjc1LC0xNjM2Njg4MDU3LC0zNDAyOTE4OC
+wyMTM3MTAzODc4XX0=
 -->
