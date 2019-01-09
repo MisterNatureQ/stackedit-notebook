@@ -37,7 +37,7 @@ In those method calls,  `actor.NewFuture()`  is called with preferred timeout du
 在这些方法调用中，调用`actor.NewFuture()`  ，  `actor.NewFuture()`首选超时持续时间作为参数。  在`actor.NewFuture()`  ，  `actor.Future`及其包装器 -  `actor.futureProcess`  - 都被构造，  `actor.futureProcess`被注册到protoactor-go的内部进程注册表以供稍后的引用和`actor.Future`返回。
 
 As depicted in the below code fragment,  `actor.Future`’s  `actor.PID`  is set as a  `Sender`  of the requesting message. So when the receiving actor responds to the sender, the response is actually sent to the  `actor.Future`’s  `actor.PID`. When  `actor.Future`  receives the response, the result of the Future is set and becomes available to the subscriber.
-如下面的代码片段所示，  `actor.Future`的`actor.PID`被设置为请求消息的发送者。  因此，当`actor.Future`响应发送者时，响应实际上被发送给了`actor.Future`的`actor.PID`  。当`actor.Future`收到响应时，将设置Future的结果并可以订阅使用。
+如下面的代码片段所示，  `actor.Future`的`actor.PID`被设置为请求消息的发送者。  因此，当`actor.Future`响应发送者时，响应实际上被发送给了`actor.Future`的`actor.PID`  。当`actor.Future`收到响应时，将设置Future的结果并可以给订阅者使用。
 
 ```go
 func (ctx *localContext) RequestFuture(pid *PID, message interface{}, timeout time.Duration) *Future {  
@@ -606,7 +606,7 @@ As described in above sections, Future provides various methods to synchronize c
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjcxOTIzNzU4LC0xMjk0NDE5OTU4LDEwNj
-M0NzcwNTAsMTU5MzQxOTI3NSwtMTYzNjY4ODA1NywtMzQwMjkx
-ODgsMjEzNzEwMzg3OF19
+eyJoaXN0b3J5IjpbLTE4NDk2MzA3NjQsMjcxOTIzNzU4LC0xMj
+k0NDE5OTU4LDEwNjM0NzcwNTAsMTU5MzQxOTI3NSwtMTYzNjY4
+ODA1NywtMzQwMjkxODgsMjEzNzEwMzg3OF19
 -->
