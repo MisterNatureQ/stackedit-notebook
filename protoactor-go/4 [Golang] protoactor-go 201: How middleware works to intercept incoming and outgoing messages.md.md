@@ -66,7 +66,7 @@ func makeOutboundMiddlewareChain(outboundMiddleware []OutboundMiddleware, lastSe
 
 When  `actor.Context`  handles an incoming message, the  `actor.Context`  that holds all the contextual information including message itself is passed to that middleware chain. One important thing to notice at this point is that the original message reception method,  `actor.Receive()`, is wrapped in an anonymous function to match  `actor.ActorFunc()`  signature and is registered to the very end of the middleware chain. So when the context information is passed to the middleware chain, middlewares are executed in the registered order and  `actor.Receive()`  is called at last.
 
-当`actor.Context`处理传入消息时，包含消息本身的所有上下文信息的`actor.Context`将传递给该中间件链。  *此时需要注意的一件重要事情是原始消息接收方法`actor.Receive()`被包装在匿名函数中以匹配`actor.ActorFunc()`签名并被注册到中间件链的最末端。  因此，当上下文信息传递到中间件链时，中间件以注册的顺序执行，并且最后调用`actor.Receive()`  。
+当`actor.Context`处理传入消息时，包含消息本身的所有上下文信息的`actor.Context`将传递给该中间件链。  **此时需要注意的一件重要事情是原始消息接收方法`actor.Receive()`被包装在匿名函数中以匹配`actor.ActorFunc()`签名并被注册到中间件链的最末端。  因此，当上下文信息传递到中间件链时，中间件以注册的顺序执行，并且最后调用`actor.Receive()`  。 **
 
 ```go
 func (ctx *localContext) processMessage(m interface{}) {  
@@ -310,6 +310,6 @@ Middleware mechanism can be used to run a certain logic before and after the ori
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTgxNDk0MTg2MywtNzE3MzM5ODMwLDg1NT
+eyJoaXN0b3J5IjpbMTkzMTI0MzU5MywtNzE3MzM5ODMwLDg1NT
 Q0NjM0XX0=
 -->
