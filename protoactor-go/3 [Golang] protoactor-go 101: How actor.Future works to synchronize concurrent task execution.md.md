@@ -144,6 +144,7 @@ func (p *pingActor) Receive(ctx actor.Context) {
 }
 
 func main() {
+	// 接收
 	pongProps := actor.FromProducer(func() actor.Actor {
 		return &pongActor{}
 	})
@@ -609,8 +610,8 @@ As described in above sections, Future provides various methods to synchronize c
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE4NDg2MTUyMjUsLTE4NDk2MzA3NjQsMj
-cxOTIzNzU4LC0xMjk0NDE5OTU4LDEwNjM0NzcwNTAsMTU5MzQx
-OTI3NSwtMTYzNjY4ODA1NywtMzQwMjkxODgsMjEzNzEwMzg3OF
-19
+eyJoaXN0b3J5IjpbLTE1NzYyMjE4NTYsLTE4NDg2MTUyMjUsLT
+E4NDk2MzA3NjQsMjcxOTIzNzU4LC0xMjk0NDE5OTU4LDEwNjM0
+NzcwNTAsMTU5MzQxOTI3NSwtMTYzNjY4ODA1NywtMzQwMjkxOD
+gsMjEzNzEwMzg3OF19
 -->
