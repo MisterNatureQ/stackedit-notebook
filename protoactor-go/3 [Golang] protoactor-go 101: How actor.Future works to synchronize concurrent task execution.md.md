@@ -218,73 +218,73 @@ type pingActor struct {
 func (p *pingActor) Receive(ctx actor.Context) {
 	switch msg := ctx.Message().(type) {
 	case struct{}:
-	p.count++
-	// Output becomes somewhat like below.
-	// See a diagram at https://raw.githubusercontent.com/oklahomer/protoactor-go-future-example/master/docs/pipe/timeline.png
-	// 2018/10/14 14:20:36 Received pong message &main.pong{count:1}
-	// 2018/10/14 14:20:39 Received pong message &main.pong{count:4}
-	// 2018/10/14 14:20:39 Received pong message &main.pong{count:3}
-	// 2018/10/14 05:20:39 [ACTOR] [DeadLetter] pid="nonhost/future$e" message=&{'\x02'} sender="nil"
-	// 2018/10/14 14:20:42 Received pong message &main.pong{count:7}
-	// 2018/10/14 14:20:42 Received pong message &main.pong{count:6}
-	// 2018/10/14 05:20:42 [ACTOR] [DeadLetter] pid="nonhost/future$h" message=&{'\x05'} sender="nil"
-	// 2018/10/14 14:20:45 Received pong message &main.pong{count:10}
-	// 2018/10/14 14:20:45 Received pong message &main.pong{count:9}
-	// 2018/10/14 05:20:45 [ACTOR] [DeadLetter] pid="nonhost/future$k" message=&{'\b'} sender="nil"
+		p.count++
+		// Output becomes somewhat like below.
+		// See a diagram at https://raw.githubusercontent.com/oklahomer/protoactor-go-future-example/master/docs/pipe/timeline.png
+		// 2018/10/14 14:20:36 Received pong message &main.pong{count:1}
+		// 2018/10/14 14:20:39 Received pong message &main.pong{count:4}
+		// 2018/10/14 14:20:39 Received pong message &main.pong{count:3}
+		// 2018/10/14 05:20:39 [ACTOR] [DeadLetter] pid="nonhost/future$e" message=&{'\x02'} sender="nil"
+		// 2018/10/14 14:20:42 Received pong message &main.pong{count:7}
+		// 2018/10/14 14:20:42 Received pong message &main.pong{count:6}
+		// 2018/10/14 05:20:42 [ACTOR] [DeadLetter] pid="nonhost/future$h" message=&{'\x05'} sender="nil"
+		// 2018/10/14 14:20:45 Received pong message &main.pong{count:10}
+		// 2018/10/14 14:20:45 Received pong message &main.pong{count:9}
+		// 2018/10/14 05:20:45 [ACTOR] [DeadLetter] pid="nonhost/future$k" message=&{'\b'} sender="nil"
 
-	message := &ping{
-		count: p.count,
+		message := &ping{
+			count: p.count,
+		}
+
+		p.
+		pongPid.
+		RequestFuture(message, 2500*time.Millisecond).
+		PipeTo(ctx.Self())
+	case *pong:
+		log.Printf("Received pong message %#v", msg)
 	}
-
-	p.
-	pongPid.
-	RequestFuture(message, 2500*time.Millisecond).
-	PipeTo(ctx.Self())
-case *pong:
-log.Printf("Received pong message %#v", msg)
-}
 }
 
 func main() {
-pongProps := router.NewRoundRobinPool(10).
-WithFunc(func(ctx actor.Context) {
-switch msg := ctx.Message().(type) {
-	case *ping:
-	var sleep time.Duration
-	remainder := msg.count % 3
-	if remainder == 0 {
-	sleep = 1700 * time.Millisecond
-	} else if remainder == 1 {
-	sleep = 300 * time.Millisecond
-	} else {
-	sleep = 2900 * time.Millisecond
-	}
+	pongProps := router.NewRoundRobinPool(10).
+	WithFunc(func(ctx actor.Context) {
+		switch msg := ctx.Message().(type) {
+			case *ping:
+				var sleep time.Duration
+				remainder := msg.count % 3
+				if remainder == 0 {
+					sleep = 1700 * time.Millisecond
+				} else if remainder == 1 {
+					sleep = 300 * time.Millisecond
+				} else {
+					sleep = 2900 * time.Millisecond
+				}
 
-	time.Sleep(sleep)
+				time.Sleep(sleep)
 
-	message := &pong{
-	count: msg.count,
-}
+				message := &pong{
+					count: msg.count,
+				}
 
-ctx.Sender().Tell(message)
-}
-})
+				ctx.Sender().Tell(message)
+		}
+	})
 
-pongPid := actor.Spawn(pongProps)
-pingProps := actor.FromProducer(func() actor.Actor {
-	return &pingActor{
-	count: 0,
-	pongPid: pongPid,
-	}
-})
+	pongPid := actor.Spawn(pongProps)
+	pingProps := actor.FromProducer(func() actor.Actor {
+		return &pingActor{
+		count: 0,
+		pongPid: pongPid,
+		}
+	})
 
-pingPid := actor.Spawn(pingProps)
-finish := make(chan os.Signal, 1)
-signal.Notify(finish, os.Interrupt)
-signal.Notify(finish, syscall.SIGTERM)
-ticker := time.NewTicker(1 * time.Second)
+	pingPid := actor.Spawn(pingProps)
+	finish := make(chan os.Signal, 1)
+	signal.Notify(finish, os.Interrupt)
+	signal.Notify(finish, syscall.SIGTERM)
+	ticker := time.NewTicker(1 * time.Second)
 
-defer ticker.Stop()
+	defer ticker.Stop()
 
 	for {
 		select {
@@ -540,7 +540,7 @@ As described in above sections, Future provides various methods to synchronize c
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTU0MDYyNTA4OCwtMTg0ODYxNTIyNSwtMT
+eyJoaXN0b3J5IjpbLTU3ODcwODk0NCwtMTg0ODYxNTIyNSwtMT
 g0OTYzMDc2NCwyNzE5MjM3NTgsLTEyOTQ0MTk5NTgsMTA2MzQ3
 NzA1MCwxNTkzNDE5Mjc1LC0xNjM2Njg4MDU3LC0zNDAyOTE4OC
 wyMTM3MTAzODc4XX0=
