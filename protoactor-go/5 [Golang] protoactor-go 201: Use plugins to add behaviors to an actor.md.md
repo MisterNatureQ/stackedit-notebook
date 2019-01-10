@@ -2,7 +2,7 @@
 
 The previous article, “[How middleware works to intercept incoming and outgoing messages](https://blog.oklahome.net/2018/11/protoactor-go-middleware.html)”, introduced how middlewares can be used to add behaviors without modifying an actor’s implementation. This is a good AOP-ish approach for multiple types of actors to execute a common procedure such as logging on message receiving/sending. A plugin mechanism is implemented on top of this middleware mechanism to run a specific task on actor initialization and message reception to enhance an actor’s ability. This article covers the implementation of this plugin feature and how this can be used.
 
-前一篇文章“  [中间件如何拦截传入和传出的消息](https://blog.oklahome.net/2018/11/protoactor-go-middleware.html)  ”，介绍了如何在不修改actor的实现的情况下使用中间件来添加行为。  对于多种类型的actor来说，这是一种很好的AOP-ish方法，可以执行常见的过程，例如登录消息接收/发送。  在这个中间件机制之上实现了一个插件机制，用于在actor初始化和消息接收上运行特定任务，以增强actor的能力。  本文介绍了此插件功能的实现以及如何使用它。
+前一篇文章“  [中间件如何拦截传入和传出的消息](https://blog.oklahome.net/2018/11/protoactor-go-middleware.html)  ”，介绍了如何在不修改actor的实现的情况下使用中间件来添加行为。  这是一种很好的AOP-ish方法 为 多种类型的actor 执行相同的过程 步骤，例如登录消息接收/发送。  插件机制是 在这个中间件机制之上的一个实现，用于在actor初始化和消息接收上运行特定任务，以增强actor的能力。  本文介绍了此插件功能的实现以及如何使用它。
 
 -   [Under the Hood](https://blog.oklahome.net/2018/12/protoactor-go-use-plugin-to-add-behavior.html#toc_0)
 -   [Example](https://blog.oklahome.net/2018/12/protoactor-go-use-plugin-to-add-behavior.html#toc_1)
@@ -12,7 +12,7 @@ The previous article, “[How middleware works to intercept incoming and outgoin
 
 Implementing plugin is as easy as fulfilling the below  [`plugin.plugin`  interface](https://github.com/AsynkronIT/protoactor-go/blob/f373762276d85e13d8b2999e58e36d01d44e569d/plugin/plugin.go#L7-L10).
 
-实现插件就像完成下面的[`plugin.plugin`接口](https://github.com/AsynkronIT/protoactor-go/blob/f373762276d85e13d8b2999e58e36d01d44e569d/plugin/plugin.go#L7-L10)一样简单。
+实现插件就像完成下面的 事情一样简单 [`plugin.plugin`接口](https://github.com/AsynkronIT/protoactor-go/blob/f373762276d85e13d8b2999e58e36d01d44e569d/plugin/plugin.go#L7-L10)一样简单。
 
 ```go
 type plugin interface {
@@ -80,7 +80,7 @@ func main() {
 
 A good example should be  [a passivation plugin](https://github.com/AsynkronIT/protoactor-go/blob/f373762276d85e13d8b2999e58e36d01d44e569d/plugin/passivation.go)  provided by protoactor-go itself. This is a plugin that enables an idle actor to stop when no message comes in for a certain amount of time. Such plugin comes in handy when a developer employs cluster grain architecture because a grain actor is automatically initialized on first message reception and this lives forever without such self destraction mechanism. When a message is received after the destraction, another grain actor is automatically created. This initializes a timer on actor initialization, resets a timer on every message reception and stops the actor when timer ticks.
 
-一个很好的例子应该是protoactor-go本身提供[的钝化插件](https://github.com/AsynkronIT/protoactor-go/blob/f373762276d85e13d8b2999e58e36d01d44e569d/plugin/passivation.go)  。  这是一个插件，可以让空闲的演员在没有消息进入一段时间时停止。  当开发人员使用集群粒度架构时，这样的插件就派上用场了，因为粒子演员在第一次消息接收时自动初始化，并且在没有这种自我降级机制的情况下永远存在。  在降级后收到消息时，会自动创建另一个谷物actor。  这会在actor初始化时初始化一个计时器，在每次消息接收时重置一个计时器，并在计时器滴答时停止actor。
+一个很好的例子应该是protoactor-go本身提供[钝化插件](https://github.com/AsynkronIT/protoactor-go/blob/f373762276d85e13d8b2999e58e36d01d44e569d/plugin/passivation.go)  。  这是一个插件，可以让 actor  的演员在没有消息进入一段时间时停止。  当开发人员使用集群粒度架构时，这样的插件就派上用场了，因为粒子 actor  在第一次消息接收时自动初始化，并且在没有这种自我降级机制的情况下永远存在。  在降级后收到消息时，会自动创建另一个 grain  actor。  这会在actor初始化时初始化一个计时器，在每次消息接收时重置一个计时器，并在计时器结束时停止actor。
 
 One important thing to mention here is that this plugin makes an extra effort to let an actor implement  `plugin.PassivationAware`  by embedding  `plugin.PassivationHolder`  in actor struct so a developer does not have to implement  `plugin.PassivationAware`  by oneself.
 
@@ -148,7 +148,7 @@ func (pp *PassivationPlugin) OnOtherMessage(ctx actor.Context, msg interface{}) 
 
 Thanks for that effort, an actor implementation can be as simple as below. This is obvious that, because the passivation implementation itself is implemented by embedded  `plugin.PassivationHolder`,  `MyActor`  developer can separate the passivation procedure and concentrate on her own business.
 
-感谢您的努力，演员实现可以如下所述。  很明显，因为钝化实现本身是由嵌入式`plugin.PassivationHolder`实现的，  `MyActor`开发人员可以分离钝化程序并专注于自己的业务。
+感谢您的努力，actor 实现可以如下所述。  很明显，因为钝化实现本身是由嵌入`plugin.PassivationHolder`实现的，  `MyActor`开发人员可以分离钝化程序并专注于自己的业务。
 
 ```go
 type MyActor struct {  
@@ -167,11 +167,12 @@ func (state *MyActor) Receive(context actor.Context) {
 
 To add a pluggable behavior to an actor, a developer can provde a plugin by implementing  `plugin.plugin`  interface. By defining core interface and its embeddable default implementation of the plugin, it is quite easier to separate the areas of responsibility of a plugin and an actor.
 
-要向actor添加可插入行为，开发人员可以通过实现`plugin.plugin`接口来提供插件。  通过定义核心接口及其嵌入式嵌入式默认实现，可以更容易地分离插件和actor的责任区域。
+要向actor添加 插件 行为，开发人员可以通过实现`plugin.plugin`接口来提供插件。  通过定义核心接口及其嵌入 默认实现，可以更容易地分离插件和actor的责任区域。
 
 
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTc2NTExNTY1MiwyOTc4MDUyMTFdfQ==
+eyJoaXN0b3J5IjpbLTgwMjAxNzgyNSwxNzY1MTE1NjUyLDI5Nz
+gwNTIxMV19
 -->
