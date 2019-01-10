@@ -20,7 +20,7 @@ To intercept incoming and outgoing messages, two kinds of middleware are provide
 # Under the hood
 
 To register a middleware to an actor, use  `Props.WithMiddleware()`  or  `Props.WithOutboundMiddleware()`. Passed middleware implementations are appended to an internal slice so they can be referenced on actor construction.
-要将中间件注册到actor，请使用`Props.WithMiddleware()`或`Props.WithOutboundMiddleware()`。  传递的中间件实现附加到内部切片，因此可以在actor构造中引用它们。
+要将中间件注册到actor，请使用`Props.WithMiddleware()`或`Props.WithOutboundMiddleware()`。  传递中间件的实现 附加到内部切片，因此可以在actor构造中引用它们。
 ```go
 // Assign one or more middlewares to the props -   指定 一个或多个中间件
 func (props *Props) WithMiddleware(middleware ...InboundMiddleware) *Props {
@@ -37,13 +37,14 @@ func (props *Props) WithOutboundMiddleware(middleware ...OutboundMiddleware) *Pr
 On actor construction, stashed middlewares are transformed into a middleware chain. At this point a group of one or more middlewares are combined together and shape one  `actor.ActorFunc()`. Middlewares are processed in reversed order in this process so they are executed in the registered order on message reception.
 
 在 actor  构建上，存储的中间件转变为中间件链。  此时，将一组一个或多个中间件组合在一起并形成一个`actor.ActorFunc()`  。  在此过程中，中间件以相反的顺序处理，因此它们在接收消息时以注册顺序执行。
-?? 
+
 ```go
 func makeInboundMiddlewareChain(middleware []InboundMiddleware, lastReceiver ActorFunc) ActorFunc {  
    if len(middleware) == 0 {  
       return nil  
    }  
-  
+	
+	// 让最后一个 middleware 衔接上 lastReceiver 然后逆序的 调用 最先加入的中间件最先执行
    h := middleware[len(middleware)-1](lastReceiver)  
    for i := len(middleware) - 2; i >= 0; i-- {  
       h = middleware[i](h)  
@@ -213,6 +214,6 @@ Middleware mechanism can be used to run a certain logic before and after the ori
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTczNjU2NzA2OCwtNzE3MzM5ODMwLDg1NT
-Q0NjM0XX0=
+eyJoaXN0b3J5IjpbLTg5NDE4OTgyMiwtNzM2NTY3MDY4LC03MT
+czMzk4MzAsODU1NDQ2MzRdfQ==
 -->
