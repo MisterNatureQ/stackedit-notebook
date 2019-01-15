@@ -97,7 +97,24 @@ sudo systemctl status firewalld.service
 sudo systemctl stop firewalld.service
 sudo systemctl disable firewalld.service#禁止防火墙服务器
 
-
+# telnet
+yum -y install telnet-server.x86_64
+yum -y install telnet.x86_64
+yum -y install xinetd.x86_64
+#配置并启动Telnet，xinetd和telnet必须设置开机启动，否则无法启动Telnet服务、
+systemctl enable xinetd.service
+systemctl enable telnet.socket
+#接下来启动服务
+systemctl start telnet.socket
+systemctl start xinetd
+#配置防火墙规则
+#firewall-cmd --permanent --add-port=23/tcp
+#firewall-cmd --reload
+#默认Root无法远程访问，因此需要修改以下配置文件/etc/securetty
+#vi /etc/securetty
+#在末尾添加
+#pts/0
+#pts/1
 
 # 使环境变量生效
 export "GOROOT=/usr/local/go"
@@ -165,8 +182,9 @@ sysctl -p /etc/sysctl.d/k8s.conf
 swapoff -a && sysctl -w vm.swappiness=0
 sed '/vagrant--vg-swap_1/d' -i  /etc/fstab
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTQxODkxNTEwOCwtMjA0Mjk0MzYzOSwtMT
-E5ODI0MjE1NywzMzQyMTc5MjEsMTYxMDI1NjA0MCwtNDI1MTk4
-Njg5LDE3MDgxMTYzNTMsNDYxMzM2NzQ4LC0xMjgxNzUyNTQ0LC
-02OTUwMDgyODcsLTIzMzE5ODgyNywzODk2MDE1NDVdfQ==
+eyJoaXN0b3J5IjpbLTE4NDgwMzE2NDcsMTQxODkxNTEwOCwtMj
+A0Mjk0MzYzOSwtMTE5ODI0MjE1NywzMzQyMTc5MjEsMTYxMDI1
+NjA0MCwtNDI1MTk4Njg5LDE3MDgxMTYzNTMsNDYxMzM2NzQ4LC
+0xMjgxNzUyNTQ0LC02OTUwMDgyODcsLTIzMzE5ODgyNywzODk2
+MDE1NDVdfQ==
 -->
