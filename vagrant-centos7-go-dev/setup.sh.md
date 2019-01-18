@@ -29,9 +29,9 @@ cp /vagrant/yum/protobuf-all-3.6.1.tar.gz /home/vagrant
 tar -zxvf protobuf-all-3.6.1.tar.gz
 cd protobuf-all-3.6.1
 #如果使用的不是源码，而是release版本 (已经包含gmock和configure脚本)，可以略过这一步
-./autogen.sh
+sudo ./autogen.sh
 #指定安装路径
-./configure --prefix=/usr/local/protobuf
+sudo ./configure --prefix=/usr/local/protobuf
 #编译
 make
 #测试，这一步很耗时间
@@ -182,9 +182,9 @@ sysctl -p /etc/sysctl.d/k8s.conf
 swapoff -a && sysctl -w vm.swappiness=0
 sed '/vagrant--vg-swap_1/d' -i  /etc/fstab
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE4NDgwMzE2NDcsMTQxODkxNTEwOCwtMj
-A0Mjk0MzYzOSwtMTE5ODI0MjE1NywzMzQyMTc5MjEsMTYxMDI1
-NjA0MCwtNDI1MTk4Njg5LDE3MDgxMTYzNTMsNDYxMzM2NzQ4LC
-0xMjgxNzUyNTQ0LC02OTUwMDgyODcsLTIzMzE5ODgyNywzODk2
-MDE1NDVdfQ==
+eyJoaXN0b3J5IjpbLTI0NDI0NjA4MSwtMTg0ODAzMTY0NywxND
+E4OTE1MTA4LC0yMDQyOTQzNjM5LC0xMTk4MjQyMTU3LDMzNDIx
+NzkyMSwxNjEwMjU2MDQwLC00MjUxOTg2ODksMTcwODExNjM1My
+w0NjEzMzY3NDgsLTEyODE3NTI1NDQsLTY5NTAwODI4NywtMjMz
+MTk4ODI3LDM4OTYwMTU0NV19
 -->
